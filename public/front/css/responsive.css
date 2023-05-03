@@ -1,0 +1,580 @@
+@media screen and (max-width: 1366px){
+.part_num input{
+	width: 100%;
+}
+.quality input {
+    margin: 15px 15px 15px 9px;
+    width: 100%;
+}
+.order_main{
+	padding: 34px;
+}
+}
+
+@media screen and (max-width: 991px){
+.navbar-brand {
+    margin-left: 49px;
+}
+.banner_main{
+	height: 100%;
+}
+.navbar-nav{
+	text-align: center;
+}
+.media_icons{
+	justify-content: center;
+}
+.about_sub p{
+	width: 100%;
+}
+.navbar-nav .nav-item .nav-link{
+	margin: 6px 0;
+}
+.banner_text{
+	text-align: center;
+	padding-top: 43px;
+}
+.banner_sub {
+    padding: 84px 0 64px 0;
+}
+.banner_text button{
+	margin: 0 0 40px 0;
+}
+.banner_img{
+	text-align: center;
+}
+.navbar-brand img {
+    width: 100%;
+}
+.banner_text h4{
+	font-size: 26px;
+}
+.banner_text h1{
+	font-size: 38px;
+}
+.about_sub h2{
+	font-size: 32px;
+}
+.about_sub p{
+	padding: 24px 0;
+}
+.about_main {
+    padding: 31px 0 0 0;
+}
+.product_title p,.testimonial_title p,.logo_title p,.footer_line{
+	width: 100%;
+}
+.lorem_heading p{
+	width: 100%;
+}
+.slider {
+    width: 100%;
+    margin-top: 0;
+}
+.slider_content{
+	margin:39px 0 25px 0px;
+	width: 100%;
+}
+.footer_logo p {
+    padding: 7px 0;
+    font-size: 15px;
+    line-height: 23px;
+}
+.quick_link h5, .footer_contact h5 {
+    padding: 50px 0 18px 0;
+}
+.instant_main {
+    padding: 0px 0 25px 0;
+}
+.part_num input{
+	width: 322px;
+    margin: 15px 26px 15px 0;
+}
+.quality input {
+    width: 100%;
+}
+.lorem_heading h2,
+.product_title h2,
+.testimonial_title h2, 
+.logo_title h2{
+	font-size: 32px;
+}
+.testi_card{
+	padding: 30px 17px;
+}
+.partner_main {
+    padding: 0 0 50px 0;
+}
+.search_drop{
+	padding: 0 0 20px 0;
+}
+.navbar-nav .nav-item .nav-link.dropdown-toggle::after{
+	left: 58%;
+}
+}
+
+
+@media screen and (max-width: 767px){
+
+.media_icons{
+	justify-content: space-evenly;
+}
+.navbar-nav .nav-item .nav-link{
+	font-size: 14px;
+	margin: 7px 0;
+}
+.banner_sub{
+	padding: 107px 0 39px 0;
+}
+.banner_text h4{
+	font-size: 25px;	
+}
+.banner_text h1{
+	font-size: 37px;
+}
+.banner_text button{
+	margin: 0 0 40px 0;
+	padding: 9px 20px;
+}
+.about_main{
+	padding: 50px 0 0 0;
+}
+.about_sub {
+    padding: 0px 0 40px 0;
+}
+.about_sub h5{
+	font-size: 17px;
+}
+.about_sub h2 {
+    font-size: 28px;
+}
+.about_sub p {
+    padding: 24px 0;
+    font-size: 15px;
+}
+.about_sub button{
+	padding: 9px 20px;
+	font-size: 13px;
+}
+.instant_main {
+    padding: 15px 0 0 0;
+}
+.order_main{
+	padding: 47px 33px 52px 33px;
+}
+.blue_border p{
+	font-size: 15px;
+}
+.lorem_heading h2,
+.product_title h2,
+.testimonial_title h2,
+.logo_title h2{
+	font-size: 28px;
+}
+.lorem_main {
+    width: 100%;
+    height: 100%;
+    margin: 16px auto;
+}
+.product_main {
+    padding: 0 0 10px 0;
+}
+.testi_card{
+	padding: 17px 7px;
+}
+.testimonial_main{
+	padding: 0;
+}
+.partner_main{
+	padding: 27px 0 50px 0;
+}
+.logo_img_2 {
+    text-align: center;
+}
+.slider {
+    width: 100%;
+    margin-top: 26px;
+}
+.about_page,.about_overlay{
+	height: 420px;	
+}
+.about_heading h2{
+	font-size: 28px;
+}
+.about_content{
+	text-align: center;
+}
+.about_content p{
+	font-size: 15px;
+	line-height: 25px;
+}
+.about_img{
+	margin: 0 0 30px 0;
+}
+}
+
+
+
+@media screen and (max-width: 575px){
+.banner_text {
+    padding-top: 56px;
+}
+.banner_sub {
+    padding:75px 0 40px 0;
+}
+.banner_text p{
+	font-size: 13px;
+}
+.banner_text h4{
+	font-size: 23px;
+}
+.banner_text h1{
+	font-size: 30px;
+} 
+.banner_text button{
+	font-size: 13px;
+    padding: 8px 18px;
+    margin: 0 0 30px 0;
+}
+.navbar-brand {
+    margin-left: 15px;
+}
+.about_main{
+	padding: 50px 0 0 0;
+}
+.about_sub {
+    padding: 0px 0 40px 0;
+}
+.about_sub h5{
+	font-size: 17px;
+}
+.about_sub h2 {
+    font-size: 26px;
+}
+.about_sub p {
+    padding: 24px 0;
+    font-size: 13px;
+}
+.about_sub button{
+	padding: 8px 18px;
+	font-size: 13px;
+}
+.instant_main {
+    padding: 21px 0 0px 0;
+}
+.order_main{
+	width: 100%;
+}
+.part_num input,.quality input {
+    width: 96%;
+}
+.blue_border p{
+	font-size: 13px;
+}
+.blue_border button{
+	padding: 8px 18px;
+    font-size: 13px;
+}
+.slider_content {
+    margin: 15px 0 0px 0px;
+    width: 100%;
+}
+.slider {
+    width: 100%;
+    margin-top: 48px;
+}
+.lorem_main {
+    width: 100%;
+    height: 100%;
+    margin: 40px auto;
+}
+.lorem_heading h2,.product_title h2,.testimonial_title h2, .logo_title h2{
+	font-size: 26px;
+}
+.lorem_heading button{
+	margin: 0 0 95px 0;
+}
+.lorem_overlay{
+	height: 100%;
+}
+.search_drop {
+    padding: 0 0 37px 0;
+}
+.products_type a.nav-link{
+	padding: 7px 10px;
+}
+.logo_img{
+	text-align: center;
+}
+.logo_img img {
+    margin: 0 0 25px 0;
+}
+.logo_img_2 {
+    text-align: center;
+}
+.logo_img_2 img {
+    margin: 0;
+}
+.footer_logo p{
+	font-size: 14px;
+}
+.order_main{
+	padding: 47px 33px 52px 39px;
+}
+.testi_card p,
+.logo_title p,
+.footer_logo p,
+.lorem_heading p,
+.product_title p,
+.testimonial_title p{
+	font-size: 13px;
+}
+.product_title p{
+	padding: 15px 0 26px 0;
+}
+.partner_main{
+	padding: 22px 0;
+}
+.testimonial_main{
+	padding: 0 0 15px 0;
+}
+.about_page{
+	height: 397px;
+}
+.about_overlay{
+	height: 397px;
+}
+.about_heading h2{
+	font-size: 26px;
+}
+.about_heading{
+	padding-top: 237px;
+}
+.about_content p{
+	text-align: center;
+	font-size: 14px;
+	line-height: 25px;
+}
+.about_content{
+	text-align: center;
+}
+.about_img{
+	margin: 0 0 30px 0;
+}
+}
+
+
+
+@media screen and (max-width: 400px){
+.navbar-brand img {
+    width: 70px;
+}
+.banner_sub{
+	padding: 13px 0 27px 0;
+}
+.banner_text h4{
+	font-size: 17px;
+}
+.banner_text h1{
+	font-size: 26px;
+}
+.banner_text {
+    padding-top: 95px;
+}
+.banner_text p{
+	font-size: 13px;
+}
+.banner_text button{
+	font-size: 13px;
+	padding: 8px 19px;
+	margin: 0 0 30px 0;
+}
+.about_main{
+	padding: 50px 0 0 0;
+}
+.about_sub {
+    padding: 0px 0 40px 0;
+}
+.about_sub h5{
+	font-size: 17px;
+}
+.about_sub h2 {
+    font-size: 23px;
+}
+.about_sub p {
+    padding: 24px 0;
+    font-size: 13px;
+}
+.about_sub button{
+	padding: 8px 19px;
+	font-size: 13px;
+}
+.order_main{
+	width: 100%;
+	padding: 14px;
+}
+.quality input{
+	width: 100%;
+}
+.part_num input{
+	width: 95%;
+}
+.instant_main {
+    padding: 20px 0 0px 0;
+}
+.slider {	
+    height: 100%;
+    overflow: auto;
+}
+.slider_content {
+    margin: 15px 0 18px 0px;
+    width: 100%;
+}
+.lorem_main{
+	width: 100%;
+    height: 100%;
+    margin: 10px auto;
+}
+.lorem_heading h2{
+	padding: 74px 0 0 0;
+	font-size: 23px;
+}
+.blue_border h4{
+	font-size: 24px;
+}
+.blue_border p{
+	font-size: 13px;
+    padding: 17px 0;
+}
+.part_num h6, .quality h6 {
+    font-size: 16px;
+}
+.blue_border button{
+	padding: 8px 12px;
+    font-size: 13px;
+    
+}
+.lorem_overlay{
+	height: 100%;
+}
+.lorem_heading button{
+	padding: 8px 15px;
+    font-size: 13px;
+    margin: 0 0 74px 0;
+}
+.lorem_heading p,.product_title p{
+	font-size: 14px;
+}
+.product_title h2{
+	font-size: 23px;
+}
+.product_main {
+    padding: 30px 0 10px 0;
+}
+.products_type{
+	padding: 0 0 18px 0;
+}
+.product_card {
+    padding: 9px;
+    margin: 0 0 12px 0;
+}
+.testimonial_title h2, .logo_title h2{
+	font-size: 23px;
+	padding: 34px 0 0 0;
+}
+.testimonial_title p{
+	font-size: 14px;
+	padding: 11px 0 0px 0;
+}
+.testi_card p{
+	font-size: 14px;
+}
+.testimonial_main {
+    padding: 0;
+}
+.logo_title p{
+	font-size: 14px;
+}
+.logo_img_2{
+	text-align: center;
+}
+.logo_img_2 img {
+    margin: 10px 0 0 0;
+}
+.partner_main {
+    padding: 20px 0;
+}
+.footer_logo p {
+    padding: 20px 0px;
+    font-size: 14px;
+    font-family: var(--Montserrat);
+    line-height: 22px;
+}
+.quick_link h5, .footer_contact h5 {
+    font-size: 16px;
+    padding: 35px 0 16px 0;
+}
+.quick_link ul li {
+    padding: 0 0 5px 0;
+}
+.quick_link ul li a{
+	font-size: 14px;
+}
+.number span {
+    font-size: 13px;
+}
+.footer_line{
+	margin: 17px auto;
+}
+.all_rights p,.privacy p{
+	font-size: 14px;
+	padding: 0 0 3px 0;
+}
+.testi_card{
+	padding: 23px 20px;
+}
+.products_type a.nav-link {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.search_drop{
+	padding: 0 0 37px 0;
+}
+.product_card .card-body h5{
+	padding: 0;
+	font-size: 14px;
+}
+.product_card button{
+	font-size: 12px;
+}
+.logo_img {
+    text-align: center;
+}
+.logo_img img {
+    margin:0;
+}
+.about_page{
+	height: 397px;
+}
+.about_overlay{
+	height: 397px;
+}
+.about_heading h2{
+	font-size: 23px;
+}
+.about_heading{
+	padding-top: 209px;
+}
+.about_content p{
+	text-align: center;
+	font-size: 14px;
+	line-height: 25px;
+}
+.about_content{
+	text-align: center;
+}
+.about_img{
+	margin: 0 0 30px 0;
+}
+}
