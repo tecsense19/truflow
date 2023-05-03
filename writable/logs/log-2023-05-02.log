@@ -1,0 +1,128 @@
+CRITICAL - 2023-05-02 09:04:09 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 226.
+ 1 SYSTEMPATH\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:09 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:13 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:21 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:39 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:43 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:48 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:30:52 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:31:21 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:32:39 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:32:44 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:33:00 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:36:23 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:36:37 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:36:58 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:04 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:08 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:26 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:28 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:28 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:38 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:37:42 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:38:50 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:40:13 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:46:33 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:46:42 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:47:08 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:47:13 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:51:28 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:51:32 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:51:43 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 09:54:29 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 10:03:36 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 10:10:07 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:05:53 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:11:42 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:11:57 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:12:01 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:12:41 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:12:46 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:13:08 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-05-02 11:13:40 --> Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 194.
+ 1 FCPATH\index.php(56): CodeIgniter\CodeIgniter->initialize()
