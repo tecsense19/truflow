@@ -38,6 +38,12 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($rout
     $routes->post("check/login", "Home::checkLogin");
     $routes->get("dashboard", "Home::dashboard", ['filter' => 'auth']);
     $routes->get("logout", "Home::logout");
+
+    //settings
+
+    $routes->get("settings", "SettingsController::settings");
+    $routes->post("settings_add_edit", "SettingsController::settings_add_edit");
+
 });
 
 /*

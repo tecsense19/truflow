@@ -1,16 +1,24 @@
 <?= $this->include('front/layout/front'); ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> BANNER START <<~~~~~~~~~~~~~~~~~~~~~~~-->
+<?php 
+$site_value = $sitedata->findall();
+// print_r($site_value);
+// die()
+?>
 <section class="banner_main">
     <div class="banner_sub">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="banner_text">
-                        <h4>WELCOME TO,</h4>
+                        <!-- <h4>WELCOME TO,</h4>
                         <h1>truflow hydraulics</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A donec velit, et tempor, sit
                             turpis. Ut posuere quisque sagittis leo massa est est felis. Enim diam et nisi, nunc
-                            amet pretium.</p>
+                            amet pretium.</p> -->
+                            <h4><?php echo $site_value[0]['title'];?></h4>
+                        <h1><?php echo $site_value[0]['sub_title'];?></h1>
+                        <p><?php echo $site_value[0]['description'];?></p>
                         <button type="button" class="btn">CALL NOW</button>
                     </div>
                 </div>
