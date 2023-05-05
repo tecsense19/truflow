@@ -1,0 +1,759 @@
+ERROR - 2023-05-04 10:43:33 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#4 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-05-04 10:46:49 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1409): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(1428): CodeIgniter\Database\BaseConnection->listTables()
+#4 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-05-04 10:47:47 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email` (`email`)
+) DEFAULT CHARACTER SET = ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(32): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:48:54 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT ''
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(31): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:50:31 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email` (`email`)
+) DEFAULT CHARACTER SET = ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(32): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:50:40 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT ''
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(32): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:51:40 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT ''
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(34): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:51:47 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email` (`email`)
+) DEFAULT CHARACTER SET = ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(32): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:56:05 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT ''
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(32): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:58:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 10:59:53 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email` (`email`)
+) DEFAULT CHARACTER SET = ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:00:03 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY 1 (`email`)
+) DEFAULT CHARACTER SET = utf8 C...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:00:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:01:15 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('true_flow_users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:01:36 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:03:54 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:04:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email` (`email`)
+) DEFAULT CHARACTER SET = ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:04:19 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(33): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:06:56 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+	updated...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(38): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:07:08 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(36): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:08:34 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NOT NULL DEFAULT 'CURRENT_TIMESTA...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(44): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:09:07 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NOT NULL,
+	`updated_at` DATETIME ...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(42): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:10:32 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	ADD created_at DATETIME NOT NULL DEFAULT CURRENT_TIMEST...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('ALTER TABLE `us...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `us...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `us...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `us...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(38): CodeIgniter\Database\Forge->addColumn('users', Array)
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:12:22 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(39): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:12:45 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(39): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:12:49 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	UNIQUE KEY `email_key` (`email`)
+) DEFAULT CHARACTER SE...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(39): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:14:03 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NULL,
+	`updated_at` DATETIME NULL...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(47): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:14:22 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NULL DEFAULT '',
+	`updated_at` DA...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(49): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:14:33 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NULL DEFAULT 'DATETIME',
+	`update...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(49): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:47:43 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT '',
+	`created_at` DATETIME NULL,
+	`updated_at` DATETIME NULL...' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(47): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-05-04 11:47:51 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'NOT NULL DEFAULT ''
+) DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci' at line 5 in C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\TruflowLocal\system\Database\MySQLi\Connection.php(295): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\TruflowLocal\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\xampp\htdocs\TruflowLocal\system\Database\Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\xampp\htdocs\TruflowLocal\app\Database\Migrations\2023-05-04-104518_CreateUsers.php(39): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(877): App\Database\Migrations\CreateUsers->up()
+#6 C:\xampp\htdocs\TruflowLocal\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\TruflowLocal\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\TruflowLocal\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\TruflowLocal\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\TruflowLocal\spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2023-05-04 12:10:37 --> Call to undefined method CodeIgniter\Router\RouteCollection::any()
+in APPPATH\Config\Routes.php on line 38.
+ 1 SYSTEMPATH\Router\RouteCollection.php(676): CodeIgniter\Router\RouteCollection->Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(40): CodeIgniter\Router\RouteCollection->group('admin', [...], Object(Closure))
+ 3 SYSTEMPATH\Router\RouteCollection.php(267): require('C:\\xampp\\htdocs\\TruflowLocal\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:10:39 --> Call to undefined method CodeIgniter\Router\RouteCollection::any()
+in APPPATH\Config\Routes.php on line 38.
+ 1 SYSTEMPATH\Router\RouteCollection.php(676): CodeIgniter\Router\RouteCollection->Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(40): CodeIgniter\Router\RouteCollection->group('admin', [...], Object(Closure))
+ 3 SYSTEMPATH\Router\RouteCollection.php(267): require('C:\\xampp\\htdocs\\TruflowLocal\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:10:40 --> Call to undefined method CodeIgniter\Router\RouteCollection::any()
+in APPPATH\Config\Routes.php on line 38.
+ 1 SYSTEMPATH\Router\RouteCollection.php(676): CodeIgniter\Router\RouteCollection->Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(40): CodeIgniter\Router\RouteCollection->group('admin', [...], Object(Closure))
+ 3 SYSTEMPATH\Router\RouteCollection.php(267): require('C:\\xampp\\htdocs\\TruflowLocal\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:10:43 --> Call to undefined method CodeIgniter\Router\RouteCollection::any()
+in APPPATH\Config\Routes.php on line 38.
+ 1 SYSTEMPATH\Router\RouteCollection.php(676): CodeIgniter\Router\RouteCollection->Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(40): CodeIgniter\Router\RouteCollection->group('admin', [...], Object(Closure))
+ 3 SYSTEMPATH\Router\RouteCollection.php(267): require('C:\\xampp\\htdocs\\TruflowLocal\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:10:45 --> Call to undefined method CodeIgniter\Router\RouteCollection::any()
+in APPPATH\Config\Routes.php on line 38.
+ 1 SYSTEMPATH\Router\RouteCollection.php(676): CodeIgniter\Router\RouteCollection->Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(40): CodeIgniter\Router\RouteCollection->group('admin', [...], Object(Closure))
+ 3 SYSTEMPATH\Router\RouteCollection.php(267): require('C:\\xampp\\htdocs\\TruflowLocal\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:16:07 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:16:29 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:16:52 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:21:48 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:21:56 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:22:44 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:23:08 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:23:29 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:24:16 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:25:22 --> Class "AppModels\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:26:32 --> Class "App\Models\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:27:32 --> Class "App\Models\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 6.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:29:18 --> Class "App\Models\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 6.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:29:26 --> Class "App\Models\BaseModel" not found
+in APPPATH\Models\UserModel.php on line 6.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\TruflowLocal\\app\\Models\\UserModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\UserModel')
+ 4 APPPATH\Controllers\Admin\Home.php(21): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\UserModel')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:32:14 --> Undefined array key "user_password"
+in APPPATH\Controllers\Admin\Home.php on line 27.
+ 1 APPPATH\Controllers\Admin\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_password"', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:32:48 --> Undefined array key "user_password"
+in APPPATH\Controllers\Admin\Home.php on line 27.
+ 1 APPPATH\Controllers\Admin\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_password"', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:32:58 --> Undefined array key "user_password"
+in APPPATH\Controllers\Admin\Home.php on line 27.
+ 1 APPPATH\Controllers\Admin\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_password"', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:33:10 --> Undefined array key "user_password"
+in APPPATH\Controllers\Admin\Home.php on line 27.
+ 1 APPPATH\Controllers\Admin\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_password"', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 12:33:54 --> Undefined array key "user_password"
+in APPPATH\Controllers\Admin\Home.php on line 27.
+ 1 APPPATH\Controllers\Admin\Home.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_password"', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 13:19:43 --> Undefined variable $session
+in APPPATH\Controllers\Admin\Home.php on line 51.
+ 1 APPPATH\Controllers\Admin\Home.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Controllers\\Admin\\Home.php', 51)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->logout()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-04 13:30:12 --> Undefined variable $session
+in APPPATH\Views\admin\layout\sidebar.php on line 52.
+ 1 APPPATH\Views\admin\layout\sidebar.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\TruflowLocal\\app\\Views\\admin\\layout\\sidebar.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\TruflowLocal\\app\\Views\\admin\\layout\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/sidebar', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(39): CodeIgniter\View\View->include('admin/layout/sidebar')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\TruflowLocal\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\TruflowLocal\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(21): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
