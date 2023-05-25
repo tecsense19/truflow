@@ -23,6 +23,11 @@
         <!-- Vendors CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/apex-charts/apex-charts.css" />
+        
+        <!-- other css -->
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
+        
         <!-- Page CSS -->
         <!-- Helpers -->
         <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/helpers.js"></script>

@@ -1,0 +1,257 @@
+ERROR - 2023-05-16 04:25:26 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(21): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(21): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-16 04:25:26 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `site_settings`
+WHERE `type` = :type:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Home.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 05:41:42 --> Undefined variable $key
+in APPPATH\Views\front\shop.php on line 42.
+ 1 APPPATH\Views\front\shop.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $key', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\shop.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\shop.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/shop', [], true)
+ 5 APPPATH\Controllers\Home.php(92): view('front/shop', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->shop()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 06:23:33 --> Undefined variable $product_price
+in APPPATH\Views\admin\product\product.php on line 67.
+ 1 APPPATH\Views\admin\product\product.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product_price', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 67)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(42): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->product()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 09:52:08 --> Trying to access array offset on value of type int
+in APPPATH\Controllers\Admin\ProductController.php on line 133.
+ 1 APPPATH\Controllers\Admin\ProductController.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 133)
+ 2 APPPATH\Controllers\Admin\ProductController.php(85): App\Controllers\Admin\ProductController->variantProductSave(22)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 09:52:23 --> Trying to access array offset on value of type int
+in APPPATH\Controllers\Admin\ProductController.php on line 133.
+ 1 APPPATH\Controllers\Admin\ProductController.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 133)
+ 2 APPPATH\Controllers\Admin\ProductController.php(85): App\Controllers\Admin\ProductController->variantProductSave(23)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 09:55:29 --> Attempt to read property "variant_name" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 131.
+ 1 APPPATH\Controllers\Admin\ProductController.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "variant_name" on array', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 131)
+ 2 APPPATH\Controllers\Admin\ProductController.php(85): App\Controllers\Admin\ProductController->variantProductSave(25)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 10:30:43 --> Undefined variable $productId
+in APPPATH\Controllers\Admin\ProductController.php on line 85.
+ 1 APPPATH\Controllers\Admin\ProductController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productId', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 10:35:25 --> Undefined variable $productId
+in APPPATH\Controllers\Admin\ProductController.php on line 85.
+ 1 APPPATH\Controllers\Admin\ProductController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productId', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 10:52:24 --> Undefined variable $productId
+in APPPATH\Controllers\Admin\ProductController.php on line 85.
+ 1 APPPATH\Controllers\Admin\ProductController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productId', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 10:58:33 --> Undefined variable $productId
+in APPPATH\Controllers\Admin\ProductController.php on line 85.
+ 1 APPPATH\Controllers\Admin\ProductController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productId', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-16 11:06:00 --> mysqli_sql_exception: Column 'product_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ProductController.php(186): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\app\Controllers\Admin\ProductController.php(86): App\Controllers\Admin\ProductController->variantProductSave(NULL)
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-05-16 11:06:00 --> Column 'product_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `product_variants` (`product_id`, `variant_name`, `variant_qty`, `variant_price`, `variant_sku`, `created_at`, `updated_at`) VALUES (NULL, \'werwe\', \'40\', \'11\', \'sdf\', \'2023-05-16 11:06:00\', \'2023-05-16 11:06:00\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `product_variants` (`product_id`, `variant_name`, `variant_qty`, `variant_price`, `variant_sku`, `created_at`, `updated_at`) VALUES (NULL, \'werwe\', \'40\', \'11\', \'sdf\', \'2023-05-16 11:06:00\', \'2023-05-16 11:06:00\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `product_variants` (`product_id`, `variant_name`, `variant_qty`, `variant_price`, `variant_sku`, `created_at`, `updated_at`) VALUES (NULL, \'werwe\', \'40\', \'11\', \'sdf\', \'2023-05-16 11:06:00\', \'2023-05-16 11:06:00\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `product_variants` (`product_id`, `variant_name`, `variant_qty`, `variant_price`, `variant_sku`, `created_at`, `updated_at`) VALUES (:product_id:, :variant_name:, :variant_qty:, :variant_price:, :variant_sku:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ProductController.php(186): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Admin\ProductController.php(86): App\Controllers\Admin\ProductController->variantProductSave(null)
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 12:05:10 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 172.
+ 1 APPPATH\Controllers\Admin\ProductController.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 172)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave('1')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 13:50:02 --> Undefined variable $subcategory
+in APPPATH\Views\front\product.php on line 37.
+ 1 APPPATH\Views\front\product.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcategory', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 37)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(141): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('3')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 13:52:29 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(166): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 13:53:01 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(166): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('2')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 13:56:37 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(166): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 13:58:50 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(172): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 14:00:29 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(171): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 14:00:34 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(171): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('2')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 14:02:27 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(171): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 14:05:17 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(171): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('3')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-16 14:05:24 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(171): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->variants('2')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

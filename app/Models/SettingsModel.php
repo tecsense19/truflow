@@ -7,7 +7,7 @@ class SettingsModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'site_settings';
-    protected $primaryKey       = 'siteid';
+    protected $primaryKey       = 'setting_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -17,13 +17,16 @@ class SettingsModel extends Model
         'title',
         'sub_title',
         'description',
+        'button_text',
+        'button_link',
+        'type',
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
-    // protected $updatedField  = 'updated_at';
+    protected $updatedField  = 'updated_at';
     // protected $deletedField  = 'deleted_at';
 
     // Validation
