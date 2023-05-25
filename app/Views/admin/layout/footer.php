@@ -1,36 +1,51 @@
                 </div>
                 <!-- / Layout page -->
-            </div>
-            <!-- Overlay -->
-            <div class="layout-overlay layout-menu-toggle"></div>
-        </div>
-        <!-- / Layout wrapper -->
-        <div class="buy-now">
-            <a
-                href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-                target="_blank"
-                class="btn btn-danger btn-buy-now"
-                >Upgrade to Pro</a
-                >
-        </div>
-        <!-- Core JS -->
-        <!-- build:js assets/vendor/js/core.js -->
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/popper/popper.js"></script>
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/bootstrap.js"></script>
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/menu.js"></script>
-        <!-- endbuild -->
-        <!-- Vendors JS -->
-        <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-        <!-- Main JS -->
-        <script src="<?php echo base_url(); ?>/public/admin/assets/js/main.js"></script>
-        <!-- Page JS -->
-        <script src="<?php echo base_url(); ?>/public/admin/assets/js/dashboards-analytics.js"></script>
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script>
-            $('.alert').delay(3000).fadeOut(300);
-        </script>
-    </body>
-</html>
+                </div>
+                <!-- Overlay -->
+                <div class="layout-overlay layout-menu-toggle"></div>
+                </div>
+                <!-- / Layout wrapper -->
+                <div class="buy-now">
+                    <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
+                </div>
+                <!-- Core JS -->
+                <!-- build:js assets/vendor/js/core.js -->
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/jquery/jquery.js"></script>
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/popper/popper.js"></script>
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/bootstrap.js"></script>
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/menu.js"></script>
+                <!-- endbuild -->
+                <!-- Vendors JS -->
+                <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                <!-- Main JS -->
+                <script src="<?php echo base_url(); ?>/public/admin/assets/js/main.js"></script>
+                <!-- Page JS -->
+                <script src="<?php echo base_url(); ?>/public/admin/assets/js/dashboards-analytics.js"></script>
+                <!-- Place this tag in your head or just before your close body tag. -->
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+                <!-- other css/js -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+                <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+                <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script> -->
+
+
+                <script>
+                    $('.alert').delay(3000).fadeOut(300);
+                </script>
+                <script>
+                    $('[data-fancybox="preview"]').fancybox({
+                        thumbs: {
+                            autoStart: true
+                        }
+                    });
+                </script>
+                <!-- <script>
+                    $(document).ready(function() {
+                        $('#datatable').DataTable();
+                    });
+                </script> -->
+                </body>
+
+                </html>

@@ -98,7 +98,7 @@ a.nav-link{
     position: absolute;
     right: 0;
     top: 160%;
-    width: 300px;
+    width: 320px;
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
@@ -1015,8 +1015,60 @@ footer{
     text-align: center;
     /*margin: 50px 0 0 0;*/
 }
+
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~*/
 
+/* ----------shop page css----------- */
 
+.test_img img {
+    width: 200px;
+    /* Set the width of the image */
+    height: 150px;
+    /* Set the height of the image */
+    object-fit: cover;
+    /* Scale the image to cover its container */
+}
 
+/* -----------------------slider for product--------------------------- */
 
+  .card-img-top {
+    height: 300px;
+    object-fit: fill;
+}
+.card{
+    margin: 5px;
+}
+
+input#variant_qty {
+    width: 60px;
+}
+.variant:hover {
+    background-color: #1b3899; /* Change the background color to your desired color */
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    margin-top: 5px;
+}   
+input.search_submit {
+    width: 80px;
+    height: 36px;
+    margin-left: 5px;
+}
+.Ajax_search {
+    display: flex;
+}
+.part_no{
+    background-color: #777777;
+    color: #000;
+    border-radius: 3px;
+}
+.text-danger {
+    color: #a94442;
+}
+.error{
+    color: red;
+}
+.heart_top5.media_space {
+    color: white;
+}

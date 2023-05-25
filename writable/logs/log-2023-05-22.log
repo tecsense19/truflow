@@ -1,0 +1,363 @@
+CRITICAL - 2023-05-22 05:02:30 --> Undefined variable $product
+in APPPATH\Views\front\layout\footer.php on line 159.
+ 1 APPPATH\Views\front\layout\footer.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php', 159)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('front/layout/footer', null, true)
+ 5 APPPATH\Views\front\product_details.php(80): CodeIgniter\View\View->include('front/layout/footer')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 9 APPPATH\Controllers\Home.php(178): view('front/product_details', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('2')
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 05:02:32 --> Undefined variable $product
+in APPPATH\Views\front\layout\footer.php on line 159.
+ 1 APPPATH\Views\front\layout\footer.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php', 159)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('front/layout/footer', null, true)
+ 5 APPPATH\Views\front\shop.php(58): CodeIgniter\View\View->include('front/layout/footer')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\shop.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/shop', [], true)
+ 9 APPPATH\Controllers\Home.php(93): view('front/shop', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->shop()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 05:02:56 --> Undefined variable $product
+in APPPATH\Views\front\layout\footer.php on line 159.
+ 1 APPPATH\Views\front\layout\footer.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php', 159)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\layout\\footer.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('front/layout/footer', null, true)
+ 5 APPPATH\Views\front\index.php(538): CodeIgniter\View\View->include('front/layout/footer')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 9 APPPATH\Controllers\Home.php(67): view('front/index', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 05:33:13 --> Undefined array key "variant_qty"
+in APPPATH\Controllers\Home.php on line 198.
+ 1 APPPATH\Controllers\Home.php(198): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_qty"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 198)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:15:49 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:17:14 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:21:28 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:21:30 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:21:30 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:21:30 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:22:05 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:36:42 --> Unsupported operand types: string * null
+in APPPATH\Controllers\Home.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:36:54 --> Unsupported operand types: string * string
+in APPPATH\Controllers\Home.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:37:21 --> Unsupported operand types: string * null
+in APPPATH\Controllers\Home.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:41:04 --> Unsupported operand types: array * null
+in APPPATH\Controllers\Home.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 06:41:41 --> Unsupported operand types: array * null
+in APPPATH\Controllers\Home.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-22 09:29:41 --> mysqli_sql_exception: Unknown column 'cart.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(214): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-22 09:29:42 --> Unknown column 'cart.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(214): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 10:03:25 --> count(): Argument #1 ($value) must be of type Countable|array, string given
+in APPPATH\Views\front\add_to_cart.php on line 79.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 4 APPPATH\Controllers\Home.php(224): view('front/add_to_cart', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 10:11:28 --> A non-numeric value encountered
+in APPPATH\Views\front\add_to_cart.php on line 81.
+ 1 APPPATH\Views\front\add_to_cart.php(81): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php', 81)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 5 APPPATH\Controllers\Home.php(224): view('front/add_to_cart', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:00:14 --> Too few arguments to function App\Controllers\OrderController::checkout(), 0 passed in C:\xampp\htdocs\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\OrderController.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:40:16 --> Invalid file: "register.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\UserController.php(16): view('register')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:41:29 --> Invalid file: "register.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\UserController.php(16): view('register')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:41:30 --> Invalid file: "register.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\UserController.php(16): view('register')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:41:31 --> Invalid file: "register.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\UserController.php(16): view('register')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 11:41:35 --> Invalid file: "register.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\UserController.php(16): view('register')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 13:25:02 --> Undefined array key "user_id"
+in APPPATH\Controllers\UserController.php on line 25.
+ 1 APPPATH\Controllers\UserController.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 13:30:41 --> Undefined array key "user_role"
+in APPPATH\Controllers\UserController.php on line 35.
+ 1 APPPATH\Controllers\UserController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_role"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-22 13:31:49 --> Undefined array key "user_role"
+in APPPATH\Controllers\UserController.php on line 35.
+ 1 APPPATH\Controllers\UserController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_role"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-22 13:32:04 --> mysqli_sql_exception: Table 'true_flow.email' doesn't exist in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\Validation\Validation.php(312): CodeIgniter\Validation\StrictRules\Rules->is_unique('bhavin@tec-sens...', 'email', Array, NULL, 'email')
+#6 C:\xampp\htdocs\truflow\system\Validation\Validation.php(170): CodeIgniter\Validation\Validation->processRules('email', 'Email', 'bhavin@tec-sens...', Array, Array)
+#7 C:\xampp\htdocs\truflow\system\BaseModel.php(1453): CodeIgniter\Validation\Validation->run(Array, NULL, 'default')
+#8 C:\xampp\htdocs\truflow\system\BaseModel.php(745): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#10 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(41): CodeIgniter\Model->insert(Array)
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+#12 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#13 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2023-05-22 13:32:04 --> Table 'true_flow.email' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT 1
+FROM `email`
+WHERE `email` = \'bhavin@tec-sense.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `email`
+WHERE `email` = \'bhavin@tec-sense.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `email`
+WHERE `email` = \'bhavin@tec-sense.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `email`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\Validation.php(312): CodeIgniter\Validation\StrictRules\Rules->is_unique('bhavin@tec-sense.com', 'email', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(170): CodeIgniter\Validation\Validation->processRules('email', 'Email', 'bhavin@tec-sense.com', [...], [...])
+ 8 SYSTEMPATH\BaseModel.php(1453): CodeIgniter\Validation\Validation->run([...], null, 'default')
+ 9 SYSTEMPATH\BaseModel.php(745): CodeIgniter\BaseModel->validate([...])
+10 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+11 APPPATH\Controllers\UserController.php(41): CodeIgniter\Model->insert([...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-22 13:33:02 --> mysqli_sql_exception: Table 'true_flow.email' doesn't exist in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\Validation\Validation.php(312): CodeIgniter\Validation\StrictRules\Rules->is_unique('bhasavin@tec-se...', 'email', Array, NULL, 'email')
+#6 C:\xampp\htdocs\truflow\system\Validation\Validation.php(170): CodeIgniter\Validation\Validation->processRules('email', 'Email', 'bhasavin@tec-se...', Array, Array)
+#7 C:\xampp\htdocs\truflow\system\BaseModel.php(1453): CodeIgniter\Validation\Validation->run(Array, NULL, 'default')
+#8 C:\xampp\htdocs\truflow\system\BaseModel.php(745): CodeIgniter\BaseModel->validate(Array)
+#9 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#10 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(41): CodeIgniter\Model->insert(Array)
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+#12 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#13 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2023-05-22 13:33:02 --> Table 'true_flow.email' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT 1
+FROM `email`
+WHERE `email` = \'bhasavin@tec-sense.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `email`
+WHERE `email` = \'bhasavin@tec-sense.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `email`
+WHERE `email` = \'bhasavin@tec-sense.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `email`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\Validation.php(312): CodeIgniter\Validation\StrictRules\Rules->is_unique('bhasavin@tec-sense.com', 'email', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(170): CodeIgniter\Validation\Validation->processRules('email', 'Email', 'bhasavin@tec-sense.com', [...], [...])
+ 8 SYSTEMPATH\BaseModel.php(1453): CodeIgniter\Validation\Validation->run([...], null, 'default')
+ 9 SYSTEMPATH\BaseModel.php(745): CodeIgniter\BaseModel->validate([...])
+10 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+11 APPPATH\Controllers\UserController.php(41): CodeIgniter\Model->insert([...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

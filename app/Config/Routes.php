@@ -29,8 +29,31 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
+$routes->get('/shop', 'Home::shop');
+$routes->get('/sub_category/(:num)', 'Home::sub_category/$1');
+$routes->get('/product/(:num)', 'Home::product/$1');
+$routes->get('/product_details/(:num)', 'Home::product_details/$1');
+$routes->post('/searchData', 'Home::searchData');
+$routes->get('/add_to_cart', 'Home::add_to_cart');
+$routes->post('/add_cart', 'Home::add_cart');
+$routes->get("delete/(:num)", "Home::cartDelete/$1");
+
+//register user
+$routes->get('/register', 'UserController::register');
+$routes->post("register/save", "UserController::registerSave");
+
+//login user
+$routes->get('/login', 'UserController::login');
+$routes->post("check/login", "UserController::checkLogin");
+$routes->get("logout", "UserController::logout");
+
+//order placed
+$routes->get("checkout/", "OrderController::checkout");
+
+
 
 $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($routes){
     // URL - /admin
@@ -38,6 +61,58 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($rout
     $routes->post("check/login", "Home::checkLogin");
     $routes->get("dashboard", "Home::dashboard", ['filter' => 'auth']);
     $routes->get("logout", "Home::logout");
+
+    // add header part dynamic menu
+
+    $routes->get("header_menu_list", "headerMenuController::index");
+    $routes->get("header_menu", "headerMenuController::header_menu");
+    $routes->post("header_menu/save", "headerMenuController::header_menuSave");
+    $routes->get("header_menu/edit/(:num)", "headerMenuController::header_menuEdit/$1");
+    $routes->get("header_menu/delete/(:num)", "headerMenuController::header_menuDelete/$1");
+
+
+    //settings
+
+    $routes->get("settings", "SettingsController::settings");
+    $routes->post("settings/save", "SettingsController::settingsSave");
+
+    //Testominal
+
+    $routes->get("testominal_list", "TestominalController::index");
+    $routes->get("testominal", "TestominalController::testominal");
+    $routes->post("testominal/save", "TestominalController::testominalSave");
+    $routes->get("edit/(:num)", "TestominalController::testominalEdit/$1");
+    $routes->get("delete/(:num)", "TestominalController::testominalDelete/$1");
+
+    //Category
+
+    $routes->get("category_list", "CategoryController::index");
+    $routes->get("category", "CategoryController::category");
+    $routes->post("category/save", "CategoryController::categorySave");
+    $routes->get("category/edit/(:num)", "CategoryController::categoryEdit/$1");
+    $routes->get("category/delete/(:num)", "CategoryController::categoryDelete/$1");
+
+    //Sub Category
+
+    $routes->get("sub_category_list", "SubCategoryController::index");
+    $routes->get("sub_category", "SubCategoryController::sub_category");
+    $routes->post("sub_category/save", "SubCategoryController::sub_categorySave");
+    $routes->get("sub_category/edit/(:num)", "SubCategoryController::sub_categoryEdit/$1");
+    $routes->get("sub_category/delete/(:num)", "SubCategoryController::sub_categoryDelete/$1");
+
+
+   //Product
+
+    $routes->get("product_list", "ProductController::index");
+    $routes->get("product", "ProductController::product");
+    $routes->post("product/save", "ProductController::productSave");
+    $routes->get("product/edit/(:num)", "ProductController::productEdit/$1");
+    $routes->get("product/delete/(:num)", "ProductController::productDelete/$1");
+    $routes->post('get_subcategories/(:num)', 'ProductController::getSubcategories/$1');
+    $routes->get("variant/delete/(:num)", "ProductController::variantDelete/$1");
+
+
+
 });
 
 /*

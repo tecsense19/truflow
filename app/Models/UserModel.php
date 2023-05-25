@@ -7,7 +7,7 @@ class UserModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'users';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'user_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -17,8 +17,12 @@ class UserModel extends Model
         'full_name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'gender',
+        'date_of_birth',
+        'mobile',
         'user_role',
-        'login_at',
     ];
 
     // Dates
@@ -26,23 +30,10 @@ class UserModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    // protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [
-        'email' => [
-            'label' => 'Email',
-            'rules' => 'required|max_length[64]|valid_email|is_unique[email]'
-        ],
-        'password' => [
-            'label' => 'Password',
-            'rules' => 'required|max_length[32]'
-        ],
-        'user_role' => [
-            'label' => 'User Role',
-            'rules' => 'required'
-        ],
-    ];
+    protected $validationRules      = [];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

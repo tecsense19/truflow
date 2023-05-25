@@ -1,0 +1,743 @@
+CRITICAL - 2023-05-09 07:07:49 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray([], 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 4 APPPATH\Controllers\Admin\PartnerImagesController.php(86): CodeIgniter\Model->update('1', [])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:10:57 --> Undefined variable $imagesArr
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 80.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $imagesArr', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 80)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:13:06 --> Undefined variable $imagesArr
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 80.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $imagesArr', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 80)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:18:39 --> Undefined array key "partner_images"
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 70.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_images"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 70)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:21:08 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 762.
+ 1 SYSTEMPATH\BaseModel.php(762): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH\Controllers\Admin\PartnerImagesController.php(125): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:22:57 --> Undefined array key "partner_images"
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 72.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_images"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:23:10 --> Undefined array key "partner_images"
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 72.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_images"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 72)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:38:45 --> Undefined array key "partner_images"
+in APPPATH\Controllers\Admin\PartnerImagesController.php on line 84.
+ 1 APPPATH\Controllers\Admin\PartnerImagesController.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_images"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\PartnerImagesController.php', 84)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:40:20 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray([], 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 4 APPPATH\Controllers\Admin\PartnerImagesController.php(108): CodeIgniter\Model->update('1', [])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:41:30 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray([], 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 4 APPPATH\Controllers\Admin\PartnerImagesController.php(108): CodeIgniter\Model->update('1', [])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 07:44:23 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray([], 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 4 APPPATH\Controllers\Admin\PartnerImagesController.php(50): CodeIgniter\Model->update('1', [])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partnerImages_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:03:58 --> Undefined array key "welcome_sub_title"
+in APPPATH\Controllers\Admin\SettingsController.php on line 27.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "welcome_sub_title"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:05:53 --> Undefined array key "about_us_title"
+in APPPATH\Controllers\Admin\SettingsController.php on line 26.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "about_us_title"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings_add_edit()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-09 09:22:00 --> mysqli_sql_exception: Unknown column 'siteid' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(11): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-05-09 09:22:00 --> Unknown column 'siteid' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `site_settings`
+WHERE `siteid` = :siteid:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Home.php(11): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-09 09:22:18 --> mysqli_sql_exception: Unknown column 'siteid' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(11): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-05-09 09:22:18 --> Unknown column 'siteid' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `site_settings`
+WHERE `siteid` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `site_settings`
+WHERE `siteid` = :siteid:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Home.php(11): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:23:58 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:25:40 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings_add_edit()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:27:52 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(31): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:30:04 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:30:30 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:30:42 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:31:17 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:32:38 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:33:00 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:33:35 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:33:46 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:37:59 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(34): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:38:21 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(34): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:38:37 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:39:45 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(37): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:40:29 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:48:02 --> Call to undefined method App\Models\SettingsModel::getRow
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('getRow', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:48:14 --> Call to undefined method App\Models\SettingsModel::getResult
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('getResult', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:48:25 --> Call to undefined method App\Models\SettingsModel::getRow
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('getRow', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:50:15 --> Call to undefined method App\Models\SettingsModel::result
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('result', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:50:16 --> Call to undefined method App\Models\SettingsModel::result
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('result', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:51:16 --> Call to undefined method App\Models\SettingsModel::getFirstRow
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('getFirstRow', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:51:16 --> Call to undefined method App\Models\SettingsModel::getFirstRow
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(12): CodeIgniter\Model->__call('getFirstRow', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:53:51 --> Undefined variable $welcomeData
+in APPPATH\Views\admin\settings\settings.php on line 3.
+ 1 APPPATH\Views\admin\settings\settings.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $welcomeData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(13): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:54:20 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:55:18 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:56:11 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:56:25 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:59:11 --> CodeIgniter\Database\BaseBuilder::where(): Argument #3 ($escape) must be of type ?bool, array given, called in C:\xampp\htdocs\truflow\system\Model.php on line 840
+in SYSTEMPATH\Database\BaseBuilder.php on line 696.
+ 1 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->where('setting_id', '1', [...])
+ 2 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->__call('where', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 09:59:53 --> CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+in SYSTEMPATH\BaseModel.php on line 1706.
+ 1 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray('1', 'update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], '1')
+ 3 APPPATH\Controllers\Admin\SettingsController.php(33): CodeIgniter\Model->update('setting_id', '1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 10:33:09 --> Undefined variable $title
+in APPPATH\Views\front\index.php on line 46.
+ 1 APPPATH\Views\front\index.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(18): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 11:02:24 --> Undefined variable $button_link
+in APPPATH\Views\front\index.php on line 50.
+ 1 APPPATH\Views\front\index.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $button_link', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 50)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(18): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 11:02:44 --> Undefined variable $button_text
+in APPPATH\Views\front\index.php on line 51.
+ 1 APPPATH\Views\front\index.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $button_text', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 51)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(18): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-09 11:23:39 --> mysqli_sql_exception: Table 'true_flow.partner_images' doesn't exist in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\PartnerImagesController.php(12): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partner_images()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-05-09 11:23:39 --> Table 'true_flow.partner_images' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `partner_images`
+WHERE `partner_id` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `partner_images`
+WHERE `partner_id` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `partner_images`
+WHERE `partner_id` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `partner_images`
+WHERE `partner_id` = :partner_id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Admin\PartnerImagesController.php(12): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\PartnerImagesController->partner_images()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PartnerImagesController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 11:49:34 --> Undefined array key "welcome_image_path"
+in APPPATH\Views\admin\settings\settings.php on line 8.
+ 1 APPPATH\Views\admin\settings\settings.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "welcome_image_path"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(21): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 11:53:06 --> Undefined variable $about_title
+in APPPATH\Views\admin\settings\settings.php on line 100.
+ 1 APPPATH\Views\admin\settings\settings.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $about_title', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 100)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(21): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:07:02 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 64.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 9)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:11:37 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 12)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:11:50 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-05-09 12:12:39 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 14)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:12:54 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 16)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:13:28 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 18)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:15:10 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 20)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:21:46 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 65.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 22)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:28:26 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 67.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 24)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:29:15 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 67.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 26)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:33:50 --> Call to a member function getClientName() on null
+in APPPATH\Controllers\Admin\SettingsController.php on line 67.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(53): App\Controllers\Admin\SettingsController->saveImages(null, 28)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 12:44:34 --> Undefined variable $file
+in APPPATH\Controllers\Admin\SettingsController.php on line 48.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $file', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 48)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:18:50 --> Undefined array key "welcome_image_path"
+in APPPATH\Views\admin\settings\settings.php on line 8.
+ 1 APPPATH\Views\admin\settings\settings.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "welcome_image_path"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(21): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:42:46 --> Cannot use object of type App\Models\SettingsModel as array
+in APPPATH\Controllers\Admin\SettingsController.php on line 57.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-09 13:44:01 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `setting...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `setting...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `setting...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `setting...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(60): CodeIgniter\Model->update('setting_id', Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-05-09 13:44:01 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `settings_images` SET `image_path` = \'public/front/images/home/1683639841_nature-g95585db41_1920.jpg\', `setting_id` = (\'35\',\'WELCOME TO,\',\'TRUFLOW HYDRAULICS\',\'sdfsdfsdfsdf\',\'CALL NOWsd\',\'www.google.comd\',\'welcome\',\'2023-05-09 12:43:58\',\'2023-05-09 13:27:43\'), `updated_at` = \'2023-05-09 13:44:01\'
+WHERE `settings_images`.`image_id` IN (\'setting_id\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `settings_images` SET `image_path` = \'public/front/images/home/1683639841_nature-g95585db41_1920.jpg\', `setting_id` = (\'35\',\'WELCOME TO,\',\'TRUFLOW HYDRAULICS\',\'sdfsdfsdfsdf\',\'CALL NOWsd\',\'www.google.comd\',\'welcome\',\'2023-05-09 12:43:58\',\'2023-05-09 13:27:43\'), `updated_at` = \'2023-05-09 13:44:01\'
+WHERE `settings_images`.`image_id` IN (\'setting_id\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `settings_images` SET `image_path` = \'public/front/images/home/1683639841_nature-g95585db41_1920.jpg\', `setting_id` = (\'35\',\'WELCOME TO,\',\'TRUFLOW HYDRAULICS\',\'sdfsdfsdfsdf\',\'CALL NOWsd\',\'www.google.comd\',\'welcome\',\'2023-05-09 12:43:58\',\'2023-05-09 13:27:43\'), `updated_at` = \'2023-05-09 13:44:01\'
+WHERE `settings_images`.`image_id` IN (\'setting_id\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `settings_images` SET `image_path` = :image_path:, `setting_id` = :setting_id:, `updated_at` = :updated_at:
+WHERE `settings_images`.`image_id` IN :settings_images.image_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SettingsController.php(60): CodeIgniter\Model->update('setting_id', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:45:31 --> Undefined array key "setting_id"
+in APPPATH\Controllers\Admin\SettingsController.php on line 59.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "setting_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 59)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:45:48 --> Undefined array key "setting_id"
+in APPPATH\Controllers\Admin\SettingsController.php on line 59.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "setting_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 59)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:49:40 --> Object of class App\Models\SettingsModel could not be converted to string
+in SYSTEMPATH\Database\Query.php on line 335.
+ 1 SYSTEMPATH\Database\Query.php(335): strtr('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(310): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(159): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...], false)
+ 6 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Controllers\Admin\SettingsController.php(72): CodeIgniter\Model->insert([...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:51:25 --> Object of class App\Models\SettingsModel could not be converted to string
+in SYSTEMPATH\Database\Query.php on line 335.
+ 1 SYSTEMPATH\Database\Query.php(335): strtr('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(310): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(159): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...], false)
+ 6 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Controllers\Admin\SettingsController.php(72): CodeIgniter\Model->insert([...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-09 13:54:15 --> Object of class App\Models\SettingsModel could not be converted to string
+in SYSTEMPATH\Database\Query.php on line 335.
+ 1 SYSTEMPATH\Database\Query.php(335): strtr('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(310): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(159): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`image_path`, `setting_id`, `created_at`, `updated_at`) VALUES (:image_path:, :setting_id:, :created_at:, :updated_at:)', [...], false)
+ 6 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Controllers\Admin\SettingsController.php(72): CodeIgniter\Model->insert([...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
