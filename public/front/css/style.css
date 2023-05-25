@@ -1072,3 +1072,26 @@ input.search_submit {
 .heart_top5.media_space {
     color: white;
 }
+.bx {
+    font-family: "boxicons" !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.login_form_box {
+    width: 400px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

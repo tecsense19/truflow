@@ -1,4 +1,5 @@
 <?= $this->include('front/layout/front'); ?>
+<?php $session = session(); ?>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
@@ -20,7 +21,7 @@
 <section class="about_inner_page">
 
     <div class="container">
-        
+
         <form method="post" id="#product_details" enctype='multipart/form-data'>
             <?php if (!empty($productData && $productDataPrice)) { ?>
                 <div class="row align-items-center">
@@ -68,13 +69,23 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                            <button type="button" onclick="add_cart()" class="btn add_cart">Add to cart</button>
+                            <?php if ($session->get('logged_in')) { ?>
+                                <button type="button" onclick="add_cart()" class="btn add_cart">Add to cart</button>
+                            <?php } else { ?>
+                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart">Add to cart</button></a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            <?php } else { ?>
+                <div class="col-md-12 text-center-t1">
+                    <div class="form-group mt-5 mb-5 data_center text-center">
+                        <h4>No Item Found</h4>
+                    </div>
+
+                <?php } ?>
         </form>
-         
+
     </div>
 </section>
 
@@ -85,38 +96,38 @@
 
 <script>
     function add_cart() {
-    var variantQtys = $('input[name="variant_qty[]"]').map(function() {
-        return $(this).val();
-    }).get(); // Get an array of variant quantities
+        var variantQtys = $('input[name="variant_qty[]"]').map(function() {
+            return $(this).val();
+        }).get(); // Get an array of variant quantities
 
-    var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>; // Retrieve an array of variant IDs
-    var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>; // Retrieve an array of product IDs
-    var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>; // Retrieve an array of category IDs
-    var subCategoryIds = <?php echo json_encode(array_column($productData, 'sub_category_id')); ?>; // Retrieve an array of subcategory IDs
-    var prices = <?php echo json_encode(array_column($productData, 'variant_price')); ?>; // Retrieve an array of variant prices
+        var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>; // Retrieve an array of variant IDs
+        var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>; // Retrieve an array of product IDs
+        var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>; // Retrieve an array of category IDs
+        var subCategoryIds = <?php echo json_encode(array_column($productData, 'sub_category_id')); ?>; // Retrieve an array of subcategory IDs
+        var prices = <?php echo json_encode(array_column($productData, 'variant_price')); ?>; // Retrieve an array of variant prices
 
-    var totalPrices = [];
-    for (var i = 0; i < variantQtys.length; i++) {
-        var total = parseFloat(variantQtys[i]) * parseFloat(prices[i]);
-        totalPrices.push(total.toFixed(2));
-    }
+        var totalPrices = [];
+        for (var i = 0; i < variantQtys.length; i++) {
+            var total = parseFloat(variantQtys[i]) * parseFloat(prices[i]);
+            totalPrices.push(total.toFixed(2));
+        }
 
-    $.ajax({
-        url: '<?php echo base_url(); ?>add_cart',
-        method: 'POST',
-        data: {
-            variant_qty: variantQtys,
-            variant_id: variantIds,
-            product_id: productIds,
-            category_id: categoryIds,
-            sub_category_id: subCategoryIds,
-            prices: prices,
-            total_prices: totalPrices
-        },
-        success: function(response) {
-            // Handle the response
-            console.log(response);
-            Swal.fire({
+        $.ajax({
+            url: '<?php echo base_url(); ?>add_cart',
+            method: 'POST',
+            data: {
+                variant_qty: variantQtys,
+                variant_id: variantIds,
+                product_id: productIds,
+                category_id: categoryIds,
+                sub_category_id: subCategoryIds,
+                prices: prices,
+                total_prices: totalPrices
+            },
+            success: function(response) {
+                // Handle the response
+                console.log(response);
+                Swal.fire({
                     icon: 'success',
                     title: 'Success!',
                     text: 'Data add into cart successfully.',
@@ -124,14 +135,13 @@
                     // Reload the page after the user clicks "OK" on the SweetAlert dialog
                     location.reload();
                 });
-        },
-        error: function(xhr, status, error) {
-            // Log the error details
-            console.error('Error occurred during AJAX request.');
-        }
-    });
-}
-
+            },
+            error: function(xhr, status, error) {
+                // Log the error details
+                console.error('Error occurred during AJAX request.');
+            }
+        });
+    }
 </script>
 
 
