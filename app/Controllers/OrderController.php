@@ -33,8 +33,15 @@ class OrderController extends BaseController
             ->get();
 
         $cartData = $query->getResultArray();
-        echo "<pre>";
-        print_r($cartData);
-        die();
+        // echo "<pre>";
+        // print_r($cartData);
+        // die();
+
+        if (!$cartData) {
+            $cartData = null;
+        }
+        return view('front/checkout', [
+            'cartData' => $cartData,
+        ]);
     }
 }

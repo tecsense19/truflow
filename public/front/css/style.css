@@ -926,7 +926,7 @@ footer{
 }
 .heart_top a::after{
     position: absolute;
-    content: "8";
+    
     width: 13px;
     height: 13px;
     background: #FFF500;
@@ -943,7 +943,7 @@ footer{
 }
 .heart_top2 a::after{
     position: absolute;
-    content: "5";
+    
     width: 13px;
     height: 13px;
     background: #FFF500;
@@ -1094,4 +1094,81 @@ input.search_submit {
     background-color: #f9f9f9;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.product_slider_img{
+    width: 150px;
+    height: 150px;
+}
+input#part_num {
+    margin: 0px 15px 15px 0
+}
+input#quality {
+    margin: 0px 15px 15px 0
+}
+
+
+
+.dropdown-menu1 {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+
+  }
+  .dropdown-menu1 p {
+    color: #000 !important;
+    background: #aaa;
+    margin: 0 auto;
+    padding: 5px 2px 5px 2px;
+  }
+  
+  
+  .dropdown-item1 {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item1:hover {
+    background-color: #773434;
+  }
+  
+  .response-list1 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .response-item1 {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .product_img{
+    width: auto;
+    height: 250px;
+   
+  }
+  div#search-result {
+    overflow: auto;
+}
+
+  div#search_1-result {
+    overflow: auto;
+    position: absolute;
+    z-index: 9999;
+    background: #dddbd8;
+    width: 225px;
+    margin: auto;
+}
+
+.cart-count1 {
+    display: inline-block;
+    background-color: #FFF500;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    line-height: 1;
+    position: absolute;
+    top: -8px;
+    right: -8px;
 }

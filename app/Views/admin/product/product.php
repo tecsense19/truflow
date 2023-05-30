@@ -208,8 +208,8 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
 
             var inputRow = $('<tr class="input-row"></tr>');
             var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
-            var variant_qty = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
-            var variant_price = $('<td><input type="text" name="variant_qty[]" class="form-control" placeholder="Variant Quantity" /></td>');
+            var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
+            var variant_qty = $('<td><input type="text" name="variant_qty[]" class="form-control" placeholder="Variant Quantity" /></td>');
             var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Variant sku" /></td>');
             var removeButton = $('<td><button class="btn btn-danger remove-btn">Remove</button></td>');
 

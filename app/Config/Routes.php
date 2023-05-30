@@ -40,6 +40,13 @@ $routes->post('/searchData', 'Home::searchData');
 $routes->get('/add_to_cart', 'Home::add_to_cart');
 $routes->post('/add_cart', 'Home::add_cart');
 $routes->get("delete/(:num)", "Home::cartDelete/$1");
+$routes->post('/add_to_cart_new', 'Home::add_to_cart_new');
+$routes->post('/searchData1', 'Home::searchData1');
+$routes->get('/wish_list', 'Home::wish_list');
+$routes->post('/add_wishlist', 'Home::add_wishlist');
+$routes->post('/deleteWishList', 'Home::deleteWishList');
+$routes->get("deleteWishList_data/(:num)", "Home::deleteWishList_data/$1");
+
 
 //register user
 $routes->get('/register', 'UserController::register');
