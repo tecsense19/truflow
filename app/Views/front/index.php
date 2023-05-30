@@ -89,104 +89,49 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
+                <!-- ------------------------- -->
                 <div class="order_main">
                     <div class="blue_border">
                         <h4>instant order</h4>
                         <p>Type any Fluid Connectors part number and quantity or log in/register an account to type
                             your own part numbers.</p>
-                        <div class="input_fileds">
-                            <div class="part_num">
-                                <h6>Part Number</h6>
-                                <form action="#">
-                                    <input type="text" class="form-control" id="usr">
-                                    <input type="text" class="form-control" id="usr">
-                                    <input type="text" class="form-control" id="usr">
-                                    <input type="text" class="form-control" id="usr">
-                                </form>
+
+                        <form id="cart_form" action="<?php echo base_url(); ?>/add_to_cart_new" method="post">
+                            <div class="input_fields">
+                                <!-- Existing rows and fields here -->
                             </div>
-                            <div class="quality">
-                                <h6>Quality</h6>
-                                <form action="#">
-                                    <input type="number" class="form-control" id="usr">
-                                    <input type="number" class="form-control" id="usr">
-                                    <input type="number" class="form-control" id="usr">
-                                    <input type="number" class="form-control" id="usr">
-                                </form>
-                            </div>
-                        </div>
-                        <button type="button" class="btn">add to cart</button>
-                        <button type="button" class="btn">add rows</button>
+
+                            <button id="add_to_cart" class="btn" type="submit">Add to Cart</button>
+                            <button type="button" class="btn" id="add_rows">Add Rows</button>
+                        </form>
+
+
                     </div>
                 </div>
+
                 <div class="order_logo">
                     <img src="<?php echo base_url(); ?>/public/front/images/order_top.png" alt="logo" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="slider">
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s1.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s2.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s3.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s1.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s2.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s3.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
-                    <div class="slider_content">
-                        <div class="slider_con_img">
-                            <img src="<?php echo base_url(); ?>/public/front/images/s1.png" alt="products" class="img-fluid">
-                        </div>
-                        <div class="slider_text">
-                            <h6>Pshy8546L</h6>
-                            <button type="button" class="btn">ADD TO CART</button>
-                        </div>
-                    </div>
+                    <?php if (isset($newProductdata)) { ?>
+                        <?php foreach ($newProductdata as $product) { ?>
+                            <div class="slider_content">
+
+                                <div class="slider_con_img">
+                                    <img src="<?php echo base_url() . $product['product_img'] ?>" alt="product" class="img-fluid product_slider_img">
+                                </div>
+                                <div class="slider_text">
+                                    <h6><?php echo $product['product_name']; ?></h6>
+
+                                    <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"><button type="button" class="btn">ADD TO CART</button></a>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+
                 </div>
             </div>
         </div>
@@ -200,9 +145,6 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="row">
                 <div class="col-lg-12">
                     <div class="lorem_heading text-center">
-                        <!-- <h2>Lorem ipsum dolor sit amet.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi
-                            tortor.Lorem ipsum dolor.</p> -->
                         <h2><?php echo $contact_title; ?></h2>
                         <p><?php echo $contact_description; ?></p>
                         <a href="<?php echo $contact_button_link; ?>" target="_blank"><button type="button" class="btn"> <?php echo $contact_button_text; ?> </button></a>
@@ -219,11 +161,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <div class="row">
             <div class="col-lg-12">
                 <div class="product_title text-center">
-                    <!-- <h2>OUR PRODUCTS</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi tortor.Lorem
-                        ipsum dolor sit amet, consectetur adipiscing.</p> -->
-                    <h2><?php echo $product_title; ?></h2>
-                    <p><?php echo $product_description; ?></p>
+                    <h2>OUR PRODUCTS</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi tortor.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
                 </div>
             </div>
         </div>
@@ -235,226 +174,74 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home">All</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu1">POWER UNITS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu2">PUMPS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu3">VALUES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu4">FITTINGS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#menu5">CYLINDERS</a>
-                        </li>
+                        <?php foreach ($categoryData as $category) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu<?= $category['category_id'] ?>">
+                                    <?= $category['category_name'] ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="search_drop">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="search">
-                </div>
+                <form role="search" method="POST" class="search-form" id="Ajax_search">
+                    <div class="search_drop">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="search" id="search_1" name="search">
+                    </div>
+                    <div id="search_1-result"></div>
+                </form>
             </div>
         </div>
+
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="home" class="container tab-pane active">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p1.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic Cylinders</h5>
-                                    <button>ADD TO CART</button>
+                    <?php foreach ($newProductdata as $product) : ?>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="product_card">
+                                <div class="card">
+                                    <img src="<?php echo base_url() . $product['product_img'] ?>" alt="product image" class="img-fluid product_img">
+                                    <div class="card-body">
+                                        <h5><?= $product['product_name'] ?></h5>
+                                        <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"> <button>ADD TO CART</button></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p2.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic power units</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p3.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>hand pumps</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p4.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>line mounts valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p5.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>cetop products</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p6.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Mobile Valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p7.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic Cylinders</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p8.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Cartridge Valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-            <div id="menu1" class="container tab-pane fade">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p2.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic power units</h5>
-                                    <button>ADD TO CART</button>
+
+            <?php foreach ($categoryData as $category) : ?>
+                <div id="menu<?= $category['category_id'] ?>" class="container tab-pane fade">
+                    <div class="row">
+                        <?php if (isset($category['products'])) : ?>
+                            <?php foreach ($category['products'] as $product) : ?>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="product_card">
+                                        <div class="card">
+                                            <img src="<?php echo base_url() . $product['product_img'] ?>" alt="product image" class="img-fluid product_img">
+                                            <div class="card-body">
+                                                <h5><?= $product['product_name'] ?></h5>
+                                                <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"><button>ADD TO CART</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
-            </div>
-            <div id="menu2" class="container tab-pane fade"><br>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p3.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>hand pumps</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="menu3" class="container tab-pane fade"><br>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p4.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>line mounts valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p6.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Mobile Valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p8.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Cartridge Valves</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="menu4" class="container tab-pane fade"><br>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p7.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic Cylinders</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="menu5" class="container tab-pane fade"><br>
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="product_card">
-                            <div class="card">
-                                <img src="<?php echo base_url(); ?>/public/front/images/p1.png" alt="product-1" class="img-fluid">
-                                <div class="card-body">
-                                    <h5>Hydraulic Cylinders</h5>
-                                    <button>ADD TO CART</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
-<!--     </div>   -->
+</div>
+</div>
+
 <!--~~~~~~~~~~~~~~~~~~~~>> OUR PRODUCTS END <<~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~>> TESTIMONIALS START <<~~~~~~~~~~~~~~~~~ -->
 <section class="testimonial_main">
@@ -462,9 +249,6 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <div class="row">
             <div class="col-lg-12">
                 <div class="testimonial_title text-center">
-                    <!-- <h2>Client Testimonials</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi tortor.Lorem
-                        ipsum dolor sit amet, consectetur adipiscing.</p> -->
                     <h2><?php echo $testominal_title; ?></h2>
                     <p><?php echo $testominal_description; ?></p>
                 </div>
@@ -508,13 +292,9 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <div class="row">
             <div class="col-lg-12">
                 <div class="logo_title text-center">
-                    <!-- <h2>PARTNER LOGO</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi tortor.Lorem
-                        ipsum dolor sit amet, consectetur adipiscing.</p> -->
+                   
                     <h2><?php echo $partner_title; ?></h2>
                     <p><?php echo $partner_description; ?></p>
-                    <!--  <img src="<?php echo base_url(); ?>/public/front/images/pl1.png" alt="partner logo" class="img-fluid">
-                        <img src="<?php echo base_url(); ?>/public/front/images/pl2.png" alt="partner logo" class="img-fluid"> -->
                 </div>
             </div>
         </div>

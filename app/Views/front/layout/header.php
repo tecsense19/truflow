@@ -5,6 +5,8 @@
 $session = session();
 $fullName = $session->get('full_name');
 
+
+
 ?>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->
 <nav class="navbar navbar-expand-lg fixed-top">
@@ -63,11 +65,21 @@ $fullName = $session->get('full_name');
                 </div>
                 <!-- search  button end-->
                 <div class="heart_top">
-                    <a href="#" class="heart"><i class="fa-regular fa-heart media_space"></i></a>
+                    <a href="<?php echo base_url('wish_list')?>" class="heart"><i class="fa-regular fa-heart media_space"></i></a>
                 </div>
+                
                 <div class="heart_top2">
-                    <a href="<?php echo base_url('add_to_cart')?>" class="cart"><i class="fa-solid fa-cart-shopping media_space"></i></a>
-                </div>
+    <a href="<?php echo base_url('add_to_cart')?>" class="cart">
+        <i class="fa-solid fa-cart-shopping media_space"></i>
+        
+        <?php $cartCount = session('cartCount'); ?>
+        <?php if(isset($cartCount) && $cartCount > 0): ?>
+            <span class="cart-count1"><?php echo $cartCount; ?></span>
+        <?php endif; ?>
+        
+    </a>
+</div>
+
                 <?php
                 if ($session->get('logged_in') && $fullName) { ?>
 
