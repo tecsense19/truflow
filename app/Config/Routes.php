@@ -59,7 +59,7 @@ $routes->get("logout", "UserController::logout");
 
 //order placed
 $routes->get("checkout/", "OrderController::checkout");
-
+$routes->post('/place_order', 'OrderController::place_order');
 
 
 $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($routes){
