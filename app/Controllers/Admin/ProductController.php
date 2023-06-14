@@ -147,7 +147,7 @@ class ProductController extends BaseController
         $productVariantArr = [
             'product_id' => $productId,
             'variant_name' => $input['variant_name'][$key],
-            'variant_qty' => $input['variant_qty'][$key],
+           
             'variant_price' => $input['variant_price'][$key],
             'variant_sku' => $input['variant_sku'][$key],
         ];

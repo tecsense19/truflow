@@ -207,7 +207,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary d-grid">
+                    <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
         </div>

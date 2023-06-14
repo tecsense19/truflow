@@ -54,7 +54,7 @@ $header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
 
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary d-grid">
+                    <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
 

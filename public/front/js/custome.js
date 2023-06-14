@@ -2,27 +2,10 @@
 
 /*~~~~~~~~~~~~~~~~~~~>> SEARCHBOX JS START <<~~~~~~~~~~~~~~~~~~~~~*/
 
-// $('.header-search-wrapper .search-main').click(function(){
-//     $('.search-form-main').toggleClass('active-search');
-//     $('.search-form-main .search-field').focus();
-// });
-
-$(document).ready(function() {
-  $('.header-search-wrapper .search-main').click(function(event) {
-    event.stopPropagation(); // Prevent the click event from bubbling up
-
+$('.header-search-wrapper .search-main').click(function(){
     $('.search-form-main').toggleClass('active-search');
     $('.search-form-main .search-field').focus();
-  });
-
-  $('body').click(function(event) {
-    var target = $(event.target);
-    if (!target.closest('.search-form-main').length && !target.closest('.header-search-wrapper').length) {
-      $('.search-form-main').removeClass('active-search');
-    }
-  });
 });
-
 
 /*~~~~~~~~~~~~~~~~~~>> SHRINK ON SCROLL JS START <<~~~~~~~~~~~~~~~~~~*/
 

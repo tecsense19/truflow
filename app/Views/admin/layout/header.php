@@ -1,4 +1,4 @@
-<!-- Menu -->
+
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="<?php echo base_url('admin'); ?>" class="app-brand-link">
@@ -45,37 +45,31 @@
     <div class="menu-inner-shadow"></div>
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
+        
         <li class="menu-item">
             <a href="<?php echo base_url('admin'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Basic">Dashboard</div>
             </a>
         </li>
-        <!-- Layouts -->
-    
-        <li class="menu-item">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Orders</div>
-            </a>
-        </li>
-        <!-- <li class="menu-item">
-            <a href="<?php echo base_url('admin/settings'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Users</div>
-            </a>
-        </li> -->
 
         <li class="menu-item">
+            <a href="<?php echo base_url('admin/user'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user"></i>
+                <div data-i18n="Basic">User</div>
+            </a>
+        </li>
+     
+        <li class="menu-item">
             <a href="<?php echo base_url('admin/category_list'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bxs-category"></i>
                 <div data-i18n="Basic">Category</div>
             </a>
         </li>
 
         <li class="menu-item">
             <a href="<?php echo base_url('admin/sub_category_list'); ?>" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bxs-category-alt"></i>
                 <div data-i18n="Basic">Sub Category</div>
             </a>
         </li>
@@ -88,8 +82,29 @@
         </li>
 
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="<?php echo base_url('admin/order_list'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-cart"></i>
+                <div data-i18n="Basic">Order</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="<?php echo base_url('admin/country_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Basic">Country</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="<?php echo base_url('admin/coupon_list'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-discount"></i>
+                <div data-i18n="Basic">coupon</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="Form Elements">Settings</div>
             </a>
             <ul class="menu-sub">
@@ -104,16 +119,17 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                <a href="<?php echo base_url('admin/testominal_list'); ?>" class="menu-link">
-                        <div data-i18n="Input groups">Testominal</div>
+                    <a href="<?php echo base_url('admin/testominal_list'); ?>" class="menu-link">
+                        <div data-i18n="Input groups">Testimonial</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-      
+
     </ul>
 </aside>
+
 <!-- / Menu -->
 <!-- Layout container -->
 <div class="layout-page">

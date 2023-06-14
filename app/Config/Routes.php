@@ -47,10 +47,23 @@ $routes->post('/add_wishlist', 'Home::add_wishlist');
 $routes->post('/deleteWishList', 'Home::deleteWishList');
 $routes->get("deleteWishList_data/(:num)", "Home::deleteWishList_data/$1");
 
+$routes->get("delete_check/(:num)", "Home::cartDelete_check/$1");
+
+//check coupon
+
+$routes->post('/check_coupon', 'OrderController::check_coupon');
+
 
 //register user
 $routes->get('/register', 'UserController::register');
 $routes->post("register/save", "UserController::registerSave");
+
+//front user profile
+$routes->get('/user_profile/(:num)', 'UserController::user_profile/$1');
+$routes->post("edit_user_profile", "UserController::edit_user_profile");
+
+//user order
+$routes->get('/my_order/(:num)', 'UserController::my_order/$1');
 
 //login user
 $routes->get('/login', 'UserController::login');
@@ -61,13 +74,18 @@ $routes->get("logout", "UserController::logout");
 $routes->get("checkout/", "OrderController::checkout");
 $routes->post('/place_order', 'OrderController::place_order');
 
+//Admin_panel ---------
 
-$routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($routes){
+$routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($routes) {
     // URL - /admin
     $routes->get("/", "Home::index");
     $routes->post("check/login", "Home::checkLogin");
     $routes->get("dashboard", "Home::dashboard", ['filter' => 'auth']);
     $routes->get("logout", "Home::logout");
+
+    //user
+    $routes->get("user", "Home::user");
+    $routes->get("user/delete/(:num)", "Home::userDelete/$1");
 
     // add header part dynamic menu
 
@@ -108,7 +126,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($rout
     $routes->get("sub_category/delete/(:num)", "SubCategoryController::sub_categoryDelete/$1");
 
 
-   //Product
+    //Product
 
     $routes->get("product_list", "ProductController::index");
     $routes->get("product", "ProductController::product");
@@ -118,8 +136,29 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function($rout
     $routes->post('get_subcategories/(:num)', 'ProductController::getSubcategories/$1');
     $routes->get("variant/delete/(:num)", "ProductController::variantDelete/$1");
 
+    //Country
+
+    $routes->get("country_list", "CountryController::index");
+    $routes->get("country", "CountryController::country");
+    $routes->post("country/save", "CountryController::countrySave");
+    $routes->get("country/edit/(:num)", "CountryController::countryEdit/$1");
+    $routes->get("country/delete/(:num)", "CountryController::countryDelete/$1");
 
 
+     //Coupon
+
+     $routes->get("coupon_list", "CouponController::index");
+     $routes->get("coupon", "CouponController::coupon");
+     $routes->post("coupon/save", "CouponController::couponSave");
+     $routes->get("coupon/edit/(:num)", "CouponController::couponEdit/$1");
+     $routes->get("coupon/delete/(:num)", "CouponController::couponDelete/$1");
+
+    //order
+
+    $routes->get("order_list", "OrderController::order_list");
+    $routes->get("order/delete/(:num)", "OrderController::orderDelete/$1");
+    $routes->post("change_order_status", "OrderController::change_order_status");
+    
 });
 
 /*

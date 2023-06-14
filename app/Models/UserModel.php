@@ -23,6 +23,14 @@ class UserModel extends Model
         'date_of_birth',
         'mobile',
         'user_role',
+        'company_name',
+        'address_1',
+        'address_2',
+        'city',
+        'zipcode',
+        'country',
+        'phone',
+        'fax'
     ];
 
     // Dates

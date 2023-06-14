@@ -1,0 +1,22 @@
+CRITICAL - 2023-06-01 09:45:04 --> Array to string conversion
+in APPPATH\Views\front\my_order.php on line 46.
+ 1 APPPATH\Views\front\my_order.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\my_order.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\my_order.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/my_order', [], true)
+ 5 APPPATH\Controllers\UserController.php(237): view('front/my_order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-01 09:45:40 --> Array to string conversion
+in APPPATH\Views\front\my_order.php on line 46.
+ 1 APPPATH\Views\front\my_order.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\my_order.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\my_order.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/my_order', [], true)
+ 5 APPPATH\Controllers\UserController.php(237): view('front/my_order', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

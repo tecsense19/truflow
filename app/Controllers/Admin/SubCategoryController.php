@@ -69,11 +69,11 @@ class SubCategoryController extends BaseController
 
         if (isset($input['sub_category_id']) && $input['sub_category_id'] != '') {
             $subcategorymodel->update(['sub_category_id', $input['sub_category_id']], $subCatArr);
+            $session->setFlashdata('success', 'sub category edit succesfully.');
         } else {
             $subcategorymodel->insert($subCatArr);
+            $session->setFlashdata('success', 'sub category add succesfully.');
         }
-
-        $session->setFlashdata('success', 'sub category change succesfully.');
         return redirect()->to('admin/sub_category_list');
        
     }

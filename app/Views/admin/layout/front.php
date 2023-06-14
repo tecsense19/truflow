@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
             />
-        <title>Trueflow</title>
+        <title>Trueflow-Hydrulics</title>
         <meta name="description" content="" />
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/admin/assets/img/favicon/favicon.ico" />
@@ -35,6 +35,10 @@
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
         <script src="<?php echo base_url(); ?>/public/admin/assets/js/config.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+       
+
+
     </head>
     <body>
         <!-- Layout wrapper -->

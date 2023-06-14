@@ -14,11 +14,14 @@ use App\Models\CartModel;
 use App\Models\AddwishlistModel;
 
 
+
+
 class Home extends BaseController
 {
     public function index()
     {
         //home section
+        $session = session();
         $model = new SettingsModel();
         $settingsImagesModel = new SettingsImagesModel();
         $welcomeData = $model->where('type', 'welcome')->first();
@@ -70,6 +73,11 @@ class Home extends BaseController
             $newProductdata = null;
         }
 
+        $wishlistCount = count($wishlistData ?? []);
+        $session->set('wishlistCount', $wishlistCount);
+
+        $cartCount = count($cartData ?? []);
+        $session->set('cartCount', $cartCount);
 
         return view(
             'front/index',
@@ -86,8 +94,11 @@ class Home extends BaseController
                 'headerData' => $headerData,
                 // ---- add other
                 'newProductdata' => $newProductdata,
-                'categoryData' => $categoryData
+                'categoryData' => $categoryData,
 
+                //count
+                'wishlistCount'=> $wishlistCount,
+                'cartCount'=> $cartCount
             ]
         );
     }
@@ -215,12 +226,17 @@ class Home extends BaseController
         if (!$addwishData) {
             $addwishData = null;
         }
+        //set session for user not login and click to cart
+        $product_details = current_url(true);
+        $session->set('product_details', $product_details);
+        //------------
 
         return view('front/product_details', [
             'headerData' => $headerData,
             'productData' => $productData,
             'productDataPrice' => $productDataPrice,
             'addwishData' => $addwishData
+            
         ]);
     }
 
@@ -329,6 +345,16 @@ class Home extends BaseController
         $session->setFlashdata('success', 'remove cart item succesfully.');
         return redirect()->to(base_url('add_to_cart'));
     }
+    public function cartDelete_check($cart_id)
+    {
+        $session = session();
+        $cartmodel = new CartModel();
+        $cartmodel->delete($cart_id);
+        $session->setFlashdata('success', 'remove item succesfully.');
+        return redirect()->back();
+    }
+
+
 
     public function add_to_cart_new()
     {
@@ -392,39 +418,6 @@ class Home extends BaseController
         }
     }
 
-    public function add_wishlist()
-    {
-
-        $product_id = $this->request->getVar('product_id');
-        $user_id = session()->get('user_id');
-        $addwishlistmodel = new AddwishlistModel();
-
-        $data = [
-            'product_id' => $product_id,
-            'user_id' => $user_id,
-            'isDeleted' => 0
-        ];
-
-        $addwishlistmodel->insert($data);
-        return redirect()->back();
-    }
-    public function deleteWishList()
-    {
-        $product_id = $this->request->getVar('product_id');
-        $user_id = session()->get('user_id');
-        $addwishlistmodel = new AddwishlistModel();
-
-        // Prepare the condition for deletion
-        $condition = [
-            'product_id' => $product_id,
-            'user_id' => $user_id
-
-        ];
-        // Delete the record from the wishlist table
-        $addwishlistmodel->where($condition)->delete();
-
-        return redirect()->back();
-    }
     public function wish_list()
     {
         $cartmodel = new CartModel();
@@ -452,25 +445,22 @@ class Home extends BaseController
         ->groupBy('addwish_list.product_id')
         ->get();
 
-        $cartData = $query->getResultArray();
-
+        $wishlistData = $query->getResultArray();
             // $lastQuery = $cartmodel->getLastQuery();
             // echo $lastQuery;
-        
 
-        if (!$cartData) {
-            $cartData = null;
+        if (!$wishlistData) {
+            $wishlistData = null;
         }
 
-        $cartCount = count($cartData ?? []);
-
-        $session->set('cartCount', $cartCount);
+        $wishlistCount = count($wishlistData ?? []);
+        $session->set('wishlistCount', $wishlistCount);
 
         return view('front/wish_list', [
-            'cartData' => $cartData,
+            'wishlistData' => $wishlistData,
             'headerData' => $headerData,
             'userId' => $userId,
-            'cartCount' => $cartCount, // Pass the cart count to the view
+            'wishlistCount' => $wishlistCount,
         ]);
 
     }
@@ -481,6 +471,38 @@ class Home extends BaseController
         $addwishlistmodel->delete($cart_id);
         $session->setFlashdata('success', 'remove succesfully.');
         return redirect()->to(base_url('wish_list'));
+    }
+    public function add_wishlist()//image change
+    {
+
+        $product_id = $this->request->getVar('product_id');
+        $user_id = session()->get('user_id');
+        $addwishlistmodel = new AddwishlistModel();
+
+        $data = [
+            'product_id' => $product_id,
+            'user_id' => $user_id,
+            'isDeleted' => 0
+        ];
+
+        $addwishlistmodel->insert($data);
+        return redirect()->back();
+    }
+    public function deleteWishList()//image change
+    {
+        $product_id = $this->request->getVar('product_id');
+        $user_id = session()->get('user_id');
+        $addwishlistmodel = new AddwishlistModel();
+
+        $condition = [
+            'product_id' => $product_id,
+            'user_id' => $user_id
+
+        ];
+        // Delete the record from the wishlist table
+        $addwishlistmodel->where($condition)->delete();
+
+        return redirect()->back();
     }
 
 

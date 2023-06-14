@@ -7,6 +7,7 @@ class Home extends BaseController
 {
     public function index()
     {
+        
         if(! session()->get('logged_in')) {
             return view('admin/login');
         }
@@ -18,6 +19,7 @@ class Home extends BaseController
     
     public function dashboard()
     {
+                
         return view('admin/dashboard/dashboard');
     }
 
@@ -55,5 +57,27 @@ class Home extends BaseController
         $session = session();
         $session->destroy();
         return redirect()->to('/admin');
+    }
+
+    public function user()
+    {
+    
+        $usermodel = new UserModel();
+        // $userData = $usermodel->find();
+        $userData = $usermodel->where('user_role', 'user')->findAll();
+        if (!$userData) {
+            $userData = null;
+        }        
+        return view('admin/user/user_list',['userData'=> $userData]);
+    }
+
+    public function userDelete($user_id){
+        // echo "1";
+        // die();
+        $session = session();
+        $usermodel = new UserModel();
+        $usermodel->delete($user_id);
+        $session->setFlashdata('success', 'User Delete succesfully.');
+        return redirect()->back();
     }
 }

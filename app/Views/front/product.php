@@ -17,50 +17,40 @@
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="form-group mt-5 mb-5">
-                <h4>Product</h4>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <div class="form-group mt-5 mb-5">
-                <div class="row">
-                    <?php if (isset($productData)) { ?>
-                        <?php foreach ($productData as $product) { ?>
-                            <div class="col-md-4">
-                                <!-- contant chnage here -->
-
-                                <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="category-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="<?php echo base_url() . $product['product_img'] ?>" alt="Card 1">
-                                        <div class="card-body">
-                                            <h2 class="card-title"><?php echo $product['product_name']; ?></h2>
-
-                                            <button class="btn btn-primary mt-2">Details</button>
-                                        </div>
-                                    </div>
+<section class="category_product my-5">
+    <div class="container">
+        <div class="row">
+            <?php if (isset($productData)) { ?>
+                <?php foreach ($productData as $product) { ?>
+                    <div class="col-lg-4">
+                        <div class="product_box">
+                            <div class="product_img">
+                                <img class="img-fluid card-img-top" src="<?php echo base_url() . $product['product_img'] ?>" alt="image">
+                            </div>
+                            <div class="product_text text-center">
+                            <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="category-link">
+                                    <h3><?php echo $product['product_name']; ?></h3>
+                                    <span><button class="btn btn-primary mt-2">Details</button></span>
                                 </a>
-
-                                <!-- ---------------  -->
                             </div>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <div class="col-md-12 text-center-t1">
-                            <div class="form-group mt-5 mb-5 data_center text-center">
-                                <h4>No Item Found</h4>
-                            </div>
-
-                        <?php } ?>
                         </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+                <?php } ?>
+            <?php } else { ?>
+                <div class="col-md-12 text-center-t1">
+                    <div class="form-group mt-5 mb-5 data_center text-center">
+                        <h4>No Item Found</h4>
+                    </div>
 
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
-    <?= $this->include('front/layout/footer'); ?>
+                <?php } ?>
+                </div>
+        </div>
+        <!-- <div class="text-center">
+            <a href="#!" class="load_more">Load More <i class="fa-solid fa-rotate-right"></i></a>
+        </div> -->
+    </div>
+</section>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
+<?= $this->include('front/layout/footer'); ?>

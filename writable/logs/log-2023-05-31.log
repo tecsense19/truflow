@@ -1,0 +1,292 @@
+CRITICAL - 2023-05-31 10:06:58 --> Undefined variable $countryData
+in APPPATH\Views\front\user_profile.php on line 113.
+ 1 APPPATH\Views\front\user_profile.php(113): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php', 113)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_profile', [], true)
+ 5 APPPATH\Controllers\UserController.php(126): view('front/user_profile')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:21:56 --> Undefined variable $input
+in APPPATH\Controllers\UserController.php on line 128.
+ 1 APPPATH\Controllers\UserController.php(128): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $input', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 128)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile('5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:37:48 --> Undefined variable $countryData
+in APPPATH\Views\front\user_profile.php on line 116.
+ 1 APPPATH\Views\front\user_profile.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php', 116)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_profile', [], true)
+ 5 APPPATH\Controllers\UserController.php(133): view('front/user_profile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:39:51 --> Undefined array key "password"
+in APPPATH\Controllers\UserController.php on line 38.
+ 1 APPPATH\Controllers\UserController.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "password"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 38)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:52:27 --> Undefined variable $session
+in APPPATH\Views\front\user_profile.php on line 2.
+ 1 APPPATH\Views\front\user_profile.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php', 2)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_profile', [], true)
+ 5 APPPATH\Controllers\UserController.php(141): view('front/user_profile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:52:44 --> Undefined variable $session
+in APPPATH\Views\front\user_profile.php on line 2.
+ 1 APPPATH\Views\front\user_profile.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php', 2)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_profile', [], true)
+ 5 APPPATH\Controllers\UserController.php(142): view('front/user_profile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 10:53:09 --> Undefined variable $user_id
+in APPPATH\Views\front\user_profile.php on line 35.
+ 1 APPPATH\Views\front\user_profile.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_profile.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_profile', [], true)
+ 5 APPPATH\Controllers\UserController.php(142): view('front/user_profile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->user_profile('7')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:49:57 --> Call to a member function getSegment() on string
+in APPPATH\Views\admin\layout\header.php on line 51.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 4 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 5 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 8 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+ 9 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+10 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+11 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+12 APPPATH\Controllers\Admin\Home.php(21): view('admin/dashboard/dashboard')
+13 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+14 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+15 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:52:46 --> Undefined array key 3
+in APPPATH\Views\admin\layout\header.php on line 52.
+ 1 APPPATH\Views\admin\layout\header.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 3', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(21): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:53:00 --> Undefined array key 2
+in APPPATH\Views\admin\layout\header.php on line 52.
+ 1 APPPATH\Views\admin\layout\header.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(21): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:53:17 --> Array to string conversion
+in APPPATH\Views\admin\layout\header.php on line 53.
+ 1 APPPATH\Views\admin\layout\header.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(21): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:54:10 --> Array to string conversion
+in APPPATH\Views\admin\layout\header.php on line 53.
+ 1 APPPATH\Views\admin\layout\header.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(23): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 11:54:26 --> Array to string conversion
+in APPPATH\Views\admin\layout\header.php on line 53.
+ 1 APPPATH\Views\admin\layout\header.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/header', null, true)
+ 5 APPPATH\Views\admin\layout\front.php(43): CodeIgniter\View\View->include('admin/layout/header')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\layout\\front.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/front', null, true)
+ 9 APPPATH\Views\admin\dashboard\dashboard.php(1): CodeIgniter\View\View->include('admin/layout/front')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\dashboard\\dashboard.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/dashboard/dashboard', [], true)
+13 APPPATH\Controllers\Admin\Home.php(23): view('admin/dashboard/dashboard')
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->dashboard()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:17:13 --> Undefined variable $userData
+in APPPATH\Views\admin\user\user_list.php on line 39.
+ 1 APPPATH\Views\admin\user\user_list.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\user\\user_list.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\user\\user_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 5 APPPATH\Controllers\Admin\Home.php(70): view('admin/user/user_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:18:16 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\user\user_list.php on line 44.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 4 APPPATH\Controllers\Admin\Home.php(71): view('admin/user/user_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:18:49 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\user\user_list.php on line 44.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 4 APPPATH\Controllers\Admin\Home.php(71): view('admin/user/user_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:19:03 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\user\user_list.php on line 44.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 4 APPPATH\Controllers\Admin\Home.php(71): view('admin/user/user_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:19:04 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\user\user_list.php on line 44.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 4 APPPATH\Controllers\Admin\Home.php(71): view('admin/user/user_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-31 12:19:05 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\user\user_list.php on line 44.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user_list', [], true)
+ 4 APPPATH\Controllers\Admin\Home.php(71): view('admin/user/user_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-05-31 13:11:29 --> mysqli_sql_exception: Unknown column 'add_to_cart.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-31 13:11:29 --> Unknown column 'add_to_cart.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `add_to_cart`.`user_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `add_to_cart`.`user_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `add_to_cart`.`user_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `add_to_cart`.`user_id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

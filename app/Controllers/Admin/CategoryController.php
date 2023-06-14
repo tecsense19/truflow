@@ -44,11 +44,13 @@ class CategoryController extends BaseController
 
         if (isset($input['category_id']) && $input['category_id'] != '') {
             $categorymodel->update(['category_id', $input['category_id']], $categoryArr);
+            $session->setFlashdata('success', 'category edit succesfully.');
         } else {
             $categorymodel->insert($categoryArr);
+            $session->setFlashdata('success', 'category add succesfully.');
         }
 
-        $session->setFlashdata('success', 'category change succesfully.');
+       
         return redirect()->to('admin/category_list');
        
     }

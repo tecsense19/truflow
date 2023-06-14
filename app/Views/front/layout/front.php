@@ -25,8 +25,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/front/css/style.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/front/css/responsive.css">
 
+
         <!-- ----- -->
-        
+     
     </head>
     <body>
         <?= $this->include('front/layout/header'); ?>

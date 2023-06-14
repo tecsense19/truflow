@@ -108,3 +108,19 @@
   height: 150px;
   width: 150px;
 }
+
+table.dataTable {
+  border-collapse: collapse !important;
+  max-width: -webkit-fill-available;
+}
+table.dataTable.no-footer {
+  border-bottom: #d9dee3 !important;
+}
+input[type="search"] {
+  margin-bottom: 10px;
+}
+td.testo_descrip {
+  width: -1px !important;
+  max-width: 100px;
+  overflow: overlay;
+}

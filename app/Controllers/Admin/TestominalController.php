@@ -45,11 +45,13 @@ class TestominalController extends BaseController
 
         if (isset($input['testimo_id']) && $input['testimo_id'] != '') {
             $testominalmodel->update(['setting_id', $input['testimo_id']], $testominalArr);
+            $session->setFlashdata('success', 'Testominal edit succesfully.');
         } else {
             $testominalmodel->insert($testominalArr);
+            $session->setFlashdata('success', 'Testominal add succesfully.');
         }
 
-        $session->setFlashdata('success', 'Testominal change succesfully.');
+        
         return redirect()->to('admin/testominal_list');
        
     }

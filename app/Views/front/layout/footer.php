@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 col-lg-5">
                     <div class="footer_logo">
-                        <img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid">
+                    <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid"></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat nunc amet elit viverra
                             purus a. Neque </p>
                         <div class="footer_icon">
@@ -23,16 +23,16 @@
                         <h5>QUICKLINKS</h5>
                         <ul>
                             <li>
-                                <a href="">Home</a>
+                                <a href="<?php echo base_url(); ?>">Home</a>
                             </li>
                             <li>
-                                <a href="">About Us</a>
+                                <a href="<?php echo base_url('about'); ?>">About Us</a>
                             </li>
                             <li>
-                                <a href="">Our Products</a>
+                                <a href="<?php echo base_url('shop'); ?>">Our Products</a>
                             </li>
                             <li>
-                                <a href="">Contact Us</a>
+                                <a href="#">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -41,15 +41,15 @@
                     <div class="footer_contact">
                         <h5>CONTACT US</h5>
                         <div class="number">
-                            <a href="#">
+                            <a href="tel:+61894512204">
                                 <i class="fa-solid fa-phone"></i>
                                 <span>(+61) 894 512 204</span>
                             </a>
                         </div>
                         <div class="number">
-                            <a href="#">
+                            <a href="mailto:sales@truflowwhydraulic.com.au">
                                 <i class="fa-solid fa-envelope"></i>
-                                <span>sales@truflowwhydraulic.com.au</span>
+                                <span><a href="mailto:sales@truflowwhydraulic.com.au">sales@truflowwhydraulic.com.au</a></span>
                             </a>
                         </div>
                         <div class="number">
@@ -67,12 +67,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="all_rights">
-                        <p>© 2022 Truflow Inc. All rights reserved.</p>
+                        <p>© 2023 Truflow Inc. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="privacy text-right">
-                        <p>Terms of Use | Privacy Policy | Disclaimer</p>
+                        <p><a href="#">Terms of Use</a> |<a href="#"> Privacy Policy</a> | <a href="#">Disclaimer</a></p>
                     </div>
                 </div>
             </div>
@@ -200,6 +200,27 @@
             addRow();
         });
 
+        // Add event listener to dynamically created delete icons
+        $(document).on('click', '.delete-icon', function() {
+            var row = $(this).closest('.input_fileds_row');
+            var searchInput = row.find('.search_data_field');
+            var qualityInput = row.find('.quality_input');
+            searchInput.val('');
+            qualityInput.val('');
+            $(this).hide();
+        });
+
+        // Add event listener to input fields for showing/hiding delete icon
+        $(document).on('input', '.search_data_field, .quality_input', function() {
+            var row = $(this).closest('.input_fileds_row');
+            var deleteIcon = row.find('.delete-icon');
+            if ($(this).val().trim() !== '') {
+                deleteIcon.show();
+            } else {
+                deleteIcon.hide();
+            }
+        });
+
         function addRow() {
             var numRows = $('.input_fields .input_fileds_row').length;
             if (numRows < maxRows) {
@@ -215,8 +236,11 @@
                     '</div>' +
                     '</div>' +
                     '<div class="quality">' +
-                    (numRows === 0 ? '<h6>Quality</h6>' : '') +
+                    (numRows === 0 ? '<h6>Quantity</h6>' : '') +
                     '<input type="number" class="form-control quality_input input-text qty text" inputmode="numeric" autocomplete="off" step="1" min="0" max="" name="quality[]">' +
+                    '</div>' +
+                    '<div class="delete-icon" style="display: none;">' +
+                    '<i class="fa fa-trash"></i>' +
                     '</div>' +
                     '</div>';
 
@@ -270,6 +294,11 @@
                     icon: 'warning',
                     title: 'Please Login',
                     text: 'Please log in before adding items to the cart.',
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        // Redirect the user to the login page
+                        window.location.href = '<?php echo base_url('login')?>'; // Replace 'login.html' with the actual URL of your login page
+                    }
                 });
                 return;
             }
@@ -289,6 +318,7 @@
                 });
                 return;
             }
+            var isValid = true;
             filledRows.each(function() {
                 var searchInput = $(this).find('.search_data_field');
                 var qualityInput = $(this).find('.quality_input');
@@ -298,9 +328,22 @@
                         title: 'Validation Error',
                         text: 'Please fill in all the required fields for the filled rows.',
                     });
+                    isValid = false;
+                    return false;
+                }
+                if (parseInt(qualityInput.val()) == 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Validation Error',
+                        text: 'Please enter a quantity greater than 0.',
+                    });
+                    isValid = false;
                     return false;
                 }
             });
+            if (!isValid) {
+                return; // Stop form submission if validation fails
+            }
             var formData = $(this).serializeArray();
             console.log(formData);
             // Send data using AJAX
@@ -335,6 +378,7 @@
         }
     });
 </script>
+
 <!-- //search function based on input box-------- -->
 <script>
     $(document).ready(function() {
@@ -527,8 +571,10 @@
                         icon: 'success',
                         title: 'Add to Wish List',
                         showConfirmButton: false,
-                        timer: 5000
-                    });
+                        timer: 1000
+                    }).then(function() {
+                    location.reload();
+                });
                 }
             });
         });
@@ -538,7 +584,7 @@
 <script>
     function changeImage(img) {
         $("imagepreview").src = img.src = "<?php echo base_url(); ?>public/front/images/heartw1.png";
-       
+        
     }
 </script>
 
@@ -546,29 +592,40 @@
 
 <script>
     $(document).ready(function() {
-        $(".deletewishlistsubmit").click(function(e) {
-            e.preventDefault();
-            var product_id = $(this).attr('data-product_id');
-            //alert(product_id);
-            $.ajax({
-                url: "<?php echo base_url('deleteWishList'); ?>",
-                data: {
-                    "product_id": product_id
-                },
-                type: 'POST',
-                success: function(result) {
-                    Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't UnWishliste This!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, UnWishliste it!'
+    $(".deletewishlistsubmit").click(function(e) {
+        e.preventDefault();
+        var product_id = $(this).attr('data-product_id');
+        
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't UnWishlist This!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, UnWishlist it!'
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                // User clicked the confirm button, proceed with deletion
+                $.ajax({
+                    url: "<?php echo base_url('deleteWishList'); ?>",
+                    data: {
+                        "product_id": product_id
+                    },
+                    type: 'POST',
+                    success: function(result) {
+                        Swal.fire(
+                            'Deleted!',
+                            'The record has been deleted.',
+                            'success'
+                        ).then(function() {
+                            location.reload();
+                        });
+                    }
                 });
-                 
+            } else {
+                location.reload();
             }
-            
         });
     });
 });
@@ -576,8 +633,14 @@
 <script>
   function changeImage1(img) {
     $("imagepreview1").src = img.src="<?php echo base_url(); ?>public/front/images/heartw.png";
-
+    
   }
+</script>
+
+<script>
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

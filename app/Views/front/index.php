@@ -1,7 +1,12 @@
 <?= $this->include('front/layout/front'); ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> BANNER START <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <?php
+$session = session();
+$wishlistCount = session('wishlistCount');
+$cartCount = session('cartCount');
 
+// print_r($wishlistCount);
+// die();
 
 $welcome_setting_id = isset($welcomeData) ? $welcomeData['setting_id'] : '';
 $welcome_title = isset($welcomeData) ? $welcomeData['title'] : '';
@@ -199,6 +204,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <div class="tab-content">
             <div id="home" class="container tab-pane active">
                 <div class="row">
+                    <?php if(isset($newProductdata)){?>
                     <?php foreach ($newProductdata as $product) : ?>
                         <div class="col-sm-6 col-lg-3">
                             <div class="product_card">
@@ -212,6 +218,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                         </div>
                     <?php endforeach; ?>
+                    <?php }?>
                 </div>
             </div>
 
@@ -263,7 +270,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <?php foreach ($testimonalData as $testominal) { ?>
                                 <div class="item">
                                     <div class="test_img">
-                                        <img src="<?php echo base_url() . $testominal['testimo_img'] ?>" alt="client" class="img-fluid">
+                                        <img src="<?php echo base_url() . $testominal['testimo_img'] ?>" alt="client" class="img-fluid testominal_img">
                                     </div>
                                     <div class="testi_card text-center">
                                         <div class="test_text">

@@ -17,15 +17,23 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <div class="container">
-   
-
-    <div class="login_form_box">
-    <div class="row">
-        <?php if (session()->getFlashdata('error')) : ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-        <?php endif; ?>
+<div class="row">
+<div class="col-md-12 text-center">
+      <div class="form-group mt-5 mb-5">
+      <?php if (session()->getFlashdata('success')) { ?>
+    <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
+  <?php } ?>
+  <?php if (session()->getFlashdata('error')) { ?>
+    <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+  <?php } ?>
+      </div>
+    </div>
 
     </div>
+
+    
+    <div class="login_form_box">
+    
     <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
         <div class="form-group">
             <div class="">
@@ -43,9 +51,8 @@
                 </div>
                 <div class="input-group input-group-merge">
                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-
                 </div>
-                <label for="password" class="error hidden">Password is required!</label>
+                
             </div>
         </div>
         <div class="form-group">

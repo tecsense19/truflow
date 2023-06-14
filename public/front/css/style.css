@@ -11,6 +11,9 @@ h1,h2,h3,h4,h5,h6,p{
 	margin: 0;
 	padding: 0;
 }
+a:hover{
+    text-decoration: none;
+}
 
 /*~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~*/
 .navbar-nav .nav-item .nav-link.dropdown-toggle::after{
@@ -98,7 +101,7 @@ a.nav-link{
     position: absolute;
     right: 0;
     top: 160%;
-    width: 320px;
+    width: 300px;
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
@@ -328,7 +331,7 @@ a.heart::before{
 .order_main{
     background-color: var(--blue);
    /* padding: 33px;*/
-    padding: 47px 33px 52px 47px;
+    padding: 22px 33px 52px 47px;
     border-radius: 10px;
     /*width: 470px;*/
     width: 95%;
@@ -924,9 +927,9 @@ footer{
 .heart_top a{
     position: relative;
 }
-.heart_top a::after{
+/* .heart_top a::after{
     position: absolute;
-    
+    content: "8";
     width: 13px;
     height: 13px;
     background: #FFF500;
@@ -937,13 +940,12 @@ footer{
     font-size: 11px;
     text-align: center;
     line-height: 13px;
-}
+} */
 .heart_top2 a{
     position: relative;
 }
 .heart_top2 a::after{
     position: absolute;
-    
     width: 13px;
     height: 13px;
     background: #FFF500;
@@ -1015,22 +1017,951 @@ footer{
     text-align: center;
     /*margin: 50px 0 0 0;*/
 }
-
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* ----------shop page css----------- */
-
-.test_img img {
-    width: 200px;
-    /* Set the width of the image */
-    height: 150px;
-    /* Set the height of the image */
-    object-fit: cover;
-    /* Scale the image to cover its container */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CHECKOUT PAGE START <<~~~~~~~~~~~~~~~~~~~~~~~*/
+.checkout_page{
+    background-image: url(../images/bg-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+}
+.checkout_overlay{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.checkout_heading{
+    padding-top: 250px;
+    text-align: center;
+}
+.checkout_heading h2{
+    color: var(--white);
+    font-size: var(--h2Size);
+    font-weight: 700;
+    font-family: var(--Montserrat);
 }
 
-/* -----------------------slider for product--------------------------- */
+.billing_detail h3 {
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 35px;
+    font-family: var(--Montserrat);
+}
+
+.checkout-input {
+    margin-bottom: 20px;
+}
+
+.checkout-input label {
+    font-weight: 500;
+    color: #000;
+    font-family: var(--Montserrat);
+}
+
+.checkout-input input, .checkout-input textarea {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #D5D8DB;
+    color: #000;
+    height: 50px;
+    font-family: var(--Montserrat);
+}
+
+.checkout-input select {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #D5D8DB;
+    color: #000;
+    height: 50px;
+    font-family: var(--Montserrat);
+}
+
+.your_order h3 {
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 35px;
+    font-family: var(--Montserrat);
+}
+
+.order_list {
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 15px 0px;
+}
+
+.order_list h5 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.order_list p {
+    font-size: 15px;
+    color: #707070;
+    font-weight: 400;
+    font-family: var(--Montserrat);
+}
+
+.order_list span {
+    font-size: 15px;
+    color: #707070;
+    font-weight: 400;
+    font-family: var(--Montserrat);
+}
+
+.order_total {
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.order_total h5 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.payment_item {
+    padding-bottom: 5px;
+}
+
+.payment_item a {
+    display: block;
+    text-decoration: underline;
+    color: #000;
+    padding: 0px 30px 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: var(--Montserrat);
+    font-weight: 500;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.payment_item label {
+    font-size: 15px;
+    font-family: var(--Montserrat);
+    font-weight: 500;
+}
+
+.checkout-agree {
+    margin-bottom: 24px;
+}
+
+.checkout-option {
+    margin-bottom: 4px;
+}
+
+.checkout-option label {
+    font-size: 15px;
+    color: #55585B;
+    position: relative;
+    padding-left: 5px;
+    z-index: 1;
+    font-weight: 400;
+    font-family: var(--Montserrat);
+}
+
+.checkout_btn {
+    width: 100%;
+}
+
+.checkout_btn a {
+    color: var(--blue);
+    font-family: var(--Montserrat);
+    display: block;
+    text-align: center;
+    padding: 12px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--blue);
+    transition: 0.5s;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.checkout_btn a:hover {
+    background-color: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.main_accordion {
+    margin-bottom: 50px;
+}
+
+.main_accordion .login_accordion {
+    width: 600px;
+    margin-bottom: 10px;
+
+}
+
+.main_accordion .login_accordion .card-header {
+    border: 1px dashed #686868;
+    padding: 0 30px;
+    border-radius: 0;
+}
+
+.main_accordion .login_accordion .card-header h5 {
+    font-size: 16px;
+}
+
+.login_btn {
+    padding: 8px 25px;
+    font-weight: 600;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--Montserrat);
+    transition: 0.5s;
+}
+.login_btn:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CHECKOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CARD PAGE START <<~~~~~~~~~~~~~~~~~~~~~~~*/
+.card_page{
+    background-image: url(../images/bg-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+}
+.card_overlay{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.card_heading{
+    padding-top: 250px;
+    text-align: center;
+}
+.card_heading h2{
+    color: var(--white);
+    font-size: var(--h2Size);
+    font-weight: 700;
+    font-family: var(--Montserrat);
+}
+
+.product_detail {
+    width: 100%;
+}
+
+.card_title a {
+    color: #000;
+    font-size: 14px;
+    font-family: var(--Montserrat);
+    font-weight: 500;
+}
+
+.card_title a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.qty {
+    width: 80px;
+}
+
+.coupon_form label {
+    display: block;
+}
+
+.coupon_form input {
+    padding: 10px 25px;
+    width: 270px;
+}
+
+.coupon_btn {
+    padding: 9px 20px;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.coupon_btn:hover, .update_card_btn:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.update_card_btn {
+    padding: 10px 20px;
+    border: 2px solid var(--blue);
+    color: var(--blue);;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+.sub {
+    padding: 20px 0px;
+    border-bottom: 1px solid #D5D8DB;
+}
+
+.sub h5 {
+    font-size: 17px;
+    font-family: var(--Montserrat);
+    font-weight: 600;
+}
+
+.subtotal_list {
+    list-style: none;
+}
+
+.subtotal_list p {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--Montserrat);
+    padding-bottom: 10px;
+}
+
+.proceed_btn {
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 500;
+    padding: 15px 35px;
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.proceed_btn:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CARD PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CATEGORIES PAGE START <<~~~~~~~~~~~~~~~~~~~~~~~*/
+.category_page{
+    background-image: url(../images/bg-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+}
+.category_overlay{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.category_heading{
+    padding-top: 250px;
+    text-align: center;
+}
+.category_heading h2{
+    color: var(--white);
+    font-size: var(--h2Size);
+    font-weight: 700;
+    font-family: var(--Montserrat);
+}
+
+.smartphone_box {
+    overflow: hidden;
+    position: relative;
+} 
+ 
+.smartphone {
+    background-image: url(../images/product-banner-1.jpg);
+    min-height: 260px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+}
+
+.smartphone_box:hover .smartphone { transform: scale(1.1); }
+
+.smartphone_text {
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+
+.smartphone_text span {
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.smartphone_text h2 {
+    font-size: 20px;
+    font-family: var(--Montserrat);
+    font-weight: 700;
+    margin-top: 15px;
+    color: #000;
+}
+
+.smartphone_text h2 a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+}
+
+.smartphone_text h2 a:hover {
+    color: var(--blue);
+}
+
+.shop_now_btn {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 14px;
+    font-family: var(--Montserrat);
+    font-weight: 500;
+    color: #000;
+    transition: 0.10s;
+}
+
+.shop_now_btn:hover {
+    text-decoration: none;
+    color: var(--blue);
+    padding-right: 10px;
+}
+
+.shop_now_btn svg {
+    transition: 0.2s;
+}
+
+.shop_now_btn:hover svg {
+    padding-left: 5px;
+}
+
+.wireless_box {
+    overflow: hidden;
+    position: relative;
+}
+
+.wireless {
+    background-image: url(../images/product-banner-2.jpg);
+    min-height: 260px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+}
+
+.wireless_box:hover .wireless { transform: scale(1.1); }
+
+.wireless_text {
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+
+.wireless_text p {
+    font-size: 17px;
+    color: #000;
+    font-weight: 600;
+    font-family: var(--Montserrat);
+    margin-top: 10px;
+}
+
+.wireless_text h2 {
+    font-size: 20px;
+    font-family: var(--Montserrat);
+    font-weight: 700;
+    margin-top: 15px;
+    color: #000;
+}
+
+.wireless_text h2 a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+}
+
+.wireless_text h2 a:hover {
+    color: var(--blue);
+}
+
+.shop_now_btn {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 14px;
+    font-family: var(--Montserrat);
+    font-weight: 500;
+    color: #000;
+    transition: 0.10s;
+}
+
+.shop_now_btn:hover {
+    text-decoration: none;
+    color: #000;
+    padding-right: 10px;
+}
+
+.shop_now_btn svg {
+    transition: 0.2s;
+}
+
+.shop_now_btn:hover svg {
+    padding-left: 5px;
+}
+
+.product_box {
+    margin-bottom: 30px;
+}
+
+.product_img {
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.product_img img {
+    transition: 0.5s;
+}
+
+.product_box:hover .product_img img {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.product_text h3{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: var(--Montserrat);
+    color: #000;
+    transition: 0.5s;
+}
+
+.product_text h3:hover {
+    color: var(--blue);
+}
+
+.product_text span{
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.load_more {
+    font-size: 15px;
+    color: #000;
+    border: 2px solid var(--blue);
+    padding: 10px 30px;
+    display: inline-block;
+    margin-top: 50px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.load_more:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~>> CATEGORIES PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~>> PRODUCT DETAIL PAGE START <<~~~~~~~~~~~~~~~~~*/
+
+.product_detail_page{
+    background-image: url(../images/bg-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+}
+.product_detail_overlay{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.product_detail_heading{
+    padding-top: 250px;
+    text-align: center;
+}
+.product_detail_heading h2{
+    color: var(--white);
+    font-size: var(--h2Size);
+    font-weight: 700;
+    font-family: var(--Montserrat);
+}
+
+.mobile_tabs {
+    /* display: flex; */
+    align-items: center;
+}
+
+.mobile_tabs .tab-content img {
+    width: 100%;
+}
+
+.mobile_tabs .nav-link {
+    display: block;
+    padding: 0;
+    border: 1px solid #fff  ;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.mobile_tabs .nav-link:hover {
+    border: 1px solid #000;
+}
+
+.mobile_tabs .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    border: 1px solid #000;
+}
+
+.samsung_galaxy span {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.samsung_galaxy h3 {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--Montserrat);
+}
+
+.samsung_galaxy p {
+    font-size: 15px;
+    color: #727272;
+    font-weight: 400;
+}
+
+.samsung_galaxy strong {
+    font-size: 24px;
+    margin-top: 10px;
+    display: inline-block;
+    color: #000;
+    font-weight: 700;
+}
+
+.samsung_galaxy strong span {
+    color: #727272;
+    text-decoration-line: line-through;
+}
+
+.stock {
+    margin: 0;
+    padding: 0;
+}
+
+.stock li {
+    list-style: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px 0px;
+    font-weight: 500;
+}
+
+.stock li svg {
+    color: #ffa500;
+}
+
+.color-picker {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.color-picker li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+.yellow {
+    width: 30px;
+    height: 30px;
+    background: #ffa500;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.gray {
+    width: 30px;
+    height: 30px;
+    background: #d1d1d1;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.black {
+    width: 30px;
+    height: 30px;
+    background: #000;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.brown {
+    width: 30px;
+    height: 30px;
+    background: #6a1717;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.add_to_card {
+    width: 240px;
+    display: inline-block;
+    background: #000;
+    text-align: center;
+    padding: 10px 0px;
+    color: #fff;
+    margin-top: 18px;
+    transition: 0.5s;
+}
+
+.add_to_card:hover {
+    color: var(--white);
+    background: var(--blue);
+}
+
+.quantity_form label {
+    display: block;
+    font-weight: 500;
+}
+
+.buy_now_btn {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 0px;
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.buy_now_btn:hover {
+    background: #000;
+    color: var(--white);
+}
+
+.compare ul {
+    margin: 20px 0px;
+    padding: 0;
+}
+
+.compare ul li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 25px;
+    color: #727272;
+}
+
+.social_icon li {
+    padding-right: 10px !important;
+}
+
+.social_icon li a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    line-height: 30px;
+    color: var(--blue);
+    font-size: 14px;
+    transition: 0.5s;
+}
+
+.social_icon li a:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.secure {
+    width: 100%;
+    padding: 20px;
+}
+
+.additionnal_tab .nav-tabs {
+    border-bottom: 2px solid #e1e1e1;
+    justify-content: center;
+}   
+
+.additionnal_tab .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    font-weight: 500;
+}
+
+.additionnal_tab .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #000;
+    border-bottom: 2px solid var(--blue);
+}
+
+.additionnal_tab .tab-content {
+    margin: 80px 0; 
+}
+
+.product-detail-desc-item {
+    margin-top: 40px;
+}
+
+.glance span {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--Montserrat);
+}
+
+.glance h3 {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--Montserrat);
+    padding: 15px 0px;
+}
+
+.glance p {
+    color: #727272;
+}
+
+.epic-races {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.epic-races h3 {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--Montserrat);
+    padding: 15px 0px;
+}
+
+.additionnal_info table {
+    border: 1px solid #e1e1e1;
+    width: 100%;
+}
+
+.additionnal_info table td {
+    padding: 15px 30px;
+    font-weight: 400;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~>> PRODUCT DETAIL PAGE END <<~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~>> PROFILE PAGE START <<~~~~~~~~~~~~~~~~~*/
+
+.profile_page{
+    background-image: url(../images/bg-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+}
+.profile_overlay{
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.profile_heading{
+    padding-top: 250px;
+    text-align: center;
+}
+.profile_heading h2{
+    color: var(--white);
+    font-size: var(--h2Size);
+    font-weight: 700;
+    font-family: var(--Montserrat);
+}
+
+.profile_tabs {
+    display: flex;
+
+}
+
+.profile_tabs .nav-link {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--tp-text-1);
+    padding: 14px 30px;
+    background-color: var(--tp-common-white);
+    position: relative;
+    border-radius: 0;
+    text-align: left;
+    border: 0;
+}
+
+.profile_tabs .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--blue);
+    background-color: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~>> PROFILE PAGE END <<~~~~~~~~~~~~~~~~~*/
+/* ****************************my css***************************** */
+
+ .card-img-top {
+    height: 300px;
+    object-fit: fill;
+}
+img.img_tab_view_2 {
+    height: 500px;
+}
+
+.add_cart {
+    width: 400px;
+    display: inline-block;
+    background: #0a2b75;
+    text-align: center;
+    padding: 10px 0px;
+    color: #fff;
+    transition: 0.5s;
+    margin: 15px;
+}
+.qty {
+    width: 32px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input.input-text.qty.text.variant-qty {
+    text-align: center;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
 
   .card-img-top {
     height: 300px;
@@ -1171,4 +2102,90 @@ input#quality {
     position: absolute;
     top: -8px;
     right: -8px;
+}
+/* count of wishlist && add to cart */
+
+.heart_top {
+    position: relative;
+}
+
+span.wishlist_products_counter_number {
+    width: 15px;
+    height: 15px;
+    background: #FFF500;
+    color: rgb(0, 0, 0);
+    border-radius: 50px;
+    top: -4px;
+    right: -11px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 12px;
+    position: absolute;
+   
+}
+
+
+span.add_to_cart_counter_number {
+    width: 15px;
+    height: 15px;
+    background: #FFF500;
+    color: rgb(0, 0, 0);
+    border-radius: 50px;
+    top: -4px;
+    right: -11px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 12px;
+    position: absolute;
+   
+}
+
+button.coupon_button {
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 500;
+    padding: 10px 35px;
+    display: inline;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.submit_form:hover{
+    background-color: #0a2b75;
+    color: #fff;
+ }
+ .error {
+    display: block;
+    width: 100%;
+}
+.delete-icon {
+    height: 33px;
+    border: unset;
+    position: relative;
+    bottom: -21px;
+    color: white;
+}
+.input_fields .input_fileds_row.input_fileds:nth-child(1) .delete-icon {
+    position: relative;
+    top: 41px;
+}
+.testi_card p {
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+img.testominal_img {
+    width: 150px !important;
+    width: 150px;
+    height: 140px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+input#register-button {
+    width: 200px;
+    height: 60px;
 }

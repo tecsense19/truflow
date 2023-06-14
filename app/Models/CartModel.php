@@ -23,6 +23,10 @@ class CartModel extends Model
         'product_amount',
         'product_discount',
         'total_amount',
+        'shipping',
+        'discount_type',
+        'final_total_ammount',
+        'coupon_code'
     ];
 
     // Dates

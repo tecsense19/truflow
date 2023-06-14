@@ -24,7 +24,12 @@ class OrderModel extends Model
         'product_amount',
         'product_discount',
         'total_amount',
+        'order_status',
         'pay_method',
+        'shipping',
+        'discount_type',
+        'final_total_ammount',
+        'coupon_code'
     ];
 
     // Dates

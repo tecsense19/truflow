@@ -28,7 +28,7 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                 <form method="post" id="product_form" action="<?php echo base_url() ?>admin/product/save" enctype='multipart/form-data'>
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">product</h5>
+                            <h5 class="mb-0">Product</h5>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
@@ -55,69 +55,63 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
 
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Product Name</label>
-                                <input type="text" value="<?php echo $product_name; ?>" class="form-control" id="product_name" name="product_name" placeholder="Full Name" />
+                                <input type="text" value="<?php echo $product_name; ?>" class="form-control" id="product_name" name="product_name" placeholder="Product Name" />
                                 <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">product Description</label>
+                                <label class="form-label" for="basic-default-message">Product Description</label>
                                 <textarea id="product_description" name="product_description" class="form-control" placeholder="Product Description"><?php echo $product_description; ?></textarea>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">product Image</label>
-                                <input type="file" class="form-control" value="" id="product_img" name="product_img" placeholder="product Image" />
+                                <label class="form-label" for="basic-default-company">Product Image</label>
+                                <input type="file" class="form-control" value="" id="product_img" name="product_img" placeholder="Product Image" />
                                 <?php if ($product_img) { ?>
                                     <img src="<?php echo base_url() . $product_img ?>" alt="product_img" class="img-fluid site_setting_img">
-
                                 <?php } ?>
                             </div>
                         </div>
                     </div>
+
                     <!-- add variant -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Add Variant</h5>
                         </div>
                         <div class="card-body">
-
                             <button id="add-btn" class="btn btn-primary">Add Variant</button>
-
                             <div id="input-container">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Variant Name</th>
                                             <th>Variant Price</th>
-                                            <th>Variant Quantity</th>
-                                            <th>Variant SKU</th>
+                                            <th>Part Number</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        if (isset($variantData)) { ?>
-
-                                            <?php foreach ($variantData as $variant) { ?>
+                                        if (isset($variantData)) {
+                                            foreach ($variantData as $variant) {
+                                        ?>
                                                 <tr>
-
-                                                    <td>
-                                                    <input type="text" name="variant_name[]" class="form-control" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" />
-                                                </td>
-                                                <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
-                                                <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Quantity" /></td>
-                                                    <td><input type="text" name="variant_qty[]" class="form-control" value="<?php echo $variant['variant_qty']; ?>" placeholder="Variant Price" /></td>
-                                                    <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Variant Price" /></td>
-                                                    <td><a class="btn btn-danger" href="<?php echo base_url('')."admin/variant/delete/".$variant['variant_id']?>">Remove</a></td>
+                                                    <td><input type="text" name="variant_name[]" class="form-control" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" /></td>
+                                                    <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
+                                                    <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" /></td>
+                                                    <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
+                                                    <td><a class="btn btn-danger" href="<?php echo base_url('') . "admin/variant/delete/" . $variant['variant_id'] ?>">Remove</a></td>
                                                 </tr>
-
-                                            <?php } ?>
-                                        <?php } ?>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary d-grid">
+                    <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
 
@@ -128,31 +122,73 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
 <script>
     $(document).ready(function() {
+        var imageUploaded = <?php echo ($product_img ? 'true' : 'false'); ?>;
+
         $("#product_form").validate({
             rules: {
+                category_id: {
+                    required: true
+                },
+                sub_category_id: {
+                    required: true
+                },
                 product_name: {
                     required: true
+                },
+                product_description: {
+                    required: true
+                },
+                product_img: {
+                    required: function() {
+                        return !imageUploaded; // Validation required only if image has not been uploaded
+                    }
+                },
+                "variant_name[]": {
+                    required: true
+                },
+                "variant_price[]": {
+                    required: true
+                },
+                "variant_sku[]": {
+                    required: true
                 }
-
-
             },
             messages: {
+                category_id: {
+                    required: "Category is required!"
+                },
+                sub_category_id: {
+                    required: "Subcategory is required!"
+                },
                 product_name: {
-                    required: "Title is required!"
+                    required: "Product Name is required!"
+                },
+                product_description: {
+                    required: "Product Description is required!"
+                },
+                product_img: {
+                    required: "Product Image is required!"
+                },
+                "variant_name[]": {
+                    required: "Variant Name is required!"
+                },
+                "variant_price[]": {
+                    required: "Variant Price is required!"
+                },
+                "variant_sku[]": {
+                    required: "Part Number is required!"
                 }
-
-
             },
             submitHandler: function(form) {
                 form.submit();
             }
         });
-
     });
 </script>
+
+
 
 <script>
     $(document).ready(function() {
@@ -199,6 +235,7 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
         }
     }
 </script>
+
 <script>
     $(document).ready(function() {
         // Add field
@@ -206,19 +243,54 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
             event.preventDefault();
             $('#input-container').show();
 
+            var variantSkuValues = []; // Array to store variant SKU values
+
+            // Retrieve existing variant SKU values
+            $('.input-row').each(function() {
+                var skuValue = $(this).find('input[name="variant_sku[]"]').val();
+                variantSkuValues.push(skuValue);
+            });
+
             var inputRow = $('<tr class="input-row"></tr>');
             var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
             var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
-            var variant_qty = $('<td><input type="text" name="variant_qty[]" class="form-control" placeholder="Variant Quantity" /></td>');
-            var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Variant sku" /></td>');
+            var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
             var removeButton = $('<td><button class="btn btn-danger remove-btn">Remove</button></td>');
+
+            // Validate variant SKU value
+            variant_sku.find('input').blur(function() {
+                var newSkuValue = $(this).val();
+                if (variantSkuValues.includes(newSkuValue)) {
+                    $(this).addClass('is-invalid');
+                    $(this).siblings('.invalid-feedback').remove();
+                    $(this).after('<div class="invalid-feedback">Part Number must be unique.Do not enter Duplicate value.</div>');
+                } else {
+                    $(this).removeClass('is-invalid');
+                    $(this).siblings('.invalid-feedback').remove();
+                }
+            });
+
+            // Validate variant price value
+            variant_price.find('input').blur(function() {
+                var priceValue = $(this).val();
+                if (!$.isNumeric(priceValue)) {
+                    $(this).addClass('is-invalid');
+                    $(this).siblings('.invalid-feedback').remove();
+                    $(this).after('<div class="invalid-feedback">Variant Price must be a numeric value.</div>');
+                } else {
+                    $(this).removeClass('is-invalid');
+                    $(this).siblings('.invalid-feedback').remove();
+                }
+            });
 
             inputRow.append(variant_name);
             inputRow.append(variant_price);
-            inputRow.append(variant_qty);
             inputRow.append(variant_sku);
             inputRow.append(removeButton);
             $('#input-container tbody').append(inputRow);
+
+            // Update variantSkuValues array with the new SKU value
+            variantSkuValues.push('');
         });
 
         // Remove field

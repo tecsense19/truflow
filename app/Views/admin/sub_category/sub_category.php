@@ -63,7 +63,7 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary d-grid">
+                    <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
 
@@ -77,25 +77,42 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
 </script>
 <script>
     $(document).ready(function() {
+        var imageUploaded = <?php echo ($sub_category_img ? 'true' : 'false'); ?>;
+        
         $("#sub_category_form").validate({
             rules: {
+                category_id: {
+                    required: true
+                },
                 sub_category_name: {
                     required: true
+                },
+                sub_category_description: {
+                    required: true
+                },
+                sub_category_img: {
+                    required: function() {
+                        return !imageUploaded; // Validation required only if image has not been uploaded
+                    }
                 }
-
-
             },
             messages: {
+                category_id: {
+                    required: "Category is required!"
+                },
                 sub_category_name: {
-                    required: "Title is required!"
+                    required: "Sub Category Name is required!"
+                },
+                sub_category_description: {
+                    required: "Sub Category Description is required!"
+                },
+                sub_category_img: {
+                    required: "Sub Category Image is required!"
                 }
-
-
             },
             submitHandler: function(form) {
                 form.submit();
             }
         });
-
     });
 </script>

@@ -23,37 +23,36 @@ $testimo_img = isset($testimonalData) ? $testimonalData['testimo_img'] : '';
         <div class="row">
             <div class="col-xl">
 
-                <form method="post" id="testominal_form" action="<?php echo base_url() ?>admin/testominal/save" enctype='multipart/form-data'>
-                    <div class="card mb-4">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Testominal</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-fullname">Full Name</label>
-                                <input type="text" value="<?php echo $full_name;?>" class="form-control" id="full_name" name="full_name" placeholder="Full Name" />
-                                <input type="hidden" name="testimo_id" value="<?php echo $testimo_id;?>">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">Designation</label>
-                                <input type="text" class="form-control" value="<?php echo $designation;?>" id="designation" name="designation" placeholder="Designation" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">Description</label>
-                                <textarea id="description" name="description" class="form-control" placeholder="Description"><?php echo $description;?></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">Testimonal Image</label>
-                                <input type="file" class="form-control" value="" id="testimo_img" name="testimo_img" placeholder="Testimonal Image" />
-                                <?php if($testimo_img){?>
-                            <img src="<?php echo base_url().$testimo_img ?>" alt="testimo_img" class="img-fluid site_setting_img">
-
-                            <?php }?>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary d-grid">
-            </form>
+            <form method="post" id="testominal_form" action="<?php echo base_url() ?>admin/testominal/save" enctype='multipart/form-data'>
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Testimonial</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Full Name</label>
+                <input type="text" value="<?php echo $full_name;?>" class="form-control" id="full_name" name="full_name" placeholder="Full Name" />
+                <input type="hidden" name="testimo_id" value="<?php echo $testimo_id;?>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-company">Designation</label>
+                <input type="text" class="form-control" value="<?php echo $designation;?>" id="designation" name="designation" placeholder="Designation" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-message">Description</label>
+                <textarea id="description" name="description" class="form-control" placeholder="Description"><?php echo $description;?></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-company">Testimonial Image</label>
+                <input type="file" class="form-control" value="" id="testimo_img" name="testimo_img" placeholder="Testimonial Image" />
+                <?php if($testimo_img){?>
+                    <img src="<?php echo base_url().$testimo_img ?>" alt="testimo_img" class="img-fluid site_setting_img">
+                <?php }?>
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary d-grid" value="Submit">
+</form>
             </div>
             
         </div>
@@ -66,25 +65,42 @@ $testimo_img = isset($testimonalData) ? $testimonalData['testimo_img'] : '';
 </script>
 <script>
     $(document).ready(function() {
+        var imageUploaded = <?php echo ($testimo_img ? 'true' : 'false'); ?>;
+        
         $("#testominal_form").validate({
             rules: {
                 full_name: {
                     required: true
+                },
+                designation: {
+                    required: true
+                },
+                description: {
+                    required: true
+                },
+                testimo_img: {
+                    required: function() {
+                        return !imageUploaded; // Validation required only if image has not been uploaded
+                    }
                 }
-
-
             },
             messages: {
                 full_name: {
-                    required: "Title is required!"
+                    required: "Full Name is required!"
+                },
+                designation: {
+                    required: "Designation is required!"
+                },
+                description: {
+                    required: "Description is required!"
+                },
+                testimo_img: {
+                    required: "Testimonial Image is required!"
                 }
-
-
             },
             submitHandler: function(form) {
                 form.submit();
             }
         });
-
     });
 </script>
