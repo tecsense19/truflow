@@ -46,8 +46,11 @@ $routes->get('/wish_list', 'Home::wish_list');
 $routes->post('/add_wishlist', 'Home::add_wishlist');
 $routes->post('/deleteWishList', 'Home::deleteWishList');
 $routes->get("deleteWishList_data/(:num)", "Home::deleteWishList_data/$1");
-
 $routes->get("delete_check/(:num)", "Home::cartDelete_check/$1");
+$routes->get('/terms_and_condition', 'Home::terms_and_condition');
+$routes->get('/privacy_policy', 'Home::privacy_policy');
+$routes->get('/disclaimer', 'Home::disclaimer');
+
 
 //check coupon
 
@@ -89,7 +92,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
 
     // add header part dynamic menu
 
-    $routes->get("header_menu_list", "headerMenuController::index");
+    $routes->get("header_menu_list", "headerMenuController::header_menu_list");
     $routes->get("header_menu", "headerMenuController::header_menu");
     $routes->post("header_menu/save", "headerMenuController::header_menuSave");
     $routes->get("header_menu/edit/(:num)", "headerMenuController::header_menuEdit/$1");

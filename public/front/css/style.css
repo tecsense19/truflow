@@ -2050,6 +2050,8 @@ input#quality {
     background: #aaa;
     margin: 0 auto;
     padding: 5px 2px 5px 2px;
+    z-index: 1;
+    position: relative;
   }
   
   
@@ -2188,4 +2190,11 @@ img.testominal_img {
 input#register-button {
     width: 200px;
     height: 60px;
+}
+
+div:where(.swal2-container) {
+    z-index: 9999999 !important;
+}
+.footer_text a {
+    color: white;
 }

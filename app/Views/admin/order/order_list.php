@@ -31,8 +31,8 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Gender</th>
                                             <th>Product Name</th>
+                                            <th>Order Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -46,15 +46,14 @@
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $cart['full_name']; ?></td>
                                                     <td><?php echo $cart['email']; ?></td>
-                                                    <td><?php echo $cart['gender']; ?></td>
+
                                                     <td>
                                                         <?php echo $cart['product_name']; ?>
 
                                                     </td>
+                                                    <td><?php echo $cart['order_status']; ?></td>
                                                     <td>
-
-
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" data-id =<?php echo $cart['order_id']; ?>  >
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" data-id="<?php echo $cart['order_id']; ?>">
                                                             Order Details
                                                         </button>
 
@@ -89,13 +88,16 @@
 <!-- ------------ order Model --------------------- -->
 
 <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+    <!-- Modal content -->
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <!-- Modal header and body -->
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <!-- Your existing code here -->
                 <?php if (isset($statusData)) { ?>
                     <select name="order_status" id="order_status" class="form-control" aria-label="Default select example">
                         <option value="">Please Select Order Status</option>
@@ -105,11 +107,13 @@
                     </select>
                 <?php } ?>
 
+                <!-- Hidden field to store the orderID -->
+                <input type="hidden" id="orderIDHiddenField" name="order_id">
             </div>
+
+            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                    Close
-                </button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" onclick="saveStatus()">Save</button>
             </div>
         </div>
@@ -121,7 +125,17 @@
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+<script>
+    $('button[data-bs-toggle="modal"]').click(function() {
+        var orderID = $(this).data('id');
+        //console.log(orderID);
+        $('#basicModal').data('id', orderID);
+        $('#orderIDHiddenField').val(orderID);
+    });
 </script>
+
+
 <script>
     $(document).ready(function() {
         $("#user_form").validate({
@@ -150,9 +164,13 @@
     function saveStatus(selectedValue) {
 
         var selectedValue = document.getElementById("order_status").value;
+        var orderID = document.getElementById("orderIDHiddenField").value;
+
+        //console.log(orderID);
 
         var url = '<?php echo base_url('admin'); ?>/change_order_status';
         var data = {
+            orderId: orderID,
             status: selectedValue
         };
 
@@ -163,11 +181,14 @@
             success: function(response) {
                 // Handle the response from the server, if needed
                 console.log(response);
+                $('#basicModal').modal('hide'); // Close the modal
+                location.reload(); // Reload the page
             },
             error: function(xhr, status, error) {
                 // Handle any errors that occur during the AJAX request
                 console.log(error);
             }
         });
+
     }
 </script>

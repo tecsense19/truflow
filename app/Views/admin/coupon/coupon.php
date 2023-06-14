@@ -51,9 +51,9 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
                                     <input type="text" value="<?php echo $coupon_price; ?>" class="form-control" id="coupon_price" name="coupon_price" placeholder="price / percentage" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="defaultSelect" class="form-label">Type Of Discount</label>
-                                    <select id="coupon_price_type" name="coupon_price_type" class="form-select">
-                                        <option>Default select</option>
+                                    <label for="defaultSelect" class="form-label">Discount Type</label>
+                                    <select id="coupon_price_type" name="coupon_price_type" class="form-select required" required>
+                                        <option value="">Default select</option>
                                         <option value="Flat" <?php if ($coupon_price_type == 'Flat') echo ' selected="selected"'; ?>>Flat</option>
                                         <option value="Percentage" <?php if ($coupon_price_type == 'Percentage') echo ' selected="selected"'; ?>>Percentage</option>
                                     </select>
@@ -72,8 +72,8 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="defaultSelect" class="form-label">Type Of Discount</label>
-                                    <select id="coupon_type" name="coupon_type" class="form-select" onchange="updateForm()">
-                                        <option>Default select</option>
+                                    <select id="coupon_type" name="coupon_type" class="form-select required" onchange="updateForm()">
+                                        <option value="">Default select</option>
                                         <option value="Global" <?php if ($coupon_type == 'Global') echo ' selected="selected"'; ?>>Global</option>
                                         <option value="User" <?php if ($coupon_type == 'User') echo ' selected="selected"'; ?>>User</option>
                                         <option value="Category" <?php if ($coupon_type == 'Category') echo ' selected="selected"'; ?>>Category</option>
@@ -81,8 +81,10 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
                                 </div>
                             </div>
 
+
+
                             <div id="userDropdown" <?php echo ($coupon_type !== 'User') ? 'style="display: none;"' : ''; ?>>
-                                <select id="user_id" name="user_id[]" multiple="multiple" class="form-select user-dropdown">
+                                <select id="user_id" name="user_id[]" multiple="multiple" class="form-select user-dropdown" required>
                                     <?php if (isset($userdata)) { ?>
                                         <?php foreach ($userdata as $user) : ?>
                                             <?php
@@ -98,7 +100,7 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
                             </div>
 
                             <div id="categoryDropdown" <?php echo ($coupon_type !== 'Category') ? 'style="display: none;"' : ''; ?>>
-                                <select id="category_id" name="category_id[]" class="form-select" multiple>
+                                <select id="category_id" name="category_id[]" class="form-select" multiple required>
                                     <?php if (isset($categoryData)) { ?>
                                         <?php foreach ($categoryData as $category) : ?>
                                             <?php
@@ -178,21 +180,60 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
             rules: {
                 coupon_code: {
                     required: true
+                },
+                coupon_price: {
+                    required: true,
+                    number: true
+                },
+                coupon_price_type: {
+                    required: true
+                },
+                from_date: {
+                    required: true
+                },
+                to_date: {
+                    required: true
+                },
+                user_id: {
+                    required: {
+                        depends: function(element) {
+                            return $("#coupon_type").val() === "User";
+                        }
+                    }
+                },
+                category_id: {
+                    required: {
+                        depends: function(element) {
+                            return $("#coupon_type").val() === "Category";
+                        }
+                    }
                 }
-
-
             },
             messages: {
                 coupon_code: {
-                    required: "Title is required!"
+                    required: "Coupon code is required."
+                },
+                coupon_price: {
+                    required: "Coupon amount is required.",
+                    number: "Please enter a valid number for the coupon amount."
+                },
+                coupon_price_type: {
+                    required: "Type of discount is required."
+                },
+                from_date: {
+                    required: "From date is required."
+                },
+                to_date: {
+                    required: "To date is required."
+                },
+                user_id: {
+                    required: "User is required for User type coupon!"
+                },
+                category_id: {
+                    required: "Category is required for Category type coupon!"
                 }
-
-
             },
-            submitHandler: function(form) {
-                form.submit();
-            }
+            // Submit handler...
         });
-
     });
 </script>

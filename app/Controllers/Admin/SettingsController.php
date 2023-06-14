@@ -126,26 +126,6 @@ class SettingsController extends BaseController
 
         $settingsImagesModel = new SettingsImagesModel();
 
-        // print_r($lastId);
-        // die();
-
-       
-        
-        // if (!empty($_FILES[$typeArr.'_image_path']['name'][0])) {
-        //     $path = 'public/front/images/partner_images/';
-        //     $files = $_FILES[$typeArr.'_image_path'];
-        
-        //     for ($i = 0; $i < count($files['name']); $i++) {
-        //         $file = new \CodeIgniter\HTTP\Files\UploadedFile($files['tmp_name'][$i], $files['name'][$i], $files['type'][$i], $files['size'][$i], $files['error'][$i]);
-        //         if ($file->getClientName()) {
-        //             $filename = time() . '_bannerImg_' . $file->getClientName();
-        //             $file->move($path, $filename);
-        //             $settingImg['image_path'] = 'public/front/images/partner_images/' . $filename;
-        //             $settingImg['setting_id'] = $lastId;
-        //             $settingsImagesModel->insert($settingImg);
-        //         }
-        //     }
-        // }
 
         if (!empty($_FILES[$typeArr.'_image_path']['name'][0])) {
             $path = 'public/front/images/partner_images/';
@@ -169,37 +149,6 @@ class SettingsController extends BaseController
                 }
             }
         }
-        
-        
-        
-    
-        // if ($file = $this->request->getFile($typeArr . '_image_path')) {
-        //     $path = 'public/front/images/partner_images/';
-        //     if ($file->getClientName()) {
-        //         $filename = time() . '_bannerImg_' . $file->getClientName();
-        //         $file->move($path, $filename);
-        //         $img = imagecreatefromstring(file_get_contents($path . $filename));
-        //         $new_width = 500;
-        //         $new_height = 670;
-        //         $image_p = imagecreatetruecolor($new_width, $new_height);
-        //         imagecopyresampled($image_p, $img, 0, 0, 0, 0, $new_width, $new_height, imagesx($img), imagesy($img));
-        //         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        //         $new_filename = time() . '_bannerImg_' . mt_rand() . '.' . $extension;
-        //         if ($extension == 'jpg' || $extension == 'jpeg') {
-        //             imagejpeg($image_p, $path . $new_filename, 100);
-        //         } elseif ($extension == 'png') {
-        //             imagepng($image_p, $path . $new_filename);
-        //         } elseif ($extension == 'gif') {
-        //             imagegif($image_p, $path . $new_filename);
-        //         } else {
-        //             echo ("Unsupported file format");
-        //         }
-        //         $settingImg['image_path'] = 'public/front/images/partner_images/' . $new_filename;
-        //         $settingImg['setting_id'] = $lastId;
-        //         $settingsImagesModel->insert($settingImg);
-        //     }
-        // }
-
 
     }
 }

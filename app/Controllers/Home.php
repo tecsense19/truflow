@@ -505,6 +505,36 @@ class Home extends BaseController
         return redirect()->back();
     }
 
+    public function terms_and_condition()
+    {
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+        return view('front/terms_and_condition', ['headerData' => $headerData]);
+    }
+
+    public function privacy_policy()
+    {
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+        return view('front/privacy_policy', ['headerData' => $headerData]);
+    }
+
+    public function disclaimer()
+    {
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+        return view('front/disclaimer', ['headerData' => $headerData]);
+    }
+
 
     
 }

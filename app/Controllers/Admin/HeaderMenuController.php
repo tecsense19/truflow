@@ -6,7 +6,7 @@ use App\Models\HeaderMenuModel;
 
 class HeaderMenuController extends BaseController
 {
-    public function index()
+    public function header_menu_list()
     {
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();

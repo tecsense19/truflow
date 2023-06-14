@@ -69,17 +69,24 @@ class OrderController extends BaseController
 
     public function change_order_status()
 {
+    
+    
     $input = $this->request->getVar();
-    $orderArr = [];
-   
-    $orderID = $input['order_id']; 
-    $newStatus = $input['status']; 
+
+    // $orderID = $input['order_id']; 
+    // $newStatus = $input['status']; 
+
+    // print_r($input['orderId']);
+    // die();
+
+    $ordermodel = new OrderModel();
+    $cartData = $ordermodel->where('order_id', $input['orderId'])->findAll();
 
     
-    $cartmodel = new OrderModel();
-    $cartmodel->where('order_id', $orderID)->set(['order_status' => $newStatus])->update();
 
-    // Return a response if needed
+    $ordermodel->where('order_id', $input['orderId'])->set(['order_status' => $input['status']])->update();
+
+    
     return $this->response->setJSON(['success' => true]);
 }
 
