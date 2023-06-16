@@ -392,6 +392,7 @@ class Home extends BaseController
         $variantsModel = new VariantsModel();
         $productmodel = new ProductModel();
 
+        
         $variantRecords = array();
 
         for ($i = 0; $i < count($partno); $i++) {
