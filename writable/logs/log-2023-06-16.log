@@ -1,0 +1,133 @@
+CRITICAL - 2023-06-16 10:09:04 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:09 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:20 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:27 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:28 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:13:15 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:17:17 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:17:32 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:20:19 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
