@@ -121,10 +121,17 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
+
 <script>
     $(document).ready(function() {
         var imageUploaded = <?php echo ($product_img ? 'true' : 'false'); ?>;
+        var addVariantClicked = false;
+
+        var productId = "<?php echo $product_id; ?>";
+    if (productId !== '') {
+        addVariantClicked = true; // Set addVariantClicked to true for editing mode
+    }
 
         $("#product_form").validate({
             rules: {
@@ -142,7 +149,7 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                 },
                 product_img: {
                     required: function() {
-                        return !imageUploaded; // Validation required only if image has not been uploaded
+                        return !imageUploaded;
                     }
                 },
                 "variant_name[]": {
@@ -182,8 +189,16 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                 }
             },
             submitHandler: function(form) {
-                form.submit();
+                if (addVariantClicked) {
+                    form.submit();
+                } else {
+                    alert("Add Variant button is required!");
+                }
             }
+        });
+
+        $("#add-btn").click(function() {
+            addVariantClicked = true;
         });
     });
 </script>

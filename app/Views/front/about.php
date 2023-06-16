@@ -19,16 +19,13 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <div class="about_content">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ipsum ad repellat modi voluptas
-                        non, debitis blanditiis consequatur quos autem consectetur odio fugiat in quam officia
-                        asperiores iure quasi pariatur itaque alias eos possimus veritatis commodi eum impedit.
-                        Aliquam omnis distinctio quisquam expedita molestiae ea, esse, sint et illo? Dolores eveniet
-                        officia dolorum veritatis delectus placeat, laboriosam, est, explicabo deserunt suscipit
-                        libero nisi perspiciatis cupiditate hic soluta ut. In, dolorem exercitationem.
+                <div class="about_content about_d">
+                    <p> Originally founded in 2004 as an importer of hydraulic hose and quick release couplings. 20 years later we have positioned ourselves in the industry to include Gates, Hydroscand, Cejn, Nitto, HPA Tridon, plus a full range of hydraulic adaptors, hose fittings and clamping.
                     </p>
-                    <button type="button" class="btn">Read More</button>
+                    <p class="">With a strong fucus on the WA market and a combined inhouse experience exceeding 180 years. We pride ourselves on our fast turn around time and high fill rates.</p>
+                    <p class="">Located centrally amongst the WA freight industry and access to same day pickups, we can ship anywhere in Australia or the world with ease.</p>
+                    <p class="mb-3">Extremely competitive prices make us one of the leading suppliers of hydraulic hose and fittings, adaptors, quick release couplings, inline valving, and clamping systems.</p>
+                    <!-- <button type="button" class="btn">Read More</button> -->
                 </div>
             </div>
             <div class="col-lg-6">

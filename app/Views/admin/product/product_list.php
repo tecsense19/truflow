@@ -86,29 +86,3 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
-<script>
-    $(document).ready(function() {
-        $("#product_form").validate({
-            rules: {
-                product_name: {
-                    required: true
-                }
-
-
-            },
-            messages: {
-                product_name: {
-                    required: "Title is required!"
-                }
-
-
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
-    });
-</script>

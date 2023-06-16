@@ -12,7 +12,7 @@ use App\Models\ProductModel;
 use App\Models\VariantsModel;
 use App\Models\CartModel;
 use App\Models\AddwishlistModel;
-
+use App\Models\UserContactModel;
 
 
 
@@ -261,6 +261,30 @@ class Home extends BaseController
             echo json_encode(['error' => 'Not found']);
         }
     }
+
+    public function searchSimilarData()
+    {
+        $input = $this->request->getVar('search');
+        $variantsModel = new VariantsModel();
+
+        // Search for exact match
+        $result = $variantsModel->where('variant_sku', $input)->find();
+
+        // If no exact match found, search for similar words
+        if (empty($result)) {
+            $result = $variantsModel->like('variant_sku', '%' . $input . '%')->find();
+        }
+
+        header('Content-Type: application/json');
+
+        if (!empty($result)) {
+            echo json_encode($result);
+        } else {
+            echo json_encode(['error' => 'Not found']);
+        }
+    }
+
+
 
     public function add_to_cart()
     {
@@ -534,6 +558,41 @@ class Home extends BaseController
         }
         return view('front/disclaimer', ['headerData' => $headerData]);
     }
+    public function userContact()
+    {
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+        return view('front/user_contact', ['headerData' => $headerData]);
+    }
+    public function contactSave()
+    {
+     
+        $usercontactmodel = new UserContactModel();
+        $session = session();
+        $contact_name = $this->request->getVar('contact_name');
+        $variantIds = $this->request->getVar('variant_id');
+        $contact_email = $this->request->getVar('contact_email');
+        $company_name = $this->request->getVar('company_name');
+        $contact_phone = $this->request->getVar('contact_phone');
+ 
+                $data = array(
+                   
+                    'contact_name' => $contact_name,
+                    'contact_email' => $contact_email,
+                    'company_name' => $company_name,
+                    'contact_phone' => $contact_phone
+                   
+                );
+                $usercontactmodel->insert($data);
+        
+        $session->setFlashdata('success', 'Submit Your Details Successfully.');
+
+        return redirect()->back();
+    }
+
 
 
     

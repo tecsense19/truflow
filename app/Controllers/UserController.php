@@ -248,4 +248,92 @@ class UserController extends BaseController
         return view('front/my_order',['userData' => $userData,'countryData' => $countryData, 'orderData' => $orderData]);
     }
 
+    // -----------------------------------------------
+    public function forgotPassword()
+    {
+       
+        return view('front/forgot_password');
+    }
+
+    public function sendPasswordResetLink()
+    {
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'email' => 'required|valid_email',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->to('forgot-password')->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $email = $this->request->getPost('email');
+
+        // Check if the email exists in the database
+        $userModel = new UserModel();
+        $user = $userModel->where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->to('forgot-password')->withInput()->with('error', 'Email not found.');
+        }
+
+        // Generate and save a password reset token
+        $token = bin2hex(random_bytes(32));
+        $userModel->update($user['user_id'], ['reset_token' => $token]);
+
+        // Send password reset email
+        $emailData = [
+            'email' => $email,
+            'token' => $token,
+        ];
+
+        // Call your email sending function or library here
+        // sendPasswordResetEmail($emailData);
+
+        return redirect()->to('forgot-password')->with('success', 'Password reset link sent successfully.');
+    }
+
+    public function resetPassword($token)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->where('reset_token', $token)->first();
+
+        if (!$user) {
+            return redirect()->to('forgot-password')->with('error', 'Invalid or expired token.');
+        }
+
+        return view('reset_password', ['token' => $token]);
+    }
+
+    public function updatePassword($token)
+    {
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'password' => 'required|min_length[6]',
+            'confirm_password' => 'required|matches[password]',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->to('reset-password/' . $token)->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $password = $this->request->getPost('password');
+
+        $userModel = new UserModel();
+        $user = $userModel->where('reset_token', $token)->first();
+
+        if (!$user) {
+            return redirect()->to('forgot-password')->with('error', 'Invalid or expired token.');
+        }
+
+        // Update the user's password
+        $userModel->update($user['user_id'], [
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'reset_token' => null,
+        ]);
+
+        return redirect()->to('login')->with('success', 'Password reset successfully. You can now log in with your new password.');
+    }
+
 }

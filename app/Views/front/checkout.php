@@ -207,7 +207,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                 <li class="order_list d-flex justify-content-between align-items-center">
                   <h5>Product</h5>
                   <h5>Total</h5>
-                  
+
                 </li>
 
                 <?php foreach ($cartData as $key => $cart) {  ?>
@@ -217,29 +217,29 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                   <li class="order_list d-flex justify-content-between align-items-center">
                     <p><?php echo $cart['product_name']; ?> x <?php echo $cart['product_quantity']; ?></p>
                     <div class="data">
-                    <span class="category_id_match_<?php echo $cart['category_id'] ?>">
-                      <?php
-                      $createString = isset($_GET['category_id_match_' . ($key) . '_' . $cart['category_id']]) ? $_GET['category_id_match_' . ($key) . '_' . $cart['category_id']] : '';
-                      ?>
-                      <?php
-                      if ($createString) {
-                        echo "$" . $createString;
-                      } else {
-                        $total_Amount = $cart['product_amount'] * $cart['product_quantity'];
-                        $formatted_Amount = number_format($total_Amount, 2, '.', ',');
-                        echo "$" . $formatted_Amount;
-                      }
+                      <span class="category_id_match_<?php echo $cart['category_id'] ?>">
+                        <?php
+                        $createString = isset($_GET['category_id_match_' . ($key) . '_' . $cart['category_id']]) ? $_GET['category_id_match_' . ($key) . '_' . $cart['category_id']] : '';
+                        ?>
+                        <?php
+                        if ($createString) {
+                          echo "$" . $createString;
+                        } else {
+                          $total_Amount = $cart['product_amount'] * $cart['product_quantity'];
+                          $formatted_Amount = number_format($total_Amount, 2, '.', ',');
+                          echo "$" . $formatted_Amount;
+                        }
 
-                      ?>
-                                 
-                    </span>
-                    <span class="ml-2">
-                    <a href="#" onclick="confirmDelete('<?php echo base_url('') . 'delete_check/' . $cart['cart_id']; ?>')">
-  <i class="fa-solid fa-trash"></i>
-</a>
-                    </span>
+                        ?>
+
+                      </span>
+                      <span class="ml-2">
+                        <a href="#" onclick="confirmDelete('<?php echo base_url('') . 'delete_check/' . $cart['cart_id']; ?>')">
+                          <i class="fa-solid fa-trash"></i>
+                        </a>
+                      </span>
                     </div>
-       
+
                   </li>
                 <?php } ?>
 
@@ -477,6 +477,10 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                   var commonValues = array1.filter(function(value) {
                     return array2.indexOf(value) !== -1;
                   });
+                  if (commonValues.length === 0) {
+                    $('#couponMessage').text('Coupon is not valid.');
+                    return;
+                  }
                   $('.category_id_match_' + commonValues[0]).each(function(index, element) {
                     var elementText = $(element).text();
                     var new_category_id = elementText.replace('$', '');

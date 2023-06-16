@@ -46,7 +46,7 @@
                                                     <td><?php echo $i;?></td>
                                                     <td><?php echo $testominal['full_name'];?></td>
                                                     <td><?php echo $testominal['designation'];?></td>
-                                                    <td class="testo_descrip"><?php echo $testominal['description'];?></td>
+                                                    <td><?php echo $testominal['description'];?></td>
                                                     <td>
                                                         <?php if(isset($testominal['testimo_img'])) {?>
                                                             <a data-fancybox="preview" href="<?php echo base_url('').$testominal['testimo_img']?>"><img src="<?php echo base_url('').$testominal['testimo_img']?>" alt="Image" class ="" width="100"></a>
@@ -82,29 +82,3 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
-<script>
-    $(document).ready(function() {
-        $("#testominal_form").validate({
-            rules: {
-                full_name: {
-                    required: true
-                }
-
-
-            },
-            messages: {
-                full_name: {
-                    required: "Title is required!"
-                }
-
-
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
-    });
-</script>

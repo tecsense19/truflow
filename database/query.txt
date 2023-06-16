@@ -1,0 +1,1 @@
+ALTER TABLE `user_contact` ADD `company_name` VARCHAR(255) NULL AFTER `contact_email`;

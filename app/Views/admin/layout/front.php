@@ -9,7 +9,7 @@
         <title>Truflow-Hydarulics</title>
         <meta name="description" content="" />
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/admin/assets/img/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/uploads/Truflow-Favicon.png" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

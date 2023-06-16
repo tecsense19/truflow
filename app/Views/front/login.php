@@ -45,7 +45,7 @@
             <div class=" form-password-toggle">
                 <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Password</label>
-                    <a href="#">
+                    <a href="<?php echo base_url('forgot-password') ?>">
                         <small>Forgot Password?</small>
                     </a>
                 </div>
@@ -65,12 +65,12 @@
         </div>
         <div class="form-group">
             <div class="">
-                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                <button class="btn btn-primary d-grid w-100 signin_btn" type="submit">Sign in</button>
             </div>
         </div>
         <div class="form-group">
         <div class="">
-            <a href="<?php echo base_url('register')?>" class="btn btn-primary d-grid w-100">Register</a>
+            <a href="<?php echo base_url('register')?>" class="btn btn-primary d-grid w-100 signin_btn">Register</a>
         </div>
         </div>
     </form>
@@ -82,7 +82,7 @@
 
 <?= $this->include('front/layout/footer'); ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
     $(document).ready(function() {
         $("#loginForm").validate({

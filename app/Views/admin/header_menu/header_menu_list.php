@@ -30,7 +30,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Menu Name</th>
-                                                    <th>Sub Menu</th>
+                                                    
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -43,7 +43,7 @@
                                                 <tr>
                                                     <td><?php echo $i;?></td>
                                                     <td><?php echo $header['header_menu'];?></td>
-                                                    <td class="testo_descrip"><?php echo $header['header_sub_menu'];?></td>
+                                                    
                                                     <td>
                                                 <a class="" href="<?php echo base_url('')."admin/header_menu/edit/".$header['header_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                 <a class="" href="<?php echo base_url('')."admin/header_menu/delete/".$header['header_id']?>"><i class="bx bx-trash me-1"></i> Delete</a>
@@ -71,29 +71,3 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
-<script>
-    $(document).ready(function() {
-        $("#header_form").validate({
-            rules: {
-                header_name: {
-                    required: true
-                }
-
-
-            },
-            messages: {
-                header_name: {
-                    required: "Title is required!"
-                }
-
-
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
-    });
-</script>

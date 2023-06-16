@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 col-lg-5">
                     <div class="footer_logo">
-                    <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid"></a>
+                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid"></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat nunc amet elit viverra
                             purus a. Neque </p>
                         <div class="footer_icon">
@@ -32,7 +32,7 @@
                                 <a href="<?php echo base_url('shop'); ?>">Our Products</a>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <a href="<?php echo base_url('userContact'); ?>">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +105,7 @@
         var searchValue = $('#search').val();
         if (searchValue.trim().length >= 2) {
             $.ajax({
-                url: '<?php echo base_url(); ?>/searchData',
+                url: '<?php echo base_url(); ?>searchData',
                 method: 'POST',
                 data: {
                     search: searchValue
@@ -132,9 +132,9 @@
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error occurred during AJAX request.');
-                    console.log('Status:', status);
-                    console.log('Error:', error);
+                    // console.error('Error occurred during AJAX request.');
+                    // console.log('Status:', status);
+                    // console.log('Error:', error);
                     $('#search-result').html('<p>Error occurred: ' + error + '</p>');
                 }
             });
@@ -164,7 +164,7 @@
         });
     });
 </script>
-<!-- // add to cart based on product_detail page -->
+
 <script>
     $(document).ready(function() {
         $('#product_details').submit(function(e) {
@@ -177,10 +177,10 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    console.log(response);
+                    //console.log(response);
                 },
                 error: function(xhr, status, error) {
-                    console.error(error);
+                    //console.error(error);
                 }
             });
         });
@@ -188,203 +188,196 @@
 </script>
 <!-- // add row and validation and add to cart precess -->
 <script>
-        $(document).ready(function() {
-            var initialRows = 4;
-            var maxRows = 10;
-            // Add initial rows
-            for (var i = 0; i < initialRows; i++) {
-                addRow();
+    $(document).ready(function() {
+        var initialRows = 4;
+        var maxRows = 10;
+        // Add initial rows
+        for (var i = 0; i < initialRows; i++) {
+            addRow();
+        }
+        // Add more rows when clicking the button
+        $('#add_rows').click(function() {
+            addRow();
+        });
+
+        $(document).on('click', '.delete-icon', function() {
+            var row = $(this).closest('.input_fileds_row');
+            var searchInput = row.find('.search_data_field');
+            var qualityInput = row.find('.quality_input');
+            searchInput.val('');
+            qualityInput.val('');
+            $(this).hide();
+        });
+
+        $(document).on('input', '.search_data_field, .quality_input', function() {
+            var row = $(this).closest('.input_fileds_row');
+            var deleteIcon = row.find('.delete-icon');
+            if ($(this).val().trim() !== '') {
+                deleteIcon.show();
+            } else {
+                deleteIcon.hide();
             }
-            // Add more rows when clicking the button
-            $('#add_rows').click(function() {
-                addRow();
-            });
+        });
 
-            // Add event listener to dynamically created delete icons
-            $(document).on('click', '.delete-icon', function() {
-                var row = $(this).closest('.input_fileds_row');
-                var searchInput = row.find('.search_data_field');
-                var qualityInput = row.find('.quality_input');
-                searchInput.val('');
-                qualityInput.val('');
-                $(this).hide();
-            });
+        function addRow() {
+            var numRows = $('.input_fields .input_fileds_row').length;
+            if (numRows < maxRows) {
+                var newRow =
+                    '<div class="input_fileds_row input_fileds">' +
+                    '<div class="part_num">' +
+                    (numRows === 0 ? '<h6>Part Number</h6>' : '') +
+                    '<div class="dropdown1">' +
+                    '<div class="dropdown-menu1">' +
+                    // Add dropdown content and styling here
+                    '</div>' +
+                    '<input type="search" class="form-control search_data_field" name="search[]">' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="quality">' +
+                    (numRows === 0 ? '<h6>Quantity</h6>' : '') +
+                    '<input type="number" class="form-control quality_input input-text qty text" inputmode="numeric" autocomplete="off" step="1" min="0" max="" name="quality[]">' +
+                    '</div>' +
+                    '<div class="delete-icon" style="display: none;">' +
+                    '<i class="fa fa-trash"></i>' +
+                    '</div>' +
+                    '</div>';
 
-            // Add event listener to input fields for showing/hiding delete icon
-            $(document).on('input', '.search_data_field, .quality_input', function() {
-                var row = $(this).closest('.input_fileds_row');
-                var deleteIcon = row.find('.delete-icon');
-                if ($(this).val().trim() !== '') {
-                    deleteIcon.show();
-                } else {
-                    deleteIcon.hide();
-                }
-            });
+                $('.input_fields').append(newRow);
 
-            function addRow() {
-                var numRows = $('.input_fields .input_fileds_row').length;
-                if (numRows < maxRows) {
-                    var newRow =
-                        '<div class="input_fileds_row input_fileds">' +
-                        '<div class="part_num">' +
-                        (numRows === 0 ? '<h6>Part Number</h6>' : '') +
-                        '<div class="dropdown1">' +
-                        '<div class="dropdown-menu1">' +
-                        // Add dropdown content and styling here
-                        '</div>' +
-                        '<input type="search" class="form-control search_data_field" name="search[]">' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="quality">' +
-                        (numRows === 0 ? '<h6>Quantity</h6>' : '') +
-                        '<input type="number" class="form-control quality_input input-text qty text" inputmode="numeric" autocomplete="off" step="1" min="0" max="" name="quality[]">' +
-                        '</div>' +
-                        '<div class="delete-icon" style="display: none;">' +
-                        '<i class="fa fa-trash"></i>' +
-                        '</div>' +
-                        '</div>';
 
-                    $('.input_fields').append(newRow);
+                var dropdown = $('.input_fields .input_fileds_row:last-child .dropdown1');
+                dropdown.css('position', 'relative');
 
-                    // Apply CSS and styling to the dropdown element
-                    var dropdown = $('.input_fields .input_fileds_row:last-child .dropdown1');
-                    dropdown.css('position', 'relative');
+                var dropdownMenu = dropdown.find('.dropdown-menu1');
+                dropdownMenu.css({
+                    'position': 'absolute',
+                    'top': '100%',
+                    'left': 0,
+                    'z-index': 9999,
+                    'background-color': '#fff',
 
-                    var dropdownMenu = dropdown.find('.dropdown-menu1');
-                    dropdownMenu.css({
-                        'position': 'absolute',
-                        'top': '100%',
-                        'left': 0,
-                        'z-index': 9999,
-                        'background-color': '#fff',
-                        // Add other dropdown styling properties
-                    });
-
-                    // Add background color change on hover for searchable results
-                    dropdownMenu.on('mouseenter', 'li', function() {
-                        $(this).css('background-color', '#aaa'); // Change background color on hover
-                    });
-
-                    dropdownMenu.on('mouseleave', 'li', function() {
-                        $(this).css('background-color', '#e3e5eb'); // Reset background color on hover out
-                    });
-
-                    // Check the number of search results
-                    var searchResults = dropdownMenu.find('li');
-                    var numResults = searchResults.length;
-                    var maxResultsThreshold = 3; // Adjust this value according to your needs
-
-                    if (numResults > maxResultsThreshold) {
-                        dropdownMenu.css({
-                            'max-height': '200px', // Adjust the max height as needed
-                            'overflow-y': 'scroll',
-                        });
-                    }
-                }
-            }
-
-            // Handle form submission
-            $('#cart_form').submit(function(e) {
-                e.preventDefault(); // Prevent default form submission
-                // Check if the user is logged in
-                var isLoggedIn = checkUserLoginStatus(); // Replace this with your own logic to check the user's login status
-                if (!isLoggedIn) {
-                    // User is not logged in, display a warning message
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Please Login',
-                        text: 'Please log in before adding items to the cart.',
-                    }).then(function(result) {
-                        if (result.isConfirmed) {
-                            // Redirect the user to the login page
-                            window.location.href = '<?php echo base_url('login')?>'; // Replace 'login.html' with the actual URL of your login page
-                        }
-                    });
-                    return;
-                }
-                // Get the filled rows
-                var filledRows = $('.input_fileds_row').filter(function() {
-                    var searchInput = $(this).find('.search_data_field');
-                    var qualityInput = $(this).find('.quality_input');
-                    return searchInput.val().trim() !== '' || qualityInput.val().trim() !== '';
                 });
-                // Validate the filled rows
-                if (filledRows.length === 0) {
-                    // No filled rows, display a validation error message
+
+                dropdownMenu.on('mouseenter', 'li', function() {
+                    $(this).css('background-color', '#aaa');
+                });
+
+                dropdownMenu.on('mouseleave', 'li', function() {
+                    $(this).css('background-color', '#e3e5eb');
+                });
+
+                // Check the number of search results
+                var searchResults = dropdownMenu.find('li');
+                var numResults = searchResults.length;
+                var maxResultsThreshold = 3;
+
+                if (numResults > maxResultsThreshold) {
+                    dropdownMenu.css({
+                        'max-height': '200px',
+                        'overflow-y': 'scroll',
+                    });
+                }
+            }
+        }
+
+        $('#cart_form').submit(function(e) {
+            e.preventDefault();
+
+            var isLoggedIn = checkUserLoginStatus();
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Please Login',
+                    text: 'Please log in before adding items to the cart.',
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        window.location.href = '<?php echo base_url('login') ?>'; // Replace 'login.html' with the appropriate login page URL
+                    }
+                });
+                return;
+            }
+
+            var filledRows = $('.input_fileds_row').filter(function() {
+                var searchInput = $(this).find('.search_data_field');
+                var qualityInput = $(this).find('.quality_input');
+                return searchInput.val().trim() !== '' || qualityInput.val().trim() !== '';
+            });
+
+            if (filledRows.length === 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    text: 'Please fill in at least one row.',
+                });
+                return;
+            }
+
+            var isValid = true;
+            filledRows.each(function() {
+                var searchInput = $(this).find('.search_data_field');
+                var qualityInput = $(this).find('.quality_input');
+
+                if (searchInput.val().trim() === '' || qualityInput.val().trim() === '') {
                     Swal.fire({
                         icon: 'error',
                         title: 'Validation Error',
-                        text: 'Please fill in at least one row.',
+                        text: 'Please fill in all the required fields for the filled rows.',
                     });
-                    return;
+                    isValid = false;
+                    return false;
                 }
-                var isValid = true;
-                filledRows.each(function() {
-                    var searchInput = $(this).find('.search_data_field');
-                    var qualityInput = $(this).find('.quality_input');
-                    if (searchInput.val().trim() === '' || qualityInput.val().trim() === '') {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Validation Error',
-                            text: 'Please fill in all the required fields for the filled rows.',
-                        });
-                        isValid = false;
-                        return false;
-                    }
-                    if (parseInt(qualityInput.val()) === 0) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Validation Error',
-                            text: 'Please enter a quantity greater than 0.',
-                        });
-                        isValid = false;
-                        return false;
-                    }
-                });
-                if (!isValid) {
-                    return; // Stop form submission if validation fails
-                }
-                var formData = $(this).serializeArray();
-                // Send data using AJAX
-                $.ajax({
-                    url: $(this).attr('action'),
-                    method: 'POST',
-                    data: formData,
-                    success: function(response) {
-                        // Handle success response
-                        console.log(response);
-                        if (response === 'no_records') {
-                            Swal.fire({
-                                icon: 'info',
-                                title: 'No Records Found',
-                                text: 'No records were found to add to the cart.',
-                            });
-                        } else {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success!',
-                                text: 'Data added to cart successfully.',
-                            }).then(function() {
-                                // Redirect to the cart page
-                                window.location.href = 'cart.php';
-                            });
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                        console.error(error);
-                    },
-                });
-            });
 
-            function checkUserLoginStatus() {
-                var isLoggedIn = <?php
-                                    $session = session();
-                                    echo $session->get('user_id') ? 'true' : 'false'; ?>;
-                return isLoggedIn;
+                if (parseInt(qualityInput.val()) == 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Validation Error',
+                        text: 'Please enter a quantity greater than 0.',
+                    });
+                    isValid = false;
+                    return false;
+                }
+            });
+            if (!isValid) {
+                return; 
             }
+
+            var formData1 = $(this).serializeArray();
+            // Send data using AJAX
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: formData1,
+                success: function(response) {
+                    
+                    if (response == 'Not found') {
+                        // Display error message if data is not found
+                       
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Data added to cart successfully.',
+                        }).then(function() {
+                            // Redirect to the cart page
+                            window.location.href = '<?= base_url("add_to_cart") ?>';
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error(error);
+                },
+            });
         });
-    </script>
+
+        function checkUserLoginStatus() {
+            var isLoggedIn = <?php
+                                $session = session();
+                                echo $session->get('user_id') ? 'true' : 'false'; ?>;
+            return isLoggedIn;
+        }
+    });
+</script>
 
 <!-- //search function based on input box-------- -->
 <script>
@@ -393,12 +386,14 @@
         $(document).on('keyup input', '.search_data_field', function() {
             var searchText = $(this).val();
             // Check if search text has at least three characters
-            if (searchText.trim().length >= 2) {
+            if (searchText.trim().length >= 1) {
                 searchData(searchText, $(this));
+                $('#add_to_cart').attr('disabled', true);
             } else {
                 // Clear the search results if the search text is less than three characters
                 var dropdownMenu1 = $(this).siblings('.dropdown-menu1');
                 dropdownMenu1.html('').hide();
+                $('#add_to_cart').attr('disabled', false);
             }
         });
         // Hide search response on backspace key press
@@ -419,7 +414,7 @@
         function searchData(searchText, inputElement) {
             var dropdownMenu1 = inputElement.siblings('.dropdown-menu1');
             $.ajax({
-                url: '<?php echo base_url(); ?>/searchData',
+                url: '<?php echo base_url(); ?>searchData',
                 method: 'POST',
                 data: {
                     search: searchText
@@ -436,14 +431,15 @@
                         }
                         html += '</ul>';
                         dropdownMenu1.html(html).show();
+                        $('#add_to_cart').attr('disabled', false);
                     } else {
                         searchSimilarData(searchText, dropdownMenu1);
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error occurred during AJAX request.');
-                    console.log('Status:', status);
-                    console.log('Error:', error);
+                    // console.error('Error occurred during AJAX request.');
+                    // console.log('Status:', status);
+                    // console.log('Error:', error);
                     dropdownMenu1.html('<p>' + error + '</p>').show();
                 }
             });
@@ -451,7 +447,7 @@
 
         function searchSimilarData(searchText, dropdownMenu1) {
             $.ajax({
-                url: '<?php echo base_url(); ?>/searchSimilarData',
+                url: '<?php echo base_url(); ?>searchSimilarData',
                 method: 'POST',
                 data: {
                     search: searchText
@@ -468,14 +464,16 @@
                         }
                         html += '</ul>';
                         dropdownMenu1.html(html).show();
+                        $('#add_to_cart').attr('disabled', false);
                     } else {
                         dropdownMenu1.html('No record found').show();
+                       $('#add_to_cart').attr('disabled', true);
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error occurred during AJAX request.');
-                    console.log('Status:', status);
-                    console.log('Error:', error);
+                    // console.error('Error occurred during AJAX request.');
+                    // console.log('Status:', status);
+                    // console.log('Error:', error);
                     dropdownMenu1.html('<p>' + error + '</p>').show();
                 }
             });
@@ -490,7 +488,7 @@
         var searchValue = $('#search_1').val();
         if (searchValue.trim().length >= 2) {
             $.ajax({
-                url: '<?php echo base_url(); ?>/searchData1',
+                url: '<?php echo base_url(); ?>searchData1',
                 method: 'POST',
                 data: {
                     search: searchValue
@@ -517,9 +515,9 @@
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error occurred during AJAX request.');
-                    console.log('Status:', status);
-                    console.log('Error:', error);
+                    // console.error('Error occurred during AJAX request.');
+                    // console.log('Status:', status);
+                    // console.log('Error:', error);
                     $('#search_1-result').html('<p>Error occurred: ' + error + '</p>');
                 }
             });
@@ -580,8 +578,8 @@
                         showConfirmButton: false,
                         timer: 1000
                     }).then(function() {
-                    location.reload();
-                });
+                        location.reload();
+                    });
                 }
             });
         });
@@ -591,7 +589,7 @@
 <script>
     function changeImage(img) {
         $("imagepreview").src = img.src = "<?php echo base_url(); ?>public/front/images/heartw1.png";
-        
+
     }
 </script>
 
@@ -599,55 +597,55 @@
 
 <script>
     $(document).ready(function() {
-    $(".deletewishlistsubmit").click(function(e) {
-        e.preventDefault();
-        var product_id = $(this).attr('data-product_id');
-        
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't UnWishlist This!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, UnWishlist it!'
-        }).then(function(result) {
-            if (result.isConfirmed) {
-                // User clicked the confirm button, proceed with deletion
-                $.ajax({
-                    url: "<?php echo base_url('deleteWishList'); ?>",
-                    data: {
-                        "product_id": product_id
-                    },
-                    type: 'POST',
-                    success: function(result) {
-                        Swal.fire(
-                            'Deleted!',
-                            'The record has been deleted.',
-                            'success'
-                        ).then(function() {
-                            location.reload();
-                        });
-                    }
-                });
-            } else {
-                location.reload();
-            }
+        $(".deletewishlistsubmit").click(function(e) {
+            e.preventDefault();
+            var product_id = $(this).attr('data-product_id');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't UnWishlist This!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, UnWishlist it!'
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    // User clicked the confirm button, proceed with deletion
+                    $.ajax({
+                        url: "<?php echo base_url('deleteWishList'); ?>",
+                        data: {
+                            "product_id": product_id
+                        },
+                        type: 'POST',
+                        success: function(result) {
+                            Swal.fire(
+                                'Deleted!',
+                                'The record has been deleted.',
+                                'success'
+                            ).then(function() {
+                                location.reload();
+                            });
+                        }
+                    });
+                } else {
+                    location.reload();
+                }
+            });
         });
     });
-});
 </script>
 <script>
-  function changeImage1(img) {
-    $("imagepreview1").src = img.src="<?php echo base_url(); ?>public/front/images/heartw.png";
-    
-  }
+    function changeImage1(img) {
+        $("imagepreview1").src = img.src = "<?php echo base_url(); ?>public/front/images/heartw.png";
+
+    }
 </script>
 
 <script>
-    $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 
 </body>

@@ -23,6 +23,8 @@
                 <!-- Place this tag in your head or just before your close body tag. -->
                 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
                 <!-- other css/js -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
                  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
@@ -79,6 +81,7 @@
                         layoutMenu.classList.toggle('collapsed');
                     }
                 </script>
+               
 
                 </body>
 

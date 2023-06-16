@@ -1,0 +1,259 @@
+CRITICAL - 2023-06-15 04:55:16 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(9)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 04:58:17 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(10)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 05:00:36 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(11)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 05:04:24 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(12)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 05:06:22 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(13)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 05:54:37 --> Undefined variable $userData
+in APPPATH\Views\front\forgotpassword.php on line 33.
+ 1 APPPATH\Views\front\forgotpassword.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\forgotpassword.php', 33)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\forgotpassword.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/forgotPassword', [], true)
+ 5 APPPATH\Controllers\UserController.php(252): view('front/forgotPassword')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->forgotPassword()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:04:02 --> Call to undefined method App\Models\UserModel::checkEmailExist
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\UserController.php(271): CodeIgniter\Model->__call('checkEmailExist', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPasswordUser()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:10:50 --> Call to undefined method App\Models\UserModel::checkEmailExist
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\UserController.php(271): CodeIgniter\Model->__call('checkEmailExist', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPasswordUser()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:11:02 --> Call to undefined method App\Models\UserModel::checkEmailExist
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\UserController.php(271): CodeIgniter\Model->__call('checkEmailExist', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPasswordUser()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:35:30 --> Call to undefined function form_open()
+in APPPATH\Views\front\forgot_password.php on line 43.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/forgot_password', [], true)
+ 4 APPPATH\Controllers\UserController.php(256): view('front/forgot_password')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->forgotPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:37:31 --> Call to undefined function form_open()
+in APPPATH\Views\front\forgot_password.php on line 43.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/forgot_password', [], true)
+ 4 APPPATH\Controllers\UserController.php(256): view('front/forgot_password')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->forgotPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:37:32 --> Call to undefined function form_open()
+in APPPATH\Views\front\forgot_password.php on line 43.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/forgot_password', [], true)
+ 4 APPPATH\Controllers\UserController.php(256): view('front/forgot_password')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->forgotPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 06:37:33 --> Call to undefined function form_open()
+in APPPATH\Views\front\forgot_password.php on line 43.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/forgot_password', [], true)
+ 4 APPPATH\Controllers\UserController.php(256): view('front/forgot_password')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->forgotPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 07:50:27 --> Call to undefined function link_tag()
+in APPPATH\Views\front\layout\front.php on line 20.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('front/layout/front', null, true)
+ 4 APPPATH\Views\front\index.php(1): CodeIgniter\View\View->include('front/layout/front')
+ 5 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 8 APPPATH\Controllers\Home.php(101): view('front/index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 07:51:43 --> Call to a member function link() on null
+in APPPATH\Views\front\layout\front.php on line 20.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('front/layout/front', null, true)
+ 4 APPPATH\Views\front\index.php(1): CodeIgniter\View\View->include('front/layout/front')
+ 5 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 8 APPPATH\Controllers\Home.php(101): view('front/index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 08:01:34 --> array_column(): Argument #1 ($array) must be of type array, null given
+in APPPATH\Views\front\product_details.php on line 243.
+ 1 APPPATH\Views\front\product_details.php(243): array_column(null, 'variant_id')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(238): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('12')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 08:01:56 --> array_column(): Argument #1 ($array) must be of type array, null given
+in APPPATH\Views\front\product_details.php on line 243.
+ 1 APPPATH\Views\front\product_details.php(243): array_column(null, 'variant_id')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(238): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('10')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 08:02:45 --> array_column(): Argument #1 ($array) must be of type array, null given
+in APPPATH\Views\front\product_details.php on line 243.
+ 1 APPPATH\Views\front\product_details.php(243): array_column(null, 'variant_id')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(238): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 08:03:19 --> array_column(): Argument #1 ($array) must be of type array, null given
+in APPPATH\Views\front\product_details.php on line 243.
+ 1 APPPATH\Views\front\product_details.php(243): array_column(null, 'variant_id')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(238): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('8')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 08:03:47 --> array_column(): Argument #1 ($array) must be of type array, null given
+in APPPATH\Views\front\product_details.php on line 243.
+ 1 APPPATH\Views\front\product_details.php(243): array_column(null, 'variant_id')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(238): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('13')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 09:40:59 --> Undefined variable $countryData
+in APPPATH\Views\front\user_contact.php on line 113.
+ 1 APPPATH\Views\front\user_contact.php(113): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_contact.php', 113)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\user_contact.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/user_contact', [], true)
+ 5 APPPATH\Controllers\Home.php(544): view('front/user_contact', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->userContact()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:43:48 --> Call to undefined method App\Models\SettingsImagesModel::deleteImage
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(159): CodeIgniter\Model->__call('deleteImage', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:44:02 --> Call to undefined method App\Models\SettingsImagesModel::deleteImage
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(159): CodeIgniter\Model->__call('deleteImage', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:45:52 --> Undefined variable $session
+in APPPATH\Controllers\Admin\SettingsController.php on line 161.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 161)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:52:41 --> Undefined array key "image_id"
+in APPPATH\Controllers\Admin\SettingsController.php on line 160.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 160)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:52:56 --> Undefined array key "image_id"
+in APPPATH\Controllers\Admin\SettingsController.php on line 160.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 160)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:53:29 --> Undefined array key "image_id"
+in APPPATH\Controllers\Admin\SettingsController.php on line 160.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(160): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 160)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-15 11:54:56 --> Undefined array key 0
+in APPPATH\Views\admin\settings\settings.php on line 94.
+ 1 APPPATH\Views\admin\settings\settings.php(94): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 94)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(35): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

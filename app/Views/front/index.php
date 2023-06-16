@@ -57,7 +57,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         <h4><?php echo $welcome_title; ?></h4>
                         <h1><?php echo $welcome_sub_title; ?></h1>
                         <p><?php echo $welcome_description; ?></p>
-                        <a href="<?php echo $welcome_button_link; ?>" target="_blank"><button type="button" class="btn"> <?php echo $welcome_button_text; ?> </button></a>
+                        <a href="<?php echo $welcome_button_link; ?>"><button type="button" class="btn"> <?php echo $welcome_button_text; ?> </button></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -82,7 +82,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                     <h5><?php echo $about_title; ?></h5>
                     <h2><?php echo $about_sub_title; ?></h2>
                     <p><?php echo $about_description; ?></p>
-                    <a href="<?php echo $about_button_link; ?>" target="_blank"><button type="button" class="btn"> <?php echo $about_button_text; ?> </button></a>
+                    <a href="<?php echo $about_button_link; ?>"><button type="button" class="btn"> <?php echo $about_button_text; ?> </button></a>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                     <div class="lorem_heading text-center">
                         <h2><?php echo $contact_title; ?></h2>
                         <p><?php echo $contact_description; ?></p>
-                        <a href="<?php echo $contact_button_link; ?>" target="_blank"><button type="button" class="btn"> <?php echo $contact_button_text; ?> </button></a>
+                        <a href="<?php echo $contact_button_link; ?>"><button type="button" class="btn"> <?php echo $contact_button_text; ?> </button></a>
                     </div>
                 </div>
             </div>

@@ -73,8 +73,7 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
     $(document).ready(function() {
         var imageUploaded = <?php echo ($sub_category_img ? 'true' : 'false'); ?>;

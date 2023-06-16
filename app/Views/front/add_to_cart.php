@@ -60,10 +60,10 @@ $commonValues = '';
                         </form>
                       </td>
                       <td class="align-middle cart_remove">
-  <a href="<?php echo base_url('') . 'delete/' . $cart['cart_id'] ?>" onclick="showConfirmation(event)">
-    <i class="fa-solid fa-xmark"></i> Remove
-  </a>
-</td>
+                        <a href="<?php echo base_url('') . 'delete/' . $cart['cart_id'] ?>" onclick="showConfirmation(event)">
+                          <i class="fa-solid fa-xmark"></i> Remove
+                        </a>
+                      </td>
                     </tr>
 
                   <?php } ?>
@@ -74,7 +74,7 @@ $commonValues = '';
               <form class="coupon_form">
                 <label>Coupon Code:</label>
                 <input type="text" id="couponCode" name="coupon" placeholder="Enter Coupon Code">
-                <button type="button" class="coupon_button">Apply</button>
+                <button type="button" id="applyCouponButton" class="coupon_button">Apply</button>
               </form>
             </div>
             <div id="couponMessage"></div>
@@ -190,7 +190,7 @@ $commonValues = '';
 <script>
   function showConfirmation(event) {
     event.preventDefault();
-    
+
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be remove this!",
@@ -246,9 +246,6 @@ $commonValues = '';
               $('#discount_type').val(couponType);
               $('#product_discount').val(couponAmount);
               $('#coupon_code').val(couponCode);
-
-
-              // alert(catId);
 
               if (!isNaN(couponAmount)) {
                 var discount = 0;
@@ -325,6 +322,12 @@ $commonValues = '';
                   var commonValues = array1.filter(function(value) {
                     return array2.indexOf(value) !== -1;
                   });
+
+                  if (commonValues.length === 0) {
+                    $('#couponMessage').text('Coupon is not valid.');
+                    return;
+                  }
+
                   $('.category_id_match_' + commonValues[0]).each(function(index, element) {
                     var elementText = $(element).text();
                     var new_category_id = elementText.replace('$', '');
@@ -351,10 +354,9 @@ $commonValues = '';
                     var forDiscount1 = formattedDiscount1.replace('$', '');
                     $('#discount_d').val(forDiscount1);
                   });
+
                   $('#discount').text(formatAmount(discount * $('.category_id_match_' + commonValues[0]).length));
-
                   $('#couponMessage').text('Coupon is valid.');
-
                 }
 
                 function formatAmount(amount) {

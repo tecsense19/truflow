@@ -138,10 +138,10 @@ class SettingsController extends BaseController
                     $file->move($path, $filename);
         
                     // Resize the image to 500x500 pixels
-                    $image = \Config\Services::image()
-                        ->withFile($path . $filename)
-                        ->resize(500, 500)
-                        ->save($path . $filename);
+                    // $image = \Config\Services::image()
+                    //     ->withFile($path . $filename)
+                    //     ->resize(500, 500)
+                    //     ->save($path . $filename);
         
                     $settingImg['image_path'] = 'public/front/images/partner_images/' . $filename;
                     $settingImg['setting_id'] = $lastId;
@@ -150,5 +150,18 @@ class SettingsController extends BaseController
             }
         }
 
+    }
+
+    public function delete_partner_img(){
+        $session = session();
+        $input = $this->request->getVar();
+
+        $settingsImagesModel = new SettingsImagesModel();
+        $settingsImagesModel->delete($input['image_id']);
+    
+        $session->setFlashdata('success', 'Image Delete succesfully.');
+        return redirect()->back();
+     
+       
     }
 }

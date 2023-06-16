@@ -50,6 +50,11 @@ $routes->get("delete_check/(:num)", "Home::cartDelete_check/$1");
 $routes->get('/terms_and_condition', 'Home::terms_and_condition');
 $routes->get('/privacy_policy', 'Home::privacy_policy');
 $routes->get('/disclaimer', 'Home::disclaimer');
+$routes->get('/userContact', 'Home::userContact');
+$routes->post("contact/save", "Home::contactSave");
+
+$routes->post('/searchSimilarData', 'Home::searchSimilarData');
+
 
 
 //check coupon
@@ -60,6 +65,18 @@ $routes->post('/check_coupon', 'OrderController::check_coupon');
 //register user
 $routes->get('/register', 'UserController::register');
 $routes->post("register/save", "UserController::registerSave");
+
+// $routes->get("forgotpassword", "UserController::forgotpassword");
+// $routes->post("resetPasswordUser", "UserController::resetPasswordUser");
+// $routes->post("resetPasswordConfirmUser", "UserController::resetPasswordConfirmUser");
+// $routes->post("createPasswordUser", "UserController::createPasswordUser");
+
+$routes->get('forgot-password', 'UserController::forgotPassword');
+$routes->post('forgot-password', 'UserController::sendPasswordResetLink');
+$routes->get('reset-password/(:any)', 'UserController::resetPassword/$1');
+$routes->post('reset-password/(:any)', 'UserController::updatePassword/$1');
+
+
 
 //front user profile
 $routes->get('/user_profile/(:num)', 'UserController::user_profile/$1');
@@ -103,6 +120,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
 
     $routes->get("settings", "SettingsController::settings");
     $routes->post("settings/save", "SettingsController::settingsSave");
+    $routes->post("delete_partner_img", "SettingsController::delete_partner_img");
 
     //Testominal
 
@@ -161,6 +179,13 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("order_list", "OrderController::order_list");
     $routes->get("order/delete/(:num)", "OrderController::orderDelete/$1");
     $routes->post("change_order_status", "OrderController::change_order_status");
+
+
+    //User Contact Us
+
+    $routes->get("contactus_list", "ContactUsController::index");
+    $routes->get("contactus", "ContactUsController::contactus");
+    $routes->get("contactus/delete/(:num)", "ContactUsController::contactusDelete/$1");
     
 });
 

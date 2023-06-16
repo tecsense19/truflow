@@ -3,8 +3,8 @@
 $header_id = isset($headerData) ? $headerData['header_id'] : '';
 $header_menu = isset($headerData) ? $headerData['header_menu'] : '';
 $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
-$header_sub_menu = isset($headerData) ? $headerData['header_sub_menu'] : '';
-$header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
+// $header_sub_menu = isset($headerData) ? $headerData['header_sub_menu'] : '';
+// $header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
 ?>
 
 <!-- Content wrapper -->
@@ -36,21 +36,21 @@ $header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Menu Link</label>
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3 link_error">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="menu_link">http://localhost/truflow/</span>
                                     </div>
                                     <input type="text" class="form-control" id="menu_link" name="menu_link" value="<?php echo $header_menu_link; ?>" aria-describedby="basic-addon3">
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Sub Menu Name</label>
-                                <input type="text" value="<?php echo $header_sub_menu; ?>" class="form-control" id="header_sub_menu" name="header_sub_menu" placeholder="Sub Menu Name" />
+                                <input type="text" value="" class="form-control" id="header_sub_menu" name="header_sub_menu" placeholder="Sub Menu Name" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Sub Menu Link</label>
-                                <input type="text" value="<?php echo $header_sub_menu_link; ?>" class="form-control" id="sub_menu_link" name="sub_menu_link" placeholder="Sub Menu Link" />
-                            </div>
+                                <input type="text" value="" class="form-control" id="sub_menu_link" name="sub_menu_link" placeholder="Sub Menu Link" />
+                            </div> -->
 
                         </div>
                     </div>
@@ -64,21 +64,26 @@ $header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
     $(document).ready(function() {
         $("#header_form").validate({
             rules: {
                 header_menu: {
                     required: true
+                },
+                menu_link: {
+                    required: true
                 }
-
+                
 
             },
             messages: {
                 header_menu: {
                     required: "Title is required!"
+                },
+                menu_link: {
+                    required: "Link is required!"
                 }
 
 

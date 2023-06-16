@@ -32,8 +32,8 @@ class HeaderMenuController extends BaseController
 
         $headerArr['header_menu'] = isset($input['header_menu']) ? $input['header_menu'] : '';
         $headerArr['menu_link'] = isset($input['menu_link']) ? $input['menu_link'] : '';
-        $headerArr['header_sub_menu'] = isset($input['header_sub_menu']) ? $input['header_sub_menu'] : '';
-        $headerArr['sub_menu_link'] = isset($input['sub_menu_link']) ? $input['sub_menu_link'] : '';
+        // $headerArr['header_sub_menu'] = isset($input['header_sub_menu']) ? $input['header_sub_menu'] : '';
+        // $headerArr['sub_menu_link'] = isset($input['sub_menu_link']) ? $input['sub_menu_link'] : '';
 
         // echo "<pre>";
         // print_r($input);

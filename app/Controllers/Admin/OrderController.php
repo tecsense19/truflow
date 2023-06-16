@@ -38,12 +38,6 @@ class OrderController extends BaseController
 
             $cartData = $query->getResultArray();
        
-        // echo "<pre>";
-        // print_r($cartData);
-        // die();
-
-        
-
         if (!$cartData) {
             $cartData = null;
         }

@@ -84,7 +84,9 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
 
 
                             <div id="userDropdown" <?php echo ($coupon_type !== 'User') ? 'style="display: none;"' : ''; ?>>
+                            
                                 <select id="user_id" name="user_id[]" multiple="multiple" class="form-select user-dropdown" required>
+                                    
                                     <?php if (isset($userdata)) { ?>
                                         <?php foreach ($userdata as $user) : ?>
                                             <?php
@@ -93,6 +95,7 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
                                                 $selected = 'selected';
                                             }
                                             ?>
+                                            
                                             <option value="<?php echo $user['user_id']; ?>" <?php echo $selected; ?>><?php echo $user['full_name']; ?></option>
                                         <?php endforeach; ?>
                                     <?php } ?>
@@ -172,8 +175,8 @@ $category_id = isset($couponData) ? $couponData['category_id'] : '';
     updateForm();
 </script>
 
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
+
 <script>
     $(document).ready(function() {
         $("#coupon_form").validate({

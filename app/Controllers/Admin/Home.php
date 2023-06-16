@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 use App\Models\UserModel;
+use App\Models\OrderModel;
 
 class Home extends BaseController
 {
@@ -19,8 +20,40 @@ class Home extends BaseController
     
     public function dashboard()
     {
-                
-        return view('admin/dashboard/dashboard');
+        $model = new UserModel();
+        $checkUser = $model->where('user_role', 'user')->findAll();
+
+        $userCount = count($checkUser);
+
+        if (!$userCount) {
+            $userCount = null;
+        }
+
+        $ordermodel = new OrderModel();
+        $checkOrder = $ordermodel->findAll();
+
+        $orderCount = count($checkOrder);
+
+        if (!$orderCount) {
+            $orderCount = null;
+        }
+        $checkApprove = $ordermodel->where('order_status', 'Approved')->findAll();
+
+        $orderApproved = count($checkApprove);
+
+        if (!$orderApproved) {
+            $orderApproved = null;
+        }
+
+        $checkPanding = $ordermodel->where('order_status', 'Pending')->findAll();
+
+        $orderPanding = count($checkPanding);
+
+        if (!$orderPanding) {
+            $orderPanding = null;
+        }
+
+        return view('admin/dashboard/dashboard',['userCount'=> $userCount,'orderCount'=>$orderCount,'orderApproved'=>$orderApproved,'orderPanding'=>$orderPanding]);
     }
 
     public function checkLogin()

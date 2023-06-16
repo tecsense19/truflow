@@ -14,8 +14,9 @@
 }
 
 .app-brand-text.demo {
-  font-size: 21px;
+  font-size: 20px;
   letter-spacing: -0.5px;
+  padding: 1px !important;
 }
 
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
@@ -105,8 +106,11 @@
   margin-top: 1rem;
 }
 .site_setting_img {
-  height: 150px;
-  width: 150px;
+  position: relative;
+    width: 15%;
+    background: #333;
+    max-width: 100%;
+    height: auto;
 }
 
 table.dataTable {
@@ -123,4 +127,44 @@ td.testo_descrip {
   width: -1px !important;
   max-width: 100px;
   overflow: overlay;
+}
+
+.link_error label.error {
+  display: block;
+  width: 100%;
+}
+
+.remove-image {
+  display: none;
+  position: revert;
+  top: -10px;
+  right: -10px;
+  border-radius: 10em;
+  padding: 0px 7px 3px;
+  text-decoration: none;
+  font: 700 21px/20px sans-serif;
+  background: #555;
+  border: 3px solid #fff;
+  color: #FFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  }
+  .remove-image:hover {
+   background: #005DAB;
+    padding: 3px 7px 5px;
+    top: -11px;
+  right: -11px;
+  }
+  .remove-image:active {
+   background: #005DAB;
+    top: -10px;
+  right: -11px;
+  }
+  .image-container.partner_img {
+    display: contents;
+}
+.app-brand.demo {
+  padding: 1px !important;
 }

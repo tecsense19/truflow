@@ -187,7 +187,10 @@
             </div>
           </div>
         </div>
-      </div>
+        <div class="row mb-5">
+        <p>Can’t find what you are looking for? Please <a href="<?php echo base_url('userContact'); ?>"> contact us </a> here</p>
+        </div>
+    </div>
     </section>
     <?php } ?>
 </form>

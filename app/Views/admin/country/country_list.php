@@ -71,29 +71,3 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
-<script>
-    $(document).ready(function() {
-        $("#country_form").validate({
-            rules: {
-                label: {
-                    required: true
-                }
-
-
-            },
-            messages: {
-                label: {
-                    required: "Title is required!"
-                }
-
-
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
-    });
-</script>

@@ -88,10 +88,10 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Banner Image</label>
                                 <input type="file" class="form-control" value="" id="welcome_image_path" name="welcome_image_path" placeholder="Banner Image" />
-                                <?php if($welcome_img_link){?>
-                            <img src="<?php echo base_url().$welcome_img_link ?>" alt="banner_img" class="img-fluid site_setting_img">
-
-                            <?php }?>
+                                <?php if ($welcome_img_link) { ?>
+                                    <img src="<?php echo base_url() . $welcome_img_link ?>" alt="banner_img" class="img-fluid site_setting_img">
+                                    <a class="remove-image" href="#" style="display: inline;" data-id="<?php echo $imageData['image_id']; ?>">&#215;</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -194,17 +194,20 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <textarea id="description" name="partner_description" class="form-control" placeholder="Description"><?php echo $partner_description; ?></textarea>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">Partner Image</label>
-                                <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
-                                <?php 
-                                if($partnerImageData){ ?>
+    <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
+    <?php if ($partnerImageData) { ?>
+        <?php foreach ($partnerImageData as $partner) {?>
+            <div class="image-container partner_img">
+                <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
+                <a class="remove-image" href="#" style="display: inline;"  data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
+                
+            </div>
+        <?php } ?>
+    <?php } ?>
+</div>
 
-                                  <?php  foreach($partnerImageData as $partner){ ?>
-                                        <img src="<?php echo base_url().$partner['image_path'] ?>" alt="banner_img" class="img-fluid site_setting_img">
-    
-                                  <?php  } ?>
-                               <?php  } ?>
-                            </div>
+
+
                         </div>
                     </div>
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
@@ -216,8 +219,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-</script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
     $(document).ready(function() {
         $("#settings_form").validate({
@@ -319,4 +321,38 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         });
 
     });
+</script>
+<script>
+  $(document).ready(function() {
+    $('.remove-image').click(function(e) {
+      e.preventDefault();
+      var container = $(this).closest('.image-container');
+      //var imageId = container.find('.image-id').val();
+      var imageId = $(this).data('id');
+     
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You Want To Delete This.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: '<?php echo base_url('admin/delete_partner_img') ?>',
+            type: 'POST',
+            data: { image_id: imageId },
+            success: function(response) {
+              container.remove();
+            },
+            error: function(xhr, status, error) {
+              console.log(error);
+            }
+          });
+        }
+      });
+    });
+  });
 </script>
