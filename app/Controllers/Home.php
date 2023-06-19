@@ -462,6 +462,7 @@ class Home extends BaseController
         $headermenumodel = new HeaderMenuModel();
         $addwishlistmodel = new AddwishlistModel();
         $productmodel = new ProductModel();
+        $variantsModel = new VariantsModel();
         $headerData = $headermenumodel->find();
 
 
@@ -473,20 +474,20 @@ class Home extends BaseController
         $userId = $session->get('user_id');
 
 
-        $query = $addwishlistmodel->select('*')
+        $wishlistData = $addwishlistmodel->select('*')
        
         ->join('product', 'product.product_id = addwish_list.product_id', 'left')
         ->join('product_variants', 'product_variants.product_id = product.product_id', 'left')
-        
         ->where('addwish_list.user_id', $userId)
         ->where('addwish_list.isDeleted', 0)
-        ->groupBy('addwish_list.product_id, addwish_list.wishid')
-        ->get();
+        ->groupBy('addwish_list.product_id', 'addwish_list.user_id')
+        ->findAll();
 
-        $wishlistData = $query->getResultArray();
-            // $lastQuery = $cartmodel->getLastQuery();
+        $lastQuery = $cartmodel->getLastQuery();
             // echo $lastQuery;
-
+            // echo "<pre>";
+            // print_r($wishlistData);
+            // die();
         if (!$wishlistData) {
             $wishlistData = null;
         }

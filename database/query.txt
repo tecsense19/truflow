@@ -1,1 +1,1 @@
-ALTER TABLE `product_variants` CHANGE `variant_price` `variant_price` BIGINT(255) NULL DEFAULT NULL;
+ALTER TABLE `users` ADD `reset_token` VARCHAR(255) NULL AFTER `fax`, ADD `reset_token_expires_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `reset_token`;
