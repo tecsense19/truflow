@@ -36,19 +36,7 @@
    <?php if(isset($userData)){ ?>
     <h4>Your Personal Details</h4>
     <hr>
-    <div class="form-group row">
-                <label class="col-md-2 control-label">Gender :</label>
-                <div class="col-md-9">
-                    <input id="gender-male" name="gender" type="radio" value="male" <?php if ($userData['gender'] === 'male') {
-                                                                                            echo 'checked';
-                                                                                        } ?> />
-                    <label class="col-md-2 control-label" for="gender-male">Male</label>
-                    <input id="gender-female" name="gender" type="radio" value="female" <?php if ($userData['gender'] === 'female') {
-                                                                                                echo 'checked';
-                                                                                            } ?> />
-                    <label class="col-md-2 control-label" for="gender-female">Female</label>
-                </div>
-            </div>
+ 
             <div class="form-group row">
                 <label class="col-md-2 control-label" for="first_name">First Name :</label>
                 <div class="col-md-8">

@@ -5,6 +5,9 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\CountryModel;
 use App\Models\OrderModel;
+use App\Models\HeaderMenuModel;
+use Config\Services;
+use CodeIgniter\Email\Email;
 
 
 class UserController extends BaseController
@@ -20,8 +23,13 @@ class UserController extends BaseController
         if (!$countryData) {
             $countryData = null;
         }
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
 
-        return view('front/register', ['countryData' => $countryData]);
+        return view('front/register', ['countryData' => $countryData, 'headerData' => $headerData]);
     }
     public function registerSave()
     {
@@ -30,10 +38,10 @@ class UserController extends BaseController
         $input = $this->request->getVar();
 
         $existingUser = $usermodel->where('email', $input['email'])->first();
-    if ($existingUser) {
-        $session->setFlashdata('error', 'Email already exists. Please use a different email.');
-        return redirect()->to('register');
-    }
+        if ($existingUser) {
+            $session->setFlashdata('error', 'Email already exists. Please use a different email.');
+            return redirect()->to('register');
+        }
 
         // Validate password and confirm password
         $password = $input['password'];
@@ -64,7 +72,7 @@ class UserController extends BaseController
             'country' => $input['country'],
             'phone' => $input['phone'],
             'fax' => $input['fax']
-           
+
         ];
 
 
@@ -83,8 +91,13 @@ class UserController extends BaseController
         $session = session();
         $usermodel = new UserModel();
 
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
 
-        return view('front/login');
+        return view('front/login', ['headerData' => $headerData]);
     }
     public function checkLogin()
     {
@@ -108,9 +121,9 @@ class UserController extends BaseController
                 $product_details = $session->get('product_details'); // set the sessionin product detail page
 
                 if ($product_details) {
-                    
+
                     $redirect_url = $product_details;
-                    $session->remove('product_details'); 
+                    $session->remove('product_details');
                 } else {
                     $redirect_url = '/'; // main page redirect
                 }
@@ -153,47 +166,47 @@ class UserController extends BaseController
         // echo "<pre>"; 
         // print_r($userData);
         // die();
-      
-        return view('front/user_profile',['userData' => $userData,'countryData' => $countryData]);
+
+        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData]);
     }
 
     public function edit_user_profile()
     {
-       
+
         $usermodel = new UserModel();
         $session = session();
         $input = $this->request->getVar();
-        
-       
+
+
         $user_id = $input['user_id'];
 
         // $userArr = [];
         $userArr['full_name'] = $input['first_name'] . " " . $input['last_name'];
-         $userArr['email'] = isset($input['email']) ? $input['email'] : '';
-         $userArr['first_name'] = isset($input['first_name']) ? $input['first_name'] : '';
-         $userArr['last_name'] = isset($input['last_name']) ? $input['last_name'] : '';
-         $userArr['gender'] = isset($input['gender']) ? $input['gender'] : '';
-         $userArr['date_of_birth'] = isset($input['date_of_birth']) ? $input['date_of_birth'] : '';
-         $userArr['mobile'] = isset($input['mobile']) ? $input['mobile'] : '';
-         $userArr['user_role'] = isset($input['user_role']) ? $input['user_role'] : '';
-         $userArr['company_name'] = isset($input['company_name']) ? $input['company_name'] : '';
-         $userArr['address_1'] = isset($input['address_1']) ? $input['address_1'] : '';
-         $userArr['address_2'] = isset($input['address_2']) ? $input['address_2'] : '';
-         $userArr['city'] = isset($input['city']) ? $input['city'] : '';
-         $userArr['zipcode'] = isset($input['zipcode']) ? $input['zipcode'] : '';
-         $userArr['country'] = isset($input['country']) ? $input['country'] : '';
-         $userArr['phone'] = isset($input['phone']) ? $input['phone'] : '';
-         $userArr['fax'] = isset($input['fax']) ? $input['fax'] : '';
+        $userArr['email'] = isset($input['email']) ? $input['email'] : '';
+        $userArr['first_name'] = isset($input['first_name']) ? $input['first_name'] : '';
+        $userArr['last_name'] = isset($input['last_name']) ? $input['last_name'] : '';
+        // $userArr['gender'] = isset($input['gender']) ? $input['gender'] : '';
+        $userArr['date_of_birth'] = isset($input['date_of_birth']) ? $input['date_of_birth'] : '';
+        $userArr['mobile'] = isset($input['mobile']) ? $input['mobile'] : '';
+        $userArr['user_role'] = isset($input['user_role']) ? $input['user_role'] : '';
+        $userArr['company_name'] = isset($input['company_name']) ? $input['company_name'] : '';
+        $userArr['address_1'] = isset($input['address_1']) ? $input['address_1'] : '';
+        $userArr['address_2'] = isset($input['address_2']) ? $input['address_2'] : '';
+        $userArr['city'] = isset($input['city']) ? $input['city'] : '';
+        $userArr['zipcode'] = isset($input['zipcode']) ? $input['zipcode'] : '';
+        $userArr['country'] = isset($input['country']) ? $input['country'] : '';
+        $userArr['phone'] = isset($input['phone']) ? $input['phone'] : '';
+        $userArr['fax'] = isset($input['fax']) ? $input['fax'] : '';
 
         //  echo "<pre>";
         // print_r($userArr);
         // die();
         if (isset($input['user_id']) && $input['user_id'] != '') {
             $usermodel->update(['user_id' => $input['user_id']], $userArr);
-        } 
+        }
 
         $session->setFlashdata('success', 'Update Data successfully.');
-       
+
         $countrymodel = new CountryModel();
 
         $countryData = $countrymodel->find();
@@ -223,7 +236,7 @@ class UserController extends BaseController
         if (!$countryData) {
             $countryData = null;
         }
-        
+
         $ordermodel = new OrderModel();
         $userId = $session->get('user_id');
         $query = $ordermodel->select('*')
@@ -233,7 +246,7 @@ class UserController extends BaseController
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
             ->where('users.user_id', $userId)
-            
+
             ->get();
 
         $orderData = $query->getResultArray();
@@ -245,95 +258,109 @@ class UserController extends BaseController
             $orderData = null;
         }
 
-        return view('front/my_order',['userData' => $userData,'countryData' => $countryData, 'orderData' => $orderData]);
+        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData]);
     }
 
     // -----------------------------------------------
     public function forgotPassword()
     {
-       
+
         return view('front/forgot_password');
     }
-
-    public function sendPasswordResetLink()
+    public function resetPassword()
     {
-        $validation = \Config\Services::validation();
 
-        $validation->setRules([
-            'email' => 'required|valid_email',
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to('forgot-password')->withInput()->with('errors', $validation->getErrors());
-        }
-
+        $input = $this->request->getVar();
         $email = $this->request->getPost('email');
 
-        // Check if the email exists in the database
-        $userModel = new UserModel();
-        $user = $userModel->where('email', $email)->first();
+        $model = new UserModel();
+        $user = $model->where('email', $email)->first();
+
 
         if (!$user) {
-            return redirect()->to('forgot-password')->withInput()->with('error', 'Email not found.');
+            return redirect()->back()->with('error', 'Email does not exist.');
         }
 
-        // Generate and save a password reset token
         $token = bin2hex(random_bytes(32));
-        $userModel->update($user['user_id'], ['reset_token' => $token]);
 
-        // Send password reset email
-        $emailData = [
-            'email' => $email,
-            'token' => $token,
-        ];
+        $model->where('user_id', $user['user_id'])->set(
+            ['reset_token' => $token, 'reset_token_expires_at' => date('Y-m-d H:i:s', strtotime('+1 hour'))]
+        )->update();
 
-        // Call your email sending function or library here
-        // sendPasswordResetEmail($emailData);
+        $emailService = \Config\Services::email();
 
-        return redirect()->to('forgot-password')->with('success', 'Password reset link sent successfully.');
+        $fromEmail = 'nadim@tec-sense.com';
+        $fromName = 'TRUFLOW';
+
+        $emailService->setFrom($fromEmail, $fromName);
+        $emailService->setTo($user['email']);
+        $emailService->setSubject('Password Reset');
+        $emailService->setMessage('
+    <html>
+        <body>
+            <h1>Forgot Password</h1>
+            <p>Click the following link to reset your password:</p>
+            <p>
+                <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
+            </p>
+        </body>
+    </html>
+');
+
+        // echo "<pre>";
+        // print_r($emailService);
+        // die();
+
+        if ($emailService->send()) {
+            return redirect()->back()->with('success', 'Password reset link has been sent to your email.');
+        } else {
+            return redirect()->back()->with('error', 'Unable to send the password reset link. Please try again later.');
+        }
     }
 
-    public function resetPassword($token)
+    public function reset($token)
     {
-        $userModel = new UserModel();
-        $user = $userModel->where('reset_token', $token)->first();
-
-        if (!$user) {
-            return redirect()->to('forgot-password')->with('error', 'Invalid or expired token.');
-        }
-
-        return view('reset_password', ['token' => $token]);
+        
+         return view('front/reset_password', [
+                'token' => $token,
+               
+            ]);
     }
-
-    public function updatePassword($token)
-    {
-        $validation = \Config\Services::validation();
-
-        $validation->setRules([
-            'password' => 'required|min_length[6]',
-            'confirm_password' => 'required|matches[password]',
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to('reset-password/' . $token)->withInput()->with('errors', $validation->getErrors());
+    public function reset_password($token){
+        $session = session();
+        $model = new UserModel();
+        $user = $model->where('reset_token', $token)->first();
+    
+        if (!$user || strtotime($user['reset_token_expires_at']) < time()) {
+            return view('front/reset_password', [
+                'token' => $token,
+                'error' => 'Token expired'
+            ]);
         }
-
+    
         $password = $this->request->getPost('password');
-
-        $userModel = new UserModel();
-        $user = $userModel->where('reset_token', $token)->first();
-
-        if (!$user) {
-            return redirect()->to('forgot-password')->with('error', 'Invalid or expired token.');
+        $confirmPassword = $this->request->getPost('confirm_password');
+    
+        if ($password != $confirmPassword) {
+            $session->setFlashdata('error', 'Password Not Match.');
+            return view('front/reset_password', [
+                'token' => $token]);
         }
-
+    
         // Update the user's password
-        $userModel->update($user['user_id'], [
+        $model->update($user['user_id'], [
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'reset_token' => null,
+            'reset_token_expires_at' => null
         ]);
-
-        return redirect()->to('login')->with('success', 'Password reset successfully. You can now log in with your new password.');
+        $session->setFlashdata('success', 'Password reset successfully.');
+    return redirect()->to('login'); // Update with the appropriate login route or URL
     }
-
+    
+    
+    private function isTokenValid($expiresAt)
+    {
+        return strtotime($expiresAt) > time();
+    }
+    
 }

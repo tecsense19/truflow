@@ -176,7 +176,6 @@ class Home extends BaseController
             'productData' => $productData
         ]);
     }
-
     public function product_details($product_id)
     {
         $headermenumodel = new HeaderMenuModel();
@@ -253,6 +252,7 @@ class Home extends BaseController
             
         ]);
     }
+
     public function searchData()
     {
         $input = $this->request->getVar('search');
@@ -405,6 +405,7 @@ class Home extends BaseController
         $variantsModel = new VariantsModel();
         $productmodel = new ProductModel();
 
+        
         $variantRecords = array();
 
         for ($i = 0; $i < count($partno); $i++) {
@@ -479,7 +480,7 @@ class Home extends BaseController
         
         ->where('addwish_list.user_id', $userId)
         ->where('addwish_list.isDeleted', 0)
-        ->groupBy('addwish_list.product_id')
+        ->groupBy('addwish_list.product_id, addwish_list.wishid')
         ->get();
 
         $wishlistData = $query->getResultArray();

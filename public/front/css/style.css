@@ -110,6 +110,7 @@ a.nav-link{
     opacity: 1;
     visibility: visible;
 }
+
 .header-search-wrapper .search-form-main {
     border-top-color: var(--white);
 }
@@ -2185,6 +2186,7 @@ button.coupon_button {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: 112px;
 }
 
 img.testominal_img {
@@ -2240,6 +2242,9 @@ button.btn.btn-primary.btn-rounded {
 }
 .partner_main .owl-carousel .owl-item img {
     width: 200px;
+}
+.rr:hover{
+    color: #eeda02;
 }
 
 

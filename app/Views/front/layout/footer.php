@@ -43,13 +43,13 @@
                         <div class="number">
                             <a href="tel:+61894512204">
                                 <i class="fa-solid fa-phone"></i>
-                                <span>(+61) 894 512 204</span>
+                                <span class="rr">(+61) 894 512 204</span>
                             </a>
                         </div>
                         <div class="number">
                             <a href="mailto:sales@truflowwhydraulic.com.au">
                                 <i class="fa-solid fa-envelope"></i>
-                                <span><a href="mailto:sales@truflowwhydraulic.com.au">sales@truflowwhydraulic.com.au</a></span>
+                                <span><a href="mailto:sales@truflowwhydraulic.com.au" class="rr">sales@truflowwhydraulic.com.au</a></span>
                             </a>
                         </div>
                         <div class="number">
@@ -72,7 +72,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="privacy text-right">
-                        <p class="footer_text"><a href="<?php echo base_url('terms_and_condition'); ?>">Terms of Use</a> |<a href="<?php echo base_url('privacy_policy'); ?>"> Privacy Policy</a> | <a href="<?php echo base_url('disclaimer'); ?>">Disclaimer</a></p>
+                        <p class="footer_text"><a href="<?php echo base_url('terms_and_condition'); ?>" class="rr">Terms of Use</a> |<a href="<?php echo base_url('privacy_policy'); ?>" class="rr"> Privacy Policy</a> | <a href="<?php echo base_url('disclaimer'); ?>" class="rr">Disclaimer</a></p>
                     </div>
                 </div>
             </div>

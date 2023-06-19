@@ -40,21 +40,21 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?php echo base_url(); ?>forgot-password" method="post">
-          <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="login_email" required />
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          
-          <div class="row">
-            <div class="col-xs-8">
-			 <a class="flogin" href="<?php echo base_url('login') ?>">Login</a>
+    <?php if (session()->get('error')): ?>
+        <div class="alert alert-danger"><?= session()->get('error') ?></div>
+    <?php endif; ?>
+    <?php if (session()->get('success')): ?>
+        <div class="alert alert-success"><?= session()->get('success') ?></div>
+    <?php endif; ?>
+    <form method="post" action="<?= base_url('resetPassword') ?>">
+            <div class="form-group">
+            <div class="">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" autofocus />
             </div>
-            <div class="col-xs-4">
-              <input type="submit" class="btn btn-primary" value="Submit" />
-            </div>
-          </div>
-        </form>
+        </div>
+        <button type="submit" class="btn btn-primary d-grid w-100 signin_btn">Reset Password</button>
+    </form>
     </div>
 </div>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
