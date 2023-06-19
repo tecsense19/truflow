@@ -207,11 +207,14 @@ class Home extends BaseController
         //     ->where('product.product_id', $product_id)
         //     ->groupBy('product.product_id')
         //     ->findAll();
-        $productDataPrice = $productmodel->select('product.*, product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
+        
+        $productDataPrice = $productmodel->table('product')
+            ->select('product.product_id,product.product_name,product.product_img,product.product_description,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
             ->join('product_variants', 'product_variants.product_id = product.product_id')
             ->where('product.product_id', $product_id)
-            ->groupBy('product.' . $productmodel->primaryKey)
-            ->findAll();
+            ->groupBy('product.product_id,product.product_name,product.product_img,product.product_description')
+            ->find();
+
 
 
         // $lastQuery = $productmodel->getLastQuery();
