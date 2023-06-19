@@ -176,6 +176,7 @@ class Home extends BaseController
             'productData' => $productData
         ]);
     }
+
     public function product_details($product_id)
     {
         $headermenumodel = new HeaderMenuModel();
@@ -189,18 +190,31 @@ class Home extends BaseController
 
         $productmodel = new ProductModel();
 
-        $productData = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
-            ->where('product.product_id', $product_id)
-            ->findAll();
+        // $productData = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
+        //     ->where('product.product_id', $product_id)
+        //     ->findAll();
+
+        //     $lastQuery = $productmodel->getLastQuery();
+        //      echo $lastQuery;
+
+        // $productDataPrice = $productmodel->select('product.*,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
+        //     ->join('product_variants', 'product_variants.product_id = product.product_id')
+        //     ->where('product.product_id', $product_id)
+        //     ->findAll();
 
         $productDataPrice = $productmodel->select('product.*,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
             ->join('product_variants', 'product_variants.product_id = product.product_id')
             ->where('product.product_id', $product_id)
+            ->groupBy('product.product_id')
             ->findAll();
 
-        if (!$productData) {
-            $productData = null;
-        }
+        // $lastQuery = $productmodel->getLastQuery();
+        //          echo $lastQuery;
+
+
+        // if (!$productData) {
+        //     $productData = null;
+        // }
         if (!$productDataPrice) {
             $productDataPrice = null;
         }
@@ -208,20 +222,20 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
 
-        
-            $addwishData1 = $addwishlistmodel->select('*')
-       
+
+        $addwishData1 = $addwishlistmodel->select('*')
+
             ->join('product', 'product.product_id = addwish_list.product_id', 'left')
             ->where('addwish_list.isdeleted', 0)
             ->where('addwish_list.user_id', $userId)
             ->get();
 
-            $addwishData = $addwishData1->getResultArray();
+        $addwishData = $addwishData1->getResultArray();
 
-            // $lastQuery = $addwishlistmodel->getLastQuery();
-            // echo $lastQuery;
-            // echo "<pre>";
-            // print_r($addwishData);
+        // $lastQuery = $addwishlistmodel->getLastQuery();
+        // echo $lastQuery;
+        // echo "<pre>";
+        // print_r($addwishData);
 
         if (!$addwishData) {
             $addwishData = null;
@@ -233,13 +247,11 @@ class Home extends BaseController
 
         return view('front/product_details', [
             'headerData' => $headerData,
-            'productData' => $productData,
             'productDataPrice' => $productDataPrice,
             'addwishData' => $addwishData
-            
+
         ]);
     }
-
     public function searchData()
     {
         $input = $this->request->getVar('search');

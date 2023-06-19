@@ -19,23 +19,23 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <form method="post" id="#product_details" enctype='multipart/form-data'>
-    <?php if (!empty($productData && $productDataPrice)) { ?>
+    <?php if (!empty($productDataPrice && $productDataPrice)) { ?>
         <section class="product_tab my-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mobile_tabs">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><img class="img_tab_view" src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a> -->
-                                <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>  -->
+                                <!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><img class="img_tab_view" src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>"></a> -->
+                                <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>"></a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>"></a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>"></a>  -->
                             </div>
                             <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><img class="img_tab_view_2" src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                                <!-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div> -->
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><img class="img_tab_view_2" src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>" alt="image"></div>
+                                <!-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>" alt="image"></div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>" alt="image"></div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><img src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>" alt="image"></div> -->
                             </div>
                         </div>
                     </div>
@@ -43,26 +43,26 @@
                         <div class="samsung_galaxy">
                             <div class="row">
                                 <div class="col-sm-10">
-                                    <h3><?php echo $productData[0]['product_name'] ?></h3>
+                                    <h3><?php echo $productDataPrice[0]['product_name'] ?></h3>
                                 </div>
                                 <div class="col-sm-2">
                                     <?php if (isset($addwishData)) { ?>
-                                        <?php if ($addwishData[0]['product_id'] == $productData[0]['product_id']) { ?>
-                                            <img src="<?php echo base_url() ?>public/front/images/heartw1.png" class="deletewishlistsubmit mb-2" alt="" data-product_id="<?php echo $productData[0]['product_id']; ?>" onclick="changeImage1(this)" id="imagepreview1">
+                                        <?php if ($addwishData[0]['product_id'] == $productDataPrice[0]['product_id']) { ?>
+                                            <img src="<?php echo base_url() ?>public/front/images/heartw1.png" class="deletewishlistsubmit mb-2" alt="" data-product_id="<?php echo $productDataPrice[0]['product_id']; ?>" onclick="changeImage1(this)" id="imagepreview1">
 
                                         <?php } else { ?>
-                                            <img src="<?php echo base_url() ?>public/front/images/heartw.png" class="wishlistsubmit mb-2" alt="" data-product_id="<?php echo $productData[0]['product_id']; ?>" onclick="changeImage(this)" id="imagepreview">
+                                            <img src="<?php echo base_url() ?>public/front/images/heartw.png" class="wishlistsubmit mb-2" alt="" data-product_id="<?php echo $productDataPrice[0]['product_id']; ?>" onclick="changeImage(this)" id="imagepreview">
 
                                         <?php } ?>
                                     <?php } else { ?>
-                                        <img src="<?php echo base_url() ?>public/front/images/heartw.png" class="wishlistsubmit mb-2" alt="" data-product_id="<?php echo $productData[0]['product_id']; ?>" onclick="changeImage(this)" id="imagepreview">
+                                        <img src="<?php echo base_url() ?>public/front/images/heartw.png" class="wishlistsubmit mb-2" alt="" data-product_id="<?php echo $productDataPrice[0]['product_id']; ?>" onclick="changeImage(this)" id="imagepreview">
                                     <?php } ?>
                                 </div>
                             </div>
                             <h3><?php echo "$" . $productDataPrice[0]['min_price'] . " - " . "$" . $productDataPrice[0]['max_price']; ?></h3>
 
 
-                            <ul class="stock">
+                            <!-- <ul class="stock">
                                 <li>In Stock</li>
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li><i class="fa-solid fa-star"></i></li>
@@ -70,11 +70,12 @@
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li>(36 Reviews)</li>
-                            </ul>
+                            </ul> -->
+                            <br>
 
                             <h4>Variants</h4>
                             <?php $firstProduct = true; ?>
-                            <?php foreach ($productData as $product) { ?>
+                            <?php foreach ($productDataPrice as $product) { ?>
 
                                 <div class="row">
                                     <div class="col-md-12">
@@ -148,13 +149,13 @@
                     <div class="col-lg-6">
                       <div class="glance">
                         
-                        <h3><?php echo $productData[0]['product_name'] ?></h3>
-                        <p><?php echo $productData[0]['product_description'] ?></p>
+                        <h3><?php echo $productDataPrice[0]['product_name'] ?></h3>
+                        <p><?php echo $productDataPrice[0]['product_description'] ?></p>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="glance_img">
-                        <img class="img-fluid" src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image">
+                        <img class="img-fluid" src="<?php echo base_url() . $productDataPrice[0]['product_img'] ?>" alt="image">
                       </div>
                     </div>
                   </div>
@@ -243,11 +244,11 @@
             return; // Stop further execution of the function
         }
 
-        var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
-        var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>;
-        var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>;
-        var subCategoryIds = <?php echo json_encode(array_column($productData, 'sub_category_id')); ?>;
-        var prices = <?php echo json_encode(array_column($productData, 'variant_price')); ?>;
+        var variantIds = <?php echo json_encode(array_column($productDataPrice, 'variant_id')); ?>;
+        var productIds = <?php echo json_encode(array_column($productDataPrice, 'product_id')); ?>;
+        var categoryIds = <?php echo json_encode(array_column($productDataPrice, 'category_id')); ?>;
+        var subCategoryIds = <?php echo json_encode(array_column($productDataPrice, 'sub_category_id')); ?>;
+        var prices = <?php echo json_encode(array_column($productDataPrice, 'variant_price')); ?>;
 
 
         var totalPrices = [];
