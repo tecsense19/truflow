@@ -30,7 +30,9 @@ class UserModel extends Model
         'zipcode',
         'country',
         'phone',
-        'fax'
+        'fax',
+        'reset_token',
+        'reset_token_expires_at'
     ];
 
     // Dates

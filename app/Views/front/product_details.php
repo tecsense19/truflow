@@ -62,7 +62,7 @@
                             <h3><?php echo "$" . $productDataPrice[0]['min_price'] . " - " . "$" . $productDataPrice[0]['max_price']; ?></h3>
 
 
-                            <ul class="stock">
+                            <!-- <ul class="stock">
                                 <li>In Stock</li>
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li><i class="fa-solid fa-star"></i></li>
@@ -70,7 +70,8 @@
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li><i class="fa-solid fa-star"></i></li>
                                 <li>(36 Reviews)</li>
-                            </ul>
+                            </ul> -->
+                            <br>
 
                             <h4>Variants</h4>
                             <?php $firstProduct = true; ?>
@@ -103,9 +104,9 @@
 
                             <?php } ?>
                             <?php if ($session->get('logged_in')) { ?>
-                                <button type="button" onclick="add_cart()" class="btn add_cart">Add to cart</button>
+                                <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
                             <?php } else { ?>
-                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart">Add to cart</button></a>
+                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart cart_hover">Add to cart</button></a>
                             <?php } ?>
                             <div class="compare">
                                 

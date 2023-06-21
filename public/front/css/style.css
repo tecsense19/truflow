@@ -2186,6 +2186,7 @@ button.coupon_button {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: 112px;
 }
 
 img.testominal_img {
@@ -2242,7 +2243,13 @@ button.btn.btn-primary.btn-rounded {
 .partner_main .owl-carousel .owl-item img {
     width: 200px;
 }
-
+.rr:hover{
+    color: #eeda02;
+}
+.cart_hover:hover{
+    background-color: #bbbec1;
+    color: #000;
+}
 
 /* h1, h2, h3, h4, h5, h6 {
     font-family: 'URW DIN Condensed Bold' !important;

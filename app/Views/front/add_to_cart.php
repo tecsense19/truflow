@@ -117,9 +117,6 @@ $commonValues = '';
                       </li>
                     <?php } ?>
 
-
-
-
                     <li class="d-flex justify-content-between sub">
                       <p>Subtotal</p>
                       <?php
@@ -372,12 +369,14 @@ $commonValues = '';
               }
             } else {
               resetDiscountAndTotal();
-              $('#couponMessage').text('Coupon is invalid.');
+              $('#couponMessage').text('Coupon is invalid or expired.');
             }
-
+            sessionStorage.setItem('couponCode', couponCode);
+            
+            //console.log('Coupon code stored in session:', couponCode);
           } else {
-
-            $('#couponMessage').text('Coupon is invalid.');
+            
+            $('#couponMessage').text('Coupon is invalid or expired.');
           }
         },
 
@@ -400,6 +399,11 @@ $commonValues = '';
         resetDiscountAndTotal();
         $('#subtotal').text(formattedSubtotal);
         $('#couponMessage').text('');
+        $('#coupon_code').val('');
+        $('#discount_type').val('');
+        $('#product_discount').val('');
+        $('#final_total_ammount').val('');
+        $('#discount_d').val('');
       }
     });
 
@@ -415,10 +419,27 @@ $commonValues = '';
       var shipping = $("#free_shipping").prop("checked"); // Retrieve the checked state of the radio button
       var discount = $("#discount").text(); // Retrieve the discount value from the HTML element
 
+      sessionStorage.removeItem('couponCode');
       var url = "<?php echo base_url('checkout/') ?>" + "?coupon_code=" + encodeURIComponent(couponCode) + "&discount_type=" + encodeURIComponent(discountType) + "&product_discount=" + encodeURIComponent(productDiscount) + "&final_total_ammount=" + encodeURIComponent(finalTotalAmount) + "&free_shipping=" + encodeURIComponent(shipping) + "&discount_d=" + encodeURIComponent(discount) + new_amount;
+
+      //alert(couponCode);
 
       window.location.href = url;
     });
 
   });
+  // -----------
+
+  $(document).ready(function() {
+  
+  var storedCouponCode = sessionStorage.getItem('couponCode');
+  //alert(storedCouponCode);
+  //alert(storedCouponCode);
+  if(storedCouponCode != null && storedCouponCode != ''){
+    $('#couponCode').val(storedCouponCode);
+  $('#applyCouponButton').trigger('click');
+  }
+
+});
+  
 </script>

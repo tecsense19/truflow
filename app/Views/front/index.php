@@ -5,8 +5,7 @@ $session = session();
 $wishlistCount = session('wishlistCount');
 $cartCount = session('cartCount');
 
-// print_r($wishlistCount);
-// die();
+
 
 $welcome_setting_id = isset($welcomeData) ? $welcomeData['setting_id'] : '';
 $welcome_title = isset($welcomeData) ? $welcomeData['title'] : '';

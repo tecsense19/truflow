@@ -13,6 +13,7 @@ use App\Models\VariantsModel;
 use App\Models\CartModel;
 use App\Models\AddwishlistModel;
 use App\Models\UserContactModel;
+$session = \Config\Services::session();
 
 
 
@@ -193,10 +194,23 @@ class Home extends BaseController
             ->where('product.product_id', $product_id)
             ->findAll();
 
-        $productDataPrice = $productmodel->select('product.*,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
-            ->join('product_variants', 'product_variants.product_id = product.product_id')
-            ->where('product.product_id', $product_id)
-            ->findAll();
+        // $productDataPrice = $productmodel->select('product.*,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
+        //     ->join('product_variants', 'product_variants.product_id = product.product_id')
+        //     ->where('product.product_id', $product_id)
+        //     ->groupBy('product.product_id',$product_id)
+        //     ->findAll();
+
+        $productDataPrice = $variantsmodel->table('product_variants')
+        ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
+        ->join('product', 'product.product_id = product_variants.product_id')
+        ->where('product.product_id', $product_id)
+        ->findAll();
+
+        // print_r($productDataPrice);
+        // die();
+        //  $lastQuery = $productmodel->getLastQuery();
+        //  echo $lastQuery;
+
 
         if (!$productData) {
             $productData = null;
@@ -288,6 +302,7 @@ class Home extends BaseController
 
     public function add_to_cart()
     {
+
         $cartmodel = new CartModel();
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
@@ -298,6 +313,9 @@ class Home extends BaseController
 
         $session = session();
         $userId = $session->get('user_id');
+        //   echo "<pre>";
+        // print_r($session->get());
+        //  die();
 
         $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
@@ -449,6 +467,7 @@ class Home extends BaseController
         $headermenumodel = new HeaderMenuModel();
         $addwishlistmodel = new AddwishlistModel();
         $productmodel = new ProductModel();
+        $variantsModel = new VariantsModel();
         $headerData = $headermenumodel->find();
 
 
@@ -460,20 +479,20 @@ class Home extends BaseController
         $userId = $session->get('user_id');
 
 
-        $query = $addwishlistmodel->select('*')
+        $wishlistData = $addwishlistmodel->select('*')
        
         ->join('product', 'product.product_id = addwish_list.product_id', 'left')
         ->join('product_variants', 'product_variants.product_id = product.product_id', 'left')
-        
         ->where('addwish_list.user_id', $userId)
         ->where('addwish_list.isDeleted', 0)
-        ->groupBy('addwish_list.product_id')
-        ->get();
+        ->groupBy('addwish_list.product_id', 'addwish_list.user_id')
+        ->findAll();
 
-        $wishlistData = $query->getResultArray();
-            // $lastQuery = $cartmodel->getLastQuery();
+        $lastQuery = $cartmodel->getLastQuery();
             // echo $lastQuery;
-
+            // echo "<pre>";
+            // print_r($wishlistData);
+            // die();
         if (!$wishlistData) {
             $wishlistData = null;
         }

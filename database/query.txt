@@ -1,1 +1,1 @@
-ALTER TABLE `user_contact` ADD `company_name` VARCHAR(255) NULL AFTER `contact_email`;
+ALTER TABLE `users` ADD `reset_token` VARCHAR(255) NULL AFTER `fax`, ADD `reset_token_expires_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `reset_token`;

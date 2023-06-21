@@ -6,9 +6,18 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail  = '';
-    public string $fromName   = '';
-    public string $recipients = '';
+
+   
+
+
+    // public $SMTPHost = 'mail.testweb4you.com';
+    // public $SMTPUser = 'sendmail@testweb4you.com';
+    // public $SMTPPass = 'sendmail@1234!';
+    // public $SMTPPort = 587;
+    // public $SMTPCrypto = 'tls';
+    // public string $fromEmail  = '';
+    // public string $fromName   = '';
+    // public string $recipients = '';
 
     /**
      * The "user agent"
@@ -18,7 +27,7 @@ class Email extends BaseConfig
     /**
      * The mail sending protocol: mail, sendmail, smtp
      */
-    public string $protocol = 'mail';
+    public string $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -28,27 +37,27 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = '';
+    public string $SMTPHost = 'mail.tec-sense.com';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = '';
+    public string $SMTPUser = 'gautam@tec-sense.com';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '';
+    public string $SMTPPass = 'Gautam@1234!';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    public int $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)
      */
-    public int $SMTPTimeout = 5;
+    public int $SMTPTimeout = 15;
 
     /**
      * Enable persistent SMTP connections
@@ -73,7 +82,7 @@ class Email extends BaseConfig
     /**
      * Type of mail, either 'text' or 'html'
      */
-    public string $mailType = 'text';
+    public string $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)

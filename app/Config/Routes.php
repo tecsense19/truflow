@@ -72,9 +72,9 @@ $routes->post("register/save", "UserController::registerSave");
 // $routes->post("createPasswordUser", "UserController::createPasswordUser");
 
 $routes->get('forgot-password', 'UserController::forgotPassword');
-$routes->post('forgot-password', 'UserController::sendPasswordResetLink');
-$routes->get('reset-password/(:any)', 'UserController::resetPassword/$1');
-$routes->post('reset-password/(:any)', 'UserController::updatePassword/$1');
+$routes->post('resetPassword', 'UserController::resetPassword');
+$routes->get('reset-password/(:any)', 'UserController::reset/$1');
+$routes->post('reset_password/(:any)', 'UserController::reset_password/$1');
 
 
 
@@ -109,11 +109,11 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
 
     // add header part dynamic menu
 
-    $routes->get("header_menu_list", "headerMenuController::header_menu_list");
-    $routes->get("header_menu", "headerMenuController::header_menu");
-    $routes->post("header_menu/save", "headerMenuController::header_menuSave");
-    $routes->get("header_menu/edit/(:num)", "headerMenuController::header_menuEdit/$1");
-    $routes->get("header_menu/delete/(:num)", "headerMenuController::header_menuDelete/$1");
+    $routes->get("header_menu_list", "HeaderMenuController::header_menu_list");
+    $routes->get("header_menu", "HeaderMenuController::header_menu");
+    $routes->post("header_menu/save", "HeaderMenuController::header_menuSave");
+    $routes->get("header_menu/edit/(:num)", "HeaderMenuController::header_menuEdit/$1");
+    $routes->get("header_menu/delete/(:num)", "HeaderMenuController::header_menuDelete/$1");
 
 
     //settings

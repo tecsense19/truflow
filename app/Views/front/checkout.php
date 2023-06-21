@@ -5,7 +5,7 @@ $session = session();
 $user_id = $session->get('user_id');
 $category_id = '';
 $commonValues = '';
-
+$new_coupon_code = $session->get('couponCode_new');
 if (isset($_GET['coupon_code'])) {
   $_SESSION['coupon_code'] = $_GET['coupon_code'];
 }
@@ -25,7 +25,8 @@ if (isset($_GET['free_shipping'])) {
   $_SESSION['shipping'] = $_GET['free_shipping'];
 }
 
-$coupon_code = isset($_SESSION['coupon_code']) ? $_SESSION['coupon_code'] : '';
+
+$coupon_code = isset($_SESSION['couponCode_new']) ? $_SESSION['couponCode_new'] : $_GET['coupon_code'];
 $discount_type = isset($_SESSION['discount_type']) ? $_SESSION['discount_type'] : '';
 $product_discount = isset($_SESSION['product_discount']) ? $_SESSION['product_discount'] : '';
 $final_total_ammount = isset($_SESSION['final_total_ammount']) ? $_SESSION['final_total_ammount'] : '';
@@ -58,33 +59,32 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
         <div class="col-lg-12">
           <div class="main_accordion">
             <div id="accordion">
-
               <div class="login_accordion">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     Have a coupon?
-                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="<?php echo isset($_SESSION['coupon_code']) ? 'true' : 'false'; ?>" aria-controls="collapseThree">
+                    <button class="btn btn-link <?php echo $coupon_code ? '' : 'collapsed'; ?>" data-toggle="collapse" data-target="#collapseThree" aria-expanded="<?php echo $coupon_code ? 'true' : 'false'; ?>" aria-controls="collapseThree">
                       Click here to enter your code
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" class="collapse <?php echo isset($_SESSION['coupon_code']) ? 'show' : ''; ?>" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                     <form action="#" class="login_form">
                       <div class="checkout-input">
-                        <label>Coupon Code :</label>
+                        <label>Coupon Code:</label>
                         <input type="text" id="couponCode" name="coupon" placeholder="Coupon" value="<?php echo isset($_SESSION['coupon_code']) ? htmlspecialchars($_SESSION['coupon_code']) : ''; ?>">
+                        
+                        <?php if(isset($coupon_code) && $coupon_code !=''){?>
+                          <div id="couponMessage" class="test">Coupon is valid.</div>
+                          <?php }?>
+                        <div id="couponMessage"></div>
                       </div>
-                      <div id="couponMessage"></div>
-                      <button type="button" class="coupon_button">Apply</button>
+                      <button type="button" class="coupon_button" id="applyCouponButton">Apply</button>
                     </form>
                   </div>
-
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
@@ -323,7 +323,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                   <input type="hidden" id="total_db_save" name="final_total_ammount" value="" />
                 <?php } ?>
 
-                <button type="submit" class="btn btn-primary btn-rounded" style="background-color: #0062CC ;">Place order</button>
+                <button type="submit" class="btn btn-primary btn-rounded proceed_btn" id="destroyButton" style="background-color: #0062CC ;">Place order</button>
               </div>
             </div>
           <?php } ?>
@@ -348,9 +348,11 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
+        $('#applyCouponButton').trigger('click');
         window.location.href = url;
       }
     });
+
   }
 </script>
 
@@ -369,7 +371,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
     $('.coupon_button').click(function() {
       var couponCode = $('#couponCode').val();
-
+      //alert(couponCode);
       $.ajax({
         url: '<?php echo base_url(); ?>check_coupon',
         method: 'POST',
@@ -536,13 +538,14 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
               }
             } else {
               resetDiscountAndTotal();
-              $('#couponMessage').text('Coupon is invalid.');
+              $('#couponMessage').text('Coupon is invalid or expired.');
             }
-
+            sessionStorage.setItem('couponCode_new', couponCode);
           } else {
 
-            $('#couponMessage').text('Coupon is invalid.');
+            $('#couponMessage').text('Coupon is invalid or expired.');
           }
+
         },
 
         error: function(xhr, status, error) {
@@ -568,23 +571,12 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
         var total_db_save2 = formattedSubtotal.replace('$', '');
         $('#final_total_ammount').val(total_db_save2);
-
-
       }
     });
+
+    // Optionally, you can also clear the entire sessionStorage with:
   });
 </script>
-
-<script>
-  $(document).ready(function() {
-    var finalTotalAmount = "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
-    if (finalTotalAmount !== '') {
-      $('#total').text(finalTotalAmount);
-
-    }
-  });
-</script>
-
 <script>
   $(document).ready(function() {
     var discount_d = "<?php echo isset($discount) ? '' . $discount : ''; ?>";
@@ -593,3 +585,36 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
     }
   });
 </script>
+<script>
+   $(document).ready(function() {
+  var finalTotalAmount = "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
+        if (finalTotalAmount != '') {
+          $('#total').text(finalTotalAmount);
+        }
+      });
+      
+</script>
+
+<script>
+ 
+$(document).ready(function() {
+  var storedCouponCode = sessionStorage.getItem('couponCode_new');
+
+  if(storedCouponCode != null && storedCouponCode != ''){
+    $('#couponCode').val(storedCouponCode);
+  $('#applyCouponButton').trigger('click');
+  }
+
+});
+</script>
+
+<script>
+$("#destroyButton").click(function() {
+
+sessionStorage.setItem('couponCode_new', '');
+
+storedCouponCode = '';
+
+});
+</script>
+

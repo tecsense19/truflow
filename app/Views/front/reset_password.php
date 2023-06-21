@@ -25,34 +25,35 @@
             <?= session()->getFlashdata('success') ?>
         </div>
     <?php endif; ?>
-
     <?php if (session()->getFlashdata('error')): ?>
         <div class="error">
             <?= session()->getFlashdata('error') ?>
         </div>
     <?php endif; ?>
 
-    <?php if (isset($errors)): ?>
-        <div class="error">
-            <?php foreach ($errors as $error) : ?>
-                <?= $error ?><br>
-            <?php endforeach ?>
-        </div>
-    <?php endif; ?>
+    <form action="<?= base_url('reset_password/' . $token) ?>" method="post">
+        
+        
 
-    <?= form_open('reset-password/' . $token); ?>
-        <div>
-            <label for="password">New Password:</label>
-            <input type="password" name="password" id="password" required>
+        <div class="form-group">
+            <div class="">
+                <label for="email" class="form-label">New Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter new password" required>
+                
+            </div>
         </div>
-        <div>
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" name="confirm_password" id="confirm_password" required>
+        <div class="form-group">
+            <div class="">
+            <label for="email" class="form-label">Confirm New Password</label>
+             <input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password" required>
+                
+            </div>
         </div>
-        <div>
-            <button type="submit">Reset Password</button>
-        </div>
-    <?= form_close(); ?>
+        
+
+
+        <button type="submit" class="btn btn-primary d-grid w-100 signin_btn">Reset Password</button>
+    </form>
     </div>
 </div>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -61,7 +62,7 @@
 
 <?= $this->include('front/layout/footer'); ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -69,18 +70,26 @@
             rules: {
 
 
-                email: {
-                    required: true,
-                    email: true
+                password: {
+                    required: true
+                    
+                },
+                confirm_password: {
+                    required: true
+                    
                 }
 
 
             },
             messages: {
 
-                email: {
-                    required: 'Email is required.',
-                    email: 'Please enter a valid email address.'
+                password: {
+                    required: 'Password is required.'
+                   
+                },
+                confirm_password: {
+                    required: 'Password is required.'
+                   
                 }
 
 
