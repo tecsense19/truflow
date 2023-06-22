@@ -38,7 +38,7 @@ $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
                                 <label class="form-label" for="basic-default-fullname">Menu Link</label>
                                 <div class="input-group mb-3 link_error">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="menu_link">http://localhost/truflow/</span>
+                                        <span class="input-group-text" id="menu_link">https://truflow.hostedwp.com.au/truflow/</span>
                                     </div>
                                     <input type="text" class="form-control" id="menu_link" name="menu_link" value="<?php echo $header_menu_link; ?>" aria-describedby="basic-addon3">
                                 </div>

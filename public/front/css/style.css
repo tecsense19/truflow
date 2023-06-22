@@ -2246,7 +2246,10 @@ button.btn.btn-primary.btn-rounded {
 .rr:hover{
     color: #eeda02;
 }
-
+.cart_hover:hover{
+    background-color: #bbbec1;
+    color: #000;
+}
 
 /* h1, h2, h3, h4, h5, h6 {
     font-family: 'URW DIN Condensed Bold' !important;

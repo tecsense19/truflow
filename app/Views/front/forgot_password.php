@@ -52,6 +52,9 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" autofocus />
             </div>
+            <div class="mt-2">
+           <p>Already have an account? <a href="<?php echo base_url('login') ?>" class="login_user">Login</a> Here</p>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary d-grid w-100 signin_btn">Reset Password</button>
     </form>

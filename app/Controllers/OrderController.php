@@ -15,6 +15,7 @@ use App\Models\OrderModel;
 use App\Models\UserModel;
 use App\Models\CouponModel;
 
+
 class OrderController extends BaseController
 {
 
@@ -24,13 +25,13 @@ class OrderController extends BaseController
     $ordermodel = new OrderModel();
     $cartmodel = new CartModel();
     $couponmodel = new CouponModel();
-
+    
     $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
             $headerData = null;
         }
-
+   
     $userId = $session->get('user_id');
 
     $query = $cartmodel->select('*')
@@ -71,10 +72,7 @@ class OrderController extends BaseController
         $session = session();
         $input = $this->request->getVar();
         $userId = $input['user_id'];
-        //  echo "<pre>";
-        // print_r($input);
-        // die();
-
+       
         $cartmodel = new CartModel();
         $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
@@ -109,12 +107,6 @@ class OrderController extends BaseController
 
             $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
 
-        //    echo "<pre>";
-        //    print_r($orderArr);
-
-            
-
-            
             if (isset($row['order_id']) && $row['order_id'] != '') {
                 $ordermodel->update(['order_id', $row['order_id']], $orderArr);
             } else {
@@ -123,41 +115,86 @@ class OrderController extends BaseController
             
             
         }
+        // echo "<pre>";
+        // print_r($session->get());
+        //  die();
+        //$session = \Config\Services::session();
+        helper('session');
+            // $session->remove('couponCode_new');
+            $session->remove('coupon_code');
+            $session->remove('discount_type');
+            $session->remove('product_discount');
+            $session->remove('final_total_ammount');
+            $session->remove('discount_d');
+            $session->remove('shipping');
+            $session->remove('cartCount');
+
+
+
         $this->remove_checkout($userId);
         $session->setFlashdata('success', 'Order Placed successfully.');
+      
          return redirect()->back();  
         //die();
     }
     public function remove_checkout($userId)
     {
+       
         // print_r($userId);
         // die();
         $session = session();
+       
         $cartmodel = new CartModel();
         $cartmodel->where('user_id', $userId)->delete();
         $session->setFlashdata('success', 'remove succesfully.');
         return redirect()->back();
     }
 
-    public function check_coupon()
+//     public function check_coupon()
+// {
+//     $input = $this->request->getVar();
+
+//     $couponmodel = new CouponModel();
+//     $couponCode = isset($input['coupon']) ? $input['coupon'] : '';
+
+//     $couponData = $couponmodel->where('coupon_code', $couponCode)->findAll();
+
+//     if (!empty($couponData)) {
+//         // Coupon code exists in the database
+//         $response = ['status' => 'success', 'message' => 'Coupon code is valid', 'couponData' => $couponData];
+//     } else {
+//         // Coupon code does not exist in the database
+//         $response = ['status' => 'error', 'message' => 'Invalid coupon code'];
+//     }
+
+//     return $this->response->setJSON($response);
+// }
+
+public function check_coupon()
 {
     $input = $this->request->getVar();
 
     $couponmodel = new CouponModel();
     $couponCode = isset($input['coupon']) ? $input['coupon'] : '';
 
-    $couponData = $couponmodel->where('coupon_code', $couponCode)->findAll();
+    $currentDate = date('Y-m-d'); // Get the current date
+
+    $couponData = $couponmodel->where('coupon_code', $couponCode)
+                              ->where('to_date >=', $currentDate)
+                              ->where('from_date <=', $currentDate)
+                              ->findAll();
 
     if (!empty($couponData)) {
-        // Coupon code exists in the database
+        // Coupon code exists in the database and is valid
         $response = ['status' => 'success', 'message' => 'Coupon code is valid', 'couponData' => $couponData];
     } else {
-        // Coupon code does not exist in the database
-        $response = ['status' => 'error', 'message' => 'Invalid coupon code'];
+        // Coupon code does not exist in the database or has expired
+        $response = ['status' => 'error', 'message' => 'Invalid or expired coupon code'];
     }
 
     return $this->response->setJSON($response);
 }
+
 
 
 

@@ -13,6 +13,9 @@ use App\Models\VariantsModel;
 use App\Models\CartModel;
 use App\Models\AddwishlistModel;
 use App\Models\UserContactModel;
+$session = \Config\Services::session();
+
+
 
 class Home extends BaseController
 {
@@ -299,6 +302,7 @@ class Home extends BaseController
 
     public function add_to_cart()
     {
+
         $cartmodel = new CartModel();
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
@@ -309,6 +313,9 @@ class Home extends BaseController
 
         $session = session();
         $userId = $session->get('user_id');
+        //   echo "<pre>";
+        // print_r($session->get());
+        //  die();
 
         $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')

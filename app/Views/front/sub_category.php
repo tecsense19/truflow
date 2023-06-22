@@ -27,7 +27,7 @@
                             </div>
                             <div class="product_text text-center">
                             <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>" class="category-link">
-                                    <h3><?php echo $subcategory['sub_category_name']; ?></h3>
+                                    <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
                                 </a>
                                 <span><?php echo $subcategory['sub_category_description']; ?></span>
                             </div>

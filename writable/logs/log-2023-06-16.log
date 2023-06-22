@@ -1,0 +1,475 @@
+CRITICAL - 2023-06-16 10:09:04 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:09 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:20 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:27 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:09:28 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:12:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:13:15 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:17:17 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:17:32 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 10:20:19 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 408.
+ 1 APPPATH\Controllers\Home.php(408): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 408)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart_new()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 11:44:25 --> Undefined array key "email"
+in APPPATH\Controllers\UserController.php on line 263.
+ 1 APPPATH\Controllers\UserController.php(263): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "email"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 263)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->sendPasswordResetLink()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 11:48:02 --> Undefined array key "email"
+in APPPATH\Controllers\UserController.php on line 266.
+ 1 APPPATH\Controllers\UserController.php(266): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "email"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 266)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->sendPasswordResetLink()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 11:48:13 --> Call to undefined method App\Controllers\UserController::password_generate()
+in APPPATH\Controllers\UserController.php on line 276.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->sendPasswordResetLink()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:06:47 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 SYSTEMPATH\BaseModel.php(690): CodeIgniter\Model->update('5', [...])
+ 4 APPPATH\Controllers\UserController.php(278): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:07:54 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 SYSTEMPATH\BaseModel.php(690): CodeIgniter\Model->update('5', [...])
+ 4 APPPATH\Controllers\UserController.php(278): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:11:17 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 SYSTEMPATH\BaseModel.php(690): CodeIgniter\Model->update('5', [...])
+ 4 APPPATH\Controllers\UserController.php(282): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:11:40 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 762.
+ 1 SYSTEMPATH\BaseModel.php(762): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:12:08 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 762.
+ 1 SYSTEMPATH\BaseModel.php(762): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:12:55 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:13:07 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:15:17 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 1680.
+ 1 SYSTEMPATH\BaseModel.php(1680): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\BaseModel.php(910): CodeIgniter\BaseModel->transformDataToArray(null, 'update')
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], null)
+ 4 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->update([...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:20:02 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\UserController.php(283): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:20:12 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\UserController.php(283): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:20:55 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\UserController.php(282): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-16 13:22:44 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1730
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1730)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1730): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(297): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:22:44 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:22:44 --> 
+ERROR - 2023-06-16 13:22:55 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1730
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1730)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1730): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(297): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:22:55 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:22:55 --> 
+ERROR - 2023-06-16 13:30:49 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(292): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:30:49 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:30:49 --> 
+CRITICAL - 2023-06-16 13:36:18 --> Undefined property: Config\Email::$fromEmail
+in APPPATH\Controllers\UserController.php on line 287.
+ 1 APPPATH\Controllers\UserController.php(287): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Email::$fromEmail', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 287)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-16 13:36:55 --> Undefined property: Config\Email::$fromEmail
+in APPPATH\Controllers\UserController.php on line 288.
+ 1 APPPATH\Controllers\UserController.php(288): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Email::$fromEmail', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 288)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-16 13:38:20 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(293): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:38:20 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:38:20 --> 
+ERROR - 2023-06-16 13:43:06 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(294): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:43:06 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:43:06 --> 
+ERROR - 2023-06-16 13:43:17 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(294): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:43:17 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:43:17 --> 
+ERROR - 2023-06-16 13:45:44 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(292): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:45:44 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:45:44 --> 
+CRITICAL - 2023-06-16 13:49:59 --> Undefined property: Config\Email::$nadim@tec-sense.com
+in APPPATH\Controllers\UserController.php on line 290.
+ 1 APPPATH\Controllers\UserController.php(290): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Email::$nadim@tec-sense.com', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 290)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-16 13:50:38 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(295): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:50:38 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:50:38 --> 
+ERROR - 2023-06-16 13:51:15 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(295): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:51:15 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:51:15 --> 
+ERROR - 2023-06-16 13:55:23 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(300): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:55:23 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:55:23 --> 
+ERROR - 2023-06-16 13:55:31 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(300): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:55:31 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:55:31 --> 
+ERROR - 2023-06-16 13:56:50 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(300): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 13:56:50 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 13:56:50 --> 
+ERROR - 2023-06-16 14:04:27 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(300): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 14:04:27 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 14:04:27 --> 
+ERROR - 2023-06-16 14:10:50 --> Email: sendWithMail throwed ErrorException: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\truflow\system\Email\Email.php:1735
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mail(): Failed ...', 'C:\\xampp\\htdocs...', 1735)
+#1 C:\xampp\htdocs\truflow\system\Email\Email.php(1735): mail('nadim@tec-sense...', '=?UTF-8?Q?Passw...', 'Click the follo...', 'Date: Fri, 16 J...', '-f nadim@tec-se...')
+#2 C:\xampp\htdocs\truflow\system\Email\Email.php(1667): CodeIgniter\Email\Email->sendWithMail()
+#3 C:\xampp\htdocs\truflow\system\Email\Email.php(1565): CodeIgniter\Email\Email->spoolEmail()
+#4 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(300): CodeIgniter\Email\Email->send()
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->resetPassword()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2023-06-16 14:10:50 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2023-06-16 14:10:50 --> 

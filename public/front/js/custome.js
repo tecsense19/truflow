@@ -6,6 +6,7 @@
 //     $('.search-form-main').toggleClass('active-search');
 //     $('.search-form-main .search-field').focus();
 // });
+
 $(document).ready(function() {
   $('.header-search-wrapper .search-main').click(function(event) {
     event.stopPropagation(); // Prevent the click event from bubbling up
@@ -21,7 +22,6 @@ $(document).ready(function() {
     }
   });
 });
-
 /*~~~~~~~~~~~~~~~~~~>> SHRINK ON SCROLL JS START <<~~~~~~~~~~~~~~~~~~*/
 
 $(function(){

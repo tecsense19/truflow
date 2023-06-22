@@ -29,7 +29,7 @@
                             </div>
                             <div class="product_text text-center">
                                 <a href="<?php echo base_url('') . "sub_category/" . $category['category_id'] ?>">
-                                    <h3><?php echo $category['category_name']; ?></h3>
+                                    <h3 class="mt-3"><?php echo $category['category_name']; ?></h3>
                                 </a>
                                 <span><?php echo $category['category_description']; ?></span>
                             </div>

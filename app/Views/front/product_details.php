@@ -104,9 +104,9 @@
 
                             <?php } ?>
                             <?php if ($session->get('logged_in')) { ?>
-                                <button type="button" onclick="add_cart()" class="btn add_cart">Add to cart</button>
+                                <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
                             <?php } else { ?>
-                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart">Add to cart</button></a>
+                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart cart_hover">Add to cart</button></a>
                             <?php } ?>
                             <div class="compare">
                                 
