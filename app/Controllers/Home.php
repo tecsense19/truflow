@@ -14,8 +14,6 @@ use App\Models\CartModel;
 use App\Models\AddwishlistModel;
 use App\Models\UserContactModel;
 
-
-
 class Home extends BaseController
 {
     public function index()
