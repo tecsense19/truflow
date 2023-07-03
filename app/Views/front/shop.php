@@ -20,7 +20,7 @@
 <section class="category_product my-5">
     <div class="container">
         <div class="row">
-            <?php if (isset($categoryData)) {?>
+            <?php if (isset($categoryData)) { ?>
                 <?php foreach ($categoryData as $category) { ?>
                     <div class="col-lg-4">
                         <div class="product_box">

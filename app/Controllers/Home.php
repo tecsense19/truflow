@@ -13,6 +13,10 @@ use App\Models\VariantsModel;
 use App\Models\CartModel;
 use App\Models\AddwishlistModel;
 use App\Models\UserContactModel;
+use App\Models\UserModel;
+use App\Models\CompanyModel;
+use App\Models\SliderModel;
+
 $session = \Config\Services::session();
 
 
@@ -80,6 +84,13 @@ class Home extends BaseController
         $cartCount = count($cartData ?? []);
         $session->set('cartCount', $cartCount);
 
+        $slidermodel = new SliderModel();
+        $sliderData = $slidermodel->findAll();
+        if (!$sliderData) {
+            $sliderData = null;
+        }
+
+
         return view(
             'front/index',
             [
@@ -99,7 +110,10 @@ class Home extends BaseController
 
                 //count
                 'wishlistCount'=> $wishlistCount,
-                'cartCount'=> $cartCount
+                'cartCount'=> $cartCount,
+
+                //
+                'sliderData' => $sliderData
             ]
         );
     }
@@ -330,6 +344,21 @@ class Home extends BaseController
         if (!$cartData) {
             $cartData = null;
         }
+        $componeyModel = new CompanyModel;
+        $usermodel = new UserModel;
+
+        $query2 = $componeyModel->select('*')
+        ->join('users', 'users.company_name = company.company_name', 'left')
+        ->where('user_id', $userId)
+        ->get();
+
+        $componeyData = $query2->getResultArray();
+        if (!$componeyData) {
+            $componeyData = null;
+        }
+        // echo "<pre>"; 
+        // print_r($componeyData); 
+        // die();
 
         $cartCount = count($cartData ?? []);
 
@@ -339,7 +368,8 @@ class Home extends BaseController
             'cartData' => $cartData,
             'headerData' => $headerData,
             'userId' => $userId,
-            'cartCount' => $cartCount, // Pass the cart count to the view
+            'cartCount' => $cartCount,
+            'componeyData' => $componeyData
         ]);
     }
 

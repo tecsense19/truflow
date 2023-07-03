@@ -1,0 +1,66 @@
+CRITICAL - 2023-07-03 04:40:04 --> Undefined variable $sliderPaths
+in APPPATH\Views\admin\slider\slider_list.php on line 46.
+ 1 APPPATH\Views\admin\slider\slider_list.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sliderPaths', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-03 04:41:43 --> Undefined variable $sliderPath
+in APPPATH\Views\admin\slider\slider_list.php on line 47.
+ 1 APPPATH\Views\admin\slider\slider_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sliderPath', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-03 04:41:58 --> Undefined array key 0
+in APPPATH\Views\admin\slider\slider_list.php on line 45.
+ 1 APPPATH\Views\admin\slider\slider_list.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 45)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-03 04:42:22 --> foreach() argument must be of type array|object, string given
+in APPPATH\Views\admin\slider\slider_list.php on line 46.
+ 1 APPPATH\Views\admin\slider\slider_list.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-03 04:43:33 --> Undefined variable $sliderPath
+in APPPATH\Views\admin\slider\slider_list.php on line 47.
+ 1 APPPATH\Views\admin\slider\slider_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sliderPath', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-03 04:43:44 --> Undefined variable $sliderPath
+in APPPATH\Views\admin\slider\slider_list.php on line 47.
+ 1 APPPATH\Views\admin\slider\slider_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sliderPath', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\slider\\slider_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider_list', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(16): view('admin/slider/slider_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

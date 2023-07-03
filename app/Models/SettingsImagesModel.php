@@ -16,6 +16,7 @@ class SettingsImagesModel extends Model
     protected $allowedFields    = [
         'setting_id',
         'image_path',
+        'slider_path'
     ];
 
     // Dates

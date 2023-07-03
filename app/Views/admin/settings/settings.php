@@ -42,11 +42,9 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 ?>
 
 <?= $this->include('admin/layout/front') ?>
-
 <!-- Content wrapper -->
 <div class="content-wrapper">
     <!-- Content -->
-
     <div class="container-xxl flex-grow-1 container-p-y">
         <?php if (session()->getFlashdata('success')) { ?>
             <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
@@ -54,7 +52,6 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <?php if (session()->getFlashdata('error')) { ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
         <?php } ?>
-
         <!-- Basic Layout -->
         <div class="row">
             <div class="col-xl">
@@ -75,7 +72,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Description</label>
-                                <textarea id="description" name="welcome_description" class="form-control" placeholder="Description"><?php echo $welcome_description; ?></textarea>
+                                <textarea id="editor1" name="welcome_description"><?php echo $welcome_description; ?></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Button Text</label>
@@ -83,7 +80,12 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Button Link</label>
-                                <input type="text" class="form-control" value="<?php echo $welcome_button_link; ?>" id="sub_title" name="welcome_button_link" placeholder="Button Link" />
+                                <div class="input-group mb-3 link_error">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="welcome_button_link"><?php echo base_url(''); ?></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="welcome_button_link" name="welcome_button_link" value="<?php echo $welcome_button_link; ?>" aria-describedby="basic-addon3">
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Banner Image</label>
@@ -111,7 +113,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">About Description</label>
-                                <textarea id="description" name="about_description" class="form-control" placeholder="Description"><?php echo $about_description; ?></textarea>
+                                <textarea id="editor2" name="about_description"><?php echo $about_description; ?></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">About Button Text</label>
@@ -119,7 +121,12 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">About Button Link</label>
-                                <input type="text" class="form-control" value="<?php echo $about_button_link; ?>" id="sub_title" name="about_button_link" placeholder="Button Link" />
+                                <div class="input-group mb-3 link_error">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="about_button_link"><?php echo base_url(''); ?></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="about_button_link" name="about_button_link" value="<?php echo $about_button_link; ?>" aria-describedby="basic-addon3">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +142,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Contact Description</label>
-                                <textarea id="description" name="contact_description" class="form-control" placeholder="Description"><?php echo $contact_description; ?></textarea>
+                                <textarea id="editor3" name="contact_description"><?php echo $contact_description; ?></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Contact Button Text</label>
@@ -143,7 +150,12 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Contact Button Link</label>
-                                <input type="text" class="form-control" value="<?php echo $contact_button_link; ?>" id="sub_title" name="contact_button_link" placeholder="Button Link" />
+                                <div class="input-group mb-3 link_error">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="contact_button_link"><?php echo base_url(''); ?></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="contact_button_link" name="contact_button_link" value="<?php echo $contact_button_link; ?>" aria-describedby="basic-addon3">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +171,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Product Description</label>
-                                <textarea id="description" name="product_description" class="form-control" placeholder="Description"><?php echo $product_description; ?></textarea>
+                                <textarea id="editor4" name="product_description"><?php echo $product_description; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -175,7 +187,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Testominal Description</label>
-                                <textarea id="description" name="testominal_description" class="form-control" placeholder="Description"><?php echo $testominal_description; ?></textarea>
+                                <textarea id="editor5" name="testominal_description"><?php echo $testominal_description; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -191,23 +203,19 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Partner Description</label>
-                                <textarea id="description" name="partner_description" class="form-control" placeholder="Description"><?php echo $partner_description; ?></textarea>
+                                <textarea id="editor6" name="partner_description"><?php echo $partner_description; ?></textarea>
                             </div>
                             <div class="mb-3">
-    <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
-    <?php if ($partnerImageData) { ?>
-        <?php foreach ($partnerImageData as $partner) {?>
-            <div class="image-container partner_img">
-                <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
-                <a class="remove-image" href="#" style="display: inline;"  data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
-                
-            </div>
-        <?php } ?>
-    <?php } ?>
-</div>
-
-
-
+                                <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
+                                <?php if ($partnerImageData) { ?>
+                                    <?php foreach ($partnerImageData as $partner) { ?>
+                                        <div class="image-container partner_img">
+                                            <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
+                                            <a class="remove-image" href="#" style="display: inline;" data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
+                                        </div>
+                                    <?php } ?>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
@@ -221,138 +229,73 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 <?= $this->include('admin/layout/footer') ?>
 <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
-    $(document).ready(function() {
-        $("#settings_form").validate({
-            rules: {
-                title: {
-                    required: true
-                },
-                sub_title: {
-                    required: true
-                },
-                description: {
-                    required: true
-                },
-                title_about: {
-                    required: true
-                },
-                sub_title_about: {
-                    required: true
-                },
-                description_about: {
-                    required: true
-                },
-                contect_title: {
-                    required: true
-                },
-                contact_description: {
-                    required: true
-                },
-                product_title: {
-                    required: true
-                },
-                product_description: {
-                    required: true
-                },
-                testominal_title: {
-                    required: true
-                },
-                testominal_description: {
-                    required: true
-                },
-                partner_title: {
-                    required: true
-                },
-                partner_description: {
-                    required: true
-                }
-
-            },
-            messages: {
-                title: {
-                    required: "Title is required!"
-                },
-                sub_title: {
-                    required: "Sub Title is required!"
-
-                },
-                description: {
-                    required: "Description is required!"
-                },
-                title_about: {
-                    required: "Title is required!"
-                },
-                sub_title_about: {
-                    required: "Sub Title is required!"
-
-                },
-                description_about: {
-                    required: "Description is required!"
-                },
-                contect_title: {
-                    required: "Title is required!"
-                },
-                contact_description: {
-                    required: "Description is required!"
-                },
-                product_title: {
-                    required: "Title is required!"
-                },
-                product_description: {
-                    required: "Description is required!"
-                },
-                testominal_title: {
-                    required: "Title is required!"
-                },
-                testominal_description: {
-                    required: "Description is required!"
-                },
-                partner_title: {
-                    required: "Title is required!"
-                },
-                partner_description: {
-                    required: "Description is required!"
-                }
-
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
+$(document).ready(function() {
+    $('#settings_form').validate({
+        rules: {
+            welcome_title: 'required',
+            welcome_sub_title: 'required',
+            welcome_description: 'required',
+            welcome_button_text: 'required',
+            welcome_button_link: 'required',
+            about_title: 'required',
+            about_sub_title: 'required',
+            about_description: 'required',
+            about_button_text: 'required',
+            about_button_link: 'required',
+            contact_title: 'required',
+            contact_description: 'required',
+            contact_button_text: 'required',
+            contact_button_link: 'required',
+            product_title: 'required',
+            product_description: 'required',
+            testominal_title: 'required',
+            testominal_description: 'required',
+            partner_title: 'required',
+            partner_description: 'required',
+        },
+        messages: {
+            // Add custom error messages here if needed
+        },
+        submitHandler: function(form) {
+            // Handle form submission if all fields are valid
+            form.submit();
+        }
     });
+});
 </script>
 <script>
-  $(document).ready(function() {
-    $('.remove-image').click(function(e) {
-      e.preventDefault();
-      var container = $(this).closest('.image-container');
-      //var imageId = container.find('.image-id').val();
-      var imageId = $(this).data('id');
-     
-      Swal.fire({
-        title: 'Are you sure?',
-        text: 'You Want To Delete This.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          $.ajax({
-            url: '<?php echo base_url('admin/delete_partner_img') ?>',
-            type: 'POST',
-            data: { image_id: imageId },
-            success: function(response) {
-              container.remove();
-            },
-            error: function(xhr, status, error) {
-              console.log(error);
-            }
-          });
-        }
-      });
+    $(document).ready(function() {
+        $('.remove-image').click(function(e) {
+            e.preventDefault();
+            var container = $(this).closest('.image-container');
+            //var imageId = container.find('.image-id').val();
+            var imageId = $(this).data('id');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You Want To Delete This.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '<?php echo base_url('admin/delete_partner_img') ?>',
+                        type: 'POST',
+                        data: {
+                            image_id: imageId
+                        },
+                        success: function(response) {
+                            container.remove();
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        });
     });
-  });
 </script>

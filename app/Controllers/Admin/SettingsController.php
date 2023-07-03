@@ -152,16 +152,36 @@ class SettingsController extends BaseController
 
     }
 
-    public function delete_partner_img(){
-        $session = session();
-        $input = $this->request->getVar();
+    // public function delete_partner_img(){
+    //     $session = session();
+    //     $input = $this->request->getVar();
 
-        $settingsImagesModel = new SettingsImagesModel();
-        $settingsImagesModel->delete($input['image_id']);
+    //     $settingsImagesModel = new SettingsImagesModel();
+    //     $settingsImagesModel->delete($input['image_id']);
     
-        $session->setFlashdata('success', 'Image Delete succesfully.');
-        return redirect()->back();
+    //     $session->setFlashdata('success', 'Image Delete succesfully.');
+    //     return redirect()->back();
      
        
+    // }
+    public function delete_partner_img()
+{
+    $session = session();
+    $input = $this->request->getVar();
+
+    $settingsImagesModel = new SettingsImagesModel();
+    $image = $settingsImagesModel->find($input['image_id']); 
+    $imagePath = $image['image_path']; 
+    // Delete the image file from the folder
+    if (file_exists($imagePath)) {
+        unlink($imagePath);
     }
+
+    $settingsImagesModel->delete($input['image_id']);
+
+    $session->setFlashdata('success', 'Image deleted successfully.');
+    return redirect()->back();
+}
+
+
 }

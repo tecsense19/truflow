@@ -18,7 +18,7 @@ class ProductModel extends Model
         'category_id',
         'product_description',
         'product_img',
-        'product_price',
+        'product_additional_info',
         'sub_category_id',
         
     ];

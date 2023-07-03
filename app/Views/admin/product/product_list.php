@@ -52,11 +52,16 @@
                                                     <td class="testo_descrip"><?php echo $product['product_description'];?></td>
                                                     
                                                     <td>
-                                                        <?php if(isset($product['product_img'])) {?>
-                                                            <a data-fancybox="preview" href="<?php echo base_url('').$product['product_img']?>"><img src="<?php echo base_url('').$product['product_img']?>" alt="Image" class ="" width="100"></a>
-                                                        <?php }else {?>
-                                                            <?php echo "-";?>
-                                                        <?php } ?>
+                                                    <?php if (isset($product['product_img'])) {
+                                                    $imagePaths = explode(',', $product['product_img']);
+                                                    $firstImagePath = trim($imagePaths[0]);
+                                                    ?>
+                                                    <a data-fancybox="preview" href="<?php echo base_url('') . $firstImagePath; ?>">
+                                                    <img src="<?php echo base_url('') . $firstImagePath; ?>" alt="Image" class="" width="100">
+                                                    </a>
+                                                    <?php } else { ?>
+                                                    <?php echo "-"; ?>
+                                                    <?php } ?>
                                                     </td>
                                                     <td>
                                                 <a class="" href="<?php echo base_url('')."admin/product/edit/".$product['product_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>

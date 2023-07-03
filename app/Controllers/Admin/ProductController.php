@@ -46,7 +46,7 @@ class ProductController extends BaseController
     {
         $subcategorymodel = new SubCategoryModel();
         $subcategories = $subcategorymodel->where('category_id', $category_id)->findAll();
-        
+
         // Return subcategories as JSON
         return $this->response->setJSON($subcategories);
     }
@@ -64,29 +64,44 @@ class ProductController extends BaseController
         $productArr['category_id'] = isset($input['category_id']) ? $input['category_id'] : '';
         $productArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
         $productArr['product_name'] = isset($input['product_name']) ? $input['product_name'] : '';
-        // $productArr['product_price'] = isset($input['product_price']) ? $input['product_price'] : '';
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
+        $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
 
-        if ($file = $this->request->getFile('product_img')) {
-            $path = 'public/admin/images/product/';
-            if ($file->getClientName()) {
-                $filename = time() . '_productImg_' . $file->getClientName();
-                $file->move($path, $filename);
-                $productArr['product_img'] = 'public/admin/images/product/' . $filename;
-            }
+        // Check if new images are uploaded
+if ($files = $this->request->getFiles()) {
+    $path = 'public/admin/images/product/';
+    $uploadedFiles = [];
+
+    // Loop through each uploaded file
+    foreach ($files['product_img'] as $file) {
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move($path, $newName);
+            $uploadedFiles[] = $path . $newName;
         }
+    }
 
-         $productId = '';
+    // Merge the existing images with the new uploaded images
+    if (!empty($uploadedFiles)) {
+        // Retrieve existing images if available
+        $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
+        $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+    }
+}
+
+        $productId = '';
+
         if (isset($input['product_id']) && $input['product_id'] != '') {
-            $productmodel->update(['product_id', $input['product_id']], $productArr);
-            $productId  = $input['product_id'];
+            $productmodel->update($input['product_id'], $productArr);
+            $productId = $input['product_id'];
+            $session->setFlashdata('success', 'product Update succesfully.');
         } else {
             $productId = $productmodel->insert($productArr);
+            $session->setFlashdata('success', 'product Add succesfully.');
         }
 
         $this->variantProductSave($productId);
 
-        $session->setFlashdata('success', 'product change succesfully.');
         return redirect()->to('admin/product_list');
     }
     public function productEdit($product_id)
@@ -94,7 +109,7 @@ class ProductController extends BaseController
 
         $productmodel = new ProductModel();
         $productData = $productmodel->find($product_id);
-        
+
 
         if (!$productData) {
             $productData = null;
@@ -118,10 +133,10 @@ class ProductController extends BaseController
             $variantData = null;
         }
 
-       
+
         return view('admin/product/product', [
-            'productData' => $productData,  
-            'categoryData' => $categoryData, 
+            'productData' => $productData,
+            'categoryData' => $categoryData,
             'subcategoryData' => $subcategoryData,
             'variantData' => $variantData
         ]);
@@ -134,49 +149,42 @@ class ProductController extends BaseController
         $session->setFlashdata('success', 'product Delete succesfully.');
         return redirect()->to('admin/product_list');
     }
-   
-    public function variantProductSave($productId)
-{
-    $variantsmodel = new VariantsModel();
-    $input = $this->request->getVar();
-    $productVariantArr = [
-        'product_id' => $productId 
-    ];
 
-    foreach ($input['variant_name'] as $key => $VariantArr) {
+    public function variantProductSave($productId)
+    {
+        $variantsmodel = new VariantsModel();
+        $input = $this->request->getVar();
         $productVariantArr = [
-            'product_id' => $productId,
-            'variant_name' => $input['variant_name'][$key],
-           
-            'variant_price' => $input['variant_price'][$key],
-            'variant_sku' => $input['variant_sku'][$key],
+            'product_id' => $productId
         ];
 
-        if (isset($input['variant_id'][$key]) && !empty($input['variant_id'][$key])) {
-            // Update existing variant
-            $variantId = $input['variant_id'][$key];
-            $variantsmodel->update($variantId, $productVariantArr);
-        } else {
-            // Insert new variant
-            $variantsmodel->insert($productVariantArr);
+        foreach ($input['variant_name'] as $key => $VariantArr) {
+            $productVariantArr = [
+                'product_id' => $productId,
+                'variant_name' => $input['variant_name'][$key],
+                'variant_price' => $input['variant_price'][$key],
+                'variant_sku' => $input['variant_sku'][$key],
+            ];
+
+            if (isset($input['variant_id'][$key]) && !empty($input['variant_id'][$key])) {
+                // Update existing variant
+                $variantId = $input['variant_id'][$key];
+                $variantsmodel->update($variantId, $productVariantArr);
+            } else {
+                // Insert new variant
+                $variantsmodel->insert($productVariantArr);
+            }
         }
+
+        return redirect()->to('admin/product_list');
     }
-
-    return redirect()->to('admin/product_list');
-}
-public function variantDelete($variantId)
+    public function variantDelete($variantId)
     {
-
-        // echo "hi";
-        // die();
         $session = session();
         $variantsmodel = new VariantsModel();
-        
+
         $variantsmodel->delete($variantId);
         $session->setFlashdata('success', 'Variant Delete succesfully.');
         return redirect()->back();
     }
-   
-
-
 }

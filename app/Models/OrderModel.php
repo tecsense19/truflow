@@ -15,21 +15,15 @@ class OrderModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'user_id',
-        'cart_id',
-        'category_id',
-        'sub_category_id',
-        'product_id',
-        'variant_id',
-        'product_quantity',
-        'product_amount',
-        'product_discount',
-        'total_amount',
-        'order_status',
-        'pay_method',
-        'shipping',
         'discount_type',
+        'product_discount',
         'final_total_ammount',
-        'coupon_code'
+        'coupon_code',
+        'pay_method',
+        'order_status',
+        'shipping',
+        'notes',
+        'ship_to_diff_address'
     ];
 
     // Dates

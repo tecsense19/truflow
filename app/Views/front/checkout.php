@@ -54,7 +54,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <section class="checkout_details mt-5">
   <form class="mb-0 mt-4" method="post" id="product_form" action="<?php echo base_url() ?>place_order" enctype='multipart/form-data'>
-    <div class="container">
+      <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="main_accordion">
@@ -74,10 +74,10 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                       <div class="checkout-input">
                         <label>Coupon Code:</label>
                         <input type="text" id="couponCode" name="coupon" placeholder="Coupon" value="<?php echo isset($_SESSION['coupon_code']) ? htmlspecialchars($_SESSION['coupon_code']) : ''; ?>">
-                        
-                        <?php if(isset($coupon_code) && $coupon_code !=''){?>
+
+                        <?php if (isset($coupon_code) && $coupon_code != '') { ?>
                           <div id="couponMessage" class="test">Coupon is valid.</div>
-                          <?php }?>
+                        <?php } ?>
                         <div id="couponMessage"></div>
                       </div>
                       <button type="button" class="coupon_button" id="applyCouponButton">Apply</button>
@@ -93,7 +93,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
             <div class="col-lg-7">
               <div class="billing_detail">
                 <h3>Billing Details</h3>
-                <form action="#" class="checkout_form mt-4">
+                
                   <div class="row">
 
                     <div class="col-md-6">
@@ -136,23 +136,6 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                         <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>" class="form-control input-custom" />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="checkout-input">
-                        <label>State / County</label>
-                        <select>
-                          <option>New York US</option>
-                          <option>Berlin Germany</option>
-                          <option>Paris France</option>
-                          <option>Tokiyo Japan</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-input">
-                        <label>Postcode ZIP</label>
-                        <input type="text" id="zipcode" name="zipcode" value="<?php echo $user['zipcode']; ?>" class="form-control input-custom" />
-                      </div>
-                    </div>
                     <div class="col-md-12">
                       <div class="checkout-input">
                         <label>Phone <span>*</span></label>
@@ -168,24 +151,34 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                     <div class="col-md-12">
                       <div class="checkout-option-wrapper">
                         <div class="checkout-option">
-                          <input id="create_free_account" type="checkbox">
-                          <label for="create_free_account">Create an account?</label>
-                        </div>
-                        <div class="checkout-option">
-                          <input id="ship_to_diff_address" type="checkbox">
+                          <input id="ship_to_diff_address" type="checkbox" name="ship_to_diff_address">
                           <label for="ship_to_diff_address">Ship to a different address?</label>
                         </div>
                       </div>
                     </div>
+                    <div class="col-md-12 diff_address">
+                      <div class="checkout-input">
+                        <label>Town / City</label>
+                        <input type="text" id="city" name="city" value="" class="form-control input-custom" />
+                      </div>
+                      <div class="checkout-input">
+                        <label>Street address</label>
+                        <input type="text" id="address_1" name="address_1" value="" class="form-control input-custom" />
+                      </div>
+                      <div class="checkout-input">
+                        <input type="text" id="address_2" name="address_2" value="" class="form-control input-custom" />
+                      </div>
+                    </div>
+
                     <div class="col-md-12">
                       <div class="checkout-input">
                         <label>Order notes (optional)</label>
-                        <textarea placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                        <textarea id="notes" name="notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                       </div>
                     </div>
 
                   </div>
-                </form>
+               
               </div>
             </div>
 
@@ -295,8 +288,10 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
               <div class="checkout-agree">
                 <div class="checkout-option">
-                  <input id="read_all" type="checkbox">
-                  <label for="read_all">I have read and agree to the website.</label>
+                  <div class="db_data">
+                    <input id="read_all" type="checkbox">
+                    <label for="read_all">I have read and agreed to the <a href="#"> Terms&Condition </a> of the website.</label>
+                  </div>
                 </div>
               </div>
               <div class="checkout_btn">
@@ -330,12 +325,31 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
         </div>
 
       </div>
-    </div>
+      </div>
   </form>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
+<script>
+  $(document).ready(function() {
+    // Initially hide the additional address fields
+    $('.diff_address').hide();
+
+    // Handle the checkbox click event
+    $('#ship_to_diff_address').on('click', function() {
+      if ($(this).is(':checked')) {
+        // Show the additional address fields
+        $('.diff_address').show();
+      } else {
+        // Hide the additional address fields
+        $('.diff_address').hide();
+      }
+    });
+  });
+</script>
+
+
 <script>
   function confirmDelete(url) {
     Swal.fire({
@@ -586,35 +600,32 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
   });
 </script>
 <script>
-   $(document).ready(function() {
-  var finalTotalAmount = "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
-        if (finalTotalAmount != '') {
-          $('#total').text(finalTotalAmount);
-        }
-      });
-      
+  $(document).ready(function() {
+    var finalTotalAmount = "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
+    if (finalTotalAmount != '') {
+      $('#total').text(finalTotalAmount);
+    }
+  });
 </script>
 
 <script>
- 
-$(document).ready(function() {
-  var storedCouponCode = sessionStorage.getItem('couponCode_new');
+  $(document).ready(function() {
+    var storedCouponCode = sessionStorage.getItem('couponCode_new');
 
-  if(storedCouponCode != null && storedCouponCode != ''){
-    $('#couponCode').val(storedCouponCode);
-  $('#applyCouponButton').trigger('click');
-  }
+    if (storedCouponCode != null && storedCouponCode != '') {
+      $('#couponCode').val(storedCouponCode);
+      $('#applyCouponButton').trigger('click');
+    }
 
-});
+  });
 </script>
 
 <script>
-$("#destroyButton").click(function() {
+  $("#destroyButton").click(function() {
 
-sessionStorage.setItem('couponCode_new', '');
+    sessionStorage.setItem('couponCode_new', '');
 
-storedCouponCode = '';
+    storedCouponCode = '';
 
-});
+  });
 </script>
-

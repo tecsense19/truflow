@@ -1,0 +1,434 @@
+CRITICAL - 2023-06-27 05:01:20 --> Undefined array key "filename"
+in APPPATH\Controllers\Admin\SettingsController.php on line 174.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 174)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:01:35 --> Undefined array key "filename"
+in APPPATH\Controllers\Admin\SettingsController.php on line 174.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 174)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:04:02 --> Undefined array key "filename"
+in APPPATH\Controllers\Admin\SettingsController.php on line 174.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 174)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:06:26 --> Undefined array key "filename"
+in APPPATH\Controllers\Admin\SettingsController.php on line 174.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 174)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:07:23 --> Undefined array key "filename"
+in APPPATH\Controllers\Admin\SettingsController.php on line 174.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(174): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "filename"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 174)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:10:46 --> Call to undefined function App\Controllers\Admin\delete_files()
+in APPPATH\Controllers\Admin\SettingsController.php on line 186.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:28:29 --> Undefined array key "variant_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 146.
+ 1 APPPATH\Controllers\Admin\ProductController.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 146)
+ 2 APPPATH\Controllers\Admin\ProductController.php(87): App\Controllers\Admin\ProductController->variantProductSave(15)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-27 05:35:13 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ProductController.php(86): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-06-27 05:35:13 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844113_productImg_CEJN_150x231.jpg\',\'public/admin/images/product/1687844113_productImg_HPA_150x892.jpg\',\'public/admin/images/product/1687844113_productImg_Hydroscand_150x632.jpg\',\'public/admin/images/product/1687844113_productImg_Nitto_150x330.jpg\',\'public/admin/images/product/1687844113_productImg_TRIDON_150x810 .jpg\'), `updated_at` = \'2023-06-27 05:35:13\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844113_productImg_CEJN_150x231.jpg\',\'public/admin/images/product/1687844113_productImg_HPA_150x892.jpg\',\'public/admin/images/product/1687844113_productImg_Hydroscand_150x632.jpg\',\'public/admin/images/product/1687844113_productImg_Nitto_150x330.jpg\',\'public/admin/images/product/1687844113_productImg_TRIDON_150x810 .jpg\'), `updated_at` = \'2023-06-27 05:35:13\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844113_productImg_CEJN_150x231.jpg\',\'public/admin/images/product/1687844113_productImg_HPA_150x892.jpg\',\'public/admin/images/product/1687844113_productImg_Hydroscand_150x632.jpg\',\'public/admin/images/product/1687844113_productImg_Nitto_150x330.jpg\',\'public/admin/images/product/1687844113_productImg_TRIDON_150x810 .jpg\'), `updated_at` = \'2023-06-27 05:35:13\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product` SET `category_id` = :category_id:, `sub_category_id` = :sub_category_id:, `product_name` = :product_name:, `product_description` = :product_description:, `product_img` = :product_img:, `updated_at` = :updated_at:
+WHERE `product`.`product_id` IN :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\ProductController.php(86): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-27 05:38:55 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ProductController.php(96): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-06-27 05:38:55 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844335_252945e989f82426ed44.jpg\',\'public/admin/images/product/1687844335_c5f0d236eaea81db67c2.jpg\',\'public/admin/images/product/1687844335_d6e4f73c96a27a04ed08.jpg\',\'public/admin/images/product/1687844335_04178d9279231d82c9e7.jpg\',\'public/admin/images/product/1687844335_55e516f2967dcd87ad46.jpg\'), `updated_at` = \'2023-06-27 05:38:55\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844335_252945e989f82426ed44.jpg\',\'public/admin/images/product/1687844335_c5f0d236eaea81db67c2.jpg\',\'public/admin/images/product/1687844335_d6e4f73c96a27a04ed08.jpg\',\'public/admin/images/product/1687844335_04178d9279231d82c9e7.jpg\',\'public/admin/images/product/1687844335_55e516f2967dcd87ad46.jpg\'), `updated_at` = \'2023-06-27 05:38:55\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product` SET `category_id` = \'2\', `sub_category_id` = \'6\', `product_name` = \'SN022\', `product_description` = \'lorem ipsum\', `product_img` = (\'public/admin/images/product/1687844335_252945e989f82426ed44.jpg\',\'public/admin/images/product/1687844335_c5f0d236eaea81db67c2.jpg\',\'public/admin/images/product/1687844335_d6e4f73c96a27a04ed08.jpg\',\'public/admin/images/product/1687844335_04178d9279231d82c9e7.jpg\',\'public/admin/images/product/1687844335_55e516f2967dcd87ad46.jpg\'), `updated_at` = \'2023-06-27 05:38:55\'
+WHERE `product`.`product_id` IN (\'product_id\',\'14\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product` SET `category_id` = :category_id:, `sub_category_id` = :sub_category_id:, `product_name` = :product_name:, `product_description` = :product_description:, `product_img` = :product_img:, `updated_at` = :updated_at:
+WHERE `product`.`product_id` IN :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\ProductController.php(96): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-27 05:40:16 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `pr...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ProductController.php(99): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-06-27 05:40:16 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `product` (`category_id`, `sub_category_id`, `product_name`, `product_description`, `product_img`, `created_at`, `updated_at`) VALUES (\'2\', \'5\', \'dasdasd\', \'asdsadasd\', (\'public/admin/images/product/1687844416_c700a2e4dd7a6034cb02.jpg\',\'public/admin/images/product/1687844416_7390eee260668392fb38.jpg\'), \'2023-06-27 05:40:16\', \'2023-06-27 05:40:16\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `product` (`category_id`, `sub_category_id`, `product_name`, `product_description`, `product_img`, `created_at`, `updated_at`) VALUES (\'2\', \'5\', \'dasdasd\', \'asdsadasd\', (\'public/admin/images/product/1687844416_c700a2e4dd7a6034cb02.jpg\',\'public/admin/images/product/1687844416_7390eee260668392fb38.jpg\'), \'2023-06-27 05:40:16\', \'2023-06-27 05:40:16\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `product` (`category_id`, `sub_category_id`, `product_name`, `product_description`, `product_img`, `created_at`, `updated_at`) VALUES (\'2\', \'5\', \'dasdasd\', \'asdsadasd\', (\'public/admin/images/product/1687844416_c700a2e4dd7a6034cb02.jpg\',\'public/admin/images/product/1687844416_7390eee260668392fb38.jpg\'), \'2023-06-27 05:40:16\', \'2023-06-27 05:40:16\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `product` (`category_id`, `sub_category_id`, `product_name`, `product_description`, `product_img`, `created_at`, `updated_at`) VALUES (:category_id:, :sub_category_id:, :product_name:, :product_description:, :product_img:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ProductController.php(99): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:49:01 --> Undefined array key "product_img[]"
+in APPPATH\Views\admin\product\product.php on line 8.
+ 1 APPPATH\Views\admin\product\product.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img[]"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(134): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 05:52:47 --> syntax error, unexpected token "<"
+in APPPATH\Views\admin\product\product.php on line 80.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 3 APPPATH\Controllers\Admin\ProductController.php(134): view('admin/product/product', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('1')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:08:21 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 29.
+ 1 APPPATH\Views\front\product_details.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:08:39 --> foreach() argument must be of type array|object, string given
+in APPPATH\Views\front\product_details.php on line 29.
+ 1 APPPATH\Views\front\product_details.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:11:06 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 30.
+ 1 APPPATH\Views\front\product_details.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:20:30 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 161.
+ 1 APPPATH\Views\front\product_details.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 161)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:20:33 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 161.
+ 1 APPPATH\Views\front\product_details.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 161)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:20:43 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 161.
+ 1 APPPATH\Views\front\product_details.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 161)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:20:53 --> Undefined array key "product_img"
+in APPPATH\Views\front\product_details.php on line 161.
+ 1 APPPATH\Views\front\product_details.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 161)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(252): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 06:29:43 --> Undefined variable $categoryData
+in APPPATH\Views\front\product.php on line 23.
+ 1 APPPATH\Views\front\product.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categoryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 23)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(177): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('3')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 09:01:14 --> implode(): Argument #2 ($array) must be of type ?array, string given
+in APPPATH\Controllers\Admin\CompanyCouponController.php on line 65.
+ 1 APPPATH\Controllers\Admin\CompanyCouponController.php(65): implode(',', '1')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->couponSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 09:17:45 --> Undefined variable $companyData
+in APPPATH\Views\admin\company_coupon\company_coupon.php on line 78.
+ 1 APPPATH\Views\admin\company_coupon\company_coupon.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $companyData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php', 78)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/company_coupon/company_coupon', [], true)
+ 5 APPPATH\Controllers\Admin\CompanyCouponController.php(101): view('admin/company_coupon/company_coupon', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->couponEdit('19')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 09:18:08 --> Undefined variable $companyData
+in APPPATH\Views\admin\company_coupon\company_coupon.php on line 78.
+ 1 APPPATH\Views\admin\company_coupon\company_coupon.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $companyData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php', 78)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/company_coupon/company_coupon', [], true)
+ 5 APPPATH\Controllers\Admin\CompanyCouponController.php(101): view('admin/company_coupon/company_coupon', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->couponEdit('19')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 09:19:55 --> Undefined variable $companyData
+in APPPATH\Views\admin\company_coupon\company_coupon.php on line 78.
+ 1 APPPATH\Views\admin\company_coupon\company_coupon.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $companyData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php', 78)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/company_coupon/company_coupon', [], true)
+ 5 APPPATH\Controllers\Admin\CompanyCouponController.php(101): view('admin/company_coupon/company_coupon', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->couponEdit('19')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-27 10:04:38 --> mysqli_sql_exception: Unknown column 'users.user_id' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(327): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-27 10:04:38 --> Unknown column 'users.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `users`.`user_id` = \'5\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `users`.`user_id` = \'5\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `users`.`user_id` = \'5\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(327): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-06-27 10:05:22 --> mysqli_sql_exception: Unknown column 'users.company_name' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(327): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-06-27 10:05:22 --> Unknown column 'users.company_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `user_id` = \'5\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `user_id` = \'5\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `user_id` = \'5\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `user_id` = :user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(327): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 10:18:09 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::first()
+in APPPATH\Controllers\Home.php on line 344.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 10:18:17 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::find()
+in APPPATH\Controllers\Home.php on line 344.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 10:18:23 --> syntax error, unexpected variable "$componeyData"
+in APPPATH\Controllers\Home.php on line 344.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 10:18:30 --> syntax error, unexpected variable "$componeyData"
+in APPPATH\Controllers\Home.php on line 344.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-27 10:18:48 --> Call to a member function first() on array
+in APPPATH\Controllers\Home.php on line 344.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

@@ -4,7 +4,9 @@ $session = session();
 $user_id = $session->get('user_id');
 $category_id = '';
 $commonValues = '';
+$company_id = isset($componeyData) ? $componeyData[0]['company_id'] : '';
 ?>
+
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
   <div class="about_overlay">
@@ -37,7 +39,7 @@ $commonValues = '';
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Product</th>
+                  <th scope="col">Part Number</th>
                   <th scope="col"></th>
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
@@ -48,8 +50,22 @@ $commonValues = '';
                 <?php if ($cartData) { ?>
                   <?php foreach ($cartData as $cart) { ?>
                     <tr>
-                      <td class="align-middle"><a data-fancybox="preview" href="<?php echo base_url('') . $cart['product_img'] ?>"><img src="<?php echo base_url('') . $cart['product_img'] ?>" alt="Image" class="" width="80"></a></td>
-                      <td class="align-middle card_title"><?php echo $cart['product_name']; ?></td>
+                      <td class="align-middle">
+
+                        <?php if (isset($cart['product_img'])) {
+                          $imagePaths = explode(',', $cart['product_img']);
+                          $firstImagePath = trim($imagePaths[0]);
+                        ?>
+                          <a data-fancybox="preview" href="<?php echo base_url('') . $firstImagePath ?>"><img src="<?php echo base_url('') . $firstImagePath ?>" alt="Image" class="" width="80"></a>
+                        <?php } ?>
+
+
+
+                      </td>
+
+                      <td class="align-middle card_title"><?php echo $cart['variant_sku']; ?><br>
+                        <p>Product Name : <?php echo $cart['product_name']; ?></p>
+                      </td>
                       <td class="align-middle"><?php echo $cart['product_amount']; ?></td>
                       <td class="align-middle">
                         <form class="wrapper">
@@ -211,7 +227,6 @@ $commonValues = '';
     var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
       minimumFractionDigits: 2
     });
-
     var new_amount = '';
 
     $('#totalAmount').text(formattedSubtotal);
@@ -219,6 +234,8 @@ $commonValues = '';
 
     $('.coupon_button').click(function() {
       var couponCode = $('#couponCode').val();
+      var company_id = '<?php echo $company_id; ?>';
+
       $.ajax({
         url: '<?php echo base_url(); ?>check_coupon',
         method: 'POST',
@@ -236,6 +253,7 @@ $commonValues = '';
               var totalAmount = subtotal;
               var total = subtotal;
               var catId = "<?php echo $category_id; ?>";
+              var company_id_resonse = couponData[0].company_id;
 
               $('#discount_type').val(couponType);
               $('#product_discount').val(couponAmount);
@@ -243,44 +261,92 @@ $commonValues = '';
 
               if (!isNaN(couponAmount)) {
                 var discount = 0;
+                // ----------------------------------------------
 
                 if (couponType === 'Percentage') {
                   discount = (subtotal * couponAmount) / 100;
                 } else if (couponType === 'Flat') {
                   discount = couponAmount;
                 }
-                if (coupon_type == 'User') {
-                  var userIds = '<?php echo $user_id ?>';
-                  var array = couponData[0].user_id ? couponData[0].user_id.split(',') : [];
-                  if ($.inArray(userIds, array) !== -1) {
+                if (discount > subtotal) {
+                  $('#couponMessage').text('Discount amount exceeds the total so plsease add more item on card then after to use this coupon.');
+                  return;
+                }
+                if (company_id_resonse == company_id) {
+                  if (coupon_type == 'Global') {
                     totalAmount = subtotal - discount;
                     if (totalAmount < 0) {
                       totalAmount = 0;
                     }
-
                     total = subtotal - discount;
                     if (total < 0) {
                       total = 0;
                     }
+
+                    var formattedDiscount = "$" + discount.toLocaleString(undefined, {
+                      minimumFractionDigits: 2
+                    });
+                    var formattedTotalAmount = "$" + totalAmount.toLocaleString(undefined, {
+                      minimumFractionDigits: 2
+                    });
+
+                    $('#discount').text(formattedDiscount);
+                    $('#totalAmount').text(formattedTotalAmount);
+                    $('#total').text(formattedTotalAmount);
+
+                    var formatedAmmount = formattedTotalAmount.replace('$', '');
+                    $('#final_total_ammount').val(formatedAmmount);
+
+                    var forDiscount = formattedDiscount.replace('$', '');
+                    $('#discount_d').val(forDiscount);
+
+                    $('#couponMessage').text('Coupon is valid.');
+                  } else if (coupon_type === 'Category') {
+                    var array1 = couponData[0].category_id ? couponData[0].category_id.split(',') : [];
+                    var array2 = catId ? catId.split(',') : [];
+                    // console.log(array1);
+                    var commonValues = array1.filter(function(value) {
+                      return array2.indexOf(value) !== -1;
+                    });
+
+                    if (commonValues.length === 0) {
+                      $('#couponMessage').text('Coupon is not valid for your account.');
+                      return;
+                    }
+
+                    // Apply coupon for matching category IDs
+                    $('.category_id_match_' + commonValues[0]).each(function(index, element) {
+                      var elementText = $(element).text();
+                      var new_category_id = elementText.replace('$', '');
+                      new_category_id = new_category_id.replace(/[^0-9.-]+/g, '');
+                      var totalAmount = parseFloat(new_category_id) - discount;
+                      var formattedAmount = totalAmount.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                      });
+                      $(element).text('$' + formattedAmount);
+                      var subtotal1 = parseFloat($('#subtotal').text().replace(/[^0-9.-]+/g, ''));
+                      $('#subtotal').text(formatAmount(subtotal1 - discount));
+                      var new_subtotal = parseFloat($('#subtotal').text().replace(/[^0-9.-]+/g, ''));
+                      var new_discount = parseFloat($('#discount').text().replace(/[^0-9.-]+/g, ''));
+                      var formattedAmount1 = formatAmount(new_subtotal);
+                      var formattedDiscount1 = formatAmount(new_discount);
+                      new_amount = new_amount ? new_amount + '&category_id_match_' + index + '_' + commonValues[0] + '=' + formattedAmount : '&category_id_match_' + index + '_' + commonValues[0] + '=' + formattedAmount;
+                      $('#discount').text(formattedDiscount1);
+                      $('#subtotal').text(formattedAmount1);
+                      $('#totalAmount').text(formattedAmount1);
+                      $('#total').text(formattedAmount1);
+                      var formatedAmmount = formattedAmount1.replace('$', '');
+                      $('#final_total_ammount').val(formatedAmmount);
+                      var forDiscount1 = formattedDiscount1.replace('$', '');
+                      $('#discount_d').val(forDiscount1);
+                    });
+
+                    $('#discount').text(formatAmount(discount * $('.category_id_match_' + commonValues[0]).length));
+                    $('#couponMessage').text('Coupon is valid.');
+                  } else {
+                    $('#couponMessage').text('Coupon is not valid.');
                   }
-                  var formattedDiscount = "$" + discount.toLocaleString(undefined, {
-                    minimumFractionDigits: 2
-                  });
-                  var formattedTotalAmount = "$" + totalAmount.toLocaleString(undefined, {
-                    minimumFractionDigits: 2
-                  });
-
-                  $('#discount').text(formattedDiscount);
-                  $('#totalAmount').text(formattedTotalAmount);
-                  $('#total').text(formattedTotalAmount);
-
-
-                  var formatedAmmount = formattedTotalAmount.replace('$', '');
-                  $('#final_total_ammount').val(formatedAmmount);
-                  var forDiscount = formattedDiscount.replace('$', '');
-                  $('#discount_d').val(forDiscount);
-
-                  $('#couponMessage').text('Coupon is valid.');
                 } else if (coupon_type == 'Global') {
                   totalAmount = subtotal - discount;
                   if (totalAmount < 0) {
@@ -309,6 +375,42 @@ $commonValues = '';
                   $('#discount_d').val(forDiscount);
 
                   $('#couponMessage').text('Coupon is valid.');
+                } else if (coupon_type == 'User') {
+                  var userIds = '<?php echo $user_id ?>';
+                  var array = couponData[0].user_id ? couponData[0].user_id.split(',') : [];
+                  if ($.inArray(userIds, array) !== -1) {
+                    // Apply coupon for matching user IDs
+                    totalAmount = subtotal - discount;
+                    if (totalAmount < 0) {
+                      totalAmount = 0;
+                    }
+
+                    total = subtotal - discount;
+                    if (total < 0) {
+                      total = 0;
+                    }
+
+                    var formattedDiscount = "$" + discount.toLocaleString(undefined, {
+                      minimumFractionDigits: 2
+                    });
+                    var formattedTotalAmount = "$" + totalAmount.toLocaleString(undefined, {
+                      minimumFractionDigits: 2
+                    });
+
+                    $('#discount').text(formattedDiscount);
+                    $('#totalAmount').text(formattedTotalAmount);
+                    $('#total').text(formattedTotalAmount);
+
+                    var formatedAmmount = formattedTotalAmount.replace('$', '');
+                    $('#final_total_ammount').val(formatedAmmount);
+                    var forDiscount = formattedDiscount.replace('$', '');
+                    $('#discount_d').val(forDiscount);
+
+                    $('#couponMessage').text('Coupon is valid.');
+                  } else {
+                    // User ID does not match, do not apply the coupon
+                    $('#couponMessage').text('Coupon is not valid for your account.');
+                  }
                 } else if (coupon_type === 'Category') {
                   var array1 = couponData[0].category_id ? couponData[0].category_id.split(',') : [];
                   var array2 = catId ? catId.split(',') : [];
@@ -318,10 +420,11 @@ $commonValues = '';
                   });
 
                   if (commonValues.length === 0) {
-                    $('#couponMessage').text('Coupon is not valid.');
+                    $('#couponMessage').text('Coupon is not valid for your account.');
                     return;
                   }
 
+                  // Apply coupon for matching category IDs
                   $('.category_id_match_' + commonValues[0]).each(function(index, element) {
                     var elementText = $(element).text();
                     var new_category_id = elementText.replace('$', '');
@@ -351,7 +454,10 @@ $commonValues = '';
 
                   $('#discount').text(formatAmount(discount * $('.category_id_match_' + commonValues[0]).length));
                   $('#couponMessage').text('Coupon is valid.');
+                } else {
+                  $('#couponMessage').text('Coupon is not valid.');
                 }
+                // --------------------------------------------------
 
                 function formatAmount(amount) {
                   return "$" + amount.toLocaleString('en-US', {
@@ -364,13 +470,15 @@ $commonValues = '';
               } else {
                 console.log('Invalid couponAmount');
               }
+              $('#applyCouponButton').prop('disabled', true);
             } else {
               resetDiscountAndTotal();
               $('#couponMessage').text('Coupon is invalid or expired.');
+              $('#applyCouponButton').prop('disabled', false);
             }
             sessionStorage.setItem('couponCode', couponCode);
           } else {
-            
+            $('#applyCouponButton').prop('disabled', false);
             $('#couponMessage').text('Coupon is invalid or expired.');
           }
         },
@@ -399,17 +507,18 @@ $commonValues = '';
         $('#product_discount').val('');
         $('#final_total_ammount').val('');
         $('#discount_d').val('');
+        $('#applyCouponButton').prop('disabled', false);
       }
     });
 
     $(".proceed_btn").click(function(e) {
-      e.preventDefault(); 
+      e.preventDefault();
 
       var couponCode = $("#coupon_code").val();
       var discountType = $("#discount_type").val();
       var productDiscount = $("#product_discount").val();
       var finalTotalAmount = $("#final_total_ammount").val();
-      var shipping = $("#free_shipping").prop("checked"); 
+      var shipping = $("#free_shipping").prop("checked");
       var discount = $("#discount").text();
 
       sessionStorage.removeItem('couponCode');
@@ -422,13 +531,12 @@ $commonValues = '';
   // -----------
 
   $(document).ready(function() {
-  
-  var storedCouponCode = sessionStorage.getItem('couponCode');
-  if(storedCouponCode != null && storedCouponCode != ''){
-    $('#couponCode').val(storedCouponCode);
-  $('#applyCouponButton').trigger('click');
-  }
 
-});
-  
+    var storedCouponCode = sessionStorage.getItem('couponCode');
+    if (storedCouponCode != null && storedCouponCode != '') {
+      $('#couponCode').val(storedCouponCode);
+      $('#applyCouponButton').trigger('click');
+    }
+
+  });
 </script>

@@ -25,7 +25,9 @@ class CouponModel extends Model
         'isDeleted',
         'coupon_price_type',
         'from_date',
-        'to_date'
+        'to_date',
+        'company_id',
+        'company_coupon'
     ];
 
     // Dates

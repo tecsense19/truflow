@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\CountryModel;
 use App\Models\OrderModel;
 use App\Models\HeaderMenuModel;
+use App\Models\CompanyModel;
 use Config\Services;
 use CodeIgniter\Email\Email;
 
@@ -28,8 +29,13 @@ class UserController extends BaseController
         if (!$headerData) {
             $headerData = null;
         }
+        $companymodel = new CompanyModel();
+        $companyData = $companymodel->find();
+        if (!$companyData) {
+            $companyData = null;
+        }
 
-        return view('front/register', ['countryData' => $countryData, 'headerData' => $headerData]);
+        return view('front/register', ['countryData' => $countryData, 'headerData' => $headerData,'companyData'=>$companyData]);
     }
     public function registerSave()
     {
@@ -118,8 +124,12 @@ class UserController extends BaseController
                 ];
                 $session->set($ses_data);
 
-                $product_details = $session->get('product_details'); // set the sessionin product detail page
-
+                $product_details = $session->get('product_details');
+                
+                // echo "<pre>";
+                // print_r($product_details);
+                // die();
+                
                 if ($product_details) {
 
                     $redirect_url = $product_details;
@@ -139,6 +149,9 @@ class UserController extends BaseController
             return redirect()->to('login');
         }
     }
+   
+    
+
 
 
     public function logout()
@@ -163,11 +176,17 @@ class UserController extends BaseController
         if (!$countryData) {
             $countryData = null;
         }
+        $companymodel = new CompanyModel();
+        $companyData = $companymodel->find();
+        if (!$companyData) {
+            $companyData = null;
+        }
+
         // echo "<pre>"; 
-        // print_r($userData);
+        // print_r($companyData);
         // die();
 
-        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData]);
+        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData,'companyData'=>$companyData]);
     }
 
     public function edit_user_profile()

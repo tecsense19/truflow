@@ -26,7 +26,7 @@
         </li>
 
         <li class="menu-item">
-            <a href="<?php echo base_url('admin/user'); ?>" class="menu-link">
+            <a href="<?php echo base_url('admin/user_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-user"></i>
                 <div data-i18n="Basic">User</div>
             </a>
@@ -73,6 +73,20 @@
                 <div data-i18n="Basic">coupon</div>
             </a>
         </li>
+        
+
+        <li class="menu-item">
+            <a href="<?php echo base_url('admin/company_list'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-buildings"></i>
+                <div data-i18n="Basic">Company</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="<?php echo base_url('admin/company_coupon_list'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-discount"></i>
+                <div data-i18n="Basic">Company Coupon</div>
+            </a>
+        </li>
 
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -93,6 +107,11 @@
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/testominal_list'); ?>" class="menu-link">
                         <div data-i18n="Input groups">Testimonial</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/slider_list'); ?>" class="menu-link">
+                        <div data-i18n="Input groups">Banner Slider</div>
                     </a>
                 </li>
             </ul>

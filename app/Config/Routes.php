@@ -104,7 +104,10 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("logout", "Home::logout");
 
     //user
+    $routes->get("user_list", "Home::user_list");
     $routes->get("user", "Home::user");
+    $routes->post("user/save", "Home::userSave");
+    $routes->get("user/edit/(:num)", "Home::userEdit/$1");
     $routes->get("user/delete/(:num)", "Home::userDelete/$1");
 
     // add header part dynamic menu
@@ -186,7 +189,32 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("contactus_list", "ContactUsController::index");
     $routes->get("contactus", "ContactUsController::contactus");
     $routes->get("contactus/delete/(:num)", "ContactUsController::contactusDelete/$1");
+
+
+     //Company
+
+     $routes->get("company_list", "CompanyController::index");
+     $routes->get("company", "CompanyController::company");
+     $routes->post("company/save", "CompanyController::companySave");
+     $routes->get("company/edit/(:num)", "CompanyController::companyEdit/$1");
+     $routes->get("company/delete/(:num)", "CompanyController::companyDelete/$1");
     
+     //Company Wise Coupon
+
+     $routes->get("company_coupon_list", "CompanyCouponController::index");
+     $routes->get("company_coupon", "CompanyCouponController::coupon");
+     $routes->post("company_coupon/save", "CompanyCouponController::couponSave");
+     $routes->get("company_coupon/edit/(:num)", "CompanyCouponController::couponEdit/$1");
+     $routes->get("company_coupon/delete/(:num)", "CompanyCouponController::couponDelete/$1");
+
+
+     //Slider
+
+    $routes->get("slider_list", "SliderController::index");
+    $routes->get("slider", "SliderController::slider");
+    $routes->post("slider/save", "SliderController::sliderSave");
+    $routes->get("slider/edit/(:num)", "SliderController::sliderEdit/$1");
+    $routes->get("slider/delete/(:num)", "SliderController::sliderDelete/$1");
 });
 
 /*

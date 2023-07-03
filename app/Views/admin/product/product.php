@@ -5,8 +5,9 @@ $category_id = isset($productData) ? $productData['category_id'] : '';
 $sub_category_id = isset($productData) ? $productData['sub_category_id'] : '';
 $product_name = isset($productData) ? $productData['product_name'] : '';
 $product_description = isset($productData) ? $productData['product_description'] : '';
-// $product_price = isset($productData) ? $productData['product_price'] : '';
 $product_img = isset($productData) ? $productData['product_img'] : '';
+$product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
+
 ?>
 
 <!-- Content wrapper -->
@@ -60,15 +61,25 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Product Description</label>
-                                <textarea id="product_description" name="product_description" class="form-control" placeholder="Product Description"><?php echo $product_description; ?></textarea>
+                                <textarea id="editor7" name="product_description" class="form-control" placeholder="Product Description"><?php echo $product_description; ?></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Product Image</label>
-                                <input type="file" class="form-control" value="" id="product_img" name="product_img" placeholder="Product Image" />
-                                <?php if ($product_img) { ?>
-                                    <img src="<?php echo base_url() . $product_img ?>" alt="product_img" class="img-fluid site_setting_img">
-                                <?php } ?>
+                                <input type="file" class="form-control" value="" id="product_img" name="product_img[]" multiple placeholder="Product Image" />
+                                <?php if ($product_img) {
+                                $imagePaths = explode(',', $product_img);
+
+                                foreach ($imagePaths as $imagePath) {
+                                ?>
+                                <img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img" class="img-fluid site_setting_img_product">
+                                <?php
+                                }
+                                } ?> 
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-message">Product Additional Information</label>
+                                <textarea id="editor8" name="product_additional_info"  placeholder="Product Additional Information"><?php echo $product_additional_info; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -147,7 +158,7 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                 product_description: {
                     required: true
                 },
-                product_img: {
+                "product_img[]": {
                     required: function() {
                         return !imageUploaded;
                     }
@@ -175,7 +186,7 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
                 product_description: {
                     required: "Product Description is required!"
                 },
-                product_img: {
+                "product_img[]": {
                     required: "Product Image is required!"
                 },
                 "variant_name[]": {

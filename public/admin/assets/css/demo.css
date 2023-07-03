@@ -168,3 +168,12 @@ td.testo_descrip {
 .app-brand.demo {
   padding: 1px !important;
 }
+.site_setting_img_product {
+  position: relative;
+  background: #fff;
+  max-width: 7% !important;
+  height: auto;
+}
+img.slider_img {
+  padding: 5px;
+}

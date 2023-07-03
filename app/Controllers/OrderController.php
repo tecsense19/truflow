@@ -14,6 +14,8 @@ use App\Models\CartModel;
 use App\Models\OrderModel;
 use App\Models\UserModel;
 use App\Models\CouponModel;
+use App\Models\ShippingModel;
+use App\Models\OrderItemModel;
 
 
 class OrderController extends BaseController
@@ -54,7 +56,7 @@ class OrderController extends BaseController
 
     $couponData = null;
     if (isset($cartData) && !empty($cartData)) {
-        $couponCode = ""; // Set the coupon code here or get it from the user input
+        $couponCode = ""; 
         $couponData = $couponmodel->where('coupon_code', $couponCode)->findAll();
     }
 
@@ -66,11 +68,39 @@ class OrderController extends BaseController
     ]);
 }
 
-    public function place_order()
-    {
+    public function place_order(){
         $ordermodel = new OrderModel();
+        $shippingmodel = new ShippingModel();
+        $orderitemmodel = new OrderItemModel();
         $session = session();
         $input = $this->request->getVar();
+
+        $user_id = $this->request->getVar('user_id');
+        $discount_type = $this->request->getVar('discount_type');
+        $product_discount = $this->request->getVar('product_discount');
+        $final_total_ammount = $this->request->getVar('final_total_ammount');
+        $coupon = $this->request->getVar('coupon');
+        $pay_method = $this->request->getVar('pay_method');
+        $order_status = $this->request->getVar('order_status');
+        $shipping = $this->request->getVar('shipping');
+        $notes = $this->request->getVar('notes');
+        $ship_to_diff_address = $this->request->getVar('ship_to_diff_address');
+
+        $data = array(
+            'user_id' =>$user_id,
+            'discount_type' =>$discount_type,
+            'product_discount' =>$product_discount,
+            'final_total_ammount' =>$final_total_ammount,
+            'coupon_code' =>$coupon,
+            'pay_method' =>$pay_method,
+            'order_status' =>$order_status,
+            'shipping' =>$shipping,
+            'notes' =>$notes,
+            'ship_to_diff_address' =>$ship_to_diff_address
+        );
+
+        $order_id = $ordermodel->insert($data);
+
         $userId = $input['user_id'];
        
         $cartmodel = new CartModel();
@@ -82,45 +112,25 @@ class OrderController extends BaseController
             ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
             ->where('users.user_id', $userId)
             ->get();
-        $cartData = $query->getResultArray();
+            $cartData = $query->getResultArray();
 
-        $orderArr = [];
+            $orderArr = [];
 
         foreach ($cartData as $row) {
-            $orderArr['coupon_code'] = isset($input['coupon']) ? $input['coupon'] : '';
-            $orderArr['discount_type'] = isset($input['discount_type']) ? $input['discount_type'] : '';
-            $orderArr['product_discount'] = isset($input['product_discount']) ? $input['product_discount'] : '';
-            $orderArr['final_total_ammount'] = isset($input['final_total_ammount']) ? $input['final_total_ammount'] : '';
-
-
-            $orderArr['shipping'] = isset($input['shipping']) ? $input['shipping'] : '';
-            $orderArr['pay_method'] = isset($input['pay_method']) ? $input['pay_method'] : '';
-            $orderArr['order_status'] = isset($input['order_status']) ? $input['order_status'] : '';
-            $orderArr['user_id'] = isset($row['user_id']) ? $row['user_id'] : '';
-            $orderArr['cart_id'] = isset($row['cart_id']) ? $row['cart_id'] : '';
+            
+            $orderArr['order_id'] = $order_id;
             $orderArr['category_id'] = isset($row['category_id']) ? $row['category_id'] : '';
             $orderArr['sub_category_id'] = isset($row['sub_category_id']) ? $row['sub_category_id'] : '';
             $orderArr['product_id'] = isset($row['product_id']) ? $row['product_id'] : '';
             $orderArr['variant_id'] = isset($row['variant_id']) ? $row['variant_id'] : '';
             $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
             $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
-
+            $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
             $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
-
-            if (isset($row['order_id']) && $row['order_id'] != '') {
-                $ordermodel->update(['order_id', $row['order_id']], $orderArr);
-            } else {
-                $ordermodel->insert($orderArr);
-            }
-            
-            
+            $orderitemmodel->insert($orderArr);
+         
         }
-        // echo "<pre>";
-        // print_r($session->get());
-        //  die();
-        //$session = \Config\Services::session();
-        helper('session');
-            // $session->remove('couponCode_new');
+            helper('session');
             $session->remove('coupon_code');
             $session->remove('discount_type');
             $session->remove('product_discount');
@@ -129,9 +139,8 @@ class OrderController extends BaseController
             $session->remove('shipping');
             $session->remove('cartCount');
 
-
-
         $this->remove_checkout($userId);
+        $this->shipping_add($userId);
         $session->setFlashdata('success', 'Order Placed successfully.');
       
          return redirect()->back();  
@@ -139,9 +148,6 @@ class OrderController extends BaseController
     }
     public function remove_checkout($userId)
     {
-       
-        // print_r($userId);
-        // die();
         $session = session();
        
         $cartmodel = new CartModel();
@@ -149,26 +155,45 @@ class OrderController extends BaseController
         $session->setFlashdata('success', 'remove succesfully.');
         return redirect()->back();
     }
+    public function shipping_add($userId){
 
-//     public function check_coupon()
-// {
-//     $input = $this->request->getVar();
+        $shippingmodel = new ShippingModel();
+        $ordermodel = new OrderModel();
+        $session = session();
+        $input = $this->request->getVar();
 
-//     $couponmodel = new CouponModel();
-//     $couponCode = isset($input['coupon']) ? $input['coupon'] : '';
+        $query = $ordermodel->select('*')
+        ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+        ->where('users.user_id', $userId)
+        ->groupBy('tbl_order.user_id', $userId)
+        ->get();
+        $orderData = $query->getResultArray();
 
-//     $couponData = $couponmodel->where('coupon_code', $couponCode)->findAll();
+        $orderArr = [];
 
-//     if (!empty($couponData)) {
-//         // Coupon code exists in the database
-//         $response = ['status' => 'success', 'message' => 'Coupon code is valid', 'couponData' => $couponData];
-//     } else {
-//         // Coupon code does not exist in the database
-//         $response = ['status' => 'error', 'message' => 'Invalid coupon code'];
-//     }
+    foreach ($orderData as $row) {
+        if (isset($input['ship_to_diff_address'])) {
+            $orderArr['city'] = isset($input['city']) ? $input['city'] : '';
+            $orderArr['address_1'] = isset($input['address_1']) ? $input['address_1'] : '';
+            $orderArr['address_2'] = isset($input['address_2']) ? $input['address_2'] : '';
+        } else {
+            
+            $orderArr['city'] = isset($row['city']) ? $row['city'] : '';
+            $orderArr['address_1'] = isset($row['address_1']) ? $row['address_1'] : '';
+            $orderArr['address_2'] = isset($row['address_2']) ? $row['address_2'] : '';
+        }
+        $orderArr['user_id'] = isset($row['user_id']) ? $row['user_id'] : '';
+        $orderArr['order_id'] = isset($row['order_id']) ? $row['order_id'] : '';
 
-//     return $this->response->setJSON($response);
-// }
+        if (isset($input['shipping_id']) && $input['shipping_id'] != '') {
+            $shippingmodel->update(['shipping_id', $row['shipping_id']], $orderArr);
+        } else {
+            $shippingmodel->insert($orderArr);
+        }
+
+    }
+    return redirect()->back();  
+    }
 
 public function check_coupon()
 {

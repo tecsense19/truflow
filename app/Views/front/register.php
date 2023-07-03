@@ -76,7 +76,15 @@
     <div class="form-group row">
       <label class="col-md-2 control-label" for="last_name">Company name :</label>
       <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Company name is required." id="company_name" name="company_name" type="text" value="" />
+       
+        <select name="company_name" id="company_name" class="form-control" aria-label="Default select example">
+          <option value="">Please select any Company</option>
+          <?php foreach ($companyData as $company) : ?>
+
+            <option value="<?php echo $company['company_name'] ?>"><?= $company['company_name'] ?></option>
+
+          <?php endforeach; ?>
+        </select>
       </div>
     </div>
     <h4>Your Billing Address</h4>
@@ -211,7 +219,13 @@
         c_password: {
           required: true,
           equalTo: '#password'
-        }
+        },
+        country: {
+        required: true
+      },
+      company_name: {
+        required: true
+      }
       },
       messages: {
         first_name: {
@@ -246,7 +260,13 @@
         c_password: {
           required: 'Confirm password is required.',
           equalTo: 'Passwords do not match.'
-        }
+        },
+        country: {
+        required: 'Please select a country'
+      },
+      company_name:{
+        required: 'Please select a company'
+      }
       },
       submitHandler: function(form) {
         form.submit();

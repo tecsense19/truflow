@@ -53,6 +53,8 @@ $(document).ready(function() {
 
 
 
+
+
 var $swiperSelector = $('.swiper-container');
 
 $swiperSelector.each(function(index) {
@@ -134,3 +136,28 @@ $('.owl-carousel-3').owlCarousel({
         }
     }
 })
+
+
+$(document).ready(function(){
+  $('.carousel_banner').owlCarousel({
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    nav: false,
+    autoplayTimeout: 4000,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 1,
+        loop: true
+      }
+    }
+  });
+});
+

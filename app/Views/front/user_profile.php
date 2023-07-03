@@ -1,5 +1,10 @@
 <?= $this->include('front/layout/front'); ?>
+<?php 
 
+// echo "<pre>"; 
+// print_r($userData);
+//  die(); 
+?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -68,7 +73,16 @@
     <div class="form-group row">
       <label class="col-md-2 control-label" for="last_name">Company name :</label>
       <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Company name is required." id="company_name" name="company_name" type="text" value="<?= $userData['company_name'] ?>" />
+       
+        <select name="company_name" id="company_name" class="form-control" aria-label="Default select example">
+            <option value="">Please select any Company</option>
+            <?php foreach ($companyData as $company) : ?>
+                <option value="<?php echo $company['company_name'] ?>" <?php echo ($userData['company_name'] == $company['company_name']) ? 'selected' : ''; ?>>
+                    <?= $company['company_name'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+      
       </div>
     </div>
     <h4>Your Billing Address</h4>
@@ -184,6 +198,12 @@
           digits: true,
           minlength: 10,
           maxlength: 10
+        },
+        company_name:{
+          required: true
+        },
+        country:{
+          required: true
         }
         
       },
@@ -213,6 +233,12 @@
           digits: 'Please enter only digits.',
           minlength: 'Mobile number must be 10 digits long.',
           maxlength: 'Mobile number must be 10 digits long.'
+        },
+        company_name:{
+          required: 'Please select a company'
+        },
+        country:{
+          required: 'Please select a country'
         }
         
       },

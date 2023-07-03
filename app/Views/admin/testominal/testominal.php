@@ -40,7 +40,7 @@ $testimo_img = isset($testimonalData) ? $testimonalData['testimo_img'] : '';
             </div>
             <div class="mb-3">
                 <label class="form-label" for="basic-default-message">Description</label>
-                <textarea id="description" name="description" class="form-control" placeholder="Description"><?php echo $description;?></textarea>
+                <textarea id="editor9" name="description"><?php echo $description;?></textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="basic-default-company">Testimonial Image</label>

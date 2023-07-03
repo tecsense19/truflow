@@ -30,8 +30,36 @@
                  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
                 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
                
-
-
+                <script src="<?php echo base_url(); ?>/public/ckeditor/ckeditor.js" type="text/javascript"></script>
+                <script>
+                $(function () {
+                CKEDITOR.replace('editor1');
+                })
+                $(function () {
+                CKEDITOR.replace('editor2');
+                })
+                $(function () {
+                CKEDITOR.replace('editor3');
+                })
+                $(function () {
+                CKEDITOR.replace('editor4');
+                })
+                $(function () {
+                CKEDITOR.replace('editor5');
+                })
+                $(function () {
+                CKEDITOR.replace('editor6');
+                })
+                $(function () {
+                CKEDITOR.replace('editor7');
+                })
+                $(function () {
+                CKEDITOR.replace('editor8');
+                })
+                $(function () {
+                CKEDITOR.replace('editor9');
+                })
+                </script>
                 <script>
                     $('.alert').delay(3000).fadeOut(300);
                 </script>

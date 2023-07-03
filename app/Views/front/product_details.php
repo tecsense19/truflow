@@ -19,23 +19,30 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <form method="post" id="#product_details" enctype='multipart/form-data'>
-    <?php if (!empty($productData && $productDataPrice)) { ?>
+    <?php if (!empty($productData && $productDataPrice)) {  ?>
         <section class="product_tab my-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mobile_tabs">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><img class="img_tab_view" src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a> -->
-                                <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>"></a>  -->
+                                <?php
+                                $productImages = explode(',', $productData[0]['product_img']);
+                                foreach ($productImages as $index => $image) {
+                                ?>
+                                    <a class="nav-link<?php if ($index === 0) echo ' active'; ?>" id="v-pills-<?php echo $index; ?>-tab" data-toggle="pill" href="#v-pills-<?php echo $index; ?>" role="tab" aria-controls="v-pills-<?php echo $index; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>">
+                                        <img src="<?php echo base_url() . trim($image); ?>" alt="image">
+                                    </a>
+                                <?php } ?>
                             </div>
                             <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><img class="img_tab_view_2" src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                                <!-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><img src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image"></div> -->
+                                <?php
+                                foreach ($productImages as $index => $image) {
+                                ?>
+                                    <div class="tab-pane fade<?php if ($index === 0) echo ' show active'; ?>" id="v-pills-<?php echo $index; ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $index; ?>-tab">
+                                        <img src="<?php echo base_url() . trim($image); ?>" alt="image">
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -80,7 +87,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row p-1">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 d-flex align-items-center">
                                                 <div class="variant-container">
                                                     <input class="minus" value="-" type="button">
                                                     <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off">
@@ -88,9 +95,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-7">
-                                                <h6><?php echo $product['variant_name']; ?>
-                                                </h6>
                                                 <h4><?php echo $product['variant_sku']; ?></h4>
+                                                <h6><?php echo $product['variant_name']; ?></h6>
                                             </div>
                                             <div class="col-md-2">
                                                 <h4><?php echo "$" . $product['variant_price']; ?>
@@ -103,13 +109,9 @@
 
 
                             <?php } ?>
-                            <?php if ($session->get('logged_in')) { ?>
-                                <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
-                            <?php } else { ?>
-                                <a href="<?php echo base_url('login') ?>"> <button type="button" class="btn add_cart cart_hover">Add to cart</button></a>
-                            <?php } ?>
+                            <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
                             <div class="compare">
-                                
+
                                 <ul class="social_icon">
                                     <li>Share: </li>
                                     <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
@@ -117,7 +119,7 @@
                                     <li><a href="#!"><i class="fa-brands fa-linkedin-in"></i></a></li>
                                     <li><a href="#!"><i class="fa-brands fa-vimeo-v"></i></a></li>
                                 </ul>
-                                
+
                             </div>
                             <div class="secure">
                                 <p>Guaranteed safe <br> & secure checkout</p>
@@ -130,69 +132,63 @@
         </section>
         <!-- ----------------------------- -->
         <section class="additionnal">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="additionnal_tab">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Additional information</a>
-                </li>
-              </ul>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                  <div class="product-detail-desc-item">
-                    <div class="row">
-                    <div class="col-lg-6">
-                      <div class="glance">
-                        
-                        <h3><?php echo $productData[0]['product_name'] ?></h3>
-                        <p><?php echo $productData[0]['product_description'] ?></p>
-                      </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="additionnal_tab">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Additional information</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="product-detail-desc-item">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="glance">
+
+                                                    <h3><?php echo $productData[0]['product_name'] ?></h3>
+                                                    <p><?php echo $productData[0]['product_description'] ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="glance_img">
+                                                    <?php if (isset($productData[0]['product_img'])) {
+                                                        $imagePaths = explode(',', $productData[0]['product_img']);
+                                                        $firstImagePath = trim($imagePaths[0]);
+                                                    ?>
+                                                        <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
+                                                    <?php } ?>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="additionnal_info">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-10">
+                                            <?php echo $productData[0]['product_additional_info'] ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="glance_img">
-                        <img class="img-fluid" src="<?php echo base_url() . $productData[0]['product_img'] ?>" alt="image">
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                 
-                 
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <div class="additionnal_info">
-                    <div class="row justify-content-center">
-                      <div class="col-lg-10">
-                        <table>
-                          <tbody>
-                            <tr>
-                                <td>Standing screen display size</td>
-                                <td>Screen display Size 10.4</td>
-                            </tr>
-                            <tr>
-                                <td>Color</td>
-                                <td>Gray, Dark gray, Mystic black</td>
-                            </tr>
-                           
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row mb-5">
+                    <p>Can’t find what you are looking for? Please <a href="<?php echo base_url('userContact'); ?>"> contact us </a> here</p>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="row mb-5">
-        <p>Can’t find what you are looking for? Please <a href="<?php echo base_url('userContact'); ?>"> contact us </a> here</p>
-        </div>
-    </div>
-    </section>
+        </section>
     <?php } ?>
 </form>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -234,14 +230,20 @@
             return qty !== "" && parseInt(qty) > 0;
         });
 
+
         if (!hasSelectedQuantity) {
-            // Display validation message
             Swal.fire({
                 icon: 'warning',
                 title: 'Validation Error',
                 text: 'Please select a quantity greater than zero for at least one variant.',
             });
-            return; // Stop further execution of the function
+            return; // Exit the function to prevent the AJAX request
+        }
+        var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+
+        if (!isLoggedIn) {
+            window.location.href = '<?php echo base_url(); ?>login'; // Replace with the login page URL
+            return; // Exit the function to prevent the AJAX request
         }
 
         var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
