@@ -118,6 +118,12 @@
         message:{
           required: true
         },
+        company_name:{
+          required: true
+        },
+        contact_phone:{
+          required: true
+        },
         contact_email: {
           required: true,
           email: true
@@ -129,7 +135,13 @@
           required: 'First name is required.'
         },
         message: {
-          required: 'message is required.'
+          required: 'Message is required.'
+        },
+        company_name: {
+          required: 'Componey Name is required.'
+        },
+        contact_phone: {
+          required: 'Phone No is required.'
         },
         contact_email: {
           required: 'Email is required.',
