@@ -627,13 +627,15 @@ class Home extends BaseController
         $contact_email = $this->request->getVar('contact_email');
         $company_name = $this->request->getVar('company_name');
         $contact_phone = $this->request->getVar('contact_phone');
+        $message = $this->request->getVar('message');
  
                 $data = array(
                    
                     'contact_name' => $contact_name,
                     'contact_email' => $contact_email,
                     'company_name' => $company_name,
-                    'contact_phone' => $contact_phone
+                    'contact_phone' => $contact_phone,
+                    'message' => $message
                    
                 );
                 $usercontactmodel->insert($data);

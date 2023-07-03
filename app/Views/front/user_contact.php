@@ -37,14 +37,13 @@
               <li><i class="fa fa-fax" aria-hidden="true"></i> (+61) 894 512 204</li>
               <li><i class="fa-regular fa-clock"></i> Monday – Friday 8:00 to 19:00</li>
               <li><i class="fa-regular fa-life-ring"></i> sales@truflowwhydraulic.com.au</li>
-              <li><i class="fa-regular fa-envelope"></i> sales@truflowwhydraulic.com.au</li>
+              <li><i class="fa-regular fa-envelope"></i> info@truflowwhydraulic.com.au</li>
             </ul>
             <ul class="social_media">
               <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
               <li><a href="#!"><i class="fa-brands fa-twitter"></i></a></li>
-              <li><a href="#!"><i class="fa-brands fa-google"></i></a></li>
               <li><a href="#!"><i class="fa-brands fa-youtube"></i></a></li>
-              <li><a href="#!"><i class="fa-brands fa-pinterest-p"></i></a></li>
+             
             </ul>
           </div>
         </div>
@@ -77,6 +76,12 @@
                     <input type="text" id="contact_phone" name="contact_phone" onkeypress="return isNumber(event)">
                   </div>
                 </div>
+                <div class="col-lg-12">
+                <div class="contact-form">
+                  <label>Your Message</label>
+                  <textarea type="message" name="message" rows="5" cols="6" required></textarea>
+                </div>
+              </div>
 
               </div>
               <div class="col-lg-12">

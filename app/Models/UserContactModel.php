@@ -17,7 +17,8 @@ class UserContactModel extends Model
         'contact_name',
         'contact_email',
         'contact_phone',
-        'company_name'
+        'company_name',
+        'message'
         
     ];
 

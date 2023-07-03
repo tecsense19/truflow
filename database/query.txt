@@ -1,10 +1,1 @@
-ALTER TABLE `user_contact` ADD `company_name` VARCHAR(255) NULL AFTER `contact_email`;
-
-
-ALTER TABLE `users` ADD `reset_token` VARCHAR(255) NULL AFTER `fax`, ADD `reset_token_expires_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `reset_token`;
-
-
-ALTER TABLE `product` CHANGE `product_price` `product_additional_info` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;
-
-
-ALTER TABLE `coupon` ADD `company_id` INT(11) NOT NULL AFTER `to_date`, ADD `company_coupon` INT(11) NOT NULL DEFAULT '0' AFTER `company_id`;
+ALTER TABLE `user_contact` ADD `message` TEXT NULL AFTER `contact_phone`;
