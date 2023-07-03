@@ -68,26 +68,26 @@ class ProductController extends BaseController
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
 
         // Check if new images are uploaded
-if ($files = $this->request->getFiles()) {
-    $path = 'public/admin/images/product/';
-    $uploadedFiles = [];
+        if ($files = $this->request->getFiles()) {
+            $path = 'public/admin/images/product/';
+            $uploadedFiles = [];
 
-    // Loop through each uploaded file
-    foreach ($files['product_img'] as $file) {
-        if ($file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move($path, $newName);
-            $uploadedFiles[] = $path . $newName;
+            // Loop through each uploaded file
+            foreach ($files['product_img'] as $file) {
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $newName = $file->getRandomName();
+                    $file->move($path, $newName);
+                    $uploadedFiles[] = $path . $newName;
+                }
+            }
+
+            // Merge the existing images with the new uploaded images
+            if (!empty($uploadedFiles)) {
+                // Retrieve existing images if available
+                $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
+                $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+            }
         }
-    }
-
-    // Merge the existing images with the new uploaded images
-    if (!empty($uploadedFiles)) {
-        // Retrieve existing images if available
-        $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
-        $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
-    }
-}
 
         $productId = '';
 
@@ -187,4 +187,145 @@ if ($files = $this->request->getFiles()) {
         $session->setFlashdata('success', 'Variant Delete succesfully.');
         return redirect()->back();
     }
+
+    public function exportToCSV()
+    {
+        $header = ['category_name', 'sub_category_name', 'product_name', 'variant_name', 'variant_price', 'variant_sku'];
+
+        // Create a new CSV file in memory
+        $file = fopen('php://temp', 'w');
+    
+        // Write the header row
+        fputcsv($file, $header);
+    
+        // Move the file pointer to the beginning of the file
+        rewind($file);
+    
+        // Set the appropriate headers for file download
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="export.csv"');
+        header('Pragma: no-cache');
+    
+        // Output the contents of the file
+        fpassthru($file);
+    
+        // Close the file handle
+        fclose($file);
+        exit;
+    }
+
+    public function processCSV()
+{
+    $session = session();
+    $categoryModel = new CategoryModel();
+    $subcategoryModel = new SubcategoryModel();
+    $productModel = new ProductModel();
+    $variantModel = new VariantsModel();
+
+    // Get the uploaded CSV file
+    $csvFile = $this->request->getFile('csv_file');
+
+    // Check if a file was uploaded
+    if ($csvFile && $csvFile->isValid() && !$csvFile->hasMoved()) {
+        // Open the CSV file
+        $csv = array_map('str_getcsv', file($csvFile->getPathname()));
+
+        $categoryName = null;
+        $subcategoryName = null;
+        $categoryId = null;
+        $subcategoryId = null;
+        $productId = null;
+
+        $isFirstRow = true; // Flag variable to skip the first row
+
+        // Process each row of the CSV file
+        foreach ($csv as $row) {
+            if ($isFirstRow) {
+                $isFirstRow = false;
+                continue; // Skip the first row
+            }
+
+            if ($row[0] != '') {
+                // Category name
+                $categoryName = $row[0];
+
+                // Check if the category already exists
+                $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
+
+                if (!$category) {
+                    // Insert the new category
+                    $category = [
+                        'category_name' => $categoryName
+                    ];
+                    $categoryId = $categoryModel->insert($category);
+                } else {
+                    $categoryId = $category->category_id;
+                }
+            }
+
+            if ($row[1] != '') {
+                // Subcategory name
+                $subcategoryName = $row[1];
+
+                // Check if the subcategory already exists
+                $subcategory = $subcategoryModel
+                    ->where('sub_category_name', $subcategoryName)
+                    ->where('category_id', $categoryId)
+                    ->get()->getRow();
+
+                if (!$subcategory) {
+                    // Insert the new subcategory with the parent category ID
+                    $subcategory = [
+                        'sub_category_name' => $subcategoryName,
+                        'category_id' => $categoryId
+                    ];
+                    $subcategoryId = $subcategoryModel->insert($subcategory);
+                } else {
+                    $subcategoryId = $subcategory->sub_category_id;
+                }
+            }
+
+            // Product details
+            $productName = $row[2];
+
+            if ($productName != '') {
+                // Insert the product
+                $product = [
+                    'product_name' => $productName,
+                    'category_id' => $categoryId,
+                    'sub_category_id' => $subcategoryId
+                ];
+                $productId = $productModel->insert($product);
+            }
+
+            // Variant details
+            $variantName = $row[3];
+            $variantPrice = $row[4];
+            $variantSku = $row[5];
+
+            if ($variantName != '') {
+                // Insert the variant
+                $variant = [
+                    'product_id' => $productId,
+                    'variant_name' => $variantName,
+                    'variant_price' => $variantPrice,
+                    'variant_sku' => $variantSku
+                ];
+                $variantModel->insert($variant);
+            }
+        }
+
+        // Success message or redirect to a success page
+        $session->setFlashdata('success', 'Upload the CSV file succesfully.');
+        return redirect()->back();
+    } else {
+        // Error message or redirect to an error page
+        $session->setFlashdata('error', 'Upload the CSV file Unsuccesfully.');
+        return redirect()->back();
+    }
+}
+
+
+
+    
 }
