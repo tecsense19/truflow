@@ -115,7 +115,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                 <div class="about_sub">
                     <h5><?php echo $about_title; ?></h5>
                     <h2><?php echo $about_sub_title; ?></h2>
-                    <p class="about_d"><?php echo $about_description; ?></p>
+                    <?php echo $about_description; ?>
                     <a href="<?php echo $about_button_link; ?>"><button type="button" class="btn about_d"> <?php echo $about_button_text; ?> </button></a>
                 </div>
             </div>

@@ -290,7 +290,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                 <div class="checkout-option">
                   <div class="db_data">
                     <input id="read_all" type="checkbox">
-                    <label for="read_all">I have read and agreed to the <a href="#"> Terms&Condition </a> of the website.</label>
+                    <label for="read_all">I have read and agreed to the <a href="<?php echo base_url('terms_and_condition'); ?>"> Terms&Condition </a> of the website.</label>
                   </div>
                 </div>
               </div>

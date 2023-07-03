@@ -6,8 +6,7 @@
                 <div class="col-md-4 col-lg-5">
                     <div class="footer_logo">
                         <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid"></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat nunc amet elit viverra
-                            purus a. Neque </p>
+                        <p> </p>
                         <div class="footer_icon">
                             <a class="button1" href="#">
                                 <span><i class="fa-brands fa-facebook-f"></i></span>

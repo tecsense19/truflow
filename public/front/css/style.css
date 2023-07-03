@@ -253,7 +253,7 @@ a.heart::before{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 730px;
+	height: 100vh;
 }
 .banner_sub{
 	padding: 140px 0 0 0;
@@ -2340,9 +2340,7 @@ button.btn.btn-primary.btn-rounded {
 p.about_d {
     padding: 0px !important;
 }
-button.btn.about_d {
-    margin-top: -50px;
-}
+
 /* --------------coupon button disable ----------------------- */
 #applyCouponButton:disabled {
     background-color: #ccc; /* Change the background color to gray */
