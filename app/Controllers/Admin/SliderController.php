@@ -25,7 +25,7 @@ class SliderController extends BaseController
     $slidermodel = new SliderModel();
     $session = session();
     $input = $this->request->getVar();
-    $slider_id = $input['slider_id'];
+    //$slider_id = $input['slider_id'];
 
     $sliderArr = [];
     $sliderArr['slider_path'] = [];

@@ -13,6 +13,7 @@ use App\Models\VariantsModel;
 use App\Models\CartModel;
 use App\Models\OrderModel;
 use App\Models\OrderStatusModel;
+use App\Models\OrderItemModel;
 
 class OrderController extends BaseController
 {
@@ -25,11 +26,12 @@ class OrderController extends BaseController
        
 
         $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+        $cartData = $orderitemmodel->find();
 
-        $cartData = $ordermodel->find();
-
-        $query = $ordermodel->select('*')
-        ->join('product_variants', 'product_variants.variant_id = tbl_order.variant_id', 'left')
+        $query = $orderitemmodel->select('*')
+            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
