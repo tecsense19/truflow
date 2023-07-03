@@ -16,14 +16,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="form-group mt-5 mb-5">
-        <h4>Contact Us</h4>
-      </div>
-    </div>
 
-  </div>
   <?php if (session()->getFlashdata('success')) { ?>
     <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
   <?php } ?>
@@ -31,50 +24,76 @@
     <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
   <?php } ?>
 
-  <form method="post" id="category_form" action="<?php echo base_url() ?>contact/save" enctype='multipart/form-data'>
-    
-   
-    <div class="form-group row">
-      <label class="col-md-2 control-label" for="contact_name">Name :</label>
-      <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Name is required." id="contact_name" name="contact_name" type="text" value="" />
-      </div>
-    </div>
-  
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="get-in-touch pr-50">
+            <h3>Get in touch</h3>
+            <p>Truflow Hydraulic Components Pty Ltd</p>
+            <h3> 29 Dowd Street,Perth, Australia 6106.</h3>
+            <ul class="contact-detail">
+              <li><i class="fa-solid fa-phone"></i> (+61) 894 512 204</li>
+              <li><i class="fa fa-fax" aria-hidden="true"></i> (+61) 894 512 204</li>
+              <li><i class="fa-regular fa-clock"></i> Monday – Friday 8:00 to 19:00</li>
+              <li><i class="fa-regular fa-life-ring"></i> sales@truflowwhydraulic.com.au</li>
+              <li><i class="fa-regular fa-envelope"></i> sales@truflowwhydraulic.com.au</li>
+            </ul>
+            <ul class="social_media">
+              <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#!"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="#!"><i class="fa-brands fa-google"></i></a></li>
+              <li><a href="#!"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="#!"><i class="fa-brands fa-pinterest-p"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="get-in-touch">
+            <h3>Drop us a line:</h3>
+            <form method="post" id="category_form" action="<?php echo base_url() ?>contact/save" enctype='multipart/form-data'>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="contact-form">
+                    <label>Your Name*</label>
+                    <input type="text" name="contact_name">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="contact-form">
+                    <label>Your Email*</label>
+                    <input type="text" name="contact_email">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="contact-form">
+                    <label>Company name*</label>
+                    <input type="text" name="company_name">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="contact-form">
+                    <label>Phone No*</label>
+                    <input type="text" id="contact_phone" name="contact_phone" onkeypress="return isNumber(event)">
+                  </div>
+                </div>
 
-    <div class="form-group row">
-      <label class="col-md-2 control-label" for="email">Email :</label>
-      <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Email is required." id="contact_email" name="contact_email" type="text" value="" />
+              </div>
+              <div class="col-lg-12">
+                <div class="contact-form">
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+          </div>
+          </form>
+        </div>
       </div>
     </div>
-
-    <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">Company name :</label>
-      <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Company name is required." id="company_name" name="company_name" type="text" value="" />
-      </div>
-    </div>
-    
-    <div class="form-group row">
-      <label class="col-md-2 control-label" for="mobile">Phone No :</label>
-      <div class="col-md-8">
-        <input class="form-control" data-val="true" data-val-required="Phone Number is required." id="contact_phone" name="contact_phone" type="text" value="" onkeypress="return isNumber(event)"/>
-      </div>
-    </div>
-   
-
-    <div class="form-group row">
-      <label class="col-md-2 control-label" for=""></label>
-      <div class="col-md-8">
-        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-      </div>
-    </div>
-
-    <div class="text-center mb-5">
-      <input type="submit" id="register-button" class="btn btn-default submit_form" value="Register" name="register-button" />
-    </div>
-  </form>
+</div>
+</section>
+<section id="map_section">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.988746659039!2d115.94960397570115!3d-31.988320524132856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32beb9aef86aa7%3A0x8e39a15961210411!2sTruflow%20Hydraulic%20Components%20Pty%20Ltd!5e0!3m2!1sen!2sin!4v1688376535045!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
 </div>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
@@ -96,18 +115,18 @@
           required: true,
           email: true
         }
-       
+
       },
       messages: {
         contact_name: {
           required: 'First name is required.'
         },
-        
+
         contact_email: {
           required: 'Email is required.',
           email: 'Please enter a valid email address.'
         }
-        
+
       },
       submitHandler: function(form) {
         form.submit();
@@ -119,8 +138,8 @@
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
+      return false;
     }
     return true;
-}
+  }
 </script>

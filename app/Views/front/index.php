@@ -332,7 +332,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         <div class="test_icon">
                                             <i class="fa-solid fa-quote-left"></i>
                                         </div>
-                                        <p><?php echo $testominal['description']; ?></p>
+                                       <?php echo $testominal['description']; ?>
                                     </div>
                                 </div>
                             <?php } ?>
