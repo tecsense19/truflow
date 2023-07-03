@@ -115,7 +115,9 @@
         contact_name: {
           required: true
         },
-
+        message:{
+          required: true
+        },
         contact_email: {
           required: true,
           email: true
@@ -126,7 +128,9 @@
         contact_name: {
           required: 'First name is required.'
         },
-
+        message: {
+          required: 'message is required.'
+        },
         contact_email: {
           required: 'Email is required.',
           email: 'Please enter a valid email address.'
