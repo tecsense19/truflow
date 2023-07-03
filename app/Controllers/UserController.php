@@ -9,6 +9,7 @@ use App\Models\HeaderMenuModel;
 use App\Models\CompanyModel;
 use Config\Services;
 use CodeIgniter\Email\Email;
+use App\Models\OrderItemModel;
 
 
 class UserController extends BaseController
@@ -255,20 +256,26 @@ class UserController extends BaseController
         if (!$countryData) {
             $countryData = null;
         }
-
         $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+        $cartData = $orderitemmodel->find();
         $userId = $session->get('user_id');
-        $query = $ordermodel->select('*')
-            ->join('product_variants', 'product_variants.variant_id = tbl_order.variant_id', 'left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+        $query = $orderitemmodel->select('*')
+        ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+        ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+        ->join('product', 'product.product_id = product_variants.product_id', 'left')
+        ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+        ->join('category', 'category.category_id = sub_category.category_id', 'left')
+        ->join('users', 'users.user_id = tbl_order.user_id', 'left')
             ->where('users.user_id', $userId)
 
             ->get();
 
         $orderData = $query->getResultArray();
+
+
+       
+
 
         // echo "<pre>";
         // print_r($orderData);

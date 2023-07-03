@@ -124,3 +124,272 @@ in APPPATH\Views\admin\order\order_list.php on line 51.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-03 09:32:55 --> mysqli_sql_exception: Unknown column 'tbl_order.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-03 09:32:55 --> Unknown column 'tbl_order.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-03 09:33:06 --> mysqli_sql_exception: Unknown column 'tbl_order.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-03 09:33:06 --> Unknown column 'tbl_order.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-03 09:34:16 --> mysqli_sql_exception: Unknown column 'tbl_order.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-03 09:34:16 --> Unknown column 'tbl_order.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-03 09:35:12 --> mysqli_sql_exception: Unknown column 'tbl_order.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-03 09:35:12 --> Unknown column 'tbl_order.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\UserController.php(269): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-03 09:39:22 --> mysqli_sql_exception: Not unique table/alias: 'tbl_order' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\UserController.php(272): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-03 09:39:22 --> Not unique table/alias: 'tbl_order'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `users`.`user_id` = :users.user_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\UserController.php(272): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
