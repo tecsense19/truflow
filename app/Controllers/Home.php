@@ -515,7 +515,7 @@ class Home extends BaseController
         ->join('product_variants', 'product_variants.product_id = product.product_id', 'left')
         ->where('addwish_list.user_id', $userId)
         ->where('addwish_list.isDeleted', 0)
-        ->groupBy('addwish_list.product_id', 'addwish_list.user_id')
+        ->groupBy('addwish_list.product_id')
         ->findAll();
 
         $lastQuery = $cartmodel->getLastQuery();
