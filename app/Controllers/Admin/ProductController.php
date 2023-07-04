@@ -164,6 +164,7 @@ class ProductController extends BaseController
                 'variant_name' => $input['variant_name'][$key],
                 'variant_price' => $input['variant_price'][$key],
                 'variant_sku' => $input['variant_sku'][$key],
+                'parent' => $input['parent'][$key],
             ];
 
             if (isset($input['variant_id'][$key]) && !empty($input['variant_id'][$key])) {
@@ -190,7 +191,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['category_name', 'sub_category_name', 'product_name', 'variant_name', 'variant_price', 'variant_sku'];
+        $header = ['category_name', 'sub_category_name', 'product_name', 'variant_name', 'variant_price', 'variant_sku', 'parent'];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
@@ -302,6 +303,7 @@ class ProductController extends BaseController
             $variantName = $row[3];
             $variantPrice = $row[4];
             $variantSku = $row[5];
+            $parent = $row[6];
 
             if ($variantName != '') {
                 // Insert the variant
@@ -309,7 +311,8 @@ class ProductController extends BaseController
                     'product_id' => $productId,
                     'variant_name' => $variantName,
                     'variant_price' => $variantPrice,
-                    'variant_sku' => $variantSku
+                    'variant_sku' => $variantSku,
+                    'parent' => $parent
                 ];
                 $variantModel->insert($variant);
             }

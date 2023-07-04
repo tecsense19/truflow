@@ -53,12 +53,20 @@
                                                     </td>
                                                     <td><?php echo $cart['order_status']; ?></td>
                                                     <td>
+                                                    <button
+                          type="button"
+                          class="btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exLargeModal"
+                        >
+                          Order Details
+                        </button>
                                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" data-id="<?php echo $cart['order_id']; ?>">
-                                                            Order Details
+                                                            Order Status
                                                         </button>
-
+                                                       
                                                         <a href="<?php echo base_url('') . "admin/order/delete/" . $cart['order_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
-
+                                                      
 
                                                     </td>
                                                 </tr>
@@ -93,7 +101,7 @@
         <div class="modal-content">
             <!-- Modal header and body -->
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Change Order Status</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -119,6 +127,132 @@
         </div>
     </div>
 </div>
+<!-- -------order details ------------------- -->
+<div class="modal fade" id="exLargeModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel4">Order Details</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                           
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                   <h5>Billing Address</h5>
+                                 
+                                    <?php echo $cartData[0]['address_1'].","?><br>
+                                    <?php echo $cartData[0]['address_2'].","?><br>
+                                    <?php echo $cartData[0]['city']?>
+                                  
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                <h5>Shipping Address</h5>
+                                <?php echo  $cartData[0]['product_item'][0]['address_1'].","?><br>
+                                    <?php echo  $cartData[0]['product_item'][0]['address_2'].","?><br>
+                                    <?php echo  $cartData[0]['product_item'][0]['city']?>
+                                </div>
+                            </div>
+      
+                            <table class="table card" style="width: 100%;">
+<thead>
+<tr class="mainsetcolor">
+        <th colspan="2">Order Id: #<?php echo $cartData[0]['product_item'][0]['order_id'];?></th>
+        <th colspan="2">Order By: <?php echo $cartData[0]['product_item'][0]['full_name'];?></th>
+        <th colspan="4">Order Date: <?php echo $cartData[0]['product_item'][0]['created_at'];?></th>
+       
+      </tr>
+    
+        <th style="width: 10%;">Product name</th>
+        <th style="width: 30%;">Product details</th>
+        <th style="width: 20%;">Variant</th>
+        <th style="width: 10%;">Part Number</th>
+        <th style="width: 10%;">Qty</th>
+        <th style="width: 10%;">Price</th>
+        <th style="width: 10%;">Order Status</th>
+  
+</thead>
+<tbody>
+   
+
+        <?php foreach($cartData[0]['product_item'] as $order) {  ?>
+            <tr>
+        <td style="width: 10%;"><?php echo $order['product_name'];?></td>
+        <td style="width: 30%;"><?php echo $order['product_description'];?></td>
+        <td style="width: 20%;"><?php echo $order['variant_name'];?></td>
+        <td style="width: 10%;"><?php echo $order['variant_sku'];?></td>
+        <td style="width: 10%;"><?php echo $order['product_quantity'];?></td>
+        <td style="width: 10%;"><?php echo $order['product_amount'];?></td>
+        <td style="width: 10%;"><?php echo $order['order_status'];?></td>
+      </tr>
+            
+                <?php } ?>
+                <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
+    <td>Total</td>
+    <td>
+        <?php
+        $totalAmount = 0;
+        foreach ($cartData[0]['product_item'] as $order) {
+            $totalAmount += $order['total_amount'];
+        }
+        echo $totalAmount;
+        ?>
+    </td>
+    <td></td>
+</tr>
+<tr>
+<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <td>Discount</td>
+        <td><?php foreach($cartData as $order) {  ?>
+            <?php if ($order['discount_type'] == "Flat"){?>
+            <?php echo $order['product_discount']." "."Rs";?>
+            <?php }else{ ?>
+                <?php echo $order['product_discount']." "."%";?>
+                <?php }?>
+            <?php } ?>
+        </td>
+        <td></td>
+            </tr>
+
+            <tr>
+            <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <td>Grand Total</td>
+        <td><?php foreach($cartData as $order) {  ?>
+            <?php echo $order['final_total_ammount'];?>
+            <?php } ?>
+        </td>
+        <td></td>
+            </tr>
+
+
+                </tbody>
+</table>
+
+
+
+                              
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
 </div>
 </div>
 <!-- --------------------------------- -->

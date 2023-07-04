@@ -1,1 +1,1 @@
-ALTER TABLE `user_contact` ADD `message` TEXT NULL AFTER `contact_phone`;
+ALTER TABLE `product_variants` CHANGE `variant_qty` `parent` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;

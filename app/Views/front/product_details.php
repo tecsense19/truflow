@@ -50,7 +50,7 @@
                         <div class="samsung_galaxy">
                             <div class="row">
                                 <div class="col-sm-10">
-                                    <h3><?php echo $productData[0]['product_name'] ?></h3>
+                                    <h3><?php echo $productData[0]['product_name'] ?>&nbsp;&nbsp;<?php echo $productData[0]['parent']?></h3>
                                 </div>
                                 <div class="col-sm-2">
                                     <?php if (isset($addwishData)) { ?>

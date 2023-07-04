@@ -16,7 +16,7 @@ class VariantsModel extends Model
     protected $allowedFields    = [
         'product_id',
         'variant_name',
-        'variant_qty',
+        'parent',
         'variant_price',
         'variant_sku',
     ];

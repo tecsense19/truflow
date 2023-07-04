@@ -111,6 +111,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                                     <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
                                                     <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" /></td>
                                                     <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
+                                                    <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>
                                                     <td><a class="btn btn-danger" href="<?php echo base_url('') . "admin/variant/delete/" . $variant['variant_id'] ?>">Remove</a></td>
                                                 </tr>
                                         <?php
@@ -171,6 +172,9 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                 },
                 "variant_sku[]": {
                     required: true
+                },
+                "parent[]": {
+                    required: true
                 }
             },
             messages: {
@@ -197,6 +201,9 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                 },
                 "variant_sku[]": {
                     required: "Part Number is required!"
+                },
+                "parent[]": {
+                    required: "parent is required!"
                 }
             },
             submitHandler: function(form) {
@@ -281,6 +288,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
             var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
             var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
             var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
+            var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
             var removeButton = $('<td><button class="btn btn-danger remove-btn">Remove</button></td>');
 
             // Validate variant SKU value
@@ -312,6 +320,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
             inputRow.append(variant_name);
             inputRow.append(variant_price);
             inputRow.append(variant_sku);
+            inputRow.append(parent);
             inputRow.append(removeButton);
             $('#input-container tbody').append(inputRow);
 
