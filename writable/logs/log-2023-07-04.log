@@ -308,3 +308,519 @@ in APPPATH\Views\admin\order\order_list.php on line 154.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:32:05 --> Undefined array key 0
+in APPPATH\Views\front\product.php on line 38.
+ 1 APPPATH\Views\front\product.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(191): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:47:25 --> Undefined array key "product_img"
+in APPPATH\Views\front\product.php on line 29.
+ 1 APPPATH\Views\front\product.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(199): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:48:15 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `produ...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *, DISTI...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, DISTI...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, DISTI...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *, DISTI...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 09:48:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `produ...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:48:32 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `produ...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `product...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 09:48:32 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `produ...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `product`.*, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product`.*, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product`.*, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `product`.*, DISTINCT(product.product_id)
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:50:12 --> Undefined array key "product_img"
+in APPPATH\Views\front\product.php on line 29.
+ 1 APPPATH\Views\front\product.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(201): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:51:07 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::selectRaw()
+in APPPATH\Controllers\Home.php on line 188.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(3506): App\Controllers\Home->App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Builder))
+ 2 SYSTEMPATH\Database\BaseBuilder.php(956): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true)
+ 3 SYSTEMPATH\Database\BaseBuilder.php(827): CodeIgniter\Database\BaseBuilder->_whereIn('`product`.`product_id`', Object(Closure), '', 'AND ', true)
+ 4 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->whereIn('product.product_id', Object(Closure))
+ 5 APPPATH\Controllers\Home.php(191): CodeIgniter\Model->__call('whereIn', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:51:36 --> Undefined array key "product_img"
+in APPPATH\Views\front\product.php on line 29.
+ 1 APPPATH\Views\front\product.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(203): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:53:55 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM product
+    JOIN product_variants ON product_variants.product_...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('\r\n    SELECT DI...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('\r\n    SELECT DI...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n    SELECT DI...')
+#3 C:\xampp\htdocs\truflow\system\Model.php(836): CodeIgniter\Database\BaseConnection->query('\r\n    SELECT DI...')
+#4 C:\xampp\htdocs\truflow\app\Controllers\Home.php(193): CodeIgniter\Model->__call('query', Array)
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-04 09:53:55 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM product
+    JOIN product_variants ON product_variants.product_...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = 1
+', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = 1
+')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = 1
+')
+ 4 SYSTEMPATH\Model.php(836): CodeIgniter\Database\BaseConnection->query('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = 1
+')
+ 5 APPPATH\Controllers\Home.php(193): CodeIgniter\Model->__call('query', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:54:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM product
+    JOIN product_variants ON product_variants.product_...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('\r\n    SELECT DI...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('\r\n    SELECT DI...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n    SELECT DI...')
+#3 C:\xampp\htdocs\truflow\system\Model.php(836): CodeIgniter\Database\BaseConnection->query('\r\n    SELECT DI...')
+#4 C:\xampp\htdocs\truflow\app\Controllers\Home.php(193): CodeIgniter\Model->__call('query', Array)
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-04 09:54:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+    FROM product
+    JOIN product_variants ON product_variants.product_...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = \'1\'
+', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = \'1\'
+')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = \'1\'
+')
+ 4 SYSTEMPATH\Model.php(836): CodeIgniter\Database\BaseConnection->query('
+    SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+    FROM product
+    JOIN product_variants ON product_variants.product_id = product.product_id
+    WHERE product.sub_category_id = \'1\'
+')
+ 5 APPPATH\Controllers\Home.php(193): CodeIgniter\Model->__call('query', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:54:52 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+        FROM product
+        JOIN product_variants ON product_variants....' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('\r\n        SELEC...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('\r\n        SELEC...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n        SELEC...')
+#3 C:\xampp\htdocs\truflow\system\Model.php(836): CodeIgniter\Database\BaseConnection->query('\r\n        SELEC...', Array)
+#4 C:\xampp\htdocs\truflow\app\Controllers\Home.php(193): CodeIgniter\Model->__call('query', Array)
+#5 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-04 09:54:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '...
+        FROM product
+        JOIN product_variants ON product_variants....' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('
+        SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+        FROM product
+        JOIN product_variants ON product_variants.product_id = product.product_id
+        WHERE product.sub_category_id = \'1\'
+    ', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('
+        SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+        FROM product
+        JOIN product_variants ON product_variants.product_id = product.product_id
+        WHERE product.sub_category_id = \'1\'
+    ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('
+        SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+        FROM product
+        JOIN product_variants ON product_variants.product_id = product.product_id
+        WHERE product.sub_category_id = \'1\'
+    ')
+ 4 SYSTEMPATH\Model.php(836): CodeIgniter\Database\BaseConnection->query('
+        SELECT DISTINCT product.product_id, product.column1, product.column2, ...
+        FROM product
+        JOIN product_variants ON product_variants.product_id = product.product_id
+        WHERE product.sub_category_id = ?
+    ', [...])
+ 5 APPPATH\Controllers\Home.php(193): CodeIgniter\Model->__call('query', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 09:55:49 --> mysqli_sql_exception: Column 'product_id' in where clause is ambiguous in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(195): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 09:55:49 --> Column 'product_id' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `product_id` IN (\'1\',\'2\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `product_id` IN (\'1\',\'2\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `product_id` IN (\'1\',\'2\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `product_id` IN :product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(195): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:57:31 --> You cannot use "getCompiledSelect()" in "App\Models\ProductModel". This is a method of the Query Builder Class.
+in SYSTEMPATH\Model.php on line 858.
+ 1 SYSTEMPATH\Model.php(858): CodeIgniter\Exceptions\ModelException::forMethodNotAvailable('App\\Models\\ProductModel', 'getCompiledSelect()')
+ 2 SYSTEMPATH\Model.php(838): CodeIgniter\Model->checkBuilderMethod('getCompiledSelect')
+ 3 APPPATH\Controllers\Home.php(189): CodeIgniter\Model->__call('getCompiledSelect', [])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:58:05 --> Call to undefined method App\Models\ProductModel::getQuery
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Home.php(189): CodeIgniter\Model->__call('getQuery', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:58:34 --> You cannot use "getCompiledSelect()" in "App\Models\ProductModel". This is a method of the Query Builder Class.
+in SYSTEMPATH\Model.php on line 858.
+ 1 SYSTEMPATH\Model.php(858): CodeIgniter\Exceptions\ModelException::forMethodNotAvailable('App\\Models\\ProductModel', 'getCompiledSelect()')
+ 2 SYSTEMPATH\Model.php(838): CodeIgniter\Model->checkBuilderMethod('getCompiledSelect')
+ 3 APPPATH\Controllers\Home.php(189): CodeIgniter\Model->__call('getCompiledSelect', [])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 09:59:08 --> You cannot use "getCompiledSelect()" in "App\Models\ProductModel". This is a method of the Query Builder Class.
+in SYSTEMPATH\Model.php on line 858.
+ 1 SYSTEMPATH\Model.php(858): CodeIgniter\Exceptions\ModelException::forMethodNotAvailable('App\\Models\\ProductModel', 'getCompiledSelect()')
+ 2 SYSTEMPATH\Model.php(838): CodeIgniter\Model->checkBuilderMethod('getCompiledSelect')
+ 3 APPPATH\Controllers\Home.php(191): CodeIgniter\Model->__call('getCompiledSelect', [])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 10:11:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`p...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `DISTINC...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 10:11:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`p...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `DISTINCT` `product`.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `product`.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `product`.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `product`.`product_id`
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:27:56 --> Undefined array key "product_img"
+in APPPATH\Views\front\product.php on line 29.
+ 1 APPPATH\Views\front\product.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(199): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:28:59 --> Undefined array key "parent"
+in APPPATH\Views\front\product.php on line 38.
+ 1 APPPATH\Views\front\product.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(200): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 10:31:56 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product...' at line 1 in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `DISTINC...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 10:31:56 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product...' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `DISTINCT` `product`.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `product`.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `product`.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `product`.`product_id`, `product`.*, `product_variants`.*
+FROM `product`
+JOIN `product_variants` ON `product_variants`.`product_id` = `product`.`product_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(189): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:36:34 --> Undefined array key "parent"
+in APPPATH\Views\front\product.php on line 38.
+ 1 APPPATH\Views\front\product.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(191): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 10:41:36 --> mysqli_sql_exception: Unknown column 'product.product_id' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(191): CodeIgniter\BaseModel->find()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 10:41:36 --> Unknown column 'product.product_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `product_variants`
+WHERE `product`.`product_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `product_variants`
+WHERE `product`.`product_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `product_variants`
+WHERE `product`.`product_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `product_variants`
+WHERE `product`.`product_id` = :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(557): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Home.php(191): CodeIgniter\BaseModel->find()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:42:03 --> Call to undefined method App\Models\VariantsModel::findOne
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Home.php(191): CodeIgniter\Model->__call('findOne', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

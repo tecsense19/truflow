@@ -184,11 +184,19 @@ class Home extends BaseController
         $productmodel = new ProductModel();
         $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
 
+        $variantsmodel = new VariantsModel();
+        $newData = [];
+        foreach($productData as $pdata)
+        {
+            $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
+            $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+            $newData[] = $pdata;
+        }
 
         return view('front/product', [
             'headerData' => $headerData,
             'subcategoryData' => $subcategoryData,
-            'productData' => $productData
+            'productData' => $newData
         ]);
     }
     public function product_details($product_id)

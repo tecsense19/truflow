@@ -35,7 +35,7 @@
                             </div>
                             <div class="product_text text-center">
                                 <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="category-link">
-                                    <h3 class="mt-3"><?php echo $product['product_name']; ?></h3>
+                                    <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent']?></h3>
                                     <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                 </a>
                             </div>
