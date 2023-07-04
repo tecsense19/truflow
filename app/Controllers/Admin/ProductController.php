@@ -195,21 +195,21 @@ class ProductController extends BaseController
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
-    
+
         // Write the header row
         fputcsv($file, $header);
-    
+
         // Move the file pointer to the beginning of the file
         rewind($file);
-    
+
         // Set the appropriate headers for file download
         header('Content-Type: application/csv');
         header('Content-Disposition: attachment; filename="export.csv"');
         header('Pragma: no-cache');
-    
+
         // Output the contents of the file
         fpassthru($file);
-    
+
         // Close the file handle
         fclose($file);
         exit;
@@ -248,7 +248,7 @@ class ProductController extends BaseController
 
             if ($row[0] != '') {
                 // Category name
-                $categoryName = $row[0];
+                $categoryName = utf8_encode($row[0]);
 
                 // Check if the category already exists
                 $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
@@ -266,7 +266,7 @@ class ProductController extends BaseController
 
             if ($row[1] != '') {
                 // Subcategory name
-                $subcategoryName = $row[1];
+                $subcategoryName = utf8_encode($row[1]);
 
                 // Check if the subcategory already exists
                 $subcategory = $subcategoryModel
@@ -287,7 +287,7 @@ class ProductController extends BaseController
             }
 
             // Product details
-            $productName = $row[2];
+            $productName = utf8_encode($row[2]);
 
             if ($productName != '') {
                 // Insert the product
@@ -300,10 +300,10 @@ class ProductController extends BaseController
             }
 
             // Variant details
-            $variantName = $row[3];
-            $variantPrice = $row[4];
-            $variantSku = $row[5];
-            $parent = $row[6];
+            $variantName = utf8_encode($row[3]);
+            $variantPrice = utf8_encode($row[4]);
+            $variantSku = utf8_encode($row[5]);
+            $parent = utf8_encode($row[6]);
 
             if ($variantName != '') {
                 // Insert the variant
@@ -319,16 +319,13 @@ class ProductController extends BaseController
         }
 
         // Success message or redirect to a success page
-        $session->setFlashdata('success', 'Upload the CSV file succesfully.');
+        $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
         return redirect()->back();
     } else {
         // Error message or redirect to an error page
-        $session->setFlashdata('error', 'Upload the CSV file Unsuccesfully.');
+        $session->setFlashdata('error', 'Failed to upload the CSV file.');
         return redirect()->back();
     }
 }
 
-
-
-    
 }
