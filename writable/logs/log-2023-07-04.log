@@ -824,3 +824,885 @@ in SYSTEMPATH\Model.php on line 842.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:51:41 --> Undefined array key "full_name"
+in APPPATH\Views\admin\order\order_list.php on line 47.
+ 1 APPPATH\Views\admin\order\order_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "full_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(68): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:51:58 --> Undefined array key "product_name"
+in APPPATH\Views\admin\order\order_list.php on line 51.
+ 1 APPPATH\Views\admin\order\order_list.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 51)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(69): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:54:11 --> Undefined array key "full_name"
+in APPPATH\Views\admin\order\order_list.php on line 47.
+ 1 APPPATH\Views\admin\order\order_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "full_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(69): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 10:54:39 --> mysqli_sql_exception: Not unique table/alias: 'tbl_order' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-04 10:54:39 --> Not unique table/alias: 'tbl_order'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:54:49 --> Undefined array key "product_name"
+in APPPATH\Views\admin\order\order_list.php on line 51.
+ 1 APPPATH\Views\admin\order\order_list.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 51)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(68): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 10:55:32 --> Undefined array key "product_name"
+in APPPATH\Views\admin\order\order_list.php on line 51.
+ 1 APPPATH\Views\admin\order\order_list.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 51)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(68): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 10:56:27 --> mysqli_sql_exception: Unknown column 'product_variants.product_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-04 10:56:27 --> Unknown column 'product_variants.product_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_order`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_order`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_order`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\OrderController.php(36): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:01:05 --> Undefined array key "product_description"
+in APPPATH\Views\admin\order\order_list.php on line 183.
+ 1 APPPATH\Views\admin\order\order_list.php(183): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_description"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 183)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:01:12 --> Undefined array key "product_description"
+in APPPATH\Views\admin\order\order_list.php on line 183.
+ 1 APPPATH\Views\admin\order\order_list.php(183): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_description"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 183)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:06:05 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:07:08 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:07:40 --> Undefined array key 0
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:12:13 --> Undefined array key 0
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:12:56 --> Undefined array key "address_1"
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "address_1"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:13:17 --> Undefined array key "address_1"
+in APPPATH\Views\admin\order\order_list.php on line 146.
+ 1 APPPATH\Views\admin\order\order_list.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "address_1"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 146)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:13:22 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 149.
+ 1 APPPATH\Views\admin\order\order_list.php(149): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 149)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:13:28 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 165.
+ 1 APPPATH\Views\admin\order\order_list.php(165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 165)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:18:15 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\admin\product\product.php on line 39.
+ 1 APPPATH\Views\admin\product\product.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(141): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:21:52 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 172.
+ 1 APPPATH\Views\admin\order\order_list.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 172)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(65): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:23:38 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 172.
+ 1 APPPATH\Views\admin\order\order_list.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 172)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:25:05 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 172.
+ 1 APPPATH\Views\admin\order\order_list.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 172)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 11:26:13 --> Undefined array key "product_item"
+in APPPATH\Views\admin\order\order_list.php on line 194.
+ 1 APPPATH\Views\admin\order\order_list.php(194): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_item"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php', 194)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 11:50:49 --> mysqli_sql_exception: Unknown column 'tbl_order.variant_id' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(45): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 11:50:49 --> Unknown column 'tbl_order.variant_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+WHERE `order_items`.`order_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `tbl_order`.`variant_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\OrderController.php(45): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 12:03:45 --> syntax error, unexpected token "else"
+in APPPATH\Views\admin\order\order_list.php on line 119.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_list', [], true)
+ 3 APPPATH\Controllers\Admin\OrderController.php(67): view('admin/order/order_list', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_list()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 12:36:32 --> mysqli_sql_exception: Not unique table/alias: 'users' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(121): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 12:36:33 --> Not unique table/alias: 'users'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\OrderController.php(121): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 13:03:47 --> mysqli_sql_exception: Not unique table/alias: 'users' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(121): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-04 13:03:47 --> Not unique table/alias: 'users'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\OrderController.php(121): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 13:45:12 --> session_start(): Failed to decode session object. Session has been destroyed
+in SYSTEMPATH\Session\Session.php on line 928.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'session_start(): Failed to decode session object. Session has been destroyed', 'C:\\xampp\\htdocs\\truflow\\system\\Session\\Session.php', 928)
+ 2 SYSTEMPATH\Session\Session.php(928): session_start()
+ 3 SYSTEMPATH\Session\Session.php(250): CodeIgniter\Session\Session->startSession()
+ 4 SYSTEMPATH\Config\Services.php(674): CodeIgniter\Session\Session->start()
+ 5 SYSTEMPATH\Config\BaseService.php(252): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 6 SYSTEMPATH\Config\BaseService.php(193): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 7 SYSTEMPATH\Config\Services.php(641): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 8 SYSTEMPATH\Config\BaseService.php(252): CodeIgniter\Config\Services::session()
+ 9 SYSTEMPATH\Common.php(988): CodeIgniter\Config\BaseService::__callStatic('session', [])
+10 APPPATH\Controllers\Admin\OrderController.php(104): session()
+11 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+12 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+13 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 13:45:19 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(108): CodeIgniter\BaseModel->find()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#5 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(108): CodeIgniter\BaseModel->find()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-04 13:45:19 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `order_items`', [], false)
+ 3 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(557): CodeIgniter\Model->doFind(false, null)
+ 5 APPPATH\Controllers\Admin\OrderController.php(108): CodeIgniter\BaseModel->find()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 13:58:19 --> Array to string conversion
+in APPPATH\Views\admin\order\order_details.php on line 6.
+ 1 APPPATH\Views\admin\order\order_details.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 13:58:30 --> Array to string conversion
+in APPPATH\Views\admin\order\order_details.php on line 6.
+ 1 APPPATH\Views\admin\order\order_details.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 13:59:21 --> Array to string conversion
+in APPPATH\Views\admin\order\order_details.php on line 6.
+ 1 APPPATH\Views\admin\order\order_details.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:05:18 --> Undefined variable $countryData
+in APPPATH\Views\admin\order\order_details.php on line 39.
+ 1 APPPATH\Views\admin\order\order_details.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:08:19 --> Undefined variable $order
+in APPPATH\Views\admin\order\order_details.php on line 24.
+ 1 APPPATH\Views\admin\order\order_details.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $order', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 24)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 14:12:25 --> mysqli_sql_exception: Table 'true_flow.billing_address' doesn't exist in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_ord...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_ord...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_ord...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_ord...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(141): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 14:12:25 --> Table 'true_flow.billing_address' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:
+GROUP BY `tbl_order`.`order_id`', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\OrderController.php(141): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 14:12:40 --> mysqli_sql_exception: Table 'true_flow.billing_address' doesn't exist in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_ord...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_ord...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_ord...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_ord...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(141): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 14:12:40 --> Table 'true_flow.billing_address' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT billing_address.address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT billing_address.address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT billing_address.city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+LEFT JOIN `billing_address` ON `billing_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:
+GROUP BY `tbl_order`.`order_id`', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\OrderController.php(141): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 14:13:21 --> mysqli_sql_exception: Unknown column 'tbl_order.billing_address_1' in 'field list' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_ord...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_ord...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_ord...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_ord...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(140): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 14:13:21 --> Unknown column 'tbl_order.billing_address_1' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT tbl_order.billing_address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT tbl_order.billing_address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT tbl_order.billing_city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT tbl_order.billing_address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT tbl_order.billing_address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT tbl_order.billing_city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT tbl_order.billing_address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT tbl_order.billing_address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT tbl_order.billing_city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = \'2\'
+GROUP BY `tbl_order`.`order_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_order`.`order_id`, GROUP_CONCAT(DISTINCT tbl_order.billing_address_1 SEPARATOR ", ") AS billing_address_1, GROUP_CONCAT(DISTINCT tbl_order.billing_address_2 SEPARATOR ", ") AS billing_address_2, GROUP_CONCAT(DISTINCT tbl_order.billing_city SEPARATOR ", ") AS billing_city, GROUP_CONCAT(DISTINCT shipping_address.address_1 SEPARATOR ", ") AS shipping_address_1, GROUP_CONCAT(DISTINCT shipping_address.address_2 SEPARATOR ", ") AS shipping_address_2, GROUP_CONCAT(DISTINCT shipping_address.city SEPARATOR ", ") AS shipping_city
+FROM `order_items`
+LEFT JOIN `tbl_order` ON `tbl_order`.`order_id` = `order_items`.`order_id`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `order_items`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `order_items`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `order_items`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `order_items`.`category_id`
+LEFT JOIN `users` ON `users`.`user_id` = `tbl_order`.`user_id`
+LEFT JOIN `shipping_address` ON `shipping_address`.`order_id` = `tbl_order`.`order_id`
+WHERE `order_items`.`order_id` = :order_items.order_id:
+GROUP BY `tbl_order`.`order_id`', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\OrderController.php(140): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:25:22 --> A non-numeric value encountered
+in APPPATH\Views\admin\order\order_details.php on line 93.
+ 1 APPPATH\Views\admin\order\order_details.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 93)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:25:26 --> A non-numeric value encountered
+in APPPATH\Views\admin\order\order_details.php on line 93.
+ 1 APPPATH\Views\admin\order\order_details.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 93)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:25:42 --> A non-numeric value encountered
+in APPPATH\Views\admin\order\order_details.php on line 93.
+ 1 APPPATH\Views\admin\order\order_details.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 93)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-04 14:26:02 --> A non-numeric value encountered
+in APPPATH\Views\admin\order\order_details.php on line 94.
+ 1 APPPATH\Views\admin\order\order_details.php(94): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php', 94)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(132): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-04 14:32:12 --> mysqli_sql_exception: Unknown column 'order_items.order_id' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\OrderController.php(134): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-04 14:32:12 --> Unknown column 'order_items.order_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `shipping_address`
+WHERE `order_items`.`order_id` = \'2\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `shipping_address`
+WHERE `order_items`.`order_id` = \'2\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `shipping_address`
+WHERE `order_items`.`order_id` = \'2\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `shipping_address`
+WHERE `order_items`.`order_id` = :order_items.order_id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Admin\OrderController.php(134): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('2')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

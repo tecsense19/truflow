@@ -185,7 +185,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("order_list", "OrderController::order_list");
     $routes->get("order/delete/(:num)", "OrderController::orderDelete/$1");
     $routes->post("change_order_status", "OrderController::change_order_status");
-
+    $routes->get("order/order_details/(:num)", "OrderController::order_details/$1");
 
     //User Contact Us
 
