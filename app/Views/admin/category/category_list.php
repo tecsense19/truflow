@@ -49,7 +49,7 @@
                                                         <?php if(isset($category['category_img'])) {?>
                                                             <a data-fancybox="preview" href="<?php echo base_url('').$category['category_img']?>"><img src="<?php echo base_url('').$category['category_img']?>" alt="Image" class ="" width="100"></a>
                                                         <?php }else {?>
-                                                            <?php echo "-";?>
+                                                            <img class="" width="80" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                                         <?php } ?>
                                                     </td>
                                                     <td>

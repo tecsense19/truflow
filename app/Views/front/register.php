@@ -79,11 +79,13 @@
        
         <select name="company_name" id="company_name" class="form-control" aria-label="Default select example">
           <option value="">Please select any Company</option>
+          <?php if(isset($companyData)) {?>
           <?php foreach ($companyData as $company) : ?>
 
             <option value="<?php echo $company['company_name'] ?>"><?= $company['company_name'] ?></option>
 
           <?php endforeach; ?>
+          <?php } ?>
         </select>
       </div>
     </div>
@@ -118,11 +120,13 @@
       <div class="col-md-8">
         <select name="country" id="country" class="form-control" aria-label="Default select example">
           <option value="">Please select any Country</option>
+          <?php if(isset($countryData)) {?>
           <?php foreach ($countryData as $country) : ?>
 
             <option value="<?php echo $country['label'] ?>"><?= $country['label'] ?></option>
 
           <?php endforeach; ?>
+          <?php }?>
         </select>
       </div>
     </div>

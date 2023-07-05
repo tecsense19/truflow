@@ -77,7 +77,7 @@
                                             <?php foreach ($productData as $product) { ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
-                                                    <td><?php echo $product['product_name']; ?></td>
+                                                    <td><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent']; ?></td>
                                                     <td><?php echo $product['category_name'] ?></td>
                                                     <td><?php echo $product['sub_category_name'] ?></td>
                                                     <td class="testo_descrip"><?php echo $product['product_description']; ?></td>
@@ -91,7 +91,7 @@
                                                                 <img src="<?php echo base_url('') . $firstImagePath; ?>" alt="Image" class="" width="100">
                                                             </a>
                                                         <?php } else { ?>
-                                                            <?php echo "-"; ?>
+                                                            <img class="" width="100" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                                         <?php } ?>
                                                     </td>
                                                     <td>

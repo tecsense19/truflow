@@ -50,7 +50,8 @@
                                     <?php if (isset($wishlist['product_img'])) { ?>
                                         <a data-fancybox="preview" href="<?php echo base_url('') . $wishlist['product_img'] ?>"><img src="<?php echo base_url('') . $wishlist['product_img'] ?>" alt="Image" class="" width="100"></a>
                                     <?php } else { ?>
-                                        <?php echo "-"; ?>
+                                        <img class="" width="100" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
                                     <?php } ?>
                                 </td>
 

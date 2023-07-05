@@ -57,7 +57,10 @@ $company_id = isset($componeyData) ? $componeyData[0]['company_id'] : '';
                           $firstImagePath = trim($imagePaths[0]);
                         ?>
                           <a data-fancybox="preview" href="<?php echo base_url('') . $firstImagePath ?>"><img src="<?php echo base_url('') . $firstImagePath ?>" alt="Image" class="" width="80"></a>
-                        <?php } ?>
+                          <?php }else{ ?>
+                                    <img class="" width="80" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
 
 
 

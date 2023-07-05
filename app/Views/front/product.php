@@ -29,8 +29,14 @@
                                 $productImages = explode(',', $product['product_img']);
                                 $firstImage = trim($productImages[0]);
                                 ?>
+                                <?php if(!empty($product['product_img'])){ ?> 
+                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image">
+                                <?php }else{ ?>
+                                    <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
-                                <img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image">
+                                    <?php } ?>
+
+                                
 
                             </div>
                             <div class="product_text text-center">

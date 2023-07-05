@@ -326,3 +326,378 @@ in APPPATH\Views\admin\order\order_details.php on line 24.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 05:49:16 --> Undefined variable $categoryData
+in APPPATH\Controllers\Home.php on line 109.
+ 1 APPPATH\Controllers\Home.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categoryData', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 109)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 05:49:41 --> Undefined array key "category_name"
+in APPPATH\Views\front\index.php on line 228.
+ 1 APPPATH\Views\front\index.php(228): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 228)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(116): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 05:56:58 --> Undefined variable $newProductdata
+in APPPATH\Controllers\Home.php on line 115.
+ 1 APPPATH\Controllers\Home.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newProductdata', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 115)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:05:10 --> Undefined array key "parent"
+in APPPATH\Views\front\index.php on line 293.
+ 1 APPPATH\Views\front\index.php(293): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 293)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(135): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:07:02 --> Undefined array key "parent"
+in APPPATH\Views\front\index.php on line 293.
+ 1 APPPATH\Views\front\index.php(293): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 293)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(136): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:27:16 --> Undefined variable $productData
+in APPPATH\Controllers\Admin\ProductController.php on line 22.
+ 1 APPPATH\Controllers\Admin\ProductController.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productData', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:31:39 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\product\product_list.php on line 80.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product_list', [], true)
+ 4 APPPATH\Controllers\Admin\ProductController.php(40): view('admin/product/product_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:31:56 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\product\product_list.php on line 80.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product_list', [], true)
+ 4 APPPATH\Controllers\Admin\ProductController.php(40): view('admin/product/product_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:37:52 --> Undefined array key "variant_sku"
+in APPPATH\Views\front\wish_list.php on line 48.
+ 1 APPPATH\Views\front\wish_list.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_sku"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 48)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(578): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:46:56 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:47:22 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:47:38 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:48:03 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:50:25 --> Cannot access offset of type string on string
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 4 APPPATH\Controllers\Home.php(593): view('front/wish_list', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:51:09 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(593): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:53:33 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(595): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:55:01 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(596): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:55:18 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(596): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:55:24 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(596): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:56:33 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(596): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:58:56 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(601): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 06:59:26 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(601): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:00:00 --> Undefined array key "product_id"
+in APPPATH\Controllers\Home.php on line 568.
+ 1 APPPATH\Controllers\Home.php(568): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 568)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:00:13 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(601): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:01:14 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(601): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:03:30 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(601): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:07:53 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:08:12 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 565.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:09:03 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 566.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:10:10 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:10:40 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:11:03 --> Undefined array key "variant_sku"
+in APPPATH\Views\front\wish_list.php on line 48.
+ 1 APPPATH\Views\front\wish_list.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_sku"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 48)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:11:32 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:12:00 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:12:11 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:12:18 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:12:44 --> Undefined array key "product_name"
+in APPPATH\Views\front\wish_list.php on line 47.
+ 1 APPPATH\Views\front\wish_list.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:13:54 --> Undefined array key "variant_price"
+in APPPATH\Views\front\wish_list.php on line 57.
+ 1 APPPATH\Views\front\wish_list.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_price"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php', 57)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\wish_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/wish_list', [], true)
+ 5 APPPATH\Controllers\Home.php(602): view('front/wish_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->wish_list()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 07:18:59 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\front\register.php on line 82.
+ 1 APPPATH\Views\front\register.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\register.php', 82)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\register.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/register', [], true)
+ 5 APPPATH\Controllers\UserController.php(39): view('front/register', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->register()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

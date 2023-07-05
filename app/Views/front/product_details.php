@@ -25,7 +25,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mobile_tabs">
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <?php if(!empty($productData[0]['product_img'])){?>
+
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <?php
                                 $productImages = explode(',', $productData[0]['product_img']);
                                 foreach ($productImages as $index => $image) {
@@ -44,6 +46,14 @@
                                     </div>
                                 <?php } ?>
                             </div>
+
+                                <?php }else{ ?>
+
+                                    <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
+                            
+
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -162,8 +172,10 @@
                                                         $firstImagePath = trim($imagePaths[0]);
                                                     ?>
                                                         <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                                    <?php } ?>
+                                                    <?php }else{ ?>
+                                                        <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
+                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>

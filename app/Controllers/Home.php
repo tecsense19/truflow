@@ -66,17 +66,50 @@ class Home extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
 
-        $categoryData = $categorymodel->orderBy('created_at', 'DESC')->findAll(5);
+        // $categoryData = $categorymodel->orderBy('created_at', 'DESC')->findAll(5);
 
-        foreach ($categoryData as &$category) {
-            $productdata = $productmodel->where('category_id', $category['category_id'])->findAll();
-            $category['products'] = $productdata ? $productdata : null;
+        // foreach ($categoryData as &$category) {
+        //     $productdata = $productmodel->where('category_id', $category['category_id'])->findAll();
+        //     $category['products'] = $productdata ? $productdata : null;
+        // }
+
+       
+        $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
+
+        $variantsmodel = new VariantsModel();
+        foreach ($subcategoryData as &$category) {
+            $newData2 = [];
+            $productdata = $productmodel->where('sub_category_id', $category['sub_category_id'])->findAll();
+            foreach($productdata as $pnewdata)
+        {
+            $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
+            $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+            $newData2[] = $pnewdata;
         }
+            $category['products'] =  $newData2;
+        }
+
+        // echo "<pre>";
+        // print_r($subcategoryData);
+        // die();
+
 
         $newProductdata = $productmodel->findAll();
         if (!$newProductdata) {
             $newProductdata = null;
         }
+
+        $variantsmodel = new VariantsModel();
+        $newData1 = [];
+        foreach($newProductdata as $pdata)
+        {
+            $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
+            $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+            $newData1[] = $pdata;
+        }
+
+
+        
 
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
@@ -105,8 +138,8 @@ class Home extends BaseController
                 'testimonalData' => $testimonalData,
                 'headerData' => $headerData,
                 // ---- add other
-                'newProductdata' => $newProductdata,
-                'categoryData' => $categoryData,
+                'newProductdata' => $newData1,
+                'categoryData' => $subcategoryData,
 
                 //count
                 'wishlistCount'=> $wishlistCount,
@@ -517,20 +550,21 @@ class Home extends BaseController
         $userId = $session->get('user_id');
 
 
-        $wishlistData = $addwishlistmodel->select('*')
-       
-        ->join('product', 'product.product_id = addwish_list.product_id', 'left')
-        ->join('product_variants', 'product_variants.product_id = product.product_id', 'left')
-        ->where('addwish_list.user_id', $userId)
-        ->where('addwish_list.isDeleted', 0)
-        ->groupBy('addwish_list.product_id')
-        ->findAll();
-
-        $lastQuery = $cartmodel->getLastQuery();
-            // echo $lastQuery;
-            // echo "<pre>";
-            // print_r($wishlistData);
-            // die();
+        $wishlistData = $addwishlistmodel->select('*')->findAll();
+        $newwish = [];
+        foreach ($wishlistData as $pnewdata) {
+            $productData = $productmodel->where('product_id', $pnewdata['product_id'])->first();
+        
+            $pnewdata['product_name'] = $productData['product_name'];
+            $pnewdata['product_img'] = $productData['product_img'];
+                $productvariantData = $variantsModel->where('product_id', $productData['product_id'])->first();
+                $pnewdata['variant_sku'] = $productvariantData['variant_sku'];
+                $pnewdata['variant_price'] = $productvariantData['variant_price'];
+           
+             $newwish[] = $pnewdata;
+        }
+        
+        
         if (!$wishlistData) {
             $wishlistData = null;
         }
@@ -539,7 +573,7 @@ class Home extends BaseController
         $session->set('wishlistCount', $wishlistCount);
 
         return view('front/wish_list', [
-            'wishlistData' => $wishlistData,
+            'wishlistData' => $newwish,
             'headerData' => $headerData,
             'userId' => $userId,
             'wishlistCount' => $wishlistCount,

@@ -164,6 +164,9 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         $firstImagePath = trim($imagePaths[0]);
                                     ?>
                                         <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
+                                        <?php }else{ ?>
+                                    <img class="product_slider_img"  src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
                                     <?php } ?>
 
                                 </div>
@@ -207,8 +210,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="col-lg-12">
                 <div class="product_title text-center">
                     <h2>OUR PRODUCTS</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing enim morbi tortor.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                </div>
+                    </div>
             </div>
         </div>
         <div class="row align-items-center pb-lg-5 pb-xl-5 pb-xxl-5">
@@ -221,8 +223,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         </li>
                         <?php foreach ($categoryData as $category) : ?>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#menu<?= $category['category_id'] ?>">
-                                    <?= $category['category_name'] ?>
+                                <a class="nav-link" data-toggle="tab" href="#menu<?= $category['sub_category_id'] ?>">
+                                    <?= $category['sub_category_name'] ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
@@ -254,10 +256,13 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                             $firstImagePath = trim($imagePaths[0]);
                                         ?>
                                             <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                        <?php } ?>
+                                            <?php }else{ ?>
+                                    <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
 
                                         <div class="card-body">
-                                            <h5><?= $product['product_name'] ?></h5>
+                                            <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent']?></h5>
                                             <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"> <button>ADD TO CART</button></a>
                                         </div>
                                     </div>
@@ -269,7 +274,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             </div>
 
             <?php foreach ($categoryData as $category) : ?>
-                <div id="menu<?= $category['category_id'] ?>" class="container tab-pane fade">
+                <div id="menu<?= $category['sub_category_id'] ?>" class="container tab-pane fade">
                     <div class="row">
                         <?php if (isset($category['products'])) : ?>
                             <?php foreach ($category['products'] as $product) : ?>
@@ -281,10 +286,13 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                                 $firstImagePath = trim($imagePaths[0]);
                                             ?>
                                                 <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                            <?php } ?>
+                                                <?php }else{ ?>
+                                    <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
 
                                             <div class="card-body">
-                                                <h5><?= $product['product_name'] ?></h5>
+                                                <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent']?></h5>
                                                 <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"><button>ADD TO CART</button></a>
                                             </div>
                                         </div>
@@ -309,7 +317,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="col-lg-12">
                 <div class="testimonial_title text-center">
                     <h2><?php echo $testominal_title; ?></h2>
-                    <p><?php echo $testominal_description; ?></p>
+                   
                 </div>
             </div>
         </div>

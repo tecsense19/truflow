@@ -23,9 +23,15 @@
                     <div class="col-lg-4">
                         <div class="product_box">
                             <div class="product_img">
+                            <?php if(!empty($subcategory['sub_category_img'])){ ?> 
+                                
                                 <img class="img-fluid card-img-top" src="<?php echo base_url() . $subcategory['sub_category_img'] ?>" alt="image">
+                                <?php }else{ ?>
+                                    <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                    <?php } ?>
                             </div>
                             <div class="product_text text-center">
+                               
                             <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>" class="category-link">
                                     <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
                                 </a>

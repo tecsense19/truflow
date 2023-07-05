@@ -25,7 +25,11 @@
                     <div class="col-lg-4">
                         <div class="product_box">
                             <div class="product_img">
-                                <img class="img-fluid card-img-top" src="<?php echo base_url() . $category['category_img'] ?>" alt="image">
+                                <?php if(!empty($category['category_img'])){ ?>
+                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $category['category_img'] ?>" alt="image">
+                                    <?php }else{?>
+                                        <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                    <?php } ?>
                             </div>
                             <div class="product_text text-center">
                                 <a href="<?php echo base_url('') . "sub_category/" . $category['category_id'] ?>">

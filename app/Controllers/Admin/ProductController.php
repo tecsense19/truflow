@@ -12,18 +12,25 @@ class ProductController extends BaseController
 {
     public function index()
     {
+        $variantsmodel = new VariantsModel();
         $productmodel = new ProductModel();
 
         $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')
             ->join('category', 'category.category_id = product.category_id')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
             ->find();
-
-        if (!$productData) {
-            $productData = null;
+        $newData2 = [];
+        foreach ($productData as $pnewdata) {
+            $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
+            $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+            $newData2[] = $pnewdata;
         }
 
-        return view('admin/product/product_list', ['productData' => $productData]);
+        if (!$newData2) {
+            $newData2 = null;
+        }
+
+        return view('admin/product/product_list', ['productData' => $newData2]);
     }
     public function product()
     {
@@ -216,116 +223,115 @@ class ProductController extends BaseController
     }
 
     public function processCSV()
-{
-    $session = session();
-    $categoryModel = new CategoryModel();
-    $subcategoryModel = new SubcategoryModel();
-    $productModel = new ProductModel();
-    $variantModel = new VariantsModel();
+    {
+        $session = session();
+        $categoryModel = new CategoryModel();
+        $subcategoryModel = new SubcategoryModel();
+        $productModel = new ProductModel();
+        $variantModel = new VariantsModel();
 
-    // Get the uploaded CSV file
-    $csvFile = $this->request->getFile('csv_file');
+        // Get the uploaded CSV file
+        $csvFile = $this->request->getFile('csv_file');
 
-    // Check if a file was uploaded
-    if ($csvFile && $csvFile->isValid() && !$csvFile->hasMoved()) {
-        // Open the CSV file
-        $csv = array_map('str_getcsv', file($csvFile->getPathname()));
+        // Check if a file was uploaded
+        if ($csvFile && $csvFile->isValid() && !$csvFile->hasMoved()) {
+            // Open the CSV file
+            $csv = array_map('str_getcsv', file($csvFile->getPathname()));
 
-        $categoryName = null;
-        $subcategoryName = null;
-        $categoryId = null;
-        $subcategoryId = null;
-        $productId = null;
+            $categoryName = null;
+            $subcategoryName = null;
+            $categoryId = null;
+            $subcategoryId = null;
+            $productId = null;
 
-        $isFirstRow = true; // Flag variable to skip the first row
+            $isFirstRow = true; // Flag variable to skip the first row
 
-        // Process each row of the CSV file
-        foreach ($csv as $row) {
-            if ($isFirstRow) {
-                $isFirstRow = false;
-                continue; // Skip the first row
-            }
+            // Process each row of the CSV file
+            foreach ($csv as $row) {
+                if ($isFirstRow) {
+                    $isFirstRow = false;
+                    continue; // Skip the first row
+                }
 
-            if ($row[0] != '') {
-                // Category name
-                $categoryName = utf8_encode($row[0]);
+                if ($row[0] != '') {
+                    // Category name
+                    $categoryName = utf8_encode($row[0]);
 
-                // Check if the category already exists
-                $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
+                    // Check if the category already exists
+                    $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
 
-                if (!$category) {
-                    // Insert the new category
-                    $category = [
-                        'category_name' => $categoryName
+                    if (!$category) {
+                        // Insert the new category
+                        $category = [
+                            'category_name' => $categoryName
+                        ];
+                        $categoryId = $categoryModel->insert($category);
+                    } else {
+                        $categoryId = $category->category_id;
+                    }
+                }
+
+                if ($row[1] != '') {
+                    // Subcategory name
+                    $subcategoryName = utf8_encode($row[1]);
+
+                    // Check if the subcategory already exists
+                    $subcategory = $subcategoryModel
+                        ->where('sub_category_name', $subcategoryName)
+                        ->where('category_id', $categoryId)
+                        ->get()->getRow();
+
+                    if (!$subcategory) {
+                        // Insert the new subcategory with the parent category ID
+                        $subcategory = [
+                            'sub_category_name' => $subcategoryName,
+                            'category_id' => $categoryId
+                        ];
+                        $subcategoryId = $subcategoryModel->insert($subcategory);
+                    } else {
+                        $subcategoryId = $subcategory->sub_category_id;
+                    }
+                }
+
+                // Product details
+                $productName = utf8_encode($row[2]);
+
+                if ($productName != '') {
+                    // Insert the product
+                    $product = [
+                        'product_name' => $productName,
+                        'category_id' => $categoryId,
+                        'sub_category_id' => $subcategoryId
                     ];
-                    $categoryId = $categoryModel->insert($category);
-                } else {
-                    $categoryId = $category->category_id;
+                    $productId = $productModel->insert($product);
+                }
+
+                // Variant details
+                $variantName = utf8_encode($row[3]);
+                $variantPrice = utf8_encode($row[4]);
+                $variantSku = utf8_encode($row[5]);
+                $parent = utf8_encode($row[6]);
+
+                if ($variantName != '') {
+                    // Insert the variant
+                    $variant = [
+                        'product_id' => $productId,
+                        'variant_name' => $variantName,
+                        'variant_price' => $variantPrice,
+                        'variant_sku' => $variantSku,
+                        'parent' => $parent
+                    ];
+                    $variantModel->insert($variant);
                 }
             }
 
-            if ($row[1] != '') {
-                // Subcategory name
-                $subcategoryName = utf8_encode($row[1]);
-
-                // Check if the subcategory already exists
-                $subcategory = $subcategoryModel
-                    ->where('sub_category_name', $subcategoryName)
-                    ->where('category_id', $categoryId)
-                    ->get()->getRow();
-
-                if (!$subcategory) {
-                    // Insert the new subcategory with the parent category ID
-                    $subcategory = [
-                        'sub_category_name' => $subcategoryName,
-                        'category_id' => $categoryId
-                    ];
-                    $subcategoryId = $subcategoryModel->insert($subcategory);
-                } else {
-                    $subcategoryId = $subcategory->sub_category_id;
-                }
-            }
-
-            // Product details
-            $productName = utf8_encode($row[2]);
-
-            if ($productName != '') {
-                // Insert the product
-                $product = [
-                    'product_name' => $productName,
-                    'category_id' => $categoryId,
-                    'sub_category_id' => $subcategoryId
-                ];
-                $productId = $productModel->insert($product);
-            }
-
-            // Variant details
-            $variantName = utf8_encode($row[3]);
-            $variantPrice = utf8_encode($row[4]);
-            $variantSku = utf8_encode($row[5]);
-            $parent = utf8_encode($row[6]);
-
-            if ($variantName != '') {
-                // Insert the variant
-                $variant = [
-                    'product_id' => $productId,
-                    'variant_name' => $variantName,
-                    'variant_price' => $variantPrice,
-                    'variant_sku' => $variantSku,
-                    'parent' => $parent
-                ];
-                $variantModel->insert($variant);
-            }
+            // Success message or redirect to a success page
+            $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
+            return redirect()->back();
+        } else {
+            // Error message or redirect to an error page
+            $session->setFlashdata('error', 'Failed to upload the CSV file.');
+            return redirect()->back();
         }
-
-        // Success message or redirect to a success page
-        $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
-        return redirect()->back();
-    } else {
-        // Error message or redirect to an error page
-        $session->setFlashdata('error', 'Failed to upload the CSV file.');
-        return redirect()->back();
     }
-}
-
 }
