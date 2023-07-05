@@ -84,11 +84,13 @@ $password = isset($userData) ? $userData['password'] : '';
                                 <label class="form-label" for="last_name">Company name :</label>
                                     <select name="company_name" id="company_name" data-val="true" data-val-required="Company name is required." class="form-control" aria-label="Default select example">
                                   <option value="">Please select any company</option>
+                                  <?php if(isset($companyData)){?>
                                         <?php foreach ($companyData as $company1) : ?>
                                             <option value="<?php echo $company1['company_name'] ?>" <?php echo ($company_name == $company1['company_name']) ? 'selected' : ''; ?>>
                                                 <?= $company1['company_name'] ?>
                                             </option>
                                         <?php endforeach; ?>
+                                       <?php }?> 
                                     </select>
                                 
                             </div>
@@ -97,11 +99,13 @@ $password = isset($userData) ? $userData['password'] : '';
                                 
                                     <select name="country" id="country" class="form-control" aria-label="Default select example">
                                   <option value="">Please select any Country</option>
+                                  <?php if(isset($countryData)){?>
                                         <?php foreach ($countryData as $country1) : ?>
                                             <option value="<?php echo $country1['label'] ?>" <?php echo ($country == $country1['label']) ? 'selected' : ''; ?>>
                                                 <?= $country1['label'] ?>
                                             </option>
                                         <?php endforeach; ?>
+                                        <?php }?> 
                                     </select>
                                 </div>
                             </div>

@@ -500,10 +500,9 @@ div.owl-carousel-1 .owl-carousel .owl-nav .owl-next {
     display: flex;
     border: 1px solid #005dab;
     width: 95%;
-    justify-content: space-evenly;
     align-items: center;
     margin: 0 0 10px 0;
-    padding: 0 0 8px 0;
+    padding: 0 0 0 0;
 }
 .swiper-slide.swiper-slide-active{
     width: 183.5px;
@@ -1587,11 +1586,12 @@ footer{
 }
 
 .product_text h3{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     font-family: var(--Montserrat);
     color: #000;
     transition: 0.5s;
+    padding: 0px 10px;
 }
 
 .product_text h3:hover {
@@ -2115,8 +2115,8 @@ input#quality {
   }
   
   .product_img{
-    width: auto;
-    height: 250px;
+    overflow: hidden;
+    height: 200px;
    
   }
   div#search-result {
@@ -2619,3 +2619,89 @@ p.about_d {
     font-family: 'URW DIN Condensed Bold';
     src: url('public/uploads/urw-din-condensed-bold.ttf') format('truetype');
 } */
+/* ---------------------------------- */
+
+.panel.panel-default.side-nav, .panel.panel-default.form-panel {
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.15);
+}
+.panel.panel-default.side-nav>.panel-heading {
+    color: #000;
+    background-color: #fff;
+    border-radius: 0;
+    cursor: default;
+}
+.panel.panel-default.side-nav, .panel.panel-default.form-panel {
+    border-top: 4px solid #005dab;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel-title>a {
+    color: #000;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel.panel-default.side-nav>.panel-body {
+    padding: 5px;
+}
+div.panel-body {
+    border: none;
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 4px;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#accordion .collapse {
+    padding-left: 12px;
+}
+.collapse.in {
+    display: block;
+}
+
+.product_box {
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    border: #999 1px solid;
+    border-bottom: #005dab 3px solid;
+    padding: 5px;
+    border-radius: 5px;
+}
+a.pro_link {
+    color: black;
+}
+img.img-fluid.card-img-top {
+    padding-bottom: 50px;
+}
+button.btn.btn-primary.mt-2.details_btn {
+    margin: 10px;
+}
+.slider_text {
+    padding: 0px 20px;
+}

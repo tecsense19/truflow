@@ -701,3 +701,390 @@ in APPPATH\Views\front\register.php on line 82.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 10:33:21 --> Undefined variable $subcategory
+in APPPATH\Views\front\shop.php on line 42.
+ 1 APPPATH\Views\front\shop.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcategory', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\shop.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\shop.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/shop', [], true)
+ 5 APPPATH\Controllers\Home.php(187): view('front/shop', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->shop()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 10:56:52 --> Cannot access offset of type string on string
+in APPPATH\Views\front\sub_category.php on line 30.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/sub_category', [], true)
+ 4 APPPATH\Controllers\Home.php(221): view('front/sub_category', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->sub_category('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:12:45 --> Undefined array key "parent"
+in APPPATH\Views\front\sub_category.php on line 40.
+ 1 APPPATH\Views\front\sub_category.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\sub_category.php', 40)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/sub_category', [], true)
+ 5 APPPATH\Controllers\Home.php(221): view('front/sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->sub_category('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:21:46 --> Undefined array key "parent"
+in APPPATH\Views\front\sub_category.php on line 40.
+ 1 APPPATH\Views\front\sub_category.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\sub_category.php', 40)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/sub_category', [], true)
+ 5 APPPATH\Controllers\Home.php(229): view('front/sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->sub_category('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:53:36 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 257.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:59:32 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:59:58 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 11:59:59 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:00:06 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:00:19 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:00:59 --> Undefined variable $category_id
+in APPPATH\Controllers\Home.php on line 259.
+ 1 APPPATH\Controllers\Home.php(259): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $category_id', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 259)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:02:12 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Home.php on line 260.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:12:42 --> Undefined variable $newData
+in APPPATH\Views\front\product.php on line 30.
+ 1 APPPATH\Views\front\product.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(273): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:13:03 --> Undefined array key "products"
+in APPPATH\Views\front\product.php on line 44.
+ 1 APPPATH\Views\front\product.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "products"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(273): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:15:15 --> Undefined array key "products"
+in APPPATH\Views\front\product.php on line 44.
+ 1 APPPATH\Views\front\product.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "products"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(273): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:21:46 --> Undefined array key "sub_category_name"
+in APPPATH\Controllers\Home.php on line 255.
+ 1 APPPATH\Controllers\Home.php(255): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 255)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:25:06 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 39.
+ 1 APPPATH\Views\front\product.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:25:17 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 39.
+ 1 APPPATH\Views\front\product.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:49:15 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 41.
+ 1 APPPATH\Views\front\product.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:51:07 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 41.
+ 1 APPPATH\Views\front\product.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:51:26 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 41.
+ 1 APPPATH\Views\front\product.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:51:45 --> Undefined array key "sub_category_id"
+in APPPATH\Views\front\product.php on line 34.
+ 1 APPPATH\Views\front\product.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 34)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:53:39 --> Undefined variable $index
+in APPPATH\Views\front\product.php on line 37.
+ 1 APPPATH\Views\front\product.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $index', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 37)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:54:22 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product.php on line 42.
+ 1 APPPATH\Views\front\product.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:55:11 --> Undefined array key "sub_category_id"
+in APPPATH\Views\front\product.php on line 35.
+ 1 APPPATH\Views\front\product.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:55:20 --> Undefined array key "sub_category_id"
+in APPPATH\Views\front\product.php on line 35.
+ 1 APPPATH\Views\front\product.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:55:21 --> Undefined array key "sub_category_id"
+in APPPATH\Views\front\product.php on line 35.
+ 1 APPPATH\Views\front\product.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:56:01 --> Undefined variable $newData
+in APPPATH\Views\front\product.php on line 33.
+ 1 APPPATH\Views\front\product.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 33)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:57:57 --> Undefined array key "product_id"
+in APPPATH\Views\front\product.php on line 50.
+ 1 APPPATH\Views\front\product.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 50)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 12:59:12 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 35.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:03:03 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\admin\user\user.php on line 87.
+ 1 APPPATH\Views\admin\user\user.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\user\\user.php', 87)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\user\\user.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/user/user', [], true)
+ 5 APPPATH\Controllers\Admin\Home.php(123): view('admin/user/user', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\Home->user()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:19:20 --> Cannot access offset of type string on string
+in APPPATH\Views\front\product.php on line 35.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 4 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:21:23 --> Undefined array key "product_id"
+in APPPATH\Views\front\product.php on line 48.
+ 1 APPPATH\Views\front\product.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 48)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:21:43 --> Undefined array key "product_id"
+in APPPATH\Views\front\product.php on line 48.
+ 1 APPPATH\Views\front\product.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 48)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:21:54 --> Undefined array key "product_name"
+in APPPATH\Views\front\product.php on line 49.
+ 1 APPPATH\Views\front\product.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:23:31 --> Undefined array key "parent"
+in APPPATH\Views\front\product.php on line 47.
+ 1 APPPATH\Views\front\product.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 5 APPPATH\Controllers\Home.php(272): view('front/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:31:52 --> Undefined array key "product_id"
+in APPPATH\Controllers\Home.php on line 264.
+ 1 APPPATH\Controllers\Home.php(264): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 264)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:32:26 --> Undefined array key "product_id"
+in APPPATH\Controllers\Home.php on line 264.
+ 1 APPPATH\Controllers\Home.php(264): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 264)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:43:04 --> Undefined array key "parent"
+in APPPATH\Controllers\Home.php on line 266.
+ 1 APPPATH\Controllers\Home.php(266): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 266)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:43:23 --> Undefined array key "parent"
+in APPPATH\Controllers\Home.php on line 267.
+ 1 APPPATH\Controllers\Home.php(267): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 267)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-05 13:59:45 --> syntax error, unexpected token ":", expecting "elseif" or "else" or "endif"
+in APPPATH\Views\front\product.php on line 48.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product', [], true)
+ 3 APPPATH\Controllers\Home.php(288): view('front/product', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('1')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
