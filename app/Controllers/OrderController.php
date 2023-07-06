@@ -154,7 +154,7 @@ class OrderController extends BaseController
             $session->remove('cartCount');
 
         $this->remove_checkout($userId);
-        $this->shipping_add($userId);
+        $this->shipping_add($userId,$order_id);
         $session->setFlashdata('success', 'Order Placed successfully.');
       
          return redirect()->back();  
@@ -169,7 +169,7 @@ class OrderController extends BaseController
         $session->setFlashdata('success', 'remove succesfully.');
         return redirect()->back();
     }
-    public function shipping_add($userId){
+    public function shipping_add($userId,$order_id){
 
         $shippingmodel = new ShippingModel();
         $ordermodel = new OrderModel();
@@ -179,10 +179,18 @@ class OrderController extends BaseController
         $query = $ordermodel->select('*')
         ->join('users', 'users.user_id = tbl_order.user_id', 'left')
         ->where('users.user_id', $userId)
-        ->groupBy('tbl_order.user_id', $userId)
+        ->where('tbl_order.order_id', $order_id)
         ->get();
         $orderData = $query->getResultArray();
 
+        $usermodel = new UserModel();
+
+
+
+
+        // echo "<pre>";
+        // print_r($orderData);
+        // die();
         $orderArr = [];
 
     foreach ($orderData as $row) {

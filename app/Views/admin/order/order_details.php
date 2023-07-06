@@ -40,25 +40,25 @@
                                             <thead>
 
 
-                                                <th style="width: 10%;">Product name</th>
-                                                <th style="width: 30%;">Product details</th>
-                                                <th style="width: 20%;">Variant</th>
-                                                <th style="width: 10%;">Part Number</th>
-                                                <th style="width: 10%;">Qty</th>
-                                                <th style="width: 10%;">Price</th>
-                                                <th style="width: 10%;">Order Status</th>
+                                                <th>Product name</th>
+                                                <th>Product details</th>
+                                                <th>Variant</th>
+                                                <th>Part Number</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                                <th>Order Status</th>
 
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($newCartData1 as $order) { ?>
                                                     <tr>
-                                                        <td style="width: 10%;"><?php echo $order['product_name']; ?></td>
-                                                        <td style="width: 30%;"><?php echo $order['product_description']; ?></td>
-                                                        <td style="width: 20%;"><?php echo $order['variant_name']; ?></td>
-                                                        <td style="width: 10%;"><?php echo $order['variant_sku']; ?></td>
-                                                        <td style="width: 10%;"><?php echo $order['product_quantity']; ?></td>
-                                                        <td style="width: 10%;"><?php echo $order['product_amount']; ?></td>
-                                                        <td style="width: 10%;"><?php echo $order['order_status']; ?></td>
+                                                        <td><?php echo $order['product_name']; ?></td>
+                                                        <td><?php echo $order['product_description']; ?></td>
+                                                        <td><?php echo $order['variant_name']; ?></td>
+                                                        <td><?php echo $order['variant_sku']; ?></td>
+                                                        <td><?php echo $order['product_quantity']; ?></td>
+                                                        <td><?php echo $order['product_amount']; ?></td>
+                                                        <td><?php echo $order['order_status']; ?></td>
                                                     </tr>
 
                                                 <?php } ?>

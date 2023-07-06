@@ -361,7 +361,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
           //alert(couponAmount);
 
-          $('#discount_type').val(coupon_type);
+          $('#discount_type').val(couponType);
           $('#product_discount').val(couponAmount);
 
           if (!isNaN(couponAmount)) {

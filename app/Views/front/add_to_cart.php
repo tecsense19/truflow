@@ -252,7 +252,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
           //alert(couponAmount);
 
-          $('#discount_type').val(coupon_type);
+          $('#discount_type').val(couponType);
           $('#product_discount').val(couponAmount);
 
           if (!isNaN(couponAmount)) {

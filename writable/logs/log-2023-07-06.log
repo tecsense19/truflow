@@ -327,3 +327,10 @@ in APPPATH\Views\front\checkout.php on line 186.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-06 11:57:50 --> Cannot use object of type mysqli as array
+in APPPATH\Controllers\OrderController.php on line 190.
+ 1 APPPATH\Controllers\OrderController.php(157): App\Controllers\OrderController->shipping_add('5')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
