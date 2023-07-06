@@ -13,9 +13,21 @@ class CompanyCouponController extends BaseController
 {
     public function index()
     {
+       
         $couponmodel = new CouponModel();
-        $couponData = $couponmodel->where('company_coupon', '1')->findAll();
+        $couponData = $couponmodel;
+        
 
+        $query = $couponmodel->select('*')
+            ->join('company', 'company.company_id = coupon.company_id', 'left')
+            ->where('coupon.company_coupon', '1')
+            ->get();
+
+        $couponData = $query->getResultArray();
+
+    //    echo "<pre>";
+    //     print_r($couponData);
+    //     die();
         
         if (!$couponData) {
             $couponData = null;
@@ -26,14 +38,15 @@ class CompanyCouponController extends BaseController
     {
         $couponmodel = new CouponModel();
         $companymodel = new CompanyModel();
-        $categorymodel = new CategoryModel();
+        //$categorymodel = new CategoryModel();
+        $subcategorymodel = new SubCategoryModel();
         
-        $categoryData = $categorymodel->find();
+        $subcategoryData = $subcategorymodel->find();
         $companyData = $companymodel->find();
 
         
         return view('admin/company_coupon/company_coupon',[
-            'categoryData' => $categoryData,
+            'subcategoryData' => $subcategoryData,
             'companyData' => $companyData
     ]);
     }
@@ -47,7 +60,7 @@ class CompanyCouponController extends BaseController
 
         $couponArr = [];
 
-        $couponArr['coupon_code'] = isset($input['coupon_code']) ? $input['coupon_code'] : '';
+        //$couponArr['coupon_code'] = isset($input['coupon_code']) ? $input['coupon_code'] : '';
         $couponArr['coupon_price'] = isset($input['coupon_price']) ? $input['coupon_price'] : '';
         $couponArr['coupon_price_type'] = isset($input['coupon_price_type']) ? $input['coupon_price_type'] : '';
         $couponArr['coupon_type'] = isset($input['coupon_type']) ? $input['coupon_type'] : '';
@@ -55,13 +68,11 @@ class CompanyCouponController extends BaseController
         $couponArr['to_date'] = isset($input['to_date']) ? $input['to_date'] : '';
         $couponArr['coupon_status'] = isset($input['coupon_status']) ? $input['coupon_status'] : '';
         $couponArr['isDeleted'] = isset($input['isDeleted']) ? $input['isDeleted'] : '';
-        $couponArr['category_id'] = isset($input['category_id']) ? implode(',', $input['category_id']) : '';
+        $couponArr['sub_category_id'] = isset($input['sub_category_id']) ? implode(',', $input['sub_category_id']) : '';
         $couponArr['company_coupon'] = isset($input['company_coupon']) ? $input['company_coupon'] : '';
         $couponArr['company_id'] = isset($input['company_id']) ? $input['company_id'] : '';
       
-        // echo "<pre>";
-        // print_r($input);
-        // die();
+        
 
         if (isset($input['coupon_id']) && $input['coupon_id'] != '') {
             $couponmodel->update(['coupon_id', $input['coupon_id']], $couponArr);
@@ -79,14 +90,16 @@ class CompanyCouponController extends BaseController
     $couponData = $couponmodel->find($coupon_id);
 
 
-    $categorymodel = new CategoryModel();
-    $categoryData = $categorymodel->findAll();
-
+    //$categorymodel = new CategoryModel();
+    $subcategorymodel = new SubCategoryModel();
+        
+    $subcategoryData = $subcategorymodel->find();
+       
     $selectedUserIds = [];
-    $selectedCategoryIds = [];
+    $selectedsubCategoryIds = [];
 
     if ($couponData) {
-        $selectedCategoryIds = explode(',', $couponData['category_id']);
+        $selectedsubCategoryIds = explode(',', $couponData['sub_category_id']);
     }
     $companymodel = new CompanyModel();
     $companyData = $companymodel->find();
@@ -96,8 +109,8 @@ class CompanyCouponController extends BaseController
         'admin/company_coupon/company_coupon',
         [
             'couponData' => $couponData,
-            'categoryData' => $categoryData,
-            'selectedCategoryIds' => $selectedCategoryIds,
+            'subcategoryData' => $subcategoryData,
+            'selectedsubCategoryIds' => $selectedsubCategoryIds,
             'companyData' =>$companyData
         ]
     );

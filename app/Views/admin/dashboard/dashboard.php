@@ -14,7 +14,7 @@
                         </div>
 
                     </div>
-                    <span class="fw-semibold d-block mb-1">Total User</span>
+                    <span class="fw-semibold d-block mb-1">Total Users</span>
                     <h3 class="card-title mb-2"><?php echo $userCount; ?></h3>
 
                 </div>
@@ -29,7 +29,7 @@
                         </div>
 
                     </div>
-                    <span class="fw-semibold d-block mb-1">Total Order</span>
+                    <span class="fw-semibold d-block mb-1">Total Orders</span>
                     <h3 class="card-title mb-2">$<?php echo $orderCount; ?></h3>
 
                 </div>
@@ -44,7 +44,7 @@
                         </div>
 
                     </div>
-                    <span class="fw-semibold d-block mb-1">Panding Order</span>
+                    <span class="fw-semibold d-block mb-1">Pending Orders</span>
                     <h3 class="card-title mb-2">$<?php echo $orderPanding; ?></h3>
 
                 </div>
@@ -59,7 +59,7 @@
                         </div>
 
                     </div>
-                    <span class="fw-semibold d-block mb-1">Complete Order</span>
+                    <span class="fw-semibold d-block mb-1">Complete Orders</span>
                     <h3 class="card-title mb-2">$<?php echo $orderApproved; ?></h3>
 
                 </div>

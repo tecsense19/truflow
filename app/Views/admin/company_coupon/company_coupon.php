@@ -2,14 +2,14 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <?php
 $coupon_id = isset($couponData) ? $couponData['coupon_id'] : '';
-$coupon_code = isset($couponData) ? $couponData['coupon_code'] : '';
+//$coupon_code = isset($couponData) ? $couponData['coupon_code'] : '';
 $coupon_price = isset($couponData) ? $couponData['coupon_price'] : '';
 $coupon_price_type = isset($couponData) ? $couponData['coupon_price_type'] : '';
 $coupon_type = isset($couponData) ? $couponData['coupon_type'] : '';
 $from_date = isset($couponData) ? $couponData['from_date'] : '';
 $to_date = isset($couponData) ? $couponData['to_date'] : '';
 $user_id = isset($couponData) ? $couponData['user_id'] : '';
-$category_id = isset($couponData) ? $couponData['category_id'] : '';
+$sub_category_id = isset($couponData) ? $couponData['sub_category_id'] : '';
 $company_id = isset($couponData) ? $couponData['company_id'] : '';
 
 ?>
@@ -36,13 +36,13 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                             <h5 class="mb-0">coupon</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="mb-3">
                                     <label class="form-label" for="basic-default-fullname">Coupon Code</label>
-                                    <input type="text" value="<?php echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="code" />
-                                    <input type="hidden" name="coupon_id" value="<?php echo $coupon_id; ?>">
+                                    <input type="text" value="<?php //echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="code" />
                                 </div>
-                            </div>
+                            </div> -->
+                            <input type="hidden" name="coupon_id" value="<?php echo $coupon_id; ?>">
 
                             <div class="row">
                                 <div class="mb-3 col-md-6">
@@ -93,23 +93,24 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                                     <select id="coupon_type" name="coupon_type" class="form-select required" onchange="updateForm()">
                                         <option value="">Default select</option>
                                         <option value="Global" <?php if ($coupon_type == 'Global') echo ' selected="selected"'; ?>>Global</option>
-                                        <option value="Category" <?php if ($coupon_type == 'Category') echo ' selected="selected"'; ?>>Category</option>
+                                        <option value="Sub Category" <?php if ($coupon_type == 'Sub Category') echo ' selected="selected"'; ?>>Sub Category</option>
                                     </select>
                                 </div>
                             </div>
 
 
-                            <div id="categoryDropdown" <?php echo ($coupon_type !== 'Category') ? 'style="display: none;"' : ''; ?>>
-                                <select id="category_id" name="category_id[]" class="form-select" multiple required>
-                                    <?php if (isset($categoryData)) { ?>
-                                        <?php foreach ($categoryData as $category) : ?>
+                            <div id="subcategoryDropdown" <?php echo ($coupon_type != 'Sub Category') ? 'style="display: none;"' : ''; ?>>
+                                <select id="sub_category_id" name="sub_category_id[]" class="form-select" multiple required>
+                                    <?php if (isset($subcategoryData)) { ?>
+                                        <?php foreach ($subcategoryData as $subcategory) : ?>
                                             <?php
+                                        
                                             $selected = '';
-                                            if (isset($selectedCategoryIds) && in_array($category['category_id'], $selectedCategoryIds)) {
+                                            if (isset($selectedsubCategoryIds) && in_array($subcategory['sub_category_id'], $selectedsubCategoryIds)) {
                                                 $selected = 'selected';
                                             }
                                             ?>
-                                            <option value="<?php echo $category['category_id']; ?>" <?php echo $selected; ?>><?php echo $category['category_name']; ?></option>
+                                            <option value="<?php echo $subcategory['sub_category_id']; ?>" <?php echo $selected; ?>><?php echo $subcategory['sub_category_name']; ?></option>
                                         <?php endforeach; ?>
                                     <?php } ?>
                                 </select>
@@ -146,7 +147,7 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
             $searchfield.prop('disabled', true);
         });
 
-        $('#category_id').select2({
+        $('#sub_category_id').select2({
             width: '100%'
         }); // Initialize Select2 for the "Category" dropdown
     });
@@ -154,17 +155,17 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
 <script>
     function updateForm() {
         var couponType = document.getElementById("coupon_type").value;
-        var categoryDropdown = document.getElementById("categoryDropdown");
+        var subcategoryDropdown = document.getElementById("subcategoryDropdown");
 
         if (couponType === "User") {
             
-            categoryDropdown.style.display = "none";
-        } else if (couponType === "Category") {
+            subcategoryDropdown.style.display = "none";
+        } else if (couponType === "Sub Category") {
             
-            categoryDropdown.style.display = "block";
+            subcategoryDropdown.style.display = "block";
         } else {
            
-            categoryDropdown.style.display = "none";
+            subcategoryDropdown.style.display = "none";
         }
     }
 
@@ -201,7 +202,7 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                         }
                     }
                 },
-                category_id: {
+                sub_category_id: {
                     required: {
                         depends: function(element) {
                             return $("#coupon_type").val() === "Category";
@@ -229,7 +230,7 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                 user_id: {
                     required: "User is required for User type coupon!"
                 },
-                category_id: {
+                sub_category_id: {
                     required: "Category is required for Category type coupon!"
                 }
             },

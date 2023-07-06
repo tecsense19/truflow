@@ -121,6 +121,7 @@ class UserController extends BaseController
                     'user_id' => $checkExists['user_id'],
                     'full_name' => $checkExists['full_name'],
                     'email' => $checkExists['email'],
+                    'company_name' =>$checkExists['company_name'],
                     'logged_in' => true,
                 ];
                 $session->set($ses_data);

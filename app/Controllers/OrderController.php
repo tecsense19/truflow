@@ -36,16 +36,30 @@ class OrderController extends BaseController
    
     $userId = $session->get('user_id');
 
-    $query = $cartmodel->select('*')
-        ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-        ->join('product', 'product.product_id = product_variants.product_id', 'left')
-        ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-        ->join('category', 'category.category_id = sub_category.category_id', 'left')
-        ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-        ->where('users.user_id', $userId)
-        ->get();
+    // $query = $cartmodel->select('*')
+    //     ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+    //     ->join('product', 'product.product_id = product_variants.product_id', 'left')
+    //     ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+    //     ->join('category', 'category.category_id = sub_category.category_id', 'left')
+    //     ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+    //     ->where('users.user_id', $userId)
+    //     ->get();
 
-    $cartData = $query->getResultArray();
+    // $cartData = $query->getResultArray();
+
+    $query = $cartmodel->select('*')
+    ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+    ->join('product', 'product.product_id = product_variants.product_id', 'left')
+    ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+    ->join('category', 'category.category_id = sub_category.category_id', 'left')
+    ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+    ->join('company', 'company.company_name = users.company_name', 'left')
+    ->where('add_to_cart.user_id', $userId)
+    //->where('company.company_name', $componey_name)
+    ->get();
+
+
+        $cartData = $query->getResultArray();
 
     if (!$cartData) {
         $cartData = null;
@@ -202,13 +216,17 @@ public function check_coupon()
     $couponmodel = new CouponModel();
     $couponCode = isset($input['coupon']) ? $input['coupon'] : '';
 
-    $currentDate = date('Y-m-d'); // Get the current date
+    $currentDate = date('Y-m-d'); 
 
     $couponData = $couponmodel->where('coupon_code', $couponCode)
                               ->where('to_date >=', $currentDate)
                               ->where('from_date <=', $currentDate)
                               ->findAll();
 
+    // echo "<pre>";
+    // print_r($couponData);
+    // die();
+    
     if (!empty($couponData)) {
         // Coupon code exists in the database and is valid
         $response = ['status' => 'success', 'message' => 'Coupon code is valid', 'couponData' => $couponData];
