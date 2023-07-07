@@ -93,13 +93,18 @@ class Home extends BaseController
             $newData1[] = $pdata;
         }
 
+        $session = session();
+        $userId = $session->get('user_id');
+
         $addwishlistmodel = new AddwishlistModel();
-        $wishlistData = $addwishlistmodel->select('*')->findAll();
+        $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
 
+        
+
         $cartmodel = new CartModel();
-        $cartData = $cartmodel->select('*')->findAll();
+        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
         $cartCount = count($cartData ?? []);
         $session->set('cartCount', $cartCount);
 
