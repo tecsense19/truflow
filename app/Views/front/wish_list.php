@@ -67,7 +67,7 @@
                         <?php } ?>
                     <?php } else { ?>
                         <tr>
-                            <td colspan="5" class="text-center"><?php echo "No Data"; ?></td>
+                            <td colspan="6" class="text-center"><?php echo "No Data"; ?></td>
                         </tr>
                     <?php } ?>
 

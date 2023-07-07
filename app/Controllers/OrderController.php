@@ -222,11 +222,11 @@ public function check_coupon()
     $input = $this->request->getVar();
 
     $couponmodel = new CouponModel();
-    $couponCode = isset($input['coupon']) ? $input['coupon'] : '';
+    $company_id = isset($input['company_id']) ? $input['company_id'] : '';
 
     $currentDate = date('Y-m-d'); 
 
-    $couponData = $couponmodel->where('coupon_code', $couponCode)
+    $couponData = $couponmodel->where('company_id', $company_id)
                               ->where('to_date >=', $currentDate)
                               ->where('from_date <=', $currentDate)
                               ->findAll();

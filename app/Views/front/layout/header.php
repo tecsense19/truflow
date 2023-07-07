@@ -70,9 +70,11 @@ $cartCount = session('cartCount');
                     <a href="<?php echo base_url('wishlist') ?>" class="heart">
                         <i class="fa-regular fa-heart media_space" data-toggle="tooltip" data-placement="top" title="wish list"></i></a>
 
-                    <?php if (isset($wishlistCount) && $wishlistCount > 0) : ?>
+                    <?php if (isset($wishlistCount) && $wishlistCount > 0) { ?>
                         <span class="wishlist_products_counter_number"><?php echo $wishlistCount; ?></span>
-                    <?php endif; ?>
+                    <?php }else{ ?>
+                        <span class="wishlist_products_counter_number">0</span>
+                        <?php }?>
                 </div>
 
 
@@ -80,9 +82,11 @@ $cartCount = session('cartCount');
                 <div class="heart_top">
                     <a href="<?php echo base_url('add/cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
 
-                    <?php if (isset($cartCount) && $cartCount > 0) : ?>
+                    <?php if (isset($cartCount) && $cartCount > 0) { ?>
                         <span class="add_to_cart_counter_number"><?php echo $cartCount; ?></span>
-                    <?php endif; ?>
+                    <?php }else{ ?>
+                        <span class="add_to_cart_counter_number">0</span>
+                        <?php }?>
                     </a>
                 </div>
 

@@ -61,13 +61,10 @@ class Home extends BaseController
         if (!$headerData) {
             $headerData = null;
         }
-
         $productmodel = new ProductModel();
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
-
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
-
         $variantsmodel = new VariantsModel();
         foreach ($subcategoryData as &$category) {
             $newData2 = [];
@@ -79,12 +76,10 @@ class Home extends BaseController
             }
             $category['products'] =  $newData2;
         }
-
         $newProductdata = $productmodel->findAll();
         if (!$newProductdata) {
             $newProductdata = null;
         }
-
         $variantsmodel = new VariantsModel();
         $newData1 = [];
         foreach ($newProductdata as $pdata) {
@@ -92,17 +87,12 @@ class Home extends BaseController
             $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
             $newData1[] = $pdata;
         }
-
         $session = session();
         $userId = $session->get('user_id');
-
         $addwishlistmodel = new AddwishlistModel();
         $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
-
-        
-
         $cartmodel = new CartModel();
         $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
         $cartCount = count($cartData ?? []);
@@ -141,8 +131,6 @@ class Home extends BaseController
             ]
         );
     }
-
-
     public function about()
     {
         $headermenumodel = new HeaderMenuModel();
@@ -168,10 +156,6 @@ class Home extends BaseController
             $category['sub_category'] = $subcategory;
             $category1[] = $category;
         }
-        // echo "<pre>";
-        // print_r($category1);
-        // die();
-
         if (!$category1) {
             $category1 = null;
         }
@@ -184,13 +168,11 @@ class Home extends BaseController
         if (!$headerData) {
             $headerData = null;
         }
-
         $categorymodel = new CategoryModel();
         $categoryData = $categorymodel->find($category_id);
         if (!$categoryData) {
             return redirect()->back();
         }
-
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
         $productmodel = new ProductModel();
@@ -209,7 +191,6 @@ class Home extends BaseController
             $subcategory['product_array'] = $newPro;
             $subcategory1[] = $subcategory;
         }
-
         return view('front/sub_category', [
             'headerData' => $headerData,
             'subcategoryData' => $subcategory1,
@@ -223,13 +204,11 @@ class Home extends BaseController
         if (!$headerData) {
             $headerData = null;
         }
-
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData = $subcategorymodel->find($sub_category_id);
         if (!$subcategoryData) {
             $subcategoryData = null;
         }
-
         $productmodel = new ProductModel();
         $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
 
@@ -240,12 +219,6 @@ class Home extends BaseController
             $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
             $newData[] = $pdata;
         }
-        // echo "<pre>";
-        // print_r($newData);
-        // die();
-
-
-
         // --------------------------------------------
         $subcategoryData1 = $subcategorymodel->find();
         $subCatData = [];
@@ -260,7 +233,6 @@ class Home extends BaseController
             $subCat['product_array'] = $varaints;
             $subCatData[] = $subCat;
         }
-
         // --------------------------------------------
 
         return view('front/product', [
@@ -321,10 +293,9 @@ class Home extends BaseController
         if (!$addwishData) {
             $addwishData = null;
         }
-        //set session for user not login and click to cart
+        
         $product_details = current_url(true);
         $session->set('product_details', $product_details);
-        //------------
 
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData1 = $subcategorymodel->findAll();
@@ -342,14 +313,10 @@ class Home extends BaseController
             $sub_cat_data[] = $newData_p;
         
         $addwishlistmodel = new AddwishlistModel();
-        $wishlistData = $addwishlistmodel->select('*')->findAll();
+        $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
-        //  echo "<pre>";
-        //  print_r($newData_p);
-        //  die();
-        //------------
-
+    
         return view('front/product_details', [
             'headerData' => $headerData,
             'productData' => $productData,
@@ -360,7 +327,6 @@ class Home extends BaseController
 
         ]);
     }
-
     public function searchData()
     {
         $input = $this->request->getVar('search');
@@ -382,7 +348,6 @@ class Home extends BaseController
             echo json_encode(['error' => 'Not found']);
         }
     }
-
     public function searchSimilarData()
     {
         $input = $this->request->getVar('search');
@@ -404,8 +369,6 @@ class Home extends BaseController
             echo json_encode(['error' => 'Not found']);
         }
     }
-
-
 
     public function add_to_cart()
     {
@@ -431,7 +394,6 @@ class Home extends BaseController
             ->join('company', 'company.company_name = users.company_name', 'left')
             ->where('add_to_cart.user_id', $userId)
             ->get();
-
 
         $cartData = $query->getResultArray();
 
@@ -463,8 +425,6 @@ class Home extends BaseController
             'componeyData' => $componeyData
         ]);
     }
-
-
     public function add_cart()
     {
         $cartmodel = new CartModel();
@@ -516,9 +476,6 @@ class Home extends BaseController
         $session->setFlashdata('success', 'remove item succesfully.');
         return redirect()->back();
     }
-
-
-
     public function add_to_cart_new()
     {
         $cartmodel = new CartModel();
@@ -591,16 +548,12 @@ class Home extends BaseController
         $variantsModel = new VariantsModel();
         $headerData = $headermenumodel->find();
 
-
         if (!$headerData) {
             $headerData = null;
         }
-
         $session = session();
         $userId = $session->get('user_id');
-
-
-        $wishlistData = $addwishlistmodel->select('*')->findAll();
+        $wishlistData = $addwishlistmodel->where('user_id', $userId)->findAll();
         $newwish = [];
         foreach ($wishlistData as $pnewdata) {
             $productData = $productmodel->where('product_id', $pnewdata['product_id'])->first();
@@ -613,7 +566,6 @@ class Home extends BaseController
 
             $newwish[] = $pnewdata;
         }
-
 
         if (!$wishlistData) {
             $wishlistData = null;

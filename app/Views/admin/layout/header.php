@@ -117,6 +117,22 @@
             </ul>
         </li>
         <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class='menu-icon tf-icons bx bxs-report'></i>
+                <div data-i18n="Form Elements">Reports</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/order_report'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Order Report</div>
+                    </a>
+                </li>
+               
+              
+                
+            </ul>
+        </li>
+        <li class="menu-item">
             <a href="<?php echo base_url('admin/contactus_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Basic">User Contect Us</div>

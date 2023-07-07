@@ -218,6 +218,11 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post("slider/save", "SliderController::sliderSave");
     $routes->get("slider/edit/(:num)", "SliderController::sliderEdit/$1");
     $routes->get("slider/delete/(:num)", "SliderController::sliderDelete/$1");
+
+    //Report
+
+    $routes->get("order_report", "ReportController::order_report");
+
 });
 
 /*

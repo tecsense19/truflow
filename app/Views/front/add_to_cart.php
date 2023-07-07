@@ -6,6 +6,9 @@ $sub_category_id = '';
 $commonValues = '';
 $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
+// echo "<pre>";
+// print_r($company_id);
+// die();
 ?>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -250,8 +253,6 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
           var company_id = '<?php echo $company_id; ?>';
           var company_id_response = couponData[0].company_id;
 
-          //alert(couponAmount);
-
           $('#discount_type').val(couponType);
           $('#product_discount').val(couponAmount);
 
@@ -357,17 +358,18 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
         }
       }
     }
+    var company_id = "<?php echo $company_id; ?>";
     $.ajax({
       url: '<?php echo base_url(); ?>check_coupon',
       method: 'POST',
       data: {
-        coupon: ''
+        company_id: company_id
       },
       success: function(response) {
         console.log(response);
         applyCoupon(response);
 
-
+        //alert(response);
         $('#subtotal').text(formattedTotalAmount);
         $('#totalAmount').text(formattedTotalAmount);
         $('#total').text(formattedTotalAmount);
