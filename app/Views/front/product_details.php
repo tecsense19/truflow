@@ -1,5 +1,7 @@
 <?= $this->include('front/layout/front'); ?>
-<?php $session = session(); ?>
+<?php $session = session();
+$wishlistCount = session('wishlistCount');
+?>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
@@ -25,34 +27,34 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mobile_tabs">
-                            <?php if(!empty($productData[0]['product_img'])){?>
+                            <?php if (!empty($productData[0]['product_img'])) { ?>
 
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <?php
-                                $productImages = explode(',', $productData[0]['product_img']);
-                                foreach ($productImages as $index => $image) {
-                                ?>
-                                    <a class="nav-link<?php if ($index === 0) echo ' active'; ?>" id="v-pills-<?php echo $index; ?>-tab" data-toggle="pill" href="#v-pills-<?php echo $index; ?>" role="tab" aria-controls="v-pills-<?php echo $index; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>">
-                                        <img src="<?php echo base_url() . trim($image); ?>" alt="image">
-                                    </a>
-                                <?php } ?>
-                            </div>
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <?php
-                                foreach ($productImages as $index => $image) {
-                                ?>
-                                    <div class="tab-pane fade<?php if ($index === 0) echo ' show active'; ?>" id="v-pills-<?php echo $index; ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $index; ?>-tab">
-                                        <img src="<?php echo base_url() . trim($image); ?>" alt="image">
-                                    </div>
-                                <?php } ?>
-                            </div>
-
-                                <?php }else{ ?>
-
-                                    <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
-
+                                    <?php
+                                    $productImages = explode(',', $productData[0]['product_img']);
+                                    foreach ($productImages as $index => $image) {
+                                    ?>
+                                        <a class="nav-link<?php if ($index === 0) echo ' active'; ?>" id="v-pills-<?php echo $index; ?>-tab" data-toggle="pill" href="#v-pills-<?php echo $index; ?>" role="tab" aria-controls="v-pills-<?php echo $index; ?>" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>">
+                                            <img src="<?php echo base_url() . trim($image); ?>" alt="image">
+                                        </a>
                                     <?php } ?>
-                            
+                                </div>
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <?php
+                                    foreach ($productImages as $index => $image) {
+                                    ?>
+                                        <div class="tab-pane fade<?php if ($index === 0) echo ' show active'; ?>" id="v-pills-<?php echo $index; ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $index; ?>-tab">
+                                            <img src="<?php echo base_url() . trim($image); ?>" alt="image">
+                                        </div>
+                                    <?php } ?>
+                                </div>
+
+                            <?php } else { ?>
+
+                                <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                            <?php } ?>
+
 
                         </div>
                     </div>
@@ -60,7 +62,7 @@
                         <div class="samsung_galaxy">
                             <div class="row">
                                 <div class="col-sm-10">
-                                    <h3><?php echo $productData[0]['product_name'] ?>&nbsp;&nbsp;<?php echo $productData[0]['parent']?></h3>
+                                    <h3><?php echo $productData[0]['product_name'] ?>&nbsp;&nbsp;<?php echo $productData[0]['parent'] ?></h3>
                                 </div>
                                 <div class="col-sm-2">
                                     <?php if (isset($addwishData)) { ?>
@@ -76,7 +78,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <h3><?php echo "$" . $productDataPrice[0]['min_price'] . " - " . "$" . $productDataPrice[0]['max_price']; ?></h3>
+                            <h3 class="mt-2"><?php echo "$" . $productDataPrice[0]['min_price'] . " - " . "$" . $productDataPrice[0]['max_price']; ?></h3>
 
 
                             <!-- <ul class="stock">
@@ -172,10 +174,10 @@
                                                         $firstImagePath = trim($imagePaths[0]);
                                                     ?>
                                                         <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                                    <?php }else{ ?>
+                                                    <?php } else { ?>
                                                         <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
-                                    <?php } ?>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -187,12 +189,51 @@
                                     <div class="additionnal_info">
                                         <div class="row justify-content-center">
                                             <div class="col-lg-10">
-                                            <?php echo $productData[0]['product_additional_info'] ?>
+                                                <?php echo $productData[0]['product_additional_info'] ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="glance">
+                            <h3>Similer Products</h3>
+                            </div>
+                            <hr class="similer">
+                            <div class="row">
+                    <?php if (isset($sub_cat_data) && !empty($sub_cat_data)) {  ?>
+                        <?php foreach ($sub_cat_data as $product) { ?>
+                            <div class="col-md-3">
+                                <div class="product_box">
+                                    <div class="product_img">
+                                        <?php
+                                        $productImages = explode(',', $product['product_img']);
+                                        $firstImage = trim($productImages[0]);
+                                        ?>
+                                        <?php if (!empty($product['product_img'])) { ?>
+                                            <img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image">
+                                        <?php } else { ?>
+                                            <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                        <?php } ?>
+                                    </div><hr>
+                                    <div class="product_text text-center">
+                                        <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="category-link">
+                                            <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h3>
+                                            <span><a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="btn btn-primary mt-2 details_btn1">Details</a></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } else { ?>
+                        <div class="col-md-12 text-center-t1">
+                            <div class="form-group mt-5 mb-5 data_center text-center">
+                                <h4>No Item Found</h4>
+                            </div>
+
+                        </div>
+                    <?php } ?>
+                </div>
                         </div>
                     </div>
                 </div>
@@ -292,7 +333,7 @@
                     text: 'Data added into cart successfully.',
                 }).then(function() {
                     // Reload the page after the user clicks "OK" on the SweetAlert dialog
-                    window.location.href = '<?= base_url("add_to_cart") ?>'; // Replace with the shopping cart page URL
+                    window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
                 });
             },
             error: function(xhr, status, error) {

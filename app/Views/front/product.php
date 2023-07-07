@@ -45,7 +45,7 @@
                                 <?php foreach ($subcategory['product_array'] as $product) : ?>
                                     <p>
                                         <i class="fa fa-caret-right"></i>
-                                        <a class="pro_link" href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>">
+                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                         </a>
                                     </p>
@@ -82,7 +82,7 @@
                                         <?php } ?>
                                     </div><hr>
                                     <div class="product_text text-center">
-                                        <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>" class="category-link">
+                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
                                             <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h3>
                                             <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                         </a>

@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="privacy text-right">
-                        <p class="footer_text"><a href="<?php echo base_url('terms_and_condition'); ?>" class="rr">Terms of Use</a> |<a href="<?php echo base_url('privacy_policy'); ?>" class="rr"> Privacy Policy</a> | <a href="<?php echo base_url('disclaimer'); ?>" class="rr">Disclaimer</a></p>
+                        <p class="footer_text"><a href="<?php echo base_url('terms/condition'); ?>" class="rr">Terms of Use</a> |<a href="<?php echo base_url('privacypolicy'); ?>" class="rr"> Privacy Policy</a> | <a href="<?php echo base_url('disclaimer'); ?>" class="rr">Disclaimer</a></p>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
     }
 
     function redirectToDataPage(productId) {
-        var dataPageUrl = '<?php echo base_url(); ?>/product_details/' + productId;
+        var dataPageUrl = '<?php echo base_url(); ?>/product/details/' + productId;
         window.location.href = dataPageUrl;
     }
     $(document).ready(function() {
@@ -360,7 +360,7 @@
                             text: 'Data added to cart successfully.',
                         }).then(function() {
                             // Redirect to the cart page
-                            window.location.href = '<?= base_url("add_to_cart") ?>';
+                            window.location.href = '<?= base_url("add/cart") ?>';
                         });
                     }
                 },

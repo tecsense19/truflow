@@ -66,14 +66,6 @@ class Home extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
 
-        // $categoryData = $categorymodel->orderBy('created_at', 'DESC')->findAll(5);
-
-        // foreach ($categoryData as &$category) {
-        //     $productdata = $productmodel->where('category_id', $category['category_id'])->findAll();
-        //     $category['products'] = $productdata ? $productdata : null;
-        // }
-
-
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
 
         $variantsmodel = new VariantsModel();
@@ -88,11 +80,6 @@ class Home extends BaseController
             $category['products'] =  $newData2;
         }
 
-        // echo "<pre>";
-        // print_r($subcategoryData);
-        // die();
-
-
         $newProductdata = $productmodel->findAll();
         if (!$newProductdata) {
             $newProductdata = null;
@@ -106,12 +93,13 @@ class Home extends BaseController
             $newData1[] = $pdata;
         }
 
-
-
-
+        $addwishlistmodel = new AddwishlistModel();
+        $wishlistData = $addwishlistmodel->select('*')->findAll();
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
 
+        $cartmodel = new CartModel();
+        $cartData = $cartmodel->select('*')->findAll();
         $cartCount = count($cartData ?? []);
         $session->set('cartCount', $cartCount);
 
@@ -247,6 +235,9 @@ class Home extends BaseController
             $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
             $newData[] = $pdata;
         }
+        // echo "<pre>";
+        // print_r($newData);
+        // die();
 
 
 
@@ -291,23 +282,11 @@ class Home extends BaseController
             ->where('product.product_id', $product_id)
             ->findAll();
 
-        // $productDataPrice = $productmodel->select('product.*,product_variants.*, MIN(product_variants.variant_price) AS min_price, MAX(product_variants.variant_price) AS max_price')
-        //     ->join('product_variants', 'product_variants.product_id = product.product_id')
-        //     ->where('product.product_id', $product_id)
-        //     ->groupBy('product.product_id',$product_id)
-        //     ->findAll();
-
         $productDataPrice = $variantsmodel->table('product_variants')
             ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
             ->join('product', 'product.product_id = product_variants.product_id')
             ->where('product.product_id', $product_id)
             ->findAll();
-
-        // print_r($productDataPrice);
-        // die();
-        //  $lastQuery = $productmodel->getLastQuery();
-        //  echo $lastQuery;
-
 
         if (!$productData) {
             $productData = null;
@@ -342,11 +321,37 @@ class Home extends BaseController
         $session->set('product_details', $product_details);
         //------------
 
+        $subcategorymodel = new SubCategoryModel();
+        $subcategoryData1 = $subcategorymodel->findAll();
+
+        $get_product = $productmodel->where('product_id', $product_id)->first();
+        $sub_cat_data = [];
+            $productData1 = $productmodel->where('sub_category_id', $get_product['sub_category_id'])->findAll(4);
+            $variantsmodel = new VariantsModel();
+            $newData_p = [];
+            foreach ($productData1 as $pdata1) {
+                $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
+                $pdata1['parent'] = count($variantData1) > 0 ? $variantData1['parent'] : '';
+                $newData_p[] = $pdata1;
+            }
+            $sub_cat_data[] = $newData_p;
+        
+        $addwishlistmodel = new AddwishlistModel();
+        $wishlistData = $addwishlistmodel->select('*')->findAll();
+        $wishlistCount = count($wishlistData ?? []);
+        $session->set('wishlistCount', $wishlistCount);
+        //  echo "<pre>";
+        //  print_r($newData_p);
+        //  die();
+        //------------
+
         return view('front/product_details', [
             'headerData' => $headerData,
             'productData' => $productData,
             'productDataPrice' => $productDataPrice,
-            'addwishData' => $addwishData
+            'addwishData' => $addwishData,
+            'sub_cat_data' => $newData_p,
+            'wishlistCount' => $wishlistCount
 
         ]);
     }
@@ -411,37 +416,19 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
         $componey_name = $session->get('company_name');
-        //   echo "<pre>";
-        // print_r($session->get());
-        //  die();
-
-        // $query = $cartmodel->select('*')
-        //     ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-        //     ->join('product', 'product.product_id = product_variants.product_id', 'left')
-        //     ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-        //     ->join('category', 'category.category_id = sub_category.category_id', 'left')
-        //     ->where('user_id', $userId)
-        //     ->get();
-
-        //$componey_name = $session->get('company_name');
-
-    $query = $cartmodel->select('*')
-    ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-    ->join('product', 'product.product_id = product_variants.product_id', 'left')
-    ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-    ->join('category', 'category.category_id = sub_category.category_id', 'left')
-    ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-    ->join('company', 'company.company_name = users.company_name', 'left')
-    ->where('add_to_cart.user_id', $userId)
-    //->where('company.company_name', $componey_name)
-    ->get();
+       
+        $query = $cartmodel->select('*')
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+            ->join('company', 'company.company_name = users.company_name', 'left')
+            ->where('add_to_cart.user_id', $userId)
+            ->get();
 
 
         $cartData = $query->getResultArray();
-
-        // echo "<pre>";
-        // print_r($componey_name);
-        // die();
 
         if (!$cartData) {
             $cartData = null;
@@ -458,10 +445,7 @@ class Home extends BaseController
         if (!$componeyData) {
             $componeyData = null;
         }
-        // echo "<pre>"; 
-        // print_r($componeyData); 
-        // die();
-
+      
         $cartCount = count($cartData ?? []);
 
         $session->set('cartCount', $cartCount);
@@ -517,7 +501,7 @@ class Home extends BaseController
         $cartmodel = new CartModel();
         $cartmodel->delete($cart_id);
         $session->setFlashdata('success', 'remove cart item succesfully.');
-        return redirect()->to(base_url('add_to_cart'));
+        return redirect()->to(base_url('add/cart'));
     }
     public function cartDelete_check($cart_id)
     {
@@ -646,7 +630,7 @@ class Home extends BaseController
         $addwishlistmodel = new AddwishlistModel();
         $addwishlistmodel->delete($cart_id);
         $session->setFlashdata('success', 'remove succesfully.');
-        return redirect()->to(base_url('wish_list'));
+        return redirect()->to(base_url('wishlist'));
     }
     public function add_wishlist() //image change
     {

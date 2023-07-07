@@ -33,22 +33,22 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/shop', 'Home::shop');
-$routes->get('/sub_category/(:num)', 'Home::sub_category/$1');
+$routes->get('/sub-category/(:num)', 'Home::sub_category/$1');
 $routes->get('/product/(:num)', 'Home::product/$1');
-$routes->get('/product_details/(:num)', 'Home::product_details/$1');
+$routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');
-$routes->get('/add_to_cart', 'Home::add_to_cart');
+$routes->get('/add/cart', 'Home::add_to_cart');
 $routes->post('/add_cart', 'Home::add_cart');
 $routes->get("delete/(:num)", "Home::cartDelete/$1");
 $routes->post('/add_to_cart_new', 'Home::add_to_cart_new');
 $routes->post('/searchData1', 'Home::searchData1');
-$routes->get('/wish_list', 'Home::wish_list');
+$routes->get('/wishlist', 'Home::wish_list');
 $routes->post('/add_wishlist', 'Home::add_wishlist');
 $routes->post('/deleteWishList', 'Home::deleteWishList');
 $routes->get("deleteWishList_data/(:num)", "Home::deleteWishList_data/$1");
 $routes->get("delete_check/(:num)", "Home::cartDelete_check/$1");
-$routes->get('/terms_and_condition', 'Home::terms_and_condition');
-$routes->get('/privacy_policy', 'Home::privacy_policy');
+$routes->get('/terms/condition', 'Home::terms_and_condition');
+$routes->get('/privacypolicy', 'Home::privacy_policy');
 $routes->get('/disclaimer', 'Home::disclaimer');
 $routes->get('/userContact', 'Home::userContact');
 $routes->post("contact/save", "Home::contactSave");
@@ -79,11 +79,11 @@ $routes->post('reset_password/(:any)', 'UserController::reset_password/$1');
 
 
 //front user profile
-$routes->get('/user_profile/(:num)', 'UserController::user_profile/$1');
+$routes->get('/userProfile/(:num)', 'UserController::user_profile/$1');
 $routes->post("edit_user_profile", "UserController::edit_user_profile");
 
 //user order
-$routes->get('/my_order/(:num)', 'UserController::my_order/$1');
+$routes->get('/order/(:num)', 'UserController::my_order/$1');
 
 //login user
 $routes->get('/login', 'UserController::login');

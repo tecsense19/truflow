@@ -46,7 +46,7 @@
 
 
 
-                                                        <a class="pro_link" href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>">
+                                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
                                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                                         </a>
 

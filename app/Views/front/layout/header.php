@@ -67,7 +67,7 @@ $cartCount = session('cartCount');
                 </div>
                 <!-- search  button end-->
                 <div class="heart_top">
-                    <a href="<?php echo base_url('wish_list') ?>" class="heart">
+                    <a href="<?php echo base_url('wishlist') ?>" class="heart">
                         <i class="fa-regular fa-heart media_space" data-toggle="tooltip" data-placement="top" title="wish list"></i></a>
 
                     <?php if (isset($wishlistCount) && $wishlistCount > 0) : ?>
@@ -78,7 +78,7 @@ $cartCount = session('cartCount');
 
 
                 <div class="heart_top">
-                    <a href="<?php echo base_url('add_to_cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
+                    <a href="<?php echo base_url('add/cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
 
                     <?php if (isset($cartCount) && $cartCount > 0) : ?>
                         <span class="add_to_cart_counter_number"><?php echo $cartCount; ?></span>
@@ -90,11 +90,11 @@ $cartCount = session('cartCount');
                 if ($session->get('logged_in') && $fullName) { ?>
 
                     <div class="heart_top5 media_space">
-                        <a href="<?php echo base_url('user_profile/') . $user_id ?>" class="register_user"><?php echo "Hi, $fullName "; ?></a>
+                        <a href="<?php echo base_url('userProfile/') . $user_id ?>" class="register_user"><?php echo "Hi, $fullName "; ?></a>
                     </div>
 
                     <div class="heart_top6 media_space">
-                        <a href="<?php echo base_url('my_order/') . $user_id ?>" class="my_order">My Order</a>
+                        <a href="<?php echo base_url('order/') . $user_id ?>" class="my_order">My Order</a>
                     </div>
 
                     <div class="heart_top4 media_space">
