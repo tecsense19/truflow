@@ -2332,7 +2332,7 @@ button.btn.btn-primary.btn-rounded {
     background-color: unset !important;
 }
 .fixed-top {
-    background: #010101bd;
+    background: #005DAB;
 }
 
 .scrolled {
@@ -2784,4 +2784,6 @@ a.btn.btn-primary.mt-2.details_btn1 {
     /* background-color: rgba(0, 0, 255, 0.5); */
     right: 0;
   }
-  
+  section.banner_main {
+    margin-top: 98px;
+}

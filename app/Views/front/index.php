@@ -55,83 +55,75 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="banner_sub">
         <div class="container">
             <div class="row">
-                
 
 
-            <div class="carousel_banner owl-carousel" id="carousel_banner">
-    <?php
-    if (isset($sliderData)) {
-        $imageLinks = [
-            0 => [
-                'upper' => 'product/3',
-                'lower' => 'product/2'
-            ],
-            1 => 'sub-category/1',
-            2 => 'sub-category/1'
-        ];
 
-        foreach ($sliderData as $index => $val) {
-            $sliderPath = $val['slider_path'];
-            $imagePaths = explode(',', $sliderPath);
+                <div class="carousel_banner owl-carousel" id="carousel_banner">
+                    <?php
+                    if (isset($sliderData)) {
+                        $imageLinks = [
+                            0 => [
+                                'upper' => 'product/3',
+                                'lower' => 'product/2'
+                            ],
+                            1 => 'sub-category/1',
+                            2 => 'sub-category/1'
+                        ];
 
-            foreach ($imagePaths as $imageIndex => $imagePath) {
-                $imageUrl = base_url() . 'public/front/images/home/' . $imagePath;
+                        foreach ($sliderData as $index => $val) {
+                            $sliderPath = $val['slider_path'];
+                            $imagePaths = explode(',', $sliderPath);
 
-                // Check if a corresponding link exists for the current image index
-                if (isset($imageLinks[$imageIndex])) {
-                    $imageLink = $imageLinks[$imageIndex];
-                    if ($imageIndex === 0 && is_array($imageLink)) {
-                        // Display multiple links for the first image on hover
-                        $upperLink = $imageLink['upper'];
-                        $lowerLink = $imageLink['lower'];
-                        ?>
-                        <div class="item main_banner_img_new">
-                            <div class="hover-image">
-                                <div class="image">
-                                    <img src="<?php echo $imageUrl; ?>" alt="">
+                            foreach ($imagePaths as $imageIndex => $imagePath) {
+                                $imageUrl = base_url() . 'public/front/images/home/' . $imagePath;
+
+                                // Check if a corresponding link exists for the current image index
+                                if (isset($imageLinks[$imageIndex])) {
+                                    $imageLink = $imageLinks[$imageIndex];
+                                    if ($imageIndex === 0 && is_array($imageLink)) {
+                                        // Display multiple links for the first image on hover
+                                        $upperLink = $imageLink['upper'];
+                                        $lowerLink = $imageLink['lower'];
+                    ?>
+                                        <div class="item main_banner_img_new">
+                                            <div class="hover-image">
+                                                <div class="image">
+                                                    <img src="<?php echo $imageUrl; ?>" alt="">
+                                                </div>
+                                                <div class="hover-content">
+                                                    <div class="upper-link">
+                                                        <a href="<?php echo $upperLink; ?>"></a>
+                                                    </div>
+                                                    <div class="lower-link">
+                                                        <a href="<?php echo $lowerLink; ?>"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php
+                                        continue; // Skip the rest of the loop for the first image
+                                    }
+                                } else {
+                                    $imageLink = ''; // Default link if no specific link is set for the image
+                                }
+                                ?>
+
+                                <div class="item main_banner_img_new">
+                                    <?php if (!empty($imageLink)) { ?>
+                                        <a href="<?php echo $imageLink; ?>">
+                                        <?php } ?>
+                                        <img src="<?php echo $imageUrl; ?>" alt="">
+                                        <?php if (!empty($imageLink)) { ?>
+                                        </a>
+                                    <?php } ?>
                                 </div>
-                                <div class="hover-content">
-                                    <div class="upper-link">
-                                        <a href="<?php echo $upperLink; ?>"></a>
-                                    </div>
-                                    <div class="lower-link">
-                                        <a href="<?php echo $lowerLink; ?>"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        continue; // Skip the rest of the loop for the first image
+
+                    <?php
+                            }
+                        }
                     }
-                } else {
-                    $imageLink = ''; // Default link if no specific link is set for the image
-                }
-                ?>
-
-                <div class="item main_banner_img_new">
-                    <?php if (!empty($imageLink)) { ?>
-                        <a href="<?php echo $imageLink; ?>">
-                    <?php } ?>
-                    <img src="<?php echo $imageUrl; ?>" alt="">
-                    <?php if (!empty($imageLink)) { ?>
-                        </a>
-                    <?php } ?>
+                    ?>
                 </div>
-
-                <?php
-            }
-        }
-    }
-    ?>
-</div>
-
-            
-
-
-
-
-
-
             </div>
         </div>
     </div>
@@ -222,14 +214,14 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         $firstImagePath = trim($imagePaths[0]);
                                     ?>
                                         <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
-                                        <?php }else{ ?>
-                                    <img class="product_slider_img"  src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                    <?php } else { ?>
+                                        <img class="product_slider_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
                                     <?php } ?>
 
                                 </div>
                                 <div class="slider_text">
-                                    <h6><?php echo $product['product_name']; ?></h6>
+                                    <h6><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h6>
 
                                     <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><button type="button" class="btn">ADD TO CART</button></a>
                                 </div>
@@ -268,7 +260,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="col-lg-12">
                 <div class="product_title text-center">
                     <h2>OUR PRODUCTS</h2>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="row align-items-center pb-lg-5 pb-xl-5 pb-xxl-5">
@@ -314,13 +306,13 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                             $firstImagePath = trim($imagePaths[0]);
                                         ?>
                                             <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                            <?php }else{ ?>
-                                    <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                        <?php } else { ?>
+                                            <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
-                                    <?php } ?>
+                                        <?php } ?>
 
                                         <div class="card-body">
-                                            <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent']?></h5>
+                                            <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5>
                                             <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"> <button>ADD TO CART</button></a>
                                         </div>
                                     </div>
@@ -344,13 +336,13 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                                 $firstImagePath = trim($imagePaths[0]);
                                             ?>
                                                 <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
-                                                <?php }else{ ?>
-                                    <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                            <?php } else { ?>
+                                                <img class="product_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
-                                    <?php } ?>
+                                            <?php } ?>
 
                                             <div class="card-body">
-                                                <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent']?></h5>
+                                                <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5>
                                                 <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"><button>ADD TO CART</button></a>
                                             </div>
                                         </div>
@@ -375,7 +367,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="col-lg-12">
                 <div class="testimonial_title text-center">
                     <h2><?php echo $testominal_title; ?></h2>
-                   
+
                 </div>
             </div>
         </div>
@@ -398,7 +390,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         <div class="test_icon">
                                             <i class="fa-solid fa-quote-left"></i>
                                         </div>
-                                       <?php echo $testominal['description']; ?>
+                                        <?php echo $testominal['description']; ?>
                                     </div>
                                 </div>
                             <?php } ?>
