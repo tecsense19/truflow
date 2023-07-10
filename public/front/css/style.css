@@ -2792,3 +2792,14 @@ section.banner_main {
 button#destroyButton {
     margin-bottom: 20px;
 }
+nav.navbar.navbar-expand-lg.fixed-top.scrolled {
+    z-index: 9999999;
+}
+.table-responsive {
+    
+    overflow-x: unset !important;
+  
+}
+.cancel_print{
+    display: flex;
+}

@@ -31,6 +31,7 @@
                                                     <th>#</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
+                                                    <th>Message</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -44,6 +45,7 @@
                                                     <td><?php echo $i;?></td>
                                                     <td><?php echo $contact['contact_name'];?></td>
                                                     <td><?php echo $contact['contact_email'];?></td>
+                                                    <td><?php echo $contact['message'];?></td>
                                                     <td>
                                                
                                                 <a class="" href="<?php echo base_url('')."admin/contactus/delete/".$contact['contact_id']?>"><i class="bx bx-trash me-1"></i> Delete</a>

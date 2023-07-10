@@ -66,6 +66,8 @@ $wishlistCount = session('wishlistCount');
                                 </div>
                                 <div class="col-sm-2">
                                     <?php if (isset($addwishData)) { ?>
+
+                                        
                                         <?php if ($addwishData[0]['product_id'] == $productData[0]['product_id']) { ?>
                                             <img src="<?php echo base_url() ?>public/front/images/heartw1.png" class="deletewishlistsubmit mb-2" alt="" data-product_id="<?php echo $productData[0]['product_id']; ?>" onclick="changeImage1(this)" id="imagepreview1">
 

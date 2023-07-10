@@ -66,10 +66,6 @@ $routes->post('/check_coupon', 'OrderController::check_coupon');
 $routes->get('/register', 'UserController::register');
 $routes->post("register/save", "UserController::registerSave");
 
-// $routes->get("forgotpassword", "UserController::forgotpassword");
-// $routes->post("resetPasswordUser", "UserController::resetPasswordUser");
-// $routes->post("resetPasswordConfirmUser", "UserController::resetPasswordConfirmUser");
-// $routes->post("createPasswordUser", "UserController::createPasswordUser");
 
 $routes->get('forgot-password', 'UserController::forgotPassword');
 $routes->post('resetPassword', 'UserController::resetPassword');
@@ -93,6 +89,11 @@ $routes->get("logout", "UserController::logout");
 //order placed
 $routes->get("checkout/", "OrderController::checkout");
 $routes->post('/place_order', 'OrderController::place_order');
+$routes->post('/deleteOrder', 'OrderController::deleteOrder');
+
+//order pdf
+
+$routes->post('my_order/pdf', 'UserController::generate_pdf');
 
 //Admin_panel ---------
 
@@ -222,6 +223,17 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     //Report
 
     $routes->get("order_report", "ReportController::order_report");
+    $routes->get("user_report", "ReportController::user_report");
+
+
+    //search order report
+
+    $routes->post("order_search", "ReportController::search_data");
+    $routes->post("order_export", "ReportController::order_export");
+
+
+    $routes->post("user_search_data", "ReportController::user_search_data");
+    $routes->post("user_export", "ReportController::user_export");
 
 });
 

@@ -10,6 +10,7 @@ use App\Models\CompanyModel;
 use Config\Services;
 use CodeIgniter\Email\Email;
 use App\Models\OrderItemModel;
+use App\Models\ShippingModel;
 
 
 class UserController extends BaseController
@@ -240,53 +241,70 @@ class UserController extends BaseController
             $userData = null;
         }
         return redirect()->back();
-        //return view('front/user_profile',['userData' => $userData,'countryData' => $countryData]);
+        
     }
     public function my_order($user_id)
-    {
-        $session = session();
-        $usermodel = new UserModel();
-        //$userData = $usermodel->find();
-        $userData = $usermodel->where('user_id', $user_id)->first();
-        if (!$userData) {
-            $userData = null;
-        }
-        $countrymodel = new CountryModel();
-
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
-        }
-        $ordermodel = new OrderModel();
-        $orderitemmodel = new OrderItemModel();
-        $cartData = $orderitemmodel->find();
-        $userId = $session->get('user_id');
-        $query = $orderitemmodel->select('*')
-        ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-        ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-        ->join('product', 'product.product_id = product_variants.product_id', 'left')
-        ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-        ->join('category', 'category.category_id = sub_category.category_id', 'left')
-        ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            ->where('users.user_id', $userId)
-
-            ->get();
-
-        $orderData = $query->getResultArray();
-
-
-       
-
-
-        // echo "<pre>";
-        // print_r($orderData);
-        // die();
-        if (!$orderData) {
-            $orderData = null;
-        }
-
-        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData]);
+{
+    $session = session();
+    $usermodel = new UserModel();
+    $userData = $usermodel->where('user_id', $user_id)->first();
+    if (!$userData) {
+        $userData = null;
     }
+
+    $countrymodel = new CountryModel();
+    $countryData = $countrymodel->find();
+    if (!$countryData) {
+        $countryData = null;
+    }
+
+    $ordermodel = new OrderModel();
+    $orderitemmodel = new OrderItemModel();
+    $cartData = $orderitemmodel->find();
+    $userId = $session->get('user_id');
+
+    // Fetch orders from different tables based on order IDs
+    $query1 = $orderitemmodel->select('*')
+    ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+    ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+    ->join('product', 'product.product_id = product_variants.product_id', 'left')
+    ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+    ->join('category', 'category.category_id = sub_category.category_id', 'left')
+    ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+    ->where('users.user_id', $userId)
+    ->orderBy('tbl_order.order_id', 'ASC') // Order by order ID in ascending order
+    ->get();
+
+$orderData = $query1->getResultArray();
+
+$ordersByOrderId = []; // Array to store orders by order ID
+
+foreach ($orderData as $order) {
+    $orderId = $order['order_id'];
+
+    if (!isset($ordersByOrderId[$orderId])) {
+        $ordersByOrderId[$orderId] = []; // Initialize an array for each order ID
+    }
+
+    $ordersByOrderId[$orderId][] = $order; // Add the order to the corresponding order ID array
+}
+
+// echo "<pre>";
+// print_r($ordersByOrderId);
+// die();
+    if (!$orderData) {
+        $orderData = null;
+    }
+
+    return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
+    return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
+
+
+}
+
+
+
+
 
     // -----------------------------------------------
     public function forgotPassword()
@@ -389,5 +407,44 @@ class UserController extends BaseController
     {
         return strtotime($expiresAt) > time();
     }
+
+
+    public function generate_pdf()
+    {
+        $orderId = $this->request->getPost('order_id');
+        $pdfFilePath = 'Invoice/' . $orderId . '.pdf';
+    
+        $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+    
+        // Fetch order data
+        $query = $orderitemmodel->select('*')
+            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->where('tbl_order.order_id', $orderId)
+            ->get();
+    
+        $orderData = $query->getResultArray();
+    
+        $ordersByOrderId = [$orderId => $orderData];
+    
+        $data = [
+            'userData' => null, // Modify this with your actual user data
+            'countryData' => null, // Modify this with your actual country data
+            'orderData' => $orderData,
+            'ordersByOrderId' => $ordersByOrderId
+        ];
+    
+        $html = view('front/order_pdf', $data);
+    
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($html);
+        $mpdf->Output($pdfFilePath, 'D');
+    }
+    
     
 }

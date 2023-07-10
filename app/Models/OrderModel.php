@@ -23,7 +23,8 @@ class OrderModel extends Model
         'order_status',
         'shipping',
         'notes',
-        'ship_to_diff_address'
+        'ship_to_diff_address',
+        'order_date'
     ];
 
     // Dates

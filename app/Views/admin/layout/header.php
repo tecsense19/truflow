@@ -127,6 +127,11 @@
                         <div data-i18n="Basic Inputs">Order Report</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/user_report'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">User Report</div>
+                    </a>
+                </li>
                
               
                 

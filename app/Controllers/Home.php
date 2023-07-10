@@ -276,19 +276,16 @@ class Home extends BaseController
         $userId = $session->get('user_id');
 
 
-        $addwishData1 = $addwishlistmodel->select('*')
-
-            ->join('product', 'product.product_id = addwish_list.product_id', 'left')
-            ->where('addwish_list.isdeleted', 0)
-            ->where('addwish_list.user_id', $userId)
-            ->get();
-
-        $addwishData = $addwishData1->getResultArray();
-
+        $addwishData = $addwishlistmodel->select('*')
+        ->where('product_id', $product_id)
+        ->where('user_id', $userId)
+            ->findAll();
+       
         // $lastQuery = $addwishlistmodel->getLastQuery();
         // echo $lastQuery;
         // echo "<pre>";
         // print_r($addwishData);
+        // die();
 
         if (!$addwishData) {
             $addwishData = null;

@@ -69,9 +69,18 @@ class OrderController extends BaseController
    
     public function orderDelete($order_id)
     {
-        $session = session();
-        $cartmodel = new OrderModel();
-        $cartmodel->delete($order_id);
+       
+
+         $session = session();
+        $orderModel = new OrderModel();
+        $orderItemModel = new OrderItemModel();
+
+        // Delete the order items first
+        $orderItemModel->where('order_id', $order_id)->delete();
+
+        // Delete the order
+        $orderModel->delete($order_id);
+
         $session->setFlashdata('success', 'Order Delete succesfully.');
         return redirect()->back();
     }
@@ -115,7 +124,6 @@ public function order_details($order_id){
             ->join('sub_category', 'sub_category.sub_category_id = order_items.sub_category_id', 'left')
             ->join('category', 'category.category_id = order_items.category_id', 'left')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-          // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id', 'left')
             ->where('order_items.order_id', $order_id)
                 
                 ->findAll();
