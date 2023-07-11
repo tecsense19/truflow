@@ -179,7 +179,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                   <?php $sub_category_id = $sub_category_id ? $sub_category_id . ',' . $cart['sub_category_id'] : $cart['sub_category_id'];
                   ?>
                   <li class="order_list d-flex justify-content-between align-items-center">
-                    <p><?php echo $cart['product_name']; ?> x <?php echo $cart['product_quantity']; ?></p>
+                    <p><?php echo $cart['product_name']; ?>&nbsp;<?php echo $cart['parent']; ?>&nbsp; x &nbsp;<?php echo $cart['product_quantity']; ?></p>
                     <div class="data">
                     <span class="sub_category_id_match_<?php echo $cart['sub_category_id'] ?>">
                           <?php

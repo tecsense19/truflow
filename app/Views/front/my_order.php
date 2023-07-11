@@ -41,13 +41,14 @@
     <div class="container">
           <?php if (isset($ordersByOrderId)) { ?>
               <?php foreach ($ordersByOrderId as $orderId => $orderData) { ?>
+             
                   <table class="table card">
                       <tr class="mainsetcolor">
                           <th colspan="1">Order Id: #<?php echo $orderId; ?></th>
                           <th colspan="1">Order By: <?php echo $orderData[0]['full_name']; ?></th>
                           <th colspan="1">Order Date: <?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
                           <th colspan="1">Payment Status: <?php echo $orderData[0]['order_status']; ?></th>
-                          <th colspan="1"></th>
+                          <th colspan="2"></th>
                           <th colspan="2">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
                       <tr>
@@ -57,26 +58,49 @@
                           <th>Part Number</th>
                           <th>Qty</th>
                           <th>Price</th>
+                          <th>Total Price</th>
                           <th>Order Status</th>
                       </tr>
                       <?php foreach ($orderData as $order) { ?>
                           <tr>
-                              <td><?php echo $order['product_name']; ?></td>
+                              <td><?php echo $order['product_name']; ?>&nbsp;<?php echo $order['parent']; ?></td>
                               <td><?php echo $order['product_description']; ?></td>
                               <td><?php echo $order['variant_name']; ?></td>
                               <td><?php echo $order['variant_sku']; ?></td>
                               <td><?php echo $order['product_quantity']; ?></td>
                               <td><?php echo $order['product_amount']; ?></td>
+                              <td><?php echo $order['total_amount']; ?></td>
                               <td><?php echo $order['order_status']; ?></td>
                           </tr>
                       <?php } ?>
                       <tr>
-                          <td colspan="5">Total</td>
+
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Discount :
+                        <?php
+                                  $discount = 0;
+                                  foreach ($orderData as $dis) {
+                                      $discount = $dis['product_discount'];
+                                  }
+
+                                  if($dis['discount_type'] = 'Percentage' ){
+
+                                    echo $discount."%";
+                                  }else{
+                                    echo $discount."Rs";
+                                  }
+                              ?>
+
+
+                        </td>
+                        <td colspan="2">Grand Total</td>
                           <td>
                               <?php
                                   $grandTotal = 0;
                                   foreach ($orderData as $order) {
-                                      $grandTotal += $order['product_amount'];
+                                      $grandTotal = $order['final_total_ammount'];
                                   }
                                   echo $grandTotal;
                               ?>

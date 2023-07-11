@@ -271,22 +271,23 @@ class UserController extends BaseController
     ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
     ->join('category', 'category.category_id = sub_category.category_id', 'left')
     ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+    ->join('shipping_address','shipping_address.order_id = tbl_order.order_id')
     ->where('users.user_id', $userId)
-    ->orderBy('tbl_order.order_id', 'ASC') // Order by order ID in ascending order
+    ->orderBy('tbl_order.order_id', 'ASC') 
     ->get();
 
 $orderData = $query1->getResultArray();
 
-$ordersByOrderId = []; // Array to store orders by order ID
+$ordersByOrderId = []; 
 
 foreach ($orderData as $order) {
     $orderId = $order['order_id'];
 
     if (!isset($ordersByOrderId[$orderId])) {
-        $ordersByOrderId[$orderId] = []; // Initialize an array for each order ID
+        $ordersByOrderId[$orderId] = []; 
     }
 
-    $ordersByOrderId[$orderId][] = $order; // Add the order to the corresponding order ID array
+    $ordersByOrderId[$orderId][] = $order; 
 }
 
 // echo "<pre>";
@@ -425,8 +426,10 @@ foreach ($orderData as $order) {
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->join('shipping_address','shipping_address.order_id = tbl_order.order_id')
             ->where('tbl_order.order_id', $orderId)
             ->get();
+            
     
         $orderData = $query->getResultArray();
     
@@ -440,6 +443,9 @@ foreach ($orderData as $order) {
         ];
     
         $html = view('front/order_pdf', $data);
+
+    //    echo $html;
+    //    die();
     
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->WriteHTML($html);
