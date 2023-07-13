@@ -36,8 +36,7 @@ class UserController extends BaseController
         if (!$companyData) {
             $companyData = null;
         }
-
-        return view('front/register', ['countryData' => $countryData, 'headerData' => $headerData,'companyData'=>$companyData]);
+        return view('front/register', ['countryData' => $countryData, 'headerData' => $headerData, 'companyData' => $companyData]);
     }
     public function registerSave()
     {
@@ -50,7 +49,6 @@ class UserController extends BaseController
             $session->setFlashdata('error', 'Email already exists. Please use a different email.');
             return redirect()->to('register');
         }
-
         // Validate password and confirm password
         $password = $input['password'];
         $confirmPassword = $input['c_password'];
@@ -58,7 +56,6 @@ class UserController extends BaseController
             $session->setFlashdata('error', 'Password and confirm password do not match.');
             return redirect()->to('register');
         }
-
         // Encrypt the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -82,8 +79,6 @@ class UserController extends BaseController
             'fax' => $input['fax']
 
         ];
-
-
 
         if (isset($input['user_id']) && $input['user_id'] != '') {
             $usermodel->update(['user_id' => $input['user_id']], $userArr);
@@ -122,17 +117,13 @@ class UserController extends BaseController
                     'user_id' => $checkExists['user_id'],
                     'full_name' => $checkExists['full_name'],
                     'email' => $checkExists['email'],
-                    'company_name' =>$checkExists['company_name'],
+                    'company_name' => $checkExists['company_name'],
                     'logged_in' => true,
                 ];
                 $session->set($ses_data);
 
                 $product_details = $session->get('product_details');
-                
-                // echo "<pre>";
-                // print_r($product_details);
-                // die();
-                
+
                 if ($product_details) {
 
                     $redirect_url = $product_details;
@@ -152,10 +143,6 @@ class UserController extends BaseController
             return redirect()->to('login');
         }
     }
-   
-    
-
-
 
     public function logout()
     {
@@ -168,7 +155,6 @@ class UserController extends BaseController
     {
         $session = session();
         $usermodel = new UserModel();
-        //$userData = $usermodel->find();
         $userData = $usermodel->where('user_id', $user_id)->first();
         if (!$userData) {
             $userData = null;
@@ -185,11 +171,7 @@ class UserController extends BaseController
             $companyData = null;
         }
 
-        // echo "<pre>"; 
-        // print_r($companyData);
-        // die();
-
-        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData,'companyData'=>$companyData]);
+        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData, 'companyData' => $companyData]);
     }
 
     public function edit_user_profile()
@@ -199,10 +181,8 @@ class UserController extends BaseController
         $session = session();
         $input = $this->request->getVar();
 
-
         $user_id = $input['user_id'];
 
-        // $userArr = [];
         $userArr['full_name'] = $input['first_name'] . " " . $input['last_name'];
         $userArr['email'] = isset($input['email']) ? $input['email'] : '';
         $userArr['first_name'] = isset($input['first_name']) ? $input['first_name'] : '';
@@ -220,9 +200,7 @@ class UserController extends BaseController
         $userArr['phone'] = isset($input['phone']) ? $input['phone'] : '';
         $userArr['fax'] = isset($input['fax']) ? $input['fax'] : '';
 
-        //  echo "<pre>";
-        // print_r($userArr);
-        // die();
+
         if (isset($input['user_id']) && $input['user_id'] != '') {
             $usermodel->update(['user_id' => $input['user_id']], $userArr);
         }
@@ -241,72 +219,67 @@ class UserController extends BaseController
             $userData = null;
         }
         return redirect()->back();
-        
     }
     public function my_order($user_id)
-{
-    $session = session();
-    $usermodel = new UserModel();
-    $userData = $usermodel->where('user_id', $user_id)->first();
-    if (!$userData) {
-        $userData = null;
+    {
+        $session = session();
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_id', $user_id)->first();
+        if (!$userData) {
+            $userData = null;
+        }
+
+        $countrymodel = new CountryModel();
+        $countryData = $countrymodel->find();
+        if (!$countryData) {
+            $countryData = null;
+        }
+
+        $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+        $cartData = $orderitemmodel->find();
+        $userId = $session->get('user_id');
+
+        $query1 = $orderitemmodel->select('*')
+            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id')
+            ->where('users.user_id', $userId)
+            ->orderBy('tbl_order.order_id', 'ASC')
+            ->get();
+
+        $orderData = $query1->getResultArray();
+        $ordersByOrderId = [];
+        foreach ($orderData as $order) {
+            $orderId = $order['order_id'];
+            if (!isset($ordersByOrderId[$orderId])) {
+                $ordersByOrderId[$orderId] = [];
+            }
+            $ordersByOrderId[$orderId][] = $order;
+        }
+        $shippingmodel = new ShippingModel();
+
+        $shipping = null;
+
+        if (!empty($orderData) && isset($orderData[0]['order_id'])) {
+            $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
+        }
+
+        if (!$shipping) {
+            $shipping = null;
+        }
+
+        if (!$orderData) {
+            $orderData = null;
+        }
+
+        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
+        return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
     }
-
-    $countrymodel = new CountryModel();
-    $countryData = $countrymodel->find();
-    if (!$countryData) {
-        $countryData = null;
-    }
-
-    $ordermodel = new OrderModel();
-    $orderitemmodel = new OrderItemModel();
-    $cartData = $orderitemmodel->find();
-    $userId = $session->get('user_id');
-
-    // Fetch orders from different tables based on order IDs
-    $query1 = $orderitemmodel->select('*')
-    ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-    ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-    ->join('product', 'product.product_id = product_variants.product_id', 'left')
-    ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-    ->join('category', 'category.category_id = sub_category.category_id', 'left')
-    ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-    ->join('shipping_address','shipping_address.order_id = tbl_order.order_id')
-    ->where('users.user_id', $userId)
-    ->orderBy('tbl_order.order_id', 'ASC') 
-    ->get();
-
-$orderData = $query1->getResultArray();
-
-$ordersByOrderId = []; 
-
-foreach ($orderData as $order) {
-    $orderId = $order['order_id'];
-
-    if (!isset($ordersByOrderId[$orderId])) {
-        $ordersByOrderId[$orderId] = []; 
-    }
-
-    $ordersByOrderId[$orderId][] = $order; 
-}
-
-// echo "<pre>";
-// print_r($ordersByOrderId);
-// die();
-    if (!$orderData) {
-        $orderData = null;
-    }
-
-    return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
-    return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
-
-
-}
-
-
-
-
-
     // -----------------------------------------------
     public function forgotPassword()
     {
@@ -353,9 +326,6 @@ foreach ($orderData as $order) {
     </html>
 ');
 
-        // echo "<pre>";
-        // print_r($emailService);
-        // die();
 
         if ($emailService->send()) {
             return redirect()->back()->with('success', 'Password reset link has been sent to your email.');
@@ -366,33 +336,35 @@ foreach ($orderData as $order) {
 
     public function reset($token)
     {
-        
-         return view('front/reset_password', [
-                'token' => $token,
-               
-            ]);
+
+        return view('front/reset_password', [
+            'token' => $token,
+
+        ]);
     }
-    public function reset_password($token){
+    public function reset_password($token)
+    {
         $session = session();
         $model = new UserModel();
         $user = $model->where('reset_token', $token)->first();
-    
+
         if (!$user || strtotime($user['reset_token_expires_at']) < time()) {
             return view('front/reset_password', [
                 'token' => $token,
                 'error' => 'Token expired'
             ]);
         }
-    
+
         $password = $this->request->getPost('password');
         $confirmPassword = $this->request->getPost('confirm_password');
-    
+
         if ($password != $confirmPassword) {
             $session->setFlashdata('error', 'Password Not Match.');
             return view('front/reset_password', [
-                'token' => $token]);
+                'token' => $token
+            ]);
         }
-    
+
         // Update the user's password
         $model->update($user['user_id'], [
             'password' => password_hash($password, PASSWORD_DEFAULT),
@@ -400,10 +372,10 @@ foreach ($orderData as $order) {
             'reset_token_expires_at' => null
         ]);
         $session->setFlashdata('success', 'Password reset successfully.');
-    return redirect()->to('login'); // Update with the appropriate login route or URL
+        return redirect()->to('login'); // Update with the appropriate login route or URL
     }
-    
-    
+
+
     private function isTokenValid($expiresAt)
     {
         return strtotime($expiresAt) > time();
@@ -414,10 +386,10 @@ foreach ($orderData as $order) {
     {
         $orderId = $this->request->getPost('order_id');
         $pdfFilePath = 'Invoice/' . $orderId . '.pdf';
-    
+
         $ordermodel = new OrderModel();
         $orderitemmodel = new OrderItemModel();
-    
+
         // Fetch order data
         $query = $orderitemmodel->select('*')
             ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
@@ -426,31 +398,39 @@ foreach ($orderData as $order) {
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            ->join('shipping_address','shipping_address.order_id = tbl_order.order_id')
+            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id')
             ->where('tbl_order.order_id', $orderId)
             ->get();
-            
-    
+
+
         $orderData = $query->getResultArray();
-    
+
         $ordersByOrderId = [$orderId => $orderData];
-    
+
+        $shippingmodel = new ShippingModel();
+        $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
+
+        if (!$shipping) {
+            $shipping = null;
+        }
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_id', $orderData[0]['user_id'])->first();
+        if (!$userData) {
+            $userData = null;
+        }
+
         $data = [
-            'userData' => null, // Modify this with your actual user data
-            'countryData' => null, // Modify this with your actual country data
+            'userData' => $userData,
+            'countryData' => null,
             'orderData' => $orderData,
-            'ordersByOrderId' => $ordersByOrderId
+            'ordersByOrderId' => $ordersByOrderId,
+            'shipping' => $shipping
         ];
-    
+
         $html = view('front/order_pdf', $data);
 
-    //    echo $html;
-    //    die();
-    
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->WriteHTML($html);
         $mpdf->Output($pdfFilePath, 'D');
     }
-    
-    
 }

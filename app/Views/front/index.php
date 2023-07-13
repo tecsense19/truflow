@@ -55,9 +55,6 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="banner_sub">
         <div class="container">
             <div class="row">
-
-
-
                 <div class="carousel_banner owl-carousel" id="carousel_banner">
                     <?php
                     if (isset($sliderData)) {
@@ -66,8 +63,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 'upper' => 'product/3',
                                 'lower' => 'product/2'
                             ],
-                            1 => 'sub-category/1',
-                            2 => 'sub-category/1'
+                            1 => 'sub/category/1',
+                            2 => 'sub/category/1'
                         ];
 
                         foreach ($sliderData as $index => $val) {
@@ -84,7 +81,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         // Display multiple links for the first image on hover
                                         $upperLink = $imageLink['upper'];
                                         $lowerLink = $imageLink['lower'];
-                    ?>
+                                        ?>
                                         <div class="item main_banner_img_new">
                                             <div class="hover-image">
                                                 <div class="image">
@@ -158,20 +155,20 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 <!-- ------------------- -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> BANNER END <<~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT US START <<~~~~~~~~~~~~~~~~~~~~-->
-<section class="about_main text-center">
+<!-- <section class="about_main text-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="about_sub">
-                    <h5><?php echo $about_title; ?></h5>
-                    <h2><?php echo $about_sub_title; ?></h2>
-                    <?php echo $about_description; ?>
-                    <a href="<?php echo $about_button_link; ?>"><button type="button" class="btn about_d"> <?php echo $about_button_text; ?> </button></a>
+                    <h5><?php //echo $about_title; ?></h5>
+                    <h2><?php //echo $about_sub_title; ?></h2>
+                    <?php //echo $about_description; ?>
+                    <a href="<?php //echo $about_button_link; ?>"><button type="button" class="btn about_d"> <?php //echo $about_button_text; ?> </button></a>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT US END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~>> INSTANT OREDRE START <<~~~~~~~~~~~~~~~~~~~-->
 <section class="instant_main">
@@ -241,13 +238,16 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="lorem_overlay">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="lorem_heading text-center">
-                        <h2><?php echo $contact_title; ?></h2>
-                        <p><?php echo $contact_description; ?></p>
-                        <a href="<?php echo $contact_button_link; ?>"><button type="button" class="btn"> <?php echo $contact_button_text; ?> </button></a>
+               
+                    <div class="col-lg-12 about">
+                    <div class="about_sub lorem_heading text-center">
+                        <h4 class="about_title"><?php echo $about_title; ?></h4>
+                        <h2 class="mt-5"><?php echo $about_sub_title; ?></h2>
+                        <p><?php echo $about_description; ?></p>
+                        <a href="<?php echo $about_button_link; ?>"><button type="button" class="btn "> <?php echo $about_button_text; ?> </button></a>
                     </div>
-                </div>
+                    </div>
+               
             </div>
         </div>
     </div>
@@ -361,7 +361,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 
 <!--~~~~~~~~~~~~~~~~~~~~>> OUR PRODUCTS END <<~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~>> TESTIMONIALS START <<~~~~~~~~~~~~~~~~~ -->
-<section class="testimonial_main">
+<!-- <section class="testimonial_main">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -376,32 +376,32 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                 <div class="container">
                     <div class="owl-carousel-2 owl-carousel owl-theme">
 
-                        <?php if ($testimonalData) { ?>
-                            <?php foreach ($testimonalData as $testominal) { ?>
+                        <?php //if ($testimonalData) { ?>
+                            <?php //foreach ($testimonalData as $testominal) { ?>
                                 <div class="item">
                                     <div class="test_img">
-                                        <img src="<?php echo base_url() . $testominal['testimo_img'] ?>" alt="client" class="img-fluid testominal_img">
+                                        <img src="<?php //echo base_url() . $testominal['testimo_img'] ?>" alt="client" class="img-fluid testominal_img">
                                     </div>
                                     <div class="testi_card text-center">
                                         <div class="test_text">
-                                            <h5><?php echo $testominal['full_name']; ?></h5>
-                                            <h6><?php echo $testominal['designation']; ?></h6>
+                                            <h5><?php //echo $testominal['full_name']; ?></h5>
+                                            <h6><?php //echo $testominal['designation']; ?></h6>
                                         </div>
                                         <div class="test_icon">
                                             <i class="fa-solid fa-quote-left"></i>
                                         </div>
-                                        <?php echo $testominal['description']; ?>
+                                        <?php //echo $testominal['description']; ?>
                                     </div>
                                 </div>
-                            <?php } ?>
-                        <?php } ?>
+                            <?php //} ?>
+                        <?php //} ?>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--~~~~~~~~~~~~~~~~~~~>> TESTIMONIALS END <<~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~>> PARTNER LOGO START <<~~~~~~~~~~~~~~~-->
 <section class="partner_main">

@@ -22,102 +22,86 @@ $cartCount = session('cartCount');
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <?php if (isset($headerData)) { ?>
-                    <?php foreach ($headerData as $header) {
-                    ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url() . $header['menu_link']; ?>"><?php echo $header['header_menu']; ?></a>
-                        </li>
-                    <?php } ?>
+        <ul class="navbar-nav">
+            <?php if (isset($headerData)) { ?>
+                <?php foreach ($headerData as $header) {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url() . $header['menu_link']; ?>"><?php echo $header['header_menu']; ?></a>
+                    </li>
                 <?php } ?>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">CONTACT US</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Link 1</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
-                        <a class="dropdown-item" href="#">Link 3</a>
-                    </div>
-                </li> -->
-            </ul>
-            <div class="media_icons">
-                <a class="button1" href="#">
-                    <span><i class="fa-brands fa-facebook-f"></i></span>
-                </a>
-                <a class="button1 button2" href="#">
-                    <span><i class="fa-brands fa-instagram"></i></span>
-                </a>
-                <div class="header-search-wrapper media_space">
-                    <!-- search button -->
-                    <span class="search-main">
-                        <i class="fa fa-search"></i>
-                    </span>
-                    <div class="search-form-main clearfix">
-                        <form role="search" method="POST" class="search-form" id="Ajax_search">
-                            <div class="Ajax_search">
-                                <label>
-                                    <input type="search" class="search-field" placeholder="Search …" value="" id="search" name="search">
-                                </label>
-                                <input type="button" class="btn btn-primary search_submit" value="search" onclick="searchProduct()">
-                            </div>
-
-                            <div id="search-result"></div>
-                        </form>
-                    </div>
-                </div>
-                <!-- search  button end-->
-                <div class="heart_top">
-                    <a href="<?php echo base_url('wishlist') ?>" class="heart">
-                        <i class="fa-regular fa-heart media_space" data-toggle="tooltip" data-placement="top" title="wish list"></i></a>
-
-                    <?php if (isset($wishlistCount) && $wishlistCount > 0) { ?>
-                        <span class="wishlist_products_counter_number"><?php echo $wishlistCount; ?></span>
-                    <?php }else{ ?>
-                        <span class="wishlist_products_counter_number">0</span>
-                        <?php }?>
-                </div>
-
-
-
-                <div class="heart_top">
-                    <a href="<?php echo base_url('add/cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
-
-                    <?php if (isset($cartCount) && $cartCount > 0) { ?>
-                        <span class="add_to_cart_counter_number"><?php echo $cartCount; ?></span>
-                    <?php }else{ ?>
-                        <span class="add_to_cart_counter_number">0</span>
-                        <?php }?>
-                    </a>
-                </div>
-
-                <?php
-                if ($session->get('logged_in') && $fullName) { ?>
-
-                    <div class="heart_top5 media_space">
-                        <a href="<?php echo base_url('userProfile/') . $user_id ?>" class="register_user"><?php echo "Hi, $fullName "; ?></a>
-                    </div>
-
-                    <div class="heart_top6 media_space">
-                        <a href="<?php echo base_url('order/') . $user_id ?>" class="my_order">My Order</a>
-                    </div>
-
-                    <div class="heart_top4 media_space">
-                        <a href="<?php echo base_url('logout') ?>" class="login_user">Logout</a>
-                    </div>
-
-                <?php } else { ?>
-
-                    <div class="heart_top3 media_space">
-                        <a href="<?php echo base_url('register') ?>" class="register_user">Register</a>
-                    </div>
-                    <div class="heart_top4 media_space">
-                        <a href="<?php echo base_url('login') ?>" class="login_user">Login</a>
-                    </div>
-
-                <?php } ?>
+            <?php } ?> 
+        </ul>
+        </div> 
+        <div class="search-form-main clearfix">
+        <form role="search" method="POST" class="search-form" id="Ajax_search">
+    <div class="Ajax_search">
+        <div class="input-group">
+            <input type="search" class="search-field form-control" placeholder="Search …" value="" id="search" name="search">
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
             </div>
         </div>
+    </div>
+    <div id="search-result"></div>
+</form>
+</div>
+        
         <!-- container end -->
     </div>
+    <div class="media_icons">
+        <div class="heart_top">
+                <a href="<?php echo base_url('wishlist') ?>" class="heart">
+                    <i class="fa-regular fa-heart media_space" data-toggle="tooltip" data-placement="top" title="wish list"></i></a>
+
+                <?php if (isset($wishlistCount) && $wishlistCount > 0) { ?>
+                    <span class="wishlist_products_counter_number"><?php echo $wishlistCount; ?></span>
+                <?php }else{ ?>
+                    <span class="wishlist_products_counter_number">0</span>
+                    <?php }?>
+            </div>
+            <div class="heart_top">
+                <a href="<?php echo base_url('add/cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
+
+                <?php if (isset($cartCount) && $cartCount > 0) { ?>
+                    <span class="add_to_cart_counter_number"><?php echo $cartCount; ?></span>
+                <?php }else{ ?>
+                    <span class="add_to_cart_counter_number">0</span>
+                    <?php }?>
+                </a>
+            </div>
+        </div>
+    <div class="dropdown show">
+    <?php if ($session->get('logged_in') && $fullName) { ?>
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <?php echo "Hi, $fullName "; ?>
+  </a>
+  <?php } else { ?>
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Login
+  </a>
+    <?php } ?>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+  <?php if ($session->get('logged_in') && $fullName) { ?>
+    <a class="dropdown-item" href="<?php echo base_url('userProfile/') . $user_id ?>"><?php echo "Hi, $fullName "; ?></a>
+    <a class="dropdown-item" href="<?php echo base_url('order/') . $user_id ?>">My Order</a>
+    <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Logout</a>
+
+    <?php } else { ?>
+
+        <a class="dropdown-item" href="<?php echo base_url('login') ?>">Login</a>
+        <a class="dropdown-item" href="<?php echo base_url('register') ?>">Register</a>
+
+        <?php } ?>
+
+  </div>
+</div>
+    
+    
 </nav>
+
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

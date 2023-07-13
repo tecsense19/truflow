@@ -16,6 +16,7 @@ use App\Models\UserContactModel;
 use App\Models\UserModel;
 use App\Models\CompanyModel;
 use App\Models\SliderModel;
+use App\Models\ProductRatingModel;
 
 $session = \Config\Services::session();
 
@@ -313,6 +314,16 @@ class Home extends BaseController
         $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
+
+        $productratingmodel = new ProductRatingModel();
+        //$ratingData = $productratingmodel->select_avg('rat_number')->where('product_id', $product_id)->findAll();
+        $ratingData = $productratingmodel->select('AVG(rat_number) as average_rating')->where('product_id', $product_id)->first();
+        $averageRating = $ratingData['average_rating'];
+
+        $rating = $productratingmodel->select('*')->where(['product_id' => $product_id])->countAllResults();
+        // echo "<pre>";
+        // print_r($averageRating);
+        // die();
     
         return view('front/product_details', [
             'headerData' => $headerData,
@@ -320,7 +331,9 @@ class Home extends BaseController
             'productDataPrice' => $productDataPrice,
             'addwishData' => $addwishData,
             'sub_cat_data' => $newData_p,
-            'wishlistCount' => $wishlistCount
+            'wishlistCount' => $wishlistCount,
+            'averageRating' => $averageRating,
+            'rating'=>$rating
 
         ]);
     }
@@ -681,6 +694,32 @@ class Home extends BaseController
         $usercontactmodel->insert($data);
 
         $session->setFlashdata('success', 'Submit Your Details Successfully.');
+
+        return redirect()->back();
+    }
+    public function addfeedback()
+    {
+           
+        $productratingmodel = new ProductRatingModel();
+        $session = session();
+        $user_id = session()->get('user_id');
+        $rat_number = $this->request->getVar('rating');
+        $rat_message = $this->request->getVar('message');
+        $product_id = $this->request->getVar('product_id');
+        
+
+        $data = array(
+
+            'rat_user' => $user_id,
+            'rat_message' => $rat_message,
+            'rat_number' => $rat_number,
+            'rat_date' => date("Y-m-d"),
+            'product_id' => $product_id
+
+        );
+        $productratingmodel->insert($data);
+
+        $session->setFlashdata('success', 'Submit Your Feedback Successfully.');
 
         return redirect()->back();
     }

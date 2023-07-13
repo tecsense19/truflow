@@ -1,0 +1,314 @@
+ERROR - 2023-07-12 04:37:34 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(32): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(32): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-12 04:37:34 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `site_settings`
+WHERE `type` = :type:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Home.php(32): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:10:55 --> Undefined array key "ship_to_diff_address"
+in APPPATH\Views\front\order_pdf.php on line 60.
+ 1 APPPATH\Views\front\order_pdf.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ship_to_diff_address"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php', 60)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/order_pdf', [], true)
+ 5 APPPATH\Controllers\UserController.php(445): view('front/order_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:11:58 --> Undefined array key "ship_to_diff_address"
+in APPPATH\Views\front\order_pdf.php on line 60.
+ 1 APPPATH\Views\front\order_pdf.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ship_to_diff_address"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php', 60)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/order_pdf', [], true)
+ 5 APPPATH\Controllers\UserController.php(445): view('front/order_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:33:25 --> Illegal offset type in isset or empty
+in APPPATH\Controllers\UserController.php on line 301.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:34:11 --> Illegal offset type in isset or empty
+in APPPATH\Controllers\UserController.php on line 301.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:34:32 --> Illegal offset type in isset or empty
+in APPPATH\Controllers\UserController.php on line 301.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:34:38 --> Illegal offset type in isset or empty
+in APPPATH\Controllers\UserController.php on line 301.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:34:47 --> Illegal offset type in isset or empty
+in APPPATH\Controllers\UserController.php on line 301.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:51:34 --> Undefined array key "order_id"
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "order_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:53:47 --> Undefined variable $shipping
+in APPPATH\Views\front\order_pdf.php on line 70.
+ 1 APPPATH\Views\front\order_pdf.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $shipping', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php', 70)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/order_pdf', [], true)
+ 5 APPPATH\Controllers\UserController.php(452): view('front/order_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:56:53 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:57:37 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 05:57:41 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:02:36 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:03:41 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:04:55 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:05:28 --> Undefined array key 0
+in APPPATH\Controllers\UserController.php on line 294.
+ 1 APPPATH\Controllers\UserController.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->my_order('22')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:34:01 --> Trying to access array offset on value of type null
+in APPPATH\Views\front\order_pdf.php on line 66.
+ 1 APPPATH\Views\front\order_pdf.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php', 66)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/order_pdf', [], true)
+ 5 APPPATH\Controllers\UserController.php(467): view('front/order_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:36:14 --> Undefined variable $user_id
+in APPPATH\Controllers\UserController.php on line 458.
+ 1 APPPATH\Controllers\UserController.php(458): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user_id', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 458)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 06:41:08 --> Array to string conversion
+in APPPATH\Views\front\order_pdf.php on line 75.
+ 1 APPPATH\Views\front\order_pdf.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php', 75)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\order_pdf.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/order_pdf', [], true)
+ 5 APPPATH\Controllers\UserController.php(471): view('front/order_pdf', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->generate_pdf()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-12 12:24:27 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-07-12 12:24:27 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-12 12:24:27 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `header_menu`', [], false)
+ 3 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(557): CodeIgniter\Model->doFind(false, null)
+ 5 APPPATH\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-12 12:24:27 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `header_menu`', [], false)
+ 3 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(557): CodeIgniter\Model->doFind(false, null)
+ 5 APPPATH\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-12 12:24:46 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(557): CodeIgniter\Model->doFind(false, NULL)
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-12 12:24:46 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `header_menu`', [], false)
+ 3 SYSTEMPATH\Model.php(203): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(557): CodeIgniter\Model->doFind(false, null)
+ 5 APPPATH\Controllers\Home.php(248): CodeIgniter\BaseModel->find()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

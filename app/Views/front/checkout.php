@@ -122,7 +122,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                   <div class="col-md-12">
                     <div class="checkout-option-wrapper">
                       <div class="checkout-option">
-                        <input id="ship_to_diff_address" type="checkbox" name="ship_to_diff_address">
+                        <input id="ship_to_diff_address" type="checkbox" name="ship_to_diff_address" value="1">
                         <label for="ship_to_diff_address">Ship to a different address?</label>
                       </div>
                     </div>

@@ -31,7 +31,7 @@
                                 <a href="<?php echo base_url('shop'); ?>">Our Products</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('userContact'); ?>">Contact Us</a>
+                                <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="number">
                             <a href="tel:+61894512204">
                                 <i class="fa-solid fa-phone"></i>
-                                <span class="rr">(+61) 894 512 204</span>
+                                <span class="rr">(+61) 08 9451 2204</span>
                             </a>
                         </div>
                         <div class="number">
@@ -593,8 +593,6 @@
 
     }
 </script>
-
-
 
 <script>
     $(document).ready(function() {

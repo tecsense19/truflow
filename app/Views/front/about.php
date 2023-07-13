@@ -35,7 +35,7 @@
   </div>
 </section>
 <section id="story">
-  <div class="container">
+  <div class="container mb-5">
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="chart_img">
@@ -54,7 +54,7 @@
 <!---========= Story Section End ========= --->
 
 <!--- ========== Team Section Start ======== -->
-<section id="team">
+<!-- <section id="team">
   <div class="container">
     <div class="main_box">
       <h2 class="title_h2">OUR TEAM</h2>
@@ -110,7 +110,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>     

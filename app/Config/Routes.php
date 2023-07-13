@@ -33,7 +33,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/shop', 'Home::shop');
-$routes->get('/sub-category/(:num)', 'Home::sub_category/$1');
+$routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
 $routes->get('/product/(:num)', 'Home::product/$1');
 $routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');
@@ -50,11 +50,12 @@ $routes->get("delete_check/(:num)", "Home::cartDelete_check/$1");
 $routes->get('/terms/condition', 'Home::terms_and_condition');
 $routes->get('/privacypolicy', 'Home::privacy_policy');
 $routes->get('/disclaimer', 'Home::disclaimer');
-$routes->get('/userContact', 'Home::userContact');
+$routes->get('/contact', 'Home::userContact');
 $routes->post("contact/save", "Home::contactSave");
 
 $routes->post('/searchSimilarData', 'Home::searchSimilarData');
 
+$routes->post('/feedback', 'Home::addfeedback');
 
 
 //check coupon
