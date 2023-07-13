@@ -14,7 +14,7 @@ $cartCount = session('cartCount');
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid">
+            <img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>

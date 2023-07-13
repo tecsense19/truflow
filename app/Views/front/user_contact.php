@@ -38,8 +38,8 @@
             </a>
            
               <li><i class="fa-regular fa-clock"></i> Monday – Friday 8:00 to 19:00</li>
-              <a href="mailto:sales@truflowwhydraulic.com.au">
-              <li><i class="fa-regular fa-life-ring"></i> sales@truflowwhydraulic.com.au</li>
+              <a href="mailto: sales@truflowhydraulic.com.au">
+              <li><i class="fa-regular fa-life-ring"></i> sales@truflowhydraulic.com.au</li>
               </a>
              
             </ul>

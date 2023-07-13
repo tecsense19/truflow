@@ -2082,6 +2082,7 @@ input.search_submit {
 .product_slider_img{
     width: 150px;
     height: 150px;
+    object-fit: contain;
 }
 input#part_num {
     margin: 0px 15px 15px 0
@@ -2131,6 +2132,8 @@ input#quality {
   .product_img{
     overflow: hidden;
     height: 200px;
+    object-fit: contain;
+  
    
   }
   /* div#search-result {

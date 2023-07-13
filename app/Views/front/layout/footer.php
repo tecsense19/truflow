@@ -46,9 +46,9 @@
                             </a>
                         </div>
                         <div class="number">
-                            <a href="mailto:sales@truflowwhydraulic.com.au">
+                            <a href="mailto: sales@truflowhydraulic.com.au">
                                 <i class="fa-solid fa-envelope"></i>
-                                <span><a href="mailto:sales@truflowwhydraulic.com.au" class="rr">sales@truflowwhydraulic.com.au</a></span>
+                                <span><a href="mailto: sales@truflowhydraulic.com.au" class="rr"> sales@truflowhydraulic.com.au</a></span>
                             </a>
                         </div>
                         <div class="number">
