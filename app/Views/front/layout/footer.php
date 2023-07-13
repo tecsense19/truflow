@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 col-lg-5">
                     <div class="footer_logo">
-                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/front/images/logo.png" alt="logo" class="img-fluid"></a>
+                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid"></a>
                         <p> </p>
                         <div class="footer_icon">
                             <a class="button1" href="#">

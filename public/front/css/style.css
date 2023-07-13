@@ -736,6 +736,7 @@ div.owl-carousel-1 .owl-carousel .owl-nav .owl-next {
     padding: 0 0 10px 0;
     font-family: var(--Montserrat);
     text-transform: uppercase;
+    min-height: 46px;
 }
 .product_card button{
     border: 0;
