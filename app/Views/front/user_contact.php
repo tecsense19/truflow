@@ -36,9 +36,7 @@
             <a href="tel:+61894512204">
               <li><i class="fa-solid fa-phone"></i> (+61) 08 9451 2204</li>
             </a>
-            <a href="tel:+61894512204">
-              <li><i class="fa fa-fax" aria-hidden="true"></i> (+61) 08 9451 2204</li>
-            </a>
+           
               <li><i class="fa-regular fa-clock"></i> Monday – Friday 8:00 to 19:00</li>
               <a href="mailto:sales@truflowwhydraulic.com.au">
               <li><i class="fa-regular fa-life-ring"></i> sales@truflowwhydraulic.com.au</li>
