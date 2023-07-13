@@ -2019,7 +2019,7 @@ input[type=number] {
 
   .card-img-top {
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
 }
 .card{
     margin: 5px;
