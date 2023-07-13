@@ -2892,3 +2892,8 @@ h6.rating {
     border: 0;
     width: 395px;
 }
+a#dropdownMenuLink {
+    color: #005dab;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
