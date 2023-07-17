@@ -1,0 +1,567 @@
+CRITICAL - 2023-07-14 05:52:32 --> Undefined array key "childSubCategoryData"
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 49.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "childSubCategoryData"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(25): view('admin/child_sub_category/child_sub_category_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 05:53:20 --> Undefined array key "childSubCategoryData"
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 49.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "childSubCategoryData"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(30): view('admin/child_sub_category/child_sub_category_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 05:54:37 --> Undefined array key "childSubCategoryData"
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 49.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "childSubCategoryData"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(31): view('admin/child_sub_category/child_sub_category_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 05:54:55 --> Undefined variable $product
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 53.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(31): view('admin/child_sub_category/child_sub_category_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:01:48 --> Undefined variable $child_sub_category_id
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 162.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(162): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $child_sub_category_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 162)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(50): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:03:03 --> Undefined variable $child_sub_category_id
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 165.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $child_sub_category_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 165)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(50): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:04:19 --> Undefined variable $child_sub_category_id
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 165.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(165): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $child_sub_category_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 165)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(50): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:09:31 --> Undefined array key "sub_category_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 6.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(57): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:11:12 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 6.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(57): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:11:46 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 6.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 6)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(57): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:42:27 --> Undefined array key "category_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 3.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(57): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:45:00 --> Undefined array key "category_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 3.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(59): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:45:12 --> Undefined array key "sub_category_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 4.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 4)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(59): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:45:20 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 5.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(59): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:52:59 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 5.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(71): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 06:54:29 --> mysqli_sql_exception: Unknown column 'sub_category' in 'where clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_s...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_s...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_s...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_s...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-14 06:54:29 --> Unknown column 'sub_category' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category` = \'sub_category_id\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category` = \'sub_category_id\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category` = \'sub_category_id\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category` = :sub_category:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 06:54:49 --> mysqli_sql_exception: Column 'sub_category_id' in where clause is ambiguous in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_s...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_s...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_s...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_s...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-14 06:54:49 --> Column 'sub_category_id' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_sub_category`.*, `sub_category`.`sub_category_name`, `category`.`category_name`
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 06:55:34 --> mysqli_sql_exception: Column 'sub_category_id' in where clause is ambiguous in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-14 06:55:34 --> Column 'sub_category_id' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `child_sub_category`
+JOIN `sub_category` ON `sub_category`.`sub_category_id` = `child_sub_category`.`sub_category_id`
+JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+WHERE `sub_category_id` = :sub_category_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:56:28 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 5.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:56:51 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 4 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:59:29 --> Undefined variable $category
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 37.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $category', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 37)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 06:59:53 --> Undefined variable $category
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 38.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $category', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:01:11 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 4 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:01:47 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 37.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 4 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:02:50 --> Undefined variable $category
+in APPPATH\Controllers\Admin\ChildSubCategoryController.php on line 49.
+ 1 APPPATH\Controllers\Admin\ChildSubCategoryController.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $category', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ChildSubCategoryController.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:03:26 --> Undefined variable $subcategoryData
+in APPPATH\Controllers\Admin\ChildSubCategoryController.php on line 64.
+ 1 APPPATH\Controllers\Admin\ChildSubCategoryController.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcategoryData', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ChildSubCategoryController.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:03:56 --> Undefined array key "child_id"
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 3.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(65): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-14 07:45:11 --> Undefined variable $sub_child_id
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 100.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sub_child_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 100)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(54): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 11:09:49 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 11:09:49 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:09:49\', \'2023-07-14 11:09:49\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:09:49\', \'2023-07-14 11:09:49\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:09:49\', \'2023-07-14 11:09:49\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 11:11:01 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 11:11:01 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:01\', \'2023-07-14 11:11:01\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:01\', \'2023-07-14 11:11:01\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:01\', \'2023-07-14 11:11:01\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 11:11:28 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 11:11:28 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:28\', \'2023-07-14 11:11:28\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:28\', \'2023-07-14 11:11:28\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'test\', \'2023-07-14 11:11:28\', \'2023-07-14 11:11:28\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(103): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 13:04:51 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 13:04:51 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:04:51\', \'2023-07-14 13:04:51\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:04:51\', \'2023-07-14 13:04:51\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:04:51\', \'2023-07-14 13:04:51\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 13:06:08 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 13:06:08 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:08\', \'2023-07-14 13:06:08\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:08\', \'2023-07-14 13:06:08\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:08\', \'2023-07-14 13:06:08\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-14 13:06:38 --> mysqli_sql_exception: Column 'sub_chid_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-14 13:06:38 --> Column 'sub_chid_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:38\', \'2023-07-14 13:06:38\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:38\', \'2023-07-14 13:06:38\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (NULL, \'2\', \'4\', \'pump sub child 1\', \'2023-07-14 13:06:38\', \'2023-07-14 13:06:38\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`sub_chid_id`, `category_id`, `sub_category_id`, `child_sub_category_name`, `created_at`, `updated_at`) VALUES (:sub_chid_id:, :category_id:, :sub_category_id:, :child_sub_category_name:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\ChildSubCategoryController.php(106): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

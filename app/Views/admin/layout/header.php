@@ -45,6 +45,12 @@
                 <div data-i18n="Basic">Sub Category</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="<?php echo base_url('admin/child_sub_category_list'); ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-category-alt"></i>
+                <div data-i18n="Basic">Child Sub Category</div>
+            </a>
+        </li>
 
         <li class="menu-item">
             <a href="<?php echo base_url('admin/product_list'); ?>" class="menu-link">

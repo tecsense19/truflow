@@ -236,6 +236,20 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post("user_search_data", "ReportController::user_search_data");
     $routes->post("user_export", "ReportController::user_export");
 
+
+    //child sub category
+
+    $routes->get("child_sub_category_list", "ChildSubCategoryController::index");
+    $routes->get("child_sub_category", "ChildSubCategoryController::child_sub_category");
+    $routes->post("child_sub_category/save", "ChildSubCategoryController::child_sub_categorySave");
+    $routes->get("child_sub_category/edit/(:num)", "ChildSubCategoryController::child_sub_categoryEdit/$1");
+    $routes->get("child_sub_category/delete/(:num)", "ChildSubCategoryController::child_sub_categoryDelete/$1");
+    $routes->post('getSubcategories/(:num)', 'ChildSubCategoryController::getSubcategories/$1');
+    $routes->post('getChildSubcategories/(:num)', 'ChildSubCategoryController::getChildSubcategories/$1');
+    $routes->post('getChildSubId/(:num)', 'ChildSubCategoryController::getChildSubId/$1');
+   
+  
+
 });
 
 /*
