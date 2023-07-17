@@ -110,13 +110,22 @@ class ChildSubCategoryController extends BaseController
         return redirect()->to('admin/child_sub_category_list');
     }
 
-    public function child_sub_categoryEdit($child_id)
+    public function child_sub_category_name_save()
     {
-
-
+    $session = session();
+    $childsubcategorymodel = new ChildSubCategoryModel();
+    // Retrieve form input
+    $childsubcategory = [
+        'child_sub_category_name' => $this->request->getPost('child_sub_category_name')
+    ];
+    $childsubcategorymodel->update($_POST['child_id'], $childsubcategory);
+    $session->setFlashdata('success', 'Child subcategory updated successfully.');
+    return redirect()->to('admin/child_sub_category_list');
+}
+    public function child_sub_category_name_edit($child_id)
+    {
         $childsubcategorymodel = new ChildSubCategoryModel();
         $childData = $childsubcategorymodel->find($child_id);
-
 
         if (!$childData) {
             $childData = null;
@@ -127,20 +136,61 @@ class ChildSubCategoryController extends BaseController
         if (!$categoryData) {
             $categoryData = null;
         }
-
+       
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData = $subcategorymodel->find();
         if (!$subcategoryData) {
             $subcategoryData = null;
         }
-
+       
         $variantsmodel = new VariantsModel();
-        $variantData = $variantsmodel->where('child_id', $child_id)->findAll();
+        $variantData = $variantsmodel->where('product_id', $child_id)->findAll();
         if (!$variantData) {
             $variantData = null;
         }
 
+        // print_r($subcategoryData);
+        // die;
+   
+        return view('admin/child_sub_category/child_sub_categoryedit', [
+            'childData' => $childData,
+            'categoryData' => $categoryData,
+            'subcategoryData' => $subcategoryData,
 
+        ]);
+    }
+
+    public function child_sub_categoryEdit($child_id)
+    {
+
+        $childsubcategorymodel = new ChildSubCategoryModel();
+        $childData = $childsubcategorymodel->find($child_id);
+
+        if (!$childData) {
+            $childData = null;
+        }
+
+        $categorymodel = new CategoryModel();
+        $categoryData = $categorymodel->find();
+        if (!$categoryData) {
+            $categoryData = null;
+        }
+       
+        $subcategorymodel = new SubCategoryModel();
+        $subcategoryData = $subcategorymodel->find();
+        if (!$subcategoryData) {
+            $subcategoryData = null;
+        }
+       
+        $variantsmodel = new VariantsModel();
+        $variantData = $variantsmodel->where('product_id', $child_id)->findAll();
+        if (!$variantData) {
+            $variantData = null;
+        }
+
+        // print_r($subcategoryData);
+        // die;
+   
         return view('admin/child_sub_category/child_sub_category', [
             'childData' => $childData,
             'categoryData' => $categoryData,
@@ -148,11 +198,14 @@ class ChildSubCategoryController extends BaseController
 
         ]);
     }
-    public function child_sub_categoryDelete($product_id)
+
+    
+
+    public function child_sub_categoryDelete($child_id)
     {
         $session = session();
-        $productmodel = new ProductModel();
-        $productmodel->delete($product_id);
+        $childsubcategorymodel = new ChildSubCategoryModel();
+        $childsubcategorymodel->delete($child_id);
         $session->setFlashdata('success', 'product Delete succesfully.');
         return redirect()->to('admin/child_sub_category_list');
     }

@@ -1,5 +1,9 @@
 <?= $this->include('front/layout/front'); ?>
+<?php 
+echo "<pre>";
+print_r($ChildSubCategoryData);
 
+die; ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">

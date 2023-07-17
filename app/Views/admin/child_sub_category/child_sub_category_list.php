@@ -50,7 +50,7 @@
                                                     <td><?php echo $childSubCategory['category_name'] ?></td>
                                                     <td><?php echo $childSubCategory['sub_category_name'] ?></td>
                                                     <td>
-                                                        <a class="" href="<?php echo base_url('') . "admin/child_sub_category/edit/" . $childSubCategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                        <a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childSubCategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                         <a class="" href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childSubCategory['child_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
                                                     </td>
                                                 </tr>

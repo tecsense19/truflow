@@ -21,26 +21,26 @@
             <div class="col-lg-3">
                 <div class="panel panel-default side-nav side-nav-category" bis_skin_checked="1">
                     <div class="panel-heading" bis_skin_checked="1">
-                        <strong>Sub Categories</strong>
+                        <strong>Child Sub Categories</strong>
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
                         <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($subcategoryData as $index => $subcategory) : ?>
+                            <?php foreach ($ChildSubCategorydata as $index => $childsubcategory) : ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
-                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>)">
+                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $childsubcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $childsubcategory['sub_category_id']; ?>)">
                                         <p class="panel-title">
                                             <?php if ($index === 0) : ?>
                                                 <i class="fa fa-caret-down"></i>
                                             <?php else : ?>
                                                 <i class="fa fa-caret-right"></i>
                                             <?php endif; ?>
-                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                            <a href="<?php echo base_url('') . "product/" . $childsubcategory['sub_category_id'] ?>"><?php echo strtoupper($childsubcategory['child_sub_category_name']); ?></a>
                                         </p>
                                     </div>
-                                    <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
-                                        <?php if (!empty($subcategory['product_array'])) : ?>
+                                    <div id="collapse<?php echo $childsubcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
+                                        <?php if (!empty($childsubcategory['product_array'])) : ?>
                                             <div class="panel-body">
-                                                <?php foreach ($subcategory['product_array'] as $product) : ?>
+                                                <?php foreach ($childsubcategory['product_array'] as $product) : ?>
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
 
@@ -66,15 +66,14 @@
             <div class="col-lg-9">
                 <div class="row">
 
-                    <?php if (isset($subcategoryData)) { ?>
-                        <?php foreach ($subcategoryData as $subcategory) { ?>
-                            <?php foreach ($ChildSubCategorydata as $subchildcat) { ?>
+                    <?php if (isset($ChildSubCategorydata)) { ?>
+                        <?php foreach ($ChildSubCategorydata as $childsubcategory) { ?>
                             <div class="col-lg-4">
                                 <div class="product_box">
                                     <div class="product_img">
-                                        <?php if (!empty($subcategory['sub_category_img'])) { ?>
+                                        <?php if (!empty($childsubcategory['sub_category_img'])) { ?>
 
-                                            <img class="img-fluid card-img-top" src="<?php echo base_url() . $subcategory['sub_category_img'] ?>" alt="image">
+                                            <img class="img-fluid card-img-top" src="<?php echo base_url() . $childsubcategory['sub_category_img'] ?>" alt="image">
                                         <?php } else { ?>
                                             <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                         <?php } ?>
@@ -82,14 +81,13 @@
                                     <hr>
                                     <div class="product_text text-center">
 
-                                        <a href="<?php echo base_url('') . "childsub/category/" . $subcategory['sub_category_id'] ?>" class="category-link">
-                                            <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
+                                        <a href="<?php echo base_url('') . "childsub_sub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
+                                            <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
                                         </a>
-                                        <span><?php echo $subcategory['sub_category_description']; ?></span>
+                                        <span><?php //echo $subcategory['sub_category_description']; ?></span>
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">

@@ -16,6 +16,7 @@ use App\Models\UserContactModel;
 use App\Models\UserModel;
 use App\Models\CompanyModel;
 use App\Models\SliderModel;
+use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
 
 $session = \Config\Services::session();
@@ -164,6 +165,12 @@ class Home extends BaseController
     }
     public function sub_category($category_id)
     {
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $category_id)->where('sub_chid_id', 0)->findAll();
+        if (!$ChildSubCategorydata) {
+            $ChildSubCategorydata = null;
+        }
+
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -192,14 +199,130 @@ class Home extends BaseController
             $subcategory['product_array'] = $newPro;
             $subcategory1[] = $subcategory;
         }
+   
         return view('front/sub_category', [
             'headerData' => $headerData,
             'subcategoryData' => $subcategory1,
+            'ChildSubCategorydata' => $ChildSubCategorydata,
             'categoryData' => $categoryData
         ]);
     }
+
+    public function child_sub_category($category_id)
+    {
+      
+
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id' , $category_id)
+                                                      ->where('sub_chid_id', 0)->findAll();
+        if (!$ChildSubCategorydata) {
+            $ChildSubCategorydata = null;
+        }
+     
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+       
+        // $categorymodel = new CategoryModel();
+        // $categoryData = $categorymodel->find($category_id);
+        // if (!$categoryData) {
+        //     return redirect()->back();
+        // }
+        // echo "i";
+        // print_r($ChildSubCategorydata);
+        // die;
+     
+        $subcategorymodel = new SubCategoryModel();
+        $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
+        $productmodel = new ProductModel();
+        $variantsmodel = new VariantsModel();
+        $subcategory1 = [];
+        foreach ($subcategoryData as $subcategory) {
+            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
+
+            $newPro = [];
+            foreach ($product as $variant) {
+
+                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $newPro[] = $variant;
+            }
+            $subcategory['product_array'] = $newPro;
+            $subcategory1[] = $subcategory;
+        }
+    
+        return view('front/child_sub_category', [
+            'headerData' => $headerData,
+            'subcategoryData' => $subcategory1,
+            'ChildSubCategorydata' => $ChildSubCategorydata
+            // 'categoryData' => $categoryData
+        ]);
+    }
+
+    public function child_sub_sub_category($category_id)
+    {
+      
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $ChildSubCategorydata1 = $ChildSubCategoryModel->where('sub_chid_id', $category_id)->where('sub_chid_id <>', 0)->findAll();
+      
+        if(!empty($ChildSubCategorydata1[0]['sub_chid_id'])){
+            $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $category_id)->where('sub_chid_id <>', 0)->findAll();
+        }else{
+            return redirect()->back();
+        }
+        //$ChildSubCategorydata2 = $ChildSubCategoryModel->findAll();
+     
+        if (!$ChildSubCategorydata) {
+            $ChildSubCategorydata = null;
+        }
+
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+        // $categorymodel = new CategoryModel();
+        // $categoryData = $categorymodel->find($category_id);
+        // if (!$categoryData) {
+        //     return redirect()->back();
+        // }
+        $subcategorymodel = new SubCategoryModel();
+        $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
+        $productmodel = new ProductModel();
+        $variantsmodel = new VariantsModel();
+        $subcategory1 = [];
+        foreach ($subcategoryData as $subcategory) {
+            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
+
+            $newPro = [];
+            foreach ($product as $variant) {
+
+                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $newPro[] = $variant;
+            }
+            $subcategory['product_array'] = $newPro;
+            $subcategory1[] = $subcategory;
+        }
+
+        return view('front/child_sub_sub_category', [
+            'headerData' => $headerData,
+            'subcategoryData' => $subcategory1,
+            'ChildSubCategorydata' => $ChildSubCategorydata
+        ]);
+    }
+
     public function product($sub_category_id)
     {
+
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $sub_category_id)->findAll();
+        if (!$ChildSubCategorydata) {
+            $ChildSubCategorydata = null;
+        }
+
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -240,6 +363,7 @@ class Home extends BaseController
             'headerData' => $headerData,
             'subcategoryData' => $subcategoryData,
             'subcategoryData1' => $subCatData,
+            'ChildSubCategoryData' => $ChildSubCategorydata,
             'productData' => $newData
         ]);
     }

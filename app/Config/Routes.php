@@ -34,6 +34,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/shop', 'Home::shop');
 $routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
+$routes->get('/childsub/category/(:num)', 'Home::child_sub_category/$1');
+$routes->get('/childsub_sub/category/(:num)', 'Home::child_sub_sub_category/$1');
 $routes->get('/product/(:num)', 'Home::product/$1');
 $routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');
@@ -243,6 +245,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("child_sub_category", "ChildSubCategoryController::child_sub_category");
     $routes->post("child_sub_category/save", "ChildSubCategoryController::child_sub_categorySave");
     $routes->get("child_sub_category/edit/(:num)", "ChildSubCategoryController::child_sub_categoryEdit/$1");
+    $routes->post("child_sub_category/save_name", "ChildSubCategoryController::child_sub_category_name_save");
+    $routes->get("child_sub_category/name_edit/(:num)", "ChildSubCategoryController::child_sub_category_name_edit/$1");
     $routes->get("child_sub_category/delete/(:num)", "ChildSubCategoryController::child_sub_categoryDelete/$1");
     $routes->post('getSubcategories/(:num)', 'ChildSubCategoryController::getSubcategories/$1');
     $routes->post('getChildSubcategories/(:num)', 'ChildSubCategoryController::getChildSubcategories/$1');
