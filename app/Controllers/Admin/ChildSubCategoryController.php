@@ -27,8 +27,66 @@ class ChildSubCategoryController extends BaseController
         if (!$childSubCategoryData) {
             $childSubCategoryData = null;
         }
+        
+       
+        // $subcategoryData = $subcategorymodel->find();
+        // if (!$subcategoryData) {
+        //     $subcategoryData = null;
+        // }
 
-        return view('admin/child_sub_category/child_sub_category_list', ['childSubCategoryData' => $childSubCategoryData]);
+        $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
+        ->join('category', 'category.category_id = sub_category.category_id')
+        ->find();
+
+        if (!$subcategoryData) {
+            $subcategoryData = null;
+        }
+
+        $responseArr = [];
+        $categoryData = $categorymodel->findAll();
+        foreach ($categoryData as $key => $value) 
+        {
+            $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
+            $subArr = [];
+            foreach ($subcategories as $sKey => $sValue) 
+            {
+                $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->findAll();
+                $childArr = [];
+                foreach ($childsubcategories as $cKey => $cValue) 
+                {
+                    $allChild = $this->getCategoryTree($cValue['child_id'], $childsubcategorymodel);
+                    $cValue['all_childs'] = $allChild;
+                    $childArr[] = $cValue;
+                }
+                $sValue['child_arr'] = $childArr;
+                $subArr[] = $sValue;
+            }
+            $value['sub_cat'] = $subArr;
+            $responseArr[] = $value;
+        }
+        // $categories = $this->getCategoryTree(31, $childsubcategorymodel);
+        // echo "<pre>";
+        // print_r($responseArr);
+        // die;
+        
+   
+        return view('admin/child_sub_category/child_sub_category_list', ['childSubCategoryData' => $childSubCategoryData, 'subcategoryData'=>$subcategoryData, 'categories'=>$responseArr]);
+    }
+
+    protected function getCategoryTree(int $parentCategoryId = null, ChildSubCategoryModel $model)
+    {
+        $categories = [];
+
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name')
+                       ->where('sub_chid_id', $parentCategoryId)
+                       ->get();
+
+        foreach ($query->getResult() as $row) {
+            $row->children = $this->getCategoryTree($row->child_id, $model);
+            $categories[] = $row;
+        }
+
+        return $categories;
     }
     public function child_sub_category()
     {

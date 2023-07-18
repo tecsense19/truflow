@@ -1,3 +1,82 @@
+<?php
+function displayChildren($children)
+{
+    
+    // if (empty($children)) {
+    //     return;
+    // }
+    // echo '<ul class="nested">';
+    // foreach ($children as $child) {
+    //     $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
+    //     $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
+    //     echo '<li><span class="caret">' . $child->child_sub_category_name . '&nbsp;&nbsp;&nbsp;<a class="" href="'.$url_edit.'"><i class="bx bx-edit-alt me-1"></i></a><a class="" href="'.$url_delete.'"><i class="bx bx-trash me-1"></i></a>';
+    //     displayChildren($child->children);
+    //     echo '</span></li>';
+    // }
+    // echo '</ul>';
+    if (empty($children)) {
+        return;
+    }
+    echo '<ul class="nested">';
+    foreach ($children as $child) {
+        $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
+      $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
+        echo '<li><span class="caret">' . $child->child_sub_category_name;
+        if (empty($child->children)) {
+            // Edit link or button
+            echo '<a href="'.$url_edit .'"><i class="bx bx-edit-alt me-1"></i></a>';
+
+            // Delete link or button
+            echo '<a href="'. $url_delete . '"><i class="bx bx-trash me-1"></i></a>';
+        } else {
+            // Recursively display the children for the current child
+            displayChildren($child->children);
+        }
+        echo '</span></li>';
+    }
+    echo '</ul>';
+}
+?>
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+
 <?= $this->include('admin/layout/front') ?>
 <!-- Content wrapper -->
 <div class="content-wrapper">
@@ -31,31 +110,58 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Child Sub Category Name</th>
-                                            <th>Category</th>
-                                            <th>Sub Category</th>
-                                      
-                                            <th>Actions</th>
+                                          
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
 
                                         $i = 1;
-                                        if ($childSubCategoryData) { ?>
-
-                                            <?php foreach ($childSubCategoryData as $childSubCategory) { ?>
+                                        if ($subcategoryData) { ?>
                                                 <tr>
-                                                    <td><?php echo $i; ?></td>
-                                                    <td><?php echo $childSubCategory['child_sub_category_name']; ?></td>
-                                                    <td><?php echo $childSubCategory['category_name'] ?></td>
-                                                    <td><?php echo $childSubCategory['sub_category_name'] ?></td>
-                                                    <td>
-                                                        <a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childSubCategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                        <a class="" href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childSubCategory['child_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <td>
+                                                     <?php foreach ($categories as $category): ?>
+                                                        <tr>
+                                                        <td><?php echo $i; ?> </td>
+                                                        <td><h2><?php echo $category['category_name']; ?></h2>
+                                                            <?php if (!empty($category['sub_cat'])): ?>
+                                                                <ul id="myUL">
+                                                                    <?php foreach ($category['sub_cat'] as $subcategory): ?>
+                                                                        <li><span class="caret">
+                                                                            <?php echo $subcategory['sub_category_name']; ?>
+                                                                            
+                                                                        </span>
+                                                                            
+                                                                            <?php if (!empty($subcategory['child_arr'])): ?>
+                                                                                <ul class="nested">
+                                                                                    <?php foreach ($subcategory['child_arr'] as $childsubcategory): ?>
+                                                                                        <li><span class="caret">
+                                                                                            <?php echo $childsubcategory['child_sub_category_name']; ?>
+                                                                                            <?php if (empty($childsubcategory['all_childs'])): ?>
+                                                                                            &nbsp;&nbsp;&nbsp;<a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childsubcategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i></a>
+                                                                                            <a class="" href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childsubcategory['child_id'] ?>"><i class="bx bx-trash me-1"></i></a>
+                                                                                            <?php endif; ?>
+                                                                                        </span>
+                                                                                            <?php if (!empty($childsubcategory['all_childs'])): ?>
+                                                                                                <?php displayChildren($childsubcategory['all_childs']); ?>
+                                                                                            <?php endif; ?>
+                                                                                             </li>
+                                                                                    <?php endforeach; ?>
+                                                                                </ul>
+                                                                            <?php endif; ?>
+                                                                        </li>
+                                                                    <?php endforeach; ?>
+                                                                </ul></td>
+                                                                </tr>
+                                                            <?php endif; ?>
+                                                            <?php $i++; ?>
+                                                        <?php endforeach; ?>
                                                     </td>
+                                                    
+
                                                 </tr>
-                                                <?php $i++; ?>
-                                            <?php } ?>
+                                            
+                                     
 
                                         <?php } else { ?>
                                             <tr>
@@ -79,3 +185,14 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
