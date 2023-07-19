@@ -58,7 +58,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                 <form method="post" id="settings_form" action="<?php echo base_url() ?>admin/settings/save" enctype='multipart/form-data'>
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Settings</h5>
+                            <h5 class="mb-0">Front Site Settings</h5>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">

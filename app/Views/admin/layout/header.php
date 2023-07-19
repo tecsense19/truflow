@@ -146,7 +146,7 @@
         <li class="menu-item">
             <a href="<?php echo base_url('admin/contactus_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Basic">User Contect Us</div>
+                <div data-i18n="Basic">Contact Enquiry</div>
             </a>
         </li>
 

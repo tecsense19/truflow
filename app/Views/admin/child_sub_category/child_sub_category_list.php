@@ -14,6 +14,7 @@ function displayChildren($children)
     //     echo '</span></li>';
     // }
     // echo '</ul>';
+
     if (empty($children)) {
         return;
     }
@@ -22,6 +23,14 @@ function displayChildren($children)
         $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
       $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
         echo '<li><span class="caret">' . $child->child_sub_category_name;
+        if ($child->child_sub_category_img) {
+            $imagePaths = explode(',', $child->child_sub_category_img);
+            foreach ($imagePaths as $imagePath) {
+               $image_path =  base_url(trim($imagePath)); 
+                echo ' &nbsp;&nbsp;&nbsp;<img src="'.$image_path.'" alt="product_img" 
+                style="width: 60px;border: 1px solid #696cff;padding: 4px;border-radius: 3px;"class="img-fluid site_setting_img_product"> ';
+            }
+        } 
         if (empty($child->children)) {
             // Edit link or button
             echo '<a href="'.$url_edit .'"><i class="bx bx-edit-alt me-1"></i></a>';
@@ -137,8 +146,18 @@ ul, #myUL {
                                                                                     <?php foreach ($subcategory['child_arr'] as $childsubcategory): ?>
                                                                                         <li><span class="caret">
                                                                                             <?php echo $childsubcategory['child_sub_category_name']; ?>
+                                                                                            <?php if ($childsubcategory['child_sub_category_img']) {
+                                                                                                $imagePaths = explode(',', $childsubcategory['child_sub_category_img']);
+                                                                                                foreach ($imagePaths as $imagePath) {
+                                                                                                ?>
+                                                                                                &nbsp;&nbsp;&nbsp;<img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img" 
+                                                                                                style="width: 60px;border: 1px solid #696cff;padding: 4px;border-radius: 3px;"class="img-fluid site_setting_img_product"> 
+                                                                                                <?php
+                                                                                                }
+                                                                                            } ?>
                                                                                             <?php if (empty($childsubcategory['all_childs'])): ?>
-                                                                                            &nbsp;&nbsp;&nbsp;<a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childsubcategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i></a>
+                                                                                               
+                                                                                                &nbsp;&nbsp;&nbsp;<a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childsubcategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i></a>
                                                                                             <a class="" href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childsubcategory['child_id'] ?>"><i class="bx bx-trash me-1"></i></a>
                                                                                             <?php endif; ?>
                                                                                         </span>

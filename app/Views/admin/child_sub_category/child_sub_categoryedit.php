@@ -42,6 +42,19 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                                 <input type="hidden" name="sub_category_id" value="<?php echo $childData['sub_category_id'] ?>">
                                 <input type="text" class="form-control" value="<?php echo $childData['child_sub_category_name'] ?>" id="child-subcategory-input" name="child_sub_category_name">
                             </div>
+                            <div class="mb-3" id="child-subcategory-input_img">
+                                <label class="form-label" for="basic-default-company">Child Subcategory Product Image</label>
+                                <input type="file" class="form-control" value="" id="child-subcategory-input_img" name="child_product_img[]" multiple placeholder="child Product Image" />
+                                <?php if ($childData['child_sub_category_img']) {
+                                 $imagePaths = explode(',', $childData['child_sub_category_img']);
+
+                                 foreach ($imagePaths as $imagePath) {
+                                ?>
+                                <img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img" class="img-fluid site_setting_img_product"> 
+                                <?php
+                                 }
+                            } ?> 
+                            </div>
                         </div>
                     </div>
 

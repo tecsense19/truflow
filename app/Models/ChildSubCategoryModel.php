@@ -19,6 +19,7 @@ class ChildSubCategoryModel extends Model
         'category_id',
         'sub_category_id',
         'child_sub_category_name',
+        'child_sub_category_img',
         'child_sub_existing'
         
     ];

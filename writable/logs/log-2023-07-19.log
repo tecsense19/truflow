@@ -1,0 +1,167 @@
+CRITICAL - 2023-07-19 10:09:50 --> Undefined variable $product_img
+in APPPATH\Views\admin\child_sub_category\child_sub_category.php on line 69.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product_img', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php', 69)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category', [], true)
+ 5 APPPATH\Controllers\Admin\ChildSubCategoryController.php(112): view('admin/child_sub_category/child_sub_category', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_category()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:24:55 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(177): CodeIgniter\Model->update('56', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:26:28 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(177): CodeIgniter\Model->update('56', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:26:58 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(177): CodeIgniter\Model->update('56', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:28:28 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 762.
+ 1 SYSTEMPATH\BaseModel.php(762): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(177): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:30:40 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\Admin\ChildSubCategoryController.php on line 167.
+ 1 APPPATH\Controllers\Admin\ChildSubCategoryController.php(167): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:33:28 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(177): CodeIgniter\Model->update('56', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:35:30 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\ChildSubCategoryController.php(178): CodeIgniter\Model->update('56', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 10:54:05 --> Undefined variable $productArr
+in APPPATH\Controllers\Admin\ChildSubCategoryController.php on line 181.
+ 1 APPPATH\Controllers\Admin\ChildSubCategoryController.php(181): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productArr', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ChildSubCategoryController.php', 181)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->child_sub_categorySave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 11:10:03 --> Undefined property: stdClass::$child_sub_category_img
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 26.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$child_sub_category_img', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 26)
+ 2 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(165): displayChildren([...])
+ 3 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 6 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category_list', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 11:11:54 --> Attempt to read property "child_sub_category_img" on array
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 26.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_sub_category_img" on array', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 26)
+ 2 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(165): displayChildren([...])
+ 3 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 6 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category_list', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 11:12:05 --> Undefined property: stdClass::$child_sub_category_img
+in APPPATH\Views\admin\child_sub_category\child_sub_category_list.php on line 26.
+ 1 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$child_sub_category_img', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php', 26)
+ 2 APPPATH\Views\admin\child_sub_category\child_sub_category_list.php(165): displayChildren([...])
+ 3 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\child_sub_category\\child_sub_category_list.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/child_sub_category/child_sub_category_list', [], true)
+ 6 APPPATH\Controllers\Admin\ChildSubCategoryController.php(73): view('admin/child_sub_category/child_sub_category_list', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ChildSubCategoryController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 11:35:13 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\settings\settings.php on line 95.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(35): view('admin/settings/settings', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 12:07:44 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\settings\settings.php on line 103.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): view('admin/settings/settings', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 12:09:22 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\settings\settings.php on line 103.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 4 APPPATH\Controllers\Admin\SettingsController.php(32): view('admin/settings/settings', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 12:10:38 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\settings\settings.php on line 103.
+ 1 APPPATH\Views\admin\settings\settings.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 103)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(32): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-19 12:10:43 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\settings\settings.php on line 103.
+ 1 APPPATH\Views\admin\settings\settings.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php', 103)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\settings.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/settings', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(32): view('admin/settings/settings', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settings()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

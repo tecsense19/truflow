@@ -77,7 +77,7 @@ class ChildSubCategoryController extends BaseController
     {
         $categories = [];
 
-        $query = $model->select('child_id , sub_category_id, child_sub_category_name')
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name, child_sub_category_img')
                        ->where('sub_chid_id', $parentCategoryId)
                        ->get();
 
@@ -145,22 +145,49 @@ class ChildSubCategoryController extends BaseController
     {
         $session = session();
         $childsubcategorymodel = new ChildSubCategoryModel();
-        // echo "<pre>";
-        // print_r($_POST);
-        // die();
+        $input = $this->request->getVar();
+       
+
+          // Check if new images are uploaded
+          if ($files = $this->request->getFiles()) {
+            $path = 'public/admin/images/product/';
+            $uploadedFiles = [];
+
+            // Loop through each uploaded file
+            foreach ($files['child_product_img'] as $file) {
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $newName = $file->getRandomName();
+                    $file->move($path, $newName);
+                    $uploadedFiles[] = $path . $newName;
+                }
+            }
+          
+            // Merge the existing images with the new uploaded images
+            if (!empty($uploadedFiles)) {
+                // Retrieve existing images if available
+                $existingImages = isset($input['child_product_img']) ? explode(',', $input['child_product_img']) : [];
+                $productArr['child_product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+            }
+        }
+       
         // Retrieve form input
         $childsubcategory = [
             'sub_chid_id' => $this->request->getPost('child_id') ? $this->request->getPost('child_id') : 0,
             'category_id' => $this->request->getPost('category_id'),
             'sub_category_id' => $this->request->getPost('sub_category_id'),
             'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
+            'child_sub_category_img' => $productArr['child_product_img'],
         ];
+
+       
 
         if (!empty($childsubcategory['child_id'])) {
             $childsubcategorymodel->update($childsubcategory['child_id'], $childsubcategory);
             $child_sub_category_id = $childsubcategory['child_id'];
             $session->setFlashdata('success', 'Child subcategory updated successfully.');
         } else {
+            // print_r($childsubcategory);
+            // die;
             $child_sub_category_id = $childsubcategorymodel->insert($childsubcategory);
             $session->setFlashdata('success', 'Child subcategory added successfully.');
         }
@@ -172,9 +199,32 @@ class ChildSubCategoryController extends BaseController
     {
     $session = session();
     $childsubcategorymodel = new ChildSubCategoryModel();
+    $input = $this->request->getVar();
+    // Check if new images are uploaded
+    if ($files = $this->request->getFiles()) {
+      $path = 'public/admin/images/product/';
+      $uploadedFiles = [];
+
+      // Loop through each uploaded file
+      foreach ($files['child_product_img'] as $file) {
+          if ($file->isValid() && !$file->hasMoved()) {
+              $newName = $file->getRandomName();
+              $file->move($path, $newName);
+              $uploadedFiles[] = $path . $newName;
+          }
+      }
+      // Merge the existing images with the new uploaded images
+      if (!empty($uploadedFiles)) {
+          // Retrieve existing images if available
+          $existingImages = isset($input['child_product_img']) ? explode(',', $input['child_product_img']) : [];
+          $productArr['child_product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+      }
+  }
+
     // Retrieve form input
     $childsubcategory = [
-        'child_sub_category_name' => $this->request->getPost('child_sub_category_name')
+        'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
+        'child_sub_category_img' => $productArr['child_product_img'] 
     ];
     $childsubcategorymodel->update($_POST['child_id'], $childsubcategory);
     $session->setFlashdata('success', 'Child subcategory updated successfully.');

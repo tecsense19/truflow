@@ -357,6 +357,29 @@ class Home extends BaseController
             $subCat['product_array'] = $varaints;
             $subCatData[] = $subCat;
         }
+
+        $responseArr = [];
+        $categoryData = $ChildSubCategoryModel->findAll();
+        foreach ($categoryData as $key => $value) 
+        {
+            $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
+            $subArr = [];
+            foreach ($subcategories as $sKey => $sValue) 
+            {
+                $childsubcategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->findAll();
+                $childArr = [];
+                foreach ($childsubcategories as $cKey => $cValue) 
+                {
+                    $allChild = $this->getCategoryTree($cValue['child_id'], $ChildSubCategoryModel);
+                    $cValue['all_childs'] = $allChild;
+                    $childArr[] = $cValue;
+                }
+                $sValue['child_arr'] = $childArr;
+                $subArr[] = $sValue;
+            }
+            $value['sub_cat'] = $subArr;
+            $responseArr[] = $value;
+        }
         // --------------------------------------------
 
         return view('front/product', [
@@ -364,8 +387,28 @@ class Home extends BaseController
             'subcategoryData' => $subcategoryData,
             'subcategoryData1' => $subCatData,
             'ChildSubCategoryData' => $ChildSubCategorydata,
+            'categories'=>$responseArr,
             'productData' => $newData
         ]);
+    }
+    protected function getCategoryTree(int $parentCategoryId = null, ChildSubCategoryModel $model)
+    {
+        $categories = [];
+
+    //     $query = $model->select('product.*, child_sub_category.child_sub_category_name')
+    // ->join('child_sub_category', 'product.child_id = child_sub_category.child_id', 'inner')
+    // ->get();
+
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name')
+                       ->where('sub_chid_id', $parentCategoryId)
+                       ->get();
+
+        foreach ($query->getResult() as $row) {
+            $row->children = $this->getCategoryTree($row->child_id, $model);
+            $categories[] = $row;
+        }
+
+        return $categories;
     }
     public function product_details($product_id)
     {

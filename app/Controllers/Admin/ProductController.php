@@ -6,6 +6,7 @@ use App\Models\ProductModel;
 use App\Models\CategoryModel;
 use App\Models\SubCategoryModel;
 use App\Models\VariantsModel;
+use App\Models\ChildSubCategoryModel;
 use CodeIgniter\HTTP\RequestInterface;
 
 class ProductController extends BaseController
@@ -38,6 +39,12 @@ class ProductController extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
 
+        $childsubcategorymodel = new ChildSubCategoryModel();
+        $childsubcategoryData = $childsubcategorymodel->find();
+        if (!$childsubcategoryData) {
+            $childsubcategoryData = null;
+        }
+
         $categoryData = $categorymodel->find();
 
 
@@ -47,7 +54,7 @@ class ProductController extends BaseController
 
         $subcategoryData = $subcategorymodel->find();
 
-        return view('admin/product/product', ['categoryData' => $categoryData, 'subcategoryData' => $subcategoryData]);
+        return view('admin/product/product', ['categoryData' => $categoryData, 'subcategoryData' => $subcategoryData , 'childsubcategoryData' => $childsubcategoryData ]);
     }
     public function getSubcategories($category_id)
     {
@@ -59,21 +66,23 @@ class ProductController extends BaseController
     }
     public function productSave()
     {
+        
 
         $productmodel = new ProductModel();
         $session = session();
         $input = $this->request->getVar();
         $product_id = $input['product_id'];
-
+       
         $productArr = [];
 
         $productArr['product_id'] = isset($input['product_id']) ? $input['product_id'] : '';
         $productArr['category_id'] = isset($input['category_id']) ? $input['category_id'] : '';
         $productArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
+        $productArr['child_id'] = isset($input['child_id']) ? $input['child_id'] : '';
         $productArr['product_name'] = isset($input['product_name']) ? $input['product_name'] : '';
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
-
+    
         // Check if new images are uploaded
         if ($files = $this->request->getFiles()) {
             $path = 'public/admin/images/product/';
@@ -97,8 +106,9 @@ class ProductController extends BaseController
         }
 
         $productId = '';
-
+       
         if (isset($input['product_id']) && $input['product_id'] != '') {
+           
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
             $session->setFlashdata('success', 'product Update succesfully.');
@@ -140,11 +150,17 @@ class ProductController extends BaseController
             $variantData = null;
         }
 
+        $childsubcategorymodel = new ChildSubCategoryModel();
+        $childsubcategoryData = $childsubcategorymodel->find();
+        if (!$childsubcategoryData) {
+            $childsubcategoryData = null;
+        }
 
         return view('admin/product/product', [
             'productData' => $productData,
             'categoryData' => $categoryData,
             'subcategoryData' => $subcategoryData,
+            'childsubcategoryData' => $childsubcategoryData,
             'variantData' => $variantData
         ]);
     }

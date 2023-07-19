@@ -1,5 +1,4 @@
 <?= $this->include('front/layout/front'); ?>
-
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -38,7 +37,17 @@
                             <?php endif; ?>
                             <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
                         </p>
+             
+                        <?php foreach ($categories as $subCategory) : ?>
+                        <div class="panel-heading" bis_skin_checked="1">
+                                                    <p class="panel-title">
+                                                        <i class="fa fa-caret-right"></i>&nbsp;<a href="<?php echo base_url('') . "product/" . $subCategory['sub_category_id'] ?>"><?php echo strtoupper($subCategory['child_sub_category_name']); ?></a>
+                                                    </p>
+                                                </div>
+                                                <?php endforeach; ?>
+                           
                     </div>
+                 
                     <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>">
                         <?php if (!empty($subcategory['product_array'])) : ?>
                             <div class="panel-body">
@@ -49,7 +58,6 @@
                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                         </a>
                                     </p>
-                                   
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>

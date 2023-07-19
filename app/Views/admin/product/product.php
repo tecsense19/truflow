@@ -7,7 +7,8 @@ $product_name = isset($productData) ? $productData['product_name'] : '';
 $product_description = isset($productData) ? $productData['product_description'] : '';
 $product_img = isset($productData) ? $productData['product_img'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
-
+// print_r($childsubcategoryData);
+// die;
 ?>
 
 <!-- Content wrapper -->
@@ -53,6 +54,11 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                     <option value="">Please select a subcategory</option>
                                 </select>
                             </div>
+
+                              <!-- Child Subcategory dropdown -->
+                              <div class="all_child_drop_down">
+
+                              </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Product Name</label>
@@ -234,6 +240,114 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
         });
     });
 
+        $('#subcategory-select').change(function() {
+            sub_category_id = $(this).val();
+            loadChildSubcategories(sub_category_id);
+        });
+            sub_category_id = '<?php echo $sub_category_id;?>';
+            loadChildSubcategories(sub_category_id);
+    
+        function loadChildSubcategories(sub_category_id) {
+        var child_id = '';
+
+        if (sub_category_id) {
+            $.ajax({
+                url: '<?php echo base_url() ?>admin/getChildSubcategories/' + sub_category_id,
+                type: 'POST',
+                dataType: 'json',
+                success: function(data) {
+                    if(data.length != 0)
+                    {
+                        $('#child-subcategory-input').hide();
+
+                        var option = '';
+                        $.each(data, function(key, value) {
+                            option += '<option value="' + value.child_id + '"';
+                            if (value.child_id == child_id) {
+                                option += ' selected';
+                            }
+                            option += '>' + value.child_sub_category_name + '</option>';
+                            $('#child-subcategory-select').append(option);
+                        });
+
+                        var createNewDropDwon = '<select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select>';
+
+                        $('.all_child_drop_down').append(createNewDropDwon);
+
+                    }
+                    else
+                    {
+                          $('#child-subcategory-input').show();
+                    }
+
+                    // $('#child-subcategory-select').html('<option value="">Please select a child subcategory</option>');
+
+
+                    // $.each(data, function(key, value) {
+                    //     var option = '<option value="' + value.child_id + '"';
+                    //     if (value.child_id == child_id) {
+                    //         option += ' selected';
+                    //     }
+                    //     option += '>' + value.child_sub_category_name + '</option>';
+                    //     $('#child-subcategory-select').append(option);
+                    // });
+
+
+                    // $('#child-subcategory-field').show();
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log(xhr.responseText);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        } else {
+
+            $('#child-subcategory-field').hide();
+            $('#child-subcategory-input').hide();
+        }
+    }
+
+    function getAllChildSubCategory(event) 
+    {
+        var selectElement = event.target.value;
+        
+        $.ajax({
+                url: '<?php echo base_url() ?>admin/getChildSubId/' + selectElement,
+                type: 'POST',
+                dataType: 'json',
+                success: function(data) {
+                    if(data.length != 0)
+                    {
+                        $('#child-subcategory-input').hide();
+
+                        var option = '';
+                        $.each(data, function(key, value) {
+                            option += '<option value="' + value.child_id + '"';
+                            if (value.child_id == selectElement) {
+                                option += ' selected';
+                            }
+                            option += '>' + value.child_sub_category_name + '</option>';
+                            $('#child-subcategory-select').append(option);
+                        });
+
+                        var createNewDropDwon = '<select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select>';
+
+                        $('.all_child_drop_down').append(createNewDropDwon);
+
+                    }
+                    else
+                    {
+                          $('#child-subcategory-input').show();
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log(xhr.responseText);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+    }   
     function cateChange(catId) {
         if (catId) {
             $.ajax({
@@ -333,4 +447,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
             $(this).closest('.input-row').remove();
         });
     });
+
+
+
 </script>

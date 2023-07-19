@@ -62,6 +62,21 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                                 <label for="child-subcategory-input" class="form-label">Child Subcategory Name</label>
                                 <input type="text" class="form-control" id="child-subcategory-input" name="child_sub_category_name">
                             </div>
+
+                            <div class="mb-3" id="child-subcategory-input_img" style="display: none;">
+                                <label class="form-label" for="basic-default-company">Child Subcategory Product Image</label>
+                                <input type="file" class="form-control" value="" id="child-subcategory-input_img" name="child_product_img[]" multiple placeholder="child Product Image" />
+                                <?php //if ($product_img) {
+                               // $imagePaths = explode(',', $product_img);
+
+                               // foreach ($imagePaths as $imagePath) {
+                                ?>
+                                <!-- <img src="<?php //echo base_url(trim($imagePath)); ?>" alt="product_img" class="img-fluid site_setting_img_product"> -->
+                                <?php
+                                //}
+                            //} ?> 
+                            </div>
+
                         </div>
                     </div>
 
@@ -109,6 +124,11 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
             } else {
                 $('#child-subcategory-input').hide();
             }
+            if ($(this).val() !== '') {
+                $('#child-subcategory-input_img').show();
+            } else {
+                $('#child-subcategory-input_img').hide();
+            }
         });
 
 
@@ -127,6 +147,8 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
             $('#child-subcategory-field').show();
             if (sub_chid_id !== '') {
                 $('#child-subcategory-input').show();
+                $('#child-subcategory-input_img').show();
+                
             }
         }
 
@@ -166,6 +188,8 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
             $('#subcategory-field').hide();
             $('#child-subcategory-field').hide();
             $('#child-subcategory-input').hide();
+            $('#child-subcategory-input_img').hide();
+            
         }
     }
 
@@ -181,6 +205,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                     if(data.length != 0)
                     {
                         $('#child-subcategory-input').hide();
+                        $('#child-subcategory-input_img').hide();
 
                         var option = '';
                         $.each(data, function(key, value) {
@@ -200,6 +225,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                     else
                     {
                           $('#child-subcategory-input').show();
+                          $('#child-subcategory-input_img').show();
                     }
 
                     // $('#child-subcategory-select').html('<option value="">Please select a child subcategory</option>');
@@ -227,6 +253,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
 
             $('#child-subcategory-field').hide();
             $('#child-subcategory-input').hide();
+            $('#child-subcategory-input_img').hide();
         }
     }
 
@@ -242,6 +269,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                     if(data.length != 0)
                     {
                         $('#child-subcategory-input').hide();
+                        $('#child-subcategory-input_img').hide();
 
                         var option = '';
                         $.each(data, function(key, value) {
@@ -261,6 +289,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                     else
                     {
                           $('#child-subcategory-input').show();
+                          $('#child-subcategory-input_img').show();
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {

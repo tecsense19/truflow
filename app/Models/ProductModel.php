@@ -20,6 +20,7 @@ class ProductModel extends Model
         'product_img',
         'product_additional_info',
         'sub_category_id',
+        'child_id',
         
     ];
 
