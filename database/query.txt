@@ -1,1 +1,2 @@
-ALTER TABLE `tbl_order` ADD `order_date` DATETIME NULL AFTER `ship_to_diff_address`;
+ALTER TABLE `child_sub_category`
+ADD `child_sub_category_img` varchar(255) DEFAULT NULL;
