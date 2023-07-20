@@ -1,3 +1,8 @@
+<style>
+    h5.mb-0{
+        color: #696CFF;
+    }
+</style>
 <?php
 $welcome_setting_id = isset($welcomeData) ? $welcomeData['setting_id'] : '';
 $welcome_title = isset($welcomeData) ? $welcomeData['title'] : '';

@@ -7,7 +7,7 @@ $product_name = isset($productData) ? $productData['product_name'] : '';
 $product_description = isset($productData) ? $productData['product_description'] : '';
 $product_img = isset($productData) ? $productData['product_img'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
-// print_r($childsubcategoryData);
+// print_r($productData);
 // die;
 ?>
 
@@ -79,6 +79,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                 foreach ($imagePaths as $imagePath) {
                                 ?>
                                 <img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img" class="img-fluid site_setting_img_product">
+                                <a class="remove-image" href="#" style="display: inline;" data-image="<?php echo $imagePath;?>" data-id="<?php echo $product_id; ?>">&#215;</a>
                                 <?php
                                 }
                                 } ?> 
@@ -448,6 +449,40 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
         });
     });
 
-
+    $('.remove-image').click(function(e) {
+      
+            e.preventDefault();
+            var container = $(this).closest('.image-container');
+            //var imageId = container.find('.image-id').val(); delete_partner_img
+            var imageId = $(this).data('id');
+            var image_path = $(this).data('image');
+           
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You Want To Delete This.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '<?php echo base_url('admin/product/product-delete') ?>',
+                        type: 'POST',
+                        data: {
+                            image_id: imageId,
+                            image_path: image_path
+                        },
+                        success: function(response) {
+                            window.location.reload(true);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        });
 
 </script>

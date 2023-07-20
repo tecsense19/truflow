@@ -66,7 +66,7 @@ class ProductController extends BaseController
     }
     public function productSave()
     {
-        
+      
 
         $productmodel = new ProductModel();
         $session = session();
@@ -108,7 +108,21 @@ class ProductController extends BaseController
         $productId = '';
        
         if (isset($input['product_id']) && $input['product_id'] != '') {
-           
+           // Given input strings
+           $productData = $productmodel->find($input['product_id']);
+            // Split the strings by commas (,) into arrays
+            $array1 = explode(',', $productData['product_img']);
+            $array2 = explode(',', $productArr['product_img']);
+
+            // Merge the arrays into a single array
+            $mergedArray = array_merge($array1, $array2);
+
+            // Convert the merged array into a string separated by commas (,)
+            $mergedString = implode(',', $mergedArray);
+
+            // Output the merged string
+            $productArr['product_img'] = $mergedString;
+            
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
             $session->setFlashdata('success', 'product Update succesfully.');
@@ -349,5 +363,39 @@ class ProductController extends BaseController
             $session->setFlashdata('error', 'Failed to upload the CSV file.');
             return redirect()->back();
         }
+    }
+
+    public function product_path_delete()
+    {
+        $input = $this->request->getVar();
+        // print_r($input['image_id']);
+        // print_r($input['image_path']);
+
+        $productModel = new ProductModel();
+        $productData = $productModel->find($input['image_id']);
+
+        // print_r($productData['product_img']);
+
+        // Convert the comma-separated list into an array
+            $targetArray = explode(",", $productData['product_img']);
+
+            // Find the position of the given string in the array
+            $position = array_search($input['image_path'], $targetArray);
+
+            if ($position !== false) {
+                // Remove the element at the found position
+                array_splice($targetArray, $position, 1);
+
+                // Create the new string by joining the array elements with commas
+                $newString = implode(",", $targetArray);
+
+                // echo "The given string was found and removed from the target string.";
+                // echo "New string: " . $newString;
+                $productArr = [ 'product_img' => $newString ];
+                $productModel->update($input['image_id'], $productArr);
+            } else {
+               // echo "The given string was not found in the target string.";
+            }
+           
     }
 }
