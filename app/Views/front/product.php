@@ -1,4 +1,63 @@
-<?= $this->include('front/layout/front'); ?>
+<?= $this->include('front/layout/front');
+// echo "<pre>";
+// // print_r($categories);
+// $found = false;
+// foreach ($categories as $key => $value) {
+//     foreach ($value['sub_cat'] as $key => $value1) {
+//         if ($value1['sub_category_name'] == 'Adaptors') {
+//             $found = true;
+//             // Do something with the found subcategory (Adaptors)
+//             print_r($value1);
+//             break; // Exit the inner loop
+//         }
+//     }
+//     if ($found) {
+//         break; // Exit the outer loop if the subcategory is found
+//     }
+// }
+// die;
+function displayChildren($children)
+{
+
+    // if (empty($children)) {
+    //     return;
+    // }
+    // echo '<ul class="nested">';
+    // foreach ($children as $child) {
+    //     $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
+    //     $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
+    //     echo '<li><span class="caret">' . $child->child_sub_category_name . '&nbsp;&nbsp;&nbsp;<a class="" href="'.$url_edit.'"><i class="bx bx-edit-alt me-1"></i></a><a class="" href="'.$url_delete.'"><i class="bx bx-trash me-1"></i></a>';
+    //     displayChildren($child->children);
+    //     echo '</span></li>';
+    // }
+    // echo '</ul>';
+
+    if (empty($children)) {
+        return;
+    }
+    echo '<ul class="nested">';
+    foreach ($children as $child) {
+        $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
+        $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
+        echo '<li><span class="caret">' . $child->child_sub_category_name;
+
+        if (empty($child->children)) {
+            // Edit link or button
+            echo '<a href="' . $url_edit . '"><i class="bx bx-edit-alt me-1"></i></a>';
+
+            // Delete link or button
+            echo '<a href="' . $url_delete . '"><i class="bx bx-trash me-1"></i></a>';
+        } else {
+            // Recursively display the children for the current child
+            displayChildren($child->children);
+        }
+        echo '</span></li>';
+    }
+    echo '</ul>';
+}
+?>
+
+
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -20,56 +79,74 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-            <div class="panel panel-default side-nav side-nav-category">
-    <div class="panel-heading">
-        <strong>Sub Categories</strong>
-    </div>
-    <div class="panel-body">
-        <div class="panel-group" id="accordion">
-            <?php foreach ($subcategoryData1 as $index => $subcategory) : ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>)">
-                        <p class="panel-title">
-                            <?php if ($index === 0) : ?>
-                                <i class="fa fa-caret-down"></i>
-                            <?php else : ?>
-                                <i class="fa fa-caret-right"></i>
-                            <?php endif; ?>
-                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
-                        </p>
-             
-                        <?php foreach ($categories as $subCategory) : ?>
-                        <div class="panel-heading" bis_skin_checked="1">
-                                                    <p class="panel-title">
-                                                        <i class="fa fa-caret-right"></i>&nbsp;<a href="<?php echo base_url('') . "product/" . $subCategory['sub_category_id'] ?>"><?php echo strtoupper($subCategory['child_sub_category_name']); ?></a>
-                                                    </p>
-                                                </div>
-                                                <?php endforeach; ?>
-                           
+                <div class="panel panel-default side-nav side-nav-category">
+                    <div class="panel-heading">
+                        <strong>Sub Categories</strong>
                     </div>
-                 
-                    <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>">
-                        <?php if (!empty($subcategory['product_array'])) : ?>
-                            <div class="panel-body">
-                                <?php foreach ($subcategory['product_array'] as $product) : ?>
-                                    <p>
-                                        <i class="fa fa-caret-right"></i>
-                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
-                                            <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
-                                        </a>
-                                    </p>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordion">
+                            <?php foreach ($subcategoryData1 as $index => $subcategory) : 
+                                  //print_r($subcategory['sub_category_id']);
+                                  //die; ?>
+                                <div class="panel panel-default">
+                                    
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>, this)">
+
+                                        <p class="panel-title">
+                                            <?php if ($subcategory['sub_category_id'] === $subcategoryid) : ?>
+                                                <i class="fa fa-caret-down"></i>
+                                            <?php else : ?>
+                                                <i class="fa fa-caret-right"></i>
+                                            <?php endif; ?>
+                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                        </p>
+                                    </div>
+                                        <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($subcategory['sub_category_id'] === $subcategoryid) echo 'in'; ?>">
+                                            <?php if (!empty($subcategory['product_array'])) : ?>
+                                                <div class="panel-body">
+                                                    <?php foreach ($subcategory['product_array'] as $product) : ?>
+                                                        <p>
+                                                            <i class="fa fa-caret-right"></i>
+                                                            <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
+                                                                <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
+                                                            </a>
+                                                        </p>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <!-- try ul li -->
+                                        <?php foreach ($categories as $key => $value) {
+                                            foreach ($value['sub_cat'] as $key => $value1) {
+                                                if ($value1['sub_category_name'] == $subcategory['sub_category_name']) {
+                                                    $found = true; ?>
+                                                    <?php if (!empty($value1['child_arr'])) : ?>
+                                                       
+                                                            <?php foreach ($value1['child_arr'] as $childsubcategory) : ?>
+                                                                <!-- <li><span class="caret"> -->
+                                                                        <?php //echo $childsubcategory['child_sub_category_name']; ?>
+                                                                    </span>
+                                                                    <?php if (!empty($childsubcategory['all_childs'])) : ?>
+                                                                        <?php //displayChildren($childsubcategory['all_childs']); ?>
+                                                                    <?php endif; ?>
+                                                                <!-- </li> -->
+                                                            <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                        <?php
+                                                    break; // Exit the inner loop
+                                                }
+                                            }
+                                            if ($found) {
+                                                break; // Exit the outer loop if the subcategory is found
+                                            }
+                                        } ?>
+                                        <!-- try end -->
+                                    
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</div>
-
-
-
             </div>
             <div class="col-lg-9">
                 <div class="row">
@@ -88,7 +165,8 @@
                                             <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
 
                                         <?php } ?>
-                                    </div><hr>
+                                    </div>
+                                    <hr>
                                     <div class="product_text text-center">
                                         <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
                                             <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h3>
@@ -120,25 +198,26 @@
 <?= $this->include('front/layout/footer'); ?>
 
 <script>
-    function toggleSubCategory(event, subCategoryId) {
-        event.preventDefault();
+   function toggleSubCategory(event, subCategoryId, element) {
+    event.preventDefault();
 
-        var subCategoryPanel = document.getElementById('collapse' + subCategoryId);
-        var expanded = subCategoryPanel.classList.contains('in');
+    var subCategoryPanel = element.getAttribute('href');
+    var expanded = document.querySelector(subCategoryPanel).classList.contains('in');
 
-        var panels = document.getElementsByClassName('panel-collapse');
-        for (var i = 0; i < panels.length; i++) {
-            panels[i].classList.remove('in');
-        }
-
-        var titleIcon = subCategoryPanel.previousElementSibling.querySelector('i.fa');
-        if (!expanded) {
-            subCategoryPanel.classList.add('in');
-            titleIcon.classList.remove('fa-caret-right');
-            titleIcon.classList.add('fa-caret-down');
-        } else {
-            titleIcon.classList.remove('fa-caret-down');
-            titleIcon.classList.add('fa-caret-right');
-        }
+    var panels = document.getElementsByClassName('panel-collapse');
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].classList.remove('in');
     }
+
+    var titleIcon = element.querySelector('i.fa');
+    if (!expanded) {
+        document.querySelector(subCategoryPanel).classList.add('in');
+        titleIcon.classList.remove('fa-caret-right');
+        titleIcon.classList.add('fa-caret-down');
+    } else {
+        titleIcon.classList.remove('fa-caret-down');
+        titleIcon.classList.add('fa-caret-right');
+    }
+}
+
 </script>

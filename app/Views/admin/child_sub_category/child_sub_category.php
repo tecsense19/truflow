@@ -65,7 +65,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
 
                             <div class="mb-3" id="child-subcategory-input_img" style="display: none;">
                                 <label class="form-label" for="basic-default-company">Child Subcategory Product Image</label>
-                                <input type="file" class="form-control" value="" id="child-subcategory-input_img" name="child_product_img[]" multiple placeholder="child Product Image" />
+                                <input type="file" class="form-control" value="" id="child-subcategory-input_img" name="child_product_img[]" multiple placeholder="child Product Image" required/>
                                 <?php //if ($product_img) {
                                // $imagePaths = explode(',', $product_img);
 

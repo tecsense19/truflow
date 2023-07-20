@@ -318,11 +318,15 @@ class Home extends BaseController
     {
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $sub_category_id)->findAll();
+      
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $sub_category_id)->findAll();
         if (!$ChildSubCategorydata) {
             $ChildSubCategorydata = null;
         }
-
+        // echo "<pre>";
+        // print_r($ChildSubCategorydata);
+        // die;
+        
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -330,12 +334,14 @@ class Home extends BaseController
         }
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData = $subcategorymodel->find($sub_category_id);
+
+     
         if (!$subcategoryData) {
             $subcategoryData = null;
         }
         $productmodel = new ProductModel();
         $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
-
+     
         $variantsmodel = new VariantsModel();
         $newData = [];
         foreach ($productData as $pdata) {
@@ -388,7 +394,8 @@ class Home extends BaseController
             'subcategoryData1' => $subCatData,
             'ChildSubCategoryData' => $ChildSubCategorydata,
             'categories'=>$responseArr,
-            'productData' => $newData
+            'productData' => $newData,
+            'subcategoryid' => $sub_category_id
         ]);
     }
     protected function getCategoryTree(int $parentCategoryId = null, ChildSubCategoryModel $model)
@@ -399,7 +406,7 @@ class Home extends BaseController
     // ->join('child_sub_category', 'product.child_id = child_sub_category.child_id', 'inner')
     // ->get();
 
-        $query = $model->select('child_id , sub_category_id, child_sub_category_name')
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name', )
                        ->where('sub_chid_id', $parentCategoryId)
                        ->get();
 
