@@ -455,12 +455,7 @@ class Home extends BaseController
         ->where('product_id', $product_id)
         ->where('user_id', $userId)
             ->findAll();
-       
-        // $lastQuery = $addwishlistmodel->getLastQuery();
-        // echo $lastQuery;
-        // echo "<pre>";
-        // print_r($addwishData);
-        // die();
+    
 
         if (!$addwishData) {
             $addwishData = null;

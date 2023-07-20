@@ -1,63 +1,4 @@
-<?= $this->include('front/layout/front');
-// echo "<pre>";
-// // print_r($categories);
-// $found = false;
-// foreach ($categories as $key => $value) {
-//     foreach ($value['sub_cat'] as $key => $value1) {
-//         if ($value1['sub_category_name'] == 'Adaptors') {
-//             $found = true;
-//             // Do something with the found subcategory (Adaptors)
-//             print_r($value1);
-//             break; // Exit the inner loop
-//         }
-//     }
-//     if ($found) {
-//         break; // Exit the outer loop if the subcategory is found
-//     }
-// }
-// die;
-function displayChildren($children)
-{
-
-    // if (empty($children)) {
-    //     return;
-    // }
-    // echo '<ul class="nested">';
-    // foreach ($children as $child) {
-    //     $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
-    //     $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
-    //     echo '<li><span class="caret">' . $child->child_sub_category_name . '&nbsp;&nbsp;&nbsp;<a class="" href="'.$url_edit.'"><i class="bx bx-edit-alt me-1"></i></a><a class="" href="'.$url_delete.'"><i class="bx bx-trash me-1"></i></a>';
-    //     displayChildren($child->children);
-    //     echo '</span></li>';
-    // }
-    // echo '</ul>';
-
-    if (empty($children)) {
-        return;
-    }
-    echo '<ul class="nested">';
-    foreach ($children as $child) {
-        $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
-        $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
-        echo '<li><span class="caret">' . $child->child_sub_category_name;
-
-        if (empty($child->children)) {
-            // Edit link or button
-            echo '<a href="' . $url_edit . '"><i class="bx bx-edit-alt me-1"></i></a>';
-
-            // Delete link or button
-            echo '<a href="' . $url_delete . '"><i class="bx bx-trash me-1"></i></a>';
-        } else {
-            // Recursively display the children for the current child
-            displayChildren($child->children);
-        }
-        echo '</span></li>';
-    }
-    echo '</ul>';
-}
-?>
-
-
+<?= $this->include('front/layout/front');?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -85,9 +26,7 @@ function displayChildren($children)
                     </div>
                     <div class="panel-body">
                         <div class="panel-group" id="accordion">
-                            <?php foreach ($subcategoryData1 as $index => $subcategory) : 
-                                  //print_r($subcategory['sub_category_id']);
-                                  //die; ?>
+                            <?php foreach ($subcategoryData1 as $index => $subcategory) : ?>
                                 <div class="panel panel-default">
                                     
                                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>, this)">
