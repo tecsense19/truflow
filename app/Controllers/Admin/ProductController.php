@@ -110,6 +110,8 @@ class ProductController extends BaseController
         if (isset($input['product_id']) && $input['product_id'] != '') {
            // Given input strings
            $productData = $productmodel->find($input['product_id']);
+
+           if(!empty($productData['product_img']) && !empty($productArr['product_img'])){
             // Split the strings by commas (,) into arrays
             $array1 = explode(',', $productData['product_img']);
             $array2 = explode(',', $productArr['product_img']);
@@ -122,6 +124,8 @@ class ProductController extends BaseController
 
             // Output the merged string
             $productArr['product_img'] = $mergedString;
+           }
+            
             
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
