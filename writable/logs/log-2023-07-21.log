@@ -12,3 +12,556 @@ in APPPATH\Controllers\Admin\ProductController.php on line 115.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 11:26:40 --> Attempt to read property "sub_category_id" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 354.
+ 1 APPPATH\Controllers\Admin\ProductController.php(354): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on array', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 354)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 11:33:44 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 350.
+ 1 APPPATH\Controllers\Admin\ProductController.php(350): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 350)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:01:56 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:02:59 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:03:47 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 397.
+ 1 APPPATH\Controllers\Admin\ProductController.php(397): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 397)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:04:15 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 397.
+ 1 APPPATH\Controllers\Admin\ProductController.php(397): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 397)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:04:27 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:04:33 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:04:40 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 397.
+ 1 APPPATH\Controllers\Admin\ProductController.php(397): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 397)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:04:46 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:40:04 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:41:07 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:41:16 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 397.
+ 1 APPPATH\Controllers\Admin\ProductController.php(397): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 397)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:42:22 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:42:35 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:43:02 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:43:14 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:45:26 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 392.
+ 1 APPPATH\Controllers\Admin\ProductController.php(392): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 392)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:47:05 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:49:42 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:52:58 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 367.
+ 1 APPPATH\Controllers\Admin\ProductController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 12:53:22 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 361.
+ 1 APPPATH\Controllers\Admin\ProductController.php(361): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 361)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:00:33 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 363.
+ 1 APPPATH\Controllers\Admin\ProductController.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 363)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:01:51 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:03:13 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 365.
+ 1 APPPATH\Controllers\Admin\ProductController.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 365)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:04:21 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:04:38 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:09:28 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 355.
+ 1 APPPATH\Controllers\Admin\ProductController.php(355): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 355)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:11:57 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 356.
+ 1 APPPATH\Controllers\Admin\ProductController.php(356): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 356)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:16:56 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:17:33 --> Undefined property: stdClass::$15
+in APPPATH\Controllers\Admin\ProductController.php on line 359.
+ 1 APPPATH\Controllers\Admin\ProductController.php(359): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$15', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 359)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:18:03 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:18:09 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:18:40 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:19:13 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:20:26 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:21:50 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:22:37 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 357.
+ 1 APPPATH\Controllers\Admin\ProductController.php(357): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 357)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:23:46 --> syntax error, unexpected token "else", expecting "function" or "const"
+in APPPATH\Controllers\Admin\ProductController.php on line 442.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\ProductController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\ProductController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Admin\\ProductController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:24:02 --> syntax error, unexpected token "else", expecting "function" or "const"
+in APPPATH\Controllers\Admin\ProductController.php on line 411.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\ProductController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\ProductController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Admin\\ProductController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:24:12 --> syntax error, unexpected token "else", expecting "function" or "const"
+in APPPATH\Controllers\Admin\ProductController.php on line 405.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\ProductController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\ProductController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Admin\\ProductController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:24:34 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 356.
+ 1 APPPATH\Controllers\Admin\ProductController.php(356): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 356)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:25:00 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 356.
+ 1 APPPATH\Controllers\Admin\ProductController.php(356): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 356)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:25:07 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 356.
+ 1 APPPATH\Controllers\Admin\ProductController.php(356): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 356)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:25:34 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 358.
+ 1 APPPATH\Controllers\Admin\ProductController.php(358): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 358)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:25:45 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 358.
+ 1 APPPATH\Controllers\Admin\ProductController.php(358): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 358)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:25:52 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 358.
+ 1 APPPATH\Controllers\Admin\ProductController.php(358): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 358)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:26:26 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:26:52 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:27:17 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:27:33 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:27:38 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:27:51 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:28:25 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:29:03 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:29:32 --> count(): Argument #1 ($value) must be of type Countable|array, string given
+in APPPATH\Controllers\Admin\ProductController.php on line 336.
+ 1 APPPATH\Controllers\Admin\ProductController.php(336): count('host2')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:29:57 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 APPPATH\Controllers\Admin\ProductController.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:30:34 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:30:52 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:30:59 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:31:05 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:31:42 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 364.
+ 1 APPPATH\Controllers\Admin\ProductController.php(364): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 364)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:32:08 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 364.
+ 1 APPPATH\Controllers\Admin\ProductController.php(364): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 364)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:32:51 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 364.
+ 1 APPPATH\Controllers\Admin\ProductController.php(364): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 364)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:35:51 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 346.
+ 1 APPPATH\Controllers\Admin\ProductController.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:36:24 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 345.
+ 1 APPPATH\Controllers\Admin\ProductController.php(345): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 345)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:41:11 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 353.
+ 1 APPPATH\Controllers\Admin\ProductController.php(353): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 353)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:41:27 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 353.
+ 1 APPPATH\Controllers\Admin\ProductController.php(353): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 353)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:41:47 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 353.
+ 1 APPPATH\Controllers\Admin\ProductController.php(353): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 353)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:42:39 --> Attempt to read property "child_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 352.
+ 1 APPPATH\Controllers\Admin\ProductController.php(352): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "child_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 352)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:44:21 --> Object of class stdClass could not be converted to string
+in SYSTEMPATH\Database\Query.php on line 335.
+ 1 SYSTEMPATH\Database\Query.php(335): strtr('INSERT INTO `child_sub_category` (`child_sub_category_name`, `sub_chid_id`, `sub_category_id`, `category_id`, `created_at`, `updated_at`) VALUES (:child_sub_category_name:, :sub_chid_id:, :sub_category_id:, :category_id:, :created_at:, :updated_at:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(310): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `child_sub_category` (`child_sub_category_name`, `sub_chid_id`, `sub_category_id`, `category_id`, `created_at`, `updated_at`) VALUES (:child_sub_category_name:, :sub_chid_id:, :sub_category_id:, :category_id:, :created_at:, :updated_at:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(159): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `child_sub_category` (`child_sub_category_name`, `sub_chid_id`, `sub_category_id`, `category_id`, `created_at`, `updated_at`) VALUES (:child_sub_category_name:, :sub_chid_id:, :sub_category_id:, :category_id:, :created_at:, :updated_at:)', [...], false)
+ 6 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Controllers\Admin\ProductController.php(356): CodeIgniter\Model->insert([...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:44:34 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 353.
+ 1 APPPATH\Controllers\Admin\ProductController.php(353): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 353)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:45:45 --> Attempt to read property "sub_category_id" on null
+in APPPATH\Controllers\Admin\ProductController.php on line 362.
+ 1 APPPATH\Controllers\Admin\ProductController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "sub_category_id" on null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:51:11 --> Undefined array key 10
+in APPPATH\Controllers\Admin\ProductController.php on line 337.
+ 1 APPPATH\Controllers\Admin\ProductController.php(337): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 10', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 337)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:52:13 --> Undefined array key 10
+in APPPATH\Controllers\Admin\ProductController.php on line 337.
+ 1 APPPATH\Controllers\Admin\ProductController.php(337): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 10', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 337)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:53:41 --> Undefined array key 10
+in APPPATH\Controllers\Admin\ProductController.php on line 339.
+ 1 APPPATH\Controllers\Admin\ProductController.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 10', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 339)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 13:56:59 --> Undefined array key 10
+in APPPATH\Controllers\Admin\ProductController.php on line 344.
+ 1 APPPATH\Controllers\Admin\ProductController.php(344): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 10', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 344)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
