@@ -84,11 +84,15 @@ class Home extends BaseController
         }
         $variantsmodel = new VariantsModel();
         $newData1 = [];
-        foreach ($newProductdata as $pdata) {
-            $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
-            $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
-            $newData1[] = $pdata;
+        if(isset($newProductdata))
+        {
+            foreach ($newProductdata as $pdata) {
+                $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
+                $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $newData1[] = $pdata;
+            }
         }
+     
         $session = session();
         $userId = $session->get('user_id');
         $addwishlistmodel = new AddwishlistModel();
