@@ -21,6 +21,7 @@ class ProductModel extends Model
         'product_additional_info',
         'sub_category_id',
         'child_id',
+        'featured_category',
         
     ];
 

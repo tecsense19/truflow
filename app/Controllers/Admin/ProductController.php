@@ -33,6 +33,7 @@ class ProductController extends BaseController
 
         return view('admin/product/product_list', ['productData' => $newData2]);
     }
+   
     public function product()
     {
         $productmodel = new ProductModel();
@@ -72,13 +73,14 @@ class ProductController extends BaseController
         $session = session();
         $input = $this->request->getVar();
         $product_id = $input['product_id'];
-       
+      
         $productArr = [];
 
         $productArr['product_id'] = isset($input['product_id']) ? $input['product_id'] : '';
         $productArr['category_id'] = isset($input['category_id']) ? $input['category_id'] : '';
         $productArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
         $productArr['child_id'] = isset($input['child_id']) ? $input['child_id'] : '';
+        $productArr['featured_category'] = isset($input['featured_category']) ? $input['featured_category'] : '';
         $productArr['product_name'] = isset($input['product_name']) ? $input['product_name'] : '';
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
@@ -126,7 +128,7 @@ class ProductController extends BaseController
             $productArr['product_img'] = $mergedString;
            }
             
-            
+         
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
             $session->setFlashdata('success', 'product Update succesfully.');

@@ -1,0 +1,214 @@
+ERROR - 2023-07-24 05:05:39 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(34): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(34): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-24 05:05:39 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `site_settings`
+WHERE `type` = :type:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Home.php(34): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 10:28:27 --> Undefined array key 5
+in APPPATH\Controllers\Admin\SettingsController.php on line 73.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 5', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 73)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 10:28:43 --> Undefined array key 5
+in APPPATH\Controllers\Admin\SettingsController.php on line 73.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 5', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 73)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-24 10:51:10 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', NULL, false)
+#4 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2192): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\truflow\system\Model.php(364): CodeIgniter\Database\BaseBuilder->insertBatch(Array, NULL, 100)
+#6 C:\xampp\htdocs\truflow\system\BaseModel.php(874): CodeIgniter\Model->doInsertBatch(Array, NULL, 100, false)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(148): CodeIgniter\BaseModel->insertBatch(Array)
+#8 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', Array, Array)
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-24 10:51:10 --> Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `settings_images` (`created_at`, `image_link`, `updated_at`)
+VALUES (\'2023-07-24 10:51:09\',\'tet\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'ete\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'te\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'gr\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'e\',\'2023-07-24 10:51:09\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `settings_images` (`created_at`, `image_link`, `updated_at`)
+VALUES (\'2023-07-24 10:51:09\',\'tet\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'ete\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'te\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'gr\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'e\',\'2023-07-24 10:51:09\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `settings_images` (`created_at`, `image_link`, `updated_at`)
+VALUES (\'2023-07-24 10:51:09\',\'tet\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'ete\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'te\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'gr\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'e\',\'2023-07-24 10:51:09\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`created_at`, `image_link`, `updated_at`)
+VALUES (\'2023-07-24 10:51:09\',\'tet\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'ete\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'te\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'gr\',\'2023-07-24 10:51:09\'), (\'2023-07-24 10:51:09\',\'e\',\'2023-07-24 10:51:09\')', null, false)
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2192): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+ 6 SYSTEMPATH\Model.php(364): CodeIgniter\Database\BaseBuilder->insertBatch([...], null, 100)
+ 7 SYSTEMPATH\BaseModel.php(874): CodeIgniter\Model->doInsertBatch([...], null, 100, false)
+ 8 APPPATH\Controllers\Admin\SettingsController.php(148): CodeIgniter\BaseModel->insertBatch([...])
+ 9 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-24 10:54:21 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(148): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', Array, Array)
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-24 10:54:21 --> Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'e\', \'2023-07-24 10:54:21\', \'2023-07-24 10:54:21\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'e\', \'2023-07-24 10:54:21\', \'2023-07-24 10:54:21\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'e\', \'2023-07-24 10:54:21\', \'2023-07-24 10:54:21\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (:image_link:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\SettingsController.php(148): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 10:58:37 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\Admin\SettingsController.php(142): CodeIgniter\Model->update()
+ 4 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 10:58:45 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\Admin\SettingsController.php(142): CodeIgniter\Model->update()
+ 4 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 11:24:18 --> Undefined array key 5
+in APPPATH\Controllers\Admin\SettingsController.php on line 143.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 5', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 143)
+ 2 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-24 11:24:38 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE) in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(145): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\app\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', Array, Array)
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-07-24 11:24:38 --> Cannot add or update a child row: a foreign key constraint fails (`true_flow`.`settings_images`, CONSTRAINT `settings_images_ibfk_1` FOREIGN KEY (`setting_id`) REFERENCES `site_settings` (`setting_id`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'dsadasdasdsd\', \'2023-07-24 11:24:38\', \'2023-07-24 11:24:38\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'dsadasdasdsd\', \'2023-07-24 11:24:38\', \'2023-07-24 11:24:38\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (\'dsadasdasdsd\', \'2023-07-24 11:24:38\', \'2023-07-24 11:24:38\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `settings_images` (`image_link`, `created_at`, `updated_at`) VALUES (:image_link:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\SettingsController.php(145): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 11:28:53 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\SettingsController.php on line 161.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 161)
+ 2 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 11:29:15 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\SettingsController.php on line 161.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 161)
+ 2 APPPATH\Controllers\Admin\SettingsController.php(69): App\Controllers\Admin\SettingsController->partnerImages('6', 'partner', [...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 12:05:41 --> unlink(public/front/images/partner_images/): Is a directory
+in APPPATH\Controllers\Admin\SettingsController.php on line 202.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(public/front/images/partner_images/): Is a directory', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 202)
+ 2 APPPATH\Controllers\Admin\SettingsController.php(202): unlink('public/front/images/partner_images/')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-24 12:05:52 --> unlink(public/front/images/partner_images/): Is a directory
+in APPPATH\Controllers\Admin\SettingsController.php on line 202.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(public/front/images/partner_images/): Is a directory', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 202)
+ 2 APPPATH\Controllers\Admin\SettingsController.php(202): unlink('public/front/images/partner_images/')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->delete_partner_img()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

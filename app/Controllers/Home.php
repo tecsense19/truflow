@@ -78,7 +78,7 @@ class Home extends BaseController
             }
             $category['products'] =  $newData2;
         }
-        $newProductdata = $productmodel->findAll();
+        $newProductdata = $productmodel->where('featured_category', 1)->findAll();
         if (!$newProductdata) {
             $newProductdata = null;
         }

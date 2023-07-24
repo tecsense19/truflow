@@ -202,7 +202,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             <div class="col-lg-6">
                 <div class="slider">
                     <?php if (isset($newProductdata)) { ?>
-                        <?php foreach ($newProductdata as $product) { ?>
+                        <?php foreach ($newProductdata as $product) {  ?>
                             <div class="slider_content">
 
                                 <div class="slider_con_img">
@@ -259,14 +259,14 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
         <div class="row">
             <div class="col-lg-12">
                 <div class="product_title text-center">
-                    <h2>OUR PRODUCTS</h2>
+                    <h2>FEATURED PRODUCTS</h2>
                 </div>
             </div>
         </div>
         <div class="row align-items-center pb-lg-5 pb-xl-5 pb-xxl-5">
-            <div class="col-lg-9">
+            <!-- <div class="col-lg-9">
                 <div class="products_type">
-                    <!-- Nav tabs -->
+                   
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home">All</a>
@@ -280,8 +280,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         <?php endforeach; ?>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-3">
+            </div> -->
+            <!-- <div class="col-lg-3">
                 <form role="search" method="POST" class="search-form" id="Ajax_search">
                     <div class="search_drop">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -289,14 +289,16 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                     </div>
                     <div id="search_1-result"></div>
                 </form>
-            </div>
+            </div> -->
         </div>
 
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="home" class="container tab-pane active">
                 <div class="row">
-                    <?php if (isset($newProductdata)) { ?>
+                    <?php if (isset($newProductdata)) { 
+                       // Shuffle the array to get random data
+                        shuffle($newProductdata); ?>
                         <?php foreach ($newProductdata as $product) : ?>
                             <div class="col-sm-6 col-lg-3">
                                 <div class="product_card">
@@ -423,7 +425,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <?php foreach ($partnerImageData as $partner) { ?>
                                 <div class="item">
                                     <div class="logo_img text-md-right">
-                                        <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="partner logo" class="img-fluid">
+                                        <a href="<?php echo $partner['image_link']; ?> " target="_blank" ><img src="<?php echo base_url() . $partner['image_path'] ?>" alt="partner logo" class="img-fluid"></a>
                                     </div>
                                 </div>
                             <?php } ?>

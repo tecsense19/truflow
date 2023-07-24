@@ -42,9 +42,9 @@ class SettingsController extends BaseController
 
         $session = session();
         $input = $this->request->getVar();
-
+     
         $typeArr = ['welcome', 'about', 'contact', 'product', 'testominal', 'partner'];
-
+   
         for ($i = 0; $i < count($typeArr); $i++) {
             $settingsArr = [];
             $settingsArr['title'] = isset($input[$typeArr[$i] . '_title']) ? $input[$typeArr[$i] . '_title'] : '';
@@ -66,9 +66,9 @@ class SettingsController extends BaseController
                 $this->settingImages($lastId, $typeArr[$i]);
             }
             if($typeArr[$i] == 'partner'){
-
-                $this->partnerImages($lastId, $typeArr[$i]);
+                $this->partnerImages($lastId, $typeArr[$i], $input['partner_site_link'], $input['partner_site_link_id']);
             }
+            
         }
         $session->setFlashdata('success', 'Settings change succesfully.');
         return redirect()->to('admin/settings');
@@ -122,32 +122,57 @@ class SettingsController extends BaseController
         }
     }
 
-    public function partnerImages($lastId, $typeArr){
+    public function partnerImages($lastId, $typeArr, $image_link, $image_id){
 
         $settingsImagesModel = new SettingsImagesModel();
 
+        // Assuming you have loaded the model and the arrays as $image_id and $image_link
+        // Loop through the $image_id array
 
-        if (!empty($_FILES[$typeArr.'_image_path']['name'][0])) {
+        foreach ($image_link as $key => $value) 
+        {
+            $filename = '';
             $path = 'public/front/images/partner_images/';
             $files = $_FILES[$typeArr.'_image_path'];
-        
-            for ($i = 0; $i < count($files['name']); $i++) {
-                $file = new \CodeIgniter\HTTP\Files\UploadedFile($files['tmp_name'][$i], $files['name'][$i], $files['type'][$i], $files['size'][$i], $files['error'][$i]);
-                if ($file->getClientName()) {
-                    $filename = time() . '_bannerImg_' . $file->getClientName();
-                    $file->move($path, $filename);
-        
-                    // Resize the image to 500x500 pixels
-                    // $image = \Config\Services::image()
-                    //     ->withFile($path . $filename)
-                    //     ->resize(500, 500)
-                    //     ->save($path . $filename);
-        
-                    $settingImg['image_path'] = 'public/front/images/partner_images/' . $filename;
-                    $settingImg['setting_id'] = $lastId;
-                    $settingsImagesModel->insert($settingImg);
-                }
+            $file = new \CodeIgniter\HTTP\Files\UploadedFile($files['tmp_name'][$key], $files['name'][$key], $files['type'][$key], $files['size'][$key], $files['error'][$key]);
+            if ($file->getClientName()) {
+                $filename = time() . '_bannerImg_' . $file->getClientName();
+                $file->move($path, $filename);
+    
+                // Resize the image to 500x500 pixels
+                // $image = \Config\Services::image()
+                //     ->withFile($path . $filename)
+                //     ->resize(500, 500)
+                //     ->save($path . $filename);
+            
+                
+                // $settingImg['image_path'] = 'public/front/images/partner_images/' . $filename;
+    
+                // $settingImg['setting_id'] = $lastId;
+                //     // print_r($settingImg['image_path']);
+                //     // die;
+                // $settingsImagesModel->insert($settingImg);
             }
+            if(isset($image_id[$key]))
+            {
+                     // If the record exists, update the image_link
+                     $data = array(
+                        'image_link' => $value
+                    );
+                    if($filename)
+                    {
+                        $data['image_path'] = 'public/front/images/partner_images/' . $filename;
+                    }                    
+                    $settingsImagesModel->where('image_id', $image_id[$key])->set($data)->update();
+            }else{
+                $data = array(
+                    'image_path' => 'public/front/images/partner_images/' . $filename,
+                    'setting_id' => $lastId,
+                    'image_link' => $value
+                );
+                $settingsImagesModel->insert($data);
+            }
+
         }
 
     }

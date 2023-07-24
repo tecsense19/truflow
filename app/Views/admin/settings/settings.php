@@ -1,5 +1,5 @@
 <style>
-    h5.mb-0{
+    h5.mb-0 {
         color: #696CFF;
     }
 </style>
@@ -210,17 +210,31 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <label class="form-label" for="basic-default-message">Partner Description</label>
                                 <textarea id="editor6" name="partner_description"><?php echo $partner_description; ?></textarea>
                             </div>
-                            <div class="mb-3">
-                                <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
-                                <?php if ($partnerImageData) { ?>
-                                    <?php foreach ($partnerImageData as $partner) { ?>
-                                        <div class="image-container partner_img">
-                                            <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
-                                            <a class="remove-image" href="#" style="display: inline;" data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
-                                        </div>
-                                    <?php } ?>
+                            <div class="row" id="partner-rows">
+                            <?php if ($partnerImageData) { ?>
+                                            <?php foreach ($partnerImageData as $partner) { ?>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" value="<?php echo $partner['image_link']; ?>" class="form-control" id="partner_site_link" name="partner_site_link[]" placeholder="Link" />
+                                <input type="hidden" value="<?php echo $partner['image_id']; ?>" class="form-control" id="partner_site_link_id" name="partner_site_link_id[]" placeholder="Link" />
+                               
+                                </div>
+                                <div class="col-md-4">
+                                     <div class="image-container partner_img">
+                                         <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
+                                         <a class="remove-image" href="#" style="display: inline;" data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
+                                                    
+                                     </div>
+                                </div>
                                 <?php } ?>
+                          <?php } ?>
                             </div>
+                            <input type="button" id="add_partner_link_image" class="btn btn-primary d-grid" value="Add more">
                         </div>
                     </div>
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
@@ -234,39 +248,78 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 <?= $this->include('admin/layout/footer') ?>
 <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
-$(document).ready(function() {
-    $('#settings_form').validate({
-        rules: {
-            welcome_title: 'required',
-            welcome_sub_title: 'required',
-            welcome_description: 'required',
-            welcome_button_text: 'required',
-            welcome_button_link: 'required',
-            about_title: 'required',
-            about_sub_title: 'required',
-            about_description: 'required',
-            about_button_text: 'required',
-            about_button_link: 'required',
-            contact_title: 'required',
-            contact_description: 'required',
-            contact_button_text: 'required',
-            contact_button_link: 'required',
-            product_title: 'required',
-            product_description: 'required',
-            testominal_title: 'required',
-            testominal_description: 'required',
-            partner_title: 'required',
-            partner_description: 'required',
-        },
-        messages: {
-            // Add custom error messages here if needed
-        },
-        submitHandler: function(form) {
-            // Handle form submission if all fields are valid
-            form.submit();
-        }
+    $(document).ready(function() {
+        $('#settings_form').validate({
+            rules: {
+                welcome_title: 'required',
+                welcome_sub_title: 'required',
+                welcome_description: 'required',
+                welcome_button_text: 'required',
+                welcome_button_link: 'required',
+                about_title: 'required',
+                about_sub_title: 'required',
+                about_description: 'required',
+                about_button_text: 'required',
+                about_button_link: 'required',
+                contact_title: 'required',
+                contact_description: 'required',
+                contact_button_text: 'required',
+                contact_button_link: 'required',
+                product_title: 'required',
+                product_description: 'required',
+                testominal_title: 'required',
+                testominal_description: 'required',
+                partner_title: 'required',
+                partner_description: 'required',
+            },
+            messages: {
+                // Add custom error messages here if needed
+            },
+            submitHandler: function(form) {
+                // Handle form submission if all fields are valid
+                form.submit();
+            }
+        });
+
+
     });
+    $(document).ready(function() {
+        var imageCount = <?php echo count($partnerImageData); ?>; // Initialize the image count to the number of existing partner images
+
+// Event handler for the "Add more" button
+$('#add_partner_link_image').on('click', function() {
+  // Increment the image count for each new partner image and link
+  imageCount++;
+
+  // Create HTML for the new partner image and link
+  var newImageHTML = 
+    '<div class="col-md-4">' +
+    '<div class="mb-3">' +
+    '<input type="file" class="form-control" value="" id="partner_image_path' + imageCount + '" name="partner_image_path[]" multiple placeholder="Banner Image" />' +
+    '</div>' +
+    '</div>' +
+    '<div class="col-md-4">' +
+    '<input type="text" value="" class="form-control" id="partner_site_link' + imageCount + '" name="partner_site_link[]" placeholder="Link" />' +
+    '</div>' +
+    '<div class="col-md-4">' +
+    '<div class="image-container partner_img">' +
+    '<a class="remove-image_1 remove-image" style="display: block !important;width: fit-content;" id="remove-image_'+imageCount+'" href="#"  data-id="' + imageCount + '">&#215;</a>' +
+    '</div>' +
+    '</div>';
+
+  // Append the new partner image and link HTML to the existing container
+  $('#partner-rows').append(newImageHTML);
 });
+        // Remove image functionality (assuming you have this already in your code)
+        $('#partner-rows').on('click', '.remove-image_1', function(event) {
+    event.preventDefault();
+    var imageId = $(this).data('id');
+    $('#partner_image_path' + imageId).parent().parent().remove();
+    $('#partner_site_link' + imageId).parent().remove();
+    $('#remove-image_' + imageId).parent().parent().remove();
+
+  });
+    });
 </script>
 <script>
     $(document).ready(function() {
@@ -294,6 +347,7 @@ $(document).ready(function() {
                         },
                         success: function(response) {
                             container.remove();
+                            location.reload();
                         },
                         error: function(xhr, status, error) {
                             console.log(error);
