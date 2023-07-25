@@ -89,9 +89,21 @@ class Home extends BaseController
             foreach ($newProductdata as $pdata) {
                 $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
                 $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+                $categorydata = $categorymodel->where('category_id', $pdata['category_id'])->first();
+                $pdata['category_name'] = count($categorydata) > 0 ? $categorydata['category_name'] : '';
+           
+                
+                $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
+                $pdata['sub_category_name'] = count($subcategory) > 0 ? $subcategory['sub_category_name'] : '';
                 $newData1[] = $pdata;
+       
             }
         }
+
+   
+
+
      
         $session = session();
         $userId = $session->get('user_id');

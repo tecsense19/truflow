@@ -64,9 +64,9 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <div class="container-fluid p-md-1 row_margine">
 
-  <div class="row no-gutters justify-content-center ">
+  <div class="row no-gutters justify-content-center align-items-center" style="background-color: gainsboro;">
     <div class="col-lg-9 col-md-12 pr-2">
-      <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt="">
+    <a href="<?php echo base_url('product/2') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
     </div>
     <div class="col-lg-3 col-md-8 mt-3 mt-lg-0" style="background-color: gainsboro;">
             <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
@@ -115,12 +115,12 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     </div>
 
     <div class="row mb-4">
-        <div class="col-md-6 mt-4 pl-3">
-        <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/2.jpg" alt="">
+        <div class="col-md-6 mt-2 pl-3">
+        <a href="<?php echo base_url('shop') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/2.jpg" alt=""></a>
         </div>
 
-        <div class="col-md-6 mt-4 pr-3">
-        <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/3.jpg" alt="">
+        <div class="col-md-6 mt-2 pr-3">
+        <a href="<?php echo base_url('shop') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/3.jpg" alt=""></a>
         </div>
 
     </div>
@@ -294,9 +294,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 
                                 </div>
                                 <div class="slider_text">
-                                    <h6><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h6>
-
-                                    <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><button type="button" class="btn">ADD TO CART</button></a>
+                                <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h6><?php echo $product['sub_category_name']; ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h6></a>
                                 </div>
 
                             </div>
@@ -390,8 +388,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         <?php } ?>
 
                                         <div class="card-body">
-                                            <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5>
-                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"> <button>ADD TO CART</button></a>
+                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?= $product['sub_category_name'] ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
                                         </div>
                                     </div>
                                 </div>
@@ -420,8 +417,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                             <?php } ?>
 
                                             <div class="card-body">
-                                                <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5>
-                                                <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"><button>ADD TO CART</button></a>
+                                            <a href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>"> <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5>
+                                           </a> 
                                             </div>
                                         </div>
                                     </div>
