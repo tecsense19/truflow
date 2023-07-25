@@ -1594,11 +1594,25 @@ footer{
     transition: 0.5s;
 }
 
-.product_box:hover .product_img img {
+/* .product_box:hover .product_img img {
     transform: scale(1.2);
     transition: 0.5s;
+} */
+
+.product_text h6 {
+    font-size: small;
+    font-weight: 600;
+    font-family: var(--Montserrat);
+    color: #000;
+    transition: 0.5s;
+    padding: 0px 10px;
+    /* min-height: 35px; */
 }
 
+.product_box:hover {
+    transform: scale(1.03);
+    transition: 0.5s;
+}
 .product_text h3{
     font-size: 18px;
     font-weight: 600;
@@ -1606,7 +1620,7 @@ footer{
     color: #000;
     transition: 0.5s;
     padding: 0px 10px;
-    min-height: 50px;
+    min-height: 35px;
 }
 
 .product_text h3:hover {
@@ -2289,7 +2303,7 @@ button.btn.btn-primary.btn-rounded {
     text-align: center;
     border: 0px;
     border-radius: 4px;
-    width: 200px;
+    /* width: 200px; */
 }
 .signin_btn{
     background: #005dab;

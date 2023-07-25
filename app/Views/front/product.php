@@ -1,4 +1,9 @@
 <?= $this->include('front/layout/front');?>
+<style>
+    section.category_product .container {
+    max-width: 86%;
+}
+</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -91,7 +96,7 @@
                 <div class="row">
                     <?php if (isset($productData) && !empty($productData)) {  ?>
                         <?php foreach ($productData as $product) { ?>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
                                         <?php
@@ -99,16 +104,17 @@
                                         $firstImage = trim($productImages[0]);
                                         ?>
                                         <?php if (!empty($product['product_img'])) { ?>
-                                            <img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image">
+                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link"><img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image"></a>
                                         <?php } else { ?>
-                                            <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link"><img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image"></a>
 
                                         <?php } ?>
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
                                         <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
-                                            <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h3>
+                                            <h3><?php echo $product['parent'] ?><h6><?php echo $product['product_description']; ?></h6></h3>
+                                            
                                             <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                         </a>
                                     </div>
