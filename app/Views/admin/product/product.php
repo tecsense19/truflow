@@ -213,6 +213,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="lastchild_id" id="lastchild_id" value="">
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
@@ -333,7 +334,6 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
     
         function loadChildSubcategories(sub_category_id) {
         var child_id = '';
-
         if (sub_category_id) {
             $.ajax({
                 url: '<?php echo base_url() ?>admin/getChildSubcategories/' + sub_category_id,
@@ -396,6 +396,9 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
     function getAllChildSubCategory(event) 
     {
         var selectElement = event.target.value;
+
+   
+        $('#lastchild_id').val(selectElement);
         
         $.ajax({
                 url: '<?php echo base_url() ?>admin/getChildSubId/' + selectElement,
