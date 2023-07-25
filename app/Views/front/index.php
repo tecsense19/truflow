@@ -513,7 +513,7 @@ button#add_rows {
         <div class="row">
             <div class="col-lg-12">
                 <div class="container">
-                    <div class="owl-carousel-3 owl-carousel owl-theme">
+                    <div class="owl-carousel-3 owl-carousel owl-carousel_1 owl-theme">
                         <?php if ($partnerImageData) { ?>
                             <?php foreach ($partnerImageData as $partner) { ?>
                                 <div class="item">
@@ -531,6 +531,7 @@ button#add_rows {
 <!--~~~~~~~~~~~~~~~~~~>> PARTNER LOGO END <<~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
 <script>
     $(document).ready(function() {
@@ -557,4 +558,23 @@ button#add_rows {
 
         $('.alert').delay(3000).fadeOut(300);
     });
+</script>
+<script>
+  $(document).ready(function(){
+    $('.owl-carousel_1').owlCarousel({
+      items: 1, // Number of items to display at a time
+      loop: true, // Infinite loop
+      autoplay: true, // Autoplay the carousel
+      autoplayTimeout: 3000, // Autoplay interval in milliseconds
+      autoplayHoverPause: true, // Pause autoplay on hover
+      responsive: { // Responsive settings for different screen sizes
+        768: { // For screens >= 768px
+          items: 2 // Show 2 items at a time
+        },
+        992: { // For screens >= 992px
+          items: 4 // Show 3 items at a time
+        }
+      }
+    });
+  });
 </script>
