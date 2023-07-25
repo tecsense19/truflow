@@ -408,7 +408,7 @@ button#add_rows {
                                         <?php } ?>
 
                                         <div class="card-body">
-                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
+                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
                                         </div>
                                     </div>
                                 </div>
