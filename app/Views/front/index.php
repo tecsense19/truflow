@@ -54,6 +54,24 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 <!-- new page login added -->
 
 <style>
+
+
+@media only screen 
+  and (min-width: 0px) 
+  and (max-width: 767px)
+ {
+    .adjust_button{
+        display: flex !important;
+        justify-content: center !important;
+}
+button#add_to_cart{
+    margin-left: unset;
+}
+button#add_rows {
+    margin-left: unset;
+ }
+}
+   
     .row_margine{
         margin-top: 122px;
     }
@@ -262,9 +280,11 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <div class="input_fields">
                                 <!-- Existing rows and fields here -->
                             </div>
-
+                            <div class="adjust_button">
                             <button id="add_to_cart" class="btn" type="submit">Add to Cart</button>
                             <button type="button" class="btn" id="add_rows">Add Rows</button>
+                            </div>
+                            
                         </form>
 
 
@@ -294,7 +314,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 
                                 </div>
                                 <div class="slider_text">
-                                <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h6><?php echo $product['sub_category_name']; ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h6></a>
+                                <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h6><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h6></a>
                                 </div>
 
                             </div>
@@ -388,7 +408,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                         <?php } ?>
 
                                         <div class="card-body">
-                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?= $product['sub_category_name'] ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
+                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
                                         </div>
                                     </div>
                                 </div>

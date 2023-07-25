@@ -66,6 +66,7 @@ class Home extends BaseController
         $productmodel = new ProductModel();
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
         $variantsmodel = new VariantsModel();
         foreach ($subcategoryData as &$category) {
@@ -96,12 +97,18 @@ class Home extends BaseController
                 
                 $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
                 $pdata['sub_category_name'] = count($subcategory) > 0 ? $subcategory['sub_category_name'] : '';
-                $newData1[] = $pdata;
-       
+
+                if(isset($pdata['child_id']))
+                {
+                    $ChildSubCategory = $ChildSubCategoryModel->where('sub_category_id', $pdata['sub_category_id'])
+                    ->where('child_id', $pdata['child_id'])
+                    ->first();
+                    $pdata['child_sub_category_name'] = isset($ChildSubCategory) ? $ChildSubCategory['child_sub_category_name'] : '';
+                    $newData1[] = $pdata;
+                }
             }
         }
 
-   
 
 
      
