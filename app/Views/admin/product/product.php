@@ -419,7 +419,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             $('#child-subcategory-select').append(option);
                         });
 
-                        var createNewDropDwon = '<select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select>';
+                        var createNewDropDwon = '<div class="mb-3"><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select></div>';
 
                         $('.all_child_drop_down').append(createNewDropDwon);
 
