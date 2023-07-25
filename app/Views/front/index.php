@@ -54,9 +54,20 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 <!-- new page login added -->
 
 <style>
-
-
-@media only screen 
+    #loginForm{
+        width: 335px;
+    }
+.form_outer{
+    background-color: gainsboro !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+    .row_margine{
+        margin-top: 122px;
+    }
+    @media only screen 
   and (min-width: 0px) 
   and (max-width: 767px)
  {
@@ -71,10 +82,6 @@ button#add_rows {
     margin-left: unset;
  }
 }
-   
-    .row_margine{
-        margin-top: 122px;
-    }
 </style>
 <body style="overflow-x: hidden;">
     
@@ -82,11 +89,11 @@ button#add_rows {
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <div class="container-fluid p-md-1 row_margine">
 
-  <div class="row no-gutters justify-content-center align-items-center" style="background-color: gainsboro;">
+  <div class="row no-gutters justify-content-center">
     <div class="col-lg-9 col-md-12 pr-2">
     <a href="<?php echo base_url('product/2') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
     </div>
-    <div class="col-lg-3 col-md-8 mt-3 mt-lg-0" style="background-color: gainsboro;">
+    <div class="col-lg-3 col-md-8 mt-3 mt-lg-0 form_outer" style="background-color: gainsboro;">
             <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
             <h2 class="text-center pt-5 pb-3">Sign in</h2>
                 <div class="form-group">
