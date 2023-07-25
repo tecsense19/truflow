@@ -84,7 +84,9 @@ class ProductController extends BaseController
         $productArr['product_name'] = isset($input['product_name']) ? $input['product_name'] : '';
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
- 
+        // echo "<pre>";
+        // print_r($productArr);
+        // die;
         // Check if new images are uploaded
         if ($files = $this->request->getFiles()) {
             $path = 'public/admin/images/product/';

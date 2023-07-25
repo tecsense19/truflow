@@ -206,6 +206,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                     {
                         $('#child-subcategory-input').hide();
                         $('#child-subcategory-input_img').hide();
+                        $('.all_child_drop_down').html('');
 
                         var option = '';
                         $.each(data, function(key, value) {
@@ -217,7 +218,7 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                             $('#child-subcategory-select').append(option);
                         });
 
-                        var createNewDropDwon = '<select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select>';
+                        var createNewDropDwon = '<div class="mb-3"><label for="exampleFormControlSelect1" class="form-label">Childcategory</label><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select></div>';
 
                         $('.all_child_drop_down').append(createNewDropDwon);
 

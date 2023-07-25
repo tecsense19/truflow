@@ -343,6 +343,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                     if(data.length != 0)
                     {
                         $('#child-subcategory-input').hide();
+                        $('.all_child_drop_down').html('');
 
                         var option = '';
                         $.each(data, function(key, value) {
@@ -354,7 +355,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             $('#child-subcategory-select').append(option);
                         });
 
-                        var createNewDropDwon = '<select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select>';
+                        var createNewDropDwon = '<div class="mb-3"><label for="exampleFormControlSelect1" class="form-label">Childcategory</label><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select></div>';
 
                         $('.all_child_drop_down').append(createNewDropDwon);
 
