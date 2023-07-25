@@ -1,7 +1,2 @@
-ALTER TABLE `settings_images`
-ADD `image_link` varchar(255) DEFAULT NULL;
-
-
-
 ALTER TABLE `product`
-ADD `featured_category` int(11) DEFAULT 0;
+ADD `child_id` int(11) DEFAULT NULL;
