@@ -123,7 +123,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" name="featured_category" type="checkbox" value="0" <?php if($featured_product == 1){?> checked <?php } ?> id="defaultCheck3" />
+                                        <input class="form-check-input" name="featured_category" type="checkbox" value="<?php if($featured_product == 1){?><?php echo $featured_product ?> <?php }else{ ?>0<?php } ?> " <?php if($featured_product == 1){?> checked <?php }else{ ?> unchecked <?php } ?> id="defaultCheck3" />
                                         <label class="form-check-label" for="defaultCheck3"></label>
                                     </div>
                                 </div>
