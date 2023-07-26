@@ -1,6 +1,10 @@
 <?= $this->include('front/layout/front'); ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
+<style>
+    section.category_product .container {
+    max-width: 86%;
+}
+</style>
 <section class="about_page">
     <div class="about_overlay">
         <div class="container">
@@ -58,7 +62,7 @@
 
                     <?php if (isset($categoryData)) { ?>
                         <?php foreach ($categoryData as $category) { ?>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
                                         <?php if (!empty($category['category_img'])) { ?>

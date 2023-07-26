@@ -83,6 +83,7 @@ class ProductController extends BaseController
         $productArr['featured_category'] = isset($input['featured_category']) ? $input['featured_category'] : '';
         $productArr['product_name'] = isset($input['product_name']) ? $input['product_name'] : '';
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
+        $productArr['product_short_description'] = isset($input['product_short_description']) ? $input['product_short_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
         
         // Check if new images are uploaded

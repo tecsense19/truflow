@@ -74,6 +74,7 @@ $category_id = isset($productData) ? $productData['category_id'] : '';
 $sub_category_id = isset($productData) ? $productData['sub_category_id'] : '';
 $product_name = isset($productData) ? $productData['product_name'] : '';
 $product_description = isset($productData) ? $productData['product_description'] : '';
+$product_short_description = isset($productData) ? $productData['product_short_description'] : '';
 $product_img = isset($productData) ? $productData['product_img'] : '';
 $featured_product = isset($productData) ? $productData['featured_category'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
@@ -151,6 +152,11 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Product Description</label>
                                 <textarea id="editor7" name="product_description" class="form-control" placeholder="Product Description"><?php echo $product_description; ?></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-message">Product short Description</label>
+                                <textarea id="editor7" name="product_short_description" class="form-control" placeholder="Product Short Description"><?php echo $product_short_description; ?></textarea>
                             </div>
 
                             <div class="mb-3">

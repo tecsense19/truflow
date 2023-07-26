@@ -89,7 +89,7 @@ button#add_rows {
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <div class="container-fluid p-md-1 row_margine">
 
-  <div class="row no-gutters justify-content-center">
+  <div class="row no-gutters justify-content-center mt-2">
     <div class="col-lg-9 col-md-12 pr-2">
     <a href="<?php echo base_url('product/2') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
     </div>
@@ -140,11 +140,11 @@ button#add_rows {
     </div>
 
     <div class="row mb-4">
-        <div class="col-md-6 mt-2 pl-3">
+        <div class="col-md-6 mt-2 pl-1 pr-1">
         <a href="<?php echo base_url('shop') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/2.jpg" alt=""></a>
         </div>
 
-        <div class="col-md-6 mt-2 pr-3">
+        <div class="col-md-6 mt-2 pr-1 pl-1">
         <a href="<?php echo base_url('shop') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/3.jpg" alt=""></a>
         </div>
 

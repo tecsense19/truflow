@@ -17,6 +17,7 @@ class ProductModel extends Model
         'product_name',
         'category_id',
         'product_description',
+        'product_short_description',
         'product_img',
         'product_additional_info',
         'sub_category_id',

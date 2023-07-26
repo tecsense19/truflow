@@ -113,7 +113,7 @@
                                     <hr>
                                     <div class="product_text text-center">
                                         <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
-                                            <h3><?php echo $product['parent'] ?><h6><?php echo $product['product_description']; ?></h6></h3>
+                                            <h3><?php echo $product['parent'] ?><h6><?php echo $product['product_short_description']; ?></h6></h3>
                                             
                                             <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                         </a>
