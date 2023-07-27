@@ -5,6 +5,8 @@ $category_id = isset($subcategoryData) ? $subcategoryData['category_id'] : '';
 $sub_category_name = isset($subcategoryData) ? $subcategoryData['sub_category_name'] : '';
 $sub_category_description = isset($subcategoryData) ? $subcategoryData['sub_category_description'] : '';
 $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img'] : '';
+$sub_category_featured = isset($subcategoryData) ? $subcategoryData['sub_category_featured'] : '';
+
 ?>
 
 <!-- Content wrapper -->
@@ -29,6 +31,8 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
                             <h5 class="mb-0">Sub Category</h5>
                         </div>
                         <div class="card-body">
+                        <div class="row">
+                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlSelect1" class="form-label">Category</label>
 
@@ -42,8 +46,21 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
-
+                                </div>
                             </div>
+
+                            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
+                    <div class="form-check">
+                        <input class="form-check-input" name="sub_category_featured" type="checkbox" value="<?php if($sub_category_featured == 1){?><?php echo $sub_category_featured ?> <?php }else{ ?>0<?php } ?> " <?php if($sub_category_featured == 1){?> checked <?php }else{ ?> unchecked <?php } ?> id="defaultCheck3" />
+                        <label class="form-check-label" for="defaultCheck3"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-fullname">Sub Category Name</label>
                                 <input type="text" value="<?php echo $sub_category_name; ?>" class="form-control" id="sub_category_name" name="sub_category_name" placeholder="Sub Category Name" />
@@ -112,6 +129,13 @@ $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img
             submitHandler: function(form) {
                 form.submit();
             }
-        });
+        });  
+        $('#defaultCheck3').click(function() {
+                if ($("#defaultCheck3").is(":checked") == true) {
+                    $('#defaultCheck3').val('1');
+                } else {
+                    $('#defaultCheck3').val('0');
+                }
+            });
     });
 </script>

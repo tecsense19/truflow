@@ -16,6 +16,7 @@ class CategoryModel extends Model
     protected $allowedFields    = [
         'category_name',
         'category_description',
+        'category_featured',
         'category_img',
         
     ];

@@ -176,10 +176,12 @@ class ChildSubCategoryController extends BaseController
             'category_id' => $this->request->getPost('category_id'),
             'sub_category_id' => $this->request->getPost('sub_category_id'),
             'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
+            'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured'),
             'child_sub_category_img' => $productArr['child_product_img'],
         ];
 
-       
+    //    print_r($childsubcategory);
+    //    die;
 
         if (!empty($childsubcategory['child_id'])) {
             $childsubcategorymodel->update($childsubcategory['child_id'], $childsubcategory);
@@ -224,7 +226,8 @@ class ChildSubCategoryController extends BaseController
     // Retrieve form input
     $childsubcategory = [
         'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
-        'child_sub_category_img' => $productArr['child_product_img'] 
+        'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured'),
+        'child_sub_category_img' => isset($productArr['child_product_img']) ? $productArr['child_product_img']  : ''
     ];
     $childsubcategorymodel->update($_POST['child_id'], $childsubcategory);
     $session->setFlashdata('success', 'Child subcategory updated successfully.');

@@ -2,6 +2,26 @@
 <?php $session = session();
 $wishlistCount = session('wishlistCount');
 ?>
+<style>
+    .product_box{
+    padding: 20px;
+    text-align: center;
+}
+.variant-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0px;
+}
+.space{
+    padding: 10px 0px;
+}
+.grid_50{
+    display: grid;
+    word-break: break-all;
+    grid-template-columns: 50% 50%;
+    padding: 0px 0px;
+}
+</style>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
@@ -122,15 +142,60 @@ $wishlistCount = session('wishlistCount');
                                 </div>
 
                                 <h6 class="rating"><?php echo $rating; ?> : Review </h6>
+                                <div>
+                                <h6 class="rating ml-4" style="color: green;"><?php  //echo $productData[0]['manage_stock']; ?> In stock</h6>
+                                    </div>
+                                  
                             </div>
-                            <br>
+          
+                            <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="glance">
 
-                            <h4>Variants</h4>
+                                            <h3><?php echo $productData[0]['product_name'] ?></h3>
+                                            <p><?php echo $productData[0]['product_description'] ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="glance_img">
+                                            <?php if (isset($productData[0]['product_img'])) {
+                                                $imagePaths = explode(',', $productData[0]['product_img']);
+                                                $firstImagePath = trim($imagePaths[0]);
+                                            ?>
+                                                <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
+                                            <?php } else { ?>
+                                                <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                            <?php } ?>
+                                        </div>
+                                  
+                          
+                            <!-- <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
+                            <div class="compare">
+
+                                <ul class="social_icon">
+                                    <li>Share: </li>
+                                    <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#!"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#!"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a href="#!"><i class="fa-brands fa-vimeo-v"></i></a></li>
+                                </ul>
+
+                            </div>
+                            <div class="secure">
+                                <p>Guaranteed safe <br> & secure checkout</p>
+                                <img src="<?php echo base_url() ?>public/front/images/payment-option-1.png" alt="image">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <h4>Variants</h4>
                             <?php $firstProduct = true; ?>
                             <?php foreach ($productData as $product) { ?>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <div class="row p-1">
                                             <div class="col-md-3 d-flex align-items-center">
                                                 <div class="variant-container">
@@ -154,27 +219,94 @@ $wishlistCount = session('wishlistCount');
 
 
                             <?php } ?>
-                            <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
-                            <div class="compare">
+                            </div> -->
 
-                                <ul class="social_icon">
-                                    <li>Share: </li>
-                                    <li><a href="#!"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#!"><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li><a href="#!"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                    <li><a href="#!"><i class="fa-brands fa-vimeo-v"></i></a></li>
-                                </ul>
+                            
 
-                            </div>
-                            <div class="secure">
-                                <p>Guaranteed safe <br> & secure checkout</p>
-                                <img src="<?php echo base_url() ?>public/front/images/payment-option-1.png" alt="image">
-                            </div>
+            </div>
+            
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="category_product my-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="row">
+                    <?php if (isset($productData)) { ?>
+                        <?php foreach ($productData as $product) { ?>
+                            <div class="col-lg-3">
+                                <div class="product_box p-20">
+                                            
+                                            <div class="mr-3 "> 
+                                                <h4 ><?php echo $product['variant_sku']; ?></h4>
+                                                <h6 class="space"><?php echo $product['variant_name']; ?></h6>
+                                             
+                                            </div>
+                                            <div class="variant-container mr-3">
+                                                    <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                    <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $product['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                    <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                    <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
+                                            </div> 
+                                            <?php if(isset($product['variant_header'])) {?>
+                                           <div class="variant-container mr-3 text-left grid_50">
+                                           <h6 class="space"><?php echo $product['variant_header']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description']; ?></h6>
+                                           </div>
+                                           <?php } ?> <?php if(!empty($product['variant_header_1'])) {?>
+                                           <div class="variant-container mr-3 text-left grid_50">
+                                           <h6 class="space"><?php echo $product['variant_header_1']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_1']; ?></h6>
+                                           </div>
+                                           <?php } ?> <?php if(!empty($product['variant_header_2'])) {?>
+                                           <div class="variant-container mr-3 text-left grid_50">
+                                           <h6 class="space"><?php echo $product['variant_header_2']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_2']; ?></h6>
+                                           </div>
+                                           <?php } ?> <?php if(!empty($product['variant_header_3'])) {?>
+                                           <div class="variant-container mr-3 text-left grid_50">
+                                           <h6 class="space"><?php echo $product['variant_header_3']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_3']; ?></h6>
+                                           </div>
+                                           <?php } ?>
+                                           
+                                 
+                                    <hr>
+                                    <?php if($product['variant_stock'] > 0){ ?> <h6 class="" style="color: green;">In stock<h6><?php }else{?> <h6 class="" style="color: red;">Out of stock<h6> <?php } ?>
+                                </div>
+                           
+                             
+                            </div>
+                           
+                        <?php } ?>
+                    <?php } else { ?>
+                        <div class="col-md-12 text-center-t1">
+                            <div class="form-group mt-5 mb-5 data_center text-center">
+                                <h4>No Item Found</h4>
+                            </div>
+
+                        <?php } ?>
+                        </div>
+                </div>
+                <div class="col-md-12" style="text-align: end;">
+                <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
+                </div>
+               
+            </div>
+        </div>
+   
+        <!-- <div class="text-center">
+            <a href="#!" class="load_more">Load More <i class="fa-solid fa-rotate-right"></i></a>
+        </div> -->
+    </div>
+</section>
+
 </form>
 <!-- ----------------------------- -->
 <section class="additionnal">
@@ -184,17 +316,18 @@ $wishlistCount = session('wishlistCount');
                 <div class="additionnal_tab">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">User Review</a>
+                            <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true">User Review</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Additional information</a>
                         </li>
                     </ul>
+
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="product-detail-desc-item">
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -241,7 +374,7 @@ $wishlistCount = session('wishlistCount');
                         </div>
 
 
-                        <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+                        <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
                             <div class="additionnal_info">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-10">
@@ -375,14 +508,26 @@ $wishlistCount = session('wishlistCount');
             var input = this.nextElementSibling;
             var currentValue = parseInt(input.value);
             if (currentValue > 0) {
-                input.value = currentValue - 1;
+                var Id = $(this).data('id');
+                if(currentValue == Id){
+                    input.value = currentValue - 1;
+                }else{
+                    input.value = currentValue - 1;
+                }
             }
         });
 
         plusButton.addEventListener('click', function() {
             var input = this.previousElementSibling;
             var currentValue = parseInt(input.value);
-            input.value = currentValue + 1;
+            var Id = $(this).data('id');
+                if(currentValue >= Id){
+                    input.value = currentValue ;
+                }
+                else
+                {
+                    input.value = currentValue + 1;
+                }
         });
     }
 
@@ -411,6 +556,7 @@ $wishlistCount = session('wishlistCount');
             return; // Exit the function to prevent the AJAX request
         }
 
+       
         var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
         var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>;
         var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>;
@@ -453,6 +599,14 @@ $wishlistCount = session('wishlistCount');
                 console.error('Error occurred during AJAX request.');
             }
         });
+    }
+
+    function default_value(event, maxVal)
+    {
+        if(event.target.value >= maxVal){
+            event.target.value = maxVal ;
+        }
+        
     }
 </script>
 

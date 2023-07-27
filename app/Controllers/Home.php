@@ -67,6 +67,21 @@ class Home extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
         $ChildSubCategoryModel = new ChildSubCategoryModel();
+
+        $allcategoryData1 = $categorymodel->where('category_featured', 1)->findAll();
+        $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
+        $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();
+        $allcategoryData = [];
+       
+            $allcategoryData['category'] = $allcategoryData1;
+    
+      
+            $allcategoryData['sub_category'] = $allcategoryData2;
+     
+     
+            $allcategoryData['child_sub'] = $allcategoryData3;
+   
+
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
         $variantsmodel = new VariantsModel();
         foreach ($subcategoryData as &$category) {
@@ -147,6 +162,9 @@ class Home extends BaseController
                 'newProductdata' => $newData1,
                 'categoryData' => $subcategoryData,
 
+                // ---- allcategoryData
+
+                'allcategoryData' => $allcategoryData,
                 //count
                 'wishlistCount' => $wishlistCount,
                 'cartCount' => $cartCount,

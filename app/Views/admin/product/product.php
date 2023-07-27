@@ -78,8 +78,7 @@ $product_short_description = isset($productData) ? $productData['product_short_d
 $product_img = isset($productData) ? $productData['product_img'] : '';
 $featured_product = isset($productData) ? $productData['featured_category'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
-// print_r($featured_product);
-// die;
+
 ?>
 
 <!-- Content wrapper -->
@@ -105,7 +104,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">Category</label>
                                     <select id="category-select" name="category_id" class="form-select" aria-label="Default select example">
@@ -120,7 +119,8 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                         
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
                                     <div class="form-check">
@@ -129,6 +129,8 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                     </div>
                                 </div>
                             </div>
+
+                          
                                        
                                         <!-- Subcategory dropdown -->
                                     </div>
@@ -193,9 +195,14 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                         <tr>
                                             <th>Variant Name</th>
                                             <th>Variant Price</th>
+                                            <th>Variant Header</th>
+                                            <th>Variant Description</th>
+                                            <th></th>
                                             <th>Part Number</th>
+                                            <th>Variant Stock</th>
                                             <th></th>
                                         </tr>
+                                        
                                     </thead>
                                     <tbody>
                                         <?php
@@ -206,10 +213,31 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                                     <td><input type="text" name="variant_name[]" class="form-control" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" /></td>
                                                     <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
                                                     <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" /></td>
+                                                    <td><input type="text" name="variant_header[]" class="form-control" value="<?php echo $variant['variant_header']; ?>" placeholder="Variant Header" /></td>
+                                                    <td><input type="text" name="variant_description[]" class="form-control" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" /></td>
                                                     <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
-                                                    <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>
+                                                    <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>    
+                                                    <td><input type="text" name="variant_stock[]" class="form-control" value="<?php echo $variant['variant_stock']; ?>" placeholder="Variant Stock" /></td>                                                    
                                                     <td><a class="btn btn-danger" href="<?php echo base_url('') . "admin/variant/delete/" . $variant['variant_id'] ?>">Remove</a></td>
                                                 </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="text" name="variant_header1[]" class="form-control" value="<?php echo $variant['variant_header_1']; ?>" placeholder="Variant Header 1" /></td>
+                                                <td><input type="text" name="variant_description1[]" class="form-control" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Variant Description 1" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="text" name="variant_header2[]" class="form-control" value="<?php echo $variant['variant_header_2']; ?>" placeholder="Variant Header 2" /></td>
+                                                <td><input type="text" name="variant_description2[]" class="form-control" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Variant Description 2" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><input type="text" name="variant_header3[]" class="form-control" value="<?php echo $variant['variant_header_3']; ?>" placeholder="Variant Header 3" /></td>
+                                                <td><input type="text" name="variant_description3[]" class="form-control" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Variant Description 3" /></td>
+                                            </tr>
                                         <?php
                                             }
                                         }
@@ -272,7 +300,15 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                 },
                 "parent[]": {
                     required: true
+                },
+                "variant_description[]": {
+                    required: true
+                },
+                "variant_header[]": {
+                    required: true
                 }
+                
+                
             },
             messages: {
                 category_id: {
@@ -301,7 +337,14 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                 },
                 "parent[]": {
                     required: "parent is required!"
+                },
+                "variant_description[]": {
+                    required: "Variant Description is required!"
+                },
+                "variant_header[]": {
+                    required: "Variant Description is required!"
                 }
+                
             },
             submitHandler: function(form) {
                 if (addVariantClicked) {
@@ -479,66 +522,135 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
 
 <script>
     $(document).ready(function() {
-        // Add field
-        $('#add-btn').click(function(e) {
-            event.preventDefault();
-            $('#input-container').show();
+    // Add field
 
-            var variantSkuValues = []; // Array to store variant SKU values
+    row_counter = 0;
+    row_counter1 = 0;
 
-            // Retrieve existing variant SKU values
-            $('.input-row').each(function() {
-                var skuValue = $(this).find('input[name="variant_sku[]"]').val();
-                variantSkuValues.push(skuValue);
-            });
+    $('#add-btn').click(function(e) {
+        event.preventDefault();
+        $('#input-container').show();
 
-            var inputRow = $('<tr class="input-row"></tr>');
-            var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
-            var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
-            var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
-            var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
-            var removeButton = $('<td><button class="btn btn-danger remove-btn">Remove</button></td>');
+        var variantSkuValues = []; // Array to store variant SKU values
 
-            // Validate variant SKU value
-            variant_sku.find('input').blur(function() {
-                var newSkuValue = $(this).val();
-                if (variantSkuValues.includes(newSkuValue)) {
-                    $(this).addClass('is-invalid');
-                    $(this).siblings('.invalid-feedback').remove();
-                    $(this).after('<div class="invalid-feedback">Part Number must be unique.Do not enter Duplicate value.</div>');
-                } else {
-                    $(this).removeClass('is-invalid');
-                    $(this).siblings('.invalid-feedback').remove();
-                }
-            });
-
-            // Validate variant price value
-            variant_price.find('input').blur(function() {
-                var priceValue = $(this).val();
-                if (!$.isNumeric(priceValue)) {
-                    $(this).addClass('is-invalid');
-                    $(this).siblings('.invalid-feedback').remove();
-                    $(this).after('<div class="invalid-feedback">Variant Price must be a numeric value.</div>');
-                } else {
-                    $(this).removeClass('is-invalid');
-                    $(this).siblings('.invalid-feedback').remove();
-                }
-            });
-
-            inputRow.append(variant_name);
-            inputRow.append(variant_price);
-            inputRow.append(variant_sku);
-            inputRow.append(parent);
-            inputRow.append(removeButton);
-            $('#input-container tbody').append(inputRow);
-
-            // Update variantSkuValues array with the new SKU value
-            variantSkuValues.push('');
+        // Retrieve existing variant SKU values
+        $('.input-row').each(function() {
+            var skuValue = $(this).find('input[name="variant_sku[]"]').val();
+            variantSkuValues.push(skuValue);
         });
 
+        var inputRow = $('<tr class="input-row"></tr>');
+        var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
+        var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
+        var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
+        var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
+        var variant_stock = $('<td><input type="text" name="variant_stock[]" class="form-control" placeholder="Variant Stock" /></td>');
+        var variant_description = $('<td><input type="text" name="variant_description[]" class="form-control" placeholder="Variant Description" /></td>');
+        var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
+        var inputRow1 = $('<tr class="input-row_'+ (row_counter1 + 0) +'_'+row_counter+'" data-id="'+ (row_counter1 + 0) +'"></tr>');
+        var inputRow2 = $('<tr class="input-row_'+ (row_counter1 + 1) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 1) +'"></tr>');
+        var inputRow3= $('<tr class="input-row_'+ (row_counter1 + 2) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 2) +'"></tr>');
+        var blankh1 = $('<td></td>');
+        var blankd1 = $('<td></td>');
+        var blankh2 = $('<td></td>');
+        var blankd2 = $('<td></td>');
+        var blankh3 = $('<td></td>');
+        var blankd3 = $('<td></td>');
+        var variant_header_1 = $('<td><input type="text" name="variant_header1[]" class="form-control" placeholder="Variant Header" /></td>');
+        var variant_description_1 = $('<td><input type="text" name="variant_description1[]" class="form-control" placeholder="Variant Description" /></td>');
+        var variant_header_2 = $('<td><input type="text" name="variant_header2[]" class="form-control" placeholder="Variant Header" /></td>');
+        var variant_description_2 = $('<td><input type="text" name="variant_description2[]" class="form-control" placeholder="Variant Description" /></td>');
+        var variant_header_3 = $('<td><input type="text" name="variant_header3[]" class="form-control" placeholder="Variant Header" /></td>');
+        var variant_description_3 = $('<td><input type="text" name="variant_description3[]" class="form-control" placeholder="Variant Description" /></td>');
+        var removeButton = $('<td><button class="btn btn-danger remove-btn" data-id="'+ (row_counter) +'">Remove</button></td>');
+
+        // Validate variant SKU value
+        variant_sku.find('input').blur(function() {
+            var newSkuValue = $(this).val();
+            if (variantSkuValues.includes(newSkuValue)) {
+                $(this).addClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+                $(this).after('<div class="invalid-feedback">Part Number must be unique.Do not enter Duplicate value.</div>');
+            } else {
+                $(this).removeClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+            }
+        });
+
+        // Validate variant price value
+        variant_price.find('input').blur(function() {
+            var priceValue = $(this).val();
+            if (!$.isNumeric(priceValue)) {
+                $(this).addClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+                $(this).after('<div class="invalid-feedback">Variant Price must be a numeric value.</div>');
+            } else {
+                $(this).removeClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+            }
+        });
+
+        inputRow.append(variant_name);
+        inputRow.append(variant_price);
+        inputRow.append(variant_header);
+        inputRow.append(variant_description);
+        inputRow.append(variant_sku);
+        inputRow.append(parent);
+        inputRow.append(variant_stock);
+        inputRow.append(removeButton);
+        inputRow1.append(blankh1);
+        inputRow1.append(blankd1);
+        inputRow1.append(variant_header_1);
+        inputRow1.append(variant_description_1);
+        inputRow2.append(blankh2);
+        inputRow2.append(blankd2);
+        inputRow2.append(variant_header_2);
+        inputRow2.append(variant_description_2);
+        inputRow3.append(blankh3);
+        inputRow3.append(blankd3);
+        inputRow3.append(variant_header_3);
+        inputRow3.append(variant_description_3);
+        $('#input-container tbody').append(inputRow);
+        $('#input-container tbody').append(inputRow1);
+        $('#input-container tbody').append(inputRow2);
+        $('#input-container tbody').append(inputRow3);
+
+        // Update variantSkuValues array with the new SKU value
+        variantSkuValues.push('');
+        row_counter++;
+    });
+
+//     $(document).on('click', '.add_head_des', function(e) {
+  
+//     alert(parentIndex);
+
+//     var inputRow = $('<tr class="input-row[' + parentIndex + '] sub-child-row"></tr>');
+//     var blank = $('<td></td>');
+//     var blank2 = $('<td></td>');
+//     var variant_header = $('<td><input type="text" name="variant_header[' + parentIndex + '][' + childIndex + ']" class="form-control" placeholder="Variant Header" /></td>');
+//     var variant_description = $('<td><input type="text" name="variant_description[' + parentIndex + '][' + childIndex + ']" class="form-control" placeholder="Variant Description" /></td>');
+//     var removeButton = $('<td><button class="btn btn-danger remove-btn">Remove</button></td>');
+
+//     inputRow.append(blank);
+//     inputRow.append(blank2);
+//     inputRow.append(variant_header);
+//     inputRow.append(variant_description);
+//     inputRow.append(removeButton);
+
+//     // Find the parent row with the specified data-id and append the sub-child row
+//     $('.input-row').after(inputRow);
+//     parentIndex++;
+//     childIndex++;
+// });
         // Remove field
         $(document).on('click', '.remove-btn', function() {
+
+            var Id = $(this).data('id');
+            $('.input-row_0_'+ Id +'').remove();
+            $('.input-row_1_'+ Id +'').remove();
+            $('.input-row_2_'+ Id +'').remove();
             $(this).closest('.input-row').remove();
+
         });
 
         $('#defaultCheck3').click(function() {

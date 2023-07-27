@@ -4,6 +4,7 @@ $category_id = isset($categoryData) ? $categoryData['category_id'] : '';
 $category_name = isset($categoryData) ? $categoryData['category_name'] : '';
 $category_description = isset($categoryData) ? $categoryData['category_description'] : '';
 $category_img = isset($categoryData) ? $categoryData['category_img'] : '';
+$featured_category = isset($categoryData) ? $categoryData['category_featured'] : '';
 ?>
 
 <!-- Content wrapper -->
@@ -28,11 +29,26 @@ $category_img = isset($categoryData) ? $categoryData['category_img'] : '';
             <h5 class="mb-0">Category</h5>
         </div>
         <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
             <div class="mb-3">
                 <label class="form-label" for="category_name">Full Name</label>
                 <input type="text" value="<?php echo $category_name;?>" class="form-control" id="category_name" name="category_name" placeholder="Full Name" />
                 <input type="hidden" name="category_id" value="<?php echo $category_id;?>">
             </div>
+        </div>
+
+        <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
+                    <div class="form-check">
+                        <input class="form-check-input" name="featured_category" type="checkbox" value="<?php if($featured_category == 1){?><?php echo $featured_category ?> <?php }else{ ?>0<?php } ?> " <?php if($featured_category == 1){?> checked <?php }else{ ?> unchecked <?php } ?> id="defaultCheck3" />
+                        <label class="form-check-label" for="defaultCheck3"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
             <div class="mb-3">
                 <label class="form-label" for="category_description">Category Description</label>
                 <textarea id="category_description" name="category_description" class="form-control" placeholder="Category Description"><?php echo $category_description;?></textarea>
@@ -90,5 +106,13 @@ $category_img = isset($categoryData) ? $categoryData['category_img'] : '';
                 form.submit();
             }
         });
+
+        $('#defaultCheck3').click(function() {
+                if ($("#defaultCheck3").is(":checked") == true) {
+                    $('#defaultCheck3').val('1');
+                } else {
+                    $('#defaultCheck3').val('0');
+                }
+            });
     });
 </script>

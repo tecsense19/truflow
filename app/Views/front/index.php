@@ -304,13 +304,16 @@ button#add_rows {
             </div>
             <div class="col-lg-6">
                 <div class="slider">
-                    <?php if (isset($newProductdata)) { ?>
-                        <?php foreach ($newProductdata as $product) {  ?>
+                    <?php 
+                
+                    if (isset($allcategoryData)) { ?>
+                        <?php foreach ($allcategoryData['category'] as $key => $product) { 
+                            ?>
                             <div class="slider_content">
 
                                 <div class="slider_con_img">
-                                    <?php if (isset($product['product_img'])) {
-                                        $imagePaths = explode(',', $product['product_img']);
+                                    <?php if (isset($product['category_img'])) {
+                                        $imagePaths = explode(',', $product['category_img']);
                                         $firstImagePath = trim($imagePaths[0]);
                                     ?>
                                         <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
@@ -321,7 +324,53 @@ button#add_rows {
 
                                 </div>
                                 <div class="slider_text">
-                                <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h6><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h6></a>
+                                <a href="<?php echo base_url('') . "sub/category/" . $product['category_id'] ?>"><h6><?php echo $product['category_name']; ?>&nbsp;&nbsp;</h6>
+                                <h6><?php echo $product['category_description']; ?></h6></a>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                        <?php foreach ($allcategoryData['sub_category'] as $key => $product) { 
+                            ?>
+                            <div class="slider_content">
+
+                                <div class="slider_con_img">
+                                    <?php if (isset($product['sub_category_img'])) {
+                                        $imagePaths = explode(',', $product['sub_category_img']);
+                                        $firstImagePath = trim($imagePaths[0]);
+                                    ?>
+                                        <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
+                                    <?php } else { ?>
+                                        <img class="product_slider_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
+
+                                </div>
+                                <div class="slider_text">
+                                <a href="<?php echo base_url('') . "sub/category/" . $product['sub_category_id'] ?>"><h6><?php echo $product['sub_category_name']; ?>&nbsp;&nbsp;</h6>
+                                <h6><?php echo $product['sub_category_description']; ?></h6></a>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                        <?php foreach ($allcategoryData['child_sub'] as $key => $product) { 
+                            ?>
+                            <div class="slider_content">
+
+                                <div class="slider_con_img">
+                                    <?php if (isset($product['child_sub_category_img'])) {
+                                        $imagePaths = explode(',', $product['child_sub_category_img']);
+                                        $firstImagePath = trim($imagePaths[0]);
+                                    ?>
+                                        <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
+                                    <?php } else { ?>
+                                        <img class="product_slider_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                    <?php } ?>
+
+                                </div>
+                                <div class="slider_text">
+                                <a href="<?php echo base_url('') . "sub/category/" . $product['child_id'] ?>"><h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?></h6></a>
                                 </div>
 
                             </div>
@@ -415,7 +464,7 @@ button#add_rows {
                                         <?php } ?>
 
                                         <div class="card-body">
-                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?php if($product['child_sub_category_name'] == '' ) { echo $product['sub_category_name']; } else{ echo $product['child_sub_category_name']; } ?>&nbsp;&nbsp;<?php echo $product['product_description'] ?></h5></a> 
+                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>"><h5><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h5></a> 
                                         </div>
                                     </div>
                                 </div>

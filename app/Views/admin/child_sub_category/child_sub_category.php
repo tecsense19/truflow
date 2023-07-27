@@ -4,6 +4,7 @@ $child_id = isset($childData) ? $childData['child_id'] : '';
 $category_id = isset($childData) ? $childData['category_id'] : '';
 $sub_category_id = isset($childData) ? $childData['sub_category_id'] : '';
 $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
+$child_sub_category_featured = isset($childData) ? $childData['child_sub_category_featured'] : '';
 
 
 ?>
@@ -30,7 +31,8 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                             <h5 class="mb-0">Child Sub Category</h5>
                         </div>
                         <div class="card-body">
-
+                        <div class="row">
+                         <div class="col-md-6">
                             <!-- Category dropdown -->
                             <!-- Category dropdown -->
                             <div class="mb-3">
@@ -46,6 +48,18 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                 <div class="mb-3">
+                                <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="child_sub_category_featured" type="checkbox" value="<?php if($child_sub_category_featured == 1){?><?php echo $child_sub_category_featured ?> <?php }else{ ?>0<?php } ?> " <?php if($child_sub_category_featured == 1){?> checked <?php }else{ ?> unchecked <?php } ?> id="defaultCheck3" />
+                                    <label class="form-check-label" for="defaultCheck3"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                             <!-- Subcategory dropdown -->
                             <div class="mb-3" id="subcategory-field" style="display: none;">
@@ -151,7 +165,13 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                 
             }
         }
-
+        $('#defaultCheck3').click(function() {
+                if ($("#defaultCheck3").is(":checked") == true) {
+                    $('#defaultCheck3').val('1');
+                } else {
+                    $('#defaultCheck3').val('0');
+                }
+            });
     });
 
     function loadSubcategories(category_id, sub_category_id) {

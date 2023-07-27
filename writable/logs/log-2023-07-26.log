@@ -41,3 +41,68 @@ WHERE `type` = :type:
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 09:20:02 --> Undefined variable $subcategoryData
+in APPPATH\Views\front\product_details.php on line 213.
+ 1 APPPATH\Views\front\product_details.php(213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcategoryData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 213)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(528): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('12')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 09:21:01 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\product_details.php on line 223.
+ 1 APPPATH\Views\front\product_details.php(223): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 223)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(528): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('12')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 09:22:09 --> Undefined variable $ChildSubCategorydata
+in APPPATH\Views\front\product_details.php on line 257.
+ 1 APPPATH\Views\front\product_details.php(257): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ChildSubCategorydata', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 257)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(528): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('12')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 11:13:32 --> Undefined array key "variant_description"
+in APPPATH\Views\admin\product\product.php on line 211.
+ 1 APPPATH\Views\admin\product\product.php(211): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "variant_description"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 211)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(185): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 13:13:58 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Admin\ProductController.php on line 26.
+ 1 APPPATH\Controllers\Admin\ProductController.php(26): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 13:16:12 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Admin\ProductController.php on line 26.
+ 1 APPPATH\Controllers\Admin\ProductController.php(26): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 13:33:12 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Admin\ProductController.php on line 26.
+ 1 APPPATH\Controllers\Admin\ProductController.php(26): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

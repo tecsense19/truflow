@@ -202,13 +202,27 @@ class ProductController extends BaseController
             'product_id' => $productId
         ];
 
+
         foreach ($input['variant_name'] as $key => $VariantArr) {
             $productVariantArr = [
                 'product_id' => $productId,
                 'variant_name' => $input['variant_name'][$key],
                 'variant_price' => $input['variant_price'][$key],
+                'variant_header' => $input['variant_header'][$key],
+                'variant_description' => $input['variant_description'][$key],
+
+                'variant_header_1' => $input['variant_header1'][$key],
+                'variant_description_1' => $input['variant_description1'][$key],
+                'variant_header_2' => $input['variant_header2'][$key],
+                'variant_description_2' => $input['variant_description2'][$key],
+                'variant_header_3' => $input['variant_header3'][$key],
+                'variant_description_3' => $input['variant_description3'][$key],
+
                 'variant_sku' => $input['variant_sku'][$key],
+                'variant_stock' => $input['variant_stock'][$key],
+                
                 'parent' => $input['parent'][$key],
+               
             ];
 
             if (isset($input['variant_id'][$key]) && !empty($input['variant_id'][$key])) {

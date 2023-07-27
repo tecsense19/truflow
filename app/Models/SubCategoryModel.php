@@ -16,6 +16,7 @@ class SubCategoryModel extends Model
     protected $allowedFields    = [
         'sub_category_name',
         'sub_category_description',
+        'sub_category_featured',
         'sub_category_img',
         'category_id',
     ];

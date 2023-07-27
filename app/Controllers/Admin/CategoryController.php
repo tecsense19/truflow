@@ -32,6 +32,8 @@ class CategoryController extends BaseController
 
         $categoryArr['category_name'] = isset($input['category_name']) ? $input['category_name'] : '';
         $categoryArr['category_description'] = isset($input['category_description']) ? $input['category_description'] : '';
+        $categoryArr['category_featured'] = isset($input['featured_category']) ? $input['featured_category'] : '';
+        
 
         if ($file = $this->request->getFile('category_img')) {
             $path = 'public/admin/images/category/';

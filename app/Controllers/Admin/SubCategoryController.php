@@ -57,6 +57,7 @@ class SubCategoryController extends BaseController
         $subCatArr['category_id'] = isset($input['category_id']) ? $input['category_id'] : '';
         $subCatArr['sub_category_name'] = isset($input['sub_category_name']) ? $input['sub_category_name'] : '';
         $subCatArr['sub_category_description'] = isset($input['sub_category_description']) ? $input['sub_category_description'] : '';
+        $subCatArr['sub_category_featured'] = isset($input['sub_category_featured']) ? $input['sub_category_featured'] : '';
 
         if ($file = $this->request->getFile('sub_category_img')) {
             $path = 'public/admin/images/sub_category/';

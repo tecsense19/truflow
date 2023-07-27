@@ -87,6 +87,8 @@ class OrderController extends BaseController
         $ordermodel = new OrderModel();
         $shippingmodel = new ShippingModel();
         $orderitemmodel = new OrderItemModel();
+        $VariantsModel = new VariantsModel();
+        
         $session = session();
         $input = $this->request->getVar();
 
@@ -144,7 +146,14 @@ class OrderController extends BaseController
             $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
             $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
             $orderitemmodel->insert($orderArr);
+
+
+            $Variants_stock = $VariantsModel->where('variant_id', $row['variant_id'])->findAll();
+            $orderArr['variant_stock'] = $Variants_stock[0]['variant_stock'] - $row['product_quantity'];
+            $VariantsModel->update(['variant_id', $row['variant_id']], $orderArr);
+
         }
+       
         helper('session');
         $session->remove('coupon_code');
         $session->remove('discount_type');
@@ -156,6 +165,10 @@ class OrderController extends BaseController
 
         $this->remove_checkout($userId);
         $this->shipping_add($userId, $order_id);
+       
+       
+       
+
         $session->setFlashdata('success', 'Order Placed successfully.');
 
         return redirect()->back();

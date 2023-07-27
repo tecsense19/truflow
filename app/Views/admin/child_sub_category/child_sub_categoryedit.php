@@ -5,6 +5,7 @@ $child_id = isset($childData) ? $childData['child_id'] : '';
 $category_id = isset($childData) ? $childData['category_id'] : '';
 $sub_category_id = isset($childData) ? $childData['sub_category_id'] : '';
 $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
+$child_sub_category_featured = isset($childData) ? $childData['child_sub_category_featured'] : '';
 
 
 
@@ -32,7 +33,8 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                             <h5 class="mb-0">Child Sub Category</h5>
                         </div>
                         <div class="card-body">
-
+                        <div class="row">
+                         <div class="col-md-6">
                             <!-- Category dropdown -->
                             <div class="mb-3" id="child-subcategory-input">
                                 <label for="child-subcategory-input" class="form-label">Child Subcategory Name</label>
@@ -42,6 +44,19 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
                                 <input type="hidden" name="sub_category_id" value="<?php echo $childData['sub_category_id'] ?>">
                                 <input type="text" class="form-control" value="<?php echo $childData['child_sub_category_name'] ?>" id="child-subcategory-input" name="child_sub_category_name">
                             </div>
+                        </div>
+
+                            <div class="col-md-6">
+                                 <div class="mb-3">
+                                <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="child_sub_category_featured" type="checkbox" value="<?php if($child_sub_category_featured == 1){?><?php echo $child_sub_category_featured ?> <?php }else{ ?>0<?php } ?> " <?php if($child_sub_category_featured == 1){?> checked <?php }else{ ?> unchecked <?php } ?> id="defaultCheck3" />
+                                    <label class="form-check-label" for="defaultCheck3"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                             <div class="mb-3" id="child-subcategory-input_img">
                                 <label class="form-label" for="basic-default-company">Child Subcategory Product Image</label>
                                 <input type="file" class="form-control" value="" id="child-subcategory-input_img" name="child_product_img[]" multiple placeholder="child Product Image" />
@@ -70,4 +85,14 @@ $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
 <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
-
+<script>
+        $(document).ready(function() {
+     $('#defaultCheck3').click(function() {
+                if ($("#defaultCheck3").is(":checked") == true) {
+                    $('#defaultCheck3').val('1');
+                } else {
+                    $('#defaultCheck3').val('0');
+                }
+            });
+    });
+</script>

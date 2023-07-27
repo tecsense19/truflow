@@ -19,6 +19,15 @@ class VariantsModel extends Model
         'parent',
         'variant_price',
         'variant_sku',
+        'variant_stock',
+        'variant_description',
+        'variant_header',
+        'variant_header_1',
+        'variant_description_1',
+        'variant_header_2',
+        'variant_description_2',
+        'variant_header_3',
+        'variant_description_3',
     ];
 
     // Dates
