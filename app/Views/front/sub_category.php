@@ -73,8 +73,9 @@
                 <div class="row">
 
                     <?php if (isset($subcategoryData)) { ?>
+                      
                         <?php foreach ($subcategoryData as $subcategory) { ?>
-                            <?php foreach ($ChildSubCategorydata as $subchildcat) { ?>
+                        
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -95,7 +96,8 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                        
+                    
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">

@@ -31,6 +31,7 @@
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
                         <div class="panel-group" id="accordion" bis_skin_checked="1">
+                            <?php if(isset($categoryData)) { ?>
                             <?php foreach ($categoryData as $category) : ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
                                     <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $category['category_id']; ?>">
@@ -51,6 +52,7 @@
                                     <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
