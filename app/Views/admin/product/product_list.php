@@ -1,4 +1,6 @@
-<?= $this->include('admin/layout/front') ?>
+<?= $this->include('admin/layout/front'); 
+?>
+
 <!-- Content wrapper -->
 <div class="content-wrapper">
     <!-- Content -->

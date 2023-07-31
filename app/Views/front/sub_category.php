@@ -73,9 +73,9 @@
                 <div class="row">
 
                     <?php if (isset($subcategoryData)) { ?>
-                      
-                        <?php foreach ($subcategoryData as $subcategory) { ?>
-                        
+                        <?php foreach ($subcategoryData as $subcategory) {   
+                           
+                               ?>
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -88,16 +88,20 @@
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-
-                                        <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>" class="category-link">
-                                            <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
-                                        </a>
+                                        <?php if($subcategory['is_child']) { ?>
+                                            <a href="<?php echo base_url('') . "childsub/category/" . $subcategory['sub_category_id'] ?>" class="category-link">
+                                                <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>" class="category-link">
+                                                <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
+                                            </a>
+                                        <?php } ?>
                                         <span><?php echo $subcategory['sub_category_description']; ?></span>
                                     </div>
                                 </div>
                             </div>
-                        
-                    
+                  
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">

@@ -81,7 +81,7 @@
                                     <hr>
                                     <div class="product_text text-center">
 
-                                        <a href="<?php echo base_url('') . "childsub_sub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
+                                        <a href="<?php echo base_url('') . "product/" . $childsubcategory['child_id'] ?>" class="category-link">
                                             <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
                                         </a>
                                         <span><?php //echo $subcategory['sub_category_description']; ?></span>

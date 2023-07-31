@@ -1,4 +1,10 @@
 <?= $this->include('front/layout/front'); ?>
+<style>
+    section.category_product .container {
+    max-width: 86%;
+}
+</style>
+
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -38,19 +44,20 @@
                                         </p>
                                     </div>
                                     <div id="collapse<?php echo $childsubcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
-                                        <?php if (!empty($childsubcategory['product_array'])) : ?>
+                                        <?php if (!empty($childsubcategory['sub_cat'])) : ?>
                                             <div class="panel-body">
-                                                <?php foreach ($childsubcategory['product_array'] as $product) : ?>
+                                                <?php foreach ($childsubcategory['sub_cat'] as $sub_cat) : ?>
+                                                    <?php foreach ($sub_cat['child_arr'] as $child_cat) : ?>
+                                                        <?php foreach ($child_cat['variant'] as $product) : ?>
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
-
-
-
                                                         <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
                                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                                         </a>
 
                                                     </p>
+                                                <?php endforeach; ?>
+                                                <?php endforeach; ?>
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
@@ -65,10 +72,12 @@
             </div>
             <div class="col-lg-9">
                 <div class="row">
-
                     <?php if (isset($ChildSubCategorydata)) { ?>
-                        <?php foreach ($ChildSubCategorydata as $childsubcategory) { ?>
-                            <div class="col-lg-4">
+                        <?php foreach ($ChildSubCategorydata as $index => $childsubcategory) : ?>
+                            <?php if (!empty($childsubcategory['sub_cat'])) : ?>
+                                <?php foreach ($childsubcategory['sub_cat'] as $childsubcategory1) : ?>
+                                    <?php foreach ($childsubcategory1['child_arr'] as $childsubcategory) : ?>
+                            <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
                                         <?php if (!empty($childsubcategory['sub_category_img'])) { ?>
@@ -80,15 +89,26 @@
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-
-                                        <a href="<?php echo base_url('') . "childsub_sub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
-                                            <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
-                                        </a>
-                                        <span><?php //echo $childsubcategory['sub_category_description']; ?></span>
+                                    <?php if(isset($childsubcategory['is_child'])) { ?>
+                                            <a href="<?php echo base_url('') . "childsub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
+                                                <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
+                                            </a>
+                                        <?php } else { ?>
+                                            <a href="<?php echo base_url('') . "product/" . $childsubcategory['sub_category_id'] ?>" class="category-link">
+                                                <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
+                                            </a>
+                                        <?php } ?>
+                                   
+                                        <span><?php //echo $childsubcategory['child_sub_category_description']; ?></span>
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                          
+                            <?php endforeach; ?>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                       
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">
                             <div class="form-group mt-5 mb-5 data_center text-center">

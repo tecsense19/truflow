@@ -229,18 +229,21 @@ class Home extends BaseController
         $subcategory1 = [];
         foreach ($subcategoryData as $subcategory) {
             $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
-
+            $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
             $newPro = [];
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
                 $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
                 $newPro[] = $variant;
             }
             $subcategory['product_array'] = $newPro;
+            $subcategory['is_child'] = count($ChildSubCategorydata) > 0 ? true : false;
             $subcategory1[] = $subcategory;
+
         }
-   
+
         return view('front/sub_category', [
             'headerData' => $headerData,
             'subcategoryData' => $subcategory1,
@@ -249,56 +252,101 @@ class Home extends BaseController
         ]);
     }
 
-    public function child_sub_category($category_id)
+    public function child_sub_category($subcategory_id)
     {
-      
+        
+        $subcategorymodel = new SubCategoryModel();
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id' , $category_id)
-                                                      ->where('sub_chid_id', 0)->findAll();
-        if (!$ChildSubCategorydata) {
-            $ChildSubCategorydata = null;
-        }
-     
+       // $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id' , $category_id)
+                                                     // ->where('sub_chid_id', 0)->findAll();
+
+        // if (!$ChildSubCategorydata) {
+        //     $ChildSubCategorydata = null;
+        // }
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
             $headerData = null;
         }
-       
-        // $categorymodel = new CategoryModel();
+        $categorymodel = new CategoryModel();
         // $categoryData = $categorymodel->find($category_id);
         // if (!$categoryData) {
         //     return redirect()->back();
-        // }
-        // echo "i";
-        // print_r($ChildSubCategorydata);
-        // die;
-     
-        $subcategorymodel = new SubCategoryModel();
-        $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
+        // }   
+
         $productmodel = new ProductModel();
         $variantsmodel = new VariantsModel();
-        $subcategory1 = [];
-        foreach ($subcategoryData as $subcategory) {
-            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
 
-            $newPro = [];
-            foreach ($product as $variant) {
-
-                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
-                $newPro[] = $variant;
+        $responseArr = [];
+        $categoryData = $ChildSubCategoryModel->findAll();
+        foreach ($categoryData as $key => $value) 
+        {
+            $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
+        
+            $subArr = [];
+            foreach ($subcategories as $sKey => $sValue) 
+            {
+                $childsubcategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $subcategory_id)->findAll();
+                $childArr = [];
+                foreach ($childsubcategories as $cKey => $cValue) 
+                {
+                    $product = $productmodel->where('child_id', $cValue['child_id'])->findAll();
+                    $child_prod_Arr = [];
+                    foreach ($product as $variant) {
+                        $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                        $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                        $child_prod_Arr[] = $variant;
+                    }
+                    $cValue['variant'] = $child_prod_Arr;
+                   
+                    $allChild = $this->getCategoryTree($cValue['child_id'], $ChildSubCategoryModel);
+                    $cValue['is_child'] = count($allChild) > 0 ? true : false;
+                    $cValue['all_childs'] = $allChild;
+                    $childArr[] = $cValue;
+                    
+                }
+            
+                $sValue['child_arr'] = $childArr;
+                $subArr[] = $sValue;
+              
             }
-            $subcategory['product_array'] = $newPro;
-            $subcategory1[] = $subcategory;
+          
+        
         }
-    
+        $value['sub_cat'] = $subArr;
+        $responseArr[] = $value;
+       echo "<pre>";
+        print_r($responseArr);
+        die;
+        // $subcategory1 = [];
+        // foreach ($subcategoryData as $subcategory) {
+        //     $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
+           
+        //     $newPro = [];
+        //     foreach ($product as $variant) {
+
+        //         $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+        //         $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+        //         $newPro[] = $variant;
+               
+        //     }
+          
+        //     $subcategory['product_array'] = $newPro;
+           
+          
+        // }
+     
+        // $subcategory['is_child'] = count($ChildSubCategorydata2) > 0 ? true : false;
+        // $subcategory['child_array'] = $ChildSubCategorydata2 ;
+        // $subcategory1[] = $subcategory;
+  
+   
+        
         return view('front/child_sub_category', [
             'headerData' => $headerData,
-            'subcategoryData' => $subcategory1,
-            'ChildSubCategorydata' => $ChildSubCategorydata
-            // 'categoryData' => $categoryData
+            'ChildSubCategorydata' => $responseArr,
+            'categoryData' => $categoryData
         ]);
     }
 
@@ -354,7 +402,6 @@ class Home extends BaseController
             'ChildSubCategorydata' => $ChildSubCategorydata
         ]);
     }
-
     public function product($sub_category_id)
     {
 
@@ -450,12 +497,10 @@ class Home extends BaseController
         $query = $model->select('child_id , sub_category_id, child_sub_category_name', )
                        ->where('sub_chid_id', $parentCategoryId)
                        ->get();
-
         foreach ($query->getResult() as $row) {
             $row->children = $this->getCategoryTree($row->child_id, $model);
             $categories[] = $row;
         }
-
         return $categories;
     }
     public function product_details($product_id)
@@ -933,4 +978,155 @@ class Home extends BaseController
 
         return redirect()->back();
     }
+
+    public function main_sub_category($category_id)
+    {
+
+        $subcategorymodel = new SubCategoryModel();
+        $productmodel = new ProductModel();
+        $variantsmodel = new VariantsModel();
+        $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
+
+        $sidebar_array = [];
+        foreach ($subcategoryData as $key => $value) {
+            $ChildSubCategoryModel = new ChildSubCategoryModel();
+            $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $value['sub_category_id'])->findAll();
+
+            $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->where('child_id',-1)->findAll();
+            $newPro = [];
+            foreach ($product as $variant) {
+
+                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+                $newPro[] = $variant;
+            }
+
+            $value['child_arr'] = $ChildSubCategorydata;
+            $value['product_arr'] = $newPro;
+            $sidebar_array[] = $value;
+        }
+          $array = [];
+        foreach ($subcategoryData as $key => $value) {
+
+            $subChild = $subcategorymodel->where('sub_category_id', $value['sub_category_id'])->findAll();
+
+            $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->findAll();
+
+            $value['isProduct'] = count($product) > 0 ? true : false;
+
+            $array[]=$value;
+        }
+   
+       
+        // echo "<pre>";
+        // print_r($sidebar_array);
+        // die;
+
+        return view('front/subcategory', ['subcategoryData' => $subcategoryData, 'sidebar_array' => $sidebar_array]);
+        
+    }
+
+    public function main_child_category($subcategory_id)
+    {
+
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        
+        $subcategorymodel = new SubCategoryModel();
+        $productmodel = new ProductModel();
+        $variantsmodel = new VariantsModel();
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $subcategory_id)->findAll();
+
+        $categoryData = $subcategorymodel->find($subcategory_id);
+        if (!$categoryData) {
+            return redirect()->back();
+        }
+
+
+        $sidebar_array = [];
+        foreach ($ChildSubCategorydata as $key => $value) {
+            
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+
+            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+            $newPro = [];
+            foreach ($product as $variant) {
+
+                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+                $newPro[] = $variant;
+            }
+
+            $value['child_arr'] = $subChild;
+            $value['product_arr'] = $newPro;
+            $sidebar_array[] = $value;
+        }
+
+        $array = [];
+        foreach ($ChildSubCategorydata as $key => $value) {
+
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+
+            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+
+            $value['isProduct'] = count($product) > 0 ? true : false;
+
+            $array[]=$value;
+        }
+        // echo "<pre>";
+        // print_r($array);
+        // die;
+        return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array]);
+        
+    }
+
+    public function child_subchild_category($chid_id)
+    {
+
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $productmodel = new ProductModel();
+        $variantsmodel = new VariantsModel();
+        $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $chid_id)->findAll();
+
+    
+
+        $sidebar_array = [];
+        foreach ($ChildSubCategorydata as $key => $value) {
+            
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+
+            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+            $newPro = [];
+            foreach ($product as $variant) {
+
+                $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+                $newPro[] = $variant;
+            }
+            $value['child_arr'] = $subChild;
+            $value['product_arr'] = $newPro;
+            $sidebar_array[] = $value;
+        }
+
+        $array = [];
+        foreach ($ChildSubCategorydata as $key => $value) {
+
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+
+            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+
+            $value['isProduct'] = count($product) > 0 ? true : false;
+
+            $array[]=$value;
+        }
+        // echo "<pre>";
+        // print_r($array);
+        // die;
+
+        return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array]);
+    }
+
+
 }

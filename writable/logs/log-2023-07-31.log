@@ -1,0 +1,341 @@
+CRITICAL - 2023-07-31 05:48:36 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 558.
+ 1 APPPATH\Controllers\Home.php(558): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 558)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('4')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 05:48:45 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 558.
+ 1 APPPATH\Controllers\Home.php(558): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 558)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('4')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 05:48:58 --> Undefined array key "child_id"
+in APPPATH\Views\front\subcategory.php on line 62.
+ 1 APPPATH\Views\front\subcategory.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1013): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 05:49:31 --> Undefined array key "product_id"
+in APPPATH\Views\front\subcategory.php on line 62.
+ 1 APPPATH\Views\front\subcategory.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1013): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 05:55:11 --> Undefined array key "product_id"
+in APPPATH\Views\front\subcategory.php on line 62.
+ 1 APPPATH\Views\front\subcategory.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1013): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:22:15 --> Undefined array key "child_sub_category_name"
+in APPPATH\Views\front\child_subchild.php on line 111.
+ 1 APPPATH\Views\front\child_subchild.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php', 111)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/child_subchild', [], true)
+ 5 APPPATH\Controllers\Home.php(1064): view('front/child_subchild', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->child_subchild_category('9')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:26:29 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 558.
+ 1 APPPATH\Controllers\Home.php(558): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 558)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('4')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:35:17 --> Undefined array key "child_arr"
+in APPPATH\Views\front\childsubcategory.php on line 95.
+ 1 APPPATH\Views\front\childsubcategory.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_arr"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 95)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1044): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('5')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:36:06 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1044): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:36:15 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1044): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:36:55 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1044): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:38:01 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:39:09 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 110.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:40:54 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:41:36 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:42:10 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:42:23 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:42:33 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:42:50 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:42:59 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:43:20 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 06:43:58 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 105.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:00:15 --> Undefined array key "product_name"
+in APPPATH\Views\front\child_subchild.php on line 113.
+ 1 APPPATH\Views\front\child_subchild.php(113): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php', 113)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/child_subchild', [], true)
+ 5 APPPATH\Controllers\Home.php(1080): view('front/child_subchild', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->child_subchild_category('10')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:03:21 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:03:32 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:04:25 --> Undefined array key "product_arr"
+in APPPATH\Views\front\childsubcategory.php on line 105.
+ 1 APPPATH\Views\front\childsubcategory.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_arr"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 105)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:04:44 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:06:26 --> Cannot access offset of type string on string
+in APPPATH\Views\front\childsubcategory.php on line 96.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 4 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('4')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:16:05 --> syntax error, unexpected token "return"
+in APPPATH\Controllers\Home.php on line 1011.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:22:37 --> Undefined array key "child_sub_category_name"
+in APPPATH\Views\front\childsubcategory.php on line 109.
+ 1 APPPATH\Views\front\childsubcategory.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 109)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('5')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 07:22:45 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\childsubcategory.php on line 109.
+ 1 APPPATH\Views\front\childsubcategory.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 109)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1046): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('5')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 08:53:19 --> Undefined array key "isProduct"
+in APPPATH\Views\front\subcategory.php on line 75.
+ 1 APPPATH\Views\front\subcategory.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "isProduct"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 75)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1026): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 08:53:53 --> Undefined array key "child_id"
+in APPPATH\Views\front\subcategory.php on line 75.
+ 1 APPPATH\Views\front\subcategory.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 75)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1026): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 08:54:51 --> Undefined array key "child_id"
+in APPPATH\Views\front\subcategory.php on line 75.
+ 1 APPPATH\Views\front\subcategory.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 75)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1026): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('11')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

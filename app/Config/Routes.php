@@ -33,9 +33,14 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/shop', 'Home::shop');
-$routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
-$routes->get('/childsub/category/(:num)', 'Home::child_sub_category/$1');
-$routes->get('/childsub_sub/category/(:num)', 'Home::child_sub_sub_category/$1');
+// $routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
+$routes->get('/sub/category/(:num)', 'Home::main_sub_category/$1');
+
+// $routes->get('/childsub/category/(:num)', 'Home::child_sub_category/$1');
+$routes->get('/childsub/category/(:num)', 'Home::main_child_category/$1');
+
+// $routes->get('/childsub_sub/category/(:num)', 'Home::child_sub_sub_category/$1');
+$routes->get('/childsub_sub/category/(:num)', 'Home::child_subchild_category/$1');
 $routes->get('/product/(:num)', 'Home::product/$1');
 $routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');

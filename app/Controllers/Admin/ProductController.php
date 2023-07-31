@@ -295,6 +295,7 @@ class ProductController extends BaseController
             $categoryId = null;
             $subcategoryId = null;
             $productId = null;
+            $child_id =null;
 
             $isFirstRow = true; // Flag variable to skip the first row
 
@@ -305,7 +306,7 @@ class ProductController extends BaseController
                     continue; // Skip the first row
                 }
 
-                if ($row[0] != '') {
+                if (isset($row[5]) && $row[5] != '') {
                     // Category name
                     $categoryName = utf8_encode($row[5]);
 
@@ -322,8 +323,10 @@ class ProductController extends BaseController
                         $categoryId = $category->category_id;
                     }
                 }
-
-                if ($row[6] != '') {
+                echo "<pre>";
+                print_r($row);
+            
+                if (isset($row[6]) && $row[6] != '') {
                     // Subcategory name
                     $subcategoryName = utf8_encode($row[6]);
 
@@ -344,7 +347,7 @@ class ProductController extends BaseController
                         $subcategoryId = $subcategory->sub_category_id;
                     }
                 }
-                if ($row[7] != '') {
+                if (isset($row[7]) && $row[7] != '') {
                     // Subcategory name
                    
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
@@ -365,10 +368,10 @@ class ProductController extends BaseController
                                     'sub_category_id' =>  isset($childsubcategory) ? $childsubcategory->sub_category_id : '0',
                                     'category_id' => $categoryId    
                                 ];
-                                $subcategoryId = $childsubcategorymodel->insert($childsubcategory_1);
-                            
+                                $child_id = $childsubcategorymodel->insert($childsubcategory_1);
+                               
                             }
-                                
+                            
                         }
                         else
                         {
@@ -383,7 +386,8 @@ class ProductController extends BaseController
                                         'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
                                         'category_id' => $categoryId    
                                     ];
-                                    $subcategoryId = $childsubcategorymodel->insert($childsubcategory_1);
+                                    $child_id = $childsubcategorymodel->insert($childsubcategory_1);
+                                    
                                 }
                         }
                     }
@@ -397,6 +401,7 @@ class ProductController extends BaseController
                     $product = [
                         'product_name' => $productName,
                         'category_id' => $categoryId,
+                        'child_id' => $child_id,
                         'sub_category_id' => $subcategoryId
                     ];
                     $productId = $productModel->insert($product);
@@ -420,7 +425,7 @@ class ProductController extends BaseController
                     $variantModel->insert($variant);
                 }
             }
-
+          
             // Success message or redirect to a success page
             $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
             return redirect()->back();
