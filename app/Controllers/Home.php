@@ -428,7 +428,8 @@ class Home extends BaseController
             $subcategoryData = null;
         }
         $productmodel = new ProductModel();
-        $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
+
+        $productData = $productmodel->where('child_id', $sub_category_id)->findAll();
      
         $variantsmodel = new VariantsModel();
         $newData = [];

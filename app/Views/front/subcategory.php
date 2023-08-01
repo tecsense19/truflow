@@ -46,7 +46,7 @@
                                     <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
                                         <?php if (!empty($subcategory['child_arr'])) : ?>
                                             <div class="panel-body">
-                                                <?php foreach ($subcategory['child_arr'] as $product) : ?>
+                                            <?php if(count($subcategory['child_arr']) > 0) { foreach ($subcategory['child_arr'] as $product) : ?>
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
 
@@ -55,7 +55,17 @@
                                                         </a>
 
                                                     </p>
-                                                <?php endforeach; ?>
+                                                <?php endforeach; } else { ?>
+                                                <?php foreach ($subcategory['product_arr'] as $product) : ?>
+                                                    <p>
+                                                        <i class="fa fa-caret-right"></i>
+
+                                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" .$product['product_id'];?>">
+                                                            <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
+                                                        </a>
+
+                                                    </p>
+                                                <?php endforeach; } ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>

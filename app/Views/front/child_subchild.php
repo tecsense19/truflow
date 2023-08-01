@@ -63,7 +63,7 @@ $this->include('front/layout/front');
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
 
-                                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" ?>">
+                                                        <a class="pro_link" href="<?php echo base_url('') .  "product/details/" .$product['product_id'];?>">
                                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                                         </a>
 
@@ -84,7 +84,7 @@ $this->include('front/layout/front');
 
                     <?php if (isset($child_subchild)) { ?>
                         <?php foreach ($child_subchild as $subcategory) { 
-                            $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
+                            $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
                             ?>
                             <div class="col-lg-3">
                                 <div class="product_box">
