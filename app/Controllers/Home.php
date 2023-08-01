@@ -402,7 +402,7 @@ class Home extends BaseController
             'ChildSubCategorydata' => $ChildSubCategorydata
         ]);
     }
-    public function product($sub_category_id)
+    public function product($sub_category_id, $childId)
     {
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
@@ -428,8 +428,17 @@ class Home extends BaseController
             $subcategoryData = null;
         }
         $productmodel = new ProductModel();
-
-        $productData = $productmodel->where('child_id', $sub_category_id)->findAll();
+        $productData = [];
+        if($childId)
+        {
+            $productData = $productmodel->where('sub_category_id', $sub_category_id)
+                                        ->where('child_id', $childId)
+                                        ->findAll();
+        }
+        else
+        {
+            $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
+        }
      
         $variantsmodel = new VariantsModel();
         $newData = [];
@@ -442,7 +451,18 @@ class Home extends BaseController
         $subcategoryData1 = $subcategorymodel->find();
         $subCatData = [];
         foreach ($subcategoryData1 as $subCat) {
-            $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])->findAll();
+            $productData1 = [];
+            if($childId)
+            {
+                $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])
+                                            ->where('child_id', $childId)
+                                            ->findAll();
+            }
+            else
+            {
+                $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])->findAll();
+            }
+            
             $varaints = [];
             foreach ($productData1 as $product) {
                 $variantData1 = $variantsmodel->where('product_id', $product['product_id'])->first();
@@ -477,6 +497,43 @@ class Home extends BaseController
         }
         // --------------------------------------------
 
+        // $sidebar_array = [];
+        // foreach ($ChildSubCategorydata as $key => $value) {
+            
+        //     $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+
+        //     $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+        //     $newPro = [];
+        //     foreach ($product as $variant) {
+
+        //         $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+        //         $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+        //         $newPro[] = $variant;
+        //     }
+
+        //     $value['child_arr'] = $subChild;
+        //     $value['product_arr'] = $newPro;
+        //     $sidebar_array[] = $value;
+        // }
+
+
+       
+        // $product = $productmodel->where('child_id', $sub_category_id)->findAll();
+        // $newPro = [];
+        // foreach ($product as $variant) {
+
+        //     $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+        //     $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+        //     $newPro[] = $variant;
+        // }
+      
+
+          // echo "<pre>";
+        // print_r($newPro);
+        // die;
+        //---------------------------------------------
         return view('front/product', [
             'headerData' => $headerData,
             'subcategoryData' => $subcategoryData,
@@ -484,6 +541,8 @@ class Home extends BaseController
             'ChildSubCategoryData' => $ChildSubCategorydata,
             'categories'=>$responseArr,
             'productData' => $newData,
+            // 'sidebar_array' => $sidebar_array,
+            // 'newPro' => $newPro,
             'subcategoryid' => $sub_category_id
         ]);
     }
@@ -1009,22 +1068,16 @@ class Home extends BaseController
         }
           $array = [];
         foreach ($subcategoryData as $key => $value) {
-
-            $subChild = $subcategorymodel->where('sub_category_id', $value['sub_category_id'])->findAll();
-
-            $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->findAll();
-
+            $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->where('child_id',-1)->findAll();
             $value['isProduct'] = count($product) > 0 ? true : false;
-
             $array[]=$value;
         }
    
-       
-        // echo "<pre>";
-        // print_r($sidebar_array);
-        // die;
+    // echo "<pre>";
+    // print_r($array);
+    // die;
 
-        return view('front/subcategory', ['subcategoryData' => $subcategoryData, 'sidebar_array' => $sidebar_array]);
+        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array]);
         
     }
 

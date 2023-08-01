@@ -44,9 +44,26 @@
                                         </p>
                                     </div>
                                     <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
-                                        <?php if (!empty($subcategory['product_arr'])) : ?>
+                                       
+                                    <?php if (!empty($subcategory['product_arr'])) : ?>
                                             <div class="panel-body">
-                                            <?php if(count($subcategory['child_arr']) > 0) { foreach ($subcategory['child_arr'] as $product) : ?>
+                                                <?php foreach ($subcategory['product_arr'] as $product) : ?>
+                                                    <p>
+                                                        <i class="fa fa-caret-right"></i>
+
+                                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id']; ?>">
+                                                            <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
+                                                        </a>
+
+                                                    </p>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                            
+
+                                    <?php if (!empty($subcategory['child_arr'])) : ?>
+                                            <div class="panel-body">
+                                                <?php foreach ($subcategory['child_arr'] as $product) : ?>
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
 
@@ -55,17 +72,7 @@
                                                         </a>
 
                                                     </p>
-                                                <?php endforeach; } else { ?>
-                                                <?php foreach ($subcategory['product_arr'] as $product) : ?>
-                                                    <p>
-                                                        <i class="fa fa-caret-right"></i>
-
-                                                        <a class="pro_link" href="<?php echo base_url('') . "product/details/" .$product['product_id'];?>">
-                                                            <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
-                                                        </a>
-
-                                                    </p>
-                                                <?php endforeach; } ?>
+                                                <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>
@@ -82,7 +89,7 @@
 
                     <?php if (isset($ChildSubCategorydata)) { ?>
                         <?php foreach ($ChildSubCategorydata as $subcategory) { 
-                               $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
+                               $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
                                ?>
                             <div class="col-lg-3">
                                 <div class="product_box">

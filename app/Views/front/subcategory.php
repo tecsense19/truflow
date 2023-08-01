@@ -50,7 +50,7 @@
                                                     <p>
                                                         <i class="fa fa-caret-right"></i>
 
-                                                        <a class="pro_link" href="<?php echo base_url('') . "childsub_sub/category/" . $product['child_id']; ?>">
+                                                        <a class="pro_link" href="<?php echo base_url('') . "childsub/category/" . $product['child_id']; ?>">
                                                             <?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['parent'] ?>
                                                         </a>
 
@@ -81,7 +81,11 @@
                 <div class="row">
 
                     <?php if (isset($subcategoryData)) { ?>
-                        <?php foreach ($subcategoryData as $subcategory) { ?>
+                        <?php foreach ($subcategoryData as $subcategory) {
+                            // echo "<pre>";
+                            // print_r($subcategory);
+                            // die;
+                             $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id']  : base_url('') . "childsub/category/" . $subcategory['sub_category_id']; ?>
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -95,7 +99,7 @@
                                     <hr>
                                     <div class="product_text text-center">
                                      
-                                            <a href="<?php echo base_url('') . "childsub/category/" . $subcategory['sub_category_id'] ?>" class="category-link">
+                                            <a href="<?php echo $redirectUrl; ?>" class="category-link">
                                                 <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
                                             </a>
                                      

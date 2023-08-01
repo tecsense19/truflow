@@ -41,7 +41,7 @@ $routes->get('/childsub/category/(:num)', 'Home::main_child_category/$1');
 
 // $routes->get('/childsub_sub/category/(:num)', 'Home::child_sub_sub_category/$1');
 $routes->get('/childsub_sub/category/(:num)', 'Home::child_subchild_category/$1');
-$routes->get('/product/(:num)', 'Home::product/$1');
+$routes->get('/product/(:num)/(:num)', 'Home::product/$1/$2');
 $routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');
 $routes->get('/add/cart', 'Home::add_to_cart');
