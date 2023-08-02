@@ -316,9 +316,9 @@ class Home extends BaseController
         }
         $value['sub_cat'] = $subArr;
         $responseArr[] = $value;
-       echo "<pre>";
-        print_r($responseArr);
-        die;
+    //    echo "<pre>";
+    //     print_r($responseArr);
+    //     die;
         // $subcategory1 = [];
         // foreach ($subcategoryData as $subcategory) {
         //     $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();

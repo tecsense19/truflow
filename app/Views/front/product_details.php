@@ -259,7 +259,7 @@ $wishlistCount = session('wishlistCount');
                             </thead>
                             <tbody>
                         <?php foreach ($productData as $product) { ?>
-                                <tr style=" box-shadow: 2px 2px 10px -2px rgb(50, 50, 50); border:5px solid white;">
+                                <tr style=" box-shadow: 2px 2px 12px -2px rgb(50, 50, 50); border:5px solid white;">
                                     <td class="table-front"><h4><?php echo $product['variant_sku']; ?></h4></td>
                                     <td class="table-front"><h6 class="space"><?php echo $product['variant_name']; ?></h6></td>
                                     <td class="table-front">
