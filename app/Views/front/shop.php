@@ -44,7 +44,7 @@
                                             <?php foreach ($category['sub_category'] as $subCategory) : ?>
                                                 <div class="panel-heading" bis_skin_checked="1">
                                                     <p class="panel-title">
-                                                        <i class="fa fa-caret-right"></i>&nbsp;<a href="<?php echo base_url('') . "product/" . $subCategory['sub_category_id'] ?>"><?php echo strtoupper($subCategory['sub_category_name']); ?></a>
+                                                        <i class="fa fa-caret-right"></i>&nbsp;<a href="<?php echo base_url('') . "product/" . $subCategory['category_id'] . "/" . $subCategory['sub_category_id'] ?>"><?php echo strtoupper($subCategory['sub_category_name']); ?></a>
                                                     </p>
                                                 </div>
                                             <?php endforeach; ?>

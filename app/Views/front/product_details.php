@@ -21,6 +21,11 @@ $wishlistCount = session('wishlistCount');
     grid-template-columns: 50% 50%;
     padding: 0px 0px;
 }
+.table-front{
+    background: white;
+    text-align: center;
+   
+}
 </style>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -238,10 +243,84 @@ $wishlistCount = session('wishlistCount');
 
             <div class="col-lg-12">
                 <div class="row">
+
                     <?php if (isset($productData)) { ?>
+                            <table class="table-responsive" style="width: 100%;">
+                            <thead>
+                                <th style="width: 12%"></th>
+                                <th style="width: 12%"></th>
+                                <th style="width: 12%"></th>
+                                <th style="width: 10%"></th>
+                                <th style="width: 10%"></th>
+                                <th style="width: 10%"></th>
+                                <th style="width: 10%"></th>
+                                <th style="width: 10%"></th>
+                                <th style="width: 20%"></th>
+                            </thead>
+                            <tbody>
                         <?php foreach ($productData as $product) { ?>
-                            <div class="col-lg-3">
+                                <tr style=" box-shadow: 2px 2px 10px -2px rgb(50, 50, 50); border:5px solid white;">
+                                    <td class="table-front"><h4><?php echo $product['variant_sku']; ?></h4></td>
+                                    <td class="table-front"><h6 class="space"><?php echo $product['variant_name']; ?></h6></td>
+                                    <td class="table-front">
+                                        <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                        <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $product['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                        <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>  
+                                    </td>
+                                    <td class="table-front"> 
+                                        <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
+                                    </td>
+                                    <td class="table-front">
+                                        <?php if(isset($product['variant_header'])) {?>
+                                            <h6 class="space"><?php echo $product['variant_header']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description']; ?></h6>
+                                        <?php } ?> 
+                                    </td>
+
+                                    <td class="table-front">
+                                    <?php if(!empty($product['variant_header_1'])) {?>
+                                    <h6 class="space"><?php echo $product['variant_header_1']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_1']; ?></h6>
+                                            <?php } ?> 
+                                    </td>
+                                
+                         
+
+                            
+                                
+                                    <td class="table-front">
+                                    <?php if(!empty($product['variant_header_2'])) {?>
+                                    <h6 class="space"><?php echo $product['variant_header_2']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_2']; ?></h6>
+                                            <?php } ?> 
+                                    </td>
+                               
+                              
+
+                              
+                               
+                                    <td class="table-front">
+                                    <?php if(!empty($product['variant_header_3'])) {?>
+                                    <h6 class="space"><?php echo $product['variant_header_3']; ?></h6>
+                                            <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_3']; ?></h6>
+                                            <?php } ?> 
+                                    </td>
+                                
+                               
+
+                              
+                                    <td class="table-front">
+                                 
+                                    <?php if($product['variant_stock'] > 0){ ?> <h6 class="" style="color: green;">In stock<h6><?php }else{?> <h6 class="" style="color: red;">Out of stock<h6> <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+
+                            <!-- <div class="col-lg-3">
                                 <div class="product_box p-20">
+
                                             
                                             <div class="mr-3 "> 
                                                 <h4 ><?php echo $product['variant_sku']; ?></h4>
@@ -259,16 +338,19 @@ $wishlistCount = session('wishlistCount');
                                            <h6 class="space"><?php echo $product['variant_header']; ?></h6>
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description']; ?></h6>
                                            </div>
+
                                            <?php } ?> <?php if(!empty($product['variant_header_1'])) {?>
                                            <div class="variant-container mr-3 text-left grid_50">
                                            <h6 class="space"><?php echo $product['variant_header_1']; ?></h6>
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_1']; ?></h6>
                                            </div>
+
                                            <?php } ?> <?php if(!empty($product['variant_header_2'])) {?>
                                            <div class="variant-container mr-3 text-left grid_50">
                                            <h6 class="space"><?php echo $product['variant_header_2']; ?></h6>
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_2']; ?></h6>
                                            </div>
+
                                            <?php } ?> <?php if(!empty($product['variant_header_3'])) {?>
                                            <div class="variant-container mr-3 text-left grid_50">
                                            <h6 class="space"><?php echo $product['variant_header_3']; ?></h6>
@@ -282,9 +364,9 @@ $wishlistCount = session('wishlistCount');
                                 </div>
                            
                              
-                            </div>
+                            </div> -->
                            
-                        <?php } ?>
+                        
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">
                             <div class="form-group mt-5 mb-5 data_center text-center">

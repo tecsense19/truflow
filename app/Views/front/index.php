@@ -347,7 +347,7 @@ button#add_rows {
 
                                 </div>
                                 <div class="slider_text">
-                                <a href="<?php echo base_url('') . "sub/category/" . $product['sub_category_id'] ?>"><h6><?php echo $product['sub_category_name']; ?>&nbsp;&nbsp;</h6>
+                                <a href="<?php echo base_url('') . "childsub/category/" . $product['sub_category_id'] ?>"><h6><?php echo $product['sub_category_name']; ?>&nbsp;&nbsp;</h6>
                                 <h6><?php echo $product['sub_category_description']; ?></h6></a>
                                 </div>
 
@@ -370,7 +370,7 @@ button#add_rows {
 
                                 </div>
                                 <div class="slider_text">
-                                <a href="<?php echo base_url('') . "sub/category/" . $product['child_id'] ?>"><h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?></h6></a>
+                                <a href="#<?php //echo base_url('') . "childsub_sub/category/" . $product['child_id'] ?>"><h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?></h6></a>
                                 </div>
 
                             </div>
