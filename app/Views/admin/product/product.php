@@ -195,7 +195,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                         <tr>
                                             <th>Variant Name</th>
                                             <th>Variant Price</th>
-                                            <th>Variant Header</th>
+                                            <!-- <th>Variant Header</th> -->
                                             <th>Variant Description</th>
                                             <th></th>
                                             <th>Part Number</th>
@@ -213,7 +213,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                                     <td><input type="text" name="variant_name[]" class="form-control" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" /></td>
                                                     <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
                                                     <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" /></td>
-                                                    <td><input type="text" name="variant_header[]" class="form-control" value="<?php echo $variant['variant_header']; ?>" placeholder="Variant Header" /></td>
+                                                    <!-- <td><input type="text" name="variant_header[]" class="form-control" value="<?php //echo $variant['variant_header']; ?>" placeholder="Variant Header" /></td> -->
                                                     <td><input type="text" name="variant_description[]" class="form-control" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" /></td>
                                                     <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
                                                     <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>    
@@ -223,19 +223,19 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <td><input type="text" name="variant_header1[]" class="form-control" value="<?php echo $variant['variant_header_1']; ?>" placeholder="Variant Header 1" /></td>
+                                                <!-- <td><input type="text" name="variant_header1[]" class="form-control" value="<?php //echo $variant['variant_header_1']; ?>" placeholder="Variant Header 1" /></td> -->
                                                 <td><input type="text" name="variant_description1[]" class="form-control" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Variant Description 1" /></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <td><input type="text" name="variant_header2[]" class="form-control" value="<?php echo $variant['variant_header_2']; ?>" placeholder="Variant Header 2" /></td>
+                                                <!-- <td><input type="text" name="variant_header2[]" class="form-control" value="<?php //echo $variant['variant_header_2']; ?>" placeholder="Variant Header 2" /></td> -->
                                                 <td><input type="text" name="variant_description2[]" class="form-control" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Variant Description 2" /></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <td><input type="text" name="variant_header3[]" class="form-control" value="<?php echo $variant['variant_header_3']; ?>" placeholder="Variant Header 3" /></td>
+                                                <!-- <td><input type="text" name="variant_header3[]" class="form-control" value="<?php //echo $variant['variant_header_3']; ?>" placeholder="Variant Header 3" /></td> -->
                                                 <td><input type="text" name="variant_description3[]" class="form-control" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Variant Description 3" /></td>
                                             </tr>
                                         <?php
@@ -546,7 +546,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
         var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
         var variant_stock = $('<td><input type="text" name="variant_stock[]" class="form-control" placeholder="Variant Stock" /></td>');
         var variant_description = $('<td><input type="text" name="variant_description[]" class="form-control" placeholder="Variant Description" /></td>');
-        var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
+        // var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
         var inputRow1 = $('<tr class="input-row_'+ (row_counter1 + 0) +'_'+row_counter+'" data-id="'+ (row_counter1 + 0) +'"></tr>');
         var inputRow2 = $('<tr class="input-row_'+ (row_counter1 + 1) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 1) +'"></tr>');
         var inputRow3= $('<tr class="input-row_'+ (row_counter1 + 2) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 2) +'"></tr>');
@@ -556,11 +556,11 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
         var blankd2 = $('<td></td>');
         var blankh3 = $('<td></td>');
         var blankd3 = $('<td></td>');
-        var variant_header_1 = $('<td><input type="text" name="variant_header1[]" class="form-control" placeholder="Variant Header" /></td>');
+        // var variant_header_1 = $('<td><input type="text" name="variant_header1[]" class="form-control" placeholder="Variant Header" /></td>');
         var variant_description_1 = $('<td><input type="text" name="variant_description1[]" class="form-control" placeholder="Variant Description" /></td>');
-        var variant_header_2 = $('<td><input type="text" name="variant_header2[]" class="form-control" placeholder="Variant Header" /></td>');
+        // var variant_header_2 = $('<td><input type="text" name="variant_header2[]" class="form-control" placeholder="Variant Header" /></td>');
         var variant_description_2 = $('<td><input type="text" name="variant_description2[]" class="form-control" placeholder="Variant Description" /></td>');
-        var variant_header_3 = $('<td><input type="text" name="variant_header3[]" class="form-control" placeholder="Variant Header" /></td>');
+        // var variant_header_3 = $('<td><input type="text" name="variant_header3[]" class="form-control" placeholder="Variant Header" /></td>');
         var variant_description_3 = $('<td><input type="text" name="variant_description3[]" class="form-control" placeholder="Variant Description" /></td>');
         var removeButton = $('<td><button class="btn btn-danger remove-btn" data-id="'+ (row_counter) +'">Remove</button></td>');
 
@@ -592,7 +592,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
 
         inputRow.append(variant_name);
         inputRow.append(variant_price);
-        inputRow.append(variant_header);
+        // inputRow.append(variant_header);
         inputRow.append(variant_description);
         inputRow.append(variant_sku);
         inputRow.append(parent);
@@ -600,15 +600,15 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
         inputRow.append(removeButton);
         inputRow1.append(blankh1);
         inputRow1.append(blankd1);
-        inputRow1.append(variant_header_1);
+        // inputRow1.append(variant_header_1);
         inputRow1.append(variant_description_1);
         inputRow2.append(blankh2);
         inputRow2.append(blankd2);
-        inputRow2.append(variant_header_2);
+        // inputRow2.append(variant_header_2);
         inputRow2.append(variant_description_2);
         inputRow3.append(blankh3);
         inputRow3.append(blankd3);
-        inputRow3.append(variant_header_3);
+        // inputRow3.append(variant_header_3);
         inputRow3.append(variant_description_3);
         $('#input-container tbody').append(inputRow);
         $('#input-container tbody').append(inputRow1);

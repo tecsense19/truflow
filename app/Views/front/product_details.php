@@ -26,6 +26,10 @@ $wishlistCount = session('wishlistCount');
     text-align: center;
    
 }
+
+th, td {
+      padding: 10px; /* Add padding here (adjust the value as per your preference) */
+    }
 </style>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -247,20 +251,20 @@ $wishlistCount = session('wishlistCount');
                     <?php if (isset($productData)) { ?>
                             <table class="table-responsive" style="width: 100%;">
                             <thead>
-                                <th style="width: 12%"></th>
-                                <th style="width: 12%"></th>
-                                <th style="width: 12%"></th>
-                                <th style="width: 10%"></th>
-                                <th style="width: 10%"></th>
-                                <th style="width: 10%"></th>
-                                <th style="width: 10%"></th>
-                                <th style="width: 10%"></th>
-                                <th style="width: 20%"></th>
+                                <th style="width: 15%;text-align: center;">Part</th>
+                                <th style="width: 15%;text-align: center;">Description</th>
+                                <th style="width: 10%;text-align: center;">Quantity</th>
+                                <th style="width: 10%;text-align: center;">Price</th>
+                                <th style="width: 10%;text-align: center;">Header 1</th>
+                                <th style="width: 10%;text-align: center;">Header 2</th>
+                                <th style="width: 10%;text-align: center;">Header 3</th>
+                                <th style="width: 10%;text-align: center;">Header 4</th>
+                                <th style="width: 10%;text-align: center;">Stock</th>
                             </thead>
                             <tbody>
                         <?php foreach ($productData as $product) { ?>
                                 <tr style=" box-shadow: 2px 2px 12px -2px rgb(50, 50, 50); border:5px solid white;">
-                                    <td class="table-front"><h4><?php echo $product['variant_sku']; ?></h4></td>
+                                    <td class="table-front"><h5><?php echo $product['variant_sku']; ?></h5></td>
                                     <td class="table-front"><h6 class="space"><?php echo $product['variant_name']; ?></h6></td>
                                     <td class="table-front">
                                         <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
@@ -271,46 +275,33 @@ $wishlistCount = session('wishlistCount');
                                         <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
                                     </td>
                                     <td class="table-front">
-                                        <?php if(isset($product['variant_header'])) {?>
-                                            <h6 class="space"><?php echo $product['variant_header']; ?></h6>
+                                        <?php if(isset($product['variant_description'])) {?>
+                                          
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description']; ?></h6>
                                         <?php } ?> 
                                     </td>
 
                                     <td class="table-front">
-                                    <?php if(!empty($product['variant_header_1'])) {?>
-                                    <h6 class="space"><?php echo $product['variant_header_1']; ?></h6>
+                                    <?php if(!empty($product['variant_description_1'])) {?>
+                                  
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_1']; ?></h6>
                                             <?php } ?> 
                                     </td>
                                 
-                         
-
-                            
-                                
                                     <td class="table-front">
-                                    <?php if(!empty($product['variant_header_2'])) {?>
-                                    <h6 class="space"><?php echo $product['variant_header_2']; ?></h6>
+                                    <?php if(!empty($product['variant_description_2'])) {?>
+                                  
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_2']; ?></h6>
                                             <?php } ?> 
                                     </td>
-                               
-                              
 
-                              
-                               
                                     <td class="table-front">
-                                    <?php if(!empty($product['variant_header_3'])) {?>
-                                    <h6 class="space"><?php echo $product['variant_header_3']; ?></h6>
+                                    <?php if(!empty($product['variant_description_3'])) {?>
+                                   
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_3']; ?></h6>
                                             <?php } ?> 
                                     </td>
-                                
-                               
-
-                              
                                     <td class="table-front">
-                                 
                                     <?php if($product['variant_stock'] > 0){ ?> <h6 class="" style="color: green;">In stock<h6><?php }else{?> <h6 class="" style="color: red;">Out of stock<h6> <?php } ?>
                                     </td>
                                 </tr>
