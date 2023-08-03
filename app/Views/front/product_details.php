@@ -161,7 +161,7 @@ th, td {
                                     <div class="col-lg-6">
                                         <div class="glance">
 
-                                            <h3><?php echo $productData[0]['product_name'] ?></h3>
+                                            <h3><?php //echo $productData[0]['product_name'] ?></h3>
                                             <p><?php echo $productData[0]['product_description'] ?></p>
                                         </div>
                                     </div>
@@ -171,9 +171,9 @@ th, td {
                                                 $imagePaths = explode(',', $productData[0]['product_img']);
                                                 $firstImagePath = trim($imagePaths[0]);
                                             ?>
-                                                <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img">
+                                                <!-- <img src="<?php //echo base_url() . $firstImagePath ?>" alt="product image" class="img-fluid product_img"> -->
                                             <?php } else { ?>
-                                                <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                                <!-- <img class="img-fluid card-img-top" src="<?php //echo base_url(); ?>/public/uploads/no_img.png" alt="image"> -->
 
                                             <?php } ?>
                                         </div>
