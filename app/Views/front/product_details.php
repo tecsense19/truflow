@@ -158,10 +158,9 @@ th, td {
                             </div>
           
                             <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="glance">
-
-                                            <h3><?php //echo $productData[0]['product_name'] ?></h3>
+                                            <!-- <h3><?php //echo $productData[0]['product_name'] ?></h3> -->
                                             <p><?php echo $productData[0]['product_description'] ?></p>
                                         </div>
                                     </div>
