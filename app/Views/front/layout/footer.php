@@ -125,11 +125,9 @@
                 },
                 success: function(response) {
                     var data = JSON.parse(response);
-       
-                    if (data.error == "Not found") {
-                        
-                        var html = '';
-                        html += '<p>No record found</p>';
+                    if (data.error == "Not found") {  
+                        // var html = '';
+                        // html += '<p>No record found</p>';
                         // $('#search-result').html(html);
                         // $("#search-result").css("height", "30px");
                     } else {
@@ -175,7 +173,19 @@
             } else {
                 $('#search-result').html('No record found');
                 $("#search-result").css("height", "30px");
+                // var dataPageUrl = '<?php echo base_url(); ?>shop';
+                // window.location.href = dataPageUrl;
+                if (event.keyCode === 13) {
+                alert('please enter value.');
+                var dataPageUrl = '<?php echo base_url(); ?>shop';
+                window.location.href = dataPageUrl;
             }
+        }
+
+            if (event.target.value.trim().length > 0) { // Check if the input field is not empty
+               
+            }
+
         });
         $(document).on('click', '.variant', function() {
             var productId = $(this).data('product-id');
