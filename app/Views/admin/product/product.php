@@ -78,6 +78,7 @@ $product_short_description = isset($productData) ? $productData['product_short_d
 $product_img = isset($productData) ? $productData['product_img'] : '';
 $featured_product = isset($productData) ? $productData['featured_category'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
+$product_child_id = isset($productData) ? $productData['child_id'] : '';
 
 ?>
 
@@ -396,6 +397,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
 
                         var option = '';
                         $.each(data, function(key, value) {
+                            var child_id = '<?php echo $product_child_id;?>';
                             option += '<option value="' + value.child_id + '"';
                             if (value.child_id == child_id) {
                                 option += ' selected';
@@ -404,8 +406,8 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             $('#child-subcategory-select').append(option);
                         });
 
-                        var createNewDropDwon = '<div class="mb-3"><label for="exampleFormControlSelect1" class="form-label">Childcategory</label><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select></div>';
-
+                        var createNewDropDwon = '<div class="mb-3"><label for="exampleFormControlSelect1" class="form-label">Childcategory</label><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="<?php echo $product_child_id;?>">Select Child</option>'+option+'</select></div>';
+                        $('#lastchild_id').val('<?php echo $product_child_id;?>');
                         $('.all_child_drop_down').append(createNewDropDwon);
 
                     }
@@ -468,7 +470,7 @@ $product_additional_info = isset($productData) ? $productData['product_additiona
                             $('#child-subcategory-select').append(option);
                         });
 
-                        var createNewDropDwon = '<div class="mb-3"><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="">Select Child</option>'+option+'</select></div>';
+                        var createNewDropDwon = '<div class="mb-3"><select class="form-select" aria-label="Default select example" name="child_id" onchange="getAllChildSubCategory(event)"><option value="<?php echo $product_child_id;?>">Select Child</option>'+option+'</select></div>';
 
                         $('.all_child_drop_down').append(createNewDropDwon);
 
