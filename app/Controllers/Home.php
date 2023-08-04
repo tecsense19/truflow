@@ -614,11 +614,14 @@ class Home extends BaseController
         $subcategoryData1 = $subcategorymodel->findAll();
 
         $get_product = $productmodel->where('product_id', $product_id)->first();
+
+
         $sub_cat_data = [];
             $productData1 = $productmodel->where('sub_category_id', $get_product['sub_category_id'])->findAll(4);
             $variantsmodel = new VariantsModel();
             $newData_p = [];
             foreach ($productData1 as $pdata1) {
+                
                 $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
                 $pdata1['parent'] = count($variantData1) > 0 ? $variantData1['parent'] : '';
                 $newData_p[] = $pdata1;

@@ -184,7 +184,6 @@ $product_child_id = isset($productData) ? $productData['child_id'] : '';
                     </div>
 
                     <!-- add headers -->
-
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Add Product Header</h5>

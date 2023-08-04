@@ -104,6 +104,18 @@
 <script>
     function searchProduct() {
         var searchValue = $('#search').val();
+        if (event.keyCode === 13) { 
+            var secondVariant = $('#search-result .variant').eq(1);
+            var secondProductId = secondVariant.data('product-id');
+            if(typeof secondProductId !== 'undefined'){
+                var dataPageUrl = '<?php echo base_url(); ?>product/details/' + secondProductId;
+                window.location.href = dataPageUrl;
+            }else{
+                var dataPageUrl = '<?php echo base_url(); ?>shop';
+                window.location.href = dataPageUrl;
+            }
+           
+        }
         if (searchValue.trim().length >= 2) {
             $.ajax({
                 url: '<?php echo base_url(); ?>searchData',
@@ -113,11 +125,13 @@
                 },
                 success: function(response) {
                     var data = JSON.parse(response);
+       
                     if (data.error == "Not found") {
+                        
                         var html = '';
                         html += '<p>No record found</p>';
-                        $('#search-result').html(html);
-                        $("#search-result").css("height", "30px");
+                        // $('#search-result').html(html);
+                        // $("#search-result").css("height", "30px");
                     } else {
                         var html = '';
                         html += '<p class="part_no">' + "Part Number" + '</p>';
@@ -129,8 +143,12 @@
                             html += '<p>' + variant_sku + '</p>';
                             html += '</div>';
                         }
+
+            
+                 
                         $('#search-result').html(html);
                     }
+                  
                 },
                 error: function(xhr, status, error) {
                     // console.error('Error occurred during AJAX request.');
@@ -146,7 +164,7 @@
     }
 
     function redirectToDataPage(productId) {
-        var dataPageUrl = '<?php echo base_url(); ?>/product/details/' + productId;
+        var dataPageUrl = '<?php echo base_url(); ?>product/details/' + productId;
         window.location.href = dataPageUrl;
     }
     $(document).ready(function() {
@@ -185,6 +203,9 @@
                 }
             });
         });
+
+     
+
     });
 </script>
 <!-- // add row and validation and add to cart precess -->
