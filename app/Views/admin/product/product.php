@@ -183,11 +183,38 @@ $product_child_id = isset($productData) ? $productData['child_id'] : '';
                         </div>
                     </div>
 
+                    <!-- add headers -->
+
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Add Product Header</h5>
+                        </div>
+                        <div class="row card-body">
+                        <div class="col-md-3">
+                                <label for="product_header"></label>
+                                <input type="text" name="product_header1" class="form-control" value="<?php echo $productData['product_header1']; ?>" placeholder="Product Header 1" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="product_header"></label>
+                                <input type="text" name="product_header2" class="form-control" value="<?php echo $productData['product_header2']; ?>" placeholder="Product Header 2" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="product_header"></label>
+                                <input type="text" name="product_header3" class="form-control" value="<?php echo $productData['product_header3']; ?>" placeholder="Product Header 3" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="product_header"></label>
+                                <input type="text" name="product_header4" class="form-control" value="<?php echo $productData['product_header4']; ?>" placeholder="Product Header 4" />
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- add variant -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Add Variant</h5>
                         </div>
+                     
                         <div class="card-body">
                             <button id="add-btn" class="btn btn-primary">Add Variant</button>
                             <div id="input-container">

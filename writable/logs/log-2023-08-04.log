@@ -1,0 +1,22 @@
+CRITICAL - 2023-08-04 06:51:01 --> Undefined variable $variant
+in APPPATH\Views\admin\product\product.php on line 195.
+ 1 APPPATH\Views\admin\product\product.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $variant', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 195)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(58): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->product()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 06:54:38 --> Undefined array key "product_header1"
+in APPPATH\Views\front\product_details.php on line 257.
+ 1 APPPATH\Views\front\product_details.php(257): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_header1"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 257)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(651): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

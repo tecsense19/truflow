@@ -254,10 +254,10 @@ th, td {
                                 <th style="width: 15%;text-align: center;">Description</th>
                                 <th style="width: 10%;text-align: center;">Quantity</th>
                                 <th style="width: 10%;text-align: center;">Price</th>
-                                <th style="width: 10%;text-align: center;">Header 1</th>
-                                <th style="width: 10%;text-align: center;">Header 2</th>
-                                <th style="width: 10%;text-align: center;">Header 3</th>
-                                <th style="width: 10%;text-align: center;">Header 4</th>
+                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header1']) ? $productData[0]['product_header1'] : "Header 1"; ?></th>
+                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header2']) ? $productData[0]['product_header2'] : "Header 2"; ?></th>
+                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header3']) ? $productData[0]['product_header3'] : "Header 3"; ?></th>
+                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header4']) ? $productData[0]['product_header4'] : "Header 4"; ?></th>
                                 <th style="width: 10%;text-align: center;">Stock</th>
                             </thead>
                             <tbody>

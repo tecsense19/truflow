@@ -23,6 +23,11 @@ class ProductModel extends Model
         'sub_category_id',
         'child_id',
         'featured_category',
+        'product_header1',
+        'product_header2',
+        'product_header3',
+        'product_header4',
+
         
     ];
 

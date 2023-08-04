@@ -86,6 +86,10 @@ class ProductController extends BaseController
         $productArr['product_short_description'] = isset($input['product_short_description']) ? $input['product_short_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
         
+        $productArr['product_header1'] = isset($input['product_header1']) ? $input['product_header1'] : '';
+        $productArr['product_header2'] = isset($input['product_header2']) ? $input['product_header2'] : '';
+        $productArr['product_header3'] = isset($input['product_header3']) ? $input['product_header3'] : '';
+        $productArr['product_header4'] = isset($input['product_header4']) ? $input['product_header4'] : '';
         // print_r($input['lastchild_id']);
         // die;
         // Check if new images are uploaded
