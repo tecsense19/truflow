@@ -1,33 +1,10 @@
+ALTER TABLE `product` ADD `product_header1` varchar(255) NULL DEFAULT NULL 
 
+ALTER TABLE `product` ADD `product_header2` varchar(255) NULL DEFAULT NULL
 
-ALTER TABLE `category` ADD `category_featured` INT(11) NULL DEFAULT '0' AFTER `category_img`;
+ALTER TABLE `product` ADD `product_header3` varchar(255) NULL DEFAULT NULL
 
-ALTER TABLE `sub_category` ADD `sub_category_featured` INT(11) NULL DEFAULT '0' AFTER `sub_category_img`;
-
-ALTER TABLE `child_sub_category` ADD `child_sub_category_featured` INT(11) NULL DEFAULT '0' AFTER `child_sub_category_img`;
-
-ALTER TABLE `product_variants` ADD `variant_stock` VARCHAR(255) NULL AFTER `variant_sku`;
-
-
-
-ALTER TABLE `product_variants` ADD `variant_header` varchar(255) NULL DEFAULT '0' AFTER `variant_price`;
-
-ALTER TABLE `product_variants` ADD `variant_description` varchar(255) NULL DEFAULT '0' AFTER `variant_header`;
-
-
-ALTER TABLE `product_variants` ADD `variant_header_1` varchar(255) NULL DEFAULT '0' AFTER `variant_description`;
-
-ALTER TABLE `product_variants` ADD `variant_description_1` varchar(255) NULL DEFAULT '0' AFTER `variant_header_1`;
-
-
-ALTER TABLE `product_variants` ADD `variant_header_2` varchar(255) NULL DEFAULT '0' AFTER `variant_description_1`;
-
-ALTER TABLE `product_variants` ADD `variant_description_2` varchar(255) NULL DEFAULT '0' AFTER `variant_header_2`;
-
-
-ALTER TABLE `product_variants` ADD `variant_header_3` varchar(255) NULL DEFAULT '0' AFTER `variant_description_2`;
-
-ALTER TABLE `product_variants` ADD `variant_description_3` varchar(255) NULL DEFAULT '0' AFTER `variant_header_3`;
+ALTER TABLE `product` ADD `product_header4` varchar(255) NULL DEFAULT NULL
 
 
 
