@@ -80,6 +80,11 @@ $featured_product = isset($productData) ? $productData['featured_category'] : ''
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
 $product_child_id = isset($productData) ? $productData['child_id'] : '';
 
+$product_header1 = isset($productData) ? $productData['product_header1'] : '';
+$product_header2 = isset($productData) ? $productData['product_header2'] : '';
+$product_header3 = isset($productData) ? $productData['product_header3'] : '';
+$product_header4 = isset($productData) ? $productData['product_header4'] : '';
+
 ?>
 
 <!-- Content wrapper -->
@@ -191,19 +196,19 @@ $product_child_id = isset($productData) ? $productData['child_id'] : '';
                         <div class="row card-body">
                         <div class="col-md-3">
                                 <label for="product_header"></label>
-                                <input type="text" name="product_header1" class="form-control" value="<?php echo $productData['product_header1']; ?>" placeholder="Product Header 1" />
+                                <input type="text" name="product_header1" class="form-control" value="<?php echo $product_header1; ?>" placeholder="Product Header 1" />
                             </div>
                             <div class="col-md-3">
                                 <label for="product_header"></label>
-                                <input type="text" name="product_header2" class="form-control" value="<?php echo $productData['product_header2']; ?>" placeholder="Product Header 2" />
+                                <input type="text" name="product_header2" class="form-control" value="<?php echo $product_header2; ?>" placeholder="Product Header 2" />
                             </div>
                             <div class="col-md-3">
                                 <label for="product_header"></label>
-                                <input type="text" name="product_header3" class="form-control" value="<?php echo $productData['product_header3']; ?>" placeholder="Product Header 3" />
+                                <input type="text" name="product_header3" class="form-control" value="<?php echo $product_header3; ?>" placeholder="Product Header 3" />
                             </div>
                             <div class="col-md-3">
                                 <label for="product_header"></label>
-                                <input type="text" name="product_header4" class="form-control" value="<?php echo $productData['product_header4']; ?>" placeholder="Product Header 4" />
+                                <input type="text" name="product_header4" class="form-control" value="<?php echo $product_header4; ?>" placeholder="Product Header 4" />
                             </div>
                         </div>
                     </div>

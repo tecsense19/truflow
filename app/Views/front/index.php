@@ -46,54 +46,20 @@ $testominal_description = isset($testominalData) ? $testominalData['description'
 $partner_setting_id = isset($partnerData) ? $partnerData['setting_id'] : '';
 $partner_title = isset($partnerData) ? $partnerData['title'] : '';
 $partner_description = isset($partnerData) ? $partnerData['description'] : '';
-
-
-
 ?>
-
 <!-- new page login added -->
 
-<style>
-    #loginForm{
-        width: 335px;
-    }
-.form_outer{
-    background-color: gainsboro !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-    .row_margine{
-        margin-top: 122px;
-    }
-    @media only screen 
-  and (min-width: 0px) 
-  and (max-width: 767px)
- {
-    .adjust_button{
-        display: flex !important;
-        justify-content: center !important;
-}
-button#add_to_cart{
-    margin-left: unset;
-}
-button#add_rows {
-    margin-left: unset;
- }
-}
-</style>
 <body style="overflow-x: hidden;">
     
 
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <div class="container-fluid p-md-1 row_margine">
 
-  <div class="row no-gutters justify-content-center mt-2">
-    <div class="col-lg-9 col-md-12 pr-2">
-    <a href="<?php echo base_url('product/2') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
+  <div class="row no-md-gutters justify-content-center mt-2">
+    <div class="col-lg-9 col-md-12 pr-md-2 p-1 p-md-0">
+    <a href="<?php echo base_url('shop') ?>"><img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
     </div>
-    <div class="col-lg-3 col-md-8 mt-3 mt-lg-0 form_outer" style="background-color: gainsboro;">
+    <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro;">
             <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
             <h2 class="text-center pt-5 pb-3">Sign in</h2>
                 <div class="form-group">
@@ -392,7 +358,7 @@ button#add_rows {
                     <div class="col-lg-12 about">
                     <div class="about_sub lorem_heading text-center">
                         <h4 class="about_title"><?php echo $about_title; ?></h4>
-                        <h2 class="mt-5"><?php echo $about_sub_title; ?></h2>
+                        <h2 class="mt-sm-5"><?php echo $about_sub_title; ?></h2>
                         <p><?php echo $about_description; ?></p>
                         <a href="<?php echo $about_button_link; ?>"><button type="button" class="btn "> <?php echo $about_button_text; ?> </button></a>
                     </div>
@@ -624,6 +590,9 @@ button#add_rows {
       autoplayTimeout: 3000, // Autoplay interval in milliseconds
       autoplayHoverPause: true, // Pause autoplay on hover
       responsive: { // Responsive settings for different screen sizes
+        375:{
+            items: 1 //
+        },
         768: { // For screens >= 768px
           items: 2 // Show 2 items at a time
         },

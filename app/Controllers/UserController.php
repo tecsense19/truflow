@@ -170,8 +170,13 @@ class UserController extends BaseController
         if (!$companyData) {
             $companyData = null;
         }
+        $Headermodel = new HeaderMenuModel();
+        $HeaderModel = $Headermodel->find();
+        if (!$HeaderModel) {
+            $HeaderModel = null;
+        }
 
-        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData, 'companyData' => $companyData]);
+        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData, 'companyData' => $companyData , 'headerData' => $HeaderModel]);
     }
 
     public function edit_user_profile()
@@ -235,6 +240,12 @@ class UserController extends BaseController
             $countryData = null;
         }
 
+        $HeaderMenuModel = new HeaderMenuModel();
+        $headerData = $HeaderMenuModel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+
         $ordermodel = new OrderModel();
         $orderitemmodel = new OrderItemModel();
         $cartData = $orderitemmodel->find();
@@ -277,7 +288,7 @@ class UserController extends BaseController
             $orderData = null;
         }
 
-        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId]);
+        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId ,'headerData' => $headerData]);
         return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
     }
     // -----------------------------------------------

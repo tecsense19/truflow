@@ -1,11 +1,1 @@
-ALTER TABLE `product` ADD `product_header1` varchar(255) NULL DEFAULT NULL 
-
-ALTER TABLE `product` ADD `product_header2` varchar(255) NULL DEFAULT NULL
-
-ALTER TABLE `product` ADD `product_header3` varchar(255) NULL DEFAULT NULL
-
-ALTER TABLE `product` ADD `product_header4` varchar(255) NULL DEFAULT NULL
-
-
-
-
+ALTER TABLE `product` ADD `product_favourite` INT(11) NULL AFTER `featured_category`;

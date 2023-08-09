@@ -27,6 +27,7 @@ class ProductModel extends Model
         'product_header2',
         'product_header3',
         'product_header4',
+        'product_favourite',
 
         
     ];

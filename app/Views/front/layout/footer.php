@@ -63,7 +63,7 @@
                     <div class="footer_line"></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row all_right">
                 <div class="col-lg-6">
                     <div class="all_rights">
                         <p>© 2023 Truflow Inc. All rights reserved.</p>
@@ -173,8 +173,7 @@
             } else {
                 $('#search-result').html('No record found');
                 $("#search-result").css("height", "30px");
-                // var dataPageUrl = '<?php echo base_url(); ?>shop';
-                // window.location.href = dataPageUrl;
+
                 if (event.keyCode === 13) {
                 alert('please enter value.');
                 var dataPageUrl = '<?php echo base_url(); ?>shop';
@@ -676,6 +675,13 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    $(document).ready(function() {
+    $('#custom-toggler').click(function() {
+        $(this).toggleClass('active'); // Add or remove 'active' class on click
+    });
+});
+
 </script>
 
 </body>

@@ -42,7 +42,7 @@
           <?php if (isset($ordersByOrderId)) { ?>
               <?php foreach ($ordersByOrderId as $orderId => $orderData) { ?>
              
-                  <table class="table card">
+                  <table class="table card table-responsive">
                       <tr class="mainsetcolor">
                           <th colspan="1">Order Id: #<?php echo $orderId; ?></th>
                           <th colspan="1">Order By: <?php echo $orderData[0]['full_name']; ?></th>

@@ -12,6 +12,12 @@ $user_id = isset($couponData) ? $couponData['user_id'] : '';
 $sub_category_id = isset($couponData) ? $couponData['sub_category_id'] : '';
 $company_id = isset($couponData) ? $couponData['company_id'] : '';
 
+// echo "<pre1>";
+// print_r($couponData);
+// echo "<pre>";
+// print_r($productData);
+
+
 ?>
 
 <!-- Content wrapper -->
@@ -101,8 +107,8 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
 
                             <div id="subcategoryDropdown" <?php echo ($coupon_type != 'Sub Category') ? 'style="display: none;"' : ''; ?>>
                                 <select id="sub_category_id" name="sub_category_id[]" class="form-select" multiple required>
-                                    <?php if (isset($subcategoryData)) { ?>
-                                        <?php foreach ($subcategoryData as $subcategory) : ?>
+                                    <?php if (isset($productData)) { ?>
+                                        <?php foreach ($productData as $subcategory) : ?>
                                             <?php
                                         
                                             $selected = '';
@@ -110,7 +116,7 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                                                 $selected = 'selected';
                                             }
                                             ?>
-                                            <option value="<?php echo $subcategory['sub_category_id']; ?>" <?php echo $selected; ?>><?php echo $subcategory['sub_category_name']; ?></option>
+                                            <option value="<?php echo $subcategory['sub_category_id']; ?>" <?php echo $selected; ?>><?php echo $subcategory['product_name']; ?>&nbsp;<?php echo $subcategory['parent']; ?></option>
                                         <?php endforeach; ?>
                                     <?php } ?>
                                 </select>

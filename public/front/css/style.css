@@ -56,7 +56,7 @@ ul.navbar-nav {
 	padding: 0;
     margin: 0 16px;
 }
-.navbar-nav .nav-item .nav-link::after{
+/* .navbar-nav .nav-item .nav-link::after{
   	background: none repeat scroll 0 0 transparent;
   	bottom: 0;
   	content: "";
@@ -67,7 +67,7 @@ ul.navbar-nav {
   	background: #fff;
   	transition: width 0.3s ease 0s, left 0.3s ease 0s;
   	width: 0;
-}
+} */
 .navbar-nav .nav-item .nav-link:hover:after{
 	width: 100%; 
   	left: 0; 
@@ -2834,11 +2834,11 @@ button#destroyButton {
 nav.navbar.navbar-expand-lg.fixed-top.scrolled {
     z-index: 9999999;
 }
-.table-responsive {
+/* .table-responsive {
     
     overflow-x: unset !important;
   
-}
+} */
 .cancel_print{
     display: flex;
 }

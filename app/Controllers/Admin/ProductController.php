@@ -6,6 +6,7 @@ use App\Models\ProductModel;
 use App\Models\CategoryModel;
 use App\Models\SubCategoryModel;
 use App\Models\VariantsModel;
+use App\Models\CouponModel;
 use App\Models\ChildSubCategoryModel;
 use CodeIgniter\HTTP\RequestInterface;
 
@@ -255,7 +256,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['category_name', 'sub_category_name', 'product_name', 'variant_name', 'variant_price', 'variant_sku', 'parent'];
+        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4',	'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5'];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
@@ -287,6 +288,7 @@ class ProductController extends BaseController
         $childsubcategorymodel = new ChildSubCategoryModel();
         $productModel = new ProductModel();
         $variantModel = new VariantsModel();
+        $CouponModel = new CouponModel();
 
         // Get the uploaded CSV file
         $csvFile = $this->request->getFile('csv_file');
@@ -312,9 +314,9 @@ class ProductController extends BaseController
                     continue; // Skip the first row
                 }
 
-                if (isset($row[5]) && $row[5] != '') {
+                if (isset($row[14]) && $row[14] != '') {
                     // Category name
-                    $categoryName = utf8_encode($row[5]);
+                    $categoryName = utf8_encode($row[14]);
 
                     // Check if the category already exists
                     $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
@@ -329,12 +331,10 @@ class ProductController extends BaseController
                         $categoryId = $category->category_id;
                     }
                 }
-                echo "<pre>";
-                print_r($row);
             
-                if (isset($row[6]) && $row[6] != '') {
+                if (isset($row[15]) && $row[15] != '') {
                     // Subcategory name
-                    $subcategoryName = utf8_encode($row[6]);
+                    $subcategoryName = utf8_encode($row[15]);
 
                     // Check if the subcategory already exists
                     $subcategory = $subcategoryModel
@@ -353,14 +353,14 @@ class ProductController extends BaseController
                         $subcategoryId = $subcategory->sub_category_id;
                     }
                 }
-                if (isset($row[7]) && $row[7] != '') {
+                if (isset($row[16]) && $row[16] != '') {
                     // Subcategory name
                    
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
                     // Loop through each column starting from index 1 (skipping the first column with variable names)
-                    for ($i=7; $i < count($row); $i++) { 
+                    for ($i=16; $i < count($row); $i++) { 
                             
-                        if($i != 7)
+                        if($i != 16)
                         {               
                             $childsubcategory = $childsubcategorymodel
                             ->where('child_sub_category_name', $row[$i - 1])
@@ -393,7 +393,6 @@ class ProductController extends BaseController
                                         'category_id' => $categoryId    
                                     ];
                                     $child_id = $childsubcategorymodel->insert($childsubcategory_1);
-                                    
                                 }
                         }
                     }
@@ -401,6 +400,17 @@ class ProductController extends BaseController
 
                 // Product details
                 $productName = utf8_encode($row[0]);
+                $Favourite   = utf8_encode($row[6]);
+                $ProductDescription = utf8_encode($row[7]);
+                $shortDescription = utf8_encode($row[8]);
+                $information = utf8_encode($row[9]);
+                $vheader1 = utf8_encode($row[10]);
+                $vheader2 = utf8_encode($row[11]);
+                $vheader3 = utf8_encode($row[12]);
+                $vheader4 = utf8_encode($row[13]);
+                // $discount_code = utf8_encode($row[14]);
+
+               
 
                 if ($productName != '') {
                     // Insert the product
@@ -408,16 +418,40 @@ class ProductController extends BaseController
                         'product_name' => $productName,
                         'category_id' => $categoryId,
                         'child_id' => $child_id,
-                        'sub_category_id' => $subcategoryId
+                        'sub_category_id' => $subcategoryId,
+                        'product_description' => $ProductDescription,
+                        'product_short_description' => $shortDescription,
+                        'product_header1' => $vheader1,
+                        'product_header2' => $vheader2,
+                        'product_header3' => $vheader3,
+                        'product_header4' => $vheader4,
+                        'product_additional_info' => $information,
+                        'product_favourite' => $Favourite
                     ];
                     $productId = $productModel->insert($product);
                 }
+
+                // if($discount_code != '') {
+
+                //     $coupen = [
+                //         'coupon_code' => $discount_code,
+                //         'product_id' => $productId,
+                //         'sub_category_id' => $subcategoryId,
+                //         'category_id' => $categoryId
+                //     ];
+
+                //     $CouponModel->insert($coupen);
+                    
+                    
+                // }
 
                 // Variant details
                 $variantName = utf8_encode($row[1]);
                 $variantPrice = utf8_encode($row[2]);
                 $variantSku = utf8_encode($row[3]);
-                $parent = utf8_encode($row[4]);
+                $parent = utf8_encode($row[5]);
+                $stock = utf8_encode($row[4]);
+
 
                 if ($variantName != '') {
                     // Insert the variant
@@ -426,7 +460,8 @@ class ProductController extends BaseController
                         'variant_name' => $variantName,
                         'variant_price' => $variantPrice,
                         'variant_sku' => $variantSku,
-                        'parent' => $parent
+                        'parent' => $parent,
+                        'variant_stock' => $stock
                     ];
                     $variantModel->insert($variant);
                 }

@@ -7,6 +7,7 @@ use App\Models\UserModel;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
 use App\Models\SubCategoryModel;
+use App\Models\VariantsModel;
 use App\Models\CompanyModel;
 
 class CompanyCouponController extends BaseController
@@ -15,6 +16,7 @@ class CompanyCouponController extends BaseController
     {
        
         $couponmodel = new CouponModel();
+      
         $couponData = $couponmodel;
         
 
@@ -22,6 +24,8 @@ class CompanyCouponController extends BaseController
             ->join('company', 'company.company_id = coupon.company_id', 'left')
             ->where('coupon.company_coupon', '1')
             ->get();
+
+         
 
         $couponData = $query->getResultArray();
 
@@ -40,6 +44,24 @@ class CompanyCouponController extends BaseController
         $companymodel = new CompanyModel();
         //$categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
+
+        $variantsmodel = new VariantsModel();
+        $productmodel = new ProductModel();
+
+        $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')
+        ->join('category', 'category.category_id = product.category_id')
+        ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
+        ->find();
+    $newData2 = [];
+    foreach ($productData as $pnewdata) {
+        $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
+        $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+        $newData2[] = $pnewdata;
+    }
+
+    if (!$newData2) {
+        $newData2 = null;
+    }
         
         $subcategoryData = $subcategorymodel->find();
         $companyData = $companymodel->find();
@@ -47,7 +69,8 @@ class CompanyCouponController extends BaseController
         
         return view('admin/company_coupon/company_coupon',[
             'subcategoryData' => $subcategoryData,
-            'companyData' => $companyData
+            'companyData' => $companyData,
+            'productData' => $newData2
     ]);
     }
     public function couponSave()

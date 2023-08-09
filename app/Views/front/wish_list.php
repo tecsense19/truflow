@@ -1,4 +1,7 @@
 <?= $this->include('front/layout/front'); ?>
+<style>
+
+</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -25,54 +28,56 @@
             <?php if (session()->getFlashdata('error')) { ?>
                 <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
             <?php } ?>
-            <table id="datatable" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Part Number</th>
-                        <th>Image</th>
-                        <th>Amount</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    if ($wishlistData) { ?>
-
-                        <?php foreach ($wishlistData as $wishlist) { ?>
-                            <tr>
-                                <td><?php echo $i; ?></td>
-                                <td><?php echo $wishlist['product_name']; ?></td>
-                                <td><?php echo $wishlist['variant_sku']; ?></td>
-                                <td>
-                                    <?php if (isset($wishlist['product_img'])) { ?>
-                                        <a data-fancybox="preview" href="<?php echo base_url('') . $wishlist['product_img'] ?>"><img src="<?php echo base_url('') . $wishlist['product_img'] ?>" alt="Image" class="" width="100"></a>
-                                    <?php } else { ?>
-                                        <img class="" width="100" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
-
-                                    <?php } ?>
-                                </td>
-
-                                <td><?php echo $wishlist['variant_price']; ?></td>
-
-                                <td>
-                                    <a class="" href="<?php echo base_url('') . "deleteWishList_data/" . $wishlist['wishid'] ?>"><i class="fa fa-trash"></i> </a>
-                                </td>
-
-                            </tr>
-
-                            <?php $i++; ?>
-                        <?php } ?>
-                    <?php } else { ?>
+            <div class="col-md-12 table-responsive">
+                <table id="datatable" class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td colspan="6" class="text-center"><?php echo "No Data"; ?></td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Part Number</th>
+                            <th>Image</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
                         </tr>
-                    <?php } ?>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        if ($wishlistData) { ?>
 
-                </tbody>
-            </table>
+                            <?php foreach ($wishlistData as $wishlist) { ?>
+                                <tr>
+                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo $wishlist['product_name']; ?></td>
+                                    <td><?php echo $wishlist['variant_sku']; ?></td>
+                                    <td>
+                                        <?php if (isset($wishlist['product_img'])) { ?>
+                                            <a data-fancybox="preview" href="<?php echo base_url('') . $wishlist['product_img'] ?>"><img src="<?php echo base_url('') . $wishlist['product_img'] ?>" alt="Image" class="" width="100"></a>
+                                        <?php } else { ?>
+                                            <img class="" width="100" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+
+                                        <?php } ?>
+                                    </td>
+
+                                    <td><?php echo $wishlist['variant_price']; ?></td>
+
+                                    <td>
+                                        <a class="" href="<?php echo base_url('') . "deleteWishList_data/" . $wishlist['wishid'] ?>"><i class="fa fa-trash"></i> </a>
+                                    </td>
+
+                                </tr>
+
+                                <?php $i++; ?>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <tr>
+                                <td colspan="6" class="text-center"><?php echo "No Data"; ?></td>
+                            </tr>
+                        <?php } ?>
+
+                    </tbody>
+                </table>
+            </div>
 </div>
 
     <?php } else { ?>
