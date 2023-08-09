@@ -44,29 +44,29 @@
       </div>
     </div> -->
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="first_name">First Name :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="first_name">First Name :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="First name is required." id="first_name" name="first_name" type="text" value="" />
       </div>
 
 
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">Last Name :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="last_name">Last Name :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Last name is required." id="last_name" name="last_name" type="text" value="" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label">Date of birth :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label">Date of birth :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="" id="date_of_birth" name="date_of_birth" type="date" value="" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="email">Email :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="email">Email :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Email is required." id="email" name="email" type="text" value="" />
       </div>
     </div>
@@ -74,8 +74,8 @@
     <h4>Company Details</h4>
     <hr>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">Company name :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="last_name">Company name :</label>
+      <div class="col-md-9">
        
         <select name="company_name" id="company_name" class="form-control" aria-label="Default select example">
           <option value="">Please select any Company</option>
@@ -92,32 +92,32 @@
     <h4>Your Billing Address</h4>
     <hr>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="address 1">Street Address 1 :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="address 1">Street Address 1 :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Street Address 1 is required." id="address_1" name="address_1" type="text" value="" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="address 2">Street Address 2 :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="address 2">Street Address 2 :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Street Address 2 is required." id="address_2" name="address_2" type="text" value="" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">City :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="last_name">City :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="City is required." id="city" name="city" type="text" value="" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">Zip/Postal code :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="last_name">Zip/Postal code :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Zip/Postal code required." id="zipcode" name="zipcode" type="text" value="" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="last_name">Country :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="last_name">Country :</label>
+      <div class="col-md-9">
         <select name="country" id="country" class="form-control" aria-label="Default select example">
           <option value="">Please select any Country</option>
           <?php if(isset($countryData)) {?>
@@ -133,42 +133,42 @@
     <h4>Your Contact Information</h4>
     <hr>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="Phone">Phone :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="Phone">Phone :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="phone is required." id="phone" name="phone" type="text" value="" onkeypress="return isNumber(event)"/>
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="mobile">Mobile No :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="mobile">Mobile No :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Mobile Number is required." id="mobile" name="mobile" type="text" value="" onkeypress="return isNumber(event)"/>
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="Fax">Fax :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="Fax">Fax :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="Fax is required." id="fax" name="fax" type="text" value="" />
       </div>
     </div>
     <h4>Your Password</h4>
     <hr>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="password">Password :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="password">Password :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="password Number is required." id="password" name="password" type="password" value="" />
       </div>
 
     </div>
     <div class="form-group row">
-      <label class="col-md-2 control-label" for="password">Confirm Password :</label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for="password">Confirm Password :</label>
+      <div class="col-md-9">
         <input class="form-control" data-val="true" data-val-required="password Number is required." id="c_password" name="c_password" type="password" value="" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="col-md-2 control-label" for=""></label>
-      <div class="col-md-8">
+      <label class="col-md-3 control-label" for=""></label>
+      <div class="col-md-9">
         <div class="g-recaptcha" data-sitekey="your_site_key"></div>
       </div>
     </div>
