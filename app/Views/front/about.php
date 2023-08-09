@@ -23,7 +23,7 @@
          
         <p class="about_text"> Originally founded in 2004 as an importer of hydraulic hose and quick release couplings. 20 years later we have positioned ourselves in the industry to include Gates, Hydroscand, Cejn, Nitto, HPA Tridon, plus a full range of hydraulic adaptors, hose fittings and clamping.
 </p>
-<p class="about_text">With a strong fucus on the WA market and a combined inhouse experience exceeding 180 years. We pride ourselves on our fast turn around time and high fill rates.</p>
+<p class="about_text mb-3">With a strong fucus on the WA market and a combined inhouse experience exceeding 180 years. We pride ourselves on our fast turn around time and high fill rates.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -38,7 +38,7 @@
   <div class="container mb-5">
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <div class="chart_img">
+        <div class="chart_img mb-3">
         <img src="<?php echo base_url(); ?>/public/front/images/img_1.jpg" alt="about_image" class="img-fluid">
         </div>
       </div>

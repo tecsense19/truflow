@@ -2025,6 +2025,8 @@ input::-webkit-inner-spin-button {
 }
 input.input-text.qty.text.variant-qty {
     text-align: center;
+    border-radius: 4px;
+    border: 1px solid #737373;
 }
 input[type=number] {
     -moz-appearance: textfield;

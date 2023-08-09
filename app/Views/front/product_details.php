@@ -30,6 +30,34 @@ $wishlistCount = session('wishlistCount');
 th, td {
       padding: 10px; /* Add padding here (adjust the value as per your preference) */
     }
+
+@media only screen 
+and (min-width: 768px) 
+and (max-width: 1024px)
+{
+    a.btn.btn-primary.mt-2.details_btn1 {
+        background: #005dab;
+        text-align: center;
+        border: 0px;
+        border-radius: 4px;
+        width: 100px;
+    }
+}
+@media only screen 
+and (min-width: 375px) 
+and (max-width: 667px)
+{
+.add_cart{
+    width: 200px; 
+    display: inline-block;
+    background: #005DAB;
+    text-align: center;
+    padding: 10px 0px;
+    color: #fff;
+    transition: 0.5s;
+    margin: 15px;
+}
+}
 </style>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -66,7 +94,7 @@ th, td {
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="mobile_tabs">
+                        <div class="mobile_tabs mb-3">
                             <?php if (!empty($productData[0]['product_img'])) { ?>
 
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -244,7 +272,7 @@ th, td {
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 table-responsive">
                 <div class="row">
 
                     <?php if (isset($productData)) { ?>
@@ -536,7 +564,7 @@ th, td {
                                         <hr>
                                         <div class="product_text text-center">
                                             <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
-                                                <h3 class="mt-3"><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?></h3>
+                                                <h3 class="mt-3"><?php echo $product['parent'] ?></h3>
                                                 <span><a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="btn btn-primary mt-2 details_btn1">Details</a></span>
                                             </a>
                                         </div>
