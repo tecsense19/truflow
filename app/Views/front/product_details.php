@@ -126,26 +126,26 @@ th, td {
                                 <div class="stock">
                                     <?php if (ceil($averageRating) == 1) { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/1.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/1.png" class=" mt-2 ml-3 mr-3" alt="">
                                     <?php   } elseif (ceil($averageRating) == 2) { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/2.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/2.png" class=" mt-2 ml-3 mr-3" alt="">
 
                                     <?Php } elseif (ceil($averageRating) == 3) { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/3.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/3.png" class=" mt-2 ml-3 mr-3" alt="">
 
                                     <?Php } elseif (ceil($averageRating) == 4) { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/4.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/4.png" class=" mt-2 ml-3 mr-3" alt="">
 
                                     <?Php } elseif (ceil($averageRating) == 5) { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/5.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/5.png" class=" mt-2 ml-3 mr-3" alt="">
 
                                     <?Php } else { ?>
 
-                                        <img src="<?php echo base_url() ?>public/front/images/0.png" class=" mt-2 mr-3" alt="">
+                                        <img src="<?php echo base_url() ?>public/front/images/0.png" class=" mt-2 ml-3 mr-3" alt="">
 
                                     <?Php } ?>
                                 </div>

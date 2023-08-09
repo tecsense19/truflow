@@ -53,7 +53,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     
 
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <div class="container-fluid p-md-1 row_margine">
+  <div class="container-fluid p-md-1 row_margine" style="overflow: hidden;"> 
 
   <div class="row no-md-gutters justify-content-center mt-2">
     <div class="col-lg-9 col-md-12 pr-md-2 p-1 p-md-0">
@@ -374,7 +374,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="product_title text-center">
+                <div class="product_title text-center mb-4">
                     <h2>FEATURED PRODUCTS</h2>
                 </div>
             </div>

@@ -38,7 +38,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
           <?php if (session()->getFlashdata('error')) { ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
           <?php } ?>
-          <div class="product_detail">
+          <div class="product_detail table-responsive">
 
             <table class="table table-striped">
               <thead>

@@ -62,6 +62,10 @@ width: unset;
 .row.all_right {
 display: inline-block;
 }
+
+.dropdown.show {
+    margin-right: 0px !important;
+}
 }
 
 @media only screen 
@@ -84,6 +88,9 @@ and (max-width: 1023px)
 /* .row.mobile_view{
 	display: contents;
 } */
+.dropdown.show {
+    margin-right: 0px !important;
+}
 .partner_main .owl-carousel .owl-item img{
 width: unset;
 }
@@ -108,7 +115,7 @@ display: flex;
 padding: 0px 0px 0px 0px;
 background: #F3F3F3;
 border: 0;
-width: 300px;
+width: 250px;
 }
 .dropdown, .dropup {
 position: relative;
@@ -119,6 +126,12 @@ padding-right: 25px;
 display: flex;
 align-items: center;
 padding-right: 50px;
+}
+.dropdown.show {
+    margin-right: 0px !important;
+}
+#loginForm{
+    width: unset !important;
 }
 }
 
@@ -149,7 +162,9 @@ margin-right: 10px; /* Adjust spacing as needed */
 .navbar-toggler.active.collapsed:before {
 display: none;
 }
-
+.dropdown.show {
+    margin-right: 20px;
+}
 </style>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->
 <nav class="navbar navbar-expand-lg fixed-top">

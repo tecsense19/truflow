@@ -1048,6 +1048,14 @@ class Home extends BaseController
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
         $variantsmodel = new VariantsModel();
+
+        //header menu section
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
+
         $subcategoryData = $subcategorymodel->where('category_id', $category_id)->findAll();
 
         $sidebar_array = [];
@@ -1080,7 +1088,7 @@ class Home extends BaseController
     // print_r($array);
     // die;
 
-        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array]);
+        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData]);
         
     }
 
@@ -1093,6 +1101,13 @@ class Home extends BaseController
         $productmodel = new ProductModel();
         $variantsmodel = new VariantsModel();
         $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $subcategory_id)->findAll();
+
+        //header menu section
+        $headermenumodel = new HeaderMenuModel();
+        $headerData = $headermenumodel->find();
+        if (!$headerData) {
+            $headerData = null;
+        }
 
         $categoryData = $subcategorymodel->find($subcategory_id);
         if (!$categoryData) {
@@ -1134,7 +1149,7 @@ class Home extends BaseController
         // echo "<pre>";
         // print_r($array);
         // die;
-        return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array]);
+        return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData]);
         
     }
 
@@ -1146,7 +1161,12 @@ class Home extends BaseController
         $variantsmodel = new VariantsModel();
         $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $chid_id)->findAll();
 
-    
+         //header menu section
+         $headermenumodel = new HeaderMenuModel();
+         $headerData = $headermenumodel->find();
+         if (!$headerData) {
+             $headerData = null;
+         }
 
         $sidebar_array = [];
         foreach ($ChildSubCategorydata as $key => $value) {
@@ -1182,7 +1202,7 @@ class Home extends BaseController
         // print_r($array);
         // die;
 
-        return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array]);
+        return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData]);
     }
 
 
