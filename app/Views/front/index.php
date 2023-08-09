@@ -253,7 +253,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <div class="input_fields">
                                 <!-- Existing rows and fields here -->
                             </div>
-                            <div class="adjust_button">
+                            <div class="adjust_button text-center">
                             <button id="add_to_cart" class="btn" type="submit">Add to Cart</button>
                             <button type="button" class="btn" id="add_rows">Add Rows</button>
                             </div>

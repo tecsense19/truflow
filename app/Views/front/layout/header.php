@@ -133,6 +133,15 @@ padding-right: 50px;
 #loginForm{
     width: unset !important;
 }
+.quality input {
+    margin: 15px 15px 15px 0;
+    
+}
+.dropdown-menu1{
+    width: 92%;
+    max-height: 200px;
+    overflow-y: auto;
+}
 }
 
 /* Center the items within the carousel container */

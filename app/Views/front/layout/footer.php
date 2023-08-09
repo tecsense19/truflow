@@ -3,7 +3,7 @@
     <div class="footer_sub">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-lg-5">
+                <div class="col-md-4 text-center text-md-left col-lg-5">
                     <div class="footer_logo">
                         <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid"></a>
                         <p> </p>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-lg-3">
+                <div class="col-md-3 text-center text-md-left col-lg-3">
                     <div class="quick_link">
                         <h5>QUICKLINKS</h5>
                         <ul>
