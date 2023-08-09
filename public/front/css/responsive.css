@@ -580,19 +580,7 @@
 }
 
 /* new css added by G::header.front */
-#loginForm{
-	width: 335px;
-}
-.form_outer{
-background-color: gainsboro !important;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-}
-.row_margine{
-	margin-top: 122px;
-}
+
 
 @media only screen 
 and (min-width: 0px) 

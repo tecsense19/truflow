@@ -8,7 +8,149 @@ $user_id = $session->get('user_id');
 $wishlistCount = session('wishlistCount');
 $cartCount = session('cartCount');
 ?>
+<style>
+    #loginForm{
+	width: 335px;
+}
+.form_outer{
+background-color: gainsboro !important;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+.row_margine{
+	margin-top: 122px;
+}
 
+
+
+@media only screen 
+and (min-width: 0px) 
+and (max-width: 767px)
+{
+.adjust_button{
+	display: flex !important;
+	justify-content: center !important;
+}
+button#add_to_cart{
+margin-left: unset;
+}
+button#add_rows {
+margin-left: unset;
+}
+
+.row_margine{
+margin-top: 172px;
+}
+.Ajax_search{
+width:343px;
+margin-bottom: 6px;
+}
+.row.container-fluid{
+display: contents;
+}
+.row.mobile_view{
+display: contents;
+}
+.input_fileds{
+margin-left: -8px;
+}
+.partner_main .owl-carousel .owl-item img{
+width: unset;
+}
+.row.all_right {
+display: inline-block;
+}
+}
+
+@media only screen 
+and (min-width: 320px) 
+and (max-width: 374px)
+{
+.Ajax_search {
+width: 287px;
+margin-bottom: 6px;
+}
+}
+@media only screen 
+and (min-width: 766px) 
+and (max-width: 1023px)
+{
+.row.container-fluid{
+	display: flex;
+	justify-content: flex-end;
+}
+/* .row.mobile_view{
+	display: contents;
+} */
+.partner_main .owl-carousel .owl-item img{
+width: unset;
+}
+.col-lg-12.about{
+margin-top: unset;
+}
+.row.all_right {
+display: flex;
+flex-wrap: nowrap;
+
+/* display: contents; */
+}
+.img.img-fluid{
+margin-left: -14px;
+margin-bottom: 2px;
+}
+.button.navbar-toggler{
+margin-right: -10px;
+}
+.Ajax_search {
+display: flex;
+padding: 0px 0px 0px 0px;
+background: #F3F3F3;
+border: 0;
+width: 300px;
+}
+.dropdown, .dropup {
+position: relative;
+padding-right: 25px;
+}
+
+.media_icons {
+display: flex;
+align-items: center;
+padding-right: 50px;
+}
+}
+
+/* Center the items within the carousel container */
+.owl-carousel_1 {
+text-align: center;
+}
+
+/* Optional: Add some spacing between the carousel items (if needed) */
+.owl-carousel_1 .item {
+margin: 0 10px;
+}
+
+/* Custom styles for the custom close button icon */
+.navbar-toggler.active .navbar-toggler-icon {
+display: none;
+}
+
+/* Create a custom close button icon using the :before pseudo-element */
+.navbar-toggler.active:before {
+content: '\2716'; /* Unicode character for the cross icon (✖) */
+font-size: 1.5rem; /* Adjust the font size as needed */
+color: #333; /* Adjust the color as needed */
+margin-right: 10px; /* Adjust spacing as needed */
+}
+
+/* Show the default Bootstrap toggler icon when the menu is open */
+.navbar-toggler.active.collapsed:before {
+display: none;
+}
+
+</style>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <!-- <div class="container-fluid">
