@@ -42,6 +42,21 @@ and (max-width: 1024px)
         border-radius: 4px;
         width: 100px;
     }
+    input.plus {
+    width: 75%;
+    margin-top: 5px;
+}
+input.input-text.qty.text.variant-qty {
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #737373;
+    width: 75%;
+    margin-top: 5px;
+}
+
+input.minus {
+    width: 75%;
+}
 }
 @media only screen 
 and (min-width: 375px) 
@@ -57,6 +72,23 @@ and (max-width: 667px)
     transition: 0.5s;
     margin: 15px;
 }
+
+input.plus {
+    width: 75%;
+    margin-top: 5px;
+}
+input.input-text.qty.text.variant-qty {
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #737373;
+    width: 75%;
+    margin-top: 5px;
+}
+
+input.minus {
+    width: 75%;
+}
+
 }
 </style>
 
@@ -94,7 +126,7 @@ and (max-width: 667px)
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="mobile_tabs mb-3">
+                        <div class="mobile_tabs mb-5">
                             <?php if (!empty($productData[0]['product_img'])) { ?>
 
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">

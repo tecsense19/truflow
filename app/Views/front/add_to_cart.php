@@ -39,14 +39,13 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
           <?php } ?>
           <div class="product_detail table-responsive">
-
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Part Number</th>
                   <th scope="col"></th>
                   <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
+                  <th scope="col" class="text-center">Quantity</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -74,7 +73,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                         <p>Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php echo $cart['parent']; ?></p>
                       </td>
                       <td class="align-middle"><?php echo $cart['product_amount']; ?></td>
-                      <td class="align-middle">
+                      <td class="align-middle text-center">
                         <form class="wrapper">
                           <div class="cart-box">
                             <?php echo $cart['product_quantity']; ?>
@@ -105,7 +104,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
         <div class="col-lg-4">
           <div class="subtotal">
-            <ul>
+            <ul style="padding: 0;">
               <!-- <li class="d-flex justify-content-between sub">
                 <h5>Subtotal</h5>
                 <h5 id="totalAmount"></h5>

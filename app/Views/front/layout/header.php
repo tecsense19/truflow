@@ -77,6 +77,19 @@ width: 287px;
 margin-bottom: 6px;
 }
 }
+
+@media only screen 
+and (min-width: 992px) 
+and (max-width: 1248px)
+{
+    nav.navbar.navbar-expand-lg.fixed-top{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-end;
+    }
+}
+
 @media only screen 
 and (min-width: 766px) 
 and (max-width: 1023px)
@@ -141,6 +154,18 @@ padding-right: 50px;
     width: 92%;
     max-height: 200px;
     overflow-y: auto;
+}
+
+input[type="text"] {
+    border: 1px solid black;
+}
+textarea{
+    border: 1px solid black;
+}
+.input_fields .input_fileds_row.input_fileds:nth-child(1) .delete-icon {
+    position: relative;
+    top: 41px;
+    right: -12px;
 }
 }
 

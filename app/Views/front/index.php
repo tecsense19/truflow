@@ -594,7 +594,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
             items: 1 //
         },
         768: { // For screens >= 768px
-          items: 2 // Show 2 items at a time
+          items: 3 // Show 2 items at a time
         },
         992: { // For screens >= 992px
           items: 4 // Show 3 items at a time

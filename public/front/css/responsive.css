@@ -436,7 +436,7 @@
     margin: 10px auto;
 }
 .lorem_heading h2{
-	padding: 74px 0 0 0;
+	padding: 25px 0 0 0;
 	font-size: 23px;
 }
 .blue_border h4{
@@ -460,7 +460,7 @@
 .lorem_heading button{
 	padding: 8px 15px;
     font-size: 13px;
-    margin: 0 0 74px 0;
+    margin: 0;
 }
 .lorem_heading p,.product_title p{
 	font-size: 14px;
