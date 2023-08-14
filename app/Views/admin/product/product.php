@@ -79,6 +79,9 @@ $product_img = isset($productData) ? $productData['product_img'] : '';
 $featured_product = isset($productData) ? $productData['featured_category'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
 $product_child_id = isset($productData) ? $productData['child_id'] : '';
+$product_coupon_id = isset($productData) ? $productData['coupon_id'] : '';
+
+
 
 $product_header1 = isset($productData) ? $productData['product_header1'] : '';
 $product_header2 = isset($productData) ? $productData['product_header2'] : '';
@@ -188,6 +191,26 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                         </div>
                     </div>
 
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Coupon Code</h5>
+                        </div>
+                        <div class="row card-body">
+                        <div class="col-md-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Select Coupon Code</label>
+                                    <select id="category-select" name="coupon_id" class="form-select" aria-label="Default select example">
+                                        <option value="">Please select Coupon Code</option>
+                                        <?php foreach ($CouponData as $Coupon) : ?>
+                                            <?php if ($product_coupon_id == $Coupon['coupon_id']) : ?>
+                                                <option value="<?= $Coupon['coupon_id'] ?>" selected="selected"><?= $Coupon['coupon_code'] ?></option>
+                                            <?php else : ?>
+                                                <option value="<?= $Coupon['coupon_id'] ?>"><?= $Coupon['coupon_code'] ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
                     <!-- add headers -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">

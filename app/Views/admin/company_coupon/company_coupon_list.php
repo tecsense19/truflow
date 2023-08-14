@@ -30,11 +30,11 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Company Name</th>
+                                                    <th>Coupon Code</th>
                                                     <th>Coupon Type</th>
                                                     <th>Coupon Price</th>
                                                     <th>From Date</th>
                                                     <th>To Date</th>
-                                                    <th>Type Of Discount</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -46,12 +46,12 @@
                                                  <?php foreach($couponData as $coupon){ ?>
                                                 <tr>
                                                     <td><?php echo $i;?></td>
-                                                    <td><?php echo $coupon['company_name'];?></td>
+                                                    <td><?php echo $coupon['company_id'];?></td>
+                                                    <td><?php echo $coupon['coupon_code'];?></td>
                                                     <td><?php echo $coupon['coupon_price_type'];?></td>
                                                     <td><?php echo $coupon['coupon_price'];?></td>
                                                     <td><?php echo $coupon['from_date'];?></td>
                                                     <td><?php echo $coupon['to_date'];?></td>
-                                                    <td><?php echo $coupon['coupon_type'];?></td>
                                                     
                                                     <td>
                                                 <a class="" href="<?php echo base_url('')."admin/company_coupon/edit/".$coupon['coupon_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>

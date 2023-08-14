@@ -2,7 +2,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 <?php
 $coupon_id = isset($couponData) ? $couponData['coupon_id'] : '';
-//$coupon_code = isset($couponData) ? $couponData['coupon_code'] : '';
+$coupon_code = isset($couponData) ? $couponData['coupon_code'] : '';
 $coupon_price = isset($couponData) ? $couponData['coupon_price'] : '';
 $coupon_price_type = isset($couponData) ? $couponData['coupon_price_type'] : '';
 $coupon_type = isset($couponData) ? $couponData['coupon_type'] : '';
@@ -51,11 +51,17 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                             <input type="hidden" name="coupon_id" value="<?php echo $coupon_id; ?>">
 
                             <div class="row">
-                                <div class="mb-3 col-md-6">
+
+                            <div class="mb-3 col-md-4">
+                                    <label class="form-label" for="basic-default-fullname">Coupon Code</label>
+                                    <input type="text" value="<?php echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="Coupon Code" />
+                                </div>
+
+                                <div class="mb-3 col-md-4">
                                     <label class="form-label" for="basic-default-fullname">Coupon Amount</label>
                                     <input type="text" value="<?php echo $coupon_price; ?>" class="form-control" id="coupon_price" name="coupon_price" placeholder="price / percentage" />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Discount Type</label>
                                     <select id="coupon_price_type" name="coupon_price_type" class="form-select required" required>
                                         <option value="">Default select</option>
@@ -76,47 +82,35 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                             </div>
                             <div class="row">
                                 <div class="mb-3">
-                               
                                 <label for="defaultSelect" class="form-label">Company</label>
-                                <select id="company_id" name="company_id" class="form-select" required>
-                               
+                                <!-- <select id="company_id" name="company_id[]" class="form-select" multiple required>
                                   <option value="">Please select any company</option>
                                   <?php if (isset($companyData)) {  ?>
                                         <?php foreach ($companyData as $company1) : ?>
+                                            <?php
+                                                $selected = '';
+                                                if (isset($companyData) && in_array($company1['company_id'], $companyData)) {
+                                                    $selected = 'selected';
+                                                }
+                                        ?>
                                             <option value="<?php echo $company1['company_id'] ?>" <?php echo ($company_id == $company1['company_id']) ? 'selected' : ''; ?>>
                                                 <?= $company1['company_name'] ?>
                                             </option>
                                         <?php endforeach; ?>
                                         <?php }?>
-                                    </select>
-                                
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="defaultSelect" class="form-label">Type Of Discount</label>
-                                    <select id="coupon_type" name="coupon_type" class="form-select required" onchange="updateForm()">
-                                        <option value="">Default select</option>
-                                        <option value="Global" <?php if ($coupon_type == 'Global') echo ' selected="selected"'; ?>>Global</option>
-                                        <option value="Sub Category" <?php if ($coupon_type == 'Sub Category') echo ' selected="selected"'; ?>>Sub Category</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div id="subcategoryDropdown" <?php echo ($coupon_type != 'Sub Category') ? 'style="display: none;"' : ''; ?>>
-                                <select id="sub_category_id" name="sub_category_id[]" class="form-select" multiple required>
-                                    <?php if (isset($productData)) { ?>
-                                        <?php foreach ($productData as $subcategory) : ?>
+                                    </select> -->
+                            <div id="subcategoryDropdown">
+                                <select id="sub_category_id" name="company_id[]" class="form-select" multiple required>
+                                    <?php if (isset($companyData)) { ?>
+                                        <?php foreach ($companyData as $subcategory) : ?>
                                             <?php
                                         
                                             $selected = '';
-                                            if (isset($selectedsubCategoryIds) && in_array($subcategory['sub_category_id'], $selectedsubCategoryIds)) {
+                                            if (isset($companyData) && in_array($subcategory['company_name'], $companyData)) {
                                                 $selected = 'selected';
                                             }
                                             ?>
-                                            <option value="<?php echo $subcategory['sub_category_id']; ?>" <?php echo $selected; ?>><?php echo $subcategory['product_name']; ?>&nbsp;<?php echo $subcategory['parent']; ?></option>
+                                            <option value="<?php echo $subcategory['company_name']; ?>" <?php echo $selected; ?>><?php echo $subcategory['company_name']; ?></option>
                                         <?php endforeach; ?>
                                     <?php } ?>
                                 </select>

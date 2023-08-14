@@ -16,6 +16,7 @@ class ProductController extends BaseController
     {
         $variantsmodel = new VariantsModel();
         $productmodel = new ProductModel();
+        $CouponModel = new CouponModel();
 
         $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')
             ->join('category', 'category.category_id = product.category_id')
@@ -25,9 +26,20 @@ class ProductController extends BaseController
         foreach ($productData as $pnewdata) {
             $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
             $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+            $CouponData = $CouponModel->where('coupon_id', $pnewdata['coupon_id'])->findAll();
+            if(count($CouponData) > 0)
+            {
+                foreach ($CouponData as $couponcode) {
+                    if(isset($couponcode)){
+                        $pnewdata['coupon_code'] = $couponcode['coupon_code'];
+                    }
+                }    
+            }else{
+                $pnewdata['coupon_code'] = "-";
+            }
             $newData2[] = $pnewdata;
         }
-
         if (!$newData2) {
             $newData2 = null;
         }
@@ -40,6 +52,7 @@ class ProductController extends BaseController
         $productmodel = new ProductModel();
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
+        $CouponModel = new CouponModel();
 
         $childsubcategorymodel = new ChildSubCategoryModel();
         $childsubcategoryData = $childsubcategorymodel->find();
@@ -47,16 +60,17 @@ class ProductController extends BaseController
             $childsubcategoryData = null;
         }
 
+        $CouponData = $CouponModel->find();
+        if (!$CouponData) {
+            $CouponData = null;
+        }
         $categoryData = $categorymodel->find();
-
-
         if (!$categoryData) {
             $categoryData = null;
         }
-
         $subcategoryData = $subcategorymodel->find();
 
-        return view('admin/product/product', ['categoryData' => $categoryData, 'subcategoryData' => $subcategoryData , 'childsubcategoryData' => $childsubcategoryData ]);
+        return view('admin/product/product', ['categoryData' => $categoryData, 'subcategoryData' => $subcategoryData , 'childsubcategoryData' => $childsubcategoryData , 'CouponData' => $CouponData]);
     }
     public function getSubcategories($category_id)
     {
@@ -68,8 +82,9 @@ class ProductController extends BaseController
     }
     public function productSave()
     {
-      
-
+        // echo "<pre>";
+        // print_r($_POST);
+        // die;
         $productmodel = new ProductModel();
         $session = session();
         $input = $this->request->getVar();
@@ -78,6 +93,7 @@ class ProductController extends BaseController
         $productArr = [];
 
         $productArr['product_id'] = isset($input['product_id']) ? $input['product_id'] : '';
+        $productArr['coupon_id'] = isset($input['coupon_id']) ? $input['coupon_id'] : '';
         $productArr['category_id'] = isset($input['category_id']) ? $input['category_id'] : '';
         $productArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
         $productArr['child_id'] = isset($input['lastchild_id']) && $input['lastchild_id'] !== '' ? $input['lastchild_id'] : -1;
@@ -154,7 +170,12 @@ class ProductController extends BaseController
 
         $productmodel = new ProductModel();
         $productData = $productmodel->find($product_id);
+        $CouponModel = new CouponModel();
 
+        $CouponData = $CouponModel->find();
+        if (!$CouponData) {
+            $CouponData = null;
+        }
 
         if (!$productData) {
             $productData = null;
@@ -189,7 +210,8 @@ class ProductController extends BaseController
             'categoryData' => $categoryData,
             'subcategoryData' => $subcategoryData,
             'childsubcategoryData' => $childsubcategoryData,
-            'variantData' => $variantData
+            'variantData' => $variantData,
+            'CouponData' => $CouponData
         ]);
     }
     public function productDelete($product_id)
@@ -256,7 +278,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4',	'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5'];
+        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5'];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
@@ -297,26 +319,22 @@ class ProductController extends BaseController
         if ($csvFile && $csvFile->isValid() && !$csvFile->hasMoved()) {
             // Open the CSV file
             $csv = array_map('str_getcsv', file($csvFile->getPathname()));
-
             $categoryName = null;
             $subcategoryName = null;
             $categoryId = null;
             $subcategoryId = null;
             $productId = null;
             $child_id =null;
-
             $isFirstRow = true; // Flag variable to skip the first row
-
             // Process each row of the CSV file
             foreach ($csv as $row) {
                 if ($isFirstRow) {
                     $isFirstRow = false;
                     continue; // Skip the first row
                 }
-
-                if (isset($row[14]) && $row[14] != '') {
+                if (isset($row[15]) && $row[15] != '') {
                     // Category name
-                    $categoryName = utf8_encode($row[14]);
+                    $categoryName = utf8_encode($row[15]);
 
                     // Check if the category already exists
                     $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
@@ -332,9 +350,9 @@ class ProductController extends BaseController
                     }
                 }
             
-                if (isset($row[15]) && $row[15] != '') {
+                if (isset($row[16]) && $row[16] != '') {
                     // Subcategory name
-                    $subcategoryName = utf8_encode($row[15]);
+                    $subcategoryName = utf8_encode($row[16]);
 
                     // Check if the subcategory already exists
                     $subcategory = $subcategoryModel
@@ -353,14 +371,12 @@ class ProductController extends BaseController
                         $subcategoryId = $subcategory->sub_category_id;
                     }
                 }
-                if (isset($row[16]) && $row[16] != '') {
+                if (isset($row[17]) && $row[17] != '') {
                     // Subcategory name
-                   
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
                     // Loop through each column starting from index 1 (skipping the first column with variable names)
-                    for ($i=16; $i < count($row); $i++) { 
-                            
-                        if($i != 16)
+                    for ($i=17; $i < count($row); $i++) { 
+                        if($i != 17)
                         {               
                             $childsubcategory = $childsubcategorymodel
                             ->where('child_sub_category_name', $row[$i - 1])
@@ -375,9 +391,7 @@ class ProductController extends BaseController
                                     'category_id' => $categoryId    
                                 ];
                                 $child_id = $childsubcategorymodel->insert($childsubcategory_1);
-                               
                             }
-                            
                         }
                         else
                         {
@@ -394,64 +408,61 @@ class ProductController extends BaseController
                                     ];
                                     $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                                 }
+                            }
                         }
                     }
-                }
+                    // Product details
+                    $productName = utf8_encode($row[0]);
+                    $Favourite   = utf8_encode($row[6]);
+                    $ProductDescription = utf8_encode($row[7]);
+                    $shortDescription = utf8_encode($row[8]);
+                    $information = utf8_encode($row[9]);
+                    $vheader1 = utf8_encode($row[10]);
+                    $vheader2 = utf8_encode($row[11]);
+                    $vheader3 = utf8_encode($row[12]);
+                    $vheader4 = utf8_encode($row[13]);
+                    $discount_code = utf8_encode($row[14]);
 
-                // Product details
-                $productName = utf8_encode($row[0]);
-                $Favourite   = utf8_encode($row[6]);
-                $ProductDescription = utf8_encode($row[7]);
-                $shortDescription = utf8_encode($row[8]);
-                $information = utf8_encode($row[9]);
-                $vheader1 = utf8_encode($row[10]);
-                $vheader2 = utf8_encode($row[11]);
-                $vheader3 = utf8_encode($row[12]);
-                $vheader4 = utf8_encode($row[13]);
-                // $discount_code = utf8_encode($row[14]);
+                    $db = \Config\Database::connect();
+                    $query_test = $db->table('coupon')
+                    ->select('coupon_id')
+                    ->where('coupon_code', $discount_code)
+                    ->get();
 
-               
-
-                if ($productName != '') {
-                    // Insert the product
-                    $product = [
-                        'product_name' => $productName,
-                        'category_id' => $categoryId,
-                        'child_id' => $child_id,
-                        'sub_category_id' => $subcategoryId,
-                        'product_description' => $ProductDescription,
-                        'product_short_description' => $shortDescription,
-                        'product_header1' => $vheader1,
-                        'product_header2' => $vheader2,
-                        'product_header3' => $vheader3,
-                        'product_header4' => $vheader4,
-                        'product_additional_info' => $information,
-                        'product_favourite' => $Favourite
-                    ];
-                    $productId = $productModel->insert($product);
-                }
-
-                // if($discount_code != '') {
-
-                //     $coupen = [
-                //         'coupon_code' => $discount_code,
-                //         'product_id' => $productId,
-                //         'sub_category_id' => $subcategoryId,
-                //         'category_id' => $categoryId
-                //     ];
-
-                //     $CouponModel->insert($coupen);
-                    
-                    
-                // }
-
+                    if ($query_test->getNumRows() > 0) {
+                        $row_num = $query_test->getRow(); // Fetch the row
+                        $CouponId = $row_num->coupon_id; // Get the coupon_id
+                        //echo "Coupon ID: " . $CouponId;
+                    } else{
+                        $CouponId = "0";
+                    }
+                 
+                    if ($productName != '') {
+                        // Insert the product
+                        $product = [
+                            'product_name' => $productName,
+                            'category_id' => $categoryId,
+                            'child_id' => $child_id,
+                            'sub_category_id' => $subcategoryId,
+                            'product_description' => $ProductDescription,
+                            'product_short_description' => $shortDescription,
+                            'product_header1' => $vheader1,
+                            'product_header2' => $vheader2,
+                            'product_header3' => $vheader3,
+                            'product_header4' => $vheader4,
+                            'product_additional_info' => $information,
+                            'product_favourite' => $Favourite,
+                            'coupon_id' => $CouponId
+                        ];
+                        $productId = $productModel->insert($product);
+                    }
+                   
                 // Variant details
                 $variantName = utf8_encode($row[1]);
                 $variantPrice = utf8_encode($row[2]);
                 $variantSku = utf8_encode($row[3]);
                 $parent = utf8_encode($row[5]);
                 $stock = utf8_encode($row[4]);
-
 
                 if ($variantName != '') {
                     // Insert the variant

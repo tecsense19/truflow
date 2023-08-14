@@ -1,0 +1,53 @@
+CRITICAL - 2023-08-10 12:50:35 --> Undefined variable $coupon_code
+in APPPATH\Views\admin\company_coupon\company_coupon.php on line 57.
+ 1 APPPATH\Views\admin\company_coupon\company_coupon.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $coupon_code', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php', 57)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/company_coupon/company_coupon', [], true)
+ 5 APPPATH\Controllers\Admin\CompanyCouponController.php(73): view('admin/company_coupon/company_coupon', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->coupon()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-10 13:01:15 --> Undefined variable $selectedsubCategoryIds
+in APPPATH\Views\admin\company_coupon\company_coupon.php on line 109.
+ 1 APPPATH\Views\admin\company_coupon\company_coupon.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectedsubCategoryIds', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php', 109)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\company_coupon\\company_coupon.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/company_coupon/company_coupon', [], true)
+ 5 APPPATH\Controllers\Admin\CompanyCouponController.php(73): view('admin/company_coupon/company_coupon', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->coupon()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-10 13:21:45 --> Call to undefined function App\Controllers\Admin\CompanyModel()
+in APPPATH\Controllers\Admin\CompanyCouponController.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-10 13:27:12 --> implode(): Argument #2 ($array) must be of type ?array, string given
+in APPPATH\Controllers\Admin\CompanyCouponController.php on line 26.
+ 1 APPPATH\Controllers\Admin\CompanyCouponController.php(26): implode(',', '1')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-10 13:27:39 --> implode(): Argument #2 ($array) must be of type ?array, string given
+in APPPATH\Controllers\Admin\CompanyCouponController.php on line 26.
+ 1 APPPATH\Controllers\Admin\CompanyCouponController.php(26): implode(',', '1')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CompanyCouponController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CompanyCouponController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-10 13:52:11 --> Undefined variable $CouponData
+in APPPATH\Views\admin\product\product.php on line 200.
+ 1 APPPATH\Views\admin\product\product.php(200): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $CouponData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 200)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(195): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

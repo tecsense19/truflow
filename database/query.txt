@@ -1,1 +1,6 @@
+
 ALTER TABLE `product` ADD `product_favourite` INT(11) NULL AFTER `featured_category`;
+
+ALTER TABLE `coupon` CHANGE `company_id` `company_id` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `product` ADD `coupon_id` INT NULL AFTER `child_id`;

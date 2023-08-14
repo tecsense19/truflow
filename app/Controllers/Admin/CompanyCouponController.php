@@ -21,11 +21,8 @@ class CompanyCouponController extends BaseController
         
 
         $query = $couponmodel->select('*')
-            ->join('company', 'company.company_id = coupon.company_id', 'left')
             ->where('coupon.company_coupon', '1')
             ->get();
-
-         
 
         $couponData = $query->getResultArray();
 
@@ -75,6 +72,9 @@ class CompanyCouponController extends BaseController
     }
     public function couponSave()
     {
+        // echo "<pre>";
+        // print_r($_POST);
+        // die;
 
         $couponmodel = new CouponModel();
         $session = session();
@@ -83,7 +83,7 @@ class CompanyCouponController extends BaseController
 
         $couponArr = [];
 
-        //$couponArr['coupon_code'] = isset($input['coupon_code']) ? $input['coupon_code'] : '';
+        $couponArr['coupon_code'] = isset($input['coupon_code']) ? $input['coupon_code'] : '';
         $couponArr['coupon_price'] = isset($input['coupon_price']) ? $input['coupon_price'] : '';
         $couponArr['coupon_price_type'] = isset($input['coupon_price_type']) ? $input['coupon_price_type'] : '';
         $couponArr['coupon_type'] = isset($input['coupon_type']) ? $input['coupon_type'] : '';
@@ -93,7 +93,7 @@ class CompanyCouponController extends BaseController
         $couponArr['isDeleted'] = isset($input['isDeleted']) ? $input['isDeleted'] : '';
         $couponArr['sub_category_id'] = isset($input['sub_category_id']) ? implode(',', $input['sub_category_id']) : '';
         $couponArr['company_coupon'] = isset($input['company_coupon']) ? $input['company_coupon'] : '';
-        $couponArr['company_id'] = isset($input['company_id']) ? $input['company_id'] : '';
+        $couponArr['company_id'] = isset($input['company_id']) ? implode(',', $_POST['company_id']) : '';
       
         
 

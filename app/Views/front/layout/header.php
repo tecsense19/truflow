@@ -60,11 +60,53 @@ margin-left: -8px;
 width: unset;
 }
 .row.all_right {
-display: inline-block;
+/* display: inline-block; */
+display: flex;
 }
 
 .dropdown.show {
     margin-right: 0px !important;
+}
+
+.all_rights {
+    text-align: center;
+}
+
+p.footer_text {
+ text-align: center;
+}
+.footer_contact {
+    text-align: center;
+}
+
+}
+
+@media only screen and (max-width: 991px){
+    .navbar-toggler[aria-expanded="true"] span:first-child{
+
+transform: rotate(-45deg);
+    position: relative;
+    top: 7.5px;
+
+}
+.navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.navbar-toggler span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: auto;
+    margin-bottom: 4px;
+    transition: all 400ms linear;
+    cursor: pointer;
+}
+
+.navbar-toggler[aria-expanded="true"] span:last-child {
+    transform: rotate(45deg);
+    bottom: 6px;
+    position: relative;
 }
 }
 
@@ -75,6 +117,17 @@ and (max-width: 374px)
 .Ajax_search {
 width: 287px;
 margin-bottom: 6px;
+}
+
+.all_rights {
+    text-align: center;
+}
+
+p.footer_text {
+ text-align: center;
+}
+.footer_contact {
+    text-align: center;
 }
 }
 
@@ -200,6 +253,7 @@ display: none;
     margin-right: 20px;
 }
 </style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <!-- <div class="container-fluid">
@@ -208,13 +262,13 @@ display: none;
                 <a class="navbar-brand" href="<?php echo base_url(); ?>">
                     <img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
                         <?php if (isset($headerData)) { ?>
                             <?php foreach ($headerData as $header) {
                             ?>
@@ -286,7 +340,7 @@ display: none;
 
                     <?php } else { ?>
 
-                        <a class="dropdown-item" href="<?php echo base_url('login') ?>">Login</a>
+                        <a class="dropdown-item" href="<?php echo base_url('') ?>">Login</a>
                         <a class="dropdown-item" href="<?php echo base_url('register') ?>">Register</a>
 
                     <?php } ?>

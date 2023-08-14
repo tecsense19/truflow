@@ -958,7 +958,7 @@ footer{
 }
 .number{
     padding: 0 0 10px 0;
-    display: flex;
+    /* display: flex; */
 }
 .number span{
     font-size: 15px;
