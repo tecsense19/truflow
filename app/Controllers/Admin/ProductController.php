@@ -34,7 +34,7 @@ class ProductController extends BaseController
                     if(isset($couponcode)){
                         $pnewdata['coupon_code'] = $couponcode['coupon_code'];
                     }
-                }    
+                }
             }else{
                 $pnewdata['coupon_code'] = "-";
             }
@@ -46,7 +46,7 @@ class ProductController extends BaseController
 
         return view('admin/product/product_list', ['productData' => $newData2]);
     }
-   
+
     public function product()
     {
         $productmodel = new ProductModel();
@@ -89,7 +89,7 @@ class ProductController extends BaseController
         $session = session();
         $input = $this->request->getVar();
         $product_id = $input['product_id'];
-   
+
         $productArr = [];
 
         $productArr['product_id'] = isset($input['product_id']) ? $input['product_id'] : '';
@@ -102,7 +102,7 @@ class ProductController extends BaseController
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_short_description'] = isset($input['product_short_description']) ? $input['product_short_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
-        
+
         $productArr['product_header1'] = isset($input['product_header1']) ? $input['product_header1'] : '';
         $productArr['product_header2'] = isset($input['product_header2']) ? $input['product_header2'] : '';
         $productArr['product_header3'] = isset($input['product_header3']) ? $input['product_header3'] : '';
@@ -132,7 +132,7 @@ class ProductController extends BaseController
         }
 
         $productId = '';
-       
+
         if (isset($input['product_id']) && $input['product_id'] != '') {
            // Given input strings
            $productData = $productmodel->find($input['product_id']);
@@ -151,8 +151,8 @@ class ProductController extends BaseController
             // Output the merged string
             $productArr['product_img'] = $mergedString;
            }
-            
-         
+
+
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
             $session->setFlashdata('success', 'product Update succesfully.');
@@ -249,9 +249,11 @@ class ProductController extends BaseController
 
                 'variant_sku' => $input['variant_sku'][$key],
                 'variant_stock' => $input['variant_stock'][$key],
-                
+                'group_name' => $input['group_name'][$key],
+                'sort' => $input['sort'][$key],
+
                 'parent' => $input['parent'][$key],
-               
+
             ];
 
             if (isset($input['variant_id'][$key]) && !empty($input['variant_id'][$key])) {
@@ -278,7 +280,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5'];
+        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5','group_name','sort'];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
@@ -326,7 +328,11 @@ class ProductController extends BaseController
             $productId = null;
             $child_id =null;
             $isFirstRow = true; // Flag variable to skip the first row
-            // Process each row of the CSV file
+            // // Process each row of the CSV file
+            // echo '<pre>';
+            // print_r($csv);
+            // die;
+
             foreach ($csv as $row) {
                 if ($isFirstRow) {
                     $isFirstRow = false;
@@ -349,7 +355,7 @@ class ProductController extends BaseController
                         $categoryId = $category->category_id;
                     }
                 }
-            
+
                 if (isset($row[16]) && $row[16] != '') {
                     // Subcategory name
                     $subcategoryName = utf8_encode($row[16]);
@@ -375,20 +381,20 @@ class ProductController extends BaseController
                     // Subcategory name
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
                     // Loop through each column starting from index 1 (skipping the first column with variable names)
-                    for ($i=17; $i < count($row); $i++) { 
+                    for ($i=17; $i < count($row); $i++) {
                         if($i != 17)
-                        {               
+                        {
                             $childsubcategory = $childsubcategorymodel
                             ->where('child_sub_category_name', $row[$i - 1])
                             ->where('category_id', $categoryId)
-                            ->get()->getRow(); 
+                            ->get()->getRow();
 
                             if(isset($row[$i]) && $row[$i] != ''){
                                 $childsubcategory_1 = [
                                     'child_sub_category_name' => isset($row[$i]) ? $row[$i] : '',
                                     'sub_chid_id' => isset($childsubcategory) ? $childsubcategory->child_id : '0',
                                     'sub_category_id' =>  isset($childsubcategory) ? $childsubcategory->sub_category_id : '0',
-                                    'category_id' => $categoryId    
+                                    'category_id' => $categoryId
                                 ];
                                 $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                             }
@@ -404,7 +410,7 @@ class ProductController extends BaseController
                                         'child_sub_category_name' => $row[$i],
                                         'sub_chid_id' => 0,
                                         'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
-                                        'category_id' => $categoryId    
+                                        'category_id' => $categoryId
                                     ];
                                     $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                                 }
@@ -423,6 +429,9 @@ class ProductController extends BaseController
                     $vheader4 = utf8_encode($row[13]);
                     $discount_code = utf8_encode($row[14]);
 
+                    $group_name = utf8_encode($row[17]);
+                    $sort = utf8_encode($row[18]);
+
                     $db = \Config\Database::connect();
                     $query_test = $db->table('coupon')
                     ->select('coupon_id')
@@ -436,7 +445,7 @@ class ProductController extends BaseController
                     } else{
                         $CouponId = "0";
                     }
-                 
+
                     if ($productName != '') {
                         // Insert the product
                         $product = [
@@ -452,17 +461,19 @@ class ProductController extends BaseController
                             'product_header4' => $vheader4,
                             'product_additional_info' => $information,
                             'product_favourite' => $Favourite,
-                            'coupon_id' => $CouponId
+                            'coupon_id' => $CouponId,
+
                         ];
                         $productId = $productModel->insert($product);
                     }
-                   
+
                 // Variant details
                 $variantName = utf8_encode($row[1]);
                 $variantPrice = utf8_encode($row[2]);
                 $variantSku = utf8_encode($row[3]);
                 $parent = utf8_encode($row[5]);
                 $stock = utf8_encode($row[4]);
+
 
                 if ($variantName != '') {
                     // Insert the variant
@@ -472,12 +483,14 @@ class ProductController extends BaseController
                         'variant_price' => $variantPrice,
                         'variant_sku' => $variantSku,
                         'parent' => $parent,
-                        'variant_stock' => $stock
+                        'variant_stock' => $stock,
+                        'group_name' => $group_name,
+                        'sort' => $sort
                     ];
                     $variantModel->insert($variant);
                 }
             }
-          
+
             // Success message or redirect to a success page
             $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
             return redirect()->back();
@@ -519,6 +532,6 @@ class ProductController extends BaseController
             } else {
                // echo "The given string was not found in the target string.";
             }
-           
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;  
+namespace App\Models;
 use CodeIgniter\Model;
 
 class VariantsModel extends Model
@@ -28,7 +28,10 @@ class VariantsModel extends Model
         'variant_description_2',
         'variant_header_3',
         'variant_description_3',
+        'group_name',
+        'sort',
     ];
+
 
     // Dates
     protected $useTimestamps = true;

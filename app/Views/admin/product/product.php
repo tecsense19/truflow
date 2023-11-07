@@ -128,7 +128,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                     </select>
                                 </div>
                             </div>
-                         
+
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1" class="form-label">Featured Category</label>
@@ -139,8 +139,8 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                 </div>
                             </div>
 
-                          
-                                       
+
+
                                         <!-- Subcategory dropdown -->
                                     </div>
                             <div class="mb-3">
@@ -182,7 +182,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                 <a class="remove-image" href="#" style="display: inline;" data-image="<?php echo $imagePath;?>" data-id="<?php echo $product_id; ?>">&#215;</a>
                                 <?php
                                 }
-                                } ?> 
+                                } ?>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Product Additional Information</label>
@@ -241,7 +241,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Add Variant</h5>
                         </div>
-                     
+
                         <div class="card-body">
                             <button id="add-btn" class="btn btn-primary">Add Variant</button>
                             <div id="input-container">
@@ -255,9 +255,11 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                             <th></th>
                                             <th>Part Number</th>
                                             <th>Variant Stock</th>
+                                            <th>Group Name</th>
+                                            <th>Sort</th>
                                             <th></th>
                                         </tr>
-                                        
+
                                     </thead>
                                     <tbody>
                                         <?php
@@ -271,8 +273,10 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                                     <!-- <td><input type="text" name="variant_header[]" class="form-control" value="<?php //echo $variant['variant_header']; ?>" placeholder="Variant Header" /></td> -->
                                                     <td><input type="text" name="variant_description[]" class="form-control" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" /></td>
                                                     <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
-                                                    <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>    
-                                                    <td><input type="text" name="variant_stock[]" class="form-control" value="<?php echo $variant['variant_stock']; ?>" placeholder="Variant Stock" /></td>                                                    
+                                                    <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>
+                                                    <td><input type="text" name="variant_stock[]" class="form-control" value="<?php echo $variant['variant_stock']; ?>" placeholder="Variant Stock" /></td>
+                                                    <td><input type="text" name="group_name[]" class="form-control" value="<?php echo $variant['group_name']; ?>" placeholder="Group Name" /></td>
+                                                    <td><input type="text" name="sort[]" class="form-control" value="<?php echo $variant['sort']; ?>" placeholder="Sort" /></td>
                                                     <td><a class="btn btn-danger" href="<?php echo base_url('') . "admin/variant/delete/" . $variant['variant_id'] ?>">Remove</a></td>
                                                 </tr>
                                             <tr>
@@ -362,8 +366,8 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                 "variant_header[]": {
                     required: true
                 }
-                
-                
+
+
             },
             messages: {
                 category_id: {
@@ -399,7 +403,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                 "variant_header[]": {
                     required: "Variant Description is required!"
                 }
-                
+
             },
             submitHandler: function(form) {
                 if (addVariantClicked) {
@@ -435,7 +439,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         });
             sub_category_id = '<?php echo $sub_category_id;?>';
             loadChildSubcategories(sub_category_id);
-    
+
         function loadChildSubcategories(sub_category_id) {
         var child_id = '';
         if (sub_category_id) {
@@ -498,13 +502,13 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         }
     }
 
-    function getAllChildSubCategory(event) 
+    function getAllChildSubCategory(event)
     {
         var selectElement = event.target.value;
 
-   
+
         $('#lastchild_id').val(selectElement);
-        
+
         $.ajax({
                 url: '<?php echo base_url() ?>admin/getChildSubId/' + selectElement,
                 type: 'POST',
@@ -540,7 +544,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                     console.log(errorThrown);
                 }
             });
-    }   
+    }
     function cateChange(catId) {
         if (catId) {
             $.ajax({
@@ -601,6 +605,8 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
         var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
         var variant_stock = $('<td><input type="text" name="variant_stock[]" class="form-control" placeholder="Variant Stock" /></td>');
+        var group_name = $('<td><input type="text" name="group_name[]" class="form-control" placeholder="Variant Stock" /></td>');
+        var sort = $('<td><input type="text" name="sort[]" class="form-control" placeholder="Variant Stock" /></td>');
         var variant_description = $('<td><input type="text" name="variant_description[]" class="form-control" placeholder="Variant Description" /></td>');
         // var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
         var inputRow1 = $('<tr class="input-row_'+ (row_counter1 + 0) +'_'+row_counter+'" data-id="'+ (row_counter1 + 0) +'"></tr>');
@@ -653,6 +659,8 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         inputRow.append(variant_sku);
         inputRow.append(parent);
         inputRow.append(variant_stock);
+        inputRow.append(group_name);
+        inputRow.append(sort);
         inputRow.append(removeButton);
         inputRow1.append(blankh1);
         inputRow1.append(blankd1);
@@ -677,7 +685,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
     });
 
 //     $(document).on('click', '.add_head_des', function(e) {
-  
+
 //     alert(parentIndex);
 
 //     var inputRow = $('<tr class="input-row[' + parentIndex + '] sub-child-row"></tr>');
@@ -719,13 +727,13 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
     });
 
     $('.remove-image').click(function(e) {
-      
+
             e.preventDefault();
             var container = $(this).closest('.image-container');
             //var imageId = container.find('.image-id').val(); delete_partner_img
             var imageId = $(this).data('id');
             var image_path = $(this).data('image');
-           
+
             Swal.fire({
                 title: 'Are you sure?',
                 text: 'You Want To Delete This.',
@@ -758,7 +766,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
     // const checkbox = document.getElementById("defaultCheck3");
 
     // checkbox.addEventListener("change", function() {
-     
+
     //     // If the checkbox is checked, set the value to 1; otherwise, set it to 0.
     //     const value = this.checked ? 1 : 0;
     //     console.log("Checkbox value:", value);
@@ -767,7 +775,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
     //     // You can use the 'value' variable in any way you want in your code.
     // });
 
-  
+
 
 </script>
 
