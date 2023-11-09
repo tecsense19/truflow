@@ -166,6 +166,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post("product/save", "ProductController::productSave");
     $routes->get("product/edit/(:num)", "ProductController::productEdit/$1");
     $routes->post('product/product-delete', 'ProductController::product_path_delete');
+    $routes->post('product/product-csv-delete', 'ProductController::product_csv_delete');
     $routes->get("product/delete/(:num)", "ProductController::productDelete/$1");
     $routes->post('get_subcategories/(:num)', 'ProductController::getSubcategories/$1');
     $routes->get("variant/delete/(:num)", "ProductController::variantDelete/$1");

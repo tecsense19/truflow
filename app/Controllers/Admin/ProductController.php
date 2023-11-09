@@ -113,6 +113,7 @@ class ProductController extends BaseController
         if ($files = $this->request->getFiles()) {
             $path = 'public/admin/images/product/';
             $uploadedFiles = [];
+            $uploadedFilescsv = [];
 
             // Loop through each uploaded file
             foreach ($files['product_img'] as $file) {
@@ -123,12 +124,27 @@ class ProductController extends BaseController
                 }
             }
 
-            // Merge the existing images with the new uploaded images
-            if (!empty($uploadedFiles)) {
+             // Merge the existing images with the new uploaded images
+             if (!empty($uploadedFiles)) {
                 // Retrieve existing images if available
                 $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
                 $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
             }
+      
+            foreach ($files['product_img_csv'] as $filecsv) {
+                if ($filecsv->isValid() && !$filecsv->hasMoved()) {
+                    $newNamecsv = $filecsv->getRandomName();
+                    $filecsv->move($path, $newNamecsv);
+                    $uploadedFilescsv[] = $path . $newNamecsv;
+                }
+            }
+
+            if (!empty($uploadedFilescsv)) {
+                // Retrieve existing images if available
+                $existingImagescsv = isset($input['product_img_csv']) ? explode(',', $input['product_img_csv']) : [];
+                $productArr['product_img_csv'] = implode(',', array_merge($existingImagescsv, $uploadedFilescsv));
+            }
+           
         }
 
         $productId = '';
@@ -152,6 +168,20 @@ class ProductController extends BaseController
             $productArr['product_img'] = $mergedString;
            }
 
+           if(!empty($productData['product_img_csv']) && !empty($productArr['product_img_csv'])){
+            // Split the strings by commas (,) into arrays
+            $array3 = explode(',', $productData['product_img_csv']);
+            $array4 = explode(',', $productArr['product_img_csv']);
+
+            // Merge the arrays into a single array
+            $mergedArray1 = array_merge($array3, $array4);
+
+            // Convert the merged array into a string separated by commas (,)
+            $mergedString1 = implode(',', $mergedArray1);
+
+            // Output the merged string
+            $productArr['product_img_csv'] = $mergedString1;
+           }
 
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];
@@ -280,7 +310,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5','group_name','sort'];
+        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name','group_name','sort', 'product_img_csv',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5',];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');
@@ -422,16 +452,15 @@ class ProductController extends BaseController
                     $Favourite   = utf8_encode($row[6]);
                     $ProductDescription = utf8_encode($row[7]);
                     $shortDescription = utf8_encode($row[8]);
-                    $product_img_csv = utf8_encode($row[24]);
                     $information = utf8_encode($row[9]);
                     $vheader1 = utf8_encode($row[10]);
                     $vheader2 = utf8_encode($row[11]);
                     $vheader3 = utf8_encode($row[12]);
                     $vheader4 = utf8_encode($row[13]);
                     $discount_code = utf8_encode($row[14]);
-
                     $group_name = utf8_encode($row[17]);
                     $sort = utf8_encode($row[18]);
+                    $product_img_csv = utf8_encode($row[19]);
 
                     $db = \Config\Database::connect();
                     $query_test = $db->table('coupon')
@@ -446,16 +475,31 @@ class ProductController extends BaseController
                     } else{
                         $CouponId = "0";
                     }
+
                     $imageName = basename($product_img_csv);
 
                     // Define the destination folder for the product images
                     $destinationFolder = 'public/admin/images/product/';
 
-                    // Download the image and save it to the destination folder
-                    $imageData = file_get_contents($product_img_csv);
-                    if ($imageData !== false) {
-                        $destinationPath = $destinationFolder . $imageName;
-                        file_put_contents($destinationPath, $imageData);
+                                        // Generate a unique filename based on the current timestamp
+                        $imageName = time() . '.jpg'; // You can change the file extension to .png if needed
+
+                        $encodedFilename = str_replace('+', '%20', urlencode(basename($product_img_csv)));
+                        $product_img_csv = dirname($product_img_csv) . '/' . $encodedFilename;
+                        // Download the image and save it to the destination folder
+                        $imageData = file_get_contents($product_img_csv);
+                        if ($imageData !== false) {
+                            $destinationPath = $destinationFolder . $imageName;
+                            if (file_put_contents($destinationPath, $imageData) !== false) {
+                                echo "Image downloaded and saved successfully as $imageName.";
+                            } else {
+                                echo "Error saving the image.";
+                            }
+                        } else {
+                            echo "Error downloading the image.";
+                        }
+                    
+
                     if ($productName != '') {
                         // Insert the product
                         $product = [
@@ -476,7 +520,7 @@ class ProductController extends BaseController
 
                         ];
                         $productId = $productModel->insert($product);
-                    }}
+                    }
 
                 // Variant details
                 $variantName = utf8_encode($row[1]);
@@ -539,6 +583,40 @@ class ProductController extends BaseController
                 // echo "The given string was found and removed from the target string.";
                 // echo "New string: " . $newString;
                 $productArr = [ 'product_img' => $newString ];
+                $productModel->update($input['image_id'], $productArr);
+            } else {
+               // echo "The given string was not found in the target string.";
+            }
+
+    }
+
+    public function product_csv_delete()
+    {
+        $input = $this->request->getVar();
+        // print_r($input['image_id']);
+        // print_r($input['image_path']);
+
+        $productModel = new ProductModel();
+        $productData = $productModel->find($input['image_id']);
+
+        // print_r($productData['product_img']);
+
+        // Convert the comma-separated list into an array
+            $targetArray = explode(",", $productData['product_img_csv']);
+
+            // Find the position of the given string in the array
+            $position = array_search($input['image_path'], $targetArray);
+
+            if ($position !== false) {
+                // Remove the element at the found position
+                array_splice($targetArray, $position, 1);
+
+                // Create the new string by joining the array elements with commas
+                $newString = implode(",", $targetArray);
+
+                // echo "The given string was found and removed from the target string.";
+                // echo "New string: " . $newString;
+                $productArr = [ 'product_img_csv' => $newString ];
                 $productModel->update($input['image_id'], $productArr);
             } else {
                // echo "The given string was not found in the target string.";
