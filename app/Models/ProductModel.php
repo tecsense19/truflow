@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;  
+namespace App\Models;
 use CodeIgniter\Model;
 
 class ProductModel extends Model
@@ -20,6 +20,7 @@ class ProductModel extends Model
         'product_description',
         'product_short_description',
         'product_img',
+        'product_img_csv',
         'product_additional_info',
         'sub_category_id',
         'child_id',
@@ -30,7 +31,7 @@ class ProductModel extends Model
         'product_header4',
         'product_favourite',
 
-        
+
     ];
 
     // Dates

@@ -1,0 +1,112 @@
+CRITICAL - 2023-11-08 04:44:02 --> Undefined array key "product_img_csv"
+in APPPATH\Views\admin\product\product.php on line 79.
+ 1 APPPATH\Views\admin\product\product.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_img_csv"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 79)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(214): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 04:44:19 --> Undefined variable $product_img_csv
+in APPPATH\Views\admin\product\product.php on line 191.
+ 1 APPPATH\Views\admin\product\product.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product_img_csv', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php', 191)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\product\\product.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/product/product', [], true)
+ 5 APPPATH\Controllers\Admin\ProductController.php(214): view('admin/product/product', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productEdit('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:12:51 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 454.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 454)
+ 2 APPPATH\Controllers\Admin\ProductController.php(454): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:14:36 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 455.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 455)
+ 2 APPPATH\Controllers\Admin\ProductController.php(455): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:15:05 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 455.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 455)
+ 2 APPPATH\Controllers\Admin\ProductController.php(455): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:17:31 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+
+in APPPATH\Controllers\Admin\ProductController.php on line 469.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 469)
+ 2 APPPATH\Controllers\Admin\ProductController.php(469): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:18:07 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+
+in APPPATH\Controllers\Admin\ProductController.php on line 469.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 469)
+ 2 APPPATH\Controllers\Admin\ProductController.php(469): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:21:48 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+
+in APPPATH\Controllers\Admin\ProductController.php on line 467.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 467)
+ 2 APPPATH\Controllers\Admin\ProductController.php(467): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind_new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:27:35 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 466.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 466)
+ 2 APPPATH\Controllers\Admin\ProductController.php(466): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:28:39 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 466.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 466)
+ 2 APPPATH\Controllers\Admin\ProductController.php(466): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-08 06:29:40 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+
+in APPPATH\Controllers\Admin\ProductController.php on line 455.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\ProductController.php', 455)
+ 2 APPPATH\Controllers\Admin\ProductController.php(455): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/tailwind new.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

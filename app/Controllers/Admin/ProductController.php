@@ -422,6 +422,7 @@ class ProductController extends BaseController
                     $Favourite   = utf8_encode($row[6]);
                     $ProductDescription = utf8_encode($row[7]);
                     $shortDescription = utf8_encode($row[8]);
+                    $product_img_csv = utf8_encode($row[24]);
                     $information = utf8_encode($row[9]);
                     $vheader1 = utf8_encode($row[10]);
                     $vheader2 = utf8_encode($row[11]);
@@ -445,7 +446,16 @@ class ProductController extends BaseController
                     } else{
                         $CouponId = "0";
                     }
+                    $imageName = basename($product_img_csv);
 
+                    // Define the destination folder for the product images
+                    $destinationFolder = 'public/admin/images/product/';
+
+                    // Download the image and save it to the destination folder
+                    $imageData = file_get_contents($product_img_csv);
+                    if ($imageData !== false) {
+                        $destinationPath = $destinationFolder . $imageName;
+                        file_put_contents($destinationPath, $imageData);
                     if ($productName != '') {
                         // Insert the product
                         $product = [
@@ -455,6 +465,7 @@ class ProductController extends BaseController
                             'sub_category_id' => $subcategoryId,
                             'product_description' => $ProductDescription,
                             'product_short_description' => $shortDescription,
+                            'product_img_csv' => $destinationPath,
                             'product_header1' => $vheader1,
                             'product_header2' => $vheader2,
                             'product_header3' => $vheader3,
@@ -465,7 +476,7 @@ class ProductController extends BaseController
 
                         ];
                         $productId = $productModel->insert($product);
-                    }
+                    }}
 
                 // Variant details
                 $variantName = utf8_encode($row[1]);

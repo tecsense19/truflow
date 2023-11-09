@@ -76,6 +76,7 @@ $product_name = isset($productData) ? $productData['product_name'] : '';
 $product_description = isset($productData) ? $productData['product_description'] : '';
 $product_short_description = isset($productData) ? $productData['product_short_description'] : '';
 $product_img = isset($productData) ? $productData['product_img'] : '';
+$product_img_csv = isset($productData) ? $productData['product_img_csv'] : '';
 $featured_product = isset($productData) ? $productData['featured_category'] : '';
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
 $product_child_id = isset($productData) ? $productData['child_id'] : '';
@@ -179,6 +180,20 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                 foreach ($imagePaths as $imagePath) {
                                 ?>
                                 <img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img" class="img-fluid site_setting_img_product">
+                                <a class="remove-image" href="#" style="display: inline;" data-image="<?php echo $imagePath;?>" data-id="<?php echo $product_id; ?>">&#215;</a>
+                                <?php
+                                }
+                                } ?>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-company">CSV Product Image</label>
+                                <input type="file" class="form-control" value="" id="product_img_csv" name="product_img_csv[]" multiple placeholder="Product Image" />
+                                <?php if ($product_img_csv) {
+                                $imagePaths = explode(',', $product_img_csv);
+
+                                foreach ($imagePaths as $imagePath) {
+                                ?>
+                                <img src="<?php echo base_url(trim($imagePath)); ?>" alt="product_img_csv" class="img-fluid site_setting_img_product">
                                 <a class="remove-image" href="#" style="display: inline;" data-image="<?php echo $imagePath;?>" data-id="<?php echo $product_id; ?>">&#215;</a>
                                 <?php
                                 }
@@ -322,6 +337,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
 <script>
     $(document).ready(function() {
         var imageUploaded = <?php echo ($product_img ? 'true' : 'false'); ?>;
+        var imageUploaded_csv = <?php echo ($product_img_csv ? 'true' : 'false'); ?>;
         var addVariantClicked = false;
 
         var productId = "<?php echo $product_id; ?>";
@@ -346,6 +362,11 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                 "product_img[]": {
                     required: function() {
                         return !imageUploaded;
+                    }
+                },
+                "product_img_csv[]": {
+                    required: function() {
+                        return !imageUploaded_csv;
                     }
                 },
                 "variant_name[]": {
@@ -384,6 +405,9 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                 },
                 "product_img[]": {
                     required: "Product Image is required!"
+                },
+                "product_img_csv[]": {
+                    required: "CSV Product Image is required!"
                 },
                 "variant_name[]": {
                     required: "Variant Name is required!"
