@@ -25,8 +25,14 @@ class ProductController extends BaseController
         $newData2 = [];
         foreach ($productData as $pnewdata) {
             $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
-            $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
-
+            if ($variantData !== null) {
+                $count = count($variantData);
+                // Your code here using $count
+            } else {
+                $count = 0;
+            }
+            $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
+   
             $CouponData = $CouponModel->where('coupon_id', $pnewdata['coupon_id'])->findAll();
             if(count($CouponData) > 0)
             {
@@ -359,21 +365,17 @@ class ProductController extends BaseController
             $child_id =null;
             $isFirstRow = true; // Flag variable to skip the first row
             // // Process each row of the CSV file
-            // echo '<pre>';
-            // print_r($csv);
-            // die;
-
             foreach ($csv as $row) {
                 if ($isFirstRow) {
                     $isFirstRow = false;
                     continue; // Skip the first row
                 }
-                if (isset($row[15]) && $row[15] != '') {
+                if (isset($row[18]) && $row[18] != '') {
                     // Category name
-                    $categoryName = utf8_encode($row[15]);
+                    $categoryName = utf8_encode($row[18]);
 
                     // Check if the category already exists
-                    $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
+                    $category = $categoryModel->where('category_name', $categoryName)->first();
 
                     if (!$category) {
                         // Insert the new category
@@ -382,19 +384,22 @@ class ProductController extends BaseController
                         ];
                         $categoryId = $categoryModel->insert($category);
                     } else {
+                        $category = $categoryModel->where('category_name', $categoryName)->get()->getRow();
                         $categoryId = $category->category_id;
                     }
                 }
 
-                if (isset($row[16]) && $row[16] != '') {
+                
+
+                if (isset($row[19]) && $row[19] != '') {
                     // Subcategory name
-                    $subcategoryName = utf8_encode($row[16]);
+                    $subcategoryName = utf8_encode($row[19]);
 
                     // Check if the subcategory already exists
                     $subcategory = $subcategoryModel
                         ->where('sub_category_name', $subcategoryName)
                         ->where('category_id', $categoryId)
-                        ->get()->getRow();
+                        ->first();
 
                     if (!$subcategory) {
                         // Insert the new subcategory with the parent category ID
@@ -404,49 +409,108 @@ class ProductController extends BaseController
                         ];
                         $subcategoryId = $subcategoryModel->insert($subcategory);
                     } else {
+                        $subcategory = $subcategoryModel
+                        ->where('sub_category_name', $subcategoryName)
+                        ->where('category_id', $categoryId)
+                        ->get()->getRow();
                         $subcategoryId = $subcategory->sub_category_id;
                     }
                 }
+
+
                 if (isset($row[17]) && $row[17] != '') {
+                    $imageName = basename($row[17]);
+
+                    // Define the destination folder for the product images
+                    $destinationFolder = 'public/admin/images/product/';
+
+                                        // Generate a unique filename based on the current timestamp
+                         // You can change the file extension to .png if needed
+
+                        $encodedFilename = str_replace('+', '%20', urlencode(basename($row[17])));
+                        $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
+
+                        $imageName = time(). '_' . $encodedFilename;
+                        
+                        // Download the image and save it to the destination folder
+                        $imageData = file_get_contents($product_img_csv);
+                        if ($imageData !== false) {
+                            $destinationPath = $destinationFolder . $imageName;
+                            if (file_put_contents($destinationPath, $imageData) !== false) {
+                                echo "Image downloaded and saved successfully as $imageName.";
+                            } else {
+                                echo "Error saving the image.";
+                            }
+                        } else {
+                            echo "Error downloading the image.";
+                        }
+                    }
+
+                if (isset($row[20]) && $row[20] != '') {
                     // Subcategory name
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
                     // Loop through each column starting from index 1 (skipping the first column with variable names)
-                    for ($i=17; $i < count($row); $i++) {
-                        if($i != 17)
-                        {
-                            $childsubcategory = $childsubcategorymodel
-                            ->where('child_sub_category_name', $row[$i - 1])
-                            ->where('category_id', $categoryId)
-                            ->get()->getRow();
 
-                            if(isset($row[$i]) && $row[$i] != ''){
+                   
+
+                    for ($i=20; $i < count($row); $i++) {
+                        if($i != 20)
+                        {
+                            $childsubcategoryName = utf8_encode($row[$i]);
+                            $existingChildSubCategory = $childsubcategorymodel
+                                ->where('child_sub_category_name', $childsubcategoryName)
+                                ->where('category_id', $categoryId)
+                                ->get()
+                                ->getRow();
+
+                            if (isset($row[$i]) && $row[$i] != '' && !$existingChildSubCategory) {
+                                $childsubcategory = $childsubcategorymodel
+                                    ->where('child_sub_category_name', $row[$i - 1])
+                                    ->where('category_id', $categoryId)
+                                    ->get()
+                                    ->getRow();
+
                                 $childsubcategory_1 = [
-                                    'child_sub_category_name' => isset($row[$i]) ? $row[$i] : '',
+                                    'child_sub_category_name' => isset($childsubcategoryName) ? $childsubcategoryName : '',
                                     'sub_chid_id' => isset($childsubcategory) ? $childsubcategory->child_id : '0',
                                     'sub_category_id' =>  isset($childsubcategory) ? $childsubcategory->sub_category_id : '0',
                                     'category_id' => $categoryId
                                 ];
+
                                 $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                             }
                         }
                         else
                         {
-                            $subcategory = $subcategoryModel
-                                ->where('sub_category_name', $row[$i - 1])
-                                ->where('category_id', $categoryId)
-                                ->get()->getRow();
-                                if(isset($row[$i]) && $row[$i] != ''){
-                                    $childsubcategory_1 = [
-                                        'child_sub_category_name' => $row[$i],
-                                        'sub_chid_id' => 0,
-                                        'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
-                                        'category_id' => $categoryId
-                                    ];
-                                    $child_id = $childsubcategorymodel->insert($childsubcategory_1);
+                            $childsubcategoryName = utf8_encode($row[$i]);
+                                $subcategory = $subcategoryModel
+                                    ->where('sub_category_name', $row[$i - 1])
+                                    ->where('category_id', $categoryId)
+                                    ->get()
+                                    ->getRow();
+
+                                if (isset($row[$i]) && $row[$i] != '') {
+                                    $existingChildSubCategory = $childsubcategorymodel
+                                        ->where('child_sub_category_name', $childsubcategoryName)
+                                        ->where('category_id', $categoryId)
+                                        ->get()
+                                        ->getRow();
+
+                                    if (!$existingChildSubCategory) {
+                                        $childsubcategory_1 = [
+                                            'child_sub_category_name' => $childsubcategoryName,
+                                            'sub_chid_id' => 0,
+                                            'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
+                                            'category_id' => $categoryId
+                                        ];
+                                        $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                                 }
                             }
                         }
                     }
+                }
+              
+
                     // Product details
                     $productName = utf8_encode($row[0]);
                     $Favourite   = utf8_encode($row[6]);
@@ -458,9 +522,8 @@ class ProductController extends BaseController
                     $vheader3 = utf8_encode($row[12]);
                     $vheader4 = utf8_encode($row[13]);
                     $discount_code = utf8_encode($row[14]);
-                    $group_name = utf8_encode($row[17]);
-                    $sort = utf8_encode($row[18]);
-                    $product_img_csv = utf8_encode($row[19]);
+                    $group_name = utf8_encode($row[15]);
+                    $sort = utf8_encode($row[16]);
 
                     $db = \Config\Database::connect();
                     $query_test = $db->table('coupon')
@@ -476,29 +539,7 @@ class ProductController extends BaseController
                         $CouponId = "0";
                     }
 
-                    $imageName = basename($product_img_csv);
-
-                    // Define the destination folder for the product images
-                    $destinationFolder = 'public/admin/images/product/';
-
-                                        // Generate a unique filename based on the current timestamp
-                        $imageName = time() . '.jpg'; // You can change the file extension to .png if needed
-
-                        $encodedFilename = str_replace('+', '%20', urlencode(basename($product_img_csv)));
-                        $product_img_csv = dirname($product_img_csv) . '/' . $encodedFilename;
-                        // Download the image and save it to the destination folder
-                        $imageData = file_get_contents($product_img_csv);
-                        if ($imageData !== false) {
-                            $destinationPath = $destinationFolder . $imageName;
-                            if (file_put_contents($destinationPath, $imageData) !== false) {
-                                echo "Image downloaded and saved successfully as $imageName.";
-                            } else {
-                                echo "Error saving the image.";
-                            }
-                        } else {
-                            echo "Error downloading the image.";
-                        }
-                    
+               
 
                     if ($productName != '') {
                         // Insert the product
@@ -510,6 +551,7 @@ class ProductController extends BaseController
                             'product_description' => $ProductDescription,
                             'product_short_description' => $shortDescription,
                             'product_img_csv' => $destinationPath,
+                            'product_img' => $destinationPath,
                             'product_header1' => $vheader1,
                             'product_header2' => $vheader2,
                             'product_header3' => $vheader3,

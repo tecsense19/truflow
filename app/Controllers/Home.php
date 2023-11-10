@@ -89,7 +89,15 @@ class Home extends BaseController
             $productdata = $productmodel->where('sub_category_id', $category['sub_category_id'])->findAll();
             foreach ($productdata as $pnewdata) {
                 $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
-                $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+
+                if ($variantData !== null) {
+                    $count = count($variantData);
+                    // Your code here using $count
+                } else {
+                    $count = 0;
+                }
+
+                $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
                 $newData2[] = $pnewdata;
             }
             $category['products'] =  $newData2;
@@ -104,14 +112,14 @@ class Home extends BaseController
         {
             foreach ($newProductdata as $pdata) {
                 $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
-                $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $pdata['parent'] = $variantData ? $variantData['parent'] : '';
 
                 $categorydata = $categorymodel->where('category_id', $pdata['category_id'])->first();
-                $pdata['category_name'] = count($categorydata) > 0 ? $categorydata['category_name'] : '';
+                $pdata['category_name'] = $categorydata ? $categorydata['category_name'] : '';
            
                 
                 $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
-                $pdata['sub_category_name'] = count($subcategory) > 0 ? $subcategory['sub_category_name'] : '';
+                $pdata['sub_category_name'] = $subcategory ? $subcategory['sub_category_name'] : '';
 
                 if(isset($pdata['child_id']))
                 {
@@ -234,7 +242,7 @@ class Home extends BaseController
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $variant['parent'] = $variantData ? $variantData['parent'] : '';
 
                 $newPro[] = $variant;
             }
@@ -295,7 +303,7 @@ class Home extends BaseController
                     $child_prod_Arr = [];
                     foreach ($product as $variant) {
                         $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                        $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                        $variant['parent'] = $variantData ? $variantData['parent'] : '';
                         $child_prod_Arr[] = $variant;
                     }
                     $cValue['variant'] = $child_prod_Arr;
@@ -389,7 +397,7 @@ class Home extends BaseController
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $variant['parent'] = $variantData ? $variantData['parent'] : '';
                 $newPro[] = $variant;
             }
             $subcategory['product_array'] = $newPro;
@@ -444,7 +452,7 @@ class Home extends BaseController
         $newData = [];
         foreach ($productData as $pdata) {
             $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
-            $pdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+            $pdata['parent'] = $variantData ? $variantData['parent'] : '';
             $newData[] = $pdata;
         }
         // --------------------------------------------
@@ -466,7 +474,7 @@ class Home extends BaseController
             $varaints = [];
             foreach ($productData1 as $product) {
                 $variantData1 = $variantsmodel->where('product_id', $product['product_id'])->first();
-                $product['parent'] = count($variantData1) > 0 ? $variantData1['parent'] : '';
+                $product['parent'] = $variantData1 ? $variantData1['parent'] : '';
                 $varaints[] = $product;
             }
             $subCat['product_array'] = $varaints;
@@ -623,7 +631,7 @@ class Home extends BaseController
             foreach ($productData1 as $pdata1) {
                 
                 $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
-                $pdata1['parent'] = count($variantData1) > 0 ? $variantData1['parent'] : '';
+                $pdata1['parent'] = $variantData1 ? $variantData1['parent'] : '';
                 $newData_p[] = $pdata1;
             }
             $sub_cat_data[] = $newData_p;
@@ -1068,7 +1076,7 @@ class Home extends BaseController
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $variant['parent'] = $variantData ? $variantData['parent'] : '';
 
                 $newPro[] = $variant;
             }
@@ -1125,7 +1133,7 @@ class Home extends BaseController
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $variant['parent'] = $variantData ? $variantData['parent'] : '';
 
                 $newPro[] = $variant;
             }
@@ -1178,7 +1186,7 @@ class Home extends BaseController
             foreach ($product as $variant) {
 
                 $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
-                $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+                $variant['parent'] = $variantData ? $variantData['parent'] : '';
 
                 $newPro[] = $variant;
             }

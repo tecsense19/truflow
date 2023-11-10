@@ -249,9 +249,9 @@ margin-right: 10px; /* Adjust spacing as needed */
 .navbar-toggler.active.collapsed:before {
 display: none;
 }
-.dropdown.show {
+/* .dropdown.show {
     margin-right: 20px;
-}
+} */
 </style>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->
@@ -326,7 +326,7 @@ display: none;
                         <?php echo "Hi, $fullName "; ?>
                     </a>
                 <?php } else { ?>
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Login
                     </a>
                 <?php } ?>

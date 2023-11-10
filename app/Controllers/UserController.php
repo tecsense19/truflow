@@ -11,6 +11,20 @@ use Config\Services;
 use CodeIgniter\Email\Email;
 use App\Models\OrderItemModel;
 use App\Models\ShippingModel;
+use App\Models\SettingsModel;
+use App\Models\SettingsImagesModel;
+use App\Models\TestominalModel;
+use App\Models\CategoryModel;
+use App\Models\SubCategoryModel;
+use App\Models\ProductModel;
+use App\Models\VariantsModel;
+use App\Models\CartModel;
+use App\Models\AddwishlistModel;
+use App\Models\UserContactModel;
+use App\Models\SliderModel;
+use App\Models\ChildSubCategoryModel;
+use App\Models\ProductRatingModel;
+
 
 
 class UserController extends BaseController
@@ -91,16 +105,161 @@ class UserController extends BaseController
     }
     public function login()
     {
-        $session = session();
-        $usermodel = new UserModel();
 
+        $session = session();
+        $model = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+        $welcomeData = $model->where('type', 'welcome')->first();
+        $aboutData = $model->where('type', 'about')->first();
+        $contactData = $model->where('type', 'contact')->first();
+        $productData = $model->where('type', 'product')->first();
+        $testominalData = $model->where('type', 'testominal')->first();
+        $partnerData = $model->where('type', 'partner')->first();
+
+        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+
+        if (!$imageData) {
+            $imageData = null;
+        }
+
+        //paertner images
+        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+        if (!$partnerImageData) {
+            $partnerImageData = null;
+        }
+
+        //testominal section
+        $testominalmodel = new TestominalModel();
+        $testimonalData = $testominalmodel->find();
+        if (!$testimonalData) {
+            $testimonalData = null;
+        }
+
+        //header menu section
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
             $headerData = null;
         }
+        $productmodel = new ProductModel();
+        $categorymodel = new CategoryModel();
+        $subcategorymodel = new SubCategoryModel();
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
 
-        return view('front/login', ['headerData' => $headerData]);
+        $allcategoryData1 = $categorymodel->where('category_featured', 1)->findAll();
+        $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
+        $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();
+        $allcategoryData = [];
+       
+            $allcategoryData['category'] = $allcategoryData1;
+    
+      
+            $allcategoryData['sub_category'] = $allcategoryData2;
+     
+     
+            $allcategoryData['child_sub'] = $allcategoryData3;
+   
+
+        $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
+        $variantsmodel = new VariantsModel();
+        foreach ($subcategoryData as &$category) {
+            $newData2 = [];
+            $productdata = $productmodel->where('sub_category_id', $category['sub_category_id'])->findAll();
+            foreach ($productdata as $pnewdata) {
+                $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
+
+                if ($variantData !== null) {
+                    $count = count($variantData);
+                    // Your code here using $count
+                } else {
+                    $count = 0;
+                }
+
+                $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
+                $newData2[] = $pnewdata;
+            }
+            $category['products'] =  $newData2;
+        }
+        $newProductdata = $productmodel->where('featured_category', 1)->findAll();
+        if (!$newProductdata) {
+            $newProductdata = null;
+        }
+        $variantsmodel = new VariantsModel();
+        $newData1 = [];
+        if(isset($newProductdata))
+        {
+            foreach ($newProductdata as $pdata) {
+                $variantData = $variantsmodel->where('product_id', $pdata['product_id'])->first();
+                $pdata['parent'] = $variantData ? $variantData['parent'] : '';
+
+                $categorydata = $categorymodel->where('category_id', $pdata['category_id'])->first();
+                $pdata['category_name'] = $categorydata ? $categorydata['category_name'] : '';
+           
+                
+                $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
+                $pdata['sub_category_name'] = $subcategory ? $subcategory['sub_category_name'] : '';
+
+                if(isset($pdata['child_id']))
+                {
+                    $ChildSubCategory = $ChildSubCategoryModel->where('sub_category_id', $pdata['sub_category_id'])
+                    ->where('child_id', $pdata['child_id'])
+                    ->first();
+                    $pdata['child_sub_category_name'] = isset($ChildSubCategory) ? $ChildSubCategory['child_sub_category_name'] : '';
+                    $newData1[] = $pdata;
+                }
+            }
+        }
+
+
+
+     
+        $session = session();
+        $userId = $session->get('user_id');
+        $addwishlistmodel = new AddwishlistModel();
+        $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
+        $wishlistCount = count($wishlistData ?? []);
+        $session->set('wishlistCount', $wishlistCount);
+        $cartmodel = new CartModel();
+        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
+        $cartCount = count($cartData ?? []);
+        $session->set('cartCount', $cartCount);
+
+        $slidermodel = new SliderModel();
+        $sliderData = $slidermodel->findAll();
+        if (!$sliderData) {
+            $sliderData = null;
+        }
+
+        return view(
+            'front/index',
+            [
+                'welcomeData' => $welcomeData,
+                'aboutData' => $aboutData,
+                'contactData' => $contactData,
+                'productData' => $productData,
+                'testominalData' => $testominalData,
+                'partnerData' => $partnerData,
+                'imageData' => $imageData,
+                'partnerImageData' => $partnerImageData,
+                'testimonalData' => $testimonalData,
+                'headerData' => $headerData,
+                // ---- add other
+                'newProductdata' => $newData1,
+                'categoryData' => $subcategoryData,
+
+                // ---- allcategoryData
+
+                'allcategoryData' => $allcategoryData,
+                //count
+                'wishlistCount' => $wishlistCount,
+                'cartCount' => $cartCount,
+
+                //
+                'sliderData' => $sliderData
+            ]
+        );
+
+       
     }
     public function checkLogin()
     {
