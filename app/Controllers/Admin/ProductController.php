@@ -582,10 +582,16 @@ class ProductController extends BaseController
                         'parent' => $parent,
                         'variant_stock' => $stock,
                         'group_name' => $group_name,
-                        'sort' => $sort
+                        'sort' => $sort,
+                        'variant_description' => $vheader1,
+                        'variant_description_1' => $vheader2,
+                        'variant_description_2' => $vheader3,
+                        'variant_description_3' => $vheader4,
                     ];
                     $variantModel->insert($variant);
                 }
+               
+                   
             }
 
             // Success message or redirect to a success page
