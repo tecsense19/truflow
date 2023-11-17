@@ -410,7 +410,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div id="home" class="container tab-pane active">
+            
+        <div id="home" class="container tab-pane active">
                 <div class="row">
                     <?php if (isset($newProductdata)) { 
                        // Shuffle the array to get random data
@@ -419,7 +420,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <div class="col-sm-6 col-lg-3">
                                 <div class="product_card">
                                     <div class="card">
-                                        <?php if (isset($product['product_img'])) {
+                                        
+                                        <?php if (isset($product['product_img']) && $product['featured_category'] == 1 ) {
                                             $imagePaths = explode(',', $product['product_img']);
                                             $firstImagePath = trim($imagePaths[0]);
                                         ?>
@@ -440,7 +442,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                 </div>
             </div>
 
-            <?php foreach ($categoryData as $category) : ?>
+<?php foreach ($categoryData as $category) : ?>
                 <div id="menu<?= $category['sub_category_id'] ?>" class="container tab-pane fade">
                     <div class="row">
                         <?php if (isset($category['products'])) : ?>
@@ -448,7 +450,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <div class="col-sm-6 col-lg-3">
                                     <div class="product_card">
                                         <div class="card">
-                                            <?php if (isset($product['product_img'])) {
+                                            <?php if (isset($product['product_img']) && $product['featured_category'] == 1) {
                                                 $imagePaths = explode(',', $product['product_img']);
                                                 $firstImagePath = trim($imagePaths[0]);
                                             ?>
@@ -471,6 +473,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                 </div>
             <?php endforeach; ?>
         </div>
+            
     </div>
 </div>
 </div>
