@@ -132,9 +132,6 @@ class Home extends BaseController
             }
         }
 
-
-
-     
         $session = session();
         $userId = $session->get('user_id');
         $addwishlistmodel = new AddwishlistModel();

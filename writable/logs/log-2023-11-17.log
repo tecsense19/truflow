@@ -315,3 +315,36 @@ in APPPATH\Views\front\child_subchild.php on line 44.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 12:42:13 --> Undefined array key "parent"
+in APPPATH\Views\front\index.php on line 435.
+ 1 APPPATH\Views\front\index.php(435): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 435)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(178): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 12:42:13 --> Undefined array key "parent"
+in APPPATH\Views\front\index.php on line 435.
+ 1 APPPATH\Views\front\index.php(435): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 435)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(178): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 12:42:14 --> Undefined array key "parent"
+in APPPATH\Views\front\index.php on line 435.
+ 1 APPPATH\Views\front\index.php(435): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "parent"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php', 435)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(178): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
