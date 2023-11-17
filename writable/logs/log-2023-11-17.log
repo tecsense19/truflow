@@ -1,0 +1,317 @@
+CRITICAL - 2023-11-17 06:08:11 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 628.
+ 1 APPPATH\Controllers\Home.php(628): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 628)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:10:59 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 485.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:17:15 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 485.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:20:42 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:22:05 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 492.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:25:22 --> File not found: "public/admin/images/product/"
+in SYSTEMPATH\Files\File.php on line 47.
+ 1 SYSTEMPATH\Files\File.php(47): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('public/admin/images/product/')
+ 2 SYSTEMPATH\Images\Handlers\BaseHandler.php(148): CodeIgniter\Files\File->__construct('public/admin/images/product/', true)
+ 3 APPPATH\Controllers\Admin\ProductController.php(489): CodeIgniter\Images\Handlers\BaseHandler->withFile('public/admin/images/product/')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:29:54 --> File not found: "public/admin/images/product/"
+in SYSTEMPATH\Files\File.php on line 47.
+ 1 SYSTEMPATH\Files\File.php(47): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('public/admin/images/product/')
+ 2 SYSTEMPATH\Images\Handlers\BaseHandler.php(148): CodeIgniter\Files\File->__construct('public/admin/images/product/', true)
+ 3 APPPATH\Controllers\Admin\ProductController.php(489): CodeIgniter\Images\Handlers\BaseHandler->withFile('public/admin/images/product/')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:40:46 --> File not found: "public/admin/images/product/"
+in SYSTEMPATH\Files\File.php on line 47.
+ 1 SYSTEMPATH\Files\File.php(47): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('public/admin/images/product/')
+ 2 SYSTEMPATH\Images\Handlers\BaseHandler.php(148): CodeIgniter\Files\File->__construct('public/admin/images/product/', true)
+ 3 APPPATH\Controllers\Admin\ProductController.php(489): CodeIgniter\Images\Handlers\BaseHandler->withFile('public/admin/images/product/')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:42:06 --> File not found: "public/admin/images/product/"
+in SYSTEMPATH\Files\File.php on line 47.
+ 1 SYSTEMPATH\Files\File.php(47): CodeIgniter\Files\Exceptions\FileNotFoundException::forFileNotFound('public/admin/images/product/')
+ 2 SYSTEMPATH\Images\Handlers\BaseHandler.php(148): CodeIgniter\Files\File->__construct('public/admin/images/product/', true)
+ 3 APPPATH\Controllers\Admin\ProductController.php(489): CodeIgniter\Images\Handlers\BaseHandler->withFile('public/admin/images/product/')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:43:56 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 491.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:44:49 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 492.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:45:53 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 492.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 06:47:19 --> Call to a member function save() on null
+in APPPATH\Controllers\Admin\ProductController.php on line 493.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:19:22 --> Undefined array key "is_child"
+in APPPATH\Views\front\subcategory.php on line 43.
+ 1 APPPATH\Views\front\subcategory.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "is_child"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:20:32 --> Undefined array key "is_child"
+in APPPATH\Views\front\subcategory.php on line 43.
+ 1 APPPATH\Views\front\subcategory.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "is_child"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:22:53 --> Undefined array key "child_id"
+in APPPATH\Views\front\subcategory.php on line 43.
+ 1 APPPATH\Views\front\subcategory.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:23:31 --> Undefined array key "child_id"
+in APPPATH\Views\front\subcategory.php on line 44.
+ 1 APPPATH\Views\front\subcategory.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:23:47 --> Undefined array key 0
+in APPPATH\Views\front\subcategory.php on line 44.
+ 1 APPPATH\Views\front\subcategory.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:24:21 --> Undefined array key 0
+in APPPATH\Views\front\subcategory.php on line 44.
+ 1 APPPATH\Views\front\subcategory.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:24:38 --> Undefined array key 0
+in APPPATH\Views\front\subcategory.php on line 44.
+ 1 APPPATH\Views\front\subcategory.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:25:37 --> Undefined array key 4
+in APPPATH\Views\front\subcategory.php on line 46.
+ 1 APPPATH\Views\front\subcategory.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 4', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1099): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('48')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 09:45:09 --> Undefined array key "is_child"
+in APPPATH\Views\front\childsubcategory.php on line 44.
+ 1 APPPATH\Views\front\childsubcategory.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "is_child"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('5')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:06:15 --> Undefined array key "child_id"
+in APPPATH\Views\front\childsubcategory.php on line 35.
+ 1 APPPATH\Views\front\childsubcategory.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:08:55 --> print_r() expects at least 1 argument, 0 given
+in APPPATH\Views\front\childsubcategory.php on line 35.
+ 1 APPPATH\Views\front\childsubcategory.php(35): print_r()
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:14:17 --> Undefined array key 1
+in APPPATH\Views\front\childsubcategory.php on line 38.
+ 1 APPPATH\Views\front\childsubcategory.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:33:29 --> Undefined array key "isProduct"
+in APPPATH\Views\front\childsubcategory.php on line 42.
+ 1 APPPATH\Views\front\childsubcategory.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "isProduct"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\childsubcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('3')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:41:41 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 85.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('10')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:43:07 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 85.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:43:44 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 85.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:44:07 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 85.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:44:23 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 85.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:44:45 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 84.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:46:11 --> Unclosed '{' on line 43
+in APPPATH\Views\front\childsubcategory.php on line 164.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 10:46:21 --> syntax error, unexpected token "endforeach"
+in APPPATH\Views\front\childsubcategory.php on line 84.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/childsubcategory', [], true)
+ 3 APPPATH\Controllers\Home.php(1160): view('front/childsubcategory', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_child_category('2')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 11:19:31 --> Undefined array key 4
+in APPPATH\Views\front\child_subchild.php on line 44.
+ 1 APPPATH\Views\front\child_subchild.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 4', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\child_subchild.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/child_subchild', [], true)
+ 5 APPPATH\Controllers\Home.php(1213): view('front/child_subchild', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->child_subchild_category('24')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

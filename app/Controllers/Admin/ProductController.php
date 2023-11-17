@@ -418,40 +418,95 @@ class ProductController extends BaseController
                 }
 
 
+                // if (isset($row[17]) && $row[17] != '') {
+                //     $imageName = basename($row[17]);
+
+                //     // Define the destination folder for the product images
+                //     $destinationFolder = 'public/admin/images/product/';
+
+                //                         // Generate a unique filename based on the current timestamp
+                //          // You can change the file extension to .png if needed
+
+                //         $encodedFilename = str_replace('+', '%20', urlencode(basename($row[17])));
+                //         $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
+
+                //         $imageName = time(). '_' . $encodedFilename;
+                        
+                //         // Download the image and save it to the destination folder
+                //         $imageData = file_get_contents($product_img_csv);
+                //         if ($imageData !== false) {
+                //             $destinationPath = $destinationFolder . $imageName;
+                //             if (file_put_contents($destinationPath, $imageData) !== false) {
+                //                 echo "Image downloaded and saved successfully as $imageName.";
+                //             } else {
+                //                 echo "Error saving the image.";
+                //             }
+                //         } else {
+                //             echo "Error downloading the image.";
+                //         }
+                //     }
+
                 if (isset($row[17]) && $row[17] != '') {
                     $imageName = basename($row[17]);
-
+                
                     // Define the destination folder for the product images
                     $destinationFolder = 'public/admin/images/product/';
+                
+                    // Generate a unique filename based on the current timestamp
+                    // You can change the file extension to .png if needed
+                    $encodedFilename = str_replace('+', '%20', urlencode(basename($row[17])));
+                    $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
+                
+                    $imageName = time(). '_' . $encodedFilename;
+                
+                    // Download the image and save it to the destination folder
+                    $imageData = file_get_contents($product_img_csv);
+                
+                    if ($imageData !== false) {
+                        $destinationPath = $destinationFolder . $imageName;
+                
+                        // Save the original image
+                        if (file_put_contents($destinationPath, $imageData) !== false) {
+                            echo "Original image downloaded and saved successfully as $imageName.";
+                
+                            // Compress the image using CodeIgniter 4 Image Library
+                            $config = [
+                                'quality' => 80, // Adjust the quality as needed (0-100)
+                            ];
+                
+                            $compressedPath = $destinationFolder . $imageName;  
+                
+                            // Load the Image library
+                            $imageLib = \Config\Services::image();
 
-                                        // Generate a unique filename based on the current timestamp
-                         // You can change the file extension to .png if needed
-
-                        $encodedFilename = str_replace('+', '%20', urlencode(basename($row[17])));
-                        $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
-
-                        $imageName = time(). '_' . $encodedFilename;
-                        
-                        // Download the image and save it to the destination folder
-                        $imageData = file_get_contents($product_img_csv);
-                        if ($imageData !== false) {
-                            $destinationPath = $destinationFolder . $imageName;
-                            if (file_put_contents($destinationPath, $imageData) !== false) {
-                                echo "Image downloaded and saved successfully as $imageName.";
-                            } else {
-                                echo "Error saving the image.";
+                            // Check if the Image library is successfully loaded
+                            if ($imageLib === null) {
+                                die('Error: Unable to load the Image library.');
                             }
+
+                            // Compress the image
+                            $img = $imageLib->withFile($compressedPath);
+
+                            // Check if the save operation was successful
+                            if ($img === false) {
+                                die('Error: Unable to save the compressed image.');
+                            }
+                            // Compress the image with a quality parameter (0-100)
+                            $img->save($compressedPath, 50); // Adjust the quality as needed
+                
+                            echo "Compressed image saved successfully as compressed_$imageName.";
                         } else {
-                            echo "Error downloading the image.";
+                            echo "Error saving the original image.";
                         }
+                    } else {
+                        echo "Error downloading the image.";
                     }
+                }
 
                 if (isset($row[20]) && $row[20] != '') {
                     // Subcategory name
                     // Assuming the first column (index 0) contains the variable names var1, var2, var3, etc.
                     // Loop through each column starting from index 1 (skipping the first column with variable names)
-
-                   
 
                     for ($i=20; $i < count($row); $i++) {
                         if($i != 20)
@@ -550,8 +605,8 @@ class ProductController extends BaseController
                             'sub_category_id' => $subcategoryId,
                             'product_description' => $ProductDescription,
                             'product_short_description' => $shortDescription,
-                            'product_img_csv' => $destinationPath,
-                            'product_img' => $destinationPath,
+                            'product_img_csv' => $compressedPath,
+                            'product_img' => $compressedPath,
                             'product_header1' => $vheader1,
                             'product_header2' => $vheader2,
                             'product_header3' => $vheader3,

@@ -25,7 +25,9 @@
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
                         <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($ChildSubCategorydata as $index => $childsubcategory) : ?>
+                            <?php foreach ($ChildSubCategorydata as $index => $childsubcategory) : 
+                            
+                                ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
                                     <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $childsubcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $childsubcategory['sub_category_id']; ?>)">
                                         <p class="panel-title">

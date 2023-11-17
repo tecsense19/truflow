@@ -30,25 +30,27 @@
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
                         <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($sidebar_array as $index => $subcategory) : 
-                              ?>
+                            <?php foreach ($sidebar_array as $index => $subcategory) : ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
-                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>)">
+                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>">
                                         <p class="panel-title">
-                                            <?php if ($index === 0) : ?>
-                                                <i class="fa fa-caret-down"></i>
-                                            <?php else : ?>
-                                                <i class="fa fa-caret-right"></i>
-                                            <?php endif; ?>
-                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                        <i class="fa fa-caret-right"></i>&nbsp;
+                                            <?php if(isset($subcategory['child_arr'][$index]['child_id'])) { ?>
+                                            <a href="<?php echo base_url('') . "childsub/category/" . $subcategory['sub_category_id'] ?>">
+                                        <?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                        <?php } else { ?>
+                                            <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>">
+                                        <?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                         <?php } ?>
+                                            
                                         </p>
                                     </div>
-                                    <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
+                                    <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse" bis_skin_checked="1">
                                         <?php if (!empty($subcategory['child_arr'])) : ?>
                                             <div class="panel-body">
                                             <?php if(count($subcategory['child_arr']) > 0) { foreach ($subcategory['child_arr'] as $product) : ?>
-                                                    <p>
-                                                        <i class="fa fa-caret-right"></i>
+                                                    <p class="panel-title" style="padding: 10px;">
+                                                    <i class="fa fa-caret-right"></i>&nbsp;
 
                                                         <a class="pro_link" href="<?php echo base_url('') . "childsub/category/" . $product['child_id']; ?>">
                                                             <?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['parent'] ?>
@@ -58,7 +60,7 @@
                                                 <?php endforeach; } else { ?>
                                                 <?php foreach ($subcategory['product_arr'] as $product) : ?>
                                                     <p>
-                                                        <i class="fa fa-caret-right"></i>
+                                                    <i class="fa fa-caret-right"></i>&nbsp;
 
                                                         <a class="pro_link" href="<?php echo base_url('') . "product/details/" .$product['product_id'];?>">
                                                             <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
@@ -129,9 +131,9 @@
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
 
-<script>
+<!-- <script>
     function toggleSubCategory(event, subCategoryId) {
-
+        alert(subCategoryId);
         event.preventDefault();
 
         var subCategoryPanel = document.getElementById('collapse' + subCategoryId);
@@ -152,4 +154,4 @@
             titleIcon.classList.add('fa-caret-right');
         }
     }
-</script>
+</script> -->
