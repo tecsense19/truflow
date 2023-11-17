@@ -36,21 +36,27 @@ $this->include('front/layout/front');
                             <?php foreach ($sidebar_array as $index => $subcategory) : 
                               ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
-                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>)">
+                                    <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $index; ?>">
                                         <p class="panel-title">
-                                            <?php if ($index === 0) : ?>
-                                                <i class="fa fa-caret-down"></i>
-                                            <?php else : ?>
-                                                <i class="fa fa-caret-right"></i>
-                                            <?php endif; ?>
-                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
+                                        <i class="fa fa-caret-right"></i>&nbsp;
+                                        <?php if(!empty($subcategory['child_arr'][$index])) { ?>
+                                            
+                                            <a href="<?php echo base_url('') . "childsub_sub/category/" . isset($subcategory['child_arr'][$index]['child_id']) ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
+                                            
+                                           
+                                        <?php } else { ?>
+                                            
+                                            <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
+                                            
+                                         <?php } ?>
+                                            
                                         </p>
                                     </div>
-                                    <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($index === 0) echo 'in'; ?>" bis_skin_checked="1">
-                                        
+                                    <div id="collapse<?php echo $index; ?>" class="panel-collapse collapse">
+            
                                             <div class="panel-body">
                                                 <?php if(count($subcategory['child_arr']) > 0) { foreach ($subcategory['child_arr'] as $product) : ?>
-                                                    <p>
+                                                    <p class="panel-title" style="padding: 10px;">
                                                         <i class="fa fa-caret-right"></i>
 
                                                         <a class="pro_link" href="<?php echo base_url('') . "childsub_sub/category/" . $product['child_id']; ?>">
@@ -60,7 +66,7 @@ $this->include('front/layout/front');
                                                     </p>
                                                 <?php endforeach; } else { ?>
                                                 <?php foreach ($subcategory['product_arr'] as $product) : ?>
-                                                    <p>
+                                                    <p class="panel-title" style="padding: 10px;">
                                                         <i class="fa fa-caret-right"></i>
 
                                                         <a class="pro_link" href="<?php echo base_url('') .  "product/details/" .$product['product_id'];?>">

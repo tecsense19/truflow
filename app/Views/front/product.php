@@ -34,18 +34,14 @@
                             <?php foreach ($subcategoryData1 as $index => $subcategory) : ?>
                                 <div class="panel panel-default">
                                     
-                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $subcategory['sub_category_id']; ?>" onclick="toggleSubCategory(event, <?php echo $subcategory['sub_category_id']; ?>, this)">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $index; ?>">
 
                                         <p class="panel-title">
-                                            <?php if ($subcategory['sub_category_id'] === $subcategoryid) : ?>
-                                                <i class="fa fa-caret-down"></i>
-                                            <?php else : ?>
-                                                <i class="fa fa-caret-right"></i>
-                                            <?php endif; ?>
-                                            <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
+                                        <i class="fa fa-caret-right"></i>&nbsp;
+                                            <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
                                         </p>
                                     </div>
-                                        <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse <?php if ($subcategory['sub_category_id'] === $subcategoryid) echo 'in'; ?>">
+                                        <div id="collapse<?php echo $index; ?>" class="panel-collapse collapse">
                                             <?php if (!empty($subcategory['product_array'])) : ?>
                                                 <div class="panel-body">
                                                     <?php foreach ($subcategory['product_array'] as $product) : ?>
