@@ -445,7 +445,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <div class="product_card">
                                     <div class="card">
 
-                                        <?php if (isset($product['product_img']) && $product['featured_category'] == 1 ) {
+                                        <?php if ($product['featured_category'] === 1 ) {
                                             $imagePaths = explode(',', $product['product_img']);
                                             $firstImagePath = trim($imagePaths[0]);
                                         ?>
@@ -480,7 +480,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <div class="col-sm-6 col-lg-3">
                                 <div class="product_card">
                                     <div class="card">
-                                        <?php if (isset($product['product_img']) && $product['featured_category'] == 1) {
+                                        <?php if ($product['featured_category'] === 1) {
                                                 $imagePaths = explode(',', $product['product_img']);
                                                 $firstImagePath = trim($imagePaths[0]);
                                             ?>
