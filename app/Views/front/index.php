@@ -472,7 +472,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         </div>
                     </div>
 
-                    <?php foreach ($categoryData as $category) : ?>
+                    <!-- <?php foreach ($categoryData as $category) : ?>
                     <div id="menu<?= $category['sub_category_id'] ?>" class="container tab-pane fade">
                         <div class="row">
                             <?php if (isset($category['products'])) : ?>
@@ -506,7 +506,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             <?php endif; ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?> -->
                 </div>
 
             </div>

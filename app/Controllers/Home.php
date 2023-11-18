@@ -149,6 +149,9 @@ class Home extends BaseController
             $sliderData = null;
         }
 
+        // echo "<pre>";
+        // print_r($subcategoryData);
+        // die;
 
         return view(
             'front/index',

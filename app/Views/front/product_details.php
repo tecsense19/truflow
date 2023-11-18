@@ -324,7 +324,7 @@ input.minus {
                         <?php foreach ($productData as $product) { ?>
                                 <tr style=" box-shadow: 2px 2px 12px -2px rgb(50, 50, 50); border:5px solid white;">
                                     <td class="table-front"><h5><?php echo $product['variant_sku']; ?></h5></td>
-                                    <td class="table-front"><h6 class="space"><?php echo $product['sort']; ?></h6></td>
+                                    <td class="table-front"><h6 class="space"><?php echo $product['product_short_description']; ?></h6></td>
                                     <td class="table-front">
                                         <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                         <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $product['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
