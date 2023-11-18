@@ -472,41 +472,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                         </div>
                     </div>
 
-                    <!-- <?php foreach ($categoryData as $category) : ?>
-                    <div id="menu<?= $category['sub_category_id'] ?>" class="container tab-pane fade">
-                        <div class="row">
-                            <?php if (isset($category['products'])) : ?>
-                            <?php foreach ($category['products'] as $product) : ?>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="product_card">
-                                    <div class="card">
-                                        <?php if ($product['featured_category'] === 1) {
-                                                $imagePaths = explode(',', $product['product_img']);
-                                                $firstImagePath = trim($imagePaths[0]);
-                                            ?>
-                                        <img src="<?php echo base_url() . $firstImagePath ?>" alt="product image"
-                                            class="img-fluid product_img">
-                                        <?php } else { ?>
-                                        <img class="product_img"
-                                            src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
-
-                                        <?php } ?>
-
-                                        <div class="card-body">
-                                            <a
-                                                href="<?php echo base_url('') . "product_details/" . $product['product_id'] ?>">
-                                                <h5><?= $product['product_name'] ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
-                                                </h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    <?php endforeach; ?> -->
+                  
                 </div>
 
             </div>
@@ -592,8 +558,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     </section>
     <!--~~~~~~~~~~~~~~~~~~>> PARTNER LOGO END <<~~~~~~~~~~~~~~~~~-->
     <?= $this->include('front/layout/footer'); ?>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+   
+    <script src="<?php echo base_url() ?>public/front/js/owl.carousel.min.js"></script>
     <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
     <script>
     $(document).ready(function() {
