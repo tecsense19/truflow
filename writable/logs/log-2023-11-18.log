@@ -1,0 +1,16 @@
+CRITICAL - 2023-11-18 07:38:39 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 628.
+ 1 APPPATH\Controllers\Home.php(628): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 628)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('2')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-18 09:20:22 --> Cannot use empty array elements in arrays
+in APPPATH\Controllers\Admin\ProductController.php on line 649.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-18 09:20:26 --> Cannot use empty array elements in arrays
+in APPPATH\Controllers\Admin\ProductController.php on line 649.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-18 09:20:36 --> Cannot use empty array elements in arrays
+in APPPATH\Controllers\Admin\ProductController.php on line 649.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

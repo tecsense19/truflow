@@ -572,10 +572,18 @@ class ProductController extends BaseController
                     $ProductDescription = utf8_encode($row[7]);
                     $shortDescription = utf8_encode($row[8]);
                     $information = utf8_encode($row[9]);
+
+                    if($row[10] || $row[11] || $row[12] || $row[13])
+                    {
+
+                    }else{
+
+                    }
                     $vheader1 = utf8_encode($row[10]);
                     $vheader2 = utf8_encode($row[11]);
                     $vheader3 = utf8_encode($row[12]);
                     $vheader4 = utf8_encode($row[13]);
+
                     $discount_code = utf8_encode($row[14]);
                     $group_name = utf8_encode($row[15]);
                     $sort = utf8_encode($row[16]);
@@ -594,7 +602,7 @@ class ProductController extends BaseController
                         $CouponId = "0";
                     }
 
-               
+                
 
                     if ($productName != '') {
                         // Insert the product
@@ -607,10 +615,10 @@ class ProductController extends BaseController
                             'product_short_description' => $shortDescription,
                             'product_img_csv' => $compressedPath,
                             'product_img' => $compressedPath,
-                            'product_header1' => $vheader1,
-                            'product_header2' => $vheader2,
-                            'product_header3' => $vheader3,
-                            'product_header4' => $vheader4,
+                            'product_header1' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
+                            'product_header2' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
+                            'product_header3' => trim($vheader3, "'") ? trim($vheader3, "'") : '', 
+                            'product_header4' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
                             'product_additional_info' => $information,
                             'product_favourite' => $Favourite,
                             'coupon_id' => $CouponId,
@@ -618,7 +626,7 @@ class ProductController extends BaseController
                         ];
                         $productId = $productModel->insert($product);
                     }
-
+          
                 // Variant details
                 $variantName = utf8_encode($row[1]);
                 $variantPrice = utf8_encode($row[2]);
@@ -637,11 +645,11 @@ class ProductController extends BaseController
                         'parent' => $parent,
                         'variant_stock' => $stock,
                         'group_name' => $group_name,
-                        'sort' => $sort,
-                        'variant_description' => $vheader1,
-                        'variant_description_1' => $vheader2,
-                        'variant_description_2' => $vheader3,
-                        'variant_description_3' => $vheader4,
+                        'sort' => trim($sort, "'"),
+                        'variant_description' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
+                        'variant_description_1' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
+                        'variant_description_2' => trim($vheader3, "'") ? trim($vheader3, "'") : '',
+                        'variant_description_3' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
                     ];
                     $variantModel->insert($variant);
                 }
