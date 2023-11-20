@@ -78,6 +78,8 @@
                             <?php if (!empty($childsubcategory['sub_cat'])) : ?>
                                 <?php foreach ($childsubcategory['sub_cat'] as $childsubcategory1) : ?>
                                     <?php foreach ($childsubcategory1['child_arr'] as $childsubcategory) : ?>
+                                        <?php if(isset($childsubcategory['is_child'])) { ?>
+                                            <a href="<?php echo base_url('') . "childsub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -90,12 +92,11 @@
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-                                    <?php if(isset($childsubcategory['is_child'])) { ?>
-                                            <a href="<?php echo base_url('') . "childsub/category/" . $childsubcategory['child_id'] ?>" class="category-link">
+                                  
                                                 <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
                                             </a>
                                         <?php } else { ?>
-                                            <a href="<?php echo base_url('') . "product/" . $childsubcategory['sub_category_id'] ?>" class="category-link">
+                                            <!-- <a href="<?php echo base_url('') . "product/" . $childsubcategory['sub_category_id'] ?>" class="category-link"> -->
                                                 <h3 class="mt-3"><?php echo $childsubcategory['child_sub_category_name']; ?></h3>
                                             </a>
                                         <?php } ?>

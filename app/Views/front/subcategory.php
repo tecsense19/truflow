@@ -88,6 +88,7 @@
                             // print_r($subcategory);
                             // die;
                              $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id']  : base_url('') . "childsub/category/" . $subcategory['sub_category_id']; ?>
+                             <a href="<?php echo $redirectUrl; ?>" class="category-link">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -101,15 +102,15 @@
                                     <hr>
                                     <div class="product_text text-center">
                                      
-                                            <a href="<?php echo $redirectUrl; ?>" class="category-link">
+                                            
                                                 <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
-                                            </a>
+                                            
                                      
                                         <span><?php echo $subcategory['sub_category_description']; ?></span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
-                  
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">

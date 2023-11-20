@@ -92,6 +92,7 @@ $this->include('front/layout/front');
                         <?php foreach ($child_subchild as $subcategory) { 
                             $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
                             ?>
+                              <a href="<?php echo $redirectUrl ?>" class="category-link">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -105,13 +106,14 @@ $this->include('front/layout/front');
                                     <hr>
                                     <div class="product_text text-center">
                                      
-                                            <a href="<?php echo $redirectUrl ?>" class="category-link">
+                                          
                                                 <h3 class="mt-3"><?php echo $subcategory['child_sub_category_name']; ?></h3>
-                                            </a>
+                                           
                                      
                                       
                                     </div>
                                 </div>
+                                </a>
                             </div>
                   
                         <?php } ?>

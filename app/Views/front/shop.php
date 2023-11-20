@@ -69,6 +69,7 @@ section.category_product .container {
 
                     <?php if (isset($categoryData)) { ?>
                     <?php foreach ($categoryData as $category) { ?>
+                        <a href="<?php echo base_url('') . "sub/category/" . $category['category_id'] ?>">
                     <div class="col-lg-3">
                         <div class="product_box">
                             <div class="product_img">
@@ -82,12 +83,13 @@ section.category_product .container {
                             </div>
                             <hr>
                             <div class="product_text text-center">
-                                <a href="<?php echo base_url('') . "sub/category/" . $category['category_id'] ?>">
+                                
                                     <h3 class="mt-3"><?php echo $category['category_name']; ?></h3>
-                                </a>
+                               
                                 <span><?php echo $category['category_description']; ?></span>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <?php } ?>
                     <?php } else { ?>
