@@ -459,47 +459,31 @@ class ProductController extends BaseController
                 
                     $imageName = time(). '_' . $encodedFilename;
                 
-                    // Download the image and save it to the destination folder
-                    $imageData = file_get_contents($product_img_csv);
-                
-                    if ($imageData !== false) {
-                        $destinationPath = $destinationFolder . $imageName;
-                
-                        // Save the original image
-                        if (file_put_contents($destinationPath, $imageData) !== false) {
-                            echo "Original image downloaded and saved successfully as $imageName.";
-                
-                            // Compress the image using CodeIgniter 4 Image Library
-                            $config = [
-                                'quality' => 80, // Adjust the quality as needed (0-100)
-                            ];
-                
-                            $compressedPath = $destinationFolder . $imageName;  
-                
-                            // Load the Image library
-                            $imageLib = \Config\Services::image();
+                    if (file_exists($product_img_csv)) {
+                        $imageData = file_get_contents($product_img_csv);
+                        if ($imageData !== false) {
+                            $destinationPath = $destinationFolder . $imageName;
+                    
+                            // Save the original image
+                            if (file_put_contents($destinationPath, $imageData) !== false) {
+                    
+                                // Compress the image using CodeIgniter 4 Image Library
+                                $config = [
+                                    'quality' => 80, // Adjust the quality as needed (0-100)
+                                ];
+                    
+                                $compressedPath = $destinationFolder . $imageName;  
+                    
+                                // Load the Image library
+                                $imageLib = \Config\Services::image();
 
-                            // Check if the Image library is successfully loaded
-                            if ($imageLib === null) {
-                                die('Error: Unable to load the Image library.');
-                            }
-
-                            // Compress the image
-                            $img = $imageLib->withFile($compressedPath);
-
-                            // Check if the save operation was successful
-                            if ($img === false) {
-                                die('Error: Unable to save the compressed image.');
-                            }
-                            // Compress the image with a quality parameter (0-100)
-                            $img->save($compressedPath, 50); // Adjust the quality as needed
-                
-                            echo "Compressed image saved successfully as compressed_$imageName.";
-                        } else {
-                            echo "Error saving the original image.";
+                                if($imageLib)
+                                {
+                                    $img = $imageLib->withFile($compressedPath);
+                                    $img->save($compressedPath, 50);
+                                }
+                            } 
                         }
-                    } else {
-                        echo "Error downloading the image.";
                     }
                 }
 
@@ -613,8 +597,8 @@ class ProductController extends BaseController
                             'sub_category_id' => $subcategoryId,
                             'product_description' => $ProductDescription,
                             'product_short_description' => $shortDescription,
-                            'product_img_csv' => $compressedPath,
-                            'product_img' => $compressedPath,
+                            'product_img_csv' => isset($compressedPath) ? $compressedPath : '',
+                            'product_img' => isset($compressedPath) ? $compressedPath : '',
                             'product_header1' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
                             'product_header2' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
                             'product_header3' => trim($vheader3, "'") ? trim($vheader3, "'") : '', 
