@@ -459,30 +459,29 @@ class ProductController extends BaseController
                 
                     $imageName = time(). '_' . $encodedFilename;
                 
-                    if (file_exists($product_img_csv)) {
-                        $imageData = file_get_contents($product_img_csv);
-                        if ($imageData !== false) {
-                            $destinationPath = $destinationFolder . $imageName;
-                    
-                            // Save the original image
-                            if (file_put_contents($destinationPath, $imageData) !== false) {
-                    
-                                // Compress the image using CodeIgniter 4 Image Library
-                                $config = [
-                                    'quality' => 80, // Adjust the quality as needed (0-100)
-                                ];
-                    
-                                $compressedPath = $destinationFolder . $imageName;  
-                    
-                                // Load the Image library
-                                $imageLib = \Config\Services::image();
+                    // Download the image and save it to the destination folder
+                    $imageData = file_get_contents($product_img_csv);
+                                    
+                    if ($imageData !== false) {
+                        $destinationPath = $destinationFolder . $imageName;
 
-                                if($imageLib)
-                                {
-                                    $img = $imageLib->withFile($compressedPath);
-                                    $img->save($compressedPath, 50);
-                                }
-                            } 
+                        // Save the original image
+                        if (file_put_contents($destinationPath, $imageData) !== false) {
+                            $config = [
+                                'quality' => 80, // Adjust the quality as needed (0-100)
+                            ];
+
+                            $compressedPath = $destinationFolder . $imageName;  
+
+                            // Load the Image library
+                            $imageLib = \Config\Services::image();
+
+                            if($imageLib)
+                            {
+                                $img = $imageLib->withFile($compressedPath);
+
+                                $img->save($compressedPath, 50);
+                            }
                         }
                     }
                 }
