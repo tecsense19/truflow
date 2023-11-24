@@ -52,7 +52,7 @@ class CompanyCouponController extends BaseController
     $newData2 = [];
     foreach ($productData as $pnewdata) {
         $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
-        $pnewdata['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
+        $pnewdata['parent'] = $variantData > 0 ? $variantData['parent'] : '';
         $newData2[] = $pnewdata;
     }
 

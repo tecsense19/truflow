@@ -30,61 +30,7 @@
                         <strong>Sub Categories</strong>
                     </div>
                     <div class="panel-body">
-                        <div class="panel-group" id="accordion">
-                            <?php foreach ($subcategoryData1 as $index => $subcategory) : ?>
-                                <div class="panel panel-default">
-                                    
-                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $index; ?>">
-
-                                        <p class="panel-title">
-                                        <i class="fa fa-caret-right"></i>&nbsp;
-                                            <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>"><?php echo strtoupper($subcategory['sub_category_name']); ?></a>
-                                        </p>
-                                    </div>
-                                        <div id="collapse<?php echo $index; ?>" class="panel-collapse collapse">
-                                            <?php if (!empty($subcategory['product_array'])) : ?>
-                                                <div class="panel-body">
-                                                    <?php foreach ($subcategory['product_array'] as $product) : ?>
-                                                        <p>
-                                                            <i class="fa fa-caret-right"></i>
-                                                            <a class="pro_link" href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
-                                                                <?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
-                                                            </a>
-                                                        </p>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                        <!-- try ul li -->
-                                        <?php foreach ($categories as $key => $value) {
-                                            foreach ($value['sub_cat'] as $key => $value1) {
-                                                if ($value1['sub_category_name'] == $subcategory['sub_category_name']) {
-                                                    $found = true; ?>
-                                                    <?php if (!empty($value1['child_arr'])) : ?>
-                                                       
-                                                            <?php foreach ($value1['child_arr'] as $childsubcategory) : ?>
-                                                                <!-- <li><span class="caret"> -->
-                                                                        <?php //echo $childsubcategory['child_sub_category_name']; ?>
-                                                                    </span>
-                                                                    <?php if (!empty($childsubcategory['all_childs'])) : ?>
-                                                                        <?php //displayChildren($childsubcategory['all_childs']); ?>
-                                                                    <?php endif; ?>
-                                                                <!-- </li> -->
-                                                            <?php endforeach; ?>
-                                                    <?php endif; ?>
-                                        <?php
-                                                    break; // Exit the inner loop
-                                                }
-                                            }
-                                            if ($found) {
-                                                break; // Exit the outer loop if the subcategory is found
-                                            }
-                                        } ?>
-                                        <!-- try end -->
-                                    
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
+                        <?php echo view('front/shop_sidebar'); ?>
                     </div>
                 </div>
             </div>

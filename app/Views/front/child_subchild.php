@@ -32,7 +32,8 @@ $this->include('front/layout/front');
                         <strong>Sub Categories</strong>
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
-                        <div class="panel-group" id="accordion" bis_skin_checked="1">
+                        <?php echo view('front/shop_sidebar'); ?>
+                        <!-- <div class="panel-group" id="accordion" bis_skin_checked="1">
                             <?php foreach ($sidebar_array as $index => $subcategory) : 
                               ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
@@ -79,7 +80,7 @@ $this->include('front/layout/front');
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

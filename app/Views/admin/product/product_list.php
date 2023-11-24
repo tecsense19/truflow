@@ -99,7 +99,7 @@
                                                     
                                                     <td>
                                                         <a class="" href="<?php echo base_url('') . "admin/product/edit/" . $product['product_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                        <a class="" href="<?php echo base_url('') . "admin/product/delete/" . $product['product_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                        <a class="delete-product" href="<?php echo base_url('') . "admin/product/delete/" . $product['product_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php $i++; ?>
@@ -127,3 +127,20 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
+<script>
+    $(document).ready(function() {
+        $(".delete-product").on("click", function(e) {
+            e.preventDefault();
+
+            var deleteUrl = $(this).attr("href");
+
+            // Show a confirmation dialog
+            var confirmDelete = window.confirm("Are you sure you want to delete this product?");
+
+            // If the user confirms, proceed with the deletion
+            if (confirmDelete) {
+                window.location.href = deleteUrl;
+            }
+        });
+    });
+</script>

@@ -46,6 +46,8 @@ $testominal_description = isset($testominalData) ? $testominalData['description'
 $partner_setting_id = isset($partnerData) ? $partnerData['setting_id'] : '';
 $partner_title = isset($partnerData) ? $partnerData['title'] : '';
 $partner_description = isset($partnerData) ? $partnerData['description'] : '';
+
+$loginId = $session->get('user_id');
 ?>
 <!-- new page login added -->
 
@@ -56,11 +58,12 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
     <div class="container-fluid p-md-1 row_margine" style="overflow: hidden;">
 
         <div class="row no-md-gutters justify-content-center mt-md-0 mt-lg-2">
-            <div class="col-lg-9 col-md-12 pr-md-2 p-1 p-md-0">
-                <a href="<?php echo base_url('shop') ?>"><img class="img-fluid"
-                        src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt=""></a>
+            <div class="<?php echo $loginId ? 'col-lg-12' : 'col-lg-9'; ?> col-md-12 pr-md-2 p-1 p-md-0">
+                <a href="<?php echo base_url('shop') ?>">
+                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt="">
+                </a>
             </div>
-            <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro;">
+            <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'block'; ?>">
                 <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
                     <h2 class="text-center pt-5 pb-3">Sign in</h2>
                     <div class="form-group">

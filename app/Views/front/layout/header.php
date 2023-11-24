@@ -279,7 +279,7 @@ display: none;
                         <?php } ?>
                     </ul>
                 </div>
-                <div class="search-form-main clearfix">
+                <div class="search-form-main clearfix" style="margin-right: 12px;">
                     <form role="search" method="POST" class="search-form" id="Ajax_search">
                         <div class="Ajax_search">
                             <div class="input-group">
@@ -299,14 +299,14 @@ display: none;
                 <div class="row mobile_view">
                 <div class="media_icons">
                 <div class="heart_top">
-                    <a href="<?php echo base_url('wishlist') ?>" class="heart">
+                    <!-- <a href="<?php echo base_url('wishlist') ?>" class="heart">
                         <i class="fa-regular fa-heart media_space" data-toggle="tooltip" data-placement="top" title="wish list"></i></a>
 
-                    <?php if (isset($wishlistCount) && $wishlistCount > 0) { ?>
-                        <span class="wishlist_products_counter_number"><?php echo $wishlistCount; ?></span>
-                    <?php } else { ?>
+                    <?php // if (isset($wishlistCount) && $wishlistCount > 0) { ?>
+                        <span class="wishlist_products_counter_number"><?php // echo $wishlistCount; ?></span>
+                    <?php // } else { ?>
                         <span class="wishlist_products_counter_number">0</span>
-                    <?php } ?>
+                    <?php // } ?> -->
                 </div>
                 <div class="heart_top">
                     <a href="<?php echo base_url('add/cart') ?>" class="cart"> <i class="fa-solid fa-cart-shopping media_space" data-toggle="tooltip" data-placement="top" title="Add to Cart"></i>
@@ -320,7 +320,7 @@ display: none;
                 </div>
             </div>
         
-                <div class="dropdown show">
+            <div class="dropdown show" style="margin-right: 20px;">
                 <?php if ($session->get('logged_in') && $fullName) { ?>
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php echo "Hi, $fullName "; ?>

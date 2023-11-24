@@ -74,11 +74,31 @@ class OrderController extends BaseController
             $couponData = $couponmodel->where('coupon_code', $couponCode)->findAll();
         }
 
+        $couponModel = new CouponModel;
+        $discount = 000.00;
+        if(isset($cartData) && !empty($cartData))
+        {
+            foreach($cartData as $cartD)
+            {
+                $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                if(!empty($getCoupon))
+                {
+                    if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                    {
+                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                        $discount += $cartD['total_amount'] - $getCoupon['coupon_price'];
+                    }
+                }
+            }
+        }
+
         return view('front/checkout', [
             'cartData' => $cartData,
             'userData' => $userData,
             'couponData' => $couponData,
-            'headerData' => $headerData
+            'headerData' => $headerData,
+            'total_auto_discount' => $discount
         ]);
     }
 
@@ -144,7 +164,22 @@ class OrderController extends BaseController
             $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
             $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
             $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
-            $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
+            // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
+
+            $couponModel = new CouponModel;
+            $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();
+            $discount = 0;
+            if(!empty($getCoupon))
+            {
+                if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                {
+                    $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
+                } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                    $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                }
+            }
+            $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
+
             $orderitemmodel->insert($orderArr);
 
 
@@ -166,7 +201,7 @@ class OrderController extends BaseController
         $this->remove_checkout($userId);
         $this->shipping_add($userId, $order_id);
        
-       
+        $this->generate_pdf($order_id);
        
 
         $session->setFlashdata('success', 'Order Placed successfully.');
@@ -174,6 +209,76 @@ class OrderController extends BaseController
         return redirect()->back();
         //die();
     }
+
+    public function generate_pdf($orderId)
+    {
+        $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+
+        // Fetch order data
+        $query = $orderitemmodel->select('*')
+            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id')
+            ->where('tbl_order.order_id', $orderId)
+            ->get();
+
+
+        $orderData = $query->getResultArray();
+
+        $ordersByOrderId = [$orderId => $orderData];
+
+        $shippingmodel = new ShippingModel();
+        $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
+
+        if (!$shipping) {
+            $shipping = null;
+        }
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_id', $orderData[0]['user_id'])->first();
+        if (!$userData) {
+            $userData = null;
+        }
+
+        $data = [
+            'userData' => $userData,
+            'countryData' => null,
+            'orderData' => $orderData,
+            'ordersByOrderId' => $ordersByOrderId,
+            'shipping' => $shipping
+        ];
+
+        $html = view('front/order_pdf', $data);
+        
+        $emailService = \Config\Services::email();
+
+        $fromEmail = 'sendmail@testweb4you.com';
+        $fromName = 'Truflow Hydraulics';
+
+        $emailService->setFrom($fromEmail, $fromName);
+        $emailService->setTo('bhavin@tec-sense.com');
+        $emailService->setSubject('Place Order');
+        $emailService->setMessage('
+                <html>
+                    <body>
+                        <h1>Your Order Placed successfully.</h1>
+                        <p>Order Details.</p><br>
+                        '. $html .'
+                    </body>
+                </html>
+            ');
+
+        if ($emailService->send()) {
+            echo "Yes";
+        } else {
+            echo "No";
+        }
+    }
+
     public function remove_checkout($userId)
     {
         $session = session();

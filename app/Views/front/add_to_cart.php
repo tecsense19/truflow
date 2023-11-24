@@ -152,7 +152,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
                     <li class="d-flex justify-content-between sub">
                       <p>Discount</p>
-                      <span id="discount">$000.00</span>
+                      <span id="discount">$<?php echo $total_auto_discount; ?></span>
                     </li>
 
                     <li class="d-flex justify-content-between sub">
@@ -231,6 +231,10 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
   var new_amount = '';
   $(document).ready(function() {
     var subtotal = parseFloat($('#subtotal').text().replace(/[^0-9.-]+/g, ''));
+
+    var auto_discount = '<?php echo $total_auto_discount; ?>';
+    subtotal = subtotal - auto_discount;
+    
     var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
       minimumFractionDigits: 2
     });

@@ -164,7 +164,7 @@ input.minus {
                                 <div class="col-sm-10">
                                     <h3><?php echo $productData[0]['parent'] ?></h3>
                                 </div>
-                                <div class="col-sm-2">
+                                <!-- <div class="col-sm-2">
                                     <?php if (isset($addwishData)) { ?>
 
 
@@ -178,7 +178,7 @@ input.minus {
                                     <?php } else { ?>
                                         <img src="<?php echo base_url() ?>public/front/images/heartw.png" class="wishlistsubmit mb-2" alt="" data-product_id="<?php echo $productData[0]['product_id']; ?>" onclick="changeImage(this)" id="imagepreview">
                                     <?php } ?>
-                                </div>
+                                </div> -->
                             </div>
                             <h3 class="mt-2"><?php echo "$" . $productDataPrice[0]['min_price'] . " - " . "$" . $productDataPrice[0]['max_price']; ?></h3>
 

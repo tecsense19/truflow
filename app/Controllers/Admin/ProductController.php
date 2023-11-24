@@ -464,15 +464,15 @@ class ProductController extends BaseController
                                     
                     if ($imageData !== false) {
                         $destinationPath = $destinationFolder . $imageName;
-
+                
                         // Save the original image
                         if (file_put_contents($destinationPath, $imageData) !== false) {
                             $config = [
                                 'quality' => 80, // Adjust the quality as needed (0-100)
                             ];
-
+                
                             $compressedPath = $destinationFolder . $imageName;  
-
+                
                             // Load the Image library
                             $imageLib = \Config\Services::image();
 

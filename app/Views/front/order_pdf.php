@@ -110,10 +110,10 @@
                             <td><?php echo $order['product_quantity']; ?></td>
                             <td></td>
                             <td></td>
-                            <td><?php echo $order['product_amount']; ?></td>
+                            <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                             <td></td>
                             <td></td>
-                            <td><?php echo $order['total_amount']; ?></td>
+                            <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                         </tr>
                     <?php } ?>
                     <tr>
@@ -149,17 +149,33 @@
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;">
                             <?php
-                            $discount = 0;
+                            // $discount = 0;
+                            // foreach ($orderData as $dis) {
+                            //     $discount = $dis['product_discount'];
+                            // }
+
+                            // if ($dis['discount_type'] = 'Percentage') {
+
+                            //     echo $discount . "%";
+                            // } else {
+                            //     echo $discount . "Rs";
+                            // }
+                            $couponModel = model('App\Models\CouponModel');
+                            $discount = 000.00;
                             foreach ($orderData as $dis) {
-                                $discount = $dis['product_discount'];
+                                $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
+                                if(!empty($getCoupon))
+                                {
+                                    if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                                    {
+                                        $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
+                                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                        $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                    }
+                                }
                             }
 
-                            if ($dis['discount_type'] = 'Percentage') {
-
-                                echo $discount . "%";
-                            } else {
-                                echo $discount . "Rs";
-                            }
+                            echo number_format($discount, 2, '.', ',');
                             ?>
                         </td>
                     </tr>
@@ -175,11 +191,16 @@
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;">
                             <?php
+                            // $grandTotal = 0;
+                            // foreach ($orderData as $order) {
+                            //     $grandTotal = $order['final_total_ammount'];
+                            // }
+                            // echo $grandTotal;
                             $grandTotal = 0;
                             foreach ($orderData as $order) {
-                                $grandTotal = $order['final_total_ammount'];
+                                $grandTotal += $order['total_amount'];
                             }
-                            echo $grandTotal;
+                            echo number_format($grandTotal, 2, '.', ',');
                             ?>
                         </td>
                     </tr>

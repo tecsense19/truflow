@@ -39,21 +39,17 @@
                 <div class="col-md-5 col-lg-4">
                     <div class="footer_contact">
                         <h5>CONTACT US</h5>
-                        <div class="number">
-                            <a href="tel:+61894512204">
-                                <i class="fa-solid fa-phone"></i>
-                                <span class="rr">(+61) 08 9451 2204</span>
-                            </a>
+                        <div class="number" style="display: flex;">
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="rr"><a href="tel:+61894512204">(+61) 08 9451 2204</a></span>
                         </div>
-                        <div class="number">
-                            <a href="mailto: sales@truflowhydraulic.com.au">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span><a href="mailto: sales@truflowhydraulic.com.au" class="rr"> sales@truflowhydraulic.com.au</a></span>
-                            </a>
+                        <div class="number" style="display: flex;">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span><a href="mailto: sales@truflowhydraulic.com.au" class="rr"> sales@truflowhydraulic.com.au</a></span>
                         </div>
-                        <div class="number">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Truflow Hydraulic Components Pty Ltd <br>29 Dowd Street,Perth, Australia 6106.</span>
+                        <div class="number" style="display: flex;">
+                            <i class="fa-solid fa-location-dot" style="margin-left: 3px;"></i>
+                            <span>Truflow Hydraulics Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
                         </div>
                     </div>
                 </div>
@@ -66,7 +62,7 @@
             <div class="row all_right">
                 <div class="col-lg-6">
                     <div class="all_rights">
-                        <p>© 2023 Truflow Inc. All rights reserved.</p>
+                        <p>© 2023 Truflow Hydraulics Inc. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">

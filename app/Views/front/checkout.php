@@ -216,7 +216,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                 <li class="order_list d-flex justify-content-between align-items-center">
                   <p>Discount</p>
 
-                  <span id="discount">$000.00</span>
+                  <span id="discount">$<?php echo $total_auto_discount; ?></span>
                 </li>
 
                 <li class="order_list d-flex justify-content-between align-items-center">
@@ -338,6 +338,10 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
   var new_amount = '';
   $(document).ready(function() {
     var subtotal = parseFloat($('#subtotal').text().replace(/[^0-9.-]+/g, ''));
+
+    var auto_discount = '<?php echo $total_auto_discount; ?>';
+    subtotal = subtotal - auto_discount;
+
     var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
       minimumFractionDigits: 2
     });

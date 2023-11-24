@@ -313,29 +313,36 @@ class UserController extends BaseController
     public function user_profile($user_id)
     {
         $session = session();
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_id', $user_id)->first();
-        if (!$userData) {
-            $userData = null;
-        }
-        $countrymodel = new CountryModel();
+        if($session->get('user_id') && $session->get('user_id') == $user_id)
+        {
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_id', $user_id)->first();
+            if (!$userData) {
+                $userData = null;
+            }
+            $countrymodel = new CountryModel();
 
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
-        }
-        $companymodel = new CompanyModel();
-        $companyData = $companymodel->find();
-        if (!$companyData) {
-            $companyData = null;
-        }
-        $Headermodel = new HeaderMenuModel();
-        $HeaderModel = $Headermodel->find();
-        if (!$HeaderModel) {
-            $HeaderModel = null;
-        }
+            $countryData = $countrymodel->find();
+            if (!$countryData) {
+                $countryData = null;
+            }
+            $companymodel = new CompanyModel();
+            $companyData = $companymodel->find();
+            if (!$companyData) {
+                $companyData = null;
+            }
+            $Headermodel = new HeaderMenuModel();
+            $HeaderModel = $Headermodel->find();
+            if (!$HeaderModel) {
+                $HeaderModel = null;
+            }
 
-        return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData, 'companyData' => $companyData , 'headerData' => $HeaderModel]);
+            return view('front/user_profile', ['userData' => $userData, 'countryData' => $countryData, 'companyData' => $companyData , 'headerData' => $HeaderModel]);
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
 
     public function edit_user_profile()
@@ -478,24 +485,23 @@ class UserController extends BaseController
 
         $emailService = \Config\Services::email();
 
-        $fromEmail = 'nadim@tec-sense.com';
-        $fromName = 'TRUFLOW';
+        $fromEmail = 'sendmail@testweb4you.com';
+        $fromName = 'Truflow Hydraulics';
 
         $emailService->setFrom($fromEmail, $fromName);
         $emailService->setTo($user['email']);
         $emailService->setSubject('Password Reset');
         $emailService->setMessage('
-    <html>
-        <body>
-            <h1>Forgot Password</h1>
-            <p>Click the following link to reset your password:</p>
-            <p>
-                <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
-            </p>
-        </body>
-    </html>
-');
-
+            <html>
+                <body>
+                    <h1>Forgot Password</h1>
+                    <p>Click the following link to reset your password:</p>
+                    <p>
+                        <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
+                    </p>
+                </body>
+            </html>
+        ');
 
         if ($emailService->send()) {
             return redirect()->back()->with('success', 'Password reset link has been sent to your email.');

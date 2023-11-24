@@ -12,6 +12,7 @@ $user_id = isset($couponData) ? $couponData['user_id'] : '';
 $sub_category_id = isset($couponData) ? $couponData['sub_category_id'] : '';
 $company_id = isset($couponData) ? $couponData['company_id'] : '';
 
+$selectedCompany = $company_id ? explode(',', $company_id) : [];
 // echo "<pre1>";
 // print_r($couponData);
 // echo "<pre>";
@@ -106,7 +107,7 @@ $company_id = isset($couponData) ? $couponData['company_id'] : '';
                                             <?php
                                         
                                             $selected = '';
-                                            if (isset($companyData) && in_array($subcategory['company_name'], $companyData)) {
+                                            if (isset($companyData) && in_array($subcategory['company_name'], $selectedCompany)) {
                                                 $selected = 'selected';
                                             }
                                             ?>

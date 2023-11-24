@@ -1,0 +1,10 @@
+CRITICAL - 2023-11-24 11:20:30 --> file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/ACP.jpg): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+
+in APPPATH\Controllers\Admin\ProductController.php on line 463.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://localhost/truflow/public/admin/images/csv_product_img/ACP.jpg): Failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 463)
+ 2 APPPATH\Controllers\Admin\ProductController.php(463): file_get_contents('http://localhost/truflow/public/admin/images/csv_product_img/ACP.jpg')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

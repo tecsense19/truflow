@@ -30,7 +30,8 @@ section.category_product .container {
                         <strong>Categories</strong>
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
-                        <div class="panel-group" id="accordion" bis_skin_checked="1">
+                        <?php echo view('front/shop_sidebar'); ?>
+                        <!-- <div class="panel-group" id="accordion" bis_skin_checked="1">
                             <?php if(isset($categoryData)) { ?>
                             <?php foreach ($categoryData as $category) : ?>
                             <div class="panel panel-default" bis_skin_checked="1">
@@ -58,7 +59,7 @@ section.category_product .container {
                             </div>
                             <?php endforeach; ?>
                             <?php } ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

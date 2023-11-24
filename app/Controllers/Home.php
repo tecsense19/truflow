@@ -18,6 +18,7 @@ use App\Models\CompanyModel;
 use App\Models\SliderModel;
 use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
+use App\Models\CouponModel;
 
 $session = \Config\Services::session();
 
@@ -201,17 +202,125 @@ class Home extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
         $categoryData = $categorymodel->find();
-        $category1 = [];
-        foreach ($categoryData as $category) {
-            $subcategory = $subcategorymodel->where('category_id', $category['category_id'])->findAll();
-            $category['sub_category'] = $subcategory;
-            $category1[] = $category;
-        }
-        if (!$category1) {
-            $category1 = null;
-        }
-        return view('front/shop', ['headerData' => $headerData, 'categoryData' => $category1]);
+        // $category1 = [];
+        // foreach ($categoryData as $category) {
+        //     $subcategory = $subcategorymodel->where('category_id', $category['category_id'])->findAll();
+        //     $category['sub_category'] = $subcategory;
+        //     $category1[] = $category;
+        // }
+        // if (!$category1) {
+        //     $category1 = null;
+        // }
+        return view('front/shop', ['headerData' => $headerData, 'categoryData' => $this->processCategories()]);
     }
+
+    // Recursive function to process child_arr and product_arr for each child subcategory
+    function processChildArr($childArr) {
+        $productmodel = new ProductModel();
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        foreach ($childArr as &$child) {
+            // Fetch products for the current child subcategory
+            $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->findAll();
+            $childProductArr = $this->fetchProductDetails($childSubCategoryProducts);
+
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $child['child_id'])->findAll();
+            $product = $productmodel->where('child_id', $child['child_id'])->findAll();
+            $child['isProduct'] = count($product) > 0 ? true : false;
+
+            $child['child_arr'] = $child['child_arr'] ?? [];
+            $child['product_arr'] = $childProductArr;
+
+            // Recursively process child_arr and product_arr for each child subcategory
+            $child['child_arr'] = $this->processChildArr($child['child_arr']);
+        }
+
+        return $childArr;
+    }
+
+    // Recursive function to process categories
+    function processCategory($category) {
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->findAll();
+
+        foreach ($childSubCategories as $childSubCategory) {
+            $childSubCategory = $this->processChildCategory($childSubCategory);
+            $category['child_arr'][] = $childSubCategory;
+        }
+
+        return $category;
+    }
+
+    // Recursive function to process child categories
+    function processChildCategory($childCategory) {
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $productmodel = new ProductModel();
+        $subChildCategories = $ChildSubCategoryModel->where('sub_chid_id', $childCategory['child_id'])->findAll();
+
+        foreach ($subChildCategories as $subChildCategory) {
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $childCategory['child_id'])->findAll();
+            $product = $productmodel->where('child_id', $childCategory['child_id'])->findAll();
+            $subChildCategory['isProduct'] = count($product) > 0 ? true : false;
+
+            $subChildCategory = $this->processChildCategory($subChildCategory);
+            $childCategory['child_arr'][] = $subChildCategory;
+        }
+
+        return $childCategory;
+    }
+
+    // Function to fetch product details
+    function fetchProductDetails($products) {
+        $variantsmodel = new VariantsModel();
+        $newPro = [];
+        foreach ($products as $variant) {
+            $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
+            $variant['parent'] = $variantData ? $variantData['parent'] : '';
+            $newPro[] = $variant;
+        }
+        return $newPro;
+    }
+
+    // Define the function to process categories
+    function processCategories() {
+
+        $categorymodel = new CategoryModel();
+        $subcategorymodel = new SubCategoryModel();
+        $productmodel = new ProductModel();
+        
+        $categoryData = $categorymodel->find();
+
+        $result = [];
+
+        foreach ($categoryData as $category) {
+            $subcategory_array = [];
+
+            // Fetch subcategories for the current category
+            $subcategories = $subcategorymodel->where('category_id', $category['category_id'])->findAll();
+
+            foreach ($subcategories as $subCategory) {
+                $subCategory = $this->processCategory($subCategory);
+
+                // Fetch products for the current subcategory
+                $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->findAll();
+                $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
+
+                $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];
+                $subCategory['product_arr'] = $subCategoryProductArr;
+
+                // Recursively process child_arr and product_arr for each child subcategory
+                $subCategory['child_arr'] = $this->processChildArr($subCategory['child_arr']);
+
+                $subcategory_array[] = $subCategory;
+            }
+
+            // Attach subcategories to the current category
+            $category['sub_category'] = $subcategory_array;
+            $result[] = $category;
+        }
+
+        return $result;
+    }
+
     public function sub_category($category_id)
     {
         $ChildSubCategoryModel = new ChildSubCategoryModel();
@@ -551,7 +660,8 @@ class Home extends BaseController
             'productData' => $newData,
             // 'sidebar_array' => $sidebar_array,
             // 'newPro' => $newPro,
-            'subcategoryid' => $sub_category_id
+            'subcategoryid' => $sub_category_id,
+            'categoryData' => $this->processCategories()
         ]);
     }
     protected function getCategoryTree(int $parentCategoryId = null, ChildSubCategoryModel $model)
@@ -753,12 +863,32 @@ class Home extends BaseController
 
         $session->set('cartCount', $cartCount);
 
+        $couponModel = new CouponModel;
+        $discount = 000.00;
+        if(isset($cartData) && !empty($cartData))
+        {
+            foreach($cartData as $cartD)
+            {
+                $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                if(!empty($getCoupon))
+                {
+                    if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                    {
+                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                        $discount += $cartD['total_amount'] - $getCoupon['coupon_price'];
+                    }
+                }
+            }
+        }
+
         return view('front/add_to_cart', [
             'cartData' => $cartData,
             'headerData' => $headerData,
             'userId' => $userId,
             'cartCount' => $cartCount,
-            'componeyData' => $componeyData
+            'componeyData' => $componeyData,
+            'total_auto_discount' => $discount
         ]);
     }
     public function add_cart()
@@ -1085,7 +1215,7 @@ class Home extends BaseController
             $value['product_arr'] = $newPro;
             $sidebar_array[] = $value;
         }
-          $array = [];
+        $array = [];
         foreach ($subcategoryData as $key => $value) {
             $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->where('child_id',-1)->findAll();
             $value['isProduct'] = count($product) > 0 ? true : false;
@@ -1096,7 +1226,7 @@ class Home extends BaseController
     // print_r($array);
     // die;
 
-        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData]);
+        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
         
     }
 
@@ -1157,7 +1287,7 @@ class Home extends BaseController
         // echo "<pre>";
         // print_r($array);
         // die;
-        return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData]);
+        return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
         
     }
 
@@ -1210,7 +1340,7 @@ class Home extends BaseController
         // print_r($array);
         // die;
 
-        return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData]);
+        return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
     }
 
 

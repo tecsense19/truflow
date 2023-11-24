@@ -37,17 +37,17 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = 'mail.tec-sense.com';
+    public string $SMTPHost = 'mail.testweb4you.com';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'gautam@tec-sense.com';
+    public string $SMTPUser = 'sendmail@testweb4you.com';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'Gautam@1234!';
+    public string $SMTPPass = 'a_84Qyw&ALs8.A2^%+';
 
     /**
      * SMTP Port

@@ -8,7 +8,7 @@
                 <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
                
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Truflow-Hydarulics</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">Truflow Hydraulics</span>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
