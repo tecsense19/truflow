@@ -259,24 +259,29 @@ class OrderController extends BaseController
         $fromEmail = 'sendmail@testweb4you.com';
         $fromName = 'Truflow Hydraulics';
 
-        $emailService->setFrom($fromEmail, $fromName);
-        $emailService->setTo('bhavin@tec-sense.com');
-        $emailService->setSubject('Place Order');
-        $emailService->setMessage('
-                <html>
-                    <body>
-                        <h1>Your Order Placed successfully.</h1>
-                        <p>Order Details.</p><br>
-                        '. $html .'
-                    </body>
-                </html>
-            ');
+        $toEmail = isset($userData) ? $userData['email'] : '';
+        if($toEmail)
+        {
+            $emailService->setFrom($fromEmail, $fromName);
+            $emailService->setTo($toEmail);
+            $emailService->setSubject('Place Order');
+            $emailService->setMessage('
+                    <html>
+                        <body>
+                            <h1>Your Order Placed successfully.</h1>
+                            <p>Order Details.</p><br>
+                            '. $html .'
+                        </body>
+                    </html>
+                ');
 
-        if ($emailService->send()) {
-            echo "Yes";
-        } else {
-            echo "No";
+            if ($emailService->send()) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        return true;
     }
 
     public function remove_checkout($userId)

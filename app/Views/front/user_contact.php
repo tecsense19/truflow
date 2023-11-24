@@ -16,16 +16,14 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
 <div class="container">
-
-  <?php if (session()->getFlashdata('success')) { ?>
-    <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
-  <?php } ?>
-  <?php if (session()->getFlashdata('error')) { ?>
-    <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-  <?php } ?>
-
   <section id="contact">
     <div class="container">
+      <?php if (session()->getFlashdata('success')) { ?>
+        <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
+      <?php } ?>
+      <?php if (session()->getFlashdata('error')) { ?>
+        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+      <?php } ?>
       <div class="row">
         <div class="col-lg-5">
           <div class="get-in-touch pr-50">

@@ -63,7 +63,7 @@ $loginId = $session->get('user_id');
                     <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt="">
                 </a>
             </div>
-            <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'block'; ?>">
+            <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'flex'; ?>">
                 <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
                     <h2 class="text-center pt-5 pb-3">Sign in</h2>
                     <div class="form-group">

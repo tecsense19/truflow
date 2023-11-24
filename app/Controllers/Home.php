@@ -1132,7 +1132,6 @@ class Home extends BaseController
         $usercontactmodel = new UserContactModel();
         $session = session();
         $contact_name = $this->request->getVar('contact_name');
-        $variantIds = $this->request->getVar('variant_id');
         $contact_email = $this->request->getVar('contact_email');
         $company_name = $this->request->getVar('company_name');
         $contact_phone = $this->request->getVar('contact_phone');
@@ -1148,6 +1147,30 @@ class Home extends BaseController
 
         );
         $usercontactmodel->insert($data);
+
+        $html = view('front/contact_email', $data);
+        
+        $emailService = \Config\Services::email();
+
+        $fromEmail = 'sendmail@testweb4you.com';
+        $fromName = 'Truflow Hydraulics';
+        // sales@truflowhydraulic.com.au
+        $emailService->setFrom($fromEmail, $fromName);
+        $emailService->setTo('sales@truflowhydraulic.com.au');
+        $emailService->setSubject('Get in touch');
+        $emailService->setMessage('
+                <html>
+                    <body>
+                        '. $html .'
+                    </body>
+                </html>
+            ');
+
+        if ($emailService->send()) {
+            echo "Yes";
+        } else {
+            echo "No";
+        }
 
         $session->setFlashdata('success', 'Submit Your Details Successfully.');
 

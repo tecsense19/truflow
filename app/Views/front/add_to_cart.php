@@ -70,7 +70,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                       </td>
 
                       <td class="align-middle card_title"><?php echo $cart['variant_sku']; ?><br>
-                        <p>Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php echo $cart['parent']; ?></p>
+                        <p><a href="<?php echo base_url('') . "product/details/" . $cart['product_id'] ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p>
                       </td>
                       <td class="align-middle"><?php echo $cart['product_amount']; ?></td>
                       <td class="align-middle text-center">
