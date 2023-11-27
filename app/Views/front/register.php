@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <h4>Company Details</h4>
+        <!-- <h4>Company Details</h4>
         <hr>
         <div class="form-group row">
             <label class="col-md-3 control-label" for="last_name">Company name :</label>
@@ -92,7 +92,7 @@
                     <?php } ?>
                 </select>
             </div>
-        </div>
+        </div> -->
         <h4>Your Billing Address</h4>
         <hr>
         <div class="form-group row">
@@ -250,9 +250,9 @@ $(document).ready(function() {
             country: {
                 required: true
             },
-            company_name: {
-                required: true
-            }
+            // company_name: {
+            //     required: true
+            // }
         },
         messages: {
             first_name: {
@@ -296,9 +296,9 @@ $(document).ready(function() {
             country: {
                 required: 'Please select a country'
             },
-            company_name: {
-                required: 'Please select a company'
-            }
+            // company_name: {
+            //     required: 'Please select a company'
+            // }
         },
         submitHandler: function(form) {
             form.submit();

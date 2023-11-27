@@ -23,6 +23,14 @@ width: 100%;
 	margin-top: 122px;
 }
 
+@media only screen 
+and (min-width: 769px) 
+and (max-width: 1024px)
+{
+    .Ajax_search{
+        width:275px;
+    }
+}
 
 
 @media only screen 
@@ -44,7 +52,7 @@ margin-left: unset;
 margin-top: 172px;
 }
 .Ajax_search{
-width:343px;
+width:180px;
 margin-bottom: 6px;
 }
 .row.container-fluid{

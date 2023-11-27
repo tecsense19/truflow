@@ -49,7 +49,7 @@
                         </div>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-location-dot" style="margin-left: 3px;"></i>
-                            <span>Truflow Hydraulics Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
+                            <span style="text-align: left;">Truflow Hydraulics Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
                         </div>
                     </div>
                 </div>

@@ -83,7 +83,7 @@ class UserController extends BaseController
             'date_of_birth' => $input['date_of_birth'],
             'mobile' => $input['mobile'],
             'user_role' => $input['user_role'],
-            'company_name' => $input['company_name'],
+            // 'company_name' => $input['company_name'],
             'address_1' => $input['address_1'],
             'address_2' => $input['address_2'],
             'city' => $input['city'],
