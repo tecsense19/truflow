@@ -160,7 +160,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                       <span id="totalAmount">$000.00</span>
                     </li>
                     <!-- ------------------------------------ -->
-                    <li class="subtotal_list mt-3">
+                    <!-- <li class="subtotal_list mt-3">
                       <p>Shipping</p>
                       <div class="shipp_checkbox">
                         <div>
@@ -168,7 +168,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                           <label for="free_shipping">Free shipping</label>
                         </div>
                       </div>
-                    </li>
+                    </li> -->
                     <li class="d-flex justify-content-between sub">
                       <h5>Total</h5>
                       <h5 id="totalAmount">

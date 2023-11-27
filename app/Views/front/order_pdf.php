@@ -103,7 +103,7 @@
                     <?php foreach ($orderData as $order) { ?>
                         <tr>
                             <td align="left">
-                                <?php echo $order['product_name']; ?>&nbsp;<?php echo $order['parent']; ?><br>
+                                <?php echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?><br>
                                 <b>Variant :</b> <?php echo $order['variant_sku']; ?>
                             </td>
 

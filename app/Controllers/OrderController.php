@@ -119,7 +119,9 @@ class OrderController extends BaseController
         $coupon = $this->request->getVar('coupon');
         $pay_method = $this->request->getVar('pay_method');
         $order_status = $this->request->getVar('order_status');
-        $shipping = $this->request->getVar('shipping');
+        $shipping = $this->request->getVar('shipping_value');
+        $account_number = $this->request->getVar('accountNumber');
+        $courier = $this->request->getVar('courier');
         $notes = $this->request->getVar('notes');
         $ship_to_diff_address = $this->request->getVar('ship_to_diff_address');
 
@@ -132,6 +134,8 @@ class OrderController extends BaseController
             'pay_method' => $pay_method,
             'order_status' => $order_status,
             'shipping' => $shipping,
+            'account_number' => $account_number,
+            'courier' => $courier,
             'notes' => $notes,
             'ship_to_diff_address' => $ship_to_diff_address,
             'order_date' => date('Y-m-d H:i:s')

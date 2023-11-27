@@ -1,0 +1,11 @@
+CRITICAL - 2023-11-27 05:17:01 --> Undefined variable $orderData
+in APPPATH\Views\admin\order\order_details.php on line 103.
+ 1 APPPATH\Views\admin\order\order_details.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $orderData', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\order\\order_details.php', 103)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\order\\order_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/order/order_details', [], true)
+ 5 APPPATH\Controllers\Admin\OrderController.php(151): view('admin/order/order_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\OrderController->order_details('59')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

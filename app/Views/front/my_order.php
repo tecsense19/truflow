@@ -60,10 +60,11 @@
                           <th>Price</th>
                           <th>Total Price</th>
                           <th>Order Status</th>
+                          <th>Shipping</th>
                       </tr>
                       <?php foreach ($orderData as $order) { ?>
                           <tr>
-                              <td><?php echo $order['product_name']; ?>&nbsp;<?php echo $order['parent']; ?></td>
+                              <td><?php echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?></td>
                               <td><?php echo $order['product_description']; ?></td>
                               <td><?php echo $order['variant_name']; ?></td>
                               <td><?php echo $order['variant_sku']; ?></td>
@@ -71,6 +72,7 @@
                               <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                               <td><?php echo $order['order_status']; ?></td>
+                              <td><?php echo $order['shipping']; ?></td>
                           </tr>
                       <?php } ?>
                       <tr>
@@ -124,6 +126,7 @@
                                   echo number_format($grandTotal, 2, '.', ',');
                               ?>
                           </td>
+                          <td></td>
                           <td>
                           <form method="post" action="<?php echo site_url('my_order/pdf'); ?>">
       <input type="hidden" name="order_id" value="<?php echo $orderId; ?>">

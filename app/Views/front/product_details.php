@@ -664,73 +664,75 @@ input.minus {
     }
 
     function add_cart() {
-        var variantQtys = Array.from(variantQtyInputs).map(function(input) {
-            return input.value;
-        });
-
-        var hasSelectedQuantity = variantQtys.some(function(qty) {
-            return qty !== "" && parseInt(qty) > 0;
-        });
-
-
-        if (!hasSelectedQuantity) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Validation Error',
-                text: 'Please select a quantity greater than zero for at least one variant.',
-            });
-            return; // Exit the function to prevent the AJAX request
-        }
         var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
 
         if (!isLoggedIn) {
             window.location.href = '<?php echo base_url(); ?>login'; // Replace with the login page URL
             return; // Exit the function to prevent the AJAX request
         }
+        else
+        {
+            var variantQtys = Array.from(variantQtyInputs).map(function(input) {
+                return input.value;
+            });
 
-       
-        var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
-        var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>;
-        var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>;
-        var subCategoryIds = <?php echo json_encode(array_column($productData, 'sub_category_id')); ?>;
-        var prices = <?php echo json_encode(array_column($productData, 'variant_price')); ?>;
+            var hasSelectedQuantity = variantQtys.some(function(qty) {
+                return qty !== "" && parseInt(qty) > 0;
+            });
 
 
-        var totalPrices = [];
-        for (var i = 0; i < variantQtys.length; i++) {
-            var total = parseFloat(variantQtys[i]) * parseFloat(prices[i]);
-            totalPrices.push(total.toFixed(2));
-        }
-
-        $.ajax({
-            url: '<?php echo base_url(); ?>add_cart', // Replace with the server-side script URL
-            method: 'POST',
-            data: {
-                variant_qty: variantQtys,
-                variant_id: variantIds,
-                product_id: productIds,
-                category_id: categoryIds,
-                sub_category_id: subCategoryIds,
-                prices: prices,
-                total_prices: totalPrices
-            },
-            success: function(response) {
-                // Handle the response
-                console.log(response);
+            if (!hasSelectedQuantity) {
                 Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: 'Data added into cart successfully.',
-                }).then(function() {
-                    // Reload the page after the user clicks "OK" on the SweetAlert dialog
-                    window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
+                    icon: 'warning',
+                    title: 'Validation Error',
+                    text: 'Please select a quantity greater than zero for at least one variant.',
                 });
-            },
-            error: function(xhr, status, error) {
-                // Log the error details
-                console.error('Error occurred during AJAX request.');
+                return; // Exit the function to prevent the AJAX request
             }
-        });
+                
+            var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
+            var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>;
+            var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>;
+            var subCategoryIds = <?php echo json_encode(array_column($productData, 'sub_category_id')); ?>;
+            var prices = <?php echo json_encode(array_column($productData, 'variant_price')); ?>;
+
+
+            var totalPrices = [];
+            for (var i = 0; i < variantQtys.length; i++) {
+                var total = parseFloat(variantQtys[i]) * parseFloat(prices[i]);
+                totalPrices.push(total.toFixed(2));
+            }
+
+            $.ajax({
+                url: '<?php echo base_url(); ?>add_cart', // Replace with the server-side script URL
+                method: 'POST',
+                data: {
+                    variant_qty: variantQtys,
+                    variant_id: variantIds,
+                    product_id: productIds,
+                    category_id: categoryIds,
+                    sub_category_id: subCategoryIds,
+                    prices: prices,
+                    total_prices: totalPrices
+                },
+                success: function(response) {
+                    // Handle the response
+                    console.log(response);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Data added into cart successfully.',
+                    }).then(function() {
+                        // Reload the page after the user clicks "OK" on the SweetAlert dialog
+                        window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
+                    });
+                },
+                error: function(xhr, status, error) {
+                    // Log the error details
+                    console.error('Error occurred during AJAX request.');
+                }
+            });
+        }
     }
 
     function default_value(event, maxVal)
