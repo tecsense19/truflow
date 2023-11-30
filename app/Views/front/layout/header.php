@@ -260,6 +260,10 @@ display: none;
 /* .dropdown.show {
     margin-right: 20px;
 } */
+
+h2.breadcrumb-list > div > a {
+    color: white;
+}
 </style>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~>> NAVBAR START <<~~~~~~~~~~~~~~~~~~~~~ -->

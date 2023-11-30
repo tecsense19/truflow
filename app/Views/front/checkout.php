@@ -285,12 +285,12 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                             </div>
                         </div>
 
-                        <div class="payment_item order_list">
+                        <!-- <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" required>
                                 <label for="cash_ond_delivery">Cash on Delivery</label>
                             </span>
-                        </div>
+                        </div> -->
 
                         <div class="checkout-agree order_list">
                             <div class="checkout-option">

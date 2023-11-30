@@ -83,7 +83,7 @@ $rowCount = isset($metaDataArr) ? count($metaDataArr) : 1;
                                 </div>
                             </div>
                             <div id="row-container">
-                                <?php if(count($metaDataArr) > 0) { foreach($metaDataArr as $key => $meta) { ?>
+                                <?php if(isset($metaDataArr) && count($metaDataArr) > 0) { foreach($metaDataArr as $key => $meta) { ?>
                                     <div class="row removeclass<?php echo $key+1; ?>">
                                         <div class="mb-3 col-sm-5">
                                             <input type="text" class="form-control" name="meta_name[]" placeholder="Meta Name" value="<?php echo $meta['meta_name'] ?>" />
@@ -145,17 +145,17 @@ $rowCount = isset($metaDataArr) ? count($metaDataArr) : 1;
                 header_menu: {
                     required: true
                 },
-                menu_link: {
-                    required: true
-                }
+                // menu_link: {
+                //     required: true
+                // }
             },
             messages: {
                 header_menu: {
                     required: "Title is required!"
                 },
-                menu_link: {
-                    required: "Link is required!"
-                }
+                // menu_link: {
+                //     required: "Link is required!"
+                // }
             },
             submitHandler: function(form) {
                 form.submit();

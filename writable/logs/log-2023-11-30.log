@@ -100,3 +100,25 @@ in APPPATH\Controllers\Admin\ChildSubCategoryController.php on line 232.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ChildSubCategoryController))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-30 10:05:12 --> Undefined variable $metaDataArr
+in APPPATH\Views\admin\header_menu\header_menu.php on line 86.
+ 1 APPPATH\Views\admin\header_menu\header_menu.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $metaDataArr', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\header_menu\\header_menu.php', 86)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\header_menu\\header_menu.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/header_menu/header_menu', [], true)
+ 5 APPPATH\Controllers\Admin\HeaderMenuController.php(22): view('admin/header_menu/header_menu')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\HeaderMenuController->header_menu()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\HeaderMenuController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-30 10:05:55 --> Undefined variable $metaDataArr
+in APPPATH\Views\admin\header_menu\header_menu.php on line 86.
+ 1 APPPATH\Views\admin\header_menu\header_menu.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $metaDataArr', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\header_menu\\header_menu.php', 86)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\header_menu\\header_menu.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/header_menu/header_menu', [], true)
+ 5 APPPATH\Controllers\Admin\HeaderMenuController.php(22): view('admin/header_menu/header_menu')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\HeaderMenuController->header_menu()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\HeaderMenuController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

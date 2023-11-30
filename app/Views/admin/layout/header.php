@@ -90,7 +90,7 @@
         <li class="menu-item">
             <a href="<?php echo base_url('admin/company_coupon_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-discount"></i>
-                <div data-i18n="Basic">Company Coupon</div>
+                <div data-i18n="Basic">Group Name</div>
             </a>
         </li>
 
