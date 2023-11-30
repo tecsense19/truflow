@@ -733,6 +733,7 @@ class Home extends BaseController
             ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
             ->join('product', 'product.product_id = product_variants.product_id')
             ->where('product.product_id', $product_id)
+            ->orderBy('sort', 'asc')
             ->findAll();
 
         if (!$productData) {

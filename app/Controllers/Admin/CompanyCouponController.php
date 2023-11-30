@@ -103,7 +103,7 @@ class CompanyCouponController extends BaseController
             $couponmodel->insert($couponArr);
         }
 
-        $session->setFlashdata('success', 'coupon change succesfully.');
+        $session->setFlashdata('success', 'Group change succesfully.');
         return redirect()->to('admin/company_coupon_list');
        
     }
@@ -146,7 +146,7 @@ class CompanyCouponController extends BaseController
     $session = session();
     $couponmodel = new CouponModel();
     $couponmodel->delete($coupon_id);
-    $session->setFlashdata('success', 'coupon Delete succesfully.');
+    $session->setFlashdata('success', 'Group Delete succesfully.');
     return redirect()->to('admin/company_coupon_list');
 }
 

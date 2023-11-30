@@ -40,7 +40,7 @@ $selectedCompany = $company_id ? explode(',', $company_id) : [];
                 <form method="post" id="coupon_form" action="<?php echo base_url() ?>admin/company_coupon/save" enctype='multipart/form-data'>
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">coupon</h5>
+                            <h5 class="mb-0">Group</h5>
                         </div>
                         <div class="card-body">
                             <!-- <div class="row">
@@ -54,7 +54,7 @@ $selectedCompany = $company_id ? explode(',', $company_id) : [];
                             <div class="row">
 
                             <div class="mb-3 col-md-4">
-                                    <label class="form-label" for="basic-default-fullname">Coupon Code</label>
+                                    <label class="form-label" for="basic-default-fullname">Group Code</label>
                                     <input type="text" value="<?php echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="Coupon Code" />
                                 </div>
 
@@ -213,11 +213,11 @@ $selectedCompany = $company_id ? explode(',', $company_id) : [];
             },
             messages: {
                 coupon_code: {
-                    required: "Coupon code is required."
+                    required: "Group code is required."
                 },
                 coupon_price: {
-                    required: "Coupon amount is required.",
-                    number: "Please enter a valid number for the coupon amount."
+                    required: "Group amount is required.",
+                    number: "Please enter a valid number for the group amount."
                 },
                 coupon_price_type: {
                     required: "Type of discount is required."
@@ -229,10 +229,10 @@ $selectedCompany = $company_id ? explode(',', $company_id) : [];
                     required: "To date is required."
                 },
                 user_id: {
-                    required: "User is required for User type coupon!"
+                    required: "User is required for User type group!"
                 },
                 sub_category_id: {
-                    required: "Category is required for Category type coupon!"
+                    required: "Category is required for Category type group!"
                 }
             },
             // Submit handler...

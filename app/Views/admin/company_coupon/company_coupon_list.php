@@ -17,8 +17,8 @@
             <div class="col-xl">
                 
                 <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">Coupon List</h5>
-                <a href="<?php echo base_url()."admin/company_coupon"?>"><button class="btn btn-primary d-grid float-end">Add coupon</button></a>
+                <h5 class="mb-0">Group List</h5>
+                <a href="<?php echo base_url()."admin/company_coupon"?>"><button class="btn btn-primary d-grid float-end">Add Group</button></a>
                 </div>
                     <div class="card mb-4">
                             <div class="card">
@@ -30,9 +30,9 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Company Name</th>
-                                                    <th>Coupon Code</th>
-                                                    <th>Coupon Type</th>
-                                                    <th>Coupon Price</th>
+                                                    <th>Group Code</th>
+                                                    <th>Group Type</th>
+                                                    <th>Group Price</th>
                                                     <th>From Date</th>
                                                     <th>To Date</th>
                                                     <th>Actions</th>
