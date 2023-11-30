@@ -11,7 +11,7 @@ section.category_product .container {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about_heading">
-                        <h2>SHOP</h2>
+                        <h2 class="breadcrumb-list" style="display: flex; justify-content: center; flex-wrap: wrap;"><div> <a href="<?php echo base_url() ?>shop"> SHOP </a> </div> </h2>
                     </div>
                 </div>
             </div>

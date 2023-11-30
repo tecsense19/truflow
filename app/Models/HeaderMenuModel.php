@@ -18,6 +18,7 @@ class HeaderMenuModel extends Model
         'menu_link',
         'header_sub_menu',
         'sub_menu_link',
+        'page_title',
     ];
 
     // Dates

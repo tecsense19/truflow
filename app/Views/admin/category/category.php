@@ -32,7 +32,7 @@ $featured_category = isset($categoryData) ? $categoryData['category_featured'] :
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-                <label class="form-label" for="category_name">Full Name</label>
+                <label class="form-label" for="category_name">Category Name</label>
                 <input type="text" value="<?php echo $category_name;?>" class="form-control" id="category_name" name="category_name" placeholder="Full Name" />
                 <input type="hidden" name="category_id" value="<?php echo $category_id;?>">
             </div>
@@ -82,25 +82,25 @@ $featured_category = isset($categoryData) ? $categoryData['category_featured'] :
                 category_name: {
                     required: true
                 },
-                category_description: {
-                    required: true
-                },
-                category_img: {
-                    required: function() {
-                        return !imageUploaded; // Validation required only if image has not been uploaded
-                    }
-                }
+                // category_description: {
+                //     required: true
+                // },
+                // category_img: {
+                //     required: function() {
+                //         return !imageUploaded; // Validation required only if image has not been uploaded
+                //     }
+                // }
             },
             messages: {
                 category_name: {
                     required: "Full Name is required!"
                 },
-                category_description: {
-                    required: "Category Description is required!"
-                },
-                category_img: {
-                    required: "Category Image is required!"
-                }
+                // category_description: {
+                //     required: "Category Description is required!"
+                // },
+                // category_img: {
+                //     required: "Category Image is required!"
+                // }
             },
             submitHandler: function(form) {
                 form.submit();

@@ -226,9 +226,14 @@ class ChildSubCategoryController extends BaseController
     // Retrieve form input
     $childsubcategory = [
         'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
-        'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured'),
-        'child_sub_category_img' => isset($productArr['child_product_img']) ? $productArr['child_product_img']  : ''
+        'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured')
     ];
+
+    if(isset($productArr['child_product_img']))
+    {
+        $childsubcategory['child_sub_category_img'] = $productArr['child_product_img'];
+    }
+
     $childsubcategorymodel->update($_POST['child_id'], $childsubcategory);
     $session->setFlashdata('success', 'Child subcategory updated successfully.');
     return redirect()->to('admin/child_sub_category_list');

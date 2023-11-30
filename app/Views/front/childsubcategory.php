@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about_heading">
-                        <h2>SHOP</h2>
+                        <h2 class="breadcrumb-list" style="display: flex; justify-content: center; flex-wrap: wrap;"><div> <a href="<?php echo base_url() ?>shop"> SHOP </a> </div> <?= session('breadcrumb') ?></h2>
                     </div>
                 </div>
             </div>
@@ -93,8 +93,10 @@
                     <?php if (isset($ChildSubCategorydata)) { ?>
                         <?php foreach ($ChildSubCategorydata as $subcategory) { 
                                $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
+
+                               $breadcrumb = "<div>&nbsp;/&nbsp;<a href='". $redirectUrl ."'>".strtoupper($subcategory['child_sub_category_name'])."</a></div> ";
                                ?>
-                                <a href="<?php echo $redirectUrl ?>" class="category-link">
+                                <a href="javascript:void(0)" class="category-link" data-url="<?php echo $redirectUrl; ?>" data-bread="<?php echo $breadcrumb; ?>">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -109,7 +111,7 @@
                                     <div class="product_text text-center">
                                      
                                            
-                                                <h3 class="mt-3"><?php echo $subcategory['child_sub_category_name']; ?></h3>
+                                                <h3 class="mt-3" ><?php echo $subcategory['child_sub_category_name']; ?></h3>
                                            
                                     </div>
                                 </div>
@@ -160,4 +162,24 @@
             titleIcon.classList.add('fa-caret-right');
         }
     }
+
+    $('body').on('click', '.category-link', function(e) {
+        // Make an AJAX request to a CodeIgniter 4 controller method
+        var redirectUrl = $(this).data('url');
+        var value = $(this).data('bread');
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>breadcrumb/update', // Adjust the URL based on your routes
+            data: {
+                breadcrumb: value
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
 </script>

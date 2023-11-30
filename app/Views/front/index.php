@@ -340,31 +340,26 @@ $loginId = $session->get('user_id');
                             </div>
                             <?php } ?>
                             <?php foreach ($allcategoryData['child_sub'] as $key => $product) { 
+                                $subChildCatLink = base_url('') . "product/" . $product['sub_category_id'] . '/' . $product['child_id'];
                             ?>
                             <div class="slider_content">
 
                                 <div class="slider_con_img">
-                                    <?php if (isset($product['child_sub_category_img'])) {
+                                    <?php if (isset($product['child_sub_category_img']) && $product['child_sub_category_img'] != '') {
                                         $imagePaths = explode(',', $product['child_sub_category_img']);
                                         $firstImagePath = trim($imagePaths[0]);
                                     ?>
-                                    <img src="<?php echo base_url() . $firstImagePath ?>" alt="product"
-                                        class="img-fluid product_slider_img">
+                                        <img src="<?php echo base_url() . $firstImagePath ?>" alt="product" class="img-fluid product_slider_img">
                                     <?php } else { ?>
-                                    <img class="product_slider_img"
-                                        src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
-
+                                        <img class="product_slider_img" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                     <?php } ?>
 
                                 </div>
                                 <div class="slider_text">
-                                    <a
-                                        href="#<?php //echo base_url('') . "childsub_sub/category/" . $product['child_id'] ?>">
-                                        <h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?>
-                                        </h6>
+                                    <a href="<?php echo $subChildCatLink; ?>">
+                                        <h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?></h6>
                                     </a>
                                 </div>
-
                             </div>
                             <?php } ?>
                             <?php } ?>
@@ -547,9 +542,9 @@ $loginId = $session->get('user_id');
                             <?php foreach ($partnerImageData as $partner) { ?>
                             <div class="item">
                                 <div class="logo_img text-md-right">
-                                    <a href="<?php echo $partner['image_link']; ?> " target="_blank"><img
-                                            src="<?php echo base_url() . $partner['image_path'] ?>" alt="partner logo"
-                                            class="img-fluid"></a>
+                                    <a href="<?php echo $partner['image_link']; ?> " target="_blank">
+                                        <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="partner logo" class="img-fluid" style="width: 100%">
+                                    </a>
                                 </div>
                             </div>
                             <?php } ?>
@@ -608,6 +603,24 @@ $loginId = $session->get('user_id');
                 992: { // For screens >= 992px
                     items: 4 // Show 3 items at a time
                 }
+            }
+        });
+    });
+
+    $('.slider_text').click(function (e) {
+        // Log or use the left-side content as needed
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>breadcrumb/replace', // Adjust the URL based on your routes
+            data: {
+                breadcrumb: ''
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                // window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
             }
         });
     });

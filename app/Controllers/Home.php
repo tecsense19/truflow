@@ -19,6 +19,7 @@ use App\Models\SliderModel;
 use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
 use App\Models\CouponModel;
+use App\Models\MetaContentsModel;
 
 $session = \Config\Services::session();
 
@@ -645,10 +646,40 @@ class Home extends BaseController
 
         //     $newPro[] = $variant;
         // }
+
+        // Breadcrumbdata
+        
+        // $categorymodel = new CategoryModel();
+
+        // $catData = $categorymodel->where('category_id', $subcategoryData['category_id'])->first();
+
+        // $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $subcategoryData['sub_category_id'])->where('child_id', $childId)->first();
+
+        // $breadcrumb = '';
+        // if(isset($catData['category_name']))
+        // {
+        //     $breadcrumb .= "<a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a>";
+        // }
+        // if(isset($subcategoryData['sub_category_name']))
+        // {
+        //     $childCatLink = base_url('') . "childsub/category/" . $subcategoryData['sub_category_id'];
+
+        //     $breadcrumb .= "/ <a href='". $childCatLink ."'> ".strtoupper($subcategoryData['sub_category_name'])." </a>";
+        // }
+        // if(isset($ChildSubCategorydata['child_sub_category_name']))
+        // {
+        //     $subChildCatLink = base_url('') . "product/" . $ChildSubCategorydata['sub_category_id'] . '/' . $ChildSubCategorydata['child_id'];
+
+        //     $breadcrumb .= "/ <a href='". $subChildCatLink ."'> ".strtoupper($ChildSubCategorydata['child_sub_category_name'])." </a>";
+        // }
+
+        // session()->set('breadcrumb', $breadcrumb);
+
+        // Breadcrumbdata
       
 
-          // echo "<pre>";
-        // print_r($newPro);
+        // echo "<pre>";
+        // print_r($breadcrumbData);
         // die;
         //---------------------------------------------
         return view('front/product', [
@@ -1205,6 +1236,14 @@ class Home extends BaseController
 
     public function main_sub_category($category_id)
     {
+        $categorymodel = new CategoryModel();
+        $breadcrumbData = $categorymodel->where('category_id', $category_id)->first();
+
+        if($breadcrumbData)
+        {
+            $breadcrumb = "<div> / <a href='". base_url() ."shop'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
+            session()->set('breadcrumb', $breadcrumb);
+        }
 
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
@@ -1245,11 +1284,11 @@ class Home extends BaseController
             $array[]=$value;
         }
    
-    // echo "<pre>";
-    // print_r($array);
-    // die;
+        // echo "<pre>";
+        // print_r($subcategoryData);
+        // die;
 
-        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
+        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData, 'categoryData' => $this->processCategories()]);
         
     }
 
@@ -1307,6 +1346,23 @@ class Home extends BaseController
 
             $array[]=$value;
         }
+
+        // Breadcrumbdata
+
+        $getSubCatName = $subcategorymodel->where('sub_category_id', $subcategory_id)->first();
+        
+        $categorymodel = new CategoryModel();
+
+        $catData = $categorymodel->where('category_id', $getSubCatName['category_id'])->first();
+
+        $childCatLink = base_url('') . "childsub/category/" . $getSubCatName['sub_category_id'];
+
+        $breadcrumb = "<div> / <a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a> </div> <div> / <a href='". $childCatLink ."'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
+
+        session()->set('breadcrumb', $breadcrumb);
+
+        // Breadcrumbdata
+
         // echo "<pre>";
         // print_r($array);
         // die;
@@ -1366,5 +1422,65 @@ class Home extends BaseController
         return view('front/child_subchild', ['child_subchild' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
     }
 
+    public function getMetaTags()
+    {
+        $input = $this->request->getVar();
 
+        $headerModel = new HeaderMenuModel();
+        $metaModel = new MetaContentsModel();
+
+        $getHeaderMenu = $headerModel->where('menu_link', $input['current_page'])->first();
+        $getMetaTags = [];
+        if(isset($getHeaderMenu))
+        {
+            $getMetaTags = $metaModel->where('menu_id', $getHeaderMenu['header_id'])->get()->getResultArray();
+        }
+
+        $metaHtml = '';
+
+        if(count($getMetaTags) > 0)
+        {
+            foreach ($getMetaTags as $key => $value) 
+            {
+                $metaHtml .= '<meta name="'.$value['meta_name'].'" content="'.$value['meta_content'].'">';
+            }
+        }
+
+        echo $metaHtml;
+    }
+
+    public function breadcrumbStore()
+    {
+        $request = service('request');
+        $breadcrumb = $request->getPost('breadcrumb');
+
+        // Store the breadcrumb in the session
+        session()->set('breadcrumb', $breadcrumb);
+
+        return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
+    }
+    
+    public function breadcrumbUpdate()
+    {
+        $request = service('request');
+        $breadcrumb = $request->getPost('breadcrumb');
+
+        $oldBreadcrumb = session()->get('breadcrumb');
+
+        // Store the breadcrumb in the session
+        session()->set('breadcrumb', $oldBreadcrumb . $breadcrumb);
+
+        return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
+    }
+    
+    public function breadcrumbReplace()
+    {
+        $request = service('request');
+        $breadcrumb = $request->getPost('breadcrumb');
+
+        // Store the breadcrumb in the session
+        session()->set('breadcrumb', $breadcrumb);
+
+        return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
+    }
 }

@@ -94,6 +94,23 @@
 <script>
     $(document).ready(function() {
         $(".alert").delay(2000).slideUp(300);
+
+        var url = window.location.href;
+        var segments = url.split('/');
+        var lastSegment = segments.pop() || segments.pop();
+
+        $.ajax({
+            url: '<?php echo base_url(); ?>get_meta',
+            method: 'POST',
+            data: {
+                current_page: lastSegment == 'truflow' ? '' : lastSegment
+            },
+            success: function(response) {
+                // var data = JSON.parse(response);
+                console.log(response)
+                $('head').append(response)
+            }
+        });
     });
 </script>
 <!-- //header search------------ -->
@@ -673,10 +690,48 @@
     })
 
     $(document).ready(function() {
-    $('#custom-toggler').click(function() {
-        $(this).toggleClass('active'); // Add or remove 'active' class on click
+        $('#custom-toggler').click(function() {
+            $(this).toggleClass('active'); // Add or remove 'active' class on click
+        });
     });
-});
+
+    $('.breadcrumb-list a').click(function (e) {
+        // Prevent the default behavior of the link (e.g., navigation)
+        // e.preventDefault();
+
+        // Get the index of the clicked anchor tag
+        var clickedIndex = $(this).parent().index();
+
+        // Get all preceding div elements
+        var precedingDivs = $('.breadcrumb-list div:lt(' + (clickedIndex + 1) + ')');
+
+        // Create a container element to hold the HTML content
+        var container = $('<div>');
+
+        // Iterate through each preceding div and append its HTML content to the container
+        precedingDivs.each(function(index) {
+            // Exclude the first div (index 0) containing "SHOP"
+            if (index > 0) {
+                container.append($(this).prop('outerHTML'));
+            }
+        });
+
+        // Log or use the left-side content as needed
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>breadcrumb/replace', // Adjust the URL based on your routes
+            data: {
+                breadcrumb: container.html().trim()
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                // window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
 
 </script>
 

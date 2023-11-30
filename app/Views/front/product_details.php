@@ -99,7 +99,7 @@ input.minus {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about_heading">
-                        <h2>SHOP</h2>
+                        <h2 class="breadcrumb-list" style="display: flex; justify-content: center; flex-wrap: wrap;"><div> <a href="<?php echo base_url() ?>shop"> SHOP </a> </div> <?= session('breadcrumb') ?></h2>
                     </div>
                 </div>
             </div>
@@ -670,7 +670,7 @@ input.minus {
             Swal.fire({
                 icon: 'warning',
                 title: 'Warning',
-                text: 'Please login first and then continue.',
+                text: 'Please log in before adding items to the cart.',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',

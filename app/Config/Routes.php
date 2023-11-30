@@ -103,6 +103,13 @@ $routes->post('/deleteOrder', 'OrderController::deleteOrder');
 
 $routes->post('my_order/pdf', 'UserController::generate_pdf');
 
+// Meta Tags get
+
+$routes->post('get_meta', 'Home::getMetaTags');
+$routes->post('breadcrumb/store', 'Home::breadcrumbStore');
+$routes->post('breadcrumb/update', 'Home::breadcrumbUpdate');
+$routes->post('breadcrumb/replace', 'Home::breadcrumbReplace');
+
 //Admin_panel ---------
 
 $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($routes) {

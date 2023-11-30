@@ -46,7 +46,7 @@
                                                     
                                                     <td>
                                                 <a class="" href="<?php echo base_url('')."admin/header_menu/edit/".$header['header_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="" href="<?php echo base_url('')."admin/header_menu/delete/".$header['header_id']?>"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <a class="delete-link" href="<?php echo base_url('')."admin/header_menu/delete/".$header['header_id']?>"><i class="bx bx-trash me-1"></i> Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php $i++;?>
@@ -71,3 +71,18 @@
 </div>
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
+<script>
+    $(document).ready(function() {
+        $(".delete-link").on("click", function(e) {
+            e.preventDefault();
+            
+            // Display a confirmation dialog
+            var result = confirm("Are you sure you want to delete this item?");
+            
+            // If the user confirms, proceed with the deletion
+            if (result) {
+                window.location.href = $(this).attr("href");
+            }
+        });
+    });
+</script>

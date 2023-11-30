@@ -79,7 +79,7 @@
                                             <?php foreach ($productData as $product) { ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
-                                                    <td><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent']; ?></td>
+                                                    <td><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php // echo $product['parent']; ?></td>
                                                     <td><?php echo $product['category_name'] ?></td>
                                                     <td><?php echo $product['sub_category_name'] ?></td>
                                                     <td class="testo_descrip"><?php echo $product['product_description']; ?></td>

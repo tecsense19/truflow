@@ -120,21 +120,23 @@ class ProductController extends BaseController
             $path = 'public/admin/images/product/';
             $uploadedFiles = [];
             $uploadedFilescsv = [];
-
-            // Loop through each uploaded file
-            foreach ($files['product_img'] as $file) {
-                if ($file->isValid() && !$file->hasMoved()) {
-                    $newName = $file->getRandomName();
-                    $file->move($path, $newName);
-                    $uploadedFiles[] = $path . $newName;
+            if(isset($files['product_img']))
+            {
+                // Loop through each uploaded file
+                foreach ($files['product_img'] as $file) {
+                    if ($file->isValid() && !$file->hasMoved()) {
+                        $newName = $file->getRandomName();
+                        $file->move($path, $newName);
+                        $uploadedFiles[] = $path . $newName;
+                    }
                 }
-            }
 
-             // Merge the existing images with the new uploaded images
-             if (!empty($uploadedFiles)) {
-                // Retrieve existing images if available
-                $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
-                $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+                // Merge the existing images with the new uploaded images
+                if (!empty($uploadedFiles)) {
+                    // Retrieve existing images if available
+                    $existingImages = isset($input['product_img']) ? explode(',', $input['product_img']) : [];
+                    $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
+                }
             }
       
             foreach ($files['product_img_csv'] as $filecsv) {
@@ -316,7 +318,7 @@ class ProductController extends BaseController
 
     public function exportToCSV()
     {
-        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent',	'Favourite', 'Product Description',	 'Short Description',	'Information',	'Variant Header 1',	'Variant Header 2',	'Variant Header 3',	'Variant Header 4', 'discount code' ,'category_name',	'sub_category_name','group_name','sort', 'product_img_csv',	'child_level_1',	'child_level_2'	,'child_level_3',	'child_level_4'	,'child_level_5',];
+        $header = ['product_name','variant_name','variant_price','variant_sku',	'Variant values Stock',	'parent', 'Favourite', 'Product Description', 'Short Description',	'Information', 'Variant Header 1', 'Variant Header 2', 'Variant Header 3', 'Variant Header 4', 'discount code', 'GroupName', 'Sort', 'Image', 'category_name', 'sub_category_name', 'child_level_1', 'child_level_2', 'child_level_3', 'child_level_4', 'child_level_5'];
 
         // Create a new CSV file in memory
         $file = fopen('php://temp', 'w');

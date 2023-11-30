@@ -3,6 +3,9 @@
 $header_id = isset($headerData) ? $headerData['header_id'] : '';
 $header_menu = isset($headerData) ? $headerData['header_menu'] : '';
 $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
+$title = isset($headerData) ? $headerData['page_title'] : '';
+
+$rowCount = isset($metaDataArr) ? count($metaDataArr) : 1;
 // $header_sub_menu = isset($headerData) ? $headerData['header_sub_menu'] : '';
 // $header_sub_menu_link = isset($headerData) ? $headerData['sub_menu_link'] : '';
 ?>
@@ -55,6 +58,75 @@ $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
 
                         </div>
                     </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Meta Tags</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="mb-3 col-sm-12">
+                                    <label class="form-label" for="basic-default-fullname">Title</label>
+                                    <input type="text" class="form-control" name="title" placeholder="Title" value="<?php echo $title; ?>" />
+                                </div>
+                            </div>
+                            <div id="row-container">
+                                <div class="row">
+                                    <div class="mb-3 col-sm-5">
+                                        <label class="form-label" for="basic-default-fullname">Meta Name</label>
+                                    </div>
+                                    <div class="mb-3 col-sm-5">
+                                        <label class="form-label" for="basic-default-fullname">Meta Content</label>
+                                    </div>
+                                    <div class="mb-3 col-sm-2 d-flex align-items-end">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="row-container">
+                                <?php if(count($metaDataArr) > 0) { foreach($metaDataArr as $key => $meta) { ?>
+                                    <div class="row removeclass<?php echo $key+1; ?>">
+                                        <div class="mb-3 col-sm-5">
+                                            <input type="text" class="form-control" name="meta_name[]" placeholder="Meta Name" value="<?php echo $meta['meta_name'] ?>" />
+                                        </div>
+                                        <div class="mb-3 col-sm-5">
+                                            <input type="text" class="form-control" name="meta_content[]" placeholder="Meta Content" value="<?php echo $meta['meta_content'] ?>" />
+                                        </div>
+                                        <div class="mb-3 col-sm-2 d-flex align-items-end">
+                                            <?php if($key != 0) { ?>
+                                                <button class="btn btn-danger" type="button" onclick="remove_meta_fields('<?php echo $key+1; ?>');">-</button>
+                                            <?php } ?>
+                                            <button class="btn btn-primary" type="button" onclick="meta_fields();">+</button>
+                                        </div>
+                                    </div>
+                                <?php } } else { ?>
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-5">
+                                            <input type="text" class="form-control" name="meta_name[]" placeholder="Meta Name" />
+                                        </div>
+                                        <div class="mb-3 col-sm-5">
+                                            <input type="text" class="form-control" name="meta_content[]" placeholder="Meta Content" />
+                                        </div>
+                                        <div class="mb-3 col-sm-2 d-flex align-items-end">
+                                            <button class="btn btn-primary" type="button" onclick="meta_fields();">+</button>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div id="meta_fields">
+          
+                            </div>
+                            <!-- <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">Sub Menu Name</label>
+                                <input type="text" value="" class="form-control" id="header_sub_menu" name="header_sub_menu" placeholder="Sub Menu Name" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">Sub Menu Link</label>
+                                <input type="text" value="" class="form-control" id="sub_menu_link" name="sub_menu_link" placeholder="Sub Menu Link" />
+                            </div> -->
+
+                        </div>
+                    </div>
+
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
@@ -76,8 +148,6 @@ $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
                 menu_link: {
                     required: true
                 }
-                
-
             },
             messages: {
                 header_menu: {
@@ -86,13 +156,27 @@ $header_menu_link = isset($headerData) ? $headerData['menu_link'] : '';
                 menu_link: {
                     required: "Link is required!"
                 }
-
-
             },
             submitHandler: function(form) {
                 form.submit();
             }
         });
-
     });
+
+    var room = '<?php echo $rowCount; ?>';
+    function meta_fields() {
+    
+        room++;
+        var objTo = document.getElementById('meta_fields')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass"+room);
+        var rdiv = 'removeclass'+room;
+        divtest.innerHTML = '<div class="row"><div class="mb-3 col-sm-5"><input type="text" class="form-control" name="meta_name[]" placeholder="Meta Name" /></div><div class="mb-3 col-sm-5"><input type="text" class="form-control" name="meta_content[]" placeholder="Meta Content" /></div><div class="mb-3 col-sm-2 d-flex align-items-end"><button class="btn btn-danger" type="button" onclick="remove_meta_fields('+ room +');">-</button><button class="btn btn-primary" type="button" onclick="meta_fields();">+</button></div></div>';
+        
+        objTo.appendChild(divtest)
+    }
+
+    function remove_meta_fields(rid) {
+        $('.removeclass'+rid).remove();
+    }
 </script>
