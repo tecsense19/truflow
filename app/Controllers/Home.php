@@ -727,13 +727,14 @@ class Home extends BaseController
 
         $productData = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
             ->where('product.product_id', $product_id)
+            ->orderBy("CAST(sort AS SIGNED)", 'asc')
             ->findAll();
 
         $productDataPrice = $variantsmodel->table('product_variants')
             ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
             ->join('product', 'product.product_id = product_variants.product_id')
             ->where('product.product_id', $product_id)
-            ->orderBy('sort', 'asc')
+            ->orderBy("CAST(sort AS SIGNED)", 'asc')
             ->findAll();
 
         if (!$productData) {
