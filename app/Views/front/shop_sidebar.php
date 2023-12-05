@@ -156,7 +156,7 @@
         });
 
         // Hide all lists except the outermost.
-        // $('ul ul').hide();
+        $('ul ul').hide();
 
         $('.breadcrumb-link').click(function(e) {
             // Prevent the default behavior of the link (following the href)
