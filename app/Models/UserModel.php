@@ -32,7 +32,8 @@ class UserModel extends Model
         'phone',
         'fax',
         'reset_token',
-        'reset_token_expires_at'
+        'reset_token_expires_at',
+        'on_a_account'
     ];
 
     // Dates

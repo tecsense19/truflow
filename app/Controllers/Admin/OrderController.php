@@ -30,6 +30,7 @@ class OrderController extends BaseController
 
         $query = $ordermodel->select('*')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->orderBy('tbl_order.order_id', 'desc')
             ->get();    
 
             $newCartData = [];

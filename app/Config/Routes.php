@@ -178,7 +178,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post('get_subcategories/(:num)', 'ProductController::getSubcategories/$1');
     $routes->get("variant/delete/(:num)", "ProductController::variantDelete/$1");
     $routes->get('export_csv', 'ProductController::exportToCSV');
-    $routes->post('import_csv', 'ProductController::processCSV');
+    // $routes->post('import_csv', 'ProductController::processCSV');
+    $routes->post('import_csv', 'CsvController::processCSV');
 
 
     //Country

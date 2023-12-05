@@ -371,7 +371,6 @@ class UserController extends BaseController
         $userArr['phone'] = isset($input['phone']) ? $input['phone'] : '';
         $userArr['fax'] = isset($input['fax']) ? $input['fax'] : '';
 
-
         if (isset($input['user_id']) && $input['user_id'] != '') {
             $usermodel->update(['user_id' => $input['user_id']], $userArr);
         }

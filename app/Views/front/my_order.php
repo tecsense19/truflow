@@ -44,12 +44,20 @@
              
                   <table class="table card table-responsive">
                       <tr class="mainsetcolor">
-                          <th colspan="1">Order Id: #<?php echo $orderId; ?></th>
-                          <th colspan="1">Order By: <?php echo $orderData[0]['full_name']; ?></th>
-                          <th colspan="1">Order Date: <?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
-                          <th colspan="1">Payment Status: <?php echo $orderData[0]['order_status']; ?></th>
+                          <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
+                          <th colspan="1" style="white-space: nowrap;">Order By: <br><?php echo $orderData[0]['full_name']; ?></th>
+                          <th colspan="1">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
+                          <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['order_status']; ?></th>
+                          <th colspan="1" style="white-space: nowrap;">
+                            Payment Type: <br>
+                            <?php if($orderData[0]['pay_method'] == 'cash') { ?>
+                              COD
+                            <?php } else { ?>
+                              On a account
+                            <?php } ?>
+                          </th>
                           <th colspan="2"></th>
-                          <th colspan="2">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
+                          <th colspan="2" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
                       <tr>
                           <th>Product name</th>
@@ -72,12 +80,27 @@
                               <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                               <td><?php echo $order['order_status']; ?></td>
-                              <td><?php echo $order['shipping']; ?></td>
+                              <td>
+                                  <div><?php echo $order['shipping']; ?></div>
+                              </td>
                           </tr>
                       <?php } ?>
                       <tr>
-
-                        <td colspan="4" style="text-align: right;">Discount :
+                        <td>
+                          <div>
+                              <?php if(isset($orderData[0]['shipping']) && $orderData[0]['shipping'] == 'Client Courier') { ?>
+                                  <div><b style="white-space: nowrap">Account Number: </b><br><?php echo $orderData[0]['account_number']; ?></div>
+                              <?php } ?>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                              <?php if(isset($orderData[0]['shipping']) && $orderData[0]['shipping'] == 'Client Courier') { ?>
+                                  <div><b>Courier: </b><br><?php echo $orderData[0]['courier']; ?></div>
+                              <?php } ?>
+                          </div>
+                        </td>
+                        <td colspan="2" style="text-align: right;">Discount :
                         <?php
                                   // $discount = 0;
                                   // foreach ($orderData as $dis) {

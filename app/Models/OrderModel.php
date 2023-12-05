@@ -22,6 +22,8 @@ class OrderModel extends Model
         'pay_method',
         'order_status',
         'shipping',
+        'account_number',
+        'courier',
         'notes',
         'ship_to_diff_address',
         'order_date'

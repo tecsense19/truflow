@@ -55,7 +55,7 @@ $selectedCompany = $company_id ? explode(',', $company_id) : [];
 
                             <div class="mb-3 col-md-4">
                                     <label class="form-label" for="basic-default-fullname">Group Code</label>
-                                    <input type="text" value="<?php echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="Coupon Code" />
+                                    <input type="text" value="<?php echo $coupon_code; ?>" class="form-control" id="coupon_code" name="coupon_code" placeholder="Group Code" />
                                 </div>
 
                                 <div class="mb-3 col-md-4">

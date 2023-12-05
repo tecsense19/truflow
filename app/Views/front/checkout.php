@@ -284,13 +284,21 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                                 <input type="text" class="form-control" id="courier" name="courier" placeholder="Enter Courier" >
                             </div>
                         </div>
-
-                        <!-- <div class="payment_item order_list">
+                        <?php if(isset($userData) && $userData[0]['on_a_account']) { ?>
+                        <div class="order_list">
+                            <span>
+                                <input type="radio" id="on_a_account" name="pay_method" value="onaaccount" required checked>
+                                <label for="on_a_account">On A Account</label>
+                            </span>
+                        </div>
+                        <?php } ?>
+                        
+                        <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" required>
                                 <label for="cash_ond_delivery">Cash on Delivery</label>
                             </span>
-                        </div> -->
+                        </div>
 
                         <div class="checkout-agree order_list">
                             <div class="checkout-option">
@@ -373,6 +381,16 @@ $(document).ready(function() {
             $('#accountNumber').attr('required', false);
             $('#courier').attr('required', false);
             $('#additionalFields').hide();
+        }
+    });
+
+    $('input[name="pay_method"]').change(function() {
+        // If at least one radio button is selected, remove the 'required' attribute
+        if ($('input[name="pay_method"]:checked').length > 0) {
+            $('#paymentForm').removeAttr('required');
+        } else {
+            // If no radio button is selected, add the 'required' attribute
+            $('#paymentForm').attr('required', 'required');
         }
     });
 });

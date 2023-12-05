@@ -149,7 +149,8 @@ class Home extends BaseController
         'zipcode' => $input['zipcode'],
         'country' => $input['country'],
         'phone' => $input['phone'],
-        'fax' => $input['fax']
+        'fax' => $input['fax'],
+        'on_a_account' => isset($input['on_a_account']) ? $input['on_a_account'] : 0
     ];
 
     if (isset($input['user_id']) && $input['user_id'] != '') {

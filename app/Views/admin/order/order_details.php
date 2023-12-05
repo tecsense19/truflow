@@ -32,7 +32,20 @@
                                         <?php echo isset($shippingData) ? $shippingData['city'] : '' ?>
                                     </div>
                                 </div>
-
+                                <hr>
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <h5>Payment method</h5>
+                                        <?php echo $newCartData1[0]['pay_method'] == 'cash' ? 'COD' : 'On a account'; ?><br>
+                                    </div>
+                                    <?php if($newCartData1[0]['shipping'] == 'Client Courier') { ?>
+                                        <div class="mb-3 col-md-6">
+                                            <div><?php echo $newCartData1[0]['shipping']; ?></div>
+                                            <div><b>Account Number: </b><?php echo $newCartData1[0]['account_number']; ?></div>
+                                            <div><b>Courier: </b><?php echo $newCartData1[0]['courier']; ?></div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                                 <?php if (isset($newCartData1) && !empty($newCartData1)) { ?>
                                     <div class="row">
 
@@ -60,7 +73,9 @@
                                                         <td><?php echo $order['product_quantity']; ?></td>
                                                         <td><?php echo $order['product_amount']; ?></td>
                                                         <td><?php echo $order['order_status']; ?></td>
-                                                        <td><?php echo $order['shipping']; ?></td>
+                                                        <td>
+                                                            <div><?php echo $order['shipping']; ?></div>
+                                                        </td>
                                                     </tr>
 
                                                 <?php } ?>

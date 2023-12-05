@@ -59,32 +59,60 @@
                 </tr>
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
-                    <td class="billing_add" align="left" valign="top">
-                            <p class="bill_font">Billing Address</p>
-                            <p>
-                                <?php echo $orderData[0]['full_name']; ?>,<br>
-                                <?php echo $userData['address_1']; ?>,<br>
-                                <?php echo $userData['address_2']; ?>,<br>
-                                <?php echo $userData['city']; ?>.<br>
-                            </p>
-                    </td>
-                    <td class="billing_add" align="right" valign="top">
-                            <p class="bill_font">Shipping Address</p>
-                            <p>
-                            
-                        <?php if($orderData[0]['ship_to_diff_address'] == "1"){ ?>
-                            <?php echo $shipping['address_1']; ?>,<br>
-                                <?php echo $shipping['address_2']; ?>,<br>
-                                <?php echo $shipping['city']; ?>.<br>
-                            <?php }else{?>
-                                <p>Same as Billing Address</p>
-                            <?php }?>
-                           
+                        <td class="billing_add" align="left" valign="top">
+                                <p class="bill_font">Billing Address</p>
+                                <p>
+                                    <?php echo $orderData[0]['full_name']; ?>,<br>
+                                    <?php echo $userData['address_1']; ?>,<br>
+                                    <?php echo $userData['address_2']; ?>,<br>
+                                    <?php echo $userData['city']; ?>.<br>
+                                </p>
+                        </td>
+                        <td class="billing_add" align="right" valign="top">
+                                <p class="bill_font">Shipping Address</p>
+                                <p>
                                 
-                            </p>
-                    </td>
+                            <?php if($orderData[0]['ship_to_diff_address'] == "1"){ ?>
+                                <?php echo $shipping['address_1']; ?>,<br>
+                                    <?php echo $shipping['address_2']; ?>,<br>
+                                    <?php echo $shipping['city']; ?>.<br>
+                                <?php }else{?>
+                                    <p>Same as Billing Address</p>
+                                <?php }?>
+                            
+                                    
+                                </p>
+                        </td>
                     </tr>
                 </table>
+                <?php if($orderData[0]['shipping'] == 'Client Courier') { ?>
+                <br>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                    <tr>
+                        <td align="left" bgcolor="#eeeeee">
+                            <?php echo $orderData[0]['shipping']; ?>
+                        </td>
+
+                        <td align="center" bgcolor="#eeeeee" style="display: flex;">
+                            <b style="white-space: nowrap">Account Number: </b> <?php echo $orderData[0]['account_number']; ?>
+                        </td>
+
+                        <td align="right" bgcolor="#eeeeee" style="display: flex;">
+                            <b>Courier: </b> <?php echo $orderData[0]['courier']; ?>
+                        </td>
+
+                    </tr>
+                </table>
+                <?php } ?>
+                <br>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                    <tr>
+                        <td align="left" bgcolor="#eeeeee">
+                            Payment Method:  <?php echo $orderData[0]['pay_method'] ? 'COD' : 'On a account' ; ?>
+                        </td>
+                    </tr>
+                </table>
+                <br>
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
                         <td align="left" bgcolor="#eeeeee">
