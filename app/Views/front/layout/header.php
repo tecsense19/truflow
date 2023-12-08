@@ -11,6 +11,7 @@ $cartCount = session('cartCount');
 <style>
     #loginForm{
 	width: 335px;
+    margin: auto;
 }
 .form_outer{
 background-color: gainsboro !important;
@@ -23,8 +24,8 @@ width: 100%;
 	margin-top: 122px;
 }
 
-@media only screen 
-and (min-width: 769px) 
+@media only screen
+and (min-width: 769px)
 and (max-width: 1024px)
 {
     .Ajax_search{
@@ -33,8 +34,8 @@ and (max-width: 1024px)
 }
 
 
-@media only screen 
-and (min-width: 0px) 
+@media only screen
+and (min-width: 0px)
 and (max-width: 767px)
 {
 .adjust_button{
@@ -118,8 +119,8 @@ transform: rotate(-45deg);
 }
 }
 
-@media only screen 
-and (min-width: 320px) 
+@media only screen
+and (min-width: 320px)
 and (max-width: 374px)
 {
 .Ajax_search {
@@ -139,8 +140,8 @@ p.footer_text {
 }
 }
 
-@media only screen 
-and (min-width: 992px) 
+@media only screen
+and (min-width: 992px)
 and (max-width: 1248px)
 {
     nav.navbar.navbar-expand-lg.fixed-top{
@@ -151,8 +152,8 @@ and (max-width: 1248px)
     }
 }
 
-@media only screen 
-and (min-width: 766px) 
+@media only screen
+and (min-width: 766px)
 and (max-width: 1023px)
 {
 .row.container-fluid{
@@ -209,7 +210,7 @@ padding-right: 50px;
 }
 .quality input {
     margin: 15px 15px 15px 0;
-    
+
 }
 .dropdown-menu1{
     width: 92%;
@@ -306,8 +307,8 @@ h2.breadcrumb-list > div > a {
                         <div id="search-result"></div>
                     </form>
                 </div>
-        
-        
+
+
                 <div class="row mobile_view">
                 <div class="media_icons">
                 <div class="heart_top">
@@ -331,7 +332,7 @@ h2.breadcrumb-list > div > a {
                     </a>
                 </div>
             </div>
-        
+
             <div class="dropdown show" style="margin-right: 20px;">
                 <?php if ($session->get('logged_in') && $fullName) { ?>
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -361,15 +362,15 @@ h2.breadcrumb-list > div > a {
             </div>
         </div>
 
-        
+
         <!-- </div>
         </div>
-       
+
         </div> -->
         </nav>
         <!-- container end -->
-  
-    
+
+
 
 
 

@@ -64,51 +64,66 @@ $loginId = $session->get('user_id');
                 </a>
             </div>
             <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'flex'; ?>">
-                <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
-                    <h2 class="text-center pt-5 pb-3">Sign in</h2>
-                    <div class="form-group">
-                        <div class="mr-2 ml-2 mb-4">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="text" class="form-control" id="email" name="email"
-                                placeholder="Enter your email" autofocus />
-                        </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php if (session()->getFlashdata('success')) { ?>
+                        <div class="alert alert-primary text-center"><?= session()->getFlashdata('success') ?></div>
+                        <?php } ?>
+                        <?php if (session()->getFlashdata('error')) { ?>
+                        <div class="alert alert-danger text-center"><?= session()->getFlashdata('error') ?></div>
+                        <?php } ?>
                     </div>
-                    <div class="form-group">
-                        <div class=" form-password-toggle mr-2 ml-2 mb-4">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
+                   <div class="col-md-12">
+                   <form id="loginForm" action="<?php echo base_url('check/login') ?>" method="POST">
+                        <h2 class="text-center pt-5 pb-3">Sign in</h2>
+                        <div class="form-group">
+                            <div class="mr-2 ml-2 mb-4">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Enter your email" autofocus />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class=" form-password-toggle mr-2 ml-2 mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password">Password</label>
+
+                                </div>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                </div>
 
                             </div>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
+                        </div>
+                        <div class="form-group ml-2">
+                            <div class="">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                </div>
                             </div>
+                        </div>
+                        <div class="form-group ml-2 mr-2">
+                            <div class="">
+                                <button class="btn btn-primary d-grid w-100 signin_btn" type="submit">Sign in</button>
+                            </div>
+                        </div>
+                        <div class="form-group ml-2 mr-2 d-flex justify-content-around">
+                            <a class="" href="<?php echo base_url('forgot-password') ?>">
+                                <small>Forgot your password</small>
+                            </a>
+                            <a class="" href="<?php echo base_url('register') ?>">
+                                <small>Create account</small>
+                            </a>
+                        </div>
+                    </form>
+                   </div>
+                </div>
 
-                        </div>
-                    </div>
-                    <div class="form-group ml-2">
-                        <div class="">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="remember-me" />
-                                <label class="form-check-label" for="remember-me"> Remember Me </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group ml-2 mr-2">
-                        <div class="">
-                            <button class="btn btn-primary d-grid w-100 signin_btn" type="submit">Sign in</button>
-                        </div>
-                    </div>
-                    <div class="form-group ml-2 mr-2 d-flex justify-content-around">
-                        <a class="" href="<?php echo base_url('forgot-password') ?>">
-                            <small>Forgot your password</small>
-                        </a>
-                        <a class="" href="<?php echo base_url('register') ?>">
-                            <small>Create account</small>
-                        </a>
-                    </div>
-                </form>
+
             </div>
         </div>
 
@@ -281,10 +296,10 @@ $loginId = $session->get('user_id');
                     </div>
                     <div class="col-lg-6">
                         <div class="slider">
-                            <?php 
-                
+                            <?php
+
                     if (isset($allcategoryData)) { ?>
-                            <?php foreach ($allcategoryData['category'] as $key => $product) { 
+                            <?php foreach ($allcategoryData['category'] as $key => $product) {
                             ?>
                             <div class="slider_content">
 
@@ -311,7 +326,7 @@ $loginId = $session->get('user_id');
 
                             </div>
                             <?php } ?>
-                            <?php foreach ($allcategoryData['sub_category'] as $key => $product) { 
+                            <?php foreach ($allcategoryData['sub_category'] as $key => $product) {
                             ?>
                             <div class="slider_content">
 
@@ -339,7 +354,7 @@ $loginId = $session->get('user_id');
 
                             </div>
                             <?php } ?>
-                            <?php foreach ($allcategoryData['child_sub'] as $key => $product) { 
+                            <?php foreach ($allcategoryData['child_sub'] as $key => $product) {
                                 $subChildCatLink = base_url('') . "product/" . $product['sub_category_id'] . '/' . $product['child_id'];
                             ?>
                             <div class="slider_content">
@@ -404,7 +419,7 @@ $loginId = $session->get('user_id');
                 <div class="row align-items-center pb-lg-5 pb-xl-5 pb-xxl-5">
                     <!-- <div class="col-lg-9">
                 <div class="products_type">
-                   
+
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home">All</a>
@@ -435,7 +450,7 @@ $loginId = $session->get('user_id');
 
                     <div id="home" class="container tab-pane active">
                         <div class="row">
-                            <?php if (isset($newProductdata)) { 
+                            <?php if (isset($newProductdata)) {
                        // Shuffle the array to get random data
                         shuffle($newProductdata); ?>
                             <?php foreach ($newProductdata as $product) : ?>
@@ -470,7 +485,7 @@ $loginId = $session->get('user_id');
                         </div>
                     </div>
 
-                  
+
                 </div>
 
             </div>
@@ -556,7 +571,7 @@ $loginId = $session->get('user_id');
     </section>
     <!--~~~~~~~~~~~~~~~~~~>> PARTNER LOGO END <<~~~~~~~~~~~~~~~~~-->
     <?= $this->include('front/layout/footer'); ?>
-   
+
     <script src="<?php echo base_url() ?>public/front/js/owl.carousel.min.js"></script>
     <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
     <script>

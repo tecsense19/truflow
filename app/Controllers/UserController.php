@@ -98,10 +98,54 @@ class UserController extends BaseController
             $usermodel->update(['user_id' => $input['user_id']], $userArr);
         } else {
             $usermodel->insert($userArr);
+            $user_id_last = $usermodel->insertID();
+
+            // $token = bin2hex(random_bytes(32));
+            $token = base64_encode($user_id_last);
+
+            $UserEmail =  $userArr['email'];
+
+            $emailService = \Config\Services::email();
+
+            $fromEmail = 'sendmail@testweb4you.com';
+            $fromName = 'Truflow Hydraulics';
+
+            $emailService->setFrom($fromEmail, $fromName);
+            $emailService->setTo($UserEmail);
+            $emailService->setSubject('Verification');
+            $emailService->setMessage('
+                <html>
+                    <body>
+                        <h1>Verify Your Account</h1>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                            <tr>
+                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                    <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                                    <h3>
+                                        Click the following link to Verify Your Account
+                                    </h3>
+                                    <a href="' . base_url('verification/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Verification Account</a>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </body>
+                </html>
+            ');
+            $session->setFlashdata('success', 'Registration successful Verify Your Account');
+
+            // return redirect()->to('login');
+            if ($emailService->send()) {
+                return redirect()->to('login');
+            } else {
+                return redirect()->back()->with('error', 'Unable to send the Verification link. Please try again later.');
+            }
+
         }
 
         $session->setFlashdata('success', 'Registration successful.');
-        return redirect()->to('login');
+
+         return redirect()->to('login');
     }
     public function login()
     {
@@ -150,15 +194,15 @@ class UserController extends BaseController
         $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
         $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();
         $allcategoryData = [];
-       
+
             $allcategoryData['category'] = $allcategoryData1;
-    
-      
+
+
             $allcategoryData['sub_category'] = $allcategoryData2;
-     
-     
+
+
             $allcategoryData['child_sub'] = $allcategoryData3;
-   
+
 
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
         $variantsmodel = new VariantsModel();
@@ -194,8 +238,8 @@ class UserController extends BaseController
 
                 $categorydata = $categorymodel->where('category_id', $pdata['category_id'])->first();
                 $pdata['category_name'] = $categorydata ? $categorydata['category_name'] : '';
-           
-                
+
+
                 $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
                 $pdata['sub_category_name'] = $subcategory ? $subcategory['sub_category_name'] : '';
 
@@ -212,7 +256,7 @@ class UserController extends BaseController
 
 
 
-     
+
         $session = session();
         $userId = $session->get('user_id');
         $addwishlistmodel = new AddwishlistModel();
@@ -259,7 +303,7 @@ class UserController extends BaseController
             ]
         );
 
-       
+
     }
     public function checkLogin()
     {
@@ -270,33 +314,42 @@ class UserController extends BaseController
 
         $checkExists = $model->where('email', $email)->where('user_role', 'user')->first();
         if ($checkExists) {
-            $hashedPassword = $checkExists['password'];
-            if (password_verify($password, $hashedPassword)) {
-                $ses_data = [
-                    'user_id' => $checkExists['user_id'],
-                    'full_name' => $checkExists['full_name'],
-                    'email' => $checkExists['email'],
-                    'company_name' => $checkExists['company_name'],
-                    'logged_in' => true,
-                ];
-                $session->set($ses_data);
 
-                $product_details = $session->get('product_details');
+            $user_email_verify = $checkExists['user_verify'];
 
-                if ($product_details) {
+            if($user_email_verify == 1){
+                $hashedPassword = $checkExists['password'];
+                if (password_verify($password, $hashedPassword)) {
+                    $ses_data = [
+                        'user_id' => $checkExists['user_id'],
+                        'full_name' => $checkExists['full_name'],
+                        'email' => $checkExists['email'],
+                        'company_name' => $checkExists['company_name'],
+                        'logged_in' => true,
+                    ];
+                    $session->set($ses_data);
 
-                    $redirect_url = $product_details;
-                    $session->remove('product_details');
+                    $product_details = $session->get('product_details');
+
+                    if ($product_details) {
+
+                        $redirect_url = $product_details;
+                        $session->remove('product_details');
+                    } else {
+                        $redirect_url = '/'; // main page redirect
+                    }
+                    return redirect()->to($redirect_url);
+
+                    //return redirect()->to('/');
                 } else {
-                    $redirect_url = '/'; // main page redirect
+                    $session->setFlashdata('error', 'You have entered the wrong email/password!');
+                    return redirect()->to('login');
                 }
-                return redirect()->to($redirect_url);
-
-                //return redirect()->to('/');
-            } else {
-                $session->setFlashdata('error', 'You have entered the wrong email/password!');
+            }else{
+                $session->setFlashdata('error', 'You Need to Verify First Your User Account');
                 return redirect()->to('login');
             }
+
         } else {
             $session->setFlashdata('error', 'You have entered the wrong email/password!');
             return redirect()->to('login');
@@ -509,9 +562,26 @@ class UserController extends BaseController
         }
     }
 
+    public function verification($token)
+    {
+
+        $decoded_user_id = base64_decode($token);
+
+        $model = new UserModel();
+        $user = $model->where('user_id ', $decoded_user_id)->first();
+        $user_verify =  $user['user_verify'];
+
+        $model->update($decoded_user_id, [
+            'user_verify' => 1
+        ]);
+
+        return view('front/user_verification');
+    }
     public function reset($token)
     {
 
+        $model = new UserModel();
+        $user = $model->where('reset_token', $token)->first();
         return view('front/reset_password', [
             'token' => $token,
 

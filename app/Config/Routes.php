@@ -77,6 +77,7 @@ $routes->post("register/save", "UserController::registerSave");
 
 $routes->get('forgot-password', 'UserController::forgotPassword');
 $routes->post('resetPassword', 'UserController::resetPassword');
+$routes->get('verification/(:any)', 'UserController::verification/$1');
 $routes->get('reset-password/(:any)', 'UserController::reset/$1');
 $routes->post('reset_password/(:any)', 'UserController::reset_password/$1');
 
@@ -220,7 +221,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
      $routes->post("company/save", "CompanyController::companySave");
      $routes->get("company/edit/(:num)", "CompanyController::companyEdit/$1");
      $routes->get("company/delete/(:num)", "CompanyController::companyDelete/$1");
-    
+
      //Company Wise Coupon
 
      $routes->get("company_coupon_list", "CompanyCouponController::index");
@@ -266,8 +267,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post('getSubcategories/(:num)', 'ChildSubCategoryController::getSubcategories/$1');
     $routes->post('getChildSubcategories/(:num)', 'ChildSubCategoryController::getChildSubcategories/$1');
     $routes->post('getChildSubId/(:num)', 'ChildSubCategoryController::getChildSubId/$1');
-   
-  
+
+
 
 });
 

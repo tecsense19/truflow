@@ -31,7 +31,7 @@
                     <div class="panel-body" bis_skin_checked="1">
                         <?php echo view('front/shop_sidebar'); ?>
                         <!-- <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($sidebar_array as $index => $subcategory) : 
+                            <?php foreach ($sidebar_array as $index => $subcategory) :
                               ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
                                     <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $index; ?>">
@@ -41,13 +41,13 @@
                                             <a href="<?php echo base_url('') . "product/" . $subcategory['sub_category_id'] ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
                                         <?php } else { ?>
                                             <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
-                                            
+
                                          <?php } ?>
-                                           
+
                                         </p>
                                     </div>
                                     <div id="collapse<?php echo $index; ?>" class="panel-collapse collapse" bis_skin_checked="1">
-                                       
+
                                     <?php if (!empty($subcategory['product_arr'])) : ?>
                                             <div class="panel-body">
                                                 <?php foreach ($subcategory['product_arr'] as $product) : ?>
@@ -62,7 +62,7 @@
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
-                            
+
 
                                     <?php if (!empty($subcategory['child_arr'])) : ?>
                                             <div class="panel-body">
@@ -91,7 +91,7 @@
                 <div class="row">
 
                     <?php if (isset($ChildSubCategorydata)) { ?>
-                        <?php foreach ($ChildSubCategorydata as $subcategory) { 
+                        <?php foreach ($ChildSubCategorydata as $subcategory) {
                                $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
 
                                $breadcrumb = "<div>&nbsp;/&nbsp;<a href='". $redirectUrl ."'>".strtoupper($subcategory['child_sub_category_name'])."</a></div> ";
@@ -109,15 +109,15 @@
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-                                     
-                                           
+
+
                                                 <h3 class="mt-3" ><?php echo $subcategory['child_sub_category_name']; ?></h3>
-                                           
+
                                     </div>
                                 </div>
                                 </a>
                             </div>
-                  
+
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">

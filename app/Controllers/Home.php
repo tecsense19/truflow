@@ -74,15 +74,15 @@ class Home extends BaseController
         $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
         $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();
         $allcategoryData = [];
-       
+
             $allcategoryData['category'] = $allcategoryData1;
-    
-      
+
+
             $allcategoryData['sub_category'] = $allcategoryData2;
-     
-     
+
+
             $allcategoryData['child_sub'] = $allcategoryData3;
-   
+
 
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
         $variantsmodel = new VariantsModel();
@@ -118,8 +118,8 @@ class Home extends BaseController
 
                 $categorydata = $categorymodel->where('category_id', $pdata['category_id'])->first();
                 $pdata['category_name'] = $categorydata ? $categorydata['category_name'] : '';
-           
-                
+
+
                 $subcategory = $subcategorymodel->where('sub_category_id', $pdata['sub_category_id'])->first();
                 $pdata['sub_category_name'] = $subcategory ? $subcategory['sub_category_name'] : '';
 
@@ -287,7 +287,7 @@ class Home extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
-        
+
         $categoryData = $categorymodel->find();
 
         $result = [];
@@ -372,7 +372,7 @@ class Home extends BaseController
 
     public function child_sub_category($subcategory_id)
     {
-        
+
         $subcategorymodel = new SubCategoryModel();
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
@@ -391,23 +391,23 @@ class Home extends BaseController
         // $categoryData = $categorymodel->find($category_id);
         // if (!$categoryData) {
         //     return redirect()->back();
-        // }   
+        // }
 
         $productmodel = new ProductModel();
         $variantsmodel = new VariantsModel();
 
         $responseArr = [];
         $categoryData = $ChildSubCategoryModel->findAll();
-        foreach ($categoryData as $key => $value) 
+        foreach ($categoryData as $key => $value)
         {
             $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
-        
+
             $subArr = [];
-            foreach ($subcategories as $sKey => $sValue) 
+            foreach ($subcategories as $sKey => $sValue)
             {
                 $childsubcategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $subcategory_id)->findAll();
                 $childArr = [];
-                foreach ($childsubcategories as $cKey => $cValue) 
+                foreach ($childsubcategories as $cKey => $cValue)
                 {
                     $product = $productmodel->where('child_id', $cValue['child_id'])->findAll();
                     $child_prod_Arr = [];
@@ -417,20 +417,20 @@ class Home extends BaseController
                         $child_prod_Arr[] = $variant;
                     }
                     $cValue['variant'] = $child_prod_Arr;
-                   
+
                     $allChild = $this->getCategoryTree($cValue['child_id'], $ChildSubCategoryModel);
                     $cValue['is_child'] = count($allChild) > 0 ? true : false;
                     $cValue['all_childs'] = $allChild;
                     $childArr[] = $cValue;
-                    
+
                 }
-            
+
                 $sValue['child_arr'] = $childArr;
                 $subArr[] = $sValue;
-              
+
             }
-          
-        
+
+
         }
         $value['sub_cat'] = $subArr;
         $responseArr[] = $value;
@@ -440,27 +440,27 @@ class Home extends BaseController
         // $subcategory1 = [];
         // foreach ($subcategoryData as $subcategory) {
         //     $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
-           
+
         //     $newPro = [];
         //     foreach ($product as $variant) {
 
         //         $variantData = $variantsmodel->where('product_id', $variant['product_id'])->first();
         //         $variant['parent'] = count($variantData) > 0 ? $variantData['parent'] : '';
         //         $newPro[] = $variant;
-               
+
         //     }
-          
+
         //     $subcategory['product_array'] = $newPro;
-           
-          
+
+
         // }
-     
+
         // $subcategory['is_child'] = count($ChildSubCategorydata2) > 0 ? true : false;
         // $subcategory['child_array'] = $ChildSubCategorydata2 ;
         // $subcategory1[] = $subcategory;
-  
-   
-        
+
+
+
         return view('front/child_sub_category', [
             'headerData' => $headerData,
             'ChildSubCategorydata' => $responseArr,
@@ -470,17 +470,17 @@ class Home extends BaseController
 
     public function child_sub_sub_category($category_id)
     {
-      
+
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         $ChildSubCategorydata1 = $ChildSubCategoryModel->where('sub_chid_id', $category_id)->where('sub_chid_id <>', 0)->findAll();
-      
+
         if(!empty($ChildSubCategorydata1[0]['sub_chid_id'])){
             $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $category_id)->where('sub_chid_id <>', 0)->findAll();
         }else{
             return redirect()->back();
         }
         //$ChildSubCategorydata2 = $ChildSubCategoryModel->findAll();
-     
+
         if (!$ChildSubCategorydata) {
             $ChildSubCategorydata = null;
         }
@@ -524,7 +524,7 @@ class Home extends BaseController
     {
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-      
+
         $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $sub_category_id)->findAll();
         if (!$ChildSubCategorydata) {
             $ChildSubCategorydata = null;
@@ -532,7 +532,7 @@ class Home extends BaseController
         // echo "<pre>";
         // print_r($ChildSubCategorydata);
         // die;
-        
+
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -541,7 +541,7 @@ class Home extends BaseController
         $subcategorymodel = new SubCategoryModel();
         $subcategoryData = $subcategorymodel->find($sub_category_id);
 
-     
+
         if (!$subcategoryData) {
             $subcategoryData = null;
         }
@@ -557,7 +557,7 @@ class Home extends BaseController
         {
             $productData = $productmodel->where('sub_category_id', $sub_category_id)->findAll();
         }
-     
+
         $variantsmodel = new VariantsModel();
         $newData = [];
         foreach ($productData as $pdata) {
@@ -580,7 +580,7 @@ class Home extends BaseController
             {
                 $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])->findAll();
             }
-            
+
             $varaints = [];
             foreach ($productData1 as $product) {
                 $variantData1 = $variantsmodel->where('product_id', $product['product_id'])->first();
@@ -593,15 +593,15 @@ class Home extends BaseController
 
         $responseArr = [];
         $categoryData = $ChildSubCategoryModel->findAll();
-        foreach ($categoryData as $key => $value) 
+        foreach ($categoryData as $key => $value)
         {
             $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
             $subArr = [];
-            foreach ($subcategories as $sKey => $sValue) 
+            foreach ($subcategories as $sKey => $sValue)
             {
                 $childsubcategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->findAll();
                 $childArr = [];
-                foreach ($childsubcategories as $cKey => $cValue) 
+                foreach ($childsubcategories as $cKey => $cValue)
                 {
                     $allChild = $this->getCategoryTree($cValue['child_id'], $ChildSubCategoryModel);
                     $cValue['all_childs'] = $allChild;
@@ -617,7 +617,7 @@ class Home extends BaseController
 
         // $sidebar_array = [];
         // foreach ($ChildSubCategorydata as $key => $value) {
-            
+
         //     $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
 
         //     $product = $productmodel->where('child_id', $value['child_id'])->findAll();
@@ -636,7 +636,7 @@ class Home extends BaseController
         // }
 
 
-       
+
         // $product = $productmodel->where('child_id', $sub_category_id)->findAll();
         // $newPro = [];
         // foreach ($product as $variant) {
@@ -647,36 +647,6 @@ class Home extends BaseController
         //     $newPro[] = $variant;
         // }
 
-        // Breadcrumbdata
-        
-        // $categorymodel = new CategoryModel();
-
-        // $catData = $categorymodel->where('category_id', $subcategoryData['category_id'])->first();
-
-        // $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $subcategoryData['sub_category_id'])->where('child_id', $childId)->first();
-
-        // $breadcrumb = '';
-        // if(isset($catData['category_name']))
-        // {
-        //     $breadcrumb .= "<a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a>";
-        // }
-        // if(isset($subcategoryData['sub_category_name']))
-        // {
-        //     $childCatLink = base_url('') . "childsub/category/" . $subcategoryData['sub_category_id'];
-
-        //     $breadcrumb .= "/ <a href='". $childCatLink ."'> ".strtoupper($subcategoryData['sub_category_name'])." </a>";
-        // }
-        // if(isset($ChildSubCategorydata['child_sub_category_name']))
-        // {
-        //     $subChildCatLink = base_url('') . "product/" . $ChildSubCategorydata['sub_category_id'] . '/' . $ChildSubCategorydata['child_id'];
-
-        //     $breadcrumb .= "/ <a href='". $subChildCatLink ."'> ".strtoupper($ChildSubCategorydata['child_sub_category_name'])." </a>";
-        // }
-
-        // session()->set('breadcrumb', $breadcrumb);
-
-        // Breadcrumbdata
-      
 
         // echo "<pre>";
         // print_r($breadcrumbData);
@@ -752,12 +722,12 @@ class Home extends BaseController
         ->where('product_id', $product_id)
         ->where('user_id', $userId)
             ->findAll();
-    
+
 
         if (!$addwishData) {
             $addwishData = null;
         }
-        
+
         $product_details = current_url(true);
         $session->set('product_details', $product_details);
 
@@ -772,13 +742,13 @@ class Home extends BaseController
             $variantsmodel = new VariantsModel();
             $newData_p = [];
             foreach ($productData1 as $pdata1) {
-                
+
                 $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
                 $pdata1['parent'] = $variantData1 ? $variantData1['parent'] : '';
                 $newData_p[] = $pdata1;
             }
             $sub_cat_data[] = $newData_p;
-        
+
         $addwishlistmodel = new AddwishlistModel();
         $wishlistData = $addwishlistmodel->select('*')->where('user_id', $userId)->findAll();
         $wishlistCount = count($wishlistData ?? []);
@@ -793,7 +763,7 @@ class Home extends BaseController
         // echo "<pre>";
         // print_r($averageRating);
         // die();
-    
+
         return view('front/product_details', [
             'headerData' => $headerData,
             'productData' => $productData,
@@ -863,7 +833,7 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
         $componey_name = $session->get('company_name');
-       
+
         $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
@@ -891,7 +861,7 @@ class Home extends BaseController
         if (!$componeyData) {
             $componeyData = null;
         }
-      
+
         $cartCount = count($cartData ?? []);
 
         $session->set('cartCount', $cartCount);
@@ -905,7 +875,7 @@ class Home extends BaseController
                 $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
                 if(!empty($getCoupon))
                 {
-                    if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                    if ($getCoupon['coupon_price_type'] == 'Percentage')
                     {
                         $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
                     } else if ($getCoupon['coupon_price_type'] == 'Flat') {
@@ -1182,7 +1152,7 @@ class Home extends BaseController
         $usercontactmodel->insert($data);
 
         $html = view('front/contact_email', $data);
-        
+
         $emailService = \Config\Services::email();
 
         $fromEmail = 'sendmail@testweb4you.com';
@@ -1211,14 +1181,14 @@ class Home extends BaseController
     }
     public function addfeedback()
     {
-           
+
         $productratingmodel = new ProductRatingModel();
         $session = session();
         $user_id = session()->get('user_id');
         $rat_number = $this->request->getVar('rating');
         $rat_message = $this->request->getVar('message');
         $product_id = $this->request->getVar('product_id');
-        
+
 
         $data = array(
 
@@ -1285,20 +1255,20 @@ class Home extends BaseController
             $value['isProduct'] = count($product) > 0 ? true : false;
             $array[]=$value;
         }
-   
-        // echo "<pre>";
-        // print_r($subcategoryData);
-        // die;
 
-        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData, 'categoryData' => $this->processCategories()]);
-        
+    // echo "<pre>";
+    // print_r($array);
+    // die;
+
+        return view('front/subcategory', ['subcategoryData' => $array, 'sidebar_array' => $sidebar_array, 'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
+
     }
 
     public function main_child_category($subcategory_id)
     {
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-        
+
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
         $variantsmodel = new VariantsModel();
@@ -1319,7 +1289,7 @@ class Home extends BaseController
 
         $sidebar_array = [];
         foreach ($ChildSubCategorydata as $key => $value) {
-            
+
             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
 
             $product = $productmodel->where('child_id', $value['child_id'])->findAll();
@@ -1352,7 +1322,7 @@ class Home extends BaseController
         // Breadcrumbdata
 
         $getSubCatName = $subcategorymodel->where('sub_category_id', $subcategory_id)->first();
-        
+
         $categorymodel = new CategoryModel();
 
         $catData = $categorymodel->where('category_id', $getSubCatName['category_id'])->first();
@@ -1369,7 +1339,7 @@ class Home extends BaseController
         // print_r($array);
         // die;
         return view('front/childsubcategory', ['ChildSubCategorydata' => $array, 'sidebar_array' => $sidebar_array,  'headerData' => $headerData, 'categoryData' => $category1 = $this->processCategories()]);
-        
+
     }
 
     public function child_subchild_category($chid_id)
@@ -1389,7 +1359,7 @@ class Home extends BaseController
 
         $sidebar_array = [];
         foreach ($ChildSubCategorydata as $key => $value) {
-            
+
             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
 
             $product = $productmodel->where('child_id', $value['child_id'])->findAll();
@@ -1442,7 +1412,7 @@ class Home extends BaseController
 
         if(count($getMetaTags) > 0)
         {
-            foreach ($getMetaTags as $key => $value) 
+            foreach ($getMetaTags as $key => $value)
             {
                 $metaHtml .= '<meta name="'.$value['meta_name'].'" content="'.$value['meta_content'].'">';
             }
@@ -1461,7 +1431,7 @@ class Home extends BaseController
 
         return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
     }
-    
+
     public function breadcrumbUpdate()
     {
         $request = service('request');
@@ -1474,7 +1444,7 @@ class Home extends BaseController
 
         return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
     }
-    
+
     public function breadcrumbReplace()
     {
         $request = service('request');
