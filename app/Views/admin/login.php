@@ -45,7 +45,7 @@
                                     <span>
                                     <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="100px" class="img-fluid">
                                     </span>
-                                    
+
                                 </a>
                             </div>
                             <!-- /Logo -->
@@ -95,7 +95,7 @@
             </div>
         </div>
         <!-- / Content -->
-       
+
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/libs/jquery/jquery.js"></script>

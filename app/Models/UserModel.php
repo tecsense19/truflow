@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;  
+namespace App\Models;
 use CodeIgniter\Model;
 
 class UserModel extends Model
@@ -32,7 +32,8 @@ class UserModel extends Model
         'phone',
         'fax',
         'reset_token',
-        'reset_token_expires_at'
+        'reset_token_expires_at',
+        'user_verify'
     ];
 
     // Dates

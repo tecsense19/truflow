@@ -1,0 +1,57 @@
+CRITICAL - 2023-12-08 05:06:04 --> Undefined property: App\Controllers\UserController::$model
+in APPPATH\Controllers\UserController.php on line 560.
+ 1 APPPATH\Controllers\UserController.php(560): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$model', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 560)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:06:11 --> Undefined property: App\Controllers\UserController::$model
+in APPPATH\Controllers\UserController.php on line 560.
+ 1 APPPATH\Controllers\UserController.php(560): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$model', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 560)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:06:32 --> Object of class App\Models\UserModel could not be converted to string
+in APPPATH\Controllers\UserController.php on line 560.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:08:47 --> Array to string conversion
+in APPPATH\Controllers\UserController.php on line 560.
+ 1 APPPATH\Controllers\UserController.php(560): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 560)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:08:50 --> Array to string conversion
+in APPPATH\Controllers\UserController.php on line 560.
+ 1 APPPATH\Controllers\UserController.php(560): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 560)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:09:37 --> syntax error, unexpected variable "$user"
+in APPPATH\Controllers\UserController.php on line 561.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\UserController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\UserController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\UserController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:16:15 --> Undefined variable $decoded_data
+in APPPATH\Controllers\UserController.php on line 555.
+ 1 APPPATH\Controllers\UserController.php(555): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $decoded_data', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 555)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 05:16:56 --> Undefined variable $decoded_data
+in APPPATH\Controllers\UserController.php on line 555.
+ 1 APPPATH\Controllers\UserController.php(555): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $decoded_data', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 555)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('NDE=')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

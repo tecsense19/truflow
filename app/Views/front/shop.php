@@ -84,9 +84,9 @@ section.category_product .container {
                             </div>
                             <hr>
                             <div class="product_text text-center">
-                                
+
                                     <h3 class="mt-3"><?php echo $category['category_name']; ?></h3>
-                               
+
                                 <span><?php echo $category['category_description']; ?></span>
                             </div>
                         </div>

@@ -1,0 +1,83 @@
+CRITICAL - 2023-12-07 13:09:59 --> Undefined variable $model
+in APPPATH\Controllers\UserController.php on line 109.
+ 1 APPPATH\Controllers\UserController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $model', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 109)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->registerSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:25:35 --> syntax error, unexpected variable "$originalBytes"
+in APPPATH\Controllers\UserController.php on line 562.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\UserController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\UserController')
+ 4 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\UserController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:32:22 --> Undefined variable $decodedToken
+in APPPATH\Controllers\UserController.php on line 555.
+ 1 APPPATH\Controllers\UserController.php(555): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $decodedToken', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 555)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('1ca684f280e91be262b26eaccd3bea620d54ab0c59ca66710380b0683a2459d5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:36:59 --> Undefined property: App\Controllers\UserController::$encryption
+in APPPATH\Controllers\UserController.php on line 556.
+ 1 APPPATH\Controllers\UserController.php(556): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$encryption', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 556)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('1ca684f280e91be262b26eaccd3bea620d54ab0c59ca66710380b0683a2459d5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:38:14 --> Undefined property: App\Controllers\UserController::$load
+in APPPATH\Controllers\UserController.php on line 555.
+ 1 APPPATH\Controllers\UserController.php(555): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$load', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 555)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('1ca684f280e91be262b26eaccd3bea620d54ab0c59ca66710380b0683a2459d5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:38:59 --> Undefined property: App\Controllers\UserController::$encryption
+in APPPATH\Controllers\UserController.php on line 561.
+ 1 APPPATH\Controllers\UserController.php(561): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$encryption', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 561)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('1ca684f280e91be262b26eaccd3bea620d54ab0c59ca66710380b0683a2459d5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-07 13:39:21 --> Undefined property: App\Controllers\UserController::$load
+in APPPATH\Controllers\UserController.php on line 555.
+ 1 APPPATH\Controllers\UserController.php(555): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\UserController::$load', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 555)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->verification('1ca684f280e91be262b26eaccd3bea620d54ab0c59ca66710380b0683a2459d5')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-07 14:11:21 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-07 14:11:21 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Thu, 07 Dec 2023 19:41:18 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [122.170.168.108]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [122.170.168.108]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 550 No Such User Here
+
+The following SMTP error was encountered: 550 No Such User Here
+
+quit: 221 bh-1.webhostbox.net closing connection
+
