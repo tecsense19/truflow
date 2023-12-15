@@ -19,7 +19,7 @@
     </div>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START childsubcategory.php <<~~~~~~~~~~~~~~~-->
 <section class="category_product my-5">
     <div class="container">
         <div class="row">
@@ -92,11 +92,14 @@
 
                     <?php if (isset($ChildSubCategorydata)) { ?>
                         <?php foreach ($ChildSubCategorydata as $subcategory) {
-                               $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
+                            // echo "<pre>";
+                            // print_r($subcategory);
+                            // // die;
+                               $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/".str_replace(' ', '-', $subcategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '-', $subcategory['child_sub_category_name']);
 
                                $breadcrumb = "<div>&nbsp;/&nbsp;<a href='". $redirectUrl ."'>".strtoupper($subcategory['child_sub_category_name'])."</a></div> ";
                                ?>
-                                <a href="javascript:void(0)" class="category-link" data-url="<?php echo $redirectUrl; ?>" data-bread="<?php echo $breadcrumb; ?>">
+                                <a href="javascript:void(0)" class="category-link category_data" data-catid="<?php echo $subcategory['child_id']; ?>" data-url="<?php echo $redirectUrl; ?>" data-bread="<?php echo $breadcrumb; ?>">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -182,4 +185,34 @@
             }
         });
     });
+</script>
+
+<script>
+$(function() {
+    $('.category_data').click(function(e) {
+        // Prevent the default behavior of the link (following the href)
+        e.preventDefault();
+
+        // Get the text content of the clicked link
+        var cateId = $(this).attr('data-catid');
+
+        var redirectUrl = $(this).data('url');
+            // Make an AJAX request to a CodeIgniter 4 controller method
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+            data: {
+                child_id: cateId
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
+});
+
 </script>

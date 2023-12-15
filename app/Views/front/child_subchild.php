@@ -1,5 +1,5 @@
-<?= 
-$this->include('front/layout/front'); 
+<?=
+$this->include('front/layout/front');
 
 ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -22,7 +22,7 @@ $this->include('front/layout/front');
     </div>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START  child_subchild.php <<~~~~~~~~~~~~~~~-->
 <section class="category_product my-5">
     <div class="container">
         <div class="row">
@@ -34,27 +34,27 @@ $this->include('front/layout/front');
                     <div class="panel-body" bis_skin_checked="1">
                         <?php echo view('front/shop_sidebar'); ?>
                         <!-- <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($sidebar_array as $index => $subcategory) : 
+                            <?php foreach ($sidebar_array as $index => $subcategory) :
                               ?>
                                 <div class="panel panel-default" bis_skin_checked="1">
                                     <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $index; ?>">
                                         <p class="panel-title">
                                         <i class="fa fa-caret-right"></i>&nbsp;
                                         <?php if(!empty($subcategory['child_arr'][$index])) { ?>
-                                            
+
                                             <a href="<?php echo base_url('') . "childsub_sub/category/" . isset($subcategory['child_arr'][$index]['child_id']) ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
-                                            
-                                           
+
+
                                         <?php } else { ?>
-                                            
+
                                             <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>"><?php echo strtoupper($subcategory['child_sub_category_name']); ?></a>
-                                            
+
                                          <?php } ?>
-                                            
+
                                         </p>
                                     </div>
                                     <div id="collapse<?php echo $index; ?>" class="panel-collapse collapse">
-            
+
                                             <div class="panel-body">
                                                 <?php if(count($subcategory['child_arr']) > 0) { foreach ($subcategory['child_arr'] as $product) : ?>
                                                     <p class="panel-title" style="padding: 10px;">
@@ -90,12 +90,16 @@ $this->include('front/layout/front');
                 <div class="row">
 
                     <?php if (isset($child_subchild)) { ?>
-                        <?php foreach ($child_subchild as $subcategory) { 
-                            $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'.$subcategory['child_id'] : base_url('') . "childsub_sub/category/" . $subcategory['child_id'];
+                        <?php foreach ($child_subchild as $subcategory) {
+                            //  echo "<pre>";
+                            // print_r($subcategory);
+                            // die;
+                            // $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id'] .'/'. str_replace(' ', '-', $subcategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '-', $subcategory['child_sub_category_name']);
+                            $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . str_replace(' ', '-', $subcategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '-', $subcategory['child_sub_category_name']);
 
                             $breadcrumb = "<div>&nbsp;/&nbsp;<a href='". $redirectUrl ."'>".strtoupper($subcategory['child_sub_category_name'])."</a></div> ";
                             ?>
-                              <a href="javascript:void(0)" class="category-link" data-url="<?php echo $redirectUrl; ?>" data-bread="<?php echo $breadcrumb; ?>">
+                              <a href="javascript:void(0)" class="category-link category_data" data-catid="<?php echo $subcategory['child_id']; ?>" data-url="<?php echo $redirectUrl; ?>" data-bread="<?php echo $breadcrumb; ?>">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -108,17 +112,17 @@ $this->include('front/layout/front');
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-                                     
-                                          
+
+
                                                 <h3 class="mt-3"><?php echo $subcategory['child_sub_category_name']; ?></h3>
-                                           
-                                     
-                                      
+
+
+
                                     </div>
                                 </div>
                                 </a>
                             </div>
-                  
+
                         <?php } ?>
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">
@@ -183,4 +187,34 @@ $this->include('front/layout/front');
             }
         });
     });
+</script>
+
+<script>
+$(function() {
+    $('.category_data').click(function(e) {
+        // Prevent the default behavior of the link (following the href)
+        e.preventDefault();
+
+        // Get the text content of the clicked link
+        var cateId = $(this).attr('data-catid');
+
+        var redirectUrl = $(this).data('url');
+            // Make an AJAX request to a CodeIgniter 4 controller method
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+            data: {
+                childsubcategory_id: cateId
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
+});
+
 </script>

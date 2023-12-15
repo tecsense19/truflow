@@ -34,15 +34,19 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/shop', 'Home::shop');
 // $routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
-$routes->get('/sub/category/(:num)', 'Home::main_sub_category/$1');
+$routes->get('/sub/category/(:any)', 'Home::main_sub_category/$1');
 
 // $routes->get('/childsub/category/(:num)', 'Home::child_sub_category/$1');
-$routes->get('/childsub/category/(:num)', 'Home::main_child_category/$1');
+$routes->get('/childsub/category/(:any)', 'Home::main_child_category/$1');
 
 // $routes->get('/childsub_sub/category/(:num)', 'Home::child_sub_sub_category/$1');
-$routes->get('/childsub_sub/category/(:num)', 'Home::child_subchild_category/$1');
-$routes->get('/product/(:num)/(:num)', 'Home::product/$1/$2');
-$routes->get('/product/details/(:num)', 'Home::product_details/$1');
+$routes->get('/childsub_sub/category/(:any)', 'Home::child_subchild_category/$1');
+
+// $routes->get('/product/(:any)/(:any)', 'Home::product/$1/$2');
+$routes->get('/product/details/(:any)', 'Home::product_details/$1');
+$routes->get('/product/(:any)', 'Home::product/$1/$2');
+$routes->get('/product/(:any)/(:any)', 'Home::product/$1/$2');
+// $routes->get('/product/details/(:num)', 'Home::product_details/$1');
 $routes->post('/searchData', 'Home::searchData');
 $routes->get('/add/cart', 'Home::add_to_cart');
 $routes->post('/add_cart', 'Home::add_cart');
@@ -111,6 +115,8 @@ $routes->post('breadcrumb/store', 'Home::breadcrumbStore');
 $routes->post('breadcrumb/update', 'Home::breadcrumbUpdate');
 $routes->post('breadcrumb/replace', 'Home::breadcrumbReplace');
 
+$routes->post('session/store', 'Home::sessionStore');
+
 //Admin_panel ---------
 
 $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($routes) {
@@ -139,6 +145,11 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     //settings
 
     $routes->get("settings", "SettingsController::settings");
+    $routes->get("about-us", "SettingsController::aboutus");
+    $routes->get("contact-us", "SettingsController::contactus");
+    $routes->get("product-page", "SettingsController::productpage");
+    $routes->get("testominal-page", "SettingsController::testominal");
+    $routes->get("partner-section", "SettingsController::partner");
     $routes->post("settings/save", "SettingsController::settingsSave");
     $routes->post("delete_partner_img", "SettingsController::delete_partner_img");
 

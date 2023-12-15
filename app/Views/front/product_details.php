@@ -24,15 +24,15 @@ $wishlistCount = session('wishlistCount');
 .table-front{
     background: white;
     text-align: center;
-   
+
 }
 
 th, td {
       padding: 10px; /* Add padding here (adjust the value as per your preference) */
     }
 
-@media only screen 
-and (min-width: 768px) 
+@media only screen
+and (min-width: 768px)
 and (max-width: 1024px)
 {
     a.btn.btn-primary.mt-2.details_btn1 {
@@ -58,12 +58,12 @@ input.minus {
     width: 75%;
 }
 }
-@media only screen 
-and (min-width: 375px) 
+@media only screen
+and (min-width: 375px)
 and (max-width: 667px)
 {
 .add_cart{
-    width: 200px; 
+    width: 200px;
     display: inline-block;
     background: #005DAB;
     text-align: center;
@@ -92,7 +92,7 @@ input.minus {
 }
 </style>
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START product_details <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
         <div class="container">
@@ -214,9 +214,9 @@ input.minus {
                             <!-- <div>
                                 <h6 class="rating ml-4" style="color: green;"><?php //echo $productData[0]['']; ?> In stock</h6>
                             </div> -->
-                                  
+
                             </div>
-          
+
                             <div class="row">
                                     <div class="col-lg-12">
                                         <div class="glance">
@@ -236,8 +236,8 @@ input.minus {
 
                                             <?php } ?>
                                         </div>
-                                  
-                          
+
+
                             <!-- <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
                             <div class="compare">
 
@@ -289,11 +289,11 @@ input.minus {
                             <?php } ?>
                             </div> -->
 
-                            
+
 
             </div>
-            
-                           
+
+
                         </div>
                     </div>
                 </div>
@@ -328,37 +328,37 @@ input.minus {
                                     <td class="table-front">
                                         <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                         <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $product['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
-                                        <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>  
+                                        <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                     </td>
-                                    <td class="table-front"> 
+                                    <td class="table-front">
                                         <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
                                     </td>
                                     <td class="table-front">
                                         <?php if(isset($product['variant_description'])) {?>
-                                          
+
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description']; ?></h6>
-                                        <?php } ?> 
+                                        <?php } ?>
                                     </td>
 
                                     <td class="table-front">
                                     <?php if(!empty($product['variant_description_1'])) {?>
-                                  
+
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_1']; ?></h6>
-                                            <?php } ?> 
+                                            <?php } ?>
                                     </td>
-                                
+
                                     <td class="table-front">
                                     <?php if(!empty($product['variant_description_2'])) {?>
-                                  
+
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_2']; ?></h6>
-                                            <?php } ?> 
+                                            <?php } ?>
                                     </td>
 
                                     <td class="table-front">
                                     <?php if(!empty($product['variant_description_3'])) {?>
-                                   
+
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_3']; ?></h6>
-                                            <?php } ?> 
+                                            <?php } ?>
                                     </td>
                                     <td class="table-front">
                                     <?php if($product['variant_stock'] > 0){ ?> <h6 class="" style="color: green;">In stock<h6><?php }else{?> <h6 class="" style="color: red;">Out of stock<h6> <?php } ?>
@@ -371,18 +371,18 @@ input.minus {
                             <!-- <div class="col-lg-3">
                                 <div class="product_box p-20">
 
-                                            
-                                            <div class="mr-3 "> 
+
+                                            <div class="mr-3 ">
                                                 <h4 ><?php echo $product['variant_sku']; ?></h4>
                                                 <h6 class="space"><?php echo $product['variant_name']; ?></h6>
-                                             
+
                                             </div>
                                             <div class="variant-container mr-3">
                                                     <input class="minus" value="-" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                     <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $product['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                     <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                     <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
-                                            </div> 
+                                            </div>
                                             <?php if(isset($product['variant_header'])) {?>
                                            <div class="variant-container mr-3 text-left grid_50">
                                            <h6 class="space"><?php echo $product['variant_header']; ?></h6>
@@ -407,16 +407,16 @@ input.minus {
                                             <h6 class="space" style="word-wrap: break-word;"><?php echo $product['variant_description_3']; ?></h6>
                                            </div>
                                            <?php } ?>
-                                           
-                                 
+
+
                                     <hr>
                                     <?php if($product['variant_stock'] > 0){ ?> <h6 class="" style="color: green;">In stock<h6><?php }else{?> <h6 class="" style="color: red;">Out of stock<h6> <?php } ?>
                                 </div>
-                           
-                             
+
+
                             </div> -->
-                           
-                        
+
+
                     <?php } else { ?>
                         <div class="col-md-12 text-center-t1">
                             <div class="form-group mt-5 mb-5 data_center text-center">
@@ -429,10 +429,10 @@ input.minus {
                 <div class="col-md-12" style="text-align: end;">
                 <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
                 </div>
-               
+
             </div>
         </div>
-   
+
         <!-- <div class="text-center">
             <a href="#!" class="load_more">Load More <i class="fa-solid fa-rotate-right"></i></a>
         </div> -->
@@ -579,6 +579,7 @@ input.minus {
                     <div class="row">
                         <?php if (isset($sub_cat_data) && !empty($sub_cat_data)) {  ?>
                             <?php foreach ($sub_cat_data as $product) { ?>
+
                                 <div class="col-md-3">
                                     <div class="product_box">
                                         <div class="product_img">
@@ -594,10 +595,10 @@ input.minus {
                                             <?php } ?>
                                         </div>
                                         <hr>
-                                        <div class="product_text text-center">
-                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
+                                        <div class="product_text text-center category_data" data-catid="<?php echo $product['product_id'];?>"  data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" >
+                                            <a href="javascript:void(0)" class="category-link">
                                                 <h3 class="mt-3"><?php echo $product['parent'] ?></h3>
-                                                <span><a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="btn btn-primary mt-2 details_btn1">Details</a></span>
+                                                <span class="category_data "  data-catid="<?php echo $product['product_id'];?>"  data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>"><a href="javascript:void(0)" class="btn btn-primary mt-2 details_btn1">Details</a></span>
                                             </a>
                                         </div>
                                     </div>
@@ -703,7 +704,7 @@ input.minus {
                 });
                 return; // Exit the function to prevent the AJAX request
             }
-                
+
             var variantIds = <?php echo json_encode(array_column($productData, 'variant_id')); ?>;
             var productIds = <?php echo json_encode(array_column($productData, 'product_id')); ?>;
             var categoryIds = <?php echo json_encode(array_column($productData, 'category_id')); ?>;
@@ -754,8 +755,38 @@ input.minus {
         if(event.target.value >= maxVal){
             event.target.value = maxVal ;
         }
-        
+
     }
+
+
+
 </script>
 
 <?= $this->include('front/layout/footer'); ?>
+<script>
+        $(function() {
+        $('.category_data').click(function(e) {
+            // Prevent the default behavior of the link (following the href)
+            e.preventDefault();
+
+            // Get the text content of the clicked link
+            var cateId = $(this).attr('data-catid');
+            var redirectUrl = $(this).data('url');
+                // Make an AJAX request to a CodeIgniter 4 controller method
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+                data: {
+                    product_details_id: cateId
+                },
+                success: function(response) {
+                    // Display an alert with the breadcrumb information
+                    window.location.href = redirectUrl;
+                },
+                error: function(error) {
+                    console.error('Error storing breadcrumb:', error);
+                }
+            });
+        });
+    });
+</script>

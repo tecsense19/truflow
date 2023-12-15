@@ -3,10 +3,10 @@
     <div class="app-brand demo">
         <a href="<?php echo base_url('admin'); ?>" class="app-brand-link">
             <span class="app-brand-logo demo">
-            
-                  
+
+
                 <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
-               
+
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">Truflow Hydraulics</span>
         </a>
@@ -17,7 +17,7 @@
     <div class="menu-inner-shadow"></div>
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        
+
         <li class="menu-item">
             <a href="<?php echo base_url('admin'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
@@ -31,7 +31,7 @@
                 <div data-i18n="Basic">User</div>
             </a>
         </li>
-     
+
         <li class="menu-item">
             <a href="<?php echo base_url('admin/category_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-category"></i>
@@ -58,7 +58,7 @@
                 <div data-i18n="Basic">Product</div>
             </a>
         </li>
-        
+
         <li class="menu-item">
             <a href="<?php echo base_url('admin/order_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-cart"></i>
@@ -79,7 +79,7 @@
                 <div data-i18n="Basic">coupon</div>
             </a>
         </li> -->
-        
+
 
         <li class="menu-item">
             <a href="<?php echo base_url('admin/company_list'); ?>" class="menu-link">
@@ -103,6 +103,31 @@
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/settings'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Front Site Settings</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/about-us'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">About Us Section</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/contact-us'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Contact Us Section</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/product-page'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Product Section</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/testominal-page'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Testominal Section</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/partner-section'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Partner Section</div>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -138,9 +163,9 @@
                         <div data-i18n="Basic Inputs">User Report</div>
                     </a>
                 </li>
-               
-              
-                
+
+
+
             </ul>
         </li>
         <li class="menu-item">

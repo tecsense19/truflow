@@ -273,7 +273,7 @@ h2.breadcrumb-list > div > a {
         <div class="row">
             <div class="col-md-12"> -->
                 <a class="navbar-brand" href="<?php echo base_url(); ?>">
-                    <img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid">
+                    <img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.svg" alt="logo" class="img-fluid">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -348,7 +348,8 @@ h2.breadcrumb-list > div > a {
 
                     <?php if ($session->get('logged_in') && $fullName) { ?>
                         <a class="dropdown-item" href="<?php echo base_url('userProfile/') . $user_id ?>"><?php echo "Hi, $fullName "; ?></a>
-                        <a class="dropdown-item" href="<?php echo base_url('order/') . $user_id ?>">My Order</a>
+                        <a class="dropdown-item" href="<?php echo base_url('order/') . $user_id ?>">My orders</a>
+                        <a class="dropdown-item" href="<?php echo base_url('add/cart/')?>">Cart</a>
                         <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Logout</a>
 
                     <?php } else { ?>

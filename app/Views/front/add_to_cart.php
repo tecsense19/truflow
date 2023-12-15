@@ -152,7 +152,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
                     <li class="d-flex justify-content-between sub">
                       <p>Discount</p>
-                      <span id="discount">$<?php echo $total_auto_discount; ?></span>
+                      <span id="discount">$<?php echo number_format($total_auto_discount, 2); ?></span>
                     </li>
 
                     <li class="d-flex justify-content-between sub">
@@ -234,10 +234,8 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
     var auto_discount = '<?php echo $total_auto_discount; ?>';
     subtotal = subtotal - auto_discount;
-    
-    var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
-      minimumFractionDigits: 2
-    });
+
+    var formattedSubtotal = "$" + subtotal.toFixed(2);
 
 
     $('#totalAmount').text(formattedSubtotal);

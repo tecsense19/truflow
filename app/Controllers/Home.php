@@ -522,6 +522,12 @@ class Home extends BaseController
     }
     public function product($sub_category_id, $childId)
     {
+        $session = session();
+        $sub_category_id = session()->get('sub_category_id');
+        $childId = session()->get('child_id');
+        // if(!$childId){
+        //     $childId = session()->get('childsubcategory_id');
+        // }
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
 
@@ -684,6 +690,10 @@ class Home extends BaseController
     }
     public function product_details($product_id)
     {
+
+        $session = session();
+        $product_id = session()->get('product_details_id');
+
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -1208,6 +1218,9 @@ class Home extends BaseController
 
     public function main_sub_category($category_id)
     {
+        $session = session();
+        $category_id = session()->get('category_id');
+
         $categorymodel = new CategoryModel();
         $breadcrumbData = $categorymodel->where('category_id', $category_id)->first();
 
@@ -1266,6 +1279,9 @@ class Home extends BaseController
 
     public function main_child_category($subcategory_id)
     {
+
+        $session = session();
+        $subcategory_id = session()->get('sub_category_id');
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
 
@@ -1344,6 +1360,9 @@ class Home extends BaseController
 
     public function child_subchild_category($chid_id)
     {
+
+        $session = session();
+        $chid_id = session()->get('childsubcategory_id');
 
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         $productmodel = new ProductModel();
@@ -1454,5 +1473,40 @@ class Home extends BaseController
         session()->set('breadcrumb', $breadcrumb);
 
         return $this->response->setJSON(['message' => 'Breadcrumb stored successfully']);
+    }
+
+    public function sessionStore()
+    {
+        $request = service('request');
+        $category_id = $request->getPost('category_id');
+        $sub_category_id = $request->getPost('sub_category_id');
+        $child_id = $request->getPost('child_id');
+        $product_details_id = $request->getPost('product_details_id');
+        $childsubcategory_id = $request->getPost('childsubcategory_id');
+        // echo $sub_category_id;
+        // die();
+        // Store the breadcrumb in the session
+        if($category_id)
+        {
+            session()->set('category_id', $category_id);
+        }
+        if($sub_category_id)
+        {
+            session()->set('sub_category_id', $sub_category_id);
+        }
+        if($child_id)
+        {
+            session()->set('child_id', $child_id);
+        }
+        if($product_details_id)
+        {
+            session()->set('product_details_id', $product_details_id);
+        }
+        if($childsubcategory_id)
+        {
+            session()->set('childsubcategory_id', $childsubcategory_id);
+        }
+
+        return $this->response->setJSON(['message' => 'Session stored successfully']);
     }
 }

@@ -60,7 +60,7 @@ $loginId = $session->get('user_id');
         <div class="row no-md-gutters justify-content-center mt-md-0 mt-lg-2">
             <div class="<?php echo $loginId ? 'col-lg-12' : 'col-lg-9'; ?> col-md-12 pr-md-2 p-1 p-md-0">
                 <a href="<?php echo base_url('shop') ?>">
-                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.jpg" alt="">
+                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1.svg" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'flex'; ?>">
@@ -355,11 +355,14 @@ $loginId = $session->get('user_id');
                             </div>
                             <?php } ?>
                             <?php foreach ($allcategoryData['child_sub'] as $key => $product) {
-                                $subChildCatLink = base_url('') . "product/" . $product['sub_category_id'] . '/' . $product['child_id'];
+                                // echo '<pre>';
+                                // print_r($product);
+                                // $subChildCatLink = base_url('') . "product/" . $product['sub_category_id'] . '/' . str_replace(' ', '-', $product['child_sub_category_name']);
+                                $subChildCatLink = base_url('') . "product/" . str_replace(' ', '-', $product['child_sub_category_name']);
                             ?>
                             <div class="slider_content">
 
-                                <div class="slider_con_img">
+                                <div class="slider_con_img category_data" >
                                     <?php if (isset($product['child_sub_category_img']) && $product['child_sub_category_img'] != '') {
                                         $imagePaths = explode(',', $product['child_sub_category_img']);
                                         $firstImagePath = trim($imagePaths[0]);
@@ -370,8 +373,8 @@ $loginId = $session->get('user_id');
                                     <?php } ?>
 
                                 </div>
-                                <div class="slider_text">
-                                    <a href="<?php echo $subChildCatLink; ?>">
+                                <div class="slider_text category_data" data-catid="<?php echo $product['child_id']; ?>" data-subcatid="<?php echo $product['sub_category_id']; ?>" data-url="<?php echo $subChildCatLink; ?>">
+                                    <a href="javascript:void(0)">
                                         <h6><?php echo $product['child_sub_category_name']; ?>&nbsp;&nbsp;<?php //echo $product['category_description']; ?></h6>
                                     </a>
                                 </div>
@@ -470,9 +473,9 @@ $loginId = $session->get('user_id');
 
                                         <?php } ?>
 
-                                        <div class="card-body">
+                                        <div class="card-body category_data" data-productdetailid="<?php echo $product['product_id'];?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>">
                                             <a
-                                                href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>">
+                                                href="javascript:void(0)">
                                                 <h5><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                                 </h5>
                                             </a>
@@ -639,4 +642,35 @@ $loginId = $session->get('user_id');
             }
         });
     });
-    </script>
+
+    $(function() {
+        $('.category_data').click(function(e) {
+            // Prevent the default behavior of the link (following the href)
+            e.preventDefault();
+
+            // Get the text content of the clicked link
+            var cateId = $(this).attr('data-catid');
+            var subcatid = $(this).attr('data-subcatid');
+            var productdetailid = $(this).attr('data-productdetailid');
+            var redirectUrl = $(this).data('url');
+
+                // Make an AJAX request to a CodeIgniter 4 controller method
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+                data: {
+                    child_id: cateId,
+                    sub_category_id: subcatid,
+                    product_details_id: productdetailid,
+                },
+                success: function(response) {
+                    // Display an alert with the breadcrumb information
+                    window.location.href = redirectUrl;
+                },
+                error: function(error) {
+                    console.error('Error storing breadcrumb:', error);
+                }
+            });
+        });
+    });
+</script>

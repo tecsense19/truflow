@@ -83,7 +83,7 @@ class OrderController extends BaseController
                 $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
                 if(!empty($getCoupon))
                 {
-                    if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                    if ($getCoupon['coupon_price_type'] == 'Percentage')
                     {
                         $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
                     } else if ($getCoupon['coupon_price_type'] == 'Flat') {
@@ -108,7 +108,7 @@ class OrderController extends BaseController
         $shippingmodel = new ShippingModel();
         $orderitemmodel = new OrderItemModel();
         $VariantsModel = new VariantsModel();
-        
+
         $session = session();
         $input = $this->request->getVar();
 
@@ -175,7 +175,7 @@ class OrderController extends BaseController
             $discount = 0;
             if(!empty($getCoupon))
             {
-                if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                if ($getCoupon['coupon_price_type'] == 'Percentage')
                 {
                     $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
                 } else if ($getCoupon['coupon_price_type'] == 'Flat') {
@@ -192,7 +192,7 @@ class OrderController extends BaseController
             $VariantsModel->update(['variant_id', $row['variant_id']], $orderArr);
 
         }
-       
+
         helper('session');
         $session->remove('coupon_code');
         $session->remove('discount_type');
@@ -204,13 +204,14 @@ class OrderController extends BaseController
 
         $this->remove_checkout($userId);
         $this->shipping_add($userId, $order_id);
-       
+
         $this->generate_pdf($order_id);
-       
 
+
+        $user_id = $session->get('user_id');
         $session->setFlashdata('success', 'Order Placed successfully.');
-
-        return redirect()->back();
+        return redirect()->to(base_url('order/'. $user_id));
+        // return redirect()->back();
         //die();
     }
 
@@ -257,7 +258,7 @@ class OrderController extends BaseController
         ];
 
         $html = view('front/order_pdf', $data);
-        
+
         $emailService = \Config\Services::email();
 
         $fromEmail = 'sendmail@testweb4you.com';

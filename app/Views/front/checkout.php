@@ -292,7 +292,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                             </span>
                         </div>
                         <?php } ?>
-                        
+
                         <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" required>
@@ -304,7 +304,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                             <div class="checkout-option">
                                 <div class="db_data">
                                     <input id="read_all" type="checkbox" required>
-                                    <label for="read_all">I have read and agreed to the 
+                                    <label for="read_all">I have read and agreed to the
                                         <a href="<?php echo base_url('terms/condition'); ?>"> Terms&Condition </a> of the website.
                                     </label>
                                 </div>
@@ -425,9 +425,11 @@ $(document).ready(function() {
     var auto_discount = '<?php echo $total_auto_discount; ?>';
     subtotal = subtotal - auto_discount;
 
-    var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
-        minimumFractionDigits: 2
-    });
+    var formattedSubtotal = "$" + subtotal.toFixed(2);
+
+    // var formattedSubtotal = "$" + subtotal.toLocaleString(undefined, {
+    //     minimumFractionDigits: 2
+    // });
 
 
     $('#totalAmount').text(formattedSubtotal);

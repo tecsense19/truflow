@@ -50,11 +50,11 @@
 
                                                     <td><?php echo $cart['order_status']; ?></td>
                                                     <td>
-                                                     
+
                                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" data-id="<?php echo $cart['order_id']; ?>">
                                                             Order Status
                                                         </button>
-                                                        
+
                                                         <a class="" href="<?php echo base_url('') . "admin/order/order_details/" . $cart['order_id'] ?>"><i class="fa fa-eye me-1"></i> Order Details</a>
 
                                                         <a href="<?php echo base_url('') . "admin/order/delete/" . $cart['order_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
@@ -62,8 +62,8 @@
 
                                                     </td>
                                                 </tr>
-                                                
-                                                
+
+
                                                 <?php $i++; ?>
                                             <?php } ?>
 

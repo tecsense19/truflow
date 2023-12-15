@@ -39,9 +39,19 @@
 
   <section class="section aboutsecond pt-5 pb-3">
     <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+        <?php if (session()->getFlashdata('success')) { ?>
+        <div class="alert alert-primary"><?= session()->getFlashdata('success') ?></div>
+        <?php } ?>
+        <?php if (session()->getFlashdata('error')) { ?>
+        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+        <?php } ?>
+        </div>
+      </div>
           <?php if (isset($ordersByOrderId)) { ?>
               <?php foreach ($ordersByOrderId as $orderId => $orderData) { ?>
-             
+
                   <table class="table card table-responsive">
                       <tr class="mainsetcolor">
                           <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
@@ -119,7 +129,7 @@
                                     $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
                                     if(!empty($getCoupon))
                                     {
-                                      if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                                      if ($getCoupon['coupon_price_type'] == 'Percentage')
                                       {
                                           $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
                                       } else if ($getCoupon['coupon_price_type'] == 'Flat') {
@@ -178,12 +188,14 @@
 
       Swal.fire({
         title: 'Cancel Order',
-        text: 'Are you sure you want to cancel this order?',
+        // text: 'Are you sure you want to cancel this order?',
+        text: 'Your order is being processed, please call the office on (+61) 08 9451 2204',
         icon: 'warning',
         showCancelButton: true,
+        showConfirmButton: false,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes, cancel it!'
+        // confirmButtonText: 'Yes, cancel it!'
       }).then(function(result) {
         if (result.isConfirmed) {
 
@@ -214,4 +226,4 @@
       });
     });
   });
-</script> 
+</script>

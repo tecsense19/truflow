@@ -32,7 +32,7 @@ class ProductController extends BaseController
                 $count = 0;
             }
             $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
-   
+
             $CouponData = $CouponModel->where('coupon_id', $pnewdata['coupon_id'])->findAll();
             if(count($CouponData) > 0)
             {
@@ -138,7 +138,7 @@ class ProductController extends BaseController
                     $productArr['product_img'] = implode(',', array_merge($existingImages, $uploadedFiles));
                 }
             }
-      
+
             foreach ($files['product_img_csv'] as $filecsv) {
                 if ($filecsv->isValid() && !$filecsv->hasMoved()) {
                     $newNamecsv = $filecsv->getRandomName();
@@ -152,7 +152,7 @@ class ProductController extends BaseController
                 $existingImagescsv = isset($input['product_img_csv']) ? explode(',', $input['product_img_csv']) : [];
                 $productArr['product_img_csv'] = implode(',', array_merge($existingImagescsv, $uploadedFilescsv));
             }
-           
+
         }
 
         $productId = '';
@@ -391,7 +391,7 @@ class ProductController extends BaseController
                     }
                 }
 
-                
+
 
                 if (isset($row[19]) && $row[19] != '') {
                     // Subcategory name
@@ -433,7 +433,7 @@ class ProductController extends BaseController
                 //         $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
 
                 //         $imageName = time(). '_' . $encodedFilename;
-                        
+
                 //         // Download the image and save it to the destination folder
                 //         $imageData = file_get_contents($product_img_csv);
                 //         if ($imageData !== false) {
@@ -450,31 +450,31 @@ class ProductController extends BaseController
 
                 if (isset($row[17]) && $row[17] != '') {
                     $imageName = basename($row[17]);
-                
+
                     // Define the destination folder for the product images
                     $destinationFolder = 'public/admin/images/product/';
-                
+
                     // Generate a unique filename based on the current timestamp
                     // You can change the file extension to .png if needed
                     $encodedFilename = str_replace('+', '%20', urlencode(basename($row[17])));
                     $product_img_csv = dirname($row[17]) . '/' . $encodedFilename;
-                
+
                     $imageName = time(). '_' . $encodedFilename;
-                
+
                     // Download the image and save it to the destination folder
                     $imageData = file_get_contents($product_img_csv);
-                                    
+
                     if ($imageData !== false) {
                         $destinationPath = $destinationFolder . $imageName;
-                
+
                         // Save the original image
                         if (file_put_contents($destinationPath, $imageData) !== false) {
                             $config = [
                                 'quality' => 80, // Adjust the quality as needed (0-100)
                             ];
-                
-                            $compressedPath = $destinationFolder . $imageName;  
-                
+
+                            $compressedPath = $destinationFolder . $imageName;
+
                             // Load the Image library
                             $imageLib = \Config\Services::image();
 
@@ -529,27 +529,27 @@ class ProductController extends BaseController
                                     ->get()
                                     ->getRow();
 
-                                if (isset($row[$i]) && $row[$i] != '') {
-                                    $existingChildSubCategory = $childsubcategorymodel
-                                        ->where('child_sub_category_name', $childsubcategoryName)
-                                        ->where('category_id', $categoryId)
-                                        ->get()
-                                        ->getRow();
+                            if (isset($row[$i]) && $row[$i] != '') {
+                                $existingChildSubCategory = $childsubcategorymodel
+                                    ->where('child_sub_category_name', $childsubcategoryName)
+                                    ->where('category_id', $categoryId)
+                                    ->get()
+                                    ->getRow();
 
-                                    if (!$existingChildSubCategory) {
-                                        $childsubcategory_1 = [
-                                            'child_sub_category_name' => $childsubcategoryName,
-                                            'sub_chid_id' => 0,
-                                            'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
-                                            'category_id' => $categoryId
-                                        ];
-                                        $child_id = $childsubcategorymodel->insert($childsubcategory_1);
+                                if (!$existingChildSubCategory) {
+                                    $childsubcategory_1 = [
+                                        'child_sub_category_name' => $childsubcategoryName,
+                                        'sub_chid_id' => 0,
+                                        'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
+                                        'category_id' => $categoryId
+                                    ];
+                                    $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                                 }
                             }
                         }
                     }
                 }
-              
+
 
                     // Product details
                     $productName = utf8_encode($row[0]);
@@ -587,7 +587,7 @@ class ProductController extends BaseController
                         $CouponId = "0";
                     }
 
-                
+
 
                     if ($productName != '') {
                         // Insert the product
@@ -602,7 +602,7 @@ class ProductController extends BaseController
                             'product_img' => isset($compressedPath) ? $compressedPath : '',
                             'product_header1' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
                             'product_header2' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
-                            'product_header3' => trim($vheader3, "'") ? trim($vheader3, "'") : '', 
+                            'product_header3' => trim($vheader3, "'") ? trim($vheader3, "'") : '',
                             'product_header4' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
                             'product_additional_info' => $information,
                             'product_favourite' => $Favourite,
@@ -611,7 +611,7 @@ class ProductController extends BaseController
                         ];
                         $productId = $productModel->insert($product);
                     }
-          
+
                 // Variant details
                 $variantName = utf8_encode($row[1]);
                 $variantPrice = utf8_encode($row[2]);
@@ -638,8 +638,8 @@ class ProductController extends BaseController
                     ];
                     $variantModel->insert($variant);
                 }
-               
-                   
+
+
             }
 
             // Success message or redirect to a success page

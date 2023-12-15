@@ -19,7 +19,7 @@ section.category_product .container {
     </div>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START sub_category.php <<~~~~~~~~~~~~~~~-->
 <section class="category_product my-5">
     <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@ section.category_product .container {
                     </div>
                     <div class="panel-body" bis_skin_checked="1">
                         <div class="panel-group" id="accordion" bis_skin_checked="1">
-                            <?php foreach ($subcategoryData as $index => $subcategory) : 
+                            <?php foreach ($subcategoryData as $index => $subcategory) :
                               ?>
                             <div class="panel panel-default" bis_skin_checked="1">
                                 <div class="panel-heading" bis_skin_checked="1" data-toggle="collapse"

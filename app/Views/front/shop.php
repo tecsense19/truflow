@@ -1,5 +1,5 @@
 <?= $this->include('front/layout/front'); ?>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START  shop.php <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <style>
 section.category_product .container {
     max-width: 86%;
@@ -19,7 +19,7 @@ section.category_product .container {
     </div>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START  shop.php<<~~~~~~~~~~~~~~~-->
 
 <section class="category_product my-5">
     <div class="container">
@@ -70,28 +70,28 @@ section.category_product .container {
 
                     <?php if (isset($categoryData)) { ?>
                     <?php foreach ($categoryData as $category) { ?>
-                        <a href="<?php echo base_url('') . "sub/category/" . $category['category_id'] ?>">
-                    <div class="col-lg-3">
-                        <div class="product_box">
-                            <div class="product_img">
-                                <?php if (!empty($category['category_img'])) { ?>
-                                <img class="img-fluid card-img-top"
-                                    src="<?php echo base_url() . $category['category_img'] ?>" alt="image">
-                                <?php } else { ?>
-                                <img class="img-fluid card-img-top"
-                                    src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
-                                <?php } ?>
-                            </div>
-                            <hr>
-                            <div class="product_text text-center">
+                        <a class="category_data" href="javasript:void(0)" data-catid="<?php echo $category['category_id']; ?>" data-url="<?php echo base_url('') . "sub/category/" . $category['category_name'] ?>">
+                        <div class="col-lg-3">
+                            <div class="product_box">
+                                <div class="product_img">
+                                    <?php if (!empty($category['category_img'])) { ?>
+                                    <img class="img-fluid card-img-top"
+                                        src="<?php echo base_url() . $category['category_img'] ?>" alt="image">
+                                    <?php } else { ?>
+                                    <img class="img-fluid card-img-top"
+                                        src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
+                                    <?php } ?>
+                                </div>
+                                <hr>
+                                <div class="product_text text-center">
 
-                                    <h3 class="mt-3"><?php echo $category['category_name']; ?></h3>
+                                        <h3 class="mt-3"><?php echo $category['category_name']; ?></h3>
 
-                                <span><?php echo $category['category_description']; ?></span>
+                                    <span><?php echo $category['category_description']; ?></span>
+                                </div>
                             </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
                     <?php } ?>
                     <?php } else { ?>
                     <div class="col-md-12 text-center-t1">
@@ -113,3 +113,34 @@ section.category_product .container {
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
+
+<script>
+$(function() {
+    $('.category_data').click(function(e) {
+        // Prevent the default behavior of the link (following the href)
+        e.preventDefault();
+
+        // Get the text content of the clicked link
+        var cateId = $(this).attr('data-catid');
+
+        var redirectUrl = $(this).data('url');
+
+            // Make an AJAX request to a CodeIgniter 4 controller method
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+            data: {
+                category_id: cateId
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
+});
+
+</script>

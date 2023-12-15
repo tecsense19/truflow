@@ -1,0 +1,86 @@
+CRITICAL - 2023-12-13 05:17:12 --> Undefined array key "partner_site_link"
+in APPPATH\Controllers\Admin\SettingsController.php on line 95.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_site_link"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 05:26:21 --> Undefined array key "partner_site_link"
+in APPPATH\Controllers\Admin\SettingsController.php on line 95.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_site_link"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 05:27:34 --> Undefined array key "partner_site_link"
+in APPPATH\Controllers\Admin\SettingsController.php on line 95.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "partner_site_link"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 07:03:06 --> Invalid file: "admin/settings/testominal-page.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/settings/testominal-page.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/testominal-page', [], true)
+ 3 APPPATH\Controllers\Admin\SettingsController.php(139): view('admin/settings/testominal-page', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->testominal()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 07:23:20 --> Undefined array key "form_type"
+in APPPATH\Controllers\Admin\SettingsController.php on line 180.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "form_type"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 07:24:20 --> Undefined array key "form_type"
+in APPPATH\Controllers\Admin\SettingsController.php on line 180.
+ 1 APPPATH\Controllers\Admin\SettingsController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "form_type"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Admin\\SettingsController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->settingsSave()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 07:28:23 --> Undefined variable $partnerImageData
+in APPPATH\Views\admin\settings\testominal.php on line 130.
+ 1 APPPATH\Views\admin\settings\testominal.php(130): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $partnerImageData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\testominal.php', 130)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\admin\\settings\\testominal.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/settings/testominal', [], true)
+ 5 APPPATH\Controllers\Admin\SettingsController.php(139): view('admin/settings/testominal', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SettingsController->testominal()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SettingsController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 07:47:16 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 751.
+ 1 APPPATH\Controllers\Home.php(751): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 751)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details(null)
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 09:10:57 --> Undefined array key "user_verify"
+in APPPATH\Controllers\UserController.php on line 318.
+ 1 APPPATH\Controllers\UserController.php(318): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_verify"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\UserController.php', 318)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\UserController->checkLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 09:13:55 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 751.
+ 1 APPPATH\Controllers\Home.php(751): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 751)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details(null)
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-13 10:10:42 --> Call to undefined function number_formate()
+in APPPATH\Views\front\add_to_cart.php on line 155.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 4 APPPATH\Controllers\Home.php(904): view('front/add_to_cart', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,143 @@
+CRITICAL - 2023-12-11 06:27:29 --> Undefined array key "name"
+in APPPATH\Views\front\subcategory.php on line 91.
+ 1 APPPATH\Views\front\subcategory.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php', 91)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\subcategory.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/subcategory', [], true)
+ 5 APPPATH\Controllers\Home.php(1266): view('front/subcategory', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('1')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-11 07:43:26 --> Too few arguments to function App\Controllers\Home::product(), 1 passed in C:\xampp\htdocs\truflow\system\CodeIgniter.php on line 934 and exactly 2 expected
+in APPPATH\Controllers\Home.php on line 523.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product('Gauges')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-11 10:31:24 --> mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_i...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_i...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_i...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_i...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(681): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(114, Object(App\Models\ChildSubCategoryModel))
+#7 C:\xampp\htdocs\truflow\app\Controllers\Home.php(609): App\Controllers\Home->getCategoryTree(24, Object(App\Models\ChildSubCategoryModel))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product(NULL, NULL, '')
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\public\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\truflow\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2023-12-11 10:31:24 --> MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 114', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 114')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 114')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = :sub_chid_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(681): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(114, Object(App\Models\ChildSubCategoryModel))
+ 8 APPPATH\Controllers\Home.php(609): App\Controllers\Home->getCategoryTree(24, Object(App\Models\ChildSubCategoryModel))
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product(null, null, '')
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\truflow\\public\\index.php')
+ERROR - 2023-12-11 10:31:30 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'true_flow_new', 3306, '', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(531): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product(NULL, NULL, '')
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\truflow\public\index.php(68): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\truflow\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\truflow\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\truflow\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(531): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product(NULL, NULL, '')
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\public\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\truflow\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-12-11 10:31:30 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `child_sub_category`
+WHERE `sub_chid_id` = :sub_chid_id:
+AND `sub_category_id` IS NULL', [...], false)
+ 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Home.php(531): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product(null, null, '')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\truflow\\public\\index.php')
+ERROR - 2023-12-11 10:32:01 --> mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_i...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_i...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_i...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_i...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(681): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\app\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(36, Object(App\Models\ChildSubCategoryModel))
+#7 C:\xampp\htdocs\truflow\app\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(25, Object(App\Models\ChildSubCategoryModel))
+#8 C:\xampp\htdocs\truflow\app\Controllers\Home.php(609): App\Controllers\Home->getCategoryTree(24, Object(App\Models\ChildSubCategoryModel))
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->product(NULL, NULL, '')
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\truflow\public\index.php(68): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\truflow\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2023-12-11 10:32:01 --> MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 36', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 36')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = 36')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `child_id`, `sub_category_id`, `child_sub_category_name`
+FROM `child_sub_category`
+WHERE `sub_chid_id` = :sub_chid_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(681): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(36, Object(App\Models\ChildSubCategoryModel))
+ 8 APPPATH\Controllers\Home.php(683): App\Controllers\Home->getCategoryTree(25, Object(App\Models\ChildSubCategoryModel))
+ 9 APPPATH\Controllers\Home.php(609): App\Controllers\Home->getCategoryTree(24, Object(App\Models\ChildSubCategoryModel))
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product(null, null, '')
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\truflow\\public\\index.php')

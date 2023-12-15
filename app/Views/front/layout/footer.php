@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 text-center text-md-left col-lg-5">
                     <div class="footer_logo">
-                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.png" alt="logo" class="img-fluid"></a>
+                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/public/uploads/Truflow_Light_Small.svg" alt="logo" class="img-fluid"></a>
                         <p> </p>
                         <div class="footer_icon">
                             <a class="button1" href="#">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="privacy text-right">
-                        <p class="footer_text"><a href="<?php echo base_url('terms/condition'); ?>" class="rr">Terms of Use</a> |<a href="<?php echo base_url('privacypolicy'); ?>" class="rr"> Privacy Policy</a> | <a href="<?php echo base_url('disclaimer'); ?>" class="rr">Disclaimer</a></p>
+                        <p class="footer_text"><a href="<?php echo base_url('terms/condition'); ?>" class="rr">Terms of Use</a> |<a href="<?php echo base_url('privacypolicy'); ?>" class="rr"> Privacy Policy</a><!-- | <a href="<?php echo base_url('disclaimer'); ?>" class="rr">Disclaimer</a> --></p>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
 <script>
     function searchProduct() {
         var searchValue = $('#search').val();
-        if (event.keyCode === 13) { 
+        if (event.keyCode === 13) {
             var secondVariant = $('#search-result .variant').eq(1);
             var secondProductId = secondVariant.data('product-id');
             if(typeof secondProductId !== 'undefined'){
@@ -127,7 +127,7 @@
                 var dataPageUrl = '<?php echo base_url(); ?>shop';
                 window.location.href = dataPageUrl;
             }
-           
+
         }
         if (searchValue.trim().length >= 2) {
             $.ajax({
@@ -138,7 +138,7 @@
                 },
                 success: function(response) {
                     var data = JSON.parse(response);
-                    if (data.error == "Not found") {  
+                    if (data.error == "Not found") {
                         // var html = '';
                         // html += '<p>No record found</p>';
                         // $('#search-result').html(html);
@@ -150,16 +150,16 @@
                             var variant = data[i];
                             var variant_sku = variant.variant_sku;
                             var product_id = variant.product_id;
-                            html += '<div class="variant" data-product-id="' + product_id + '">';
+                            html += '<div class="variant" data-variant-name="' + variant_sku + '" data-product-id="' + product_id + '">';
                             html += '<p>' + variant_sku + '</p>';
                             html += '</div>';
                         }
 
-            
-                 
+
+
                         $('#search-result').html(html);
                     }
-                  
+
                 },
                 error: function(xhr, status, error) {
                     // console.error('Error occurred during AJAX request.');
@@ -174,10 +174,10 @@
         }
     }
 
-    function redirectToDataPage(productId) {
-        var dataPageUrl = '<?php echo base_url(); ?>product/details/' + productId;
-        window.location.href = dataPageUrl;
-    }
+    // function redirectToDataPage(productId) {
+    //     var dataPageUrl = '<?php echo base_url(); ?>product/details/' + productId;
+    //     window.location.href = dataPageUrl;
+    // }
     $(document).ready(function() {
         $('#search').on('keyup', function(event) {
             if (event.target.value.trim().length >= 2) {
@@ -195,15 +195,40 @@
         }
 
             if (event.target.value.trim().length > 0) { // Check if the input field is not empty
-               
+
             }
 
         });
-        $(document).on('click', '.variant', function() {
-            var productId = $(this).data('product-id');
-            redirectToDataPage(productId);
+        $(document).on('click', '.variant', function(e) {
+                e.preventDefault();
+                var productId = $(this).data('product-id');
+                var variantsku = $(this).data('variant-name');
+                // Prevent the default behavior of the link (following the href)
+
+                // Get the text content of the clicked link
+                var cateId = productId;
+
+                var redirectUrl = '<?php echo base_url(); ?>product/details/' + variantsku;
+                    // Make an AJAX request to a CodeIgniter 4 controller method
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+                    data: {
+                        product_details_id: cateId
+                    },
+                    success: function(response) {
+                        // Display an alert with the breadcrumb information
+                        window.location.href = redirectUrl;
+                    },
+                    error: function(error) {
+                        console.error('Error storing breadcrumb:', error);
+                    }
+                });
+            });
+
+
         });
-    });
+    // });
 </script>
 
 <script>
@@ -226,7 +251,7 @@
             });
         });
 
-     
+
 
     });
 </script>
@@ -382,7 +407,7 @@
                 }
             });
             if (!isValid) {
-                return; 
+                return;
             }
 
             var formData1 = $(this).serializeArray();
@@ -392,10 +417,10 @@
                 method: 'POST',
                 data: formData1,
                 success: function(response) {
-                    
+
                     if (response == 'Not found') {
                         // Display error message if data is not found
-                       
+
                     } else {
                         Swal.fire({
                             icon: 'success',

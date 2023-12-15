@@ -55,3 +55,31 @@ in APPPATH\Controllers\UserController.php on line 555.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 12:20:56 --> Undefined variable $request
+in APPPATH\Controllers\Home.php on line 1213.
+ 1 APPPATH\Controllers\Home.php(1213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 1213)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 14:01:32 --> Undefined variable $request
+in APPPATH\Controllers\Home.php on line 1213.
+ 1 APPPATH\Controllers\Home.php(1213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 1213)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 14:04:59 --> Undefined variable $request
+in APPPATH\Controllers\Home.php on line 1213.
+ 1 APPPATH\Controllers\Home.php(1213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 1213)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-08 14:12:52 --> Undefined variable $request
+in APPPATH\Controllers\Home.php on line 1213.
+ 1 APPPATH\Controllers\Home.php(1213): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 1213)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->main_sub_category('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

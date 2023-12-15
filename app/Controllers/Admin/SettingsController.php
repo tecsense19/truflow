@@ -31,9 +31,90 @@ class SettingsController extends BaseController
             $partnerImageData = null;
         }
 
-       
+
         return view('admin/settings/settings', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
     ]);
+    }
+    public function aboutus()
+    {
+        $settingsModel = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+        $welcomeData = $settingsModel->where('type', 'welcome')->first();
+        $aboutData = $settingsModel->where('type', 'about')->first();
+        $contactData = $settingsModel->where('type', 'contact')->first();
+        $productData = $settingsModel->where('type', 'product')->first();
+        $testominalData = $settingsModel->where('type', 'testominal')->first();
+        $partnerData = $settingsModel->where('type', 'partner')->first();
+
+
+        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+        if (!$imageData) {
+            $imageData = null;
+        }
+
+        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+        if (!$partnerImageData) {
+            $partnerImageData = null;
+        }
+
+
+            return view('admin/settings/aboutus', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
+        ]);
+    }
+    public function contactus()
+    {
+        $settingsModel = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+        $contactData = $settingsModel->where('type', 'contact')->first();
+
+      return view('admin/settings/contactus', ['contactData' => $contactData]);
+    }
+
+    public function productpage()
+    {
+        $settingsModel = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+
+        $productData = $settingsModel->where('type', 'product')->first();
+
+      return view('admin/settings/productpage', ['productData' => $productData]);
+    }
+
+    public function testominal()
+    {
+        $settingsModel = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+
+        $testominalData = $settingsModel->where('type', 'testominal')->first();
+
+      return view('admin/settings/testominal', ['testominalData' => $testominalData]);
+    }
+
+    public function partner()
+    {
+        $settingsModel = new SettingsModel();
+        $settingsImagesModel = new SettingsImagesModel();
+        $welcomeData = $settingsModel->where('type', 'welcome')->first();
+        $aboutData = $settingsModel->where('type', 'about')->first();
+        $contactData = $settingsModel->where('type', 'contact')->first();
+        $productData = $settingsModel->where('type', 'product')->first();
+        $testominalData = $settingsModel->where('type', 'testominal')->first();
+        $partnerData = $settingsModel->where('type', 'partner')->first();
+
+
+        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+        if (!$imageData) {
+            $imageData = null;
+        }
+
+        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+        if (!$partnerImageData) {
+            $partnerImageData = null;
+        }
+
+
+            return view('admin/settings/partner', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
+        ]);
     }
     public function settingsSave()
     {
@@ -42,36 +123,66 @@ class SettingsController extends BaseController
 
         $session = session();
         $input = $this->request->getVar();
-     
+
         $typeArr = ['welcome', 'about', 'contact', 'product', 'testominal', 'partner'];
-   
+
         for ($i = 0; $i < count($typeArr); $i++) {
-            $settingsArr = [];
-            $settingsArr['title'] = isset($input[$typeArr[$i] . '_title']) ? $input[$typeArr[$i] . '_title'] : '';
-            $settingsArr['sub_title'] = isset($input[$typeArr[$i] . '_sub_title']) ? $input[$typeArr[$i] . '_sub_title'] : '';
-            $settingsArr['description'] = isset($input[$typeArr[$i] . '_description']) ? $input[$typeArr[$i] . '_description'] : '';
-            $settingsArr['button_text'] = isset($input[$typeArr[$i] . '_button_text']) ? $input[$typeArr[$i] . '_button_text'] : '';
-            $settingsArr['button_link'] = isset($input[$typeArr[$i] . '_button_link']) ? $input[$typeArr[$i] . '_button_link'] : '';
 
-            $settingsArr['type'] = isset($typeArr[$i]) ? $typeArr[$i] : '';
+            if($typeArr[$i] == $input['form_type'])
+            {
+                $settingsArr = [];
+                $settingsArr['title'] = isset($input[$typeArr[$i] . '_title']) ? $input[$typeArr[$i] . '_title'] : '';
+                $settingsArr['sub_title'] = isset($input[$typeArr[$i] . '_sub_title']) ? $input[$typeArr[$i] . '_sub_title'] : '';
+                $settingsArr['description'] = isset($input[$typeArr[$i] . '_description']) ? $input[$typeArr[$i] . '_description'] : '';
+                $settingsArr['button_text'] = isset($input[$typeArr[$i] . '_button_text']) ? $input[$typeArr[$i] . '_button_text'] : '';
+                $settingsArr['button_link'] = isset($input[$typeArr[$i] . '_button_link']) ? $input[$typeArr[$i] . '_button_link'] : '';
 
-            if (isset($input[$typeArr[$i] . '_setting_id']) && $input[$typeArr[$i] . '_setting_id'] != '') {
-                $settingsModel->update(['setting_id', $input[$typeArr[$i] . '_setting_id']], $settingsArr);
-                $lastId = $input[$typeArr[$i] . '_setting_id'];
-            } else {
-                $lastId = $settingsModel->insert($settingsArr);
-            }
-            if($typeArr[$i] == 'welcome'){
+                $settingsArr['type'] = isset($typeArr[$i]) ? $typeArr[$i] : '';
 
-                $this->settingImages($lastId, $typeArr[$i]);
+                if (isset($input[$typeArr[$i] . '_setting_id']) && $input[$typeArr[$i] . '_setting_id'] != '') {
+                    $settingsModel->update(['setting_id', $input[$typeArr[$i] . '_setting_id']], $settingsArr);
+                    $lastId = $input[$typeArr[$i] . '_setting_id'];
+                } else {
+                    $lastId = $settingsModel->insert($settingsArr);
+                }
+                if(isset($typeArr[$i]) && $typeArr[$i] == 'welcome'){
+
+                    $this->settingImages($lastId, $typeArr[$i]);
+                }
+                if(isset($typeArr[$i]) && $typeArr[$i] == 'partner'){
+                    if(isset($input['partner_site_link']))
+                    {
+                        $this->partnerImages($lastId, $typeArr[$i], $input['partner_site_link'], $input['partner_site_link_id']);
+                    }
+                }
             }
-            if($typeArr[$i] == 'partner'){
-                $this->partnerImages($lastId, $typeArr[$i], $input['partner_site_link'], $input['partner_site_link_id']);
-            }
-            
         }
         $session->setFlashdata('success', 'Settings change succesfully.');
-        return redirect()->to('admin/settings');
+
+        if($input['form_type'] == 'about'){
+
+            return redirect()->to('admin/about-us');
+
+        }elseif($input['form_type'] == 'contact'){
+
+            return redirect()->to('admin/contact-us');
+
+        }elseif($input['form_type'] == 'product'){
+
+            return redirect()->to('admin/product-page');
+
+        }elseif($input['form_type'] == 'testominal'){
+
+            return redirect()->to('admin/testominal-page');
+
+        }elseif($input['form_type'] == 'partner'){
+
+            return redirect()->to('admin/partner-section');
+
+        }else{
+            return redirect()->to('admin/settings');
+        }
+
     }
     public function settingImages($lastId, $typeArr)
     {
@@ -129,7 +240,7 @@ class SettingsController extends BaseController
         // Assuming you have loaded the model and the arrays as $image_id and $image_link
         // Loop through the $image_id array
 
-        foreach ($image_link as $key => $value) 
+        foreach ($image_link as $key => $value)
         {
             $filename = '';
             $path = 'public/front/images/partner_images/';
@@ -138,16 +249,16 @@ class SettingsController extends BaseController
             if ($file->getClientName()) {
                 $filename = time() . '_bannerImg_' . $file->getClientName();
                 $file->move($path, $filename);
-    
+
                 // Resize the image to 500x500 pixels
                 // $image = \Config\Services::image()
                 //     ->withFile($path . $filename)
                 //     ->resize(500, 500)
                 //     ->save($path . $filename);
-            
-                
+
+
                 // $settingImg['image_path'] = 'public/front/images/partner_images/' . $filename;
-    
+
                 // $settingImg['setting_id'] = $lastId;
                 //     // print_r($settingImg['image_path']);
                 //     // die;
@@ -162,7 +273,7 @@ class SettingsController extends BaseController
                     if($filename)
                     {
                         $data['image_path'] = 'public/front/images/partner_images/' . $filename;
-                    }                    
+                    }
                     $settingsImagesModel->where('image_id', $image_id[$key])->set($data)->update();
             }else{
                 $data = array(
@@ -183,11 +294,11 @@ class SettingsController extends BaseController
 
     //     $settingsImagesModel = new SettingsImagesModel();
     //     $settingsImagesModel->delete($input['image_id']);
-    
+
     //     $session->setFlashdata('success', 'Image Delete succesfully.');
     //     return redirect()->back();
-     
-       
+
+
     // }
     public function delete_partner_img()
 {
@@ -195,8 +306,8 @@ class SettingsController extends BaseController
     $input = $this->request->getVar();
 
     $settingsImagesModel = new SettingsImagesModel();
-    $image = $settingsImagesModel->find($input['image_id']); 
-    $imagePath = $image['image_path']; 
+    $image = $settingsImagesModel->find($input['image_id']);
+    $imagePath = $image['image_path'];
     // Delete the image file from the folder
     if (file_exists($imagePath)) {
         unlink($imagePath);

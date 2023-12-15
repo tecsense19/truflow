@@ -70,6 +70,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <label class="form-label" for="basic-default-fullname">Title</label>
                                 <input type="text" value="<?php echo $welcome_title; ?>" class="form-control" id="title" name="welcome_title" placeholder="Title" />
                                 <input type="hidden" name="welcome_setting_id" value="<?php echo $welcome_setting_id; ?>">
+                                <input type="hidden" name="form_type" value="welcome">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Sub Title</label>
@@ -102,7 +103,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-4">
+                    <!-- <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">About Us</h5>
                         </div>
@@ -134,8 +135,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mb-4">
+                    </div> -->
+                    <!-- <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Contact</h5>
                         </div>
@@ -163,8 +164,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mb-4">
+                    </div> -->
+                    <!-- <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Product</h5>
                         </div>
@@ -179,8 +180,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <textarea id="editor4" name="product_description"><?php echo $product_description; ?></textarea>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mb-4">
+                    </div> -->
+                    <!-- <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Testominal</h5>
                         </div>
@@ -195,8 +196,8 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <textarea id="editor5" name="testominal_description"><?php echo $testominal_description; ?></textarea>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mb-4">
+                    </div> -->
+                    <!-- <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Partner</h5>
                         </div>
@@ -216,19 +217,19 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <input type="file" class="form-control" value="" id="partner_image_path" name="partner_image_path[]" multiple placeholder="Banner Image" />
-                                        
+
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                 <input type="text" value="<?php echo $partner['image_link']; ?>" class="form-control" id="partner_site_link" name="partner_site_link[]" placeholder="Link" />
                                 <input type="hidden" value="<?php echo $partner['image_id']; ?>" class="form-control" id="partner_site_link_id" name="partner_site_link_id[]" placeholder="Link" />
-                               
+
                                 </div>
                                 <div class="col-md-4">
                                      <div class="image-container partner_img">
                                          <img src="<?php echo base_url() . $partner['image_path'] ?>" alt="banner_img" class="site_setting_img">
                                          <a class="remove-image" href="#" style="display: inline;" data-id="<?php echo $partner['image_id']; ?>">&#215;</a>
-                                                    
+
                                      </div>
                                 </div>
                                 <?php } ?>
@@ -236,7 +237,7 @@ $partner_description = isset($partnerData) ? $partnerData['description'] : '';
                             </div>
                             <input type="button" id="add_partner_link_image" class="btn btn-primary d-grid" value="Add more">
                         </div>
-                    </div>
+                    </div> -->
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
                 </form>
             </div>
@@ -292,7 +293,7 @@ $('#add_partner_link_image').on('click', function() {
   imageCount++;
 
   // Create HTML for the new partner image and link
-  var newImageHTML = 
+  var newImageHTML =
     '<div class="col-md-4">' +
     '<div class="mb-3">' +
     '<input type="file" class="form-control" value="" id="partner_image_path' + imageCount + '" name="partner_image_path[]" multiple placeholder="Banner Image" />' +

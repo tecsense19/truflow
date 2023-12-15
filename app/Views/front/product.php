@@ -4,7 +4,7 @@
     max-width: 86%;
 }
 </style>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START product.php <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
         <div class="container">
@@ -46,17 +46,17 @@
                                         $firstImage = trim($productImages[0]);
                                         ?>
                                         <?php if (!empty($product['product_img'])) { ?>
-                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link"><img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image"></a>
+                                            <a href="javasript:void(0)" data-catid="<?php echo $product['product_id']; ?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" class="category-link category_data"><img class="img-fluid card-img-top" src="<?php echo base_url() . $firstImage ?>" alt="image"></a>
                                         <?php } else { ?>
-                                            <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link"><img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image"></a>
+                                            <a href="javasript:void(0)" data-catid="<?php echo $product['product_id']; ?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" class="category-link category_data"><img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image"></a>
 
                                         <?php } ?>
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-                                        <a href="<?php echo base_url('') . "product/details/" . $product['product_id'] ?>" class="category-link">
+                                        <a href="javasript:void(0)" data-catid="<?php echo $product['product_id']; ?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" class="category-link category_data">
                                             <h3><?php echo $product['parent'] ?><h6><?php echo $product['product_short_description']; ?></h6></h3>
-                                            
+
                                             <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                         </a>
                                     </div>
@@ -106,5 +106,36 @@
         titleIcon.classList.add('fa-caret-right');
     }
 }
+
+</script>
+
+<script>
+$(function() {
+    $('.category_data').click(function(e) {
+        // Prevent the default behavior of the link (following the href)
+        e.preventDefault();
+
+        // Get the text content of the clicked link
+        var cateId = $(this).attr('data-catid');
+
+        var redirectUrl = $(this).data('url');
+
+            // Make an AJAX request to a CodeIgniter 4 controller method
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+            data: {
+                product_details_id: cateId
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
+});
 
 </script>

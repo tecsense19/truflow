@@ -19,7 +19,7 @@
     </div>
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP END <<~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START <<~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP INNER PAGE START  subcategory.php <<~~~~~~~~~~~~~~~-->
 <section class="category_product my-5">
     <div class="container">
         <div class="row">
@@ -43,7 +43,7 @@
                                             <a href="<?php echo base_url('') . "sub/category/" . $subcategory['category_id'] ?>">
                                         <?php echo strtoupper($subcategory['sub_category_name']); ?></a>
                                          <?php } ?>
-                                            
+
                                         </p>
                                     </div>
                                     <div id="collapse<?php echo $subcategory['sub_category_id']; ?>" class="panel-collapse collapse" bis_skin_checked="1">
@@ -88,8 +88,8 @@
                             // echo "<pre>";
                             // print_r($subcategory);
                             // die;
-                             $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . $subcategory['sub_category_id']  : base_url('') . "childsub/category/" . $subcategory['sub_category_id']; ?>
-                             <a href="<?php echo $redirectUrl; ?>" class="category-link">
+                             $redirectUrl = $subcategory['isProduct'] ? base_url('') . "product/" . str_replace(' ', '-', $subcategory['sub_category_name'])  : base_url('') . "childsub/category/" . str_replace(' ', '-', $subcategory['sub_category_name']); ?>
+                             <a href="javasript:void(0)" data-catid="<?php echo $subcategory['sub_category_id']; ?>" data-url="<?php echo $redirectUrl; ?>" class="category-link category_data">
                             <div class="col-lg-3">
                                 <div class="product_box">
                                     <div class="product_img">
@@ -102,11 +102,11 @@
                                     </div>
                                     <hr>
                                     <div class="product_text text-center">
-                                     
-                                            
+
+
                                                 <h3 class="mt-3"><?php echo $subcategory['sub_category_name']; ?></h3>
-                                            
-                                     
+
+
                                         <span><?php echo $subcategory['sub_category_description']; ?></span>
                                     </div>
                                 </div>
@@ -157,3 +157,33 @@
         }
     }
 </script> -->
+
+<script>
+$(function() {
+    $('.category_data').click(function(e) {
+        // Prevent the default behavior of the link (following the href)
+        e.preventDefault();
+
+        // Get the text content of the clicked link
+        var cateId = $(this).attr('data-catid');
+
+        var redirectUrl = $(this).data('url');
+            // Make an AJAX request to a CodeIgniter 4 controller method
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+            data: {
+                sub_category_id: cateId
+            },
+            success: function(response) {
+                // Display an alert with the breadcrumb information
+                window.location.href = redirectUrl;
+            },
+            error: function(error) {
+                console.error('Error storing breadcrumb:', error);
+            }
+        });
+    });
+});
+
+</script>
