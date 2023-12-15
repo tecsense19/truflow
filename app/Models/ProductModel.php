@@ -30,8 +30,7 @@ class ProductModel extends Model
         'product_header3',
         'product_header4',
         'product_favourite',
-
-
+        'sort',
     ];
 
     // Dates

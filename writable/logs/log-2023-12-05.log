@@ -2631,3 +2631,252 @@ in APPPATH\Views\admin\order\order_details.php on line 36.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\OrderController))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 12:45:36 --> Undefined variable $categoryModel
+in APPPATH\Controllers\Admin\ProductController.php on line 326.
+ 1 APPPATH\Controllers\Admin\ProductController.php(326): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $categoryModel', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 326)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-05 12:45:49 --> mysqli_sql_exception: Table 'true_flow.subcategories' doesn't exist in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\ProductController.php(326): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+#7 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-05 12:45:49 --> Table 'true_flow.subcategories' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `category`
+LEFT JOIN `subcategories` ON `subcategories`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `category`
+LEFT JOIN `subcategories` ON `subcategories`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `category`
+LEFT JOIN `subcategories` ON `subcategories`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `category`
+LEFT JOIN `subcategories` ON `subcategories`.`category_id` = `categories`.`id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\ProductController.php(326): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-05 12:46:19 --> mysqli_sql_exception: Unknown column 'categories.id' in 'on clause' in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\ProductController.php(326): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+#7 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-05 12:46:19 --> Unknown column 'categories.id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `category`
+LEFT JOIN `sub_category` ON `sub_category`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `category`
+LEFT JOIN `sub_category` ON `sub_category`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `category`
+LEFT JOIN `sub_category` ON `sub_category`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `category`
+LEFT JOIN `sub_category` ON `sub_category`.`category_id` = `categories`.`id`', [], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\ProductController.php(326): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 12:51:21 --> Undefined variable $data
+in APPPATH\Controllers\Admin\ProductController.php on line 336.
+ 1 APPPATH\Controllers\Admin\ProductController.php(336): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 336)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 12:54:33 --> Undefined variable $data
+in APPPATH\Controllers\Admin\ProductController.php on line 336.
+ 1 APPPATH\Controllers\Admin\ProductController.php(336): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 336)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 12:54:45 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Admin\ProductController.php on line 338.
+ 1 [internal function]: App\Controllers\Admin\ProductController->App\Controllers\Admin\{closure}(Object(stdClass))
+ 2 APPPATH\Controllers\Admin\ProductController.php(336): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:10:12 --> Undefined variable $output
+in APPPATH\Controllers\Admin\ProductController.php on line 340.
+ 1 APPPATH\Controllers\Admin\ProductController.php(340): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $output', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 340)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:14:57 --> Undefined variable $csvFile
+in APPPATH\Controllers\Admin\ProductController.php on line 342.
+ 1 APPPATH\Controllers\Admin\ProductController.php(342): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $csvFile', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 342)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:20:09 --> Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found
+in APPPATH\Controllers\Admin\ProductController.php on line 359.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:20:29 --> Class "PhpOffice\PhpSpreadsheet\Spreadsheet" not found
+in APPPATH\Controllers\Admin\ProductController.php on line 359.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:21:47 --> Undefined array key "column_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 377.
+ 1 APPPATH\Controllers\Admin\ProductController.php(377): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "column_name"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 377)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:31:14 --> Undefined variable $result
+in APPPATH\Controllers\Admin\ProductController.php on line 358.
+ 1 APPPATH\Controllers\Admin\ProductController.php(358): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $result', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 358)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:33:01 --> Attempt to read property "category_id" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 359.
+ 1 APPPATH\Controllers\Admin\ProductController.php(359): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "category_id" on array', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 359)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:33:29 --> Attempt to read property "category_id" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 359.
+ 1 APPPATH\Controllers\Admin\ProductController.php(359): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "category_id" on array', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 359)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:33:38 --> Attempt to assign property "sub_category" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:33:50 --> Attempt to modify property "sub_category" on array
+in APPPATH\Controllers\Admin\ProductController.php on line 360.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:41:57 --> Undefined array key "id"
+in APPPATH\Controllers\Admin\ProductController.php on line 476.
+ 1 APPPATH\Controllers\Admin\ProductController.php(476): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 476)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:42:33 --> fopen(upload/category.xlsx): Failed to open stream: No such file or directory
+in FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\BaseWriter.php on line 128.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(upload/category.xlsx): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\vendor\\phpoffice\\phpspreadsheet\\src\\PhpSpreadsheet\\Writer\\BaseWriter.php', 128)
+ 2 FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\BaseWriter.php(128): fopen('upload/category.xlsx', 'wb')
+ 3 FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php(546): PhpOffice\PhpSpreadsheet\Writer\BaseWriter->openFileHandle('upload/category.xlsx')
+ 4 APPPATH\Controllers\Admin\ProductController.php(485): PhpOffice\PhpSpreadsheet\Writer\Xlsx->save('upload/category.xlsx')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:43:29 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:43:34 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:43:42 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:44:00 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:44:17 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:44:36 --> Undefined variable $filename
+in APPPATH\Controllers\Admin\ProductController.php on line 486.
+ 1 APPPATH\Controllers\Admin\ProductController.php(486): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $filename', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 486)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 13:56:12 --> Undefined variable $variable
+in APPPATH\Controllers\Admin\ProductController.php on line 519.
+ 1 APPPATH\Controllers\Admin\ProductController.php(519): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $variable', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 519)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 14:02:56 --> Undefined array key "child_sub_category_name"
+in APPPATH\Controllers\Admin\ProductController.php on line 527.
+ 1 APPPATH\Controllers\Admin\ProductController.php(527): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "child_sub_category_name"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 527)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 14:20:44 --> Undefined variable $category
+in APPPATH\Controllers\Admin\ProductController.php on line 520.
+ 1 APPPATH\Controllers\Admin\ProductController.php(520): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $category', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 520)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-05 14:20:56 --> Undefined variable $subCat
+in APPPATH\Controllers\Admin\ProductController.php on line 567.
+ 1 APPPATH\Controllers\Admin\ProductController.php(567): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subCat', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 567)
+ 2 APPPATH\Controllers\Admin\ProductController.php(520): App\Controllers\Admin\ProductController->renderCategory([...], 2, Object(PhpOffice\PhpSpreadsheet\Worksheet\Worksheet))
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
