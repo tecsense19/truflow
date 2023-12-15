@@ -140,6 +140,11 @@ class CsvController extends BaseController
 
                                 $child_id = $childsubcategorymodel->insert($childsubcategory_1);
                             }
+
+                            if(isset($existingChildSubCategory))
+                            {
+                                $child_id = $existingChildSubCategory->child_id;
+                            }
                         }
                         else
                         {
@@ -212,6 +217,7 @@ class CsvController extends BaseController
                         'product_additional_info' => $information,
                         'product_favourite' => $Favourite,
                         'coupon_id' => $CouponId,
+                        'sort' => trim($sort, "'"),
                     ];
 
                     if($compressedPath)

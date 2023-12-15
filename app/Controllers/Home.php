@@ -346,7 +346,7 @@ class Home extends BaseController
         $variantsmodel = new VariantsModel();
         $subcategory1 = [];
         foreach ($subcategoryData as $subcategory) {
-            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
+            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
             $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
             $newPro = [];
             foreach ($product as $variant) {
@@ -501,7 +501,7 @@ class Home extends BaseController
         $variantsmodel = new VariantsModel();
         $subcategory1 = [];
         foreach ($subcategoryData as $subcategory) {
-            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->findAll();
+            $product = $productmodel->where('sub_category_id', $subcategory['sub_category_id'])->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
 
             $newPro = [];
             foreach ($product as $variant) {
@@ -574,11 +574,12 @@ class Home extends BaseController
             {
                 $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])
                                             ->where('child_id', $childId)
+                                            ->orderBy("CAST(sort AS SIGNED)", 'asc')
                                             ->findAll();
             }
             else
             {
-                $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])->findAll();
+                $productData1 = $productmodel->where('sub_category_id', $subCat['sub_category_id'])->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
             }
             
             $varaints = [];
@@ -727,14 +728,14 @@ class Home extends BaseController
 
         $productData = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
             ->where('product.product_id', $product_id)
-            ->orderBy("CAST(sort AS SIGNED)", 'asc')
+            ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
             ->findAll();
 
         $productDataPrice = $variantsmodel->table('product_variants')
             ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
             ->join('product', 'product.product_id = product_variants.product_id')
             ->where('product.product_id', $product_id)
-            ->orderBy("CAST(sort AS SIGNED)", 'asc')
+            ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
             ->findAll();
 
         if (!$productData) {

@@ -1,0 +1,24 @@
+CRITICAL - 2023-12-06 07:47:31 --> Undefined variable $startNumber
+in APPPATH\Controllers\Admin\ProductController.php on line 534.
+ 1 APPPATH\Controllers\Admin\ProductController.php(534): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $startNumber', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 534)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 07:49:44 --> Uninitialized string offset -1
+in APPPATH\Controllers\Admin\ProductController.php on line 460.
+ 1 APPPATH\Controllers\Admin\ProductController.php(460): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Uninitialized string offset -1', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 460)
+ 2 APPPATH\Controllers\Admin\ProductController.php(464): App\Controllers\Admin\ProductController->getNextColumn('')
+ 3 APPPATH\Controllers\Admin\ProductController.php(524): App\Controllers\Admin\ProductController->getNextColumn('Z')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-06 08:06:59 --> Undefined variable $columns
+in APPPATH\Controllers\Admin\ProductController.php on line 613.
+ 1 APPPATH\Controllers\Admin\ProductController.php(613): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $columns', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\ProductController.php', 613)
+ 2 APPPATH\Controllers\Admin\ProductController.php(544): App\Controllers\Admin\ProductController->getChildArr([...], 2833, Object(PhpOffice\PhpSpreadsheet\Worksheet\Worksheet), 0)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->exportToCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
