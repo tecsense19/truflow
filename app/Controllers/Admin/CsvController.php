@@ -108,7 +108,7 @@ class CsvController extends BaseController
                             // Compress the image
                             $image = \Config\Services::image()
                                 ->withFile($localPath)
-                                ->rotate(180) // You can apply other manipulations as needed
+                                // ->rotate(180) // You can apply other manipulations as needed
                                 ->save($localPath, 80); // Adjust the quality as needed (0-100)
 
                             $compressedPath = $localPath;
@@ -225,7 +225,7 @@ class CsvController extends BaseController
                         $product['product_img_csv'] = $compressedPath;
                         $product['product_img'] = $compressedPath;
 
-                        if ($checkProduct->product_img_csv) {
+                        if (isset($checkProduct->product_img_csv)) {
                             $proFilePath = FCPATH . $checkProduct->product_img_csv;
                             if (is_file($proFilePath)) {
                                 unlink($proFilePath);
