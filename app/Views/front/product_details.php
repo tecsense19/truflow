@@ -90,6 +90,10 @@ input.minus {
 }
 
 }
+sub {
+    color: #005dab;
+    font-weight: 700;
+}
 </style>
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START product_details <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -313,9 +317,9 @@ input.minus {
                                 <th style="width: 15%;text-align: center;">Part</th>
                                 <th style="width: 15%;text-align: center;">Description</th>
                                 <th style="width: 10%;text-align: center;">Quantity</th>
-                                <th style="width: 10%;text-align: center;">Price</th>
-                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header1']) ? $productData[0]['product_header1'] : "Header 1"; ?></th>
-                                <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header2']) ? $productData[0]['product_header2'] : "Header 2"; ?></th>
+                                <th style="width: 15%;text-align: center;">Price</th>
+                                <th style="width: 8%;text-align: center;"><?= isset($productData[0]['product_header1']) ? $productData[0]['product_header1'] : "Header 1"; ?></th>
+                                <th style="width: 8%;text-align: center;"><?= isset($productData[0]['product_header2']) ? $productData[0]['product_header2'] : "Header 2"; ?></th>
                                 <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header3']) ? $productData[0]['product_header3'] : "Header 3"; ?></th>
                                 <th style="width: 10%;text-align: center;"><?= isset($productData[0]['product_header4']) ? $productData[0]['product_header4'] : "Header 4"; ?></th>
                                 <th style="width: 10%;text-align: center;">Stock</th>
@@ -331,7 +335,7 @@ input.minus {
                                         <input class="plus" value="+" type="button" data-id="<?php echo $product['variant_stock']; ?>" <?php if($product['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                     </td>
                                     <td class="table-front">
-                                        <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?>
+                                        <h4 style="display: contents;"><?php echo "$" . $product['variant_price']; ?></h4> <sub> Ex-Gst</sub>
                                     </td>
                                     <td class="table-front">
                                         <?php if(isset($product['variant_description'])) {?>

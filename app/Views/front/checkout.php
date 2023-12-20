@@ -36,6 +36,12 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 // You can then use these variables in your HTML or PHP code as needed
 
 ?>
+<style>
+  sub {
+    color: #005dab;
+    font-weight: 700;
+}
+</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
     <div class="about_overlay">
@@ -206,7 +212,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
                           echo "$" . $formatted_Amount;
                           ?>
-                                    </span>
+                                   <sub> Ex-Gst</sub> </span>
                                     <span class="ml-2">
                                         <a href="#"
                                             onclick="confirmDelete('<?php echo base_url('') . 'delete_check/' . $cart['cart_id']; ?>')">
@@ -217,7 +223,10 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
                             </li>
                             <?php } ?>
-
+                            <li class="order_list order_total_gst d-flex justify-content-between align-items-center">
+                                <p>GST</p>
+                                <span id="total_gst">$000.00</span>
+                            </li>
 
                             <li class="order_list d-flex justify-content-between align-items-center">
                                 <p>Subtotal</p>
@@ -231,7 +240,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                                 <span id="subtotal"><?php echo $formattedTotal; ?></span>
                             </li>
 
-                            <li class="order_list d-flex justify-content-between align-items-center">
+                            <li class="order_list d-none justify-content-between align-items-center d-none">
                                 <p>Discount</p>
 
                                 <span id="discount">$<?php echo $total_auto_discount; ?></span>
@@ -252,8 +261,9 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                               </div>
                             </li> -->
 
+
                             <li class="order_total d-flex justify-content-between align-items-center">
-                                <h5>Total</h5>
+                                <h5>Final Total</h5>
 
                                 <h5 id="total">$000.00</h5>
 
@@ -431,9 +441,17 @@ $(document).ready(function() {
     //     minimumFractionDigits: 2
     // });
 
+    var gstPercentage = 10;
+    var gstAmount = (subtotal * gstPercentage) / 100;
 
+    // Calculate total amount including GST
+    var totalAmount = subtotal + gstAmount;
+
+    var formattedSubtotalgst = "$" + totalAmount.toFixed(2);
+    var formattedSubtotalgst1 = "$" + gstAmount.toFixed(2);
+    $('#total').text(formattedSubtotalgst);
+    $('#total_gst').text(formattedSubtotalgst1);
     $('#totalAmount').text(formattedSubtotal);
-    $('#total').text(formattedSubtotal);
 
     function applyCoupon(response) {
         if (response.status === 'success') {
@@ -570,13 +588,15 @@ $(document).ready(function() {
             coupon: ''
         },
         success: function(response) {
-            console.log(response);
+            // console.log(response);
             applyCoupon(response);
 
+            if(response.status != 'error'){
+                $('#subtotal').text(formattedTotalAmount);
+                $('#totalAmount').text(formattedTotalAmount);
+                $('#total').text(formattedTotalAmount);
+            }
 
-            $('#subtotal').text(formattedTotalAmount);
-            $('#totalAmount').text(formattedTotalAmount);
-            $('#total').text(formattedTotalAmount);
         },
         error: function(xhr, status, error) {
             alert("An error occurred while checking the coupon code");

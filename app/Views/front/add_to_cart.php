@@ -10,7 +10,12 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 // print_r($company_id);
 // die();
 ?>
-
+<style>
+  sub {
+    color: #005dab;
+    font-weight: 700;
+}
+</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <section class="about_page">
   <div class="about_overlay">
@@ -72,7 +77,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                       <td class="align-middle card_title"><?php echo $cart['variant_sku']; ?><br>
                         <p><a href="<?php echo base_url('') . "product/details/" . $cart['product_id'] ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p>
                       </td>
-                      <td class="align-middle"><?php echo $cart['product_amount']; ?></td>
+                      <td class="align-middle"><?php echo $cart['product_amount']; ?><sub> Ex-Gst</sub></td>
                       <td class="align-middle text-center">
                         <form class="wrapper">
                           <div class="cart-box">
@@ -133,11 +138,14 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                           $formatted_Amount = number_format($total_Amount, 2, '.', ',');
 
                           echo "$" . $formatted_Amount;
-                          ?>
+                          ?><sub> Ex-Gst</sub>
                         </span>
                       </li>
                     <?php } ?>
-
+                    <li class="sub order_total_gst d-flex justify-content-between align-items-center">
+                                <p>GST</p>
+                                <span id="total_gst">$000.00</span>
+                      </li>
                     <li class="d-flex justify-content-between sub">
                       <p>Subtotal</p>
                       <?php
@@ -150,7 +158,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                       <span id="subtotal"><?php echo $formattedTotal; ?></span>
                     </li>
 
-                    <li class="d-flex justify-content-between sub">
+                    <li class="d-none justify-content-between sub">
                       <p>Discount</p>
                       <span id="discount">$<?php echo number_format($total_auto_discount, 2); ?></span>
                     </li>
@@ -170,7 +178,7 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
                       </div>
                     </li> -->
                     <li class="d-flex justify-content-between sub">
-                      <h5>Total</h5>
+                      <h5>Final Total</h5>
                       <h5 id="totalAmount">
                         <span id="total">$000.00</span>
                       </h5>
@@ -237,9 +245,19 @@ $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 
     var formattedSubtotal = "$" + subtotal.toFixed(2);
 
+    var gstPercentage = 10;
+    var gstAmount = (subtotal * gstPercentage) / 100;
+
+    // Calculate total amount including GST
+    var totalAmount = subtotal + gstAmount;
+
+    var formattedSubtotalgst = "$" + totalAmount.toFixed(2);
+    var formattedSubtotalgst1 = "$" + gstAmount.toFixed(2);
+    $('#total').text(formattedSubtotalgst);
+    $('#total_gst').text(formattedSubtotalgst1);
 
     $('#totalAmount').text(formattedSubtotal);
-    $('#total').text(formattedSubtotal);
+    // $('#total').text(formattedSubtotal);
 
     function applyCoupon(response) {
       if (response.status === 'success') {

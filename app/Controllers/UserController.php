@@ -133,7 +133,6 @@ class UserController extends BaseController
                 </html>
             ');
             $session->setFlashdata('success', 'Registration successful Verify Your Account');
-
             // return redirect()->to('login');
             if ($emailService->send()) {
                 return redirect()->to('login');

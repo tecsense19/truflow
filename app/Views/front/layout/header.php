@@ -348,8 +348,8 @@ h2.breadcrumb-list > div > a {
 
                     <?php if ($session->get('logged_in') && $fullName) { ?>
                         <a class="dropdown-item" href="<?php echo base_url('userProfile/') . $user_id ?>"><?php echo "Hi, $fullName "; ?></a>
-                        <a class="dropdown-item" href="<?php echo base_url('order/') . $user_id ?>">My orders</a>
-                        <a class="dropdown-item" href="<?php echo base_url('add/cart/')?>">Cart</a>
+                        <a class="dropdown-item" href="<?php echo base_url('order/') . $user_id ?>">My Orders</a>
+                        <a class="dropdown-item" href="<?php echo base_url('add/cart/')?>">My Cart</a>
                         <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Logout</a>
 
                     <?php } else { ?>

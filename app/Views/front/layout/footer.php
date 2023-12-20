@@ -120,8 +120,28 @@
         if (event.keyCode === 13) {
             var secondVariant = $('#search-result .variant').eq(1);
             var secondProductId = secondVariant.data('product-id');
+            var variantsku = secondVariant.data('variant-name');
+
             if(typeof secondProductId !== 'undefined'){
-                var dataPageUrl = '<?php echo base_url(); ?>product/details/' + secondProductId;
+                var dataPageUrl = '<?php echo base_url(); ?>product/details/' + variantsku;
+                var cateId = secondProductId;
+
+                var redirectUrl = '<?php echo base_url(); ?>product/details/' + variantsku;
+                    // Make an AJAX request to a CodeIgniter 4 controller method
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url(); ?>session/store', // Adjust the URL based on your routes
+                    data: {
+                        product_details_id: cateId
+                    },
+                    success: function(response) {
+                        // Display an alert with the breadcrumb information
+                        window.location.href = redirectUrl;
+                    },
+                    error: function(error) {
+                        console.error('Error storing breadcrumb:', error);
+                    }
+                });
                 window.location.href = dataPageUrl;
             }else{
                 var dataPageUrl = '<?php echo base_url(); ?>shop';

@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <?php
-                    $passLink = "<div>&nbsp;/&nbsp;<a href='". base_url() ."shop'>".strtoupper($category['category_name'])."</a></div>";
+                    $passLink = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'>".strtoupper($category['category_name'])."</a></div>";
                     if(isset($category['sub_category']) && count($category['sub_category']) > 0) {
                         renderCategory($category['sub_category'], 30, [$passLink]);
                     }
@@ -67,13 +67,24 @@
                             // $childCatLink = base_url('') . "childsub/category/" . $subCategory['sub_category_id'];
                             $childCatLink = base_url('') . "childsub/category/" . str_replace(' ', '-', $subCategory['sub_category_name']);
 
-                            $currentBreadcrumb[] = "<div>&nbsp;/&nbsp;<a href='". $childCatLink ."'>".strtoupper($subCategory['sub_category_name'])."</a></div>";
+                            $currentBreadcrumb[] = "<div>&nbsp; > &nbsp;<a class='category_data'data-type='sub_cat' data-id=".$subCategory['sub_category_id']."
+                            href='javascript:void(0)' data-url=".$childCatLink.">".strtoupper($subCategory['sub_category_name'])."</a></div>";
 
                             echo '<div style="padding-left: 10px;" class="category_data" data-url="'.$childCatLink.'" data-type="sub_cat" data-id="'. $subCategory['sub_category_id'] .'"><a href="javascript:void(0)" style="color: #000000" class="breadcrumb-link" data-bread="'.implode(' ', $currentBreadcrumb).'">' . strtoupper($subCategory['sub_category_name']) . '</a></div>';
                         } else {
-                            $subChildCatLink = $subCategory['isProduct'] ? base_url('') . "product/" . str_replace(' ', '-', $subCategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '-', $subCategory['child_sub_category_name']);
+                            $subChildCatLink =
+                            $subCategory['isProduct']
+                                ?
+                                base_url('') . "product/" . str_replace(' ', '-', $subCategory['child_sub_category_name'])
+                                :
+                                base_url('') . "childsub_sub/category/" . str_replace(' ', '-', $subCategory['child_sub_category_name']);
 
-                            $currentBreadcrumb[] = "<div>&nbsp;/&nbsp;<a href='". $subChildCatLink ."'>".strtoupper($subCategory['child_sub_category_name'])."</a></div>";
+                               if($subCategory['isProduct']){
+                                $currentBreadcrumb[] = "<div>&nbsp; > &nbsp;<a class='category_data' data-url=".$subChildCatLink." data-childid=".$subCategory['child_id']." data-subcatid=". $subCategory['sub_category_id']."  data-type='product' href='javascript:void(0)'>".strtoupper($subCategory['child_sub_category_name'])."</a></div>";
+                               }else{
+                                $currentBreadcrumb[] = "<div>&nbsp; > &nbsp;<a class='category_data' data-url=".$subChildCatLink." data-childid=".$subCategory['child_id']."  data-type='childsub_sub' href='javascript:void(0)'>".strtoupper($subCategory['child_sub_category_name'])."</a></div>";
+                               }
+
 
                             $bindHtml = $subCategory['isProduct'] ? 'data-url='.$subChildCatLink.' data-type="product" data-childid='.$subCategory['child_id'].' data-subcatid='. $subCategory['sub_category_id'] : 'data-url='.$subChildCatLink.' data-type="childsub_sub" data-childid='.$subCategory['child_id'];
 

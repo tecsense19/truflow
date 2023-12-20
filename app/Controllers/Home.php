@@ -1227,7 +1227,7 @@ class Home extends BaseController
 
         if($breadcrumbData)
         {
-            $breadcrumb = "<div> / <a href='". base_url() ."shop'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
+            $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
             session()->set('breadcrumb', $breadcrumb);
         }
 
@@ -1344,9 +1344,10 @@ class Home extends BaseController
 
         $catData = $categorymodel->where('category_id', $getSubCatName['category_id'])->first();
 
-        $childCatLink = base_url('') . "childsub/category/" . $getSubCatName['sub_category_id'];
+        // $childCatLink = base_url('') . "childsub/category/" . $getSubCatName['sub_category_id'];
+        $childCatLink = base_url('') . "childsub/category/" . str_replace(' ', '-', $getSubCatName['sub_category_name']);
 
-        $breadcrumb = "<div> / <a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a> </div> <div> / <a href='". $childCatLink ."'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
+        $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a> </div> <div>&nbsp > &nbsp<a class='category_data' data-type='sub_cat' data-id='". $getSubCatName['sub_category_id'] ."' data-url='". $childCatLink ."' href='javascript:void(0)'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
 
         session()->set('breadcrumb', $breadcrumb);
 

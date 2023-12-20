@@ -5,3 +5,10 @@ in APPPATH\Controllers\Admin\CsvController.php on line 228.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CsvController))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-15 10:48:11 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Home.php on line 752.
+ 1 APPPATH\Controllers\Home.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details(null)
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

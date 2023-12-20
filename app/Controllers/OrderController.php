@@ -182,7 +182,11 @@ class OrderController extends BaseController
                     $discount += $row['total_amount'] - $getCoupon['coupon_price'];
                 }
             }
-            $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
+            $gstPercentage = 10;
+            $gstAmount = ($discount * $gstPercentage) / 100;
+
+            $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+            // $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
 
             $orderitemmodel->insert($orderArr);
 
