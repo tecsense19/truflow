@@ -669,28 +669,28 @@ sub {
     }
 
     function add_cart() {
-        var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+        // var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
 
-        if (!isLoggedIn) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Warning',
-                text: 'Please log in before adding items to the cart.',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'OK',
-                allowOutsideClick: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Reload the page after the user clicks "OK" on the SweetAlert dialog
-                    window.location.href = '<?php echo base_url(); ?>login'; // Replace with the login page URL
-                    return; // Exit the function to prevent the AJAX request
-                }
-            });
-        }
-        else
-        {
+        // if (!isLoggedIn) {
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: 'Warning',
+        //         text: 'Please log in before adding items to the cart.',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'OK',
+        //         allowOutsideClick: false
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             // Reload the page after the user clicks "OK" on the SweetAlert dialog
+        //             window.location.href = '<?php echo base_url(); ?>login'; // Replace with the login page URL
+        //             return; // Exit the function to prevent the AJAX request
+        //         }
+        //     });
+        // }
+        // else
+        // {
             var variantQtys = Array.from(variantQtyInputs).map(function(input) {
                 return input.value;
             });
@@ -751,7 +751,7 @@ sub {
                     console.error('Error occurred during AJAX request.');
                 }
             });
-        }
+        // }
     }
 
     function default_value(event, maxVal)

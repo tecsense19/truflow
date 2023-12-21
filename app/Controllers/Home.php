@@ -844,8 +844,8 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
         $componey_name = $session->get('company_name');
-
-        $query = $cartmodel->select('*')
+        if($userId){
+            $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
@@ -854,6 +854,25 @@ class Home extends BaseController
             ->join('company', 'company.company_name = users.company_name', 'left')
             ->where('add_to_cart.user_id', $userId)
             ->get();
+        }else{
+            $guestSessionData = $session->get('guestsessiondata');
+
+            $query = $cartmodel->select('*')
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left');
+            // ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+            // ->join('company', 'company.company_name = users.company_name', 'left')
+            // ->where('add_to_cart.cart_id', isset($guestSessionData) ? $guestSessionData : [])
+            if ($guestSessionData) {
+                $query->whereIn('add_to_cart.cart_id', $guestSessionData);
+            } else {
+                $query->where('add_to_cart.cart_id',''); // This will ensure an empty result set
+            }
+            // ->whereIn('add_to_cart.cart_id', isset($guestSessionData) ? $guestSessionData : [])
+            $query = $query->get();
+        }
 
         $cartData = $query->getResultArray();
 
@@ -863,14 +882,14 @@ class Home extends BaseController
         $componeyModel = new CompanyModel;
         $usermodel = new UserModel;
 
-        $query2 = $componeyModel->select('*')
-            ->join('users', 'users.company_name = company.company_name', 'left')
-            ->where('user_id', $userId)
-            ->get();
-
-        $componeyData = $query2->getResultArray();
-        if (!$componeyData) {
-            $componeyData = null;
+        $componeyData = [];
+        if($userId)
+        {
+            $query2 = $componeyModel->select('*')
+                ->join('users', 'users.company_name = company.company_name', 'left')
+                ->where('user_id', $userId)
+                ->get();
+            $componeyData = $query2->getResultArray();
         }
 
         $cartCount = count($cartData ?? []);
@@ -907,6 +926,7 @@ class Home extends BaseController
     }
     public function add_cart()
     {
+
         $cartmodel = new CartModel();
         $session = session();
         $variantQtys = $this->request->getVar('variant_qty');
@@ -919,26 +939,50 @@ class Home extends BaseController
 
         $userId = $session->get('user_id');
 
-        for ($i = 0; $i < count($variantQtys); $i++) {
-            if ($variantQtys[$i] > 0) {
-                $data = array(
-                    'user_id' => $userId,
-                    'product_quantity' => $variantQtys[$i],
-                    'variant_id' => $variantIds[$i],
-                    'product_id' => $productIds[$i],
-                    'category_id' => $categoryIds[$i],
-                    'sub_category_id' => $subCategoryIds[$i],
-                    'product_amount' => $prices[$i],
-                    'total_amount' => $totalPrices[$i]
-                );
+        if(isset($userId)){
+            for ($i = 0; $i < count($variantQtys); $i++) {
+                if ($variantQtys[$i] > 0) {
+                    $data = array(
+                        'user_id' => $userId,
+                        'product_quantity' => $variantQtys[$i],
+                        'variant_id' => $variantIds[$i],
+                        'product_id' => $productIds[$i],
+                        'category_id' => $categoryIds[$i],
+                        'sub_category_id' => $subCategoryIds[$i],
+                        'product_amount' => $prices[$i],
+                        'total_amount' => $totalPrices[$i]
+                    );
 
 
-                $cartmodel->insert($data);
+                    $cartmodel->insert($data);
+                }
             }
+            $session->setFlashdata('success', 'Data add to cart successfully.');
+        }else{
+            $guestsession = array();
+            for ($i = 0; $i < count($variantQtys); $i++) {
+                if ($variantQtys[$i] > 0) {
+                    $data = array(
+                        'product_quantity' => $variantQtys[$i],
+                        'variant_id' => $variantIds[$i],
+                        'product_id' => $productIds[$i],
+                        'category_id' => $categoryIds[$i],
+                        'sub_category_id' => $subCategoryIds[$i],
+                        'product_amount' => $prices[$i],
+                        'total_amount' => $totalPrices[$i]
+                    );
+
+                    $cartmodel->insert($data);
+                    $guestsession[] = $cartmodel->insertID();
+                }
+            }
+            $session->set('guestsessiondata', $guestsession);
+            $session->setFlashdata('success', 'Data add to cart successfully.');
         }
-        $session->setFlashdata('success', 'Data add to cart successfully.');
+
 
         return redirect()->back();
+        // return true;
     }
     public function cartDelete($cart_id)
     {

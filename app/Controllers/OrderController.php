@@ -46,8 +46,8 @@ class OrderController extends BaseController
         //     ->get();
 
         // $cartData = $query->getResultArray();
-
-        $query = $cartmodel->select('*')
+        if($userId){
+            $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
@@ -57,6 +57,20 @@ class OrderController extends BaseController
             ->where('add_to_cart.user_id', $userId)
             //->where('company.company_name', $componey_name)
             ->get();
+        }else{
+            $query = $cartmodel->select('*')
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+            ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
+            // ->join('company', 'company.company_name = users.company_name', 'left')
+            // ->where('add_to_cart.user_id', $userId)
+            //->where('company.company_name', $componey_name)
+            ->get();
+        }
+
 
 
         $cartData = $query->getResultArray();
@@ -66,7 +80,10 @@ class OrderController extends BaseController
         }
 
         $usermodel = new UserModel();
-        $userData = $usermodel->where('user_id', $userId)->findAll();
+        $userData = '';
+        if($userId){
+            $userData = $usermodel->where('user_id', $userId)->findAll();
+        }
 
         $couponData = null;
         if (isset($cartData) && !empty($cartData)) {
@@ -92,18 +109,29 @@ class OrderController extends BaseController
                 }
             }
         }
+        if($userData){
+            return view('front/checkout', [
+                'cartData' => $cartData,
+                'userData' => $userData,
+                'couponData' => $couponData,
+                'headerData' => $headerData,
+                'total_auto_discount' => $discount
+            ]);
+        }else{
+            // print_r($cartData);
+            return view('front/checkout', [
+                'cartData' => $cartData,
+                'couponData' => $couponData,
+                'headerData' => $headerData,
+                'total_auto_discount' => $discount
+            ]);
+        }
 
-        return view('front/checkout', [
-            'cartData' => $cartData,
-            'userData' => $userData,
-            'couponData' => $couponData,
-            'headerData' => $headerData,
-            'total_auto_discount' => $discount
-        ]);
     }
 
     public function place_order()
     {
+
         $ordermodel = new OrderModel();
         $shippingmodel = new ShippingModel();
         $orderitemmodel = new OrderItemModel();
@@ -112,7 +140,52 @@ class OrderController extends BaseController
         $session = session();
         $input = $this->request->getVar();
 
-        $user_id = $this->request->getVar('user_id');
+        $guest_account_create = $this->request->getVar('guest_account_create');
+
+        $user_id = $input['user_id'];
+
+        if($guest_account_create){
+
+                $usermodel = new UserModel();
+                $session = session();
+                $input = $this->request->getVar();
+
+                $existingUser = $usermodel->where('email', $input['email'])->first();
+                if ($existingUser) {
+                    $session->setFlashdata('error', 'Email already exists. Please use a different email.');
+                    return redirect()->to('register');
+                }
+                // Validate password and confirm password
+                $password = '123456';
+                $confirmPassword = '123456';
+
+                // Encrypt the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $UserEmail =  $input['email'];
+
+                $userArr = [
+                    'full_name' => $input['first_name'] . " " . $input['last_name'],
+                    'email' => $input['email'],
+                    'password' => $hashedPassword,  // Store the hashed password
+                    'first_name' => $input['first_name'],
+                    'last_name' => $input['last_name'],
+                    'mobile' => $input['mobile'],
+                    'user_role' => 'user',
+                    'address_1' => $input['address_1'],
+                    'address_2' => $input['address_2'],
+                    'city' => $input['city'],
+                    'country' => $input['country'],
+                    'phone' => $input['mobile'],
+                    'user_verify' => 1
+
+                ];
+
+                $usermodel->insert($userArr);
+                $user_id =  $usermodel->insertID();
+                $session->set('user_id_password', $user_id);
+        }
+
+        $user_id = $this->request->getVar('user_id') ? $this->request->getVar('user_id') : $user_id;
         $discount_type = $this->request->getVar('discount_type');
         $product_discount = $this->request->getVar('product_discount');
         $final_total_ammount = $this->request->getVar('final_total_ammount');
@@ -143,18 +216,41 @@ class OrderController extends BaseController
 
         $order_id = $ordermodel->insert($data);
 
-        $userId = $input['user_id'];
+        $userId = $input['user_id'] ? $input['user_id'] : $user_id;
 
-        $cartmodel = new CartModel();
-        $query = $cartmodel->select('*')
-            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-            ->where('users.user_id', $userId)
-            ->get();
-        $cartData = $query->getResultArray();
+            $cartmodel = new CartModel();
+            // $query = $cartmodel->select('*')
+            //     ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            //     ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            //     ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            //     ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            //     ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+            //     ->where('users.user_id', $userId)
+            //     ->get();
+            // $cartData = $query->getResultArray();
+
+            if(!$guest_account_create){
+                $query = $cartmodel->select('*')
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+                ->where('users.user_id', $userId)
+                ->get();
+                $cartData = $query->getResultArray();
+            }
+            else
+            {
+                $query = $cartmodel->select('*')
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
+                ->get();
+                $cartData = $query->getResultArray();
+            }
 
         $orderArr = [];
 
@@ -182,13 +278,27 @@ class OrderController extends BaseController
                     $discount += $row['total_amount'] - $getCoupon['coupon_price'];
                 }
             }
-            $gstPercentage = 10;
-            $gstAmount = ($discount * $gstPercentage) / 100;
 
-            $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+
+            if(!$discount){
+                $gstPercentage = 10;
+                $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
+                $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                $orderitemmodel->insert($orderArr);
+            }else{
+                $gstPercentage = 10;
+                $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
+                $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                $orderitemmodel->insert($orderArr);
+            }
+
+            // $gstPercentage = 10;
+            // $gstAmount = ($discount * $gstPercentage) / 100;
+
+            // $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
             // $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
 
-            $orderitemmodel->insert($orderArr);
+            // $orderitemmodel->insert($orderArr);
 
 
             $Variants_stock = $VariantsModel->where('variant_id', $row['variant_id'])->findAll();
@@ -213,8 +323,77 @@ class OrderController extends BaseController
 
 
         $user_id = $session->get('user_id');
-        $session->setFlashdata('success', 'Order Placed successfully.');
-        return redirect()->to(base_url('order/'. $user_id));
+
+        if($guest_account_create){
+            $user_id = $session->get('user_id_password');
+
+            // echo $UserEmail;
+            //     die;
+            function random_password()
+            {
+                $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+                $password = array();
+                $alpha_length = strlen($alphabet) - 1;
+                for ($i = 0; $i < 8; $i++)
+                {
+                    $n = rand(0, $alpha_length);
+                    $password[] = $alphabet[$n];
+                }
+                return implode($password);
+            }
+            $usermodel = new UserModel();
+            $passwordnew = random_password();
+
+            $hashedPassword = password_hash($passwordnew, PASSWORD_DEFAULT);
+            $datapasswordk = [
+                'password' => $hashedPassword,
+            ];
+
+            $usermodel->set($datapasswordk)->where('user_id', $user_id)->update();
+            // $usermodel->updatePasswordById($user_id, $hashedPassword);
+
+
+            $emailService = \Config\Services::email();
+
+            $fromEmail = 'sendmail@testweb4you.com';
+            $fromName = 'Truflow Hydraulics';
+
+            $emailService->setFrom($fromEmail, $fromName);
+            $emailService->setTo($UserEmail);
+            $emailService->setSubject('Your Login Password');
+            $emailService->setMessage('
+                <html>
+                    <body>
+                        <h1>Your Login Password</h1>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                            <tr>
+                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                    <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                                    <h3>
+                                        User Name: '. $UserEmail .'
+                                    </h3>
+                                    <h3>
+                                        Password: '. $passwordnew .'
+                                    </h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </body>
+                </html>
+            ');
+            if ($emailService->send()) {
+                $session->setFlashdata('success', 'Order Placed successfully.');
+                return redirect()->to(base_url());
+            } else {
+                return redirect()->back()->with('error', 'Unable to send the send password on email');
+            }
+
+        }else{
+            $session->setFlashdata('success', 'Order Placed successfully.');
+            return redirect()->to(base_url('order/'. $user_id));
+        }
+
+
         // return redirect()->back();
         //die();
     }

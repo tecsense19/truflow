@@ -419,7 +419,7 @@ class ProductController extends BaseController
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
-        
+
         $categoryData = $categorymodel->find();
 
         $result = [];
@@ -463,16 +463,20 @@ class ProductController extends BaseController
         // Fetch data from the database
         $allData = $this->processCategories();
 
+        // echo "<pre>";
+        // print_r($allData);
+        // die;
+
         // Create a new Spreadsheet
         $fileName = 'category.xlsx';
-		$spreadsheet = new Spreadsheet();
+        $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-       	$sheet->setCellValue('A1', 'product_name');
+        $sheet->setCellValue('A1', 'product_name');
         $sheet->setCellValue('B1', 'variant_name');
         $sheet->setCellValue('C1', 'variant_price');
         $sheet->setCellValue('D1', 'variant_sku');
         $sheet->setCellValue('E1', 'Variant values Stock');
-	    $sheet->setCellValue('F1', 'parent');
+        $sheet->setCellValue('F1', 'parent');
         $sheet->setCellValue('G1', 'Favourite');
         $sheet->setCellValue('H1', 'Product Description');
         $sheet->setCellValue('I1', 'Short Description');
@@ -508,14 +512,15 @@ class ProductController extends BaseController
                 $columns[] = chr($i) . chr($j);
             }
         }
-        
+
         $rows = 2;
+        $column = 'U';
         foreach ($allData as $val){
             $sheet->setCellValue('A' . $rows, '');
             $sheet->setCellValue('B' . $rows, '');
             $sheet->setCellValue('C' . $rows, '');
             $sheet->setCellValue('D' . $rows, '');
-	        $sheet->setCellValue('E' . $rows, '');
+            $sheet->setCellValue('E' . $rows, '');
             $sheet->setCellValue('F' . $rows, '');
             $sheet->setCellValue('G' . $rows, '');
             $sheet->setCellValue('H' . $rows, '');
@@ -531,79 +536,124 @@ class ProductController extends BaseController
             $sheet->setCellValue('R' . $rows, '');
             $sheet->setCellValue('S' . $rows, $val['category_name']);
 
-            foreach ($val['sub_category'] as $subCat) 
+            $categoryName = $val['category_name'];
+
+            foreach ($val['sub_category'] as $subCat)
             {
+                $subCategoryName = $subCat['sub_category_name'];
                 $sheet->setCellValue('T' . $rows, $subCat['sub_category_name']);
 
-                if (isset($subCat['child_arr']) && is_array($subCat['child_arr'])) {
-                    $this->handleChildArrays($subCat['child_arr'], $rows, $sheet);
+                foreach ($subCat['child_arr'] as $key => $child)
+                {
+                    $sheet->setCellValue('U' . $rows, $child['child_sub_category_name']);
+
+                    foreach ($child['child_arr'] as $key => $value) {
+
+                        $sheet->setCellValue('V' . $rows, $value['child_sub_category_name']);
+
+                        foreach ($value['child_arr'] as $key => $values)
+                        {
+                            $sheet->setCellValue('W' . $rows, $values['child_sub_category_name']);
+                            foreach ($values['product_arr'] as $product) {
+                                $sheet->setCellValue('A' . $rows, $product['product_name']);
+                                $sheet->setCellValue('G' . $rows, $product['product_favourite']);
+                                $sheet->setCellValue('H' . $rows, $product['product_description']);
+                                $sheet->setCellValue('I' . $rows, $product['product_short_description']);
+                                $sheet->setCellValue('J' . $rows, $product['product_additional_info']);
+                                $sheet->setCellValue('K' . $rows, $product['product_header1']);
+                                $sheet->setCellValue('L' . $rows, $product['product_header2']);
+                                $sheet->setCellValue('M' . $rows, $product['product_header3']);
+                                $sheet->setCellValue('N' . $rows, $product['product_header4']);
+                                $sheet->setCellValue('Q' . $rows, $product['sort']);
+                                $sheet->setCellValue('R' . $rows, base_url() . $product['product_img_csv']);
+
+                                foreach ($product['variant_arr'] as $variant) {
+                                    $rows++;
+                                    $sheet->setCellValue('B' . $rows, $variant['variant_name']);
+                                    $sheet->setCellValue('C' . $rows, $variant['variant_price']);
+                                    $sheet->setCellValue('D' . $rows, $variant['variant_sku']);
+                                    $sheet->setCellValue('E' . $rows, $variant['variant_stock']);
+                                    $sheet->setCellValue('F' . $rows, $variant['parent']);
+                                    $sheet->setCellValue('K' . $rows, $variant['variant_description']);
+                                    $sheet->setCellValue('L' . $rows, $variant['variant_description_1']);
+                                    $sheet->setCellValue('M' . $rows, $variant['variant_description_2']);
+                                    $sheet->setCellValue('N' . $rows, $variant['variant_description_3']);
+                                    $sheet->setCellValue('P' . $rows, $variant['group_name']);
+                                    $sheet->setCellValue('Q' . $rows, $variant['sort']);
+                                }
+                                $rows++;
+                            }
+                        }
+
+                        foreach ($value['product_arr'] as $product) {
+                            $sheet->setCellValue('A' . $rows, $product['product_name']);
+                            $sheet->setCellValue('G' . $rows, $product['product_favourite']);
+                            $sheet->setCellValue('H' . $rows, $product['product_description']);
+                            $sheet->setCellValue('I' . $rows, $product['product_short_description']);
+                            $sheet->setCellValue('J' . $rows, $product['product_additional_info']);
+                            $sheet->setCellValue('K' . $rows, $product['product_header1']);
+                            $sheet->setCellValue('L' . $rows, $product['product_header2']);
+                            $sheet->setCellValue('M' . $rows, $product['product_header3']);
+                            $sheet->setCellValue('N' . $rows, $product['product_header4']);
+                            $sheet->setCellValue('Q' . $rows, $product['sort']);
+                            $sheet->setCellValue('R' . $rows, base_url() . $product['product_img_csv']);
+
+                            foreach ($product['variant_arr'] as $variant) {
+                                $rows++;
+                                $sheet->setCellValue('B' . $rows, $variant['variant_name']);
+                                $sheet->setCellValue('C' . $rows, $variant['variant_price']);
+                                $sheet->setCellValue('D' . $rows, $variant['variant_sku']);
+                                $sheet->setCellValue('E' . $rows, $variant['variant_stock']);
+                                $sheet->setCellValue('F' . $rows, $variant['parent']);
+                                $sheet->setCellValue('K' . $rows, $variant['variant_description']);
+                                $sheet->setCellValue('L' . $rows, $variant['variant_description_1']);
+                                $sheet->setCellValue('M' . $rows, $variant['variant_description_2']);
+                                $sheet->setCellValue('N' . $rows, $variant['variant_description_3']);
+                                $sheet->setCellValue('P' . $rows, $variant['group_name']);
+                                $sheet->setCellValue('Q' . $rows, $variant['sort']);
+                            }
+                            $rows++;
+                        }
+                    }
+
+                    foreach ($child['product_arr'] as $product) {
+                        $sheet->setCellValue('A' . $rows, $product['product_name']);
+                        $sheet->setCellValue('G' . $rows, $product['product_favourite']);
+                        $sheet->setCellValue('H' . $rows, $product['product_description']);
+                        $sheet->setCellValue('I' . $rows, $product['product_short_description']);
+                        $sheet->setCellValue('J' . $rows, $product['product_additional_info']);
+                        $sheet->setCellValue('K' . $rows, $product['product_header1']);
+                        $sheet->setCellValue('L' . $rows, $product['product_header2']);
+                        $sheet->setCellValue('M' . $rows, $product['product_header3']);
+                        $sheet->setCellValue('N' . $rows, $product['product_header4']);
+                        $sheet->setCellValue('Q' . $rows, $product['sort']);
+                        $sheet->setCellValue('R' . $rows, base_url() . $product['product_img_csv']);
+
+                        foreach ($product['variant_arr'] as $variant) {
+                            $rows++;
+                            $sheet->setCellValue('B' . $rows, $variant['variant_name']);
+                            $sheet->setCellValue('C' . $rows, $variant['variant_price']);
+                            $sheet->setCellValue('D' . $rows, $variant['variant_sku']);
+                            $sheet->setCellValue('E' . $rows, $variant['variant_stock']);
+                            $sheet->setCellValue('F' . $rows, $variant['parent']);
+                            $sheet->setCellValue('K' . $rows, $variant['variant_description']);
+                            $sheet->setCellValue('L' . $rows, $variant['variant_description_1']);
+                            $sheet->setCellValue('M' . $rows, $variant['variant_description_2']);
+                            $sheet->setCellValue('N' . $rows, $variant['variant_description_3']);
+                            $sheet->setCellValue('P' . $rows, $variant['group_name']);
+                            $sheet->setCellValue('Q' . $rows, $variant['sort']);
+                        }
+                        $rows++;
+                    }
                 }
 
-                // foreach ($subCat['child_arr'] as $childArr)
-                // {
-                //     $sheet->setCellValue('U' . $rows, $childArr['child_sub_category_name']);
-
-                //     if (isset($subCat['child_arr']) && is_array($subCat['child_arr'])) {
-                //         $this->handleChildArrays($subCat['child_arr'], $rows, $sheet);
-                //     }
-
-                    // if(isset($childArr['child_arr']))
-                    // {
-                    //     $this->getChildArr($childArr['child_arr'], $rows, $sheet, $columns, 0);
-                    // }
-
-                    // foreach ($childArr['product_arr'] as $product) 
-                    // {
-                    //     $sheet->setCellValue('A' . $rows, $product['product_name']);
-
-                    //     $sheet->setCellValue('G' . $rows, $product['product_favourite']);
-
-                    //     $sheet->setCellValue('H' . $rows, $product['product_description']);
-                    //     $sheet->setCellValue('I' . $rows, $product['product_short_description']);
-                    //     $sheet->setCellValue('J' . $rows, $product['product_additional_info']);
-                    //     $sheet->setCellValue('K' . $rows, $product['product_header1']);
-                    //     $sheet->setCellValue('L' . $rows, $product['product_header2']);
-                    //     $sheet->setCellValue('M' . $rows, $product['product_header3']);
-                    //     $sheet->setCellValue('N' . $rows, $product['product_header4']);
-
-                    //     $sheet->setCellValue('Q' . $rows, $product['sort']);
-                    //     $sheet->setCellValue('R' . $rows, base_url().$product['product_img_csv']);
-
-                    //     foreach ($product['variant_arr'] as $variant) 
-                    //     {
-                    //         $rows++;
-                    //         $sheet->setCellValue('B' . $rows, $variant['variant_name']);
-                    //         $sheet->setCellValue('C' . $rows, $variant['variant_price']);
-                    //         $sheet->setCellValue('D' . $rows, $variant['variant_sku']);
-                    //         $sheet->setCellValue('E' . $rows, $variant['variant_stock']);
-                    //         $sheet->setCellValue('F' . $rows, $variant['parent']);
-
-                    //         $sheet->setCellValue('K' . $rows, $variant['variant_description']);
-                    //         $sheet->setCellValue('L' . $rows, $variant['variant_description_1']);
-                    //         $sheet->setCellValue('M' . $rows, $variant['variant_description_2']);
-                    //         $sheet->setCellValue('N' . $rows, $variant['variant_description_3']);
-
-                    //         $sheet->setCellValue('P' . $rows, $variant['group_name']);
-                    //         $sheet->setCellValue('Q' . $rows, $variant['sort']);
-                    //     }
-                    //     $rows++;
-                    // }
-                    // $rows++;
+                // if (isset($subCat['child_arr']) && count($subCat['child_arr']) > 0) {
+                //     $this->handleChildArrays($subCat['child_arr'], $rows, $sheet, $column, $categoryName, $subCategoryName);
                 // }
-                // $rows++;
             }
-            
-            $sheet->setCellValue('V' . $rows, '');
-            $sheet->setCellValue('W' . $rows, '');
-            $sheet->setCellValue('X' . $rows, '');
-            $sheet->setCellValue('Y' . $rows, '');
             $rows++;
-        } 
-
-        // $writer = new Xlsx($spreadsheet);
-		// $writer->save("upload/".$fileName);
-        // $writer->save('php://output');
-
+        }
+        // die;
         // Set headers for download
         $filename = 'exported_data.xlsx';
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -618,11 +668,11 @@ class ProductController extends BaseController
     function handleChildArrays($childArr, &$rows, $sheet) {
         foreach ($childArr as $child) {
             $sheet->setCellValue('U' . $rows, $child['child_sub_category_name']);
-    
+
             if (isset($child['child_arr']) && is_array($child['child_arr'])) {
                 $this->handleChildArrays($child['child_arr'], $rows, $sheet);
             }
-    
+
             foreach ($child['product_arr'] as $product) {
                 $sheet->setCellValue('A' . $rows, $product['product_name']);
                 $sheet->setCellValue('G' . $rows, $product['product_favourite']);
@@ -635,7 +685,7 @@ class ProductController extends BaseController
                 $sheet->setCellValue('N' . $rows, $product['product_header4']);
                 $sheet->setCellValue('Q' . $rows, $product['sort']);
                 $sheet->setCellValue('R' . $rows, base_url().$product['product_img_csv']);
-    
+
                 foreach ($product['variant_arr'] as $variant) {
                     $rows++;
                     $sheet->setCellValue('B' . $rows, $variant['variant_name']);
@@ -659,13 +709,13 @@ class ProductController extends BaseController
     public function getChildArr($childArr, $rows, $sheet, $columns, $columnsCount)
     {
         $rows = $rows;
-        foreach ($childArr as $key => $value) 
+        foreach ($childArr as $key => $value)
         {
             $sheet->setCellValue($columns[$columnsCount] . $rows, $value['child_sub_category_name']);
 
             if(isset($value['product_arr']))
             {
-                foreach ($value['product_arr'] as $product) 
+                foreach ($value['product_arr'] as $product)
                 {
                     $sheet->setCellValue('A' . $rows, $product['product_name']);
 
@@ -681,7 +731,7 @@ class ProductController extends BaseController
 
                     $sheet->setCellValue('R' . $rows, base_url().$product['product_img_csv']);
 
-                    foreach ($product['variant_arr'] as $variant) 
+                    foreach ($product['variant_arr'] as $variant)
                     {
                         $rows++;
                         $sheet->setCellValue('B' . $rows, $variant['variant_name']);

@@ -2,13 +2,14 @@
 <?php
 $session = session();
 $user_id = $session->get('user_id');
+$guestsessiondata = $session->get('guestsessiondata');
 $sub_category_id = '';
 $commonValues = '';
-$company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
-
-// echo "<pre>";
-// print_r($company_id);
-// die();
+$company_id = '';
+if($user_id)
+{
+  $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
+}
 ?>
 <style>
   sub {

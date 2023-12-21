@@ -1,0 +1,822 @@
+ERROR - 2023-12-20 05:46:27 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Home.php(936): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-20 05:46:27 --> Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:26\', \'2023-12-20 05:46:26\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:26\', \'2023-12-20 05:46:26\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:26\', \'2023-12-20 05:46:26\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (:user_id:, :product_quantity:, :variant_id:, :product_id:, :category_id:, :sub_category_id:, :product_amount:, :total_amount:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(936): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 05:46:35 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Home.php(936): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-20 05:46:35 --> Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:35\', \'2023-12-20 05:46:35\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:35\', \'2023-12-20 05:46:35\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:35\', \'2023-12-20 05:46:35\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (:user_id:, :product_quantity:, :variant_id:, :product_id:, :category_id:, :sub_category_id:, :product_amount:, :total_amount:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(936): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 05:46:49 --> mysqli_sql_exception: Column 'user_id' cannot be null in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\truflow\system\BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\truflow\system\Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\truflow\app\Controllers\Home.php(936): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+#9 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-20 05:46:49 --> Column 'user_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:49\', \'2023-12-20 05:46:49\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:49\', \'2023-12-20 05:46:49\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (NULL, \'1\', \'2\', \'1\', \'1\', \'1\', \'355.39\', \'355.39\', \'2023-12-20 05:46:49\', \'2023-12-20 05:46:49\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `add_to_cart` (`user_id`, `product_quantity`, `variant_id`, `product_id`, `category_id`, `sub_category_id`, `product_amount`, `total_amount`, `created_at`, `updated_at`) VALUES (:user_id:, :product_quantity:, :variant_id:, :product_id:, :category_id:, :sub_category_id:, :product_amount:, :total_amount:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Home.php(936): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:05:36 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 958.
+ 1 APPPATH\Controllers\Home.php(958): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 958)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:08:09 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 958.
+ 1 APPPATH\Controllers\Home.php(958): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 958)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:12:01 --> Undefined variable $guestsessiondata
+in APPPATH\Views\front\product_details.php on line 3.
+ 1 APPPATH\Views\front\product_details.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $guestsessiondata', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php', 3)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\product_details.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/product_details', [], true)
+ 5 APPPATH\Controllers\Home.php(786): view('front/product_details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->product_details('452')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:13:26 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 958.
+ 1 APPPATH\Controllers\Home.php(958): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 958)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:14:28 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 959.
+ 1 APPPATH\Controllers\Home.php(959): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 959)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:16:15 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 960.
+ 1 APPPATH\Controllers\Home.php(960): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 960)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:18:14 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:22:31 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:23:58 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:28:12 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:30:07 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:32:08 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 964.
+ 1 APPPATH\Controllers\Home.php(964): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 964)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:33:59 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 964.
+ 1 APPPATH\Controllers\Home.php(964): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 964)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:36:46 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:37:43 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:38:01 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:45:14 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:50:13 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:51:34 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 06:51:47 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 962.
+ 1 APPPATH\Controllers\Home.php(962): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 962)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:16:46 --> Array to string conversion
+in APPPATH\Controllers\Home.php on line 961.
+ 1 APPPATH\Controllers\Home.php(961): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\Home.php', 961)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_cart()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:32:48 --> whereIn() expects $values to be of type array or closure
+in SYSTEMPATH\Database\BaseBuilder.php on line 940.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(827): CodeIgniter\Database\BaseBuilder->_whereIn('add_to_cart.cart_id', null, false, 'AND ', null)
+ 2 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->whereIn('add_to_cart.cart_id', null)
+ 3 APPPATH\Controllers\Home.php(865): CodeIgniter\Model->__call('whereIn', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 07:33:56 --> mysqli_sql_exception: Unknown column 'users.company_name' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(867): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-20 07:33:56 --> Unknown column 'users.company_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN :add_to_cart.cart_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(867): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 07:35:21 --> mysqli_sql_exception: Unknown column 'users.company_name' in 'on clause' in C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\truflow\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\truflow\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\truflow\app\Controllers\Home.php(867): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\truflow\system\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+#7 C:\xampp\htdocs\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-12-20 07:35:21 --> Unknown column 'users.company_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN (130,131)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `add_to_cart`
+LEFT JOIN `product_variants` ON `product_variants`.`variant_id` = `add_to_cart`.`variant_id`
+LEFT JOIN `product` ON `product`.`product_id` = `product_variants`.`product_id`
+LEFT JOIN `sub_category` ON `sub_category`.`sub_category_id` = `product`.`sub_category_id`
+LEFT JOIN `category` ON `category`.`category_id` = `sub_category`.`category_id`
+LEFT JOIN `company` ON `company`.`company_name` = `users`.`company_name`
+WHERE `add_to_cart`.`cart_id` IN :add_to_cart.cart_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(867): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:35:47 --> Undefined array key "company_id"
+in APPPATH\Views\front\add_to_cart.php on line 11.
+ 1 APPPATH\Views\front\add_to_cart.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php', 11)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 5 APPPATH\Controllers\Home.php(918): view('front/add_to_cart', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:36:09 --> Undefined array key "company_id"
+in APPPATH\Views\front\add_to_cart.php on line 11.
+ 1 APPPATH\Views\front\add_to_cart.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php', 11)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 5 APPPATH\Controllers\Home.php(918): view('front/add_to_cart', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:36:33 --> Undefined variable $company_id
+in APPPATH\Views\front\add_to_cart.php on line 279.
+ 1 APPPATH\Views\front\add_to_cart.php(279): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $company_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php', 279)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\add_to_cart.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/add_to_cart', [], true)
+ 5 APPPATH\Controllers\Home.php(918): view('front/add_to_cart', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->add_to_cart()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:43:00 --> Undefined array key "company_id"
+in APPPATH\Views\front\checkout.php on line 27.
+ 1 APPPATH\Views\front\checkout.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 27)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(115): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:43:45 --> Undefined array key 0
+in APPPATH\Views\front\checkout.php on line 299.
+ 1 APPPATH\Views\front\checkout.php(299): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 299)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(115): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:46:16 --> Undefined array key 0
+in APPPATH\Views\front\checkout.php on line 299.
+ 1 APPPATH\Views\front\checkout.php(299): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 299)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(115): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:47:37 --> Undefined variable $userData
+in APPPATH\Controllers\OrderController.php on line 114.
+ 1 APPPATH\Controllers\OrderController.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userData', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 114)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:48:46 --> Undefined variable $userData
+in APPPATH\Controllers\OrderController.php on line 111.
+ 1 APPPATH\Controllers\OrderController.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userData', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 111)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:49:19 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 327.
+ 1 APPPATH\Views\front\checkout.php(327): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 327)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(125): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:50:07 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 327.
+ 1 APPPATH\Views\front\checkout.php(327): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 327)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(125): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:50:51 --> Undefined variable $company_id
+in APPPATH\Views\front\checkout.php on line 468.
+ 1 APPPATH\Views\front\checkout.php(468): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $company_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 468)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(125): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:55:59 --> Undefined variable $company_id
+in APPPATH\Views\front\checkout.php on line 468.
+ 1 APPPATH\Views\front\checkout.php(468): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $company_id', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 468)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(125): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:58:53 --> Undefined array key "company_id"
+in APPPATH\Views\front\checkout.php on line 30.
+ 1 APPPATH\Views\front\checkout.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(126): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 07:58:58 --> Undefined array key "company_id"
+in APPPATH\Views\front\checkout.php on line 30.
+ 1 APPPATH\Views\front\checkout.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company_id"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(126): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:04:49 --> Undefined variable $userData
+in APPPATH\Views\front\checkout.php on line 74.
+ 1 APPPATH\Views\front\checkout.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userData', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 74)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(126): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:08:54 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 85.
+ 1 APPPATH\Views\front\checkout.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 85)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(126): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:10:24 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 85.
+ 1 APPPATH\Views\front\checkout.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 85)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:12:12 --> Undefined constant "full_name"
+in APPPATH\Views\front\checkout.php on line 43.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 4 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:12:23 --> Undefined array key "full_name"
+in APPPATH\Views\front\checkout.php on line 43.
+ 1 APPPATH\Views\front\checkout.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "full_name"', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:12:47 --> Attempt to read property "full_name" on array
+in APPPATH\Views\front\checkout.php on line 43.
+ 1 APPPATH\Views\front\checkout.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "full_name" on array', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:27:21 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 340.
+ 1 APPPATH\Views\front\checkout.php(340): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 340)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:28:09 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 340.
+ 1 APPPATH\Views\front\checkout.php(340): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 340)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 09:30:33 --> Undefined variable $user
+in APPPATH\Views\front\checkout.php on line 341.
+ 1 APPPATH\Views\front\checkout.php(341): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php', 341)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow\\app\\Views\\front\\checkout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/checkout', [], true)
+ 5 APPPATH\Controllers\OrderController.php(118): view('front/checkout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->checkout()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 10:27:45 --> Undefined array key "zipcode"
+in APPPATH\Controllers\OrderController.php on line 176.
+ 1 APPPATH\Controllers\OrderController.php(176): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "zipcode"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 176)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 10:28:30 --> Undefined array key "phone"
+in APPPATH\Controllers\OrderController.php on line 177.
+ 1 APPPATH\Controllers\OrderController.php(177): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "phone"', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 177)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 10:29:41 --> Undefined variable $userId
+in APPPATH\Controllers\OrderController.php on line 225.
+ 1 APPPATH\Controllers\OrderController.php(225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userId', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 225)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 10:50:32 --> Undefined array key 0
+in APPPATH\Controllers\OrderController.php on line 333.
+ 1 APPPATH\Controllers\OrderController.php(333): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 333)
+ 2 APPPATH\Controllers\OrderController.php(300): App\Controllers\OrderController->generate_pdf(95)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 11:10:01 --> Undefined array key 0
+in APPPATH\Controllers\OrderController.php on line 318.
+ 1 APPPATH\Controllers\OrderController.php(318): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 318)
+ 2 APPPATH\Controllers\OrderController.php(285): App\Controllers\OrderController->generate_pdf(97)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 11:22:49 --> Undefined array key 0
+in APPPATH\Controllers\OrderController.php on line 319.
+ 1 APPPATH\Controllers\OrderController.php(319): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 319)
+ 2 APPPATH\Controllers\OrderController.php(286): App\Controllers\OrderController->generate_pdf(98)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 11:24:33 --> Undefined array key 0
+in APPPATH\Controllers\OrderController.php on line 321.
+ 1 APPPATH\Controllers\OrderController.php(321): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 321)
+ 2 APPPATH\Controllers\OrderController.php(288): App\Controllers\OrderController->generate_pdf(99)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 11:55:47 --> Undefined variable $query
+in APPPATH\Controllers\OrderController.php on line 228.
+ 1 APPPATH\Controllers\OrderController.php(228): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 228)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 11:57:44 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-20 11:57:44 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Wed, 20 Dec 2023 17:27:40 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 550 No Such User Here
+
+The following SMTP error was encountered: 550 No Such User Here
+
+quit: 221 bh-1.webhostbox.net closing connection
+
+ERROR - 2023-12-20 12:02:02 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-20 12:02:02 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Wed, 20 Dec 2023 17:31:58 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 550 No Such User Here
+
+The following SMTP error was encountered: 550 No Such User Here
+
+quit: 221 bh-1.webhostbox.net closing connection
+
+ERROR - 2023-12-20 12:10:59 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-20 12:10:59 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Wed, 20 Dec 2023 17:40:55 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 550 No Such User Here
+
+The following SMTP error was encountered: 550 No Such User Here
+
+quit: 221 bh-1.webhostbox.net closing connection
+
+CRITICAL - 2023-12-20 12:23:16 --> Undefined variable $total_amount
+in APPPATH\Controllers\OrderController.php on line 281.
+ 1 APPPATH\Controllers\OrderController.php(281): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_amount', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 281)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 13:04:28 --> Undefined variable $gstAmount
+in APPPATH\Controllers\OrderController.php on line 287.
+ 1 APPPATH\Controllers\OrderController.php(287): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $gstAmount', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 287)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-20 13:05:49 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-20 13:05:49 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Wed, 20 Dec 2023 18:35:45 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [110.225.96.40]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 550 No Such User Here
+
+The following SMTP error was encountered: 550 No Such User Here
+
+quit: 221 bh-1.webhostbox.net closing connection
+
+CRITICAL - 2023-12-20 13:26:22 --> Undefined variable $token
+in APPPATH\Controllers\OrderController.php on line 367.
+ 1 APPPATH\Controllers\OrderController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $token', 'C:\\xampp\\htdocs\\truflow\\app\\Controllers\\OrderController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 14:27:29 --> Call to undefined method App\Models\UserModel::updatePasswordById
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\OrderController.php(348): CodeIgniter\Model->__call('updatePasswordById', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-20 14:31:45 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 924.
+ 1 SYSTEMPATH\BaseModel.php(924): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [])
+ 3 APPPATH\Controllers\OrderController.php(352): CodeIgniter\Model->update()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\OrderController->place_order()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

@@ -24,7 +24,11 @@ if (isset($_GET['discount_d'])) {
 if (isset($_GET['free_shipping'])) {
   $_SESSION['shipping'] = $_GET['free_shipping'];
 }
-$company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
+if($user_id){
+    $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
+}else{
+    $company_id = isset($cartData);
+}
 
 //$coupon_code = isset($_SESSION['couponCode_new']) ? $_SESSION['couponCode_new'] : $_GET['coupon_code'];
 $discount_type = isset($_SESSION['discount_type']) ? $_SESSION['discount_type'] : '';
@@ -34,7 +38,19 @@ $shipping = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : '';
 $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
 // You can then use these variables in your HTML or PHP code as needed
-
+    if (isset($userData)){
+         $user_id =  $userData[0]['user_id'];
+         $first_name =  $userData[0]['first_name'];
+         $last_name =  $userData[0]['last_name'];
+         $company_name =  $userData[0]['company_name'];
+         $country =  $userData[0]['country'];
+         $address_1 =  $userData[0]['address_1'];
+         $address_2 =  $userData[0]['address_2'];
+         $city =  $userData[0]['city'];
+         $mobile =  $userData[0]['mobile'];
+         $email =  $userData[0]['email'];
+         $mobile =  $userData[0]['mobile'];
+    }
 ?>
 <style>
   sub {
@@ -66,8 +82,8 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                 <div class="col-lg-12">
 
                 </div>
-                <?php if (isset($userData)) { ?>
-                <?php foreach ($userData as $user) { ?>
+                <?php //if (isset($userData)) { ?>
+                <?php //foreach ($userData as $user) { ?>
                 <div class="col-lg-7">
                     <div class="billing_detail">
                         <h3>Billing Details</h3>
@@ -78,21 +94,21 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                                 <div class="checkout-input">
                                     <label>First Name <span>*</span></label>
                                     <input type="text" id="first_name" name="first_name"
-                                        value="<?php echo $user['first_name']; ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $first_name; } ?>" class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-input">
                                     <label>Last Name <span>*</span></label>
                                     <input type="text" id="form9Example2" name="last_name"
-                                        value="<?php echo $user['last_name']; ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $last_name; } ?>" class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Company name (optional)</label>
                                     <input type="text" id="company_name" name="company_name"
-                                        value="<?php echo $user['company_name']; ?>"
+                                        value="<?php if (isset($userData)){ echo $company_name; } ?>"
                                         class="form-control input-custom" />
                                 </div>
                             </div>
@@ -100,39 +116,39 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                                 <div class="checkout-input">
                                     <label>Country / Region </label>
                                     <input type="text" id="country" name="country"
-                                        value="<?php echo $user['country']; ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $country; } ?>" class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Street address</label>
                                     <input type="text" id="address_1" name="address_1"
-                                        value="<?php echo $user['address_1']; ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $address_1; } ?>" class="form-control input-custom" />
                                 </div>
 
                                 <div class="checkout-input">
                                     <input type="text" id="address_2" name="address_2"
-                                        value="<?php echo $user['address_2']; ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $address_2; } ?>" class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Town / City</label>
-                                    <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>"
+                                    <input type="text" id="city" name="city" value="<?php if (isset($userData)){ echo $city; } ?>"
                                         class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Phone <span>*</span></label>
-                                    <input type="text" id="mobile" name="mobile" value="<?php echo $user['mobile']; ?>"
+                                    <input type="text" id="mobile" name="mobile" value="<?php if (isset($userData)){ echo $mobile; } ?>"
                                         class="form-control input-custom" />
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Email address <span>*</span></label>
-                                    <input type="text" id="email" name="email" value="<?php echo $user['email']; ?>"
+                                    <input type="text" id="email" name="email" value="<?php if (isset($userData)){ echo $email; } ?>"
                                         class="form-control input-custom" />
                                 </div>
                             </div>
@@ -175,8 +191,8 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                     </div>
                 </div>
 
-                <?php } ?>
-                <?php } ?>
+                <?php //} ?>
+                <?php //} ?>
 
                 <div class="col-lg-5">
                     <?php if (session()->getFlashdata('success')) { ?>
@@ -310,6 +326,18 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                             </span>
                         </div>
 
+                        <?php if(!$user_id){ ?>
+                            <input id="guest_account_create" name="guest_account_create" value="guest_account_create" type="hidden" >
+
+                            <div class="order_list">
+                            <span>
+                            <input id="guest_account" type="checkbox" required>
+                                    <label for="guest_account">Continue with guest account
+                                    </label>
+                            </span>
+                        </div>
+                        <?php }?>
+
                         <div class="checkout-agree order_list">
                             <div class="checkout-option">
                                 <div class="db_data">
@@ -322,7 +350,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                         </div>
                         <div class="checkout_btn">
 
-                            <input type="hidden" id="user_id" name="user_id" value="<?php echo $user['user_id']; ?>" />
+                            <input type="hidden" id="user_id" name="user_id" value="<?php if (isset($userData)){ echo $user_id; } ?>" />
 
                             <input type="hidden" id="order_status" name="order_status" value="Pending" />
 
@@ -463,7 +491,7 @@ $(document).ready(function() {
                 var totalAmount = subtotal;
                 var total = subtotal;
                 var catId = "<?php echo $sub_category_id; ?>";
-                var company_id = '<?php echo $company_id; ?>';
+                var company_id = '<?php if($user_id){ echo $company_id;} ?>';
                 var company_id_response = couponData[0].company_id;
 
                 //alert(couponAmount);
