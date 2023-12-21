@@ -93,6 +93,8 @@ input.minus {
 sub {
     color: #005dab;
     font-weight: 700;
+    bottom: 0px;
+    padding-left: 5px;
 }
 </style>
 

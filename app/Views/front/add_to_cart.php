@@ -15,6 +15,8 @@ if($user_id)
   sub {
     color: #005dab;
     font-weight: 700;
+    bottom: 0px;
+    padding-left: 5px;
 }
 </style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -87,7 +89,7 @@ if($user_id)
                         </form>
                       </td>
                       <td class="align-middle cart_remove">
-                        <a href="<?php echo base_url('') . 'delete/' . $cart['cart_id'] ?>" onclick="showConfirmation(event)">
+                        <a href="javascript:void(0)" onclick="showConfirmation(<?php echo  $cart['cart_id'] ?>)">
                           <i class="fa-solid fa-xmark"></i> Remove
                         </a>
                       </td>
@@ -215,9 +217,8 @@ if($user_id)
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
 <script>
-  function showConfirmation(event) {
+  function showConfirmation(id) {
     event.preventDefault();
-
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be remove this!",
@@ -230,7 +231,21 @@ if($user_id)
     }).then((result) => {
       if (result.isConfirmed) {
         // Continue with the deletion
-        window.location.href = event.target.href;
+        var cart_id = id;
+        // alert(cart_id);
+        $.ajax({
+        url: '<?php echo base_url('') . 'delete/';?>' + cart_id,
+        method: 'GET',
+        success: function(response) {
+          window.location.reload();
+          // console.log(response);
+          // window.location.href = response.target.href;
+        },
+        error: function(xhr, status, error) {
+          alert("An error occurred while delete cart icon");
+        }
+      });
+
       }
     });
   }

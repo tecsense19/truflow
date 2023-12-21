@@ -56,6 +56,8 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
   sub {
     color: #005dab;
     font-weight: 700;
+    bottom: 0px;
+    padding-left: 5px;
 }
 </style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> SHOP START <<~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
