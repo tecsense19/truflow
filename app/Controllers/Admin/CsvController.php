@@ -269,7 +269,7 @@ class CsvController extends BaseController
                         'variant_description_3' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
                     ];
 
-                    $checkVariant = $variantModel->where('variant_name', $variantName)->where('product_id', $productId)->get()->getRow();
+                    $checkVariant = $variantModel->where('variant_name', $variantName)->where('variant_sku', $variantSku)->where('product_id', $productId)->get()->getRow();
                     if($checkVariant)
                     {
                         $variantModel->update($checkVariant->variant_id, $variant);

@@ -32,7 +32,6 @@ $routes->set404Override();
 
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
-$routes->get('/shop', 'Home::shop');
 // $routes->get('/sub/category/(:num)', 'Home::sub_category/$1');
 $routes->get('/sub/category/(:any)', 'Home::main_sub_category/$1');
 
@@ -68,6 +67,15 @@ $routes->post('/searchSimilarData', 'Home::searchSimilarData');
 
 $routes->post('/feedback', 'Home::addfeedback');
 
+// Bhavin Word
+
+// $routes->get('/shop', 'Home::shop');
+$routes->get('/shop', 'HomeProductController::index');
+$routes->get('/shop/(:any)', 'HomeProductController::index/$1');
+$routes->get('/shop/(:any)/(:any)', 'HomeProductController::index/$1/$1');
+$routes->get('/shop/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1');
+
+// Bhavin Word
 
 //check coupon
 

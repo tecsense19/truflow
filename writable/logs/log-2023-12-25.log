@@ -1,0 +1,108 @@
+ERROR - 2023-12-25 05:08:17 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-25 05:08:17 --> 220-bh-1.webhostbox.net ESMTP Exim 4.96.2 #2 Mon, 25 Dec 2023 10:38:12 +0530 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+
+hello: 250-bh-1.webhostbox.net Hello localhost [122.170.154.148]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+
+starttls: 220 TLS go ahead
+
+hello: 250-bh-1.webhostbox.net Hello localhost [122.170.154.148]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPECONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+
+from: 250 OK
+
+to: 501 <>: missing or malformed local part
+
+The following SMTP error was encountered: 501 <>: missing or malformed local part
+
+quit: 221 bh-1.webhostbox.net closing connection
+
+CRITICAL - 2023-12-25 05:37:37 --> Invalid file: "front/products/index.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/products/index.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/products/index', [], true)
+ 3 APPPATH\Controllers\HomeProductController.php(40): view('front/products/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 06:25:38 --> Too few arguments to function renderCategory(), 1 passed in C:\xampp\htdocs\truflow-git\truflow\app\Views\front\products\index.php on line 158 and at least 2 expected
+in APPPATH\Views\front\products\index.php on line 169.
+ 1 APPPATH\Views\front\products\index.php(158): renderCategory([...])
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\products\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/products/index', [], true)
+ 5 APPPATH\Controllers\HomeProductController.php(40): view('front/products/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 06:36:26 --> Undefined variable $subcategories
+in APPPATH\Views\front\products\index.php on line 193.
+ 1 APPPATH\Views\front\products\index.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcategories', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\products\\index.php', 193)
+ 2 APPPATH\Views\front\products\index.php(185): renderAnotherCategory([...])
+ 3 APPPATH\Views\front\products\index.php(158): renderCategory([...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\products\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/products/index', [], true)
+ 7 APPPATH\Controllers\HomeProductController.php(40): view('front/products/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 07:14:33 --> Undefined array key "sub_category_name"
+in APPPATH\Views\front\products\index.php on line 196.
+ 1 APPPATH\Views\front\products\index.php(196): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sub_category_name"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\products\\index.php', 196)
+ 2 APPPATH\Views\front\products\index.php(181): renderAnotherCategory([...])
+ 3 APPPATH\Views\front\products\index.php(162): renderCategory([...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\products\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/products/index', [], true)
+ 7 APPPATH\Controllers\HomeProductController.php(40): view('front/products/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 07:54:45 --> Too few arguments to function App\Controllers\HomeProductController::index(), 0 passed in C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\HomeProductController.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 07:55:01 --> Too few arguments to function App\Controllers\HomeProductController::index(), 0 passed in C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\HomeProductController.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 07:55:21 --> Too few arguments to function App\Controllers\HomeProductController::index(), 0 passed in C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\HomeProductController.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 07:55:25 --> Too few arguments to function App\Controllers\HomeProductController::index(), 0 passed in C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\HomeProductController.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-25 09:40:03 --> Too few arguments to function App\Controllers\HomeProductController::index(), 0 passed in C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php on line 934 and exactly 1 expected
+in APPPATH\Controllers\HomeProductController.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\HomeProductController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
