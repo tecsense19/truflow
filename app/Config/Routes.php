@@ -74,6 +74,7 @@ $routes->get('/shop', 'HomeProductController::index');
 $routes->get('/shop/(:any)', 'HomeProductController::index/$1');
 $routes->get('/shop/(:any)/(:any)', 'HomeProductController::index/$1/$1');
 $routes->get('/shop/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1');
+$routes->get('/shop/(:any)/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1/$1');
 
 // Bhavin Word
 

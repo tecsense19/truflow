@@ -81,6 +81,12 @@
     list-style-type: none;
     }
 
+    .main-name-with-arrow{
+        display: flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+
     #accordian ul li a{
     color: #9c9c9c;
     text-decoration: none;
@@ -130,7 +136,7 @@
     padding-left: 20px;
     }
 
-    #accordian a:not(:only-child):after {
+    /* #accordian a::after {
         content: "▼";
         position: absolute;
         right: 20px;
@@ -142,7 +148,21 @@
         vertical-align: middle;
         font-weight: 900;
         transition: 0.5s;
-    }
+    } */
+    
+    /* #accordian li:not(:only-child):after {
+        content: "▼";
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        font-size: 15px;
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 900;
+        transition: 0.5s;
+    } */
 
     #accordian .active>a:not(:only-child):after {
         transform: rotate(0deg);
@@ -183,8 +203,11 @@
                                         $catUrl = base_url() . 'shop/' . str_replace(' ', '-', $category['category_name']);
                                     ?>
                                     <li class="<?php if(in_array($category['category_name'], $segment)) { echo 'active'; } ?>">
-                                        <a href="<?= $catUrl ?>"><i class="far fa-clone mr-2"></i><?php echo strtoupper($category['category_name']); ?></a>
+                                        <div class="main-name-with-arrow">
+                                        <a href="<?= $catUrl ?>" class="li-link"><i class="far fa-clone mr-2"></i><?php echo strtoupper($category['category_name']); ?></a>
                                             <!-- <li><a href="javascript:void(0);">Today's tasks</a></li> -->
+                                            <i class="fas fa-angle-down dropdown-i"></i>
+                                        </div>
                                         <?php
                                             if(isset($category['sub_category']) && count($category['sub_category']) > 0) {
                                                 renderSubCategory($category['sub_category'], $category['category_name'], $segment);
@@ -208,12 +231,12 @@
                                         $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
 
                                         echo '<li class="'.$active.'">';
-                                        echo '<a href="'. $subCatLink .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['sub_category_name']) .'</a>';
+                                        echo '<div class="main-name-with-arrow"><a href="'. $subCatLink .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i"></i></div>';
                                         if (count($subCategory['child_arr']) > 0) {
-                                            renderChildCategory($subCategory['child_arr'], '', $segment);
+                                            renderChildCategory($subCategory['child_arr'], '', $segment, $catName, $subCategory['sub_category_name']);
                                         }
                                         if (count($subCategory['product_arr']) > 0) {
-                                            renderProducts($subCategory['product_arr'], $segment);
+                                            renderProducts($subCategory['product_arr'], $segment, $catName, $subCategory['sub_category_name'], '');
                                         }
                                         echo '</li>';
                                     }
@@ -222,23 +245,26 @@
                             }
                         }
 
-                        function renderChildCategory(&$subcategories, $flag, $segment) {
+                        function renderChildCategory(&$subcategories, $flag, $segment, $catName, $subcatName) {
+                            // echo '<pre>';print_r($subcatName);echo '</pre>';
+                            $segment5 = isset($segment[5]) ? $segment[5] : $catName;
+                            $segment6 = isset($segment[6]) ? $segment[6] : $subcatName;
                             if($flag == true)
                             {
                                 foreach ($subcategories as $subCategory) {
-
                                     $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
+                                    $childLink = base_url() . 'shop/' . $segment5 . '/' . $segment6 . '/' . str_replace(' ', '-', $subCategory['child_sub_category_name']);
 
                                     echo '<li class="'.$active.'">';
-                                    echo '<a href="javascript:void(0);"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a>';
+                                    echo '<div class="main-name-with-arrow"><a href="'.$childLink.'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i"></i></div>';
                                     if (count($subCategory['child_arr']) > 0) {
                                         echo '<ul class="show-dropdown">';
-                                            renderChildCategory($subCategory['child_arr'], 1, $segment);
+                                            renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName);
                                         echo '</ul>';
                                     }
                                     if (count($subCategory['product_arr']) > 0) {
                                         echo '<ul class="show-dropdown">';
-                                            renderProducts($subCategory['product_arr'], $segment);
+                                            renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName,'');
                                         echo '</ul>';
                                     }
                                     echo '</li>';
@@ -249,19 +275,19 @@
                             {
                                 echo '<ul class="show-dropdown">';
                                 foreach ($subcategories as $subCategory) {
+                                    // echo '<pre>';print_r($subCategory);echo '</pre>';
                                     $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
+                                    $childLink = base_url() . 'shop/' . $segment5 . '/' . $segment6 . '/' . str_replace(' ', '-', $subCategory['child_sub_category_name']);
 
-                                    // $childLink = base_url() . 'shop/' . $segment[6] . '/' . $segment[7] . '/' . $subCategory['child_sub_category_name'];
-
-                                    echo '<li class="'.$active.'"><a href="javascript:void(0)"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a>';
+                                    echo '<li class="'.$active.'"><div class="main-name-with-arrow"><a href="'.$childLink.'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i"></i></div>';
                                     if (count($subCategory['child_arr']) > 0) {
                                         echo '<ul class="show-dropdown">';
-                                            renderChildCategory($subCategory['child_arr'], 1, $segment);
+                                            renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName);
                                         echo '</ul>';
                                     }
                                     if (count($subCategory['product_arr']) > 0) {
                                         echo '<ul class="show-dropdown">';
-                                            renderProducts($subCategory['product_arr'], $segment);
+                                            renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName,$subCategory['child_sub_category_name']);
                                         echo '</ul>';
                                     }
                                     echo '</li>';
@@ -270,10 +296,16 @@
                             }
                         }
 
-                        function renderProducts(&$products)
+                        function renderProducts(&$products,$segment, $catName, $subcatName, $childsubcate)
                         {
+                            $segment5 = isset($segment[5]) ? $segment[5] : $catName;
+                            $segment6 = isset($segment[6]) ? $segment[6] : $subcatName;
+                            $segment7 = isset($segment[7]) ? $segment[7] : $childsubcate;
+                            $sagment7 = str_replace(' ', '-', $segment7);
                             foreach ($products as $product) {
-                                echo '<li><a href="javascript:void(0);"><i class="far fa-dot-circle mr-2"></i>'. $product['product_name'] .'</a>';
+                                $active = in_array($product['product_name'], $segment) ? 'active' : '';
+                                $productLink = base_url() . 'shop/' . $segment5 . '/' . $segment6 . '/' .$sagment7 . '/' . $product['product_name'];
+                                echo '<li class="'.$active.'"><a href="'.$productLink.'"><i class="far fa-dot-circle mr-2"></i>'. $product['product_name'] .'</a>';
                             }
                         }
                     ?>
@@ -353,7 +385,11 @@
                     
                     <?php 
                         if (isset($productData)) {
-                            foreach ($productData as $product) { ?>
+                            foreach ($productData as $product) { 
+                                // echo '<pre>';print_r($segment);echo '</pre>';
+                                $sagment7 = str_replace(' ', '-', $segment[7]);
+                                $productLink = base_url() . 'shop/' . $segment[5] . '/' . $segment[6] . '/' .$sagment7 . '/' . $product['product_name'];
+                                ?>
                                 <div class="col-lg-3">
                                     <div class="product_box">
                                         <div class="product_img">
@@ -365,7 +401,7 @@
                                         </div>
                                         <hr>
                                         <div class="product_text text-center">
-                                            <a href="javasript:void(0)" data-catid="<?php echo $product['product_id']; ?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" class="category-link category_data">
+                                            <a href="<?php echo $productLink; ?>" data-catid="<?php echo $product['product_id']; ?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>" class="category-link category_data">
                                                 <h3><?php echo $product['product_name'] ?><h6><?php echo $product['product_short_description']; ?></h6></h3>
                                                 <span><button class="btn btn-primary mt-2 details_btn">Details</button></span>
                                             </a>
@@ -373,6 +409,7 @@
                                     </div>
                                 </div>
                     <?php } } ?>
+                    
                 </div>
             </div>
         </div>
@@ -381,10 +418,10 @@
 <?= $this->include('front/layout/footer'); ?>
 <script>
 $(document).ready(function() {
-    $("#accordian a").click(function() {
+    $("#accordian .dropdown-i").click(function() {
         var link = $(this);
         var closest_ul = link.closest("ul");
-        var parallel_active_links = closest_ul.find(".active")
+        var parallel_active_links = closest_ul.find(".active");
         var closest_li = link.closest("li");
         var link_status = closest_li.hasClass("active");
         var count = 0;
@@ -393,6 +430,7 @@ $(document).ready(function() {
             if (++count == closest_ul.find("ul").length){
                 parallel_active_links.removeClass("active");
                 parallel_active_links.children("ul").removeClass("show-dropdown");
+                parallel_active_links.children("ul").css("display", "none");
             }
         });
 

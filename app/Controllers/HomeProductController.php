@@ -25,13 +25,14 @@ $session = \Config\Services::session();
 
 class HomeProductController extends BaseController
 {
-    public function index($cateId = "", $subCatId = "", $childId = "")
+    public function index($cateId = "", $subCatId = "", $childId = "" , $productId = "")
     {
         $headermenumodel = new HeaderMenuModel();
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
         $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $variantsmodel = new VariantsModel();
 
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -100,6 +101,9 @@ class HomeProductController extends BaseController
     
                         $childCatResult[] = $value;
                     }
+                }
+                if($productId){
+
                 }
 
                 return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData]);
