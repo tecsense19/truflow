@@ -33,6 +33,7 @@ class HomeProductController extends BaseController
         $productmodel = new ProductModel();
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         $variantsmodel = new VariantsModel();
+        $productratingmodel = new ProductRatingModel();
 
         $headerData = $headermenumodel->find();
         if (!$headerData) {
@@ -102,8 +103,28 @@ class HomeProductController extends BaseController
                         $childCatResult[] = $value;
                     }
                 }
-                if($productId){
 
+                if($productId) 
+                {
+                    $checkProduct = $productmodel->where('product_name', str_replace('-', ' ', $productId))->get()->getRow();
+                    $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
+                                                ->where('product.product_id', $checkProduct->product_id)
+                                                ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
+                                                ->findAll();
+
+                    $minMaxPrice = $variantsmodel->table('product_variants')
+                                                ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
+                                                ->join('product', 'product.product_id = product_variants.product_id')
+                                                ->where('product.product_id', $checkProduct->product_id)
+                                                ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
+                                                ->get()->getRow();
+
+                    $ratingData = $productratingmodel->select('AVG(rat_number) as average_rating')->where('product_id', $checkProduct->product_id)->first();
+                    $averageRating = $ratingData['average_rating'];
+            
+                    $rating = $productratingmodel->select('*')->where(['product_id' => $checkProduct->product_id])->countAllResults();
+                                        
+                    return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => [], 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => [], 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating]);
                 }
 
                 return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData]);
