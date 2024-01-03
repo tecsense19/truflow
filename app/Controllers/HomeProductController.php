@@ -43,7 +43,7 @@ class HomeProductController extends BaseController
 
         if($cateId)
         {
-            $getCategoryData = $categorymodel->where('category_name',urldecode($cateId))->get()->getRow();
+            $getCategoryData = $categorymodel->where('category_name',str_replace('_', ' ', $cateId))->get()->getRow();
 
             $subCatResult = [];
             if($getCategoryData)
@@ -60,7 +60,7 @@ class HomeProductController extends BaseController
 
             if($subCatId)
             {
-                $getSubCategoryData = $subcategorymodel->where('sub_category_name', urldecode($subCatId))->get()->getRow();
+                $getSubCategoryData = $subcategorymodel->where('sub_category_name', str_replace('_', ' ', $subCatId))->get()->getRow();
 
                 $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
                 $childCatResult = [];
@@ -68,7 +68,7 @@ class HomeProductController extends BaseController
 
                 if($childId)
                 {
-                    $getChild = $ChildSubCategoryModel->where('child_sub_category_name',urldecode($childId))->get()->getRow();
+                    $getChild = $ChildSubCategoryModel->where('child_sub_category_name',str_replace('_', ' ', $childId))->get()->getRow();
 
                     $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $getChild->child_id)->findAll();
                     
@@ -106,7 +106,7 @@ class HomeProductController extends BaseController
 
                 if($productId) 
                 {
-                    $checkProduct = $productmodel->where('product_name',urldecode($productId))->get()->getRow();
+                    $checkProduct = $productmodel->where('product_name',str_replace('_', ' ', $productId))->get()->getRow();
                     $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
                                                 ->where('product.product_id', $checkProduct->product_id)
                                                 ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
