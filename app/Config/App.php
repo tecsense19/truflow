@@ -17,8 +17,8 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    // public string $baseURL = 'http://localhost/truflow';
-    public string $baseURL = 'http://localhost/truflow-git/truflow';
+    public string $baseURL = 'http://localhost/truflow';
+    // public string $baseURL = 'http://localhost/truflow-git/truflow';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
