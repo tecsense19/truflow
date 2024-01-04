@@ -25,6 +25,15 @@
     }
 ?>
 <?= $this->include('front/layout/front'); ?>
+<?php
+if (isset($variantArr) && count($variantArr)>0) {
+    ?><style>
+        section.category_product .container {
+            max-width: 1140px !important;
+        }
+    </style> <?php
+}
+?>
 <style>
     section.category_product .container {
         max-width: 86%;
@@ -201,6 +210,51 @@
     .breadcrumb-list > div {
         font-size: 22px;
     }
+    @media only screen and (min-width: 768px) and (max-width: 1024px)
+    {
+        input.minus {
+            width: 75%;
+        }
+        input.input-text.qty.text.variant-qty {
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #737373;
+            width: 75%;
+            margin-top: 5px;
+        }
+        input.plus {
+            width: 75%;
+            margin-top: 5px;
+        }
+    }
+    @media only screen and (min-width: 375px) and (max-width: 667px)
+    {
+        input.plus {
+            width: 75%;
+            margin-top: 5px;
+        }
+        input.input-text.qty.text.variant-qty {
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #737373;
+            width: 75%;
+            margin-top: 5px;
+        }
+
+        input.minus {
+            width: 75%;
+        }
+        .add_cart{
+            width: 200px;
+            display: inline-block;
+            background: #005DAB;
+            text-align: center;
+            padding: 10px 0px;
+            color: #fff;
+            transition: 0.5s;
+            margin: 15px;
+        }
+    }
 </style>
 <section class="about_page">
     <div class="about_overlay">
@@ -222,7 +276,7 @@
     <div class="container">
         <?php if(isset($variantArr) && empty($variantArr)){ ?>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4 col-md-4 col-xl-3">
                 <div class="panel panel-default side-nav side-nav-category" bis_skin_checked="1">
                     <div class="panel-heading" bis_skin_checked="1">
                         <strong>Categories</strong>
@@ -243,7 +297,7 @@
                                         </div>
                                         <?php
                                             if(isset($category['sub_category']) && count($category['sub_category']) > 0) {
-                                                renderSubCategory($category['sub_category'], $category['category_name'], $segment);
+                                                renderSubCategory($category['sub_category'], $category['category_name'], $segment, [$catUrl]);
                                             }
                                         ?>
                                     </li>
@@ -255,12 +309,12 @@
                     
                 </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-8 col-md-8 col-xl-9">
                 <div class="row">
-                    <?php 
+                    <?php
                         if (isset($categoryData) && count($categoryData) > 0) {
                             foreach ($categoryData as $category) { ?>
-                                <div class="col-lg-3">
+                                <div class="col-lg-6 col-md-6 col-xl-3">
                                     <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $category['category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
@@ -284,7 +338,7 @@
                         if (isset($subCategoryData->subCategory)) {
                             foreach ($subCategoryData->subCategory as $subCategory) { 
                                 $redirectUrl = $subCategory['isProduct'] ? base_url('') . "product/" . str_replace(' ', '_', $subCategory['sub_category_name'])  : base_url('') . "childsub/category/" . str_replace(' ', '_', $subCategory['sub_category_name']); ?>
-                                <div class="col-lg-3">
+                                <div class="col-lg-6 col-md-6 col-xl-3">
                                     <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $subCategoryData->category_name) . '/' . str_replace(' ', '_', $subCategory['sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
@@ -307,8 +361,9 @@
                     <?php 
                         if (isset($childCategoryData)) {
                             foreach ($childCategoryData as $subCategory) { 
-                                $redirectUrl = $subCategory['isProduct'] ? base_url('') . "product/".str_replace(' ', '_', $subCategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '_', $subCategory['child_sub_category_name']); ?>
-                                <div class="col-lg-3">
+                                $redirectUrl = $subCategory['isProduct'] ? base_url('') . "product/".str_replace(' ', '_', $subCategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '_', $subCategory['child_sub_category_name']); 
+                                ?>
+                                <div class="col-lg-6 col-md-6 col-xl-3">
                                     <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subCatName) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
@@ -330,19 +385,17 @@
                     <?php 
                         if (isset($productData)) {
                             foreach ($productData as $product) {
-                                // echo '<pre>';print_r($segment);echo '</pre>';
                                 $sagment7 = isset($segment[7]) ? str_replace(' ', '_', $segment[7]) : '';
                                 $sagment8 = isset($segment[8]) ? str_replace(' ', '_', $segment[8]) : '';
                                 if($segment[6] && $sagment7 == '' && $sagment8 == ''){
                                     $productLink = base_url() . 'shop/' . $segment[6] . '/' .$product['product_name'];
                                 }elseif($segment[6] && $sagment7 && $sagment8 == ''){
                                     $productLink = base_url() . 'shop/' .$segment[5] . '/' . $segment[6] . '/' .$sagment7 . '/' . $product['product_name'];
-                                }elseif($segment[6] && $sagment7 && $sagment8){
+                                }elseif($segment[6] && $sagment7 && $sagment8){  
                                     $productLink = base_url() . 'shop/' . $segment[6] . '/' .$sagment7 . '/' .$sagment8 . '/' . $product['product_name'];
                                 }
-                                // $productLink = base_url() . 'shop/' . $segment[6] . '/' .$sagment7 . '/' .$sagment8 . '/' . $product['product_name'];
                                 ?>
-                                <div class="col-lg-3">
+                                <div class="col-lg-6 col-md-6 col-xl-3">
                                     <div class="product_box">
                                         <div class="product_img">
                                             <?php if (!empty($subCategory['product_img'])) { ?>
@@ -667,7 +720,7 @@
                                         <?php if (isset($sub_cat_data) && !empty($sub_cat_data)) {  ?>
                                             <?php foreach ($sub_cat_data as $product) { ?>
 
-                                                <div class="col-md-3">
+                                                <div class="col-md-6 col-sm-1 col-lg-3">
                                                     <div class="product_box">
                                                         <div class="product_img">
                                                             <?php
@@ -686,8 +739,6 @@
                                                             <a href="javascript:void(0)" class="category-link">
                                                                 <h3 class="mt-3"><?php echo $product['parent'] ?></h3>
                                                                 <?php
-                                                                // echo '<pre>';print_r($product['category_name']);echo '</pre>'; 
-                                                                // echo '<pre>';print_r($product['sub_category_name']);echo '</pre>'; 
                                                                 $childcate = str_replace(' ', '_', $product['child_sub_category_name']);
                                                                 $productLink = base_url() . 'shop/' . $product['category_name'] . '/' .$product['sub_category_name'] . '/' .$childcate . '/' . $product['product_name'];
                                                                 ?>
@@ -720,20 +771,23 @@
 </section>
 
 <?php
-    function renderSubCategory(&$subcategories, $catName, $segment) {
+    function renderSubCategory(&$subcategories, $catName, $segment, $breadcrumb = []) {
         if (!empty($subcategories)) {
             echo '<ul class="show-dropdown">';
             foreach ($subcategories as $subCategory) {
                 if (isset($subCategory['sub_category_name'])) 
                 {                                        
+                    $currentBreadcrumb = $breadcrumb;
+                    $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '-', $subCategory['sub_category_name']);
+
                     $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
 
-                    $catUrl = base_url() . 'shop/' . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subCategory['sub_category_name']);
+                    $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                     echo '<li class="'.$active.'">';
                     echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
                     if (count($subCategory['child_arr']) > 0) {
-                        renderChildCategory($subCategory['child_arr'], '', $segment, $catName, $subCategory['sub_category_name']);
+                        renderChildCategory($subCategory['child_arr'], '', $segment, $catName, $subCategory['sub_category_name'],$currentBreadcrumb);
                     }
                     if (count($subCategory['product_arr']) > 0) {
                         renderProducts($subCategory['product_arr'], $segment, $catName, $subCategory['sub_category_name'], '');
@@ -745,25 +799,27 @@
         }
     }
 
-    function renderChildCategory(&$subcategories, $flag, $segment, $catName, $subcatName) {
-        // echo '<pre>';print_r($subcatName);echo '</pre>';
+    function renderChildCategory(&$subcategories, $flag, $segment, $catName, $subcatName, $breadcrumb = []) {
         if($flag == true)
         {
             foreach ($subcategories as $subCategory) {
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
 
-                $catUrl = base_url() . 'shop/' . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subcatName) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']);
+                $currentBreadcrumb = $breadcrumb;
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '-', $subCategory['child_sub_category_name']);
+
+                $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                 echo '<li class="'.$active.'">';
                 echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
                 if (count($subCategory['child_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
-                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName);
+                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
                     echo '</ul>';
                 }
                 if (count($subCategory['product_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
-                        renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name']);
+                        renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name'],$currentBreadcrumb);
                     echo '</ul>';
                 }
                 echo '</li>';
@@ -774,20 +830,21 @@
         {
             echo '<ul class="show-dropdown">';
             foreach ($subcategories as $subCategory) {
-                // echo '<pre>';print_r($subCategory);echo '</pre>';
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
+                $currentBreadcrumb = $breadcrumb;
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '-', $subCategory['child_sub_category_name']);
                 
-                $catUrl = base_url() . 'shop/' . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subcatName) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']);
+                $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                 echo '<li class="'.$active.'"><div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
                 if (count($subCategory['child_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
-                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName);
+                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
                     echo '</ul>';
                 }
                 if (count($subCategory['product_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
-                        renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name']);
+                        renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name'], $currentBreadcrumb);
                     echo '</ul>';
                 }
                 echo '</li>';
@@ -796,12 +853,14 @@
         }
     }
 
-    function renderProducts(&$products,$segment, $catName, $subcatName, $childsubcate)
+    function renderProducts(&$products,$segment, $catName, $subcatName, $childsubcate,$breadcrumb = [])
     {
         foreach ($products as $product) {
-            $active = in_array($product['product_name'], $segment) ? 'active' : '';
+            $currentBreadcrumb = $breadcrumb;
+            $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $childsubcate) . '/' .str_replace(' ', '-', $product['product_name']);
 
-            $catUrl = base_url() . 'shop/' . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subcatName) . '/' . str_replace(' ', '_', $childsubcate) . '/' . str_replace(' ', '_', $product['product_name']);
+            $active = in_array($product['product_name'], $segment) ? 'active' : '';
+            $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
             echo '<li class="'.$active.'"><a href="'. $catUrl .'"><i class="far fa-dot-circle mr-2"></i>'. $product['product_name'] .'</a>';
         }
