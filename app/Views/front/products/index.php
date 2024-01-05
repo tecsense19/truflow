@@ -779,6 +779,7 @@ if (isset($variantArr) && count($variantArr)>0) {
 
 <?php
     function renderSubCategory(&$subcategories, $catName, $segment, $breadcrumb = []) {
+        // echo '<pre>';print_r($segment);echo '</pre>';
         if (!empty($subcategories)) {
             echo '<ul class="show-dropdown">';
             foreach ($subcategories as $subCategory) {
@@ -795,11 +796,13 @@ if (isset($variantArr) && count($variantArr)>0) {
                     }
                     else
                     {
+                        $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
                     }*/
-                    /*$active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';*/
-
-                    $active = strpos(implode('/', $segment), 'Hydraulic/'.$subCategory['sub_category_name']) ? 'active' : '';
-
+                    
+                    /*$active = strpos(implode('/', $segment), 'Hydraulic/'.$subCategory['sub_category_name']) ? 'active' : '';*/
+                    
+                    $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
+                    
                     $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                     echo '<li class="'.$active.'">';
