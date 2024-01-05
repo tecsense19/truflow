@@ -81,7 +81,9 @@ class HomeProductController extends BaseController
                         $currentCategory = null;
                         for ($i = 4; $i < count($urlSegments); $i++) { 
                             $childCatResult = [];
-                            $getChild = $ChildSubCategoryModel->where('child_sub_category_name',str_replace('_', ' ', $urlSegments[$i]))->get()->getRow();
+                            $output = str_replace('%28', '(', $urlSegments[$i]);
+                            $output = str_replace('%29', ')', $output);
+                            $getChild = $ChildSubCategoryModel->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
                             if($getChild)
                             {
                                 $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $getChild->child_id)->findAll();
@@ -135,11 +137,32 @@ class HomeProductController extends BaseController
                                 ->join('category', 'category.category_id = product.category_id')
                                 ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
                                 ->join('child_sub_category', 'child_sub_category.child_id = product.child_id')
-                                ->where('product.sub_category_id', $checkProduct->sub_category_id)->findAll(4);
+                                // ->where('product.sub_category_id', $checkProduct->sub_category_id)->findAll(4);
+                                ->where('product.child_id', $checkProduct->child_id)->findAll(4);
+                                // echo '<pre>';print_r($productData1);echo '</pre>';
                                 $variantsmodel = new VariantsModel();
+
+                                /*$result = [];
+                                $subcategories = $subcategorymodel->where('sub_category_id', $checkProduct->sub_category_id)->findAll();
+                                foreach ($subcategories as $key => $subcateVal) {
+                                    $subCategory = $this->Category($subcateVal);
+
+                                    // Fetch products for the current subcategory
+                                    $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->findAll();
+                                    $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
+
+                                    $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];
+                                    $subCategory['product_arr'] = $subCategoryProductArr;
+
+                                    // Recursively process child_arr and product_arr for each child subcategory
+                                    $subCategory['child_arr'] = $this->processChildArr($subCategory['child_arr']);
+                                    $result = array();
+                                    $result[] = $this->getSubCategoryNames($subCategory, $result);
+                                }*/
+                                // echo '<pre>';print_r($result);echo '</pre>';
+
                                 // $newData_p = [];
                                 foreach ($productData1 as $pdata1) {
-            
                                     $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
                                     $pdata1['parent'] = $variantData1 ? $variantData1['parent'] : '';
                                     $newData_p[] = $pdata1;
@@ -157,6 +180,8 @@ class HomeProductController extends BaseController
         
                             $childCatResult[] = $value;
                         }
+                        // echo '<pre>';print_r($childCatResult);echo '</pre>';
+                        // die;
 
                         if($getCategoryData && $childCatResult){
                             return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
@@ -175,6 +200,37 @@ class HomeProductController extends BaseController
             return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => $categoryData, 'subCategoryData' => [],'variantArr'=>[]]);
         }
     }
+
+    // get child name records
+    /*function getSubCategoryNames($data, &$result) {
+        // echo '<pre>';print_r($data['product_arr']);echo '</pre>';
+        if(isset($data['sub_category_name']))
+        {
+            $result[] = $data['sub_category_name'];
+        }
+        elseif(isset($data['child_sub_category_name']))
+        {
+            $result[] = $data['child_sub_category_name'];
+        }
+        if (isset($data['child_arr']) && is_array($data['child_arr'])) 
+        {
+            foreach ($data['child_arr'] as $child) 
+            {
+                // echo '<pre>';print_r($child);echo '</pre>';
+                
+                $this->getSubCategoryNames($child, $result);
+                if(isset($child['product_arr']) && count($child['product_arr']) > 0)
+                {
+                    foreach ($child['product_arr'] as $product) 
+                    {
+                        if (isset($product['product_name'])) {
+                            $result[] = $product['product_name'];
+                        }
+                    }
+                }
+            }
+        }
+    }*/
 
     // Recursive function to process child_arr and product_arr for each child subcategory
     function processChildArr($childArr) {
@@ -211,6 +267,20 @@ class HomeProductController extends BaseController
 
         return $category;
     }
+
+    // get only 4 recoreds
+    /*function Category($category) {
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->findAll();
+        // echo '<pre>';print_r($childSubCategories);echo '</pre>';
+
+        foreach ($childSubCategories as $childSubCategory) {
+            $childSubCategory = $this->processChildCategory($childSubCategory);
+            $category['child_arr'][] = $childSubCategory;
+        }
+
+        return $category;
+    }*/
 
     // Recursive function to process child categories
     function processChildCategory($childCategory) {
