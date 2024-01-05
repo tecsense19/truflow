@@ -800,7 +800,6 @@ if (isset($variantArr) && count($variantArr)>0) {
                     }*/
                     
                     /*$active = strpos(implode('/', $segment), 'Hydraulic/'.$subCategory['sub_category_name']) ? 'active' : '';*/
-                    
                     $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
                     
                     $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
