@@ -12,7 +12,8 @@
     for ($i = 0; $i < $totalSegments; $i++) {
         $segment[] = urldecode(str_replace('_', ' ', $explodeUrl[$i]));
     }
-    // echo '<pre>';print_r($segment);echo '</pre>';
+    $resultArray = array_slice($segment, 4);
+    // echo '<pre>';print_r(str_replace(' ', '_', implode("/",$resultArray)));echo '</pre>';die;
 
     $breadcrumb = [];
     $currentSegment = '';
@@ -285,7 +286,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                         <div id="accordian">
                             <ul class="show-dropdown">
                                 <?php if (isset($sidebarData)) { foreach ($sidebarData as $key => $category) { 
-                                        $catUrl = base_url() . 'shop/' . str_replace(' ', '_', $category['category_name']);
+                                        $catUrl = base_url() .'shop/' . str_replace(' ', '_', $category['category_name']);
                                     ?>
                                     <li class="<?php if(in_array($category['category_name'], $segment)) { echo 'active'; } ?>">
                                         <div class="main-name-with-arrow">
@@ -315,7 +316,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                         if (isset($categoryData) && count($categoryData) > 0) {
                             foreach ($categoryData as $category) { ?>
                                 <div class="col-lg-6 col-md-6 col-xl-3">
-                                    <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $category['category_name']) ?>">
+                                    <a href="<?php echo base_url() . str_replace(' ', '_', implode("/",$resultArray)) .'/'. str_replace(' ', '_', $category['category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
                                                 <?php if (!empty($category['category_img'])) { ?>
@@ -339,7 +340,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                             foreach ($subCategoryData->subCategory as $subCategory) { 
                                 $redirectUrl = $subCategory['isProduct'] ? base_url('') . "product/" . str_replace(' ', '_', $subCategory['sub_category_name'])  : base_url('') . "childsub/category/" . str_replace(' ', '_', $subCategory['sub_category_name']); ?>
                                 <div class="col-lg-6 col-md-6 col-xl-3">
-                                    <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $subCategoryData->category_name) . '/' . str_replace(' ', '_', $subCategory['sub_category_name']) ?>">
+                                    <a href="<?php echo base_url() . str_replace(' ', '_', implode("/",$resultArray)) . '/' . str_replace(' ', '_', $subCategory['sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
                                                 <?php if (!empty($subCategory['sub_category_img'])) { ?>
@@ -364,7 +365,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                                 $redirectUrl = $subCategory['isProduct'] ? base_url('') . "product/".str_replace(' ', '_', $subCategory['child_sub_category_name']) : base_url('') . "childsub_sub/category/" . str_replace(' ', '_', $subCategory['child_sub_category_name']); 
                                 ?>
                                 <div class="col-lg-6 col-md-6 col-xl-3">
-                                    <a href="<?php echo base_url() . "shop/" . str_replace(' ', '_', $catName) . '/' . str_replace(' ', '_', $subCatName) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']) ?>">
+                                    <a href="<?php echo base_url() . str_replace(' ', '_', implode("/",$resultArray)) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
                                                 <?php if (!empty($subCategory['sub_category_img'])) { ?>
@@ -385,15 +386,17 @@ if (isset($variantArr) && count($variantArr)>0) {
                     <?php 
                         if (isset($productData)) {
                             foreach ($productData as $product) {
-                                $sagment7 = isset($segment[7]) ? str_replace(' ', '_', $segment[7]) : '';
-                                $sagment8 = isset($segment[8]) ? str_replace(' ', '_', $segment[8]) : '';
-                                if($segment[6] && $sagment7 == '' && $sagment8 == ''){
-                                    $productLink = base_url() . 'shop/' . $segment[6] . '/' .$product['product_name'];
-                                }elseif($segment[6] && $sagment7 && $sagment8 == ''){
-                                    $productLink = base_url() . 'shop/' .$segment[5] . '/' . $segment[6] . '/' .$sagment7 . '/' . $product['product_name'];
-                                }elseif($segment[6] && $sagment7 && $sagment8){  
-                                    $productLink = base_url() . 'shop/' . $segment[6] . '/' .$sagment7 . '/' .$sagment8 . '/' . $product['product_name'];
-                                }
+                                // echo '<pre>';print_r($segment);echo '</pre>';
+                                // $sagment7 = isset($segment[7]) ? str_replace(' ', '_', $segment[7]) : '';
+                                // $sagment8 = isset($segment[8]) ? str_replace(' ', '_', $segment[8]) : '';
+                                // if($segment[6] && $sagment7 == '' && $sagment8 == ''){
+                                //     $productLink = base_url() . 'shop/' . $segment[6] . '/' .$product['product_name'];
+                                // }elseif($segment[6] && $sagment7 && $sagment8 == ''){
+                                //     $productLink = base_url() . 'shop/' .$segment[5] . '/' . $segment[6] . '/' .$sagment7 . '/' . $product['product_name'];
+                                // }elseif($segment[6] && $sagment7 && $sagment8){  
+                                //     $productLink = base_url() . 'shop/' . $segment[6] . '/' .$sagment7 . '/' .$sagment8 . '/' . $product['product_name'];
+                                // }
+                                $productLink = base_url() . str_replace(' ', '_', implode("/",$resultArray)) . '/' . $product['product_name'];
                                 ?>
                                 <div class="col-lg-6 col-md-6 col-xl-3">
                                     <div class="product_box">
@@ -778,7 +781,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                 if (isset($subCategory['sub_category_name'])) 
                 {                                        
                     $currentBreadcrumb = $breadcrumb;
-                    $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '-', $subCategory['sub_category_name']);
+                    $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ','_', $subCategory['sub_category_name']);
 
                     $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
 
@@ -806,7 +809,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
 
                 $currentBreadcrumb = $breadcrumb;
-                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '-', $subCategory['child_sub_category_name']);
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
 
                 $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
@@ -832,7 +835,7 @@ if (isset($variantArr) && count($variantArr)>0) {
             foreach ($subcategories as $subCategory) {
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
                 $currentBreadcrumb = $breadcrumb;
-                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '-', $subCategory['child_sub_category_name']);
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
                 
                 $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
@@ -857,7 +860,7 @@ if (isset($variantArr) && count($variantArr)>0) {
     {
         foreach ($products as $product) {
             $currentBreadcrumb = $breadcrumb;
-            $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $childsubcate) . '/' .str_replace(' ', '-', $product['product_name']);
+            $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $childsubcate) . '/' .str_replace(' ', '_', $product['product_name']);
 
             $active = in_array($product['product_name'], $segment) ? 'active' : '';
             $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
