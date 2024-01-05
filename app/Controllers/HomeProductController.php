@@ -27,7 +27,6 @@ class HomeProductController extends BaseController
 {
     public function index($cateId = "", $subCatId = "", $childId = "" , $productId = "")
     {
-        // echo '<pre>';print_r($this->request->uri->getPath());echo '</pre>';die;
         $headermenumodel = new HeaderMenuModel();
         $categorymodel = new CategoryModel();
         $subcategorymodel = new SubCategoryModel();
@@ -60,7 +59,7 @@ class HomeProductController extends BaseController
 
             if($subCatId)
             {
-                $getSubCategoryData = $subcategorymodel->where('sub_category_name', str_replace('_', ' ', $subCatId))->get()->getRow();
+                $getSubCategoryData = $subcategorymodel->where('category_id',$getCategoryData->category_id)->where('sub_category_name', str_replace('_', ' ', $subCatId))->get()->getRow();
 
                 $childCatResult = [];
                 $productData = [];
@@ -70,9 +69,10 @@ class HomeProductController extends BaseController
                 $averageRating = '';
                 $rating = '';
                 $newData_p = [];
+                $chilldCatResult = [];
 
                 if($getSubCategoryData){
-                    $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
+                    $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('category_id',$getCategoryData->category_id)->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
 
                         $baseUrl = base_url();
                         $uri = $this->request->uri->getPath();
@@ -80,10 +80,10 @@ class HomeProductController extends BaseController
 
                         $currentCategory = null;
                         for ($i = 4; $i < count($urlSegments); $i++) { 
-                            $childCatResult = [];
+                            // $childCatResult = [];
                             $output = str_replace('%28', '(', $urlSegments[$i]);
                             $output = str_replace('%29', ')', $output);
-                            $getChild = $ChildSubCategoryModel->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
+                            $getChild = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
                             if($getChild)
                             {
                                 $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $getChild->child_id)->findAll();
@@ -139,7 +139,6 @@ class HomeProductController extends BaseController
                                 ->join('child_sub_category', 'child_sub_category.child_id = product.child_id')
                                 // ->where('product.sub_category_id', $checkProduct->sub_category_id)->findAll(4);
                                 ->where('product.child_id', $checkProduct->child_id)->findAll(4);
-                                // echo '<pre>';print_r($productData1);echo '</pre>';
                                 $variantsmodel = new VariantsModel();
 
                                 /*$result = [];
@@ -170,6 +169,7 @@ class HomeProductController extends BaseController
                                 $sub_cat_data = $newData_p;
                             }
                         } 
+                        // echo '<pre>';print_r($ChildSubCategorydata);echo '</pre>';die;
                         foreach ($ChildSubCategorydata as $key => $value) {
 
                             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
@@ -178,13 +178,13 @@ class HomeProductController extends BaseController
         
                             $value['isProduct'] = count($product) > 0 ? true : false;
         
-                            $childCatResult[] = $value;
+                            $chilldCatResult[] = $value;
                         }
                         // echo '<pre>';print_r($childCatResult);echo '</pre>';
                         // die;
 
-                        if($getCategoryData && $childCatResult){
-                            return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
+                        if($getCategoryData && $chilldCatResult){
+                            return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $chilldCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
                         }else{
                             return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
                         }
