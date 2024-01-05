@@ -60,6 +60,7 @@ class HomeProductController extends BaseController
             if($subCatId)
             {
                 $getSubCategoryData = $subcategorymodel->where('category_id',$getCategoryData->category_id)->where('sub_category_name', str_replace('_', ' ', $subCatId))->get()->getRow();
+                
 
                 $childCatResult = [];
                 $productData = [];
@@ -73,118 +74,133 @@ class HomeProductController extends BaseController
 
                 if($getSubCategoryData){
                     $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('category_id',$getCategoryData->category_id)->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
+                    // echo '<pre>';print_r();echo '</pre>';
 
                         $baseUrl = base_url();
                         $uri = $this->request->uri->getPath();
                         $urlSegments = explode("/", $uri);
+                        // echo '<pre>';print_r($urlSegments);echo '</pre>';die;
 
                         $currentCategory = null;
-                        for ($i = 4; $i < count($urlSegments); $i++) { 
-                            // $childCatResult = [];
-                            $output = str_replace('%28', '(', $urlSegments[$i]);
-                            $output = str_replace('%29', ')', $output);
-                            $getChild = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
-                            if($getChild)
-                            {
-                                $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', $getChild->child_id)->findAll();
-                                
-                                if($ChildSubCategorydata)
+                        if(isset($urlSegments[4])){
+                            for ($i = 4; $i < count($urlSegments); $i++) { 
+                                $childCatResult = [];
+                                $output = str_replace('%28', '(', $urlSegments[$i]);
+                                $output = str_replace('%29', ')', $output);
+                                $getChild = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
+                                if($getChild)
                                 {
-                                    foreach ($ChildSubCategorydata as $key => $value) {
-                
-                                        $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
-                
-                                        $product = $productmodel->where('child_id', $value['child_id'])->findAll();
-                
-                                        $value['isProduct'] = count($product) > 0 ? true : false;
-                
-                                        $childCatResult[] = $value;
+                                    $ChildSubCategorydata = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('sub_chid_id', $getChild->child_id)->findAll();
+                                    
+                                    if($ChildSubCategorydata)
+                                    {
+                                        foreach ($ChildSubCategorydata as $key => $value) {
+                    
+                                            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+                    
+                                            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+                    
+                                            $value['isProduct'] = count($product) > 0 ? true : false;
+                    
+                                            $childCatResult[] = $value;
+                                        }
                                     }
+                                    else
+                                    {
+                                        $productData = $productmodel->where('sub_category_id', $getSubCategoryData->sub_category_id)->where('child_id', $getChild->child_id)->findAll();
+                                    }  
                                 }
-                                else
+    
+                                $variantArr = [];
+                                $minMaxPrice = '';
+                                $averageRating = '';
+                                $rating = '';
+    
+                                $checkProduct = $productmodel->where('product_name',str_replace('_', ' ', $urlSegments[$i]))->get()->getRow();
+                                if($checkProduct)
                                 {
-                                    $productData = $productmodel->where('sub_category_id', $getSubCategoryData->sub_category_id)->where('child_id', $getChild->child_id)->findAll();
-                                }  
-                            }
-
-                            $variantArr = [];
-                            $minMaxPrice = '';
-                            $averageRating = '';
-                            $rating = '';
-
-                            $checkProduct = $productmodel->where('product_name',str_replace('_', ' ', $urlSegments[$i]))->get()->getRow();
-                            if($checkProduct)
-                            {
-                                $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
-                                                            ->where('product.product_id', $checkProduct->product_id)
-                                                            ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
-                                                            ->findAll();
-            
-                                $minMaxPrice = $variantsmodel->table('product_variants')
-                                                            ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
-                                                            ->join('product', 'product.product_id = product_variants.product_id')
-                                                            ->where('product.product_id', $checkProduct->product_id)
-                                                            ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
-                                                            ->get()->getRow();
-            
-                                $ratingData = $productratingmodel->select('AVG(rat_number) as average_rating')->where('product_id', $checkProduct->product_id)->first();
-                                $averageRating = $ratingData['average_rating'];
-                        
-                                $rating = $productratingmodel->select('*')->where(['product_id' => $checkProduct->product_id])->countAllResults();
-            
-                                $sub_cat_data = [];
-                                $productData1 = $productmodel->select('*')
-                                ->join('category', 'category.category_id = product.category_id')
-                                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
-                                ->join('child_sub_category', 'child_sub_category.child_id = product.child_id')
-                                // ->where('product.sub_category_id', $checkProduct->sub_category_id)->findAll(4);
-                                ->where('product.child_id', $checkProduct->child_id)->findAll(4);
-                                $variantsmodel = new VariantsModel();
-
-                                /*$result = [];
-                                $subcategories = $subcategorymodel->where('sub_category_id', $checkProduct->sub_category_id)->findAll();
-                                foreach ($subcategories as $key => $subcateVal) {
-                                    $subCategory = $this->Category($subcateVal);
-
-                                    // Fetch products for the current subcategory
-                                    $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->findAll();
-                                    $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
-
-                                    $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];
-                                    $subCategory['product_arr'] = $subCategoryProductArr;
-
-                                    // Recursively process child_arr and product_arr for each child subcategory
-                                    $subCategory['child_arr'] = $this->processChildArr($subCategory['child_arr']);
-                                    $result = array();
-                                    $result[] = $this->getSubCategoryNames($subCategory, $result);
-                                }*/
-                                // echo '<pre>';print_r($result);echo '</pre>';
-
-                                // $newData_p = [];
-                                foreach ($productData1 as $pdata1) {
-                                    $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
-                                    $pdata1['parent'] = $variantData1 ? $variantData1['parent'] : '';
-                                    $newData_p[] = $pdata1;
+                                    $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
+                                                                ->where('product.product_id', $checkProduct->product_id)
+                                                                ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
+                                                                ->findAll();
+                
+                                    $minMaxPrice = $variantsmodel->table('product_variants')
+                                                                ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
+                                                                ->join('product', 'product.product_id = product_variants.product_id')
+                                                                ->where('product.product_id', $checkProduct->product_id)
+                                                                ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
+                                                                ->get()->getRow();
+                
+                                    $ratingData = $productratingmodel->select('AVG(rat_number) as average_rating')->where('product_id', $checkProduct->product_id)->first();
+                                    $averageRating = $ratingData['average_rating'];
+                            
+                                    $rating = $productratingmodel->select('*')->where(['product_id' => $checkProduct->product_id])->countAllResults();
+                
+                                    $sub_cat_data = [];
+                                    $productData1 = $productmodel->select('*')
+                                    ->join('category', 'category.category_id = product.category_id')
+                                    ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
+                                    ->join('child_sub_category', 'child_sub_category.child_id = product.child_id')
+                                    // ->where('product.sub_category_id', $checkProduct->sub_category_id)->findAll(4);
+                                    ->where('product.child_id', $checkProduct->child_id)->findAll(4);
+                                    $variantsmodel = new VariantsModel();
+    
+                                    /*$result = [];
+                                    $subcategories = $subcategorymodel->where('sub_category_id', $checkProduct->sub_category_id)->findAll();
+                                    foreach ($subcategories as $key => $subcateVal) {
+                                        $subCategory = $this->Category($subcateVal);
+    
+                                        // Fetch products for the current subcategory
+                                        $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->findAll();
+                                        $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
+    
+                                        $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];
+                                        $subCategory['product_arr'] = $subCategoryProductArr;
+    
+                                        // Recursively process child_arr and product_arr for each child subcategory
+                                        $subCategory['child_arr'] = $this->processChildArr($subCategory['child_arr']);
+                                        $result = array();
+                                        $result[] = $this->getSubCategoryNames($subCategory, $result);
+                                    }*/
+                                    // echo '<pre>';print_r($result);echo '</pre>';
+    
+                                    // $newData_p = [];
+                                    foreach ($productData1 as $pdata1) {
+                                        $variantData1 = $variantsmodel->where('product_id', $pdata1['product_id'])->first();
+                                        $pdata1['parent'] = $variantData1 ? $variantData1['parent'] : '';
+                                        $newData_p[] = $pdata1;
+                                    }
+                                    $sub_cat_data = $newData_p;
                                 }
-                                $sub_cat_data = $newData_p;
-                            }
-                        } 
-                        // echo '<pre>';print_r($ChildSubCategorydata);echo '</pre>';die;
-                        foreach ($ChildSubCategorydata as $key => $value) {
+                            } 
+                        }else{
+                            foreach ($ChildSubCategorydata as $key => $value) {
 
-                            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
-        
-                            $product = $productmodel->where('child_id', $value['child_id'])->findAll();
-        
-                            $value['isProduct'] = count($product) > 0 ? true : false;
-        
-                            $chilldCatResult[] = $value;
+                                $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+            
+                                $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+            
+                                $value['isProduct'] = count($product) > 0 ? true : false;
+            
+                                $childCatResult[] = $value;
+                            }
                         }
+                        // echo '<pre>';print_r($ChildSubCategorydata);echo '</pre>';die;
+                        // foreach ($ChildSubCategorydata as $key => $value) {
+
+                        //     $subChild = $ChildSubCategoryModel->where('sub_chid_id', $value['child_id'])->findAll();
+        
+                        //     $product = $productmodel->where('child_id', $value['child_id'])->findAll();
+        
+                        //     $value['isProduct'] = count($product) > 0 ? true : false;
+        
+                        //     $childCatResult[] = $value;
+                        // }
                         // echo '<pre>';print_r($childCatResult);echo '</pre>';
                         // die;
 
                         if($getCategoryData && $chilldCatResult){
-                            return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $chilldCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
+                            return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
                         }else{
                             return view('front/products/index', ['headerData' => $headerData, 'sidebarData' => $this->processCategories(), 'categoryData' => [], 'subCategoryData' => [], 'childCategoryData' => $childCatResult, 'catName' => $cateId, 'subCatName' => $subCatId, 'productData' => $productData ? $productData : $sub_cat_data, 'variantArr' => $variantArr, 'minMaxPrice' => $minMaxPrice, 'averageRating' => $averageRating, 'rating'=>$rating,'sub_cat_data'=>$newData_p]);
                         }
