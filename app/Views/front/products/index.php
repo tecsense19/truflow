@@ -23,6 +23,9 @@
         {
             $currentSegment .=  '/' . str_replace(' ', '_', $seg);
             $breadcrumb[] = anchor(base_url($currentSegment), $seg);
+            $output = str_replace('%28', '(', $breadcrumb);
+            $breadcrumb = str_replace('%29', ')', $output);
+            // echo '<pre>';print_r($breadcrumb);echo '</pre>';
         }
     }
 ?>
@@ -833,7 +836,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                 echo '<li class="'.$active.'">';
                 echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
                 if (count($subCategory['product_arr']) > 0) {
-                    echo '<ul class="show-dropdown">';
+                    echo '<ul class="show-dropdown" ' . ($active == 'active' ? 'style="display:block;"' : 'style="display:none;"') . '">';
                         renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name'],$currentBreadcrumb);
                     echo '</ul>';
                 }
