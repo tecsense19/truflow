@@ -1029,7 +1029,7 @@ footer{
     right: 0;
 }
 .about_heading{
-    padding-top: 250px;
+    padding-top: 285px;  /*250px*/
     text-align: center;
 }
 .about_heading h2{
