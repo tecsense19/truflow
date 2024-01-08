@@ -281,8 +281,10 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
 
 
 
-});
 
+});
+$routes->get('stripe', 'StripeController::index');
+$routes->post('stripe/charge', 'StripeController::charge');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
