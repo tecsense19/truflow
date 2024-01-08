@@ -74,7 +74,6 @@ class HomeProductController extends BaseController
 
                 if($getSubCategoryData){
                     $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('category_id',$getCategoryData->category_id)->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
-                    // echo '<pre>';print_r();echo '</pre>';
 
                         $baseUrl = base_url();
                         $uri = $this->request->uri->getPath();
@@ -83,9 +82,10 @@ class HomeProductController extends BaseController
 
                         $currentCategory = null;
                         if(isset($urlSegments[4])){
-                            for ($i = 4; $i < count($urlSegments); $i++) { 
+                            for ($i = 4; $i < count($urlSegments); $i++) {
+                                $urlsegment = urldecode($urlSegments[$i]);
                                 $childCatResult = [];
-                                $output = str_replace('%28', '(', $urlSegments[$i]);
+                                $output = str_replace('%28', '(', $urlsegment);
                                 $output = str_replace('%29', ')', $output);
                                 $getChild = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
                                 if($getChild)

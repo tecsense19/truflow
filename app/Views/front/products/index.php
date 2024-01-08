@@ -799,8 +799,8 @@ if (isset($variantArr) && count($variantArr)>0) {
                         $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
                     }*/
                     
-                    /*$active = strpos(implode('/', $segment), 'Hydraulic/'.$subCategory['sub_category_name']) ? 'active' : '';*/
-                    $active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';
+                    $active = strpos(implode('/', $segment), $catName.'/'.$subCategory['sub_category_name']) ? 'active' : '';
+                    /*$active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';*/
                     
                     $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
@@ -832,14 +832,14 @@ if (isset($variantArr) && count($variantArr)>0) {
 
                 echo '<li class="'.$active.'">';
                 echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
-                if (count($subCategory['child_arr']) > 0) {
-                    echo '<ul class="show-dropdown">';
-                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
-                    echo '</ul>';
-                }
                 if (count($subCategory['product_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
                         renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name'],$currentBreadcrumb);
+                    echo '</ul>';
+                }
+                if (count($subCategory['child_arr']) > 0) {
+                    echo '<ul class="show-dropdown">';
+                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
                     echo '</ul>';
                 }
                 echo '</li>';
@@ -857,14 +857,14 @@ if (isset($variantArr) && count($variantArr)>0) {
                 $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                 echo '<li class="'.$active.'"><div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
-                if (count($subCategory['child_arr']) > 0) {
-                    echo '<ul class="show-dropdown">';
-                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
-                    echo '</ul>';
-                }
                 if (count($subCategory['product_arr']) > 0) {
                     echo '<ul class="show-dropdown">';
                         renderProducts($subCategory['product_arr'], $segment, $catName, $subcatName, $subCategory['child_sub_category_name'], $currentBreadcrumb);
+                    echo '</ul>';
+                }
+                if (count($subCategory['child_arr']) > 0) {
+                    echo '<ul class="show-dropdown">';
+                        renderChildCategory($subCategory['child_arr'], 1, $segment, $catName, $subcatName, $currentBreadcrumb);
                     echo '</ul>';
                 }
                 echo '</li>';
