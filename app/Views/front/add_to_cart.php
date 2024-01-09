@@ -270,6 +270,8 @@ if($user_id)
     var formattedSubtotalgst = "$" + totalAmount.toFixed(2);
     var formattedSubtotalgst1 = "$" + gstAmount.toFixed(2);
     $('#total').text(formattedSubtotalgst);
+    var formatedAmmount = formattedSubtotalgst.replace('$', '');
+    $('#final_total_ammount').val(formatedAmmount);
     $('#total_gst').text(formattedSubtotalgst1);
 
     $('#totalAmount').text(formattedSubtotal);

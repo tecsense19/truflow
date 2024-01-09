@@ -13,22 +13,36 @@ class StripeController extends Controller
 
     public function charge()
 {
-    \Stripe\Stripe::setApiKey("sk_test_5TC5lQ25W45SpAwUN9O6llq4009KocqXGo");
+    $stripe =  \Stripe\Stripe::setApiKey("sk_test_5TC5lQ25W45SpAwUN9O6llq4009KocqXGo");
 
 
     try {
         $token = $_POST['stripeToken'];
+        echo '<pre>';print_r($token);echo '</pre>';die;
 
         // Retrieve customer information from the form
-        $customerName = "test";
-        $customerAddress = "etest123";
+
+        $customerName = "Testing";
+        $customerAddress = [
+            'line1' => 'Science City',
+            'postal_code' => '380058',
+            'city' => 'Ahmedabad',
+            'state' => 'GJ',
+            'country' => 'India',
+        ];
+
+        $customer = \Stripe\Customer::create([
+            'name' => $customerName,
+            'address' => $customerAddress,
+            'source' => $token, 
+        ]);
 
         // Create a charge with customer information
         $charge = \Stripe\Charge::create([
             'amount' => 2000,
-            'currency' => 'usd',
-            'source' => $token,
-            'description' => 'Software development services'
+            'currency' => 'inr',
+            'description' => 'Software development services',
+            'customer' => $customer->id,
         ]);
 
         // Handle the success of the charge

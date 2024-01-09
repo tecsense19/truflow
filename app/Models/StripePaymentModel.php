@@ -3,11 +3,11 @@
 namespace App\Models;  
 use CodeIgniter\Model;
 
-class OrderModel extends Model
+class StripePaymentModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tbl_order';
-    protected $primaryKey       = 'order_id';
+    protected $table            = 'stripe_payment';
+    protected $primaryKey       = 'payment_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -15,19 +15,11 @@ class OrderModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'user_id',
-        'discount_type',
-        'product_discount',
-        'final_total_ammount',
-        'coupon_code',
-        'pay_method',
-        'order_status',
-        'payment_status',
-        'shipping',
-        'account_number',
-        'courier',
-        'notes',
-        'ship_to_diff_address',
-        'order_date'
+        'product_id',
+        'transection_id',
+        'order_id',
+        'paid_amount',
+        'payment_date'
     ];
 
     // Dates
