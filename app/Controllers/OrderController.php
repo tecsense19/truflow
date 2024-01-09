@@ -282,7 +282,6 @@ class OrderController extends BaseController
     
             $order_id = $ordermodel->insert($data);
             if(isset($payment_id) && !empty($payment_id)){
-                die;
                 $orderArr['order_id'] = isset($order_id) ? $order_id : '';
                 $StripePaymentModel->update(['payment_id', $payment_id], $orderArr);
 
