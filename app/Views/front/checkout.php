@@ -166,16 +166,16 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                             <div class="col-md-12 diff_address">
                                 <div class="checkout-input">
                                     <label>Town / City</label>
-                                    <input type="text" id="city" name="city" value=""
+                                    <input type="text" id="city" name="city_1" value=""
                                         class="form-control input-custom" />
                                 </div>
                                 <div class="checkout-input">
                                     <label>Street address</label>
-                                    <input type="text" id="address_1" name="address_1" value=""
+                                    <input type="text" id="address_1" name="address" value=""
                                         class="form-control input-custom" />
                                 </div>
                                 <div class="checkout-input">
-                                    <input type="text" id="address_2" name="address_2" value=""
+                                    <input type="text" id="address_2" name="address" value=""
                                         class="form-control input-custom" />
                                 </div>
                             </div>
@@ -323,11 +323,20 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 
                         <div class="payment_item order_list">
                             <span>
-                                <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" required>
+                                <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash">
                                 <label for="cash_ond_delivery">Cash on Delivery</label>
                             </span>
                         </div>
+                        <div class="payment_item order_list">
+                            <span>
+                                <input type="radio" id="online_payment_delivery" class="" name="pay_method" value="online_payment">
+                                <label for="online_payment_delivery">Stripe Payment</label>
+                            </span>
+                        </div>
+                        <div class="stripebutton">
+                        </div>
 
+                        
                         <?php if(!$user_id){ ?>
                             <input id="guest_account_create" name="guest_account_create" value="guest_account_create" type="hidden" >
 
@@ -386,10 +395,56 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
             </div>
         </div>
     </form>
+
 </section>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
+
+<!-- stripe -->
+<!-- <script src="https://js.stripe.com/v3/"></script> -->
+<script>
+    $(document).ready(function() {
+        $('input[name="pay_method"]').on('change', function() {
+        // Check the selected shipping option
+            var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+            if (selectedShippingOption === 'online_payment') {
+    
+                    var amount = '<?php echo $final_total_ammount * 100; ?>'; // Replace with your actual amount
+                    var logourl = '<?php echo base_url(); ?>public/uploads/Truflow_Logo_Dark.svg'; // Replace with your actual logo URL
+
+                    var addScript =
+                    '<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" ' +
+                    'data-key="pk_test_CTo5L7fe5ufOYkpIblHELzND00d0OKb0ua" ' +
+                    'data-amount="' + amount + '" ' +
+                    'data-name="TRUFLOW" ' +
+                    'data-description="Widget" ' +
+                    'data-image="' + logourl + '" ' +
+                    'data-locale="auto" ' +
+                    'data-currency="usd"><' + '/script>'; // Corrected script closing tag
+
+                    $('.stripebutton').html(addScript);
+                    setTimeout(function() {
+                        $('.stripebutton .stripe-button-el').hide();
+                        $('.stripebutton .stripe-button-el').eq(0).trigger("click");
+                    }, 10);
+            }
+            else
+            {
+                $('.stripebutton').html('');
+            }
+        });
+    });
+
+    document.getElementById('submitButton').addEventListener('click', function() {
+      var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+      console.log(selectedShippingOption);
+      if (selectedShippingOption === 'online_payment') {
+        document.getElementById('destroyButton').trigger("click");
+      }
+    });
+</script>
+
 <script>
 $(document).ready(function() {
     // Initially hide the additional address fields
@@ -480,6 +535,7 @@ $(document).ready(function() {
     var formattedSubtotalgst = "$" + totalAmount.toFixed(2);
     var formattedSubtotalgst1 = "$" + gstAmount.toFixed(2);
     $('#total').text(formattedSubtotalgst);
+    $('.payment_button').text(formattedSubtotalgst);
     $('#total_gst').text(formattedSubtotalgst1);
     $('#totalAmount').text(formattedSubtotal);
 

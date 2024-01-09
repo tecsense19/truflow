@@ -21,6 +21,7 @@ class OrderModel extends Model
         'coupon_code',
         'pay_method',
         'order_status',
+        'payment_status',
         'shipping',
         'account_number',
         'courier',

@@ -57,11 +57,13 @@
                           <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
                           <th colspan="1" style="white-space: nowrap;">Order By: <br><?php echo $orderData[0]['full_name']; ?></th>
                           <th colspan="1">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
-                          <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['order_status']; ?></th>
+                          <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['payment_status']; ?></th>
                           <th colspan="1" style="white-space: nowrap;">
                             Payment Type: <br>
                             <?php if($orderData[0]['pay_method'] == 'cash') { ?>
                               COD
+                            <?php } elseif($orderData[0]['pay_method'] == 'online_payment'){ ?>
+                              Online Payment
                             <?php } else { ?>
                               On a account
                             <?php } ?>
