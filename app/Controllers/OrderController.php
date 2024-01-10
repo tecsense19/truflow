@@ -189,10 +189,12 @@ class OrderController extends BaseController
                 echo 'Payment successful!';
             } catch (\Stripe\Exception\CardException $e) {
                 // Card was declined
-                echo 'Payment failed. Card declined.';
+                // echo 'Payment failed. Card declined.';
+                return redirect()->back()->with('error',$e->getMessage());
             } catch (\Stripe\Exception\InvalidRequestException $e) {
                 // echo 'Invalid request: ' . $e->getMessage();
                 $error_message =  $e->getMessage();
+                return redirect()->back()->with('error',$error_message);
                 // echo '<pre>';print_r($error_message);echo '</pre>';die;
             }
         }
