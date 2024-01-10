@@ -475,12 +475,29 @@ class UserController extends BaseController
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id')
+            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
             ->where('users.user_id', $userId)
             ->orderBy('tbl_order.order_id', 'ASC')
             ->get();
 
+            // $query1 = $orderitemmodel->select('*')
+            // ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            // ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            // ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            // ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            // ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            // ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
+            // ->where('users.user_id', $userId)
+            // ->orderBy('tbl_order.order_id', 'ASC')
+            // ->get();
+            
+        
+        // Execute the query
+        // Print the last query
+        // echo $orderitemmodel->getLastQuery(); die;
         $orderData = $query1->getResultArray();
+        // echo '<pre>';print_r($orderData);echo '</pre>';die;
         $ordersByOrderId = [];
         foreach ($orderData as $order) {
             $orderId = $order['order_id'];

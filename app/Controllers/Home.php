@@ -918,11 +918,18 @@ class Home extends BaseController
                 $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
                 if(!empty($getCoupon))
                 {
-                    if ($getCoupon['coupon_price_type'] == 'Percentage')
-                    {
-                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
-                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                        $discount += $getCoupon['coupon_price'];
+                    $from_date = $getCoupon['from_date'];  //2024-01-01
+                    $to_date = $getCoupon['to_date'];  //2024-01-05
+                    $currentDate = date('Y-m-d');
+                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                        echo '<pre>';print_r('second');echo '</pre>';
+                        if ($getCoupon['coupon_price_type'] == 'Percentage')
+                        {
+                            $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                            $discount += $getCoupon['coupon_price'];
+                        }
                     }
                 }
             }

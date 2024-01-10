@@ -193,6 +193,7 @@ class OrderController extends BaseController
             } catch (\Stripe\Exception\InvalidRequestException $e) {
                 // echo 'Invalid request: ' . $e->getMessage();
                 $error_message =  $e->getMessage();
+                // echo '<pre>';print_r($error_message);echo '</pre>';die;
             }
         }
 
@@ -200,7 +201,7 @@ class OrderController extends BaseController
 
         if($error_message){
             // return $error_message;
-            return redirect()->back()->with('error_message',$error_message);
+            return redirect()->back()->with('error',$error_message);
         }else{
 
             $guest_account_create = $this->request->getVar('guest_account_create');
@@ -340,7 +341,8 @@ class OrderController extends BaseController
                 // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
     
                 $couponModel = new CouponModel;
-                $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();
+                /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
+                $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->first();
                 $discount = 0;
                 if(!empty($getCoupon))
                 {
@@ -348,12 +350,19 @@ class OrderController extends BaseController
                     {
                         $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
                     } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                        $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                        // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                        $discount += $getCoupon['coupon_price'];
                     }
                 }
     
-    
-                if(!$discount){
+                if(isset($discount) && !empty($discount)){
+                    $orderArr['total_amount'] = $row['total_amount'] - $discount;
+                }else{
+                    $orderArr['total_amount'] = $row['total_amount'];
+                }
+                $orderitemmodel->insert($orderArr);
+                
+                /*if(!$discount){
                     $gstPercentage = 10;
                     $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
                     $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
@@ -362,8 +371,10 @@ class OrderController extends BaseController
                     $gstPercentage = 10;
                     $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
                     $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                    echo '<pre>';print_r($orderArr);echo '</pre>';die;
                     $orderitemmodel->insert($orderArr);
-                }
+                }*/
+
     
                 // $gstPercentage = 10;
                 // $gstAmount = ($discount * $gstPercentage) / 100;
@@ -493,7 +504,7 @@ class OrderController extends BaseController
         $orderData = $query->getResultArray();
 
         $ordersByOrderId = [$orderId => $orderData];
-
+        
         $shippingmodel = new ShippingModel();
         $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
 

@@ -50,7 +50,8 @@
         </div>
       </div>
           <?php if (isset($ordersByOrderId)) { ?>
-              <?php foreach ($ordersByOrderId as $orderId => $orderData) { ?>
+              <?php foreach ($ordersByOrderId as $orderId => $orderData) { 
+                ?>
 
                   <table class="table card table-responsive">
                       <tr class="mainsetcolor">
@@ -68,7 +69,7 @@
                               On a account
                             <?php } ?>
                           </th>
-                          <th colspan="2"></th>
+                          <th colspan="3"></th>
                           <th colspan="2" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
                       <tr>
@@ -78,11 +79,13 @@
                           <th>Part Number</th>
                           <th>Qty</th>
                           <th>Price</th>
+                          <th>Discount</th>
                           <th>Total Price</th>
                           <th>Order Status</th>
                           <th>Shipping</th>
                       </tr>
-                      <?php foreach ($orderData as $order) { ?>
+                      <?php foreach ($orderData as $order) { 
+                        ?>
                           <tr>
                               <td><?php echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?></td>
                               <td><?php echo $order['product_description']; ?></td>
@@ -90,6 +93,21 @@
                               <td><?php echo $order['variant_sku']; ?></td>
                               <td><?php echo $order['product_quantity']; ?></td>
                               <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
+                              <?php
+                              $couponModel = model('App\Models\CouponModel');
+                              $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                              ?>
+                              <td><?php 
+                              if($getCoupon){
+                                if($getCoupon['coupon_price_type'] == 'Flat'){
+                                  echo $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ; 
+                                }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
+                                  echo $getCoupon['coupon_price'] .'%'; 
+                                }else{
+                                  echo '-'; 
+                                }
+                              }
+                              ?></td>
                               <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                               <td><?php echo $order['order_status']; ?></td>
                               <td>
@@ -97,6 +115,20 @@
                               </td>
                           </tr>
                       <?php } ?>
+                      <!--  -->
+                      <tr>
+                        <td colspan ="7" style="text-align: right;">GST</td>
+                        <td colspan ="3">
+                        <?php 
+                              $grandTotal = 0;
+                              foreach ($orderData as $order) {
+                                  $grandTotal += $order['total_amount'];
+                              }
+                              echo number_format(($grandTotal*10/100), 2, '.', ',');
+                          ?>
+                        </td>
+                      </tr>
+                      <!--  -->
                       <tr>
                         <td>
                           <div>
@@ -112,7 +144,7 @@
                               <?php } ?>
                           </div>
                         </td>
-                        <td colspan="2" style="text-align: right;">Discount :
+                        <td colspan="3" style="text-align: right;">Discount :
                         <?php
                                   // $discount = 0;
                                   // foreach ($orderData as $dis) {
@@ -128,14 +160,17 @@
                                   $couponModel = model('App\Models\CouponModel');
                                   $discount = 000.00;
                                   foreach ($orderData as $dis) {
-                                    $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
+                                    // echo '<pre>';print_r($dis);echo '</pre>';die;
+                                    // $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
+                                    $getCoupon = $couponModel->where('coupon_code', $dis['group_name'])->first();
                                     if(!empty($getCoupon))
                                     {
                                       if ($getCoupon['coupon_price_type'] == 'Percentage')
                                       {
                                           $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
                                       } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                                          $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                          // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                          $discount += $getCoupon['coupon_price'];
                                       }
                                     }
                                   }
@@ -145,20 +180,20 @@
 
 
                         </td>
-                        <td colspan="2">Grand Total</td>
+                        <td colspan="2" style="text-align: right;">Grand Total</td>
                           <td>
                               <?php
-                                  // $grandTotal = 0;
-                                  // foreach ($orderData as $order) {
-                                  //     $grandTotal = $order['final_total_ammount'];
-                                  // }
-                                  // echo $grandTotal;
-
                                   $grandTotal = 0;
                                   foreach ($orderData as $order) {
-                                      $grandTotal += $order['total_amount'];
+                                      $grandTotal = $order['final_total_ammount'];
                                   }
-                                  echo number_format($grandTotal, 2, '.', ',');
+                                  echo $grandTotal;
+
+                                  // $grandTotal = 0;
+                                  // foreach ($orderData as $order) {
+                                  //     $grandTotal += $order['total_amount'];
+                                  // }
+                                  // echo number_format($grandTotal, 2, '.', ',');
                               ?>
                           </td>
                           <td></td>
