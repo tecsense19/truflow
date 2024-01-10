@@ -923,7 +923,6 @@ class Home extends BaseController
                     $currentDate = date('Y-m-d');
                     // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
                     if ($currentDate >= $from_date && $currentDate <= $to_date) {
-                        echo '<pre>';print_r('second');echo '</pre>';
                         if ($getCoupon['coupon_price_type'] == 'Percentage')
                         {
                             $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
