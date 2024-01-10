@@ -902,7 +902,8 @@ class Home extends BaseController
         {
             foreach($cartData as $cartD)
             {
-                $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                /** Bhavin */
+                /*$getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
                 if(!empty($getCoupon))
                 {
                     if ($getCoupon['coupon_price_type'] == 'Percentage')
@@ -911,10 +912,21 @@ class Home extends BaseController
                     } else if ($getCoupon['coupon_price_type'] == 'Flat') {
                         $discount += $cartD['total_amount'] - $getCoupon['coupon_price'];
                     }
+                }*/
+
+                /** Yash */
+                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
+                if(!empty($getCoupon))
+                {
+                    if ($getCoupon['coupon_price_type'] == 'Percentage')
+                    {
+                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                        $discount += $getCoupon['coupon_price'];
+                    }
                 }
             }
         }
-
         return view('front/add_to_cart', [
             'cartData' => $cartData,
             'headerData' => $headerData,
