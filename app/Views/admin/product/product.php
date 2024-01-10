@@ -206,7 +206,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                         </div>
                     </div>
 
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="display:none;">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Coupon Code</h5>
                         </div>

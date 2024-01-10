@@ -36,7 +36,16 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <h5>Payment method</h5>
-                                        <?php echo $newCartData1[0]['pay_method'] == 'cash' ? 'COD' : 'On a account'; ?><br>
+                                        <!-- <?php //echo $newCartData1[0]['pay_method'] == 'cash' ? 'COD' : 'On a account'; ?><br> -->
+                                        <?php 
+                                        if($newCartData1[0]['pay_method'] == 'cash'){
+                                            echo 'COD';
+                                        }elseif ($newCartData1[0]['pay_method'] == 'online_payment') {
+                                            echo 'Online Payment';
+                                        }else{
+                                            echo 'On a account';
+                                        }
+                                        ?><br>
                                     </div>
                                     <?php if($newCartData1[0]['shipping'] == 'Client Courier') { ?>
                                         <div class="mb-3 col-md-6">

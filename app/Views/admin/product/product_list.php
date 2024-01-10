@@ -65,7 +65,7 @@
                                             <th>Category</th>
                                             <th>Sub Category</th>
                                             <th>Description</th>
-                                            <th>Coupon code</th>
+                                            <th style="display:none;">Coupon code</th>
                                             <th>Image</th>
                                             <th>Actions</th>
                                         </tr>
@@ -83,7 +83,7 @@
                                                     <td><?php echo $product['category_name'] ?></td>
                                                     <td><?php echo $product['sub_category_name'] ?></td>
                                                     <td class="testo_descrip"><?php echo $product['product_description']; ?></td>
-                                                    <td><?php echo $product['coupon_code']; ?></td>
+                                                    <td style="display:none;"><?php echo $product['coupon_code']; ?></td>
                                                     <td>
                                                         <?php if (isset($product['product_img'])) {
                                                             $imagePaths = explode(',', $product['product_img']);
