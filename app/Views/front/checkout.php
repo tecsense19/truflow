@@ -5,6 +5,7 @@ $session = session();
 $user_id = $session->get('user_id');
 $sub_category_id = '';
 $commonValues = '';
+// echo '<pre>';print_r($_SESSION);echo '</pre>';die;
 // $new_coupon_code = $session->get('couponCode_new');
 // if (isset($_GET['coupon_code'])) {
 //   $_SESSION['coupon_code'] = $_GET['coupon_code'];
@@ -24,6 +25,9 @@ if (isset($_GET['discount_d'])) {
 if (isset($_GET['free_shipping'])) {
   $_SESSION['shipping'] = $_GET['free_shipping'];
 }
+if (isset($_GET['error'])) {
+  $_SESSION['error'] = $_GET['error'];
+}
 if($user_id){
     $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
 }else{
@@ -36,6 +40,7 @@ $product_discount = isset($_SESSION['product_discount']) ? $_SESSION['product_di
 $final_total_ammount = isset($_SESSION['final_total_ammount']) ? $_SESSION['final_total_ammount'] : '';
 $shipping = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : '';
 $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
+$error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
 
 // You can then use these variables in your HTML or PHP code as needed
     if (isset($userData)){
@@ -333,7 +338,7 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                                 <label for="online_payment_delivery">Stripe Payment</label>
                             </span>
                         </div>
-                        <div class="stripebutton">
+                        <div class="stripebutton" style="display:none;">
                         </div>
 
                         
@@ -424,10 +429,6 @@ $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
                     'data-currency="usd"><' + '/script>'; // Corrected script closing tag
 
                     $('.stripebutton').html(addScript);
-                    setTimeout(function() {
-                        $('.stripebutton .stripe-button-el').hide();
-                        $('.stripebutton .stripe-button-el').eq(0).trigger("click");
-                    }, 10);
             }
             else
             {
@@ -706,6 +707,7 @@ $(document).ready(function() {
         "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
     if (finalTotalAmount != '') {
         $('#total').text(finalTotalAmount);
+        $('#totalAmount').text(finalTotalAmount);
     }
 });
 </script>
@@ -728,5 +730,13 @@ $("#destroyButton").click(function() {
     sessionStorage.setItem('couponCode_new', '');
 
     storedCouponCode = '';
+});
+
+$("#product_form").submit(function() {
+    var selectedShippingOption = $('input[name="shipping_value"]:checked').val();
+    if(selectedShippingOption && $('#read_all').is(':checked')){
+        $('#destroyButton').prop('disabled', true);
+    }
+
 });
 </script>
