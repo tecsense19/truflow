@@ -280,11 +280,25 @@ class CsvController extends BaseController
                     }
 
                     $checkCoupon = $couponModel->where('coupon_code', $group_name)->get()->getRow();
+                    
+                    // date
+                    $from_date = date('Y-m-d');
+                    $to_date_timestamp  = strtotime($from_date . ' +2 years');
+                    $to_date = date('Y-m-d', $to_date_timestamp);
+                    $coupon_date = array(
+                        'from_date' => $from_date,
+                        'to_date' => $to_date,
+                        'coupon_code' => $group_name,
+                        'company_coupon' => 1
+                    );
+                    
+
                     if($checkCoupon)
                     {
                         if($group_name)
                         {
-                            $couponModel->update($checkCoupon->coupon_id, array('coupon_code' => $group_name, 'company_coupon' => 1));
+                            // $couponModel->update($checkCoupon->coupon_id, array('coupon_code' => $group_name, 'company_coupon' => 1));
+                            $couponModel->update($checkCoupon->coupon_id, $coupon_date);
                             // $productModel->update($productId, array('coupon_id' => $checkCoupon->coupon_id));
                         }
                     }
@@ -292,7 +306,8 @@ class CsvController extends BaseController
                     {
                         if($group_name)
                         {
-                            $coupon_id = $couponModel->insert(array('coupon_code' => $group_name, 'company_coupon' => 1));
+                            // $coupon_id = $couponModel->insert(array('coupon_code' => $group_name, 'company_coupon' => 1));
+                            $coupon_id = $couponModel->insert($coupon_date);
                             // $productModel->update($productId, array('coupon_id' => $coupon_id));
                         }
                     }

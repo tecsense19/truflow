@@ -101,14 +101,14 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                                 <div class="checkout-input">
                                     <label>First Name <span>*</span></label>
                                     <input type="text" id="first_name" name="first_name"
-                                        value="<?php if (isset($userData)){ echo $first_name; } ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $first_name; } ?>" class="form-control input-custom" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-input">
                                     <label>Last Name <span>*</span></label>
                                     <input type="text" id="form9Example2" name="last_name"
-                                        value="<?php if (isset($userData)){ echo $last_name; } ?>" class="form-control input-custom" />
+                                        value="<?php if (isset($userData)){ echo $last_name; } ?>" class="form-control input-custom" required/>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -149,14 +149,14 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                                 <div class="checkout-input">
                                     <label>Phone <span>*</span></label>
                                     <input type="text" id="mobile" name="mobile" value="<?php if (isset($userData)){ echo $mobile; } ?>"
-                                        class="form-control input-custom" />
+                                        class="form-control input-custom" required/>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-input">
                                     <label>Email address <span>*</span></label>
                                     <input type="text" id="email" name="email" value="<?php if (isset($userData)){ echo $email; } ?>"
-                                        class="form-control input-custom" />
+                                        class="form-control input-custom" required/>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -732,11 +732,10 @@ $("#destroyButton").click(function() {
     storedCouponCode = '';
 });
 
-$("#product_form").submit(function() {
-    var selectedShippingOption = $('input[name="shipping_value"]:checked').val();
-    if(selectedShippingOption && $('#read_all').is(':checked')){
-        $('#destroyButton').prop('disabled', true);
-    }
-
-});
+// $("#product_form").submit(function() {
+//     var selectedShippingOption = $('input[name="shipping_value"]:checked').val();
+//     if(selectedShippingOption && $('#read_all').is(':checked')){
+//         $('#destroyButton').prop('disabled', true);
+//     }
+// });
 </script>
