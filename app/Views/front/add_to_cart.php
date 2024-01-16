@@ -217,6 +217,7 @@ if($user_id)
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~>> ABOUT PAGE END <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
 <?= $this->include('front/layout/footer'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   function showConfirmation(id) {
     event.preventDefault();
@@ -424,6 +425,8 @@ if($user_id)
   $(".proceed_btn").click(function(e) {
     e.preventDefault();
 
+    // var key = CryptoJS.lib.WordArray.random(128 / 8);
+    var key = CryptoJS.enc.Hex.parse('2b7e151628aed2a6abf7158809cf4f3c');
 
     var discountType = $("#discount_type").val();
     var productDiscount = $("#product_discount").val();
@@ -431,8 +434,10 @@ if($user_id)
     var shipping = $("#free_shipping").prop("checked");
     var discount = $("#discount").text();
 
+    var encrypted = CryptoJS.AES.encrypt(finalTotalAmount, key, { mode: CryptoJS.mode.ECB });
+    var encryptedfinalTotalAmount = encrypted.toString();
 
-    var url = "<?php echo base_url('checkout/') ?>" + "?discount_type=" + encodeURIComponent(discountType) + "&product_discount=" + encodeURIComponent(productDiscount) + "&final_total_ammount=" + encodeURIComponent(finalTotalAmount) + "&free_shipping=" + encodeURIComponent(shipping) + "&discount_d=" + encodeURIComponent(discount) + new_amount;
+    var url = "<?php echo base_url('checkout/') ?>" + "?discount_type=" + encodeURIComponent(discountType) + "&product_discount=" + encodeURIComponent(productDiscount) + "&final_total_ammount=" + encodeURIComponent(encryptedfinalTotalAmount) + "&free_shipping=" + encodeURIComponent(shipping) + "&discount_d=" + encodeURIComponent(discount) + new_amount;
 
     window.location.href = url;
   });

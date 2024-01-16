@@ -99,14 +99,15 @@ class OrderController extends BaseController
         {
             foreach($cartData as $cartD)
             {
-                $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
                 if(!empty($getCoupon))
                 {
                     if ($getCoupon['coupon_price_type'] == 'Percentage')
                     {
                         $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
                     } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                        $discount += $cartD['total_amount'] - $getCoupon['coupon_price'];
+                        $discount += $getCoupon['coupon_price'];
                     }
                 }
             }
