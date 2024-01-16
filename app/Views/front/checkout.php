@@ -426,7 +426,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                     'data-description="Widget" ' +
                     'data-image="' + logourl + '" ' +
                     'data-locale="auto" ' +
-                    'data-currency="usd"><' + '/script>'; // Corrected script closing tag
+                    'data-currency="aud"><' + '/script>'; // Corrected script closing tag
 
                     $('.stripebutton').html(addScript);
             }

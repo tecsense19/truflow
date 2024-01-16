@@ -832,7 +832,8 @@ class Home extends BaseController
 
     public function add_to_cart()
     {
-
+        // $segment = $this->request->getVar('segment');
+        // echo '<pre>';print_r($segment);echo '</pre>';
         $cartmodel = new CartModel();
         $headermenumodel = new HeaderMenuModel();
         $headerData = $headermenumodel->find();
@@ -856,7 +857,6 @@ class Home extends BaseController
             ->get();
         }else{
             $guestSessionData = $session->get('guestsessiondata');
-
             $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
@@ -875,6 +875,7 @@ class Home extends BaseController
         }
 
         $cartData = $query->getResultArray();
+        // echo '<pre>';print_r($cartData);echo '</pre>';
 
         if (!$cartData) {
             $cartData = null;
@@ -954,6 +955,7 @@ class Home extends BaseController
         $subCategoryIds = $this->request->getVar('sub_category_id');
         $prices = $this->request->getVar('prices');
         $totalPrices = $this->request->getVar('total_prices');
+        $segment = $this->request->getVar('segment');
 
         $userId = $session->get('user_id');
 
@@ -968,7 +970,8 @@ class Home extends BaseController
                         'category_id' => $categoryIds[$i],
                         'sub_category_id' => $subCategoryIds[$i],
                         'product_amount' => $prices[$i],
-                        'total_amount' => $totalPrices[$i]
+                        'total_amount' => $totalPrices[$i],
+                        'product_url' => $segment
                     );
 
 
@@ -978,6 +981,8 @@ class Home extends BaseController
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }else{
             $guestsession = array();
+            $guestSessionData = $session->get('guestsessiondata');
+            $guestsession = $guestSessionData; 
             for ($i = 0; $i < count($variantQtys); $i++) {
                 if ($variantQtys[$i] > 0) {
                     $data = array(
