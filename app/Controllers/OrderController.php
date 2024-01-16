@@ -171,7 +171,7 @@ class OrderController extends BaseController
                 // Create a charge with customer information
                 $charge = \Stripe\Charge::create([
                     'amount' => $final_total_amount * 100,
-                    'currency' => 'usd',
+                    'currency' => 'aud',
                     'description' => 'Software development services',
                     'customer' => $customer->id,
                 ]);

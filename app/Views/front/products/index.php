@@ -591,7 +591,12 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                     <h4>No Item Found</h4>
                                                 </div>
                                             </div>
-                                            <?php } ?>
+                                            <?php }
+                                            $valuesSubset = array_slice($segment, 4); 
+                                            $hiddenFieldValue = implode('/', $valuesSubset);
+                                            $hiddenFieldValue = str_replace(' ', '_', $hiddenFieldValue);
+                                            ?>
+                                            <input type="hidden" name="segment" id="segment" value="<?php echo $hiddenFieldValue; ?>">
                                     </div>
                                     <div class="col-md-12" style="text-align: end;">
                                     <button type="button" onclick="add_cart()" class="btn add_cart cart_hover">Add to cart</button>
@@ -996,6 +1001,7 @@ jQuery(document).ready(function($){
             var categoryIds = <?php echo json_encode(array_column($variantArr, 'category_id')); ?>;
             var subCategoryIds = <?php echo json_encode(array_column($variantArr, 'sub_category_id')); ?>;
             var prices = <?php echo json_encode(array_column($variantArr, 'variant_price')); ?>;
+            var segmentValue = document.getElementById('segment').value;
 
 
             var totalPrices = [];
@@ -1014,7 +1020,8 @@ jQuery(document).ready(function($){
                     category_id: categoryIds,
                     sub_category_id: subCategoryIds,
                     prices: prices,
-                    total_prices: totalPrices
+                    total_prices: totalPrices,
+                    segment: segmentValue
                 },
                 success: function(response) {
                     // Handle the response

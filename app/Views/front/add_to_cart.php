@@ -78,7 +78,8 @@ if($user_id)
                       </td>
 
                       <td class="align-middle card_title"><?php echo $cart['variant_sku']; ?><br>
-                        <p><a href="<?php echo base_url('') . "product/details/" . $cart['product_id'] ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p>
+                        <!-- <p><a href="<?php //echo base_url('') . "product/details/" . $cart['product_id'] ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p> -->
+                        <p><a href="<?php echo base_url('') . $cart['product_url']; ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p>
                       </td>
                       <td class="align-middle"><?php echo $cart['product_amount']; ?><sub> Ex-Gst</sub></td>
                       <td class="align-middle text-center">

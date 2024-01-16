@@ -26,7 +26,8 @@ class CartModel extends Model
         'shipping',
         'discount_type',
         'final_total_ammount',
-        'coupon_code'
+        'coupon_code',
+        'product_url'
     ];
 
     // Dates
