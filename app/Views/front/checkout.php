@@ -34,13 +34,24 @@ if($user_id){
     $company_id = isset($cartData);
 }
 
+
+
 //$coupon_code = isset($_SESSION['couponCode_new']) ? $_SESSION['couponCode_new'] : $_GET['coupon_code'];
 $discount_type = isset($_SESSION['discount_type']) ? $_SESSION['discount_type'] : '';
 $product_discount = isset($_SESSION['product_discount']) ? $_SESSION['product_discount'] : '';
-$final_total_ammount = isset($_SESSION['final_total_ammount']) ? $_SESSION['final_total_ammount'] : '';
+
+// $key = random_bytes(16);
+$key = pack("H*", '2b7e151628aed2a6abf7158809cf4f3c');
+$final_total_ammountt = isset($_SESSION['final_total_ammount']) ? $_SESSION['final_total_ammount'] : '';
+$amount = urlencode($final_total_ammountt);
+// echo '<pre>';print_r($amount);echo '</pre>';die;
+$final_total_ammount = openssl_decrypt(base64_decode(urldecode($amount)), 'aes-128-ecb', $key, OPENSSL_RAW_DATA,'');
+
+
 $shipping = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : '';
 $discount = isset($_SESSION['discount_d']) ? $_SESSION['discount_d'] : '';
 $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+
 
 // You can then use these variables in your HTML or PHP code as needed
     if (isset($userData)){
@@ -259,6 +270,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                     $grandTotal += $cart['total_amount'];
                   }
                   $formattedTotal = "$" . number_format($grandTotal, 2, '.', ',');
+                  
                   ?>
                                 <span id="subtotal"><?php echo $formattedTotal; ?></span>
                             </li>
@@ -415,13 +427,20 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
             var selectedShippingOption = $('input[name="pay_method"]:checked').val();
             if (selectedShippingOption === 'online_payment') {
     
-                    var amount = '<?php echo $final_total_ammount * 100; ?>'; // Replace with your actual amount
                     var logourl = '<?php echo base_url(); ?>public/uploads/Truflow_Logo_Dark.svg'; // Replace with your actual logo URL
-
+                    // var amount = '<?php //echo $final_total_ammount * 100; ?>'; // Replace with your actual amount
+                    var subtotal = parseFloat($('#subtotal').text().replace(/[^0-9.-]+/g, ''));
+                    var auto_discount = '<?php echo $total_auto_discount; ?>';
+                    subtotal = subtotal - auto_discount;
+                    var gstPercentage = 10;
+                    var gstAmount = (subtotal * gstPercentage) / 100;
+                    var totalAmount = subtotal + gstAmount;
+                    totalAmount = totalAmount * 100;
+                    
                     var addScript =
                     '<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" ' +
                     'data-key="pk_test_CTo5L7fe5ufOYkpIblHELzND00d0OKb0ua" ' +
-                    'data-amount="' + amount + '" ' +
+                    'data-amount="' + totalAmount + '" ' +
                     'data-name="TRUFLOW" ' +
                     'data-description="Widget" ' +
                     'data-image="' + logourl + '" ' +
@@ -535,10 +554,11 @@ $(document).ready(function() {
 
     var formattedSubtotalgst = "$" + totalAmount.toFixed(2);
     var formattedSubtotalgst1 = "$" + gstAmount.toFixed(2);
-    $('#total').text(formattedSubtotalgst);
     $('.payment_button').text(formattedSubtotalgst);
     $('#total_gst').text(formattedSubtotalgst1);
-    $('#totalAmount').text(formattedSubtotal);
+    
+    $('#totalAmount').text(formattedSubtotalgst);
+    $('#total').text(formattedSubtotalgst);
 
     function applyCoupon(response) {
         if (response.status === 'success') {
@@ -704,7 +724,8 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
     var finalTotalAmount =
-        "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
+    "<?php echo isset($final_total_ammount) ? $final_total_ammount ? '$' . $final_total_ammount : '' : ''; ?>";
+        // console.log(finalTotalAmount);
     if (finalTotalAmount != '') {
         $('#total').text(finalTotalAmount);
         $('#totalAmount').text(finalTotalAmount);
