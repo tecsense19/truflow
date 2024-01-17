@@ -453,7 +453,8 @@ $loginId = $session->get('user_id');
 
                     <div id="home" class="container tab-pane active">
                         <div class="row">
-                            <?php if (isset($newProductdata)) {
+                            <?php 
+                            if (isset($newProductdata)) {
                        // Shuffle the array to get random data
                         shuffle($newProductdata); ?>
                             <?php foreach ($newProductdata as $product) : ?>
@@ -473,9 +474,22 @@ $loginId = $session->get('user_id');
 
                                         <?php } ?>
 
-                                        <div class="card-body category_data" data-productdetailid="<?php echo $product['product_id'];?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>">
+                                        <!-- <div class="card-body category_data" data-productdetailid="<?php echo $product['product_id'];?>" data-url="<?php echo base_url('') . "product/details/" . $product['product_name'] ?>">
                                             <a
                                                 href="javascript:void(0)">
+                                                <h5><?php //echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
+                                                </h5>
+                                            </a>
+                                        </div> -->
+                                        <div class="card-body" data-productdetailid="<?php echo $product['product_id'];?>">
+                                        <?php
+                                        if(isset($product['sub_child_name'])){
+                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                        }else{
+                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                        } 
+                                        ?>
+                                            <a href="<?php echo $url; ?>">
                                                 <h5><?php echo $product['product_name']; ?>&nbsp;&nbsp;<?php echo $product['parent'] ?>
                                                 </h5>
                                             </a>
