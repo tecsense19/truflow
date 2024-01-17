@@ -128,6 +128,15 @@ class Home extends BaseController
                     $ChildSubCategory = $ChildSubCategoryModel->where('sub_category_id', $pdata['sub_category_id'])
                     ->where('child_id', $pdata['child_id'])
                     ->first();
+
+                    $allChildCatName = $this->reverseCatGet($ChildSubCategory['sub_chid_id']);
+                    if(isset($allChildCatName)){
+                        $subchildname = implode("/",$allChildCatName);
+                        $subchildname = str_replace(' ', '_', $subchildname);
+                        $pdata['sub_child_name'] = $subchildname;
+                    }
+
+                    
                     $pdata['child_sub_category_name'] = isset($ChildSubCategory) ? $ChildSubCategory['child_sub_category_name'] : '';
                     $newData1[] = $pdata;
                 }
@@ -150,10 +159,6 @@ class Home extends BaseController
         if (!$sliderData) {
             $sliderData = null;
         }
-
-        // echo "<pre>";
-        // print_r($subcategoryData);
-        // die;
 
         return view(
             'front/index',
@@ -180,10 +185,27 @@ class Home extends BaseController
                 'cartCount' => $cartCount,
 
                 //
-                'sliderData' => $sliderData
+                'sliderData' => $sliderData,
             ]
         );
     }
+
+    function reverseCatGet($childId, $result = [])
+    {
+        $ChildSubCategoryModel = new ChildSubCategoryModel();
+        $childCatName = $ChildSubCategoryModel->where('child_id', $childId)->first();
+        if(isset($childCatName))
+        {
+            if($childCatName['sub_chid_id'] != 0)
+            {
+                // $this->reverseCatGet($childCatName['sub_chid_id'], $result);
+                $result = array_merge($result, $this->reverseCatGet($childCatName['sub_chid_id']));
+            }
+            $result[] = $childCatName['child_sub_category_name'];
+            return $result;
+        }
+    }
+
     public function about()
     {
         $headermenumodel = new HeaderMenuModel();
