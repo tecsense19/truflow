@@ -71,8 +71,23 @@ class Home extends BaseController
         $ChildSubCategoryModel = new ChildSubCategoryModel();
 
         $allcategoryData1 = $categorymodel->where('category_featured', 1)->findAll();
-        $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
-        $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();
+        /*$allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)->findAll();
+        $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)->findAll();*/
+        $allcategoryData2 = $subcategorymodel->where('sub_category_featured', 1)
+        ->join('category','category.category_id = sub_category.category_id')->findAll();
+        $allcategoryData3 = $ChildSubCategoryModel->where('child_sub_category_featured', 1)
+        ->join('category','category.category_id = child_sub_category.category_id')
+        ->join('sub_category','sub_category.sub_category_id = child_sub_category.sub_category_id')->first();
+
+        if(isset($allcategoryData3['sub_chid_id'])){
+            $allChildCatName = $this->reverseCatGet($allcategoryData3['sub_chid_id']);
+        }
+        if(isset($allChildCatName)){
+            $subchildname = implode("/",$allChildCatName);
+            $subchildname = str_replace(' ', '_', $subchildname);
+            $allcategoryData3['sub_child_name'] = $subchildname;
+        }
+
         $allcategoryData = [];
 
             $allcategoryData['category'] = $allcategoryData1;
@@ -81,8 +96,7 @@ class Home extends BaseController
             $allcategoryData['sub_category'] = $allcategoryData2;
 
 
-            $allcategoryData['child_sub'] = $allcategoryData3;
-
+            $allcategoryData['child_sub'] = [$allcategoryData3];
 
         $subcategoryData = $subcategorymodel->orderBy('created_at', 'DESC')->findAll(5);
         $variantsmodel = new VariantsModel();
