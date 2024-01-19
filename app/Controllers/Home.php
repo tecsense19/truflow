@@ -830,16 +830,44 @@ class Home extends BaseController
 
         // Search for exact match
         $result = $variantsModel->where('variant_sku', $input)->find();
+        // echo '<pre>';print_r($result);echo '</pre>';
 
         // If no exact match found, search for similar words
-        if (empty($result)) {
+        /*if (empty($result)) {
+            // $result = $variantsModel->like('variant_sku', '%' . $input . '%')->find();
             $result = $variantsModel->like('variant_sku', '%' . $input . '%')->find();
+        }*/
+
+        /** Y */
+        if (empty($result)) {
+            // $result = $variantsModel->like('variant_sku', '%' . $input . '%')->find();
+            $result = $variantsModel->join('product', 'product.product_id = product_variants.product_id')
+            ->join('child_sub_category', 'child_sub_category.child_id = product.child_id')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
+            ->join('category', 'category.category_id = product.category_id')
+            ->like('variant_sku', '%' . $input . '%')->find();
+        }
+
+        $results = [];
+        foreach ($result as  $res) {
+            if(isset($res['sub_chid_id']) && $res['sub_chid_id'] != '0'){
+                $allChildCatName = $this->reverseCatGet($res['sub_chid_id']);
+                if(isset($allChildCatName)){
+                    $subchildname = implode("/",$allChildCatName);
+                    $subchildname = str_replace(' ', '_', $subchildname);
+                    $res['sub_child_name'] = $subchildname;
+                    $results[] = $res;
+                }
+            }else{
+                $res['sub_child_name'] = '';
+                $results[] = $res;
+            }
         }
 
         header('Content-Type: application/json');
 
-        if (!empty($result)) {
-            echo json_encode($result);
+        if (!empty($results)) {
+            echo json_encode($results);
         } else {
             echo json_encode(['error' => 'Not found']);
         }

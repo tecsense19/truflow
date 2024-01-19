@@ -169,9 +169,30 @@
                         html += '<p class="part_no">' + "Part Number" + '</p>';
                         for (var i = 0; i < data.length; i++) {
                             var variant = data[i];
+                            // console.log(variant);
                             var variant_sku = variant.variant_sku;
+                            var product_name = variant.product_name;
+                                product_name = product_name.replace(/ /g, '_');
+                            var category_name = variant.category_name;
+                                category_name = category_name.replace(/ /g, '_');
+                            var sub_category_name = variant.sub_category_name;
+                                sub_category_name = sub_category_name.replace(/ /g, '_');
+                            var sub_child_name = variant.sub_child_name;
+                                sub_child_name = sub_child_name.replace(/ /g, '_');
+                            var child_sub_category_name = variant.child_sub_category_name;
+                                child_sub_category_name = child_sub_category_name.replace(/ /g, '_');
                             var product_id = variant.product_id;
-                            html += '<div class="variant" data-variant-name="' + variant_sku + '" data-product-id="' + product_id + '">';
+
+                            var variant_url;
+                            if (sub_child_name !== '') {
+                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + sub_child_name + '/' + child_sub_category_name + '/' + product_name;
+                            } else {
+                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + child_sub_category_name + '/' + product_name;
+                            }
+                            console.log(variant_url);
+
+                            html += '<div class="variant" data-variant-name="' + variant_sku + '" data-product-id="' + product_id + '"  data-variant-url="' + variant_url + '">';
+                            // html += '<div class="variant" data-variant-name="' + variant_sku + '" data-product-id="' + product_id + '">';
                             html += '<p>' + variant_sku + '</p>';
                             html += '</div>';
                         }
@@ -224,12 +245,14 @@
                 e.preventDefault();
                 var productId = $(this).data('product-id');
                 var variantsku = $(this).data('variant-name');
+                var varianturl = $(this).data('variant-url');
                 // Prevent the default behavior of the link (following the href)
 
                 // Get the text content of the clicked link
                 var cateId = productId;
 
-                var redirectUrl = '<?php echo base_url(); ?>product/details/' + variantsku;
+                // var redirectUrl = '<?php // echo base_url(); ?>product/details/' + variantsku;
+                var redirectUrl = '<?php echo base_url(); ?>' + varianturl;
                     // Make an AJAX request to a CodeIgniter 4 controller method
                 $.ajax({
                     type: 'POST',
