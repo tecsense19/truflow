@@ -350,6 +350,7 @@ $loginId = $session->get('user_id');
                                 </div>
                                 <div class="slider_text">
                                     <?php
+                                    $url = '';
                                     if(isset($product['category_name'])){
                                         $url = base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']); 
                                     }
