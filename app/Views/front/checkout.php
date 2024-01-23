@@ -338,12 +338,23 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         </div>
                         <?php } ?>
 
+                        <?php if(isset($userData) && !$userData[0]['on_a_account']) { ?>
                         <div class="payment_item order_list">
                             <span>
-                                <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash">
+                                <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" checked>
                                 <label for="cash_ond_delivery">Cash on Delivery</label>
                             </span>
                         </div>
+                        <?php }else{
+                            ?>
+                            <div class="payment_item order_list">
+                                <span>
+                                    <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash">
+                                    <label for="cash_ond_delivery">Cash on Delivery</label>
+                                </span>
+                            </div>
+                            <?php
+                        } ?>
                         <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="online_payment_delivery" class="" name="pay_method" value="online_payment">
@@ -472,7 +483,6 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
             // Find the iframe by its class
             var stripeCheckoutIframe = document.querySelector('.stripe_checkout_app');
             var selectedShippingOption = $('input[name="pay_method"]:checked').val();
-            console.log(selectedShippingOption);
             // Check if the iframe exists before trying to remove it
             if(selectedShippingOption == 'cash' ||selectedShippingOption == 'onaaccount' )
             if (stripeCheckoutIframe) {
@@ -483,8 +493,12 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
         });
         $('#destroyButton').on('click', function() {
             var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+            //     if(selectedShippingOption && $('#read_all').is(':checked')){
             if(selectedShippingOption == 'cash' || selectedShippingOption == 'onaaccount'){
-                $('#product_form').submit();
+                var selectedShippingvalue = $('input[name="shipping_value"]:checked').val();
+                if(selectedShippingvalue && $('#read_all').is(':checked')){
+                    $('#product_form').submit();
+                }
             }
         });
     });
