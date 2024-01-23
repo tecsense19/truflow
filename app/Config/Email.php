@@ -37,22 +37,22 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = 'mail.testweb4you.com';
+    public string $SMTPHost = 'truflow.hostedwp.com.au';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'sendmail@testweb4you.com';
+    public string $SMTPUser = 'website@truflow.hostedwp.com.au';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'a_84Qyw&ALs8.A2^%+';
+    public string $SMTPPass = 'jM(XHe,!%5Hp';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 587;
+    public int $SMTPPort = 465;
 
     /**
      * SMTP Timeout (in seconds)
@@ -67,7 +67,7 @@ class Email extends BaseConfig
     /**
      * SMTP Encryption. Either tls or ssl
      */
-    public string $SMTPCrypto = 'tls';
+    public string $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap
