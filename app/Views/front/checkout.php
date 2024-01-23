@@ -436,6 +436,8 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                     var gstAmount = (subtotal * gstPercentage) / 100;
                     var totalAmount = subtotal + gstAmount;
                     totalAmount = totalAmount * 100;
+                    totalAmount = Math.round(totalAmount);
+
                     
                     var addScript =
                     '<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" ' +
@@ -456,12 +458,35 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
         });
     });
 
-    document.getElementById('submitButton').addEventListener('click', function() {
+    /*document.getElementById('submitButton').addEventListener('click', function() {
       var selectedShippingOption = $('input[name="pay_method"]:checked').val();
       console.log(selectedShippingOption);
       if (selectedShippingOption === 'online_payment') {
         document.getElementById('destroyButton').trigger("click");
       }
+    });*/
+</script>
+<script>
+    $(document).ready(function() {
+        $('input[name="pay_method"]').on('change', function() {
+            // Find the iframe by its class
+            var stripeCheckoutIframe = document.querySelector('.stripe_checkout_app');
+            var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+            console.log(selectedShippingOption);
+            // Check if the iframe exists before trying to remove it
+            if(selectedShippingOption == 'cash' ||selectedShippingOption == 'onaaccount' )
+            if (stripeCheckoutIframe) {
+                stripeCheckoutIframe.remove();
+            } else {
+                console.log("Stripe Checkout iframe not found");
+            }
+        });
+        $('#destroyButton').on('click', function() {
+            var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+            if(selectedShippingOption == 'cash' || selectedShippingOption == 'onaaccount'){
+                $('#product_form').submit();
+            }
+        });
     });
 </script>
 
