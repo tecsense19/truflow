@@ -107,7 +107,7 @@ class UserController extends BaseController
 
             $emailService = \Config\Services::email();
 
-            $fromEmail = 'sendmail@testweb4you.com';
+            $fromEmail = FROM_EMAIL;
             $fromName = 'Truflow Hydraulics';
 
             $emailService->setFrom($fromEmail, $fromName);
@@ -553,7 +553,7 @@ class UserController extends BaseController
 
         $emailService = \Config\Services::email();
 
-        $fromEmail = 'sendmail@testweb4you.com';
+        $fromEmail = FROM_EMAIL;
         $fromName = 'Truflow Hydraulics';
 
         $emailService->setFrom($fromEmail, $fromName);
