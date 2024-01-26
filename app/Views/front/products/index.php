@@ -546,7 +546,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                                             <?php 
                                             $discount = 0;
                                             foreach ($variantArr as $variant) { 
-                                                if(date('Y-m-d')<=$variant['to_date']){
+                                                if(isset($variant['to_date']) && date('Y-m-d')<=$variant['to_date']){
                                                     $from_date = $variant['from_date'];  //2024-01-01
                                                     $to_date = $variant['to_date'];  //2024-01-05
                                                     $currentDate = date('Y-m-d');
