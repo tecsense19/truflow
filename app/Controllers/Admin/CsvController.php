@@ -125,14 +125,18 @@ class CsvController extends BaseController
                         {
                             $childsubcategoryName = utf8_encode(trim($row[$i]));
                             $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)
+                                                                                ->where('sub_category_name',$row[$i - 1])
                                                                             ->where('category_id', $categoryId)->get()->getRow();
 
                             if (isset($row[$i]) && $row[$i] != '' && !$existingChildSubCategory) {
                                 $childsubcategory = $childsubcategorymodel->where('child_sub_category_name', $row[$i - 1])
-                                                                            ->where('category_id', $categoryId)->get()->getRow();
+                                                                            ->where('category_id', $categoryId)->orderBy('child_id', 'desc')->get()->getRow();
 
+                                /*$childsubcategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategory->child_sub_category_name)
+                                                                            ->where('category_id', $categoryId)->get()->getRow();*/
                                 $childsubcategory_1 = [
                                     'child_sub_category_name' => isset($childsubcategoryName) ? $childsubcategoryName : '',
+                                    'sub_category_name' => $row[$i - 1],
                                     'sub_chid_id' => isset($childsubcategory) ? $childsubcategory->child_id : '0',
                                     'sub_category_id' =>  isset($childsubcategory) ? $childsubcategory->sub_category_id : '0',
                                     'category_id' => $categoryId
@@ -153,12 +157,12 @@ class CsvController extends BaseController
                                                             ->where('category_id', $categoryId)->get()->getRow();
 
                             if (isset($row[$i]) && $row[$i] != '') {
-                                $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)
-                                                                                ->where('category_id', $categoryId)->get()->getRow();
+                                $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)->where('sub_category_name',$row[$i - 1])->where('category_id', $categoryId)->get()->getRow();
 
                                 if (!$existingChildSubCategory) {
                                     $childsubcategory_1 = [
                                         'child_sub_category_name' => $childsubcategoryName,
+                                        'sub_category_name' => $row[$i - 1],
                                         'sub_chid_id' => 0,
                                         'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
                                         'category_id' => $categoryId
@@ -313,6 +317,7 @@ class CsvController extends BaseController
                     }
                 }  
             }
+            
 
             // Success message or redirect to a success page
             $session->setFlashdata('success', 'Uploaded the CSV file successfully.');
