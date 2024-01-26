@@ -479,7 +479,12 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 <h3><?php echo $variantArr[0]['parent'] ?></h3>
                                             </div>
                                         </div>
-                                        <h3 class="mt-2"><?php echo "$" . $minMaxPrice->min_price . " - " . "$" . $minMaxPrice->max_price; ?></h3>
+                                        <?php 
+                                        $minprice = round($minMaxPrice->min_price,2);
+                                        $maxprice = round($minMaxPrice->max_price,2);
+                                        ?>
+                                        <h3 class="mt-2"><?php echo "$" . $minprice . " - " . "$" . $maxprice; ?></h3>
+                                        <!-- <h3 class="mt-2"><?php //echo "$" . $minMaxPrice->min_price . " - " . "$" . $minMaxPrice->max_price; ?></h3> -->
                                         <div class="row">
                                             <div class="stock">
                                                 <?php if (ceil($averageRating) == 1) { ?>
@@ -538,7 +543,33 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                     <th style="width: 10%;text-align: center;">Stock</th>
                                                 </thead>
                                                 <tbody>
-                                            <?php foreach ($variantArr as $variant) { ?>
+                                            <?php 
+                                            $discount = 0;
+                                            foreach ($variantArr as $variant) { 
+                                                if(date('Y-m-d')<=$variant['to_date']){
+                                                    $from_date = $variant['from_date'];  //2024-01-01
+                                                    $to_date = $variant['to_date'];  //2024-01-05
+                                                    $currentDate = date('Y-m-d');
+                                                    $coupon_price_type = $variant['coupon_price_type'];
+                                                    $variant_price = $variant['variant_price'];
+                                                    $coupon_price = $variant['coupon_price'];
+                                                    // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
+                                                    // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
+                                                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                                                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                                                        if ($coupon_price_type == 'Percentage')
+                                                        {
+                                                            $discount = $variant_price * $coupon_price / 100;
+                                                        }else if ($coupon_price_type == 'Flat') {
+                                                            $discount = $coupon_price;
+                                                        }
+                                                    }
+                                                    $price = $variant['variant_price'] - $discount;
+                                                    $final_price = round($price,2);
+                                                }else{
+                                                    $final_price = $variant['variant_price'];
+                                                }
+                                                ?>
                                                     <tr style=" box-shadow: 2px 2px 12px -2px rgb(50, 50, 50); border:5px solid white;">
                                                         <td class="table-front"><h5><?php echo $variant['variant_sku']; ?></h5></td>
                                                         <td class="table-front"><h6 class="space"><?php echo $variant['product_short_description']; ?></h6></td>
@@ -548,7 +579,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                             <input class="plus" value="+" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                         </td>
                                                         <td class="table-front">
-                                                            <h4 style="display: contents;"><?php echo "$" . $variant['variant_price']; ?></h4> <sub> Ex-Gst</sub>
+                                                            <h4 style="display: contents;"><?php echo "$" . $final_price; ?></h4> <sub> Ex-Gst</sub>
                                                         </td>
                                                         <td class="table-front">
                                                             <?php if(isset($variant['variant_description'])) {?>
