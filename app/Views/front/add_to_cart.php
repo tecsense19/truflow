@@ -59,7 +59,31 @@ if($user_id)
               </thead>
               <tbody>
                 <?php if ($cartData) { ?>
-                  <?php foreach ($cartData as $cart) { ?>
+                  <?php foreach ($cartData as $cart) {
+                    if(isset($cart['to_date']) && date('Y-m-d')<=$cart['to_date']){
+                      $from_date = $cart['from_date'];  //2024-01-01
+                      $to_date = $cart['to_date'];  //2024-01-05
+                      $currentDate = date('Y-m-d');
+                      $coupon_price_type = $cart['coupon_price_type'];
+                      $cart_price = $cart['product_amount'];
+                      $coupon_price = $cart['coupon_price'];
+                      // echo '<pre> variant_price';print_r($cart_price);echo '</pre>';
+                      // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
+                      // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                      if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                          if ($coupon_price_type == 'Percentage')
+                          {
+                              $discount = $cart_price * $coupon_price / 100;
+                          }else if ($coupon_price_type == 'Flat') {
+                              $discount = $coupon_price;
+                          }
+                      }
+                      $price = $cart['product_amount'] - $discount;
+                      $final_price = round($price,2);
+                    }else{
+                        $final_price = $cart['product_amount'];
+                    }
+                    ?>
                     <tr>
                       <td class="align-middle">
 
@@ -81,7 +105,8 @@ if($user_id)
                         <!-- <p><a href="<?php //echo base_url('') . "product/details/" . $cart['product_id'] ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p> -->
                         <p><a href="<?php echo base_url('') . $cart['product_url']; ?>">Product Name : <?php echo $cart['product_name']; ?>&nbsp;<?php // echo $cart['parent']; ?></a></p>
                       </td>
-                      <td class="align-middle"><?php echo $cart['product_amount']; ?><sub> Ex-Gst</sub></td>
+                      <!-- <td class="align-middle"><?php //echo $cart['product_amount']; ?><sub> Ex-Gst</sub></td> -->
+                      <td class="align-middle"><?php echo $final_price; ?><sub> Ex-Gst</sub></td>
                       <td class="align-middle text-center">
                         <form class="wrapper">
                           <div class="cart-box">
