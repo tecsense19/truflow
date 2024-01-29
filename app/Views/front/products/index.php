@@ -405,8 +405,8 @@ if (isset($variantArr) && count($variantArr)>0) {
                                 <div class="col-lg-6 col-md-6 col-xl-3">
                                     <div class="product_box">
                                         <div class="product_img">
-                                            <?php if (!empty($subCategory['product_img'])) { ?>
-                                                <img class="img-fluid card-img-top" src="<?php echo base_url() . $subCategory['product_img'] ?>" alt="image">
+                                            <?php if (!empty($product['product_img'])) { ?>
+                                                <img class="img-fluid card-img-top" src="<?php echo base_url() . $product['product_img'] ?>" alt="image">
                                             <?php } else { ?>
                                                 <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                             <?php } ?>

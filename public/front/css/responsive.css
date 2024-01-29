@@ -706,3 +706,12 @@ margin-right: 10px; /* Adjust spacing as needed */
 .navbar-toggler.active.collapsed:before {
 display: none;
 }
+
+@media only screen 
+and (min-width: 1024px) 
+and (max-width: 1280px)
+{
+	#loginForm{
+		width: 250px !important;
+	}
+}

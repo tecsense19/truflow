@@ -125,26 +125,95 @@
 
                     </tr>
                 </table>
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; margin-top:10px">
 
 
-                    <?php foreach ($orderData as $order) { ?>
+                        <tr>
+                          <th align="left">Product</th>
+                          <th>Qty</th>
+                          <th></th>
+                          <th>Discount</th>
+                          <th></th>
+                          <th>Net Price Per Unit</th> 
+                          <th></th>
+                          <th>Total</th>
+                          <th></th>
+                          <th>GST</th>
+                          <th></th>
+                          <th>Grand Total</th>
+                        </tr>
+                    <?php foreach ($orderData as $order) { 
+                        ?>
                         <tr>
                             <td align="left">
-                                <?php echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?><br>
-                                <b>Variant :</b> <?php echo $order['variant_sku']; ?>
+                                <!-- <?php //echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?><br> -->
+                                <?php echo $order['variant_sku']; ?>
                             </td>
 
                             <td><?php echo $order['product_quantity']; ?></td>
                             <td></td>
+                            <td>
+                                <?php
+                                $couponModel = model('App\Models\CouponModel');
+                                $discount = 000.00;
+                                    // $getCoupon = $couponModel->where('coupon_id', $order['coupon_id'])->first();
+                                    $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                                    if(!empty($getCoupon))
+                                    {
+                                        if ($getCoupon['coupon_price_type'] == 'Percentage') 
+                                        {
+                                            // $discount += ($order['product_amount'] * $order['product_quantity'] * $getCoupon['coupon_price']) / 100;
+                                            $discount = $getCoupon['coupon_price'] .'%';
+                                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                            // $discount += $order['product_amount'] * $order['product_quantity'] - $getCoupon['coupon_price'];
+                                            $discount = $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ;
+                                        }
+                                    }
+    
+                                // echo number_format($discount, 2, '.', ',');
+                                echo $discount;
+                                ?>
+                            </td>
                             <td></td>
                             <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                             <td></td>
-                            <td></td>
                             <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
+                            <td></td>
+                            <td>
+                                <?php 
+                                $grandTotal = 0;
+                                $grandTotal += $order['total_amount'];
+                                $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2, '.', ','); 
+                                echo $formatted_gst_Amount; ?>
+                            </td>
+                            <td></td>
+                            <td><?php echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td>
                         </tr>
                     <?php } ?>
-                    <tr>
+
+                    <!-- <tr>
+                        <td align="left" style="border-top: 3px solid #eeeeee;">
+                            GST
+                        </td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;"></td>
+                        <td style="border-top: 3px solid #eeeeee;">
+                            <?php/*
+                            $grandTotal = 0;
+                            $formatted_gst_Amount = 0;
+                            foreach ($orderData as $order) {
+                                $grandTotal += $order['total_amount'];
+                            }
+                            $formatted_gst_Amount = number_format(($grandTotal*10/100), 2, '.', ',');
+                            echo $formatted_gst_Amount;*/
+                            ?>
+                        </td>
+                    </tr> -->
+                    <!-- <tr>
                         <td align="left" style="border-top: 3px solid #eeeeee;">
                             Total
                         </td>
@@ -155,20 +224,18 @@
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;">
-                            <?php
+                            <?php /*
                             $grandTotal = 0;
                             foreach ($orderData as $order) {
                                 $grandTotal += $order['total_amount'];
                             }
-                            $formatted_Amount = number_format($grandTotal, 2, '.', ',');
-                            echo $formatted_Amount;
+                            $formatted_Amount = number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount;
+                            echo $formatted_Amount;*/
                             ?>
                         </td>
-                    </tr>
-                    <tr>
-                        <td align="left" style="border-top: 3px solid #eeeeee;">
-                            Discount
-                        </td>
+                    </tr> -->
+                    <!-- <tr>
+                        <td align="left" style="border-top: 3px solid #eeeeee;">Discount</td>
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;"></td>
@@ -188,7 +255,7 @@
                             // } else {
                             //     echo $discount . "Rs";
                             // }
-                            $couponModel = model('App\Models\CouponModel');
+                            /*$couponModel = model('App\Models\CouponModel');
                             $discount = 000.00;
                             foreach ($orderData as $dis) {
                                 $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
@@ -203,11 +270,12 @@
                                 }
                             }
 
-                            echo number_format($discount, 2, '.', ',');
+                            echo number_format($discount, 2, '.', ',');*/
                             ?>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr> -->
+                    
+                    <!-- <tr>
                         <td align="left" style="border-top: 3px solid #eeeeee;">
                             Grand Total
                         </td>
@@ -218,20 +286,15 @@
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;"></td>
                         <td style="border-top: 3px solid #eeeeee;">
-                            <?php
-                            // $grandTotal = 0;
-                            // foreach ($orderData as $order) {
-                            //     $grandTotal = $order['final_total_ammount'];
-                            // }
-                            // echo $grandTotal;
+                            <?php/*
                             $grandTotal = 0;
                             foreach ($orderData as $order) {
                                 $grandTotal += $order['total_amount'];
                             }
-                            echo number_format($grandTotal, 2, '.', ',');
+                            echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount;*/
                             ?>
                         </td>
-                    </tr>
+                    </tr> -->
 
 
                 </table>
