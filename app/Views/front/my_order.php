@@ -57,7 +57,7 @@
                       <tr class="mainsetcolor">
                           <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
                           <th colspan="1" style="white-space: nowrap;">Order By: <br><?php echo $orderData[0]['full_name']; ?></th>
-                          <th colspan="1">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
+                          <th colspan="2">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
                           <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['payment_status']; ?></th>
                           <th colspan="1" style="white-space: nowrap;">
                             Payment Type: <br>
@@ -69,30 +69,33 @@
                               On a account
                             <?php } ?>
                           </th>
-                          <th colspan="3"></th>
-                          <th colspan="2" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
+                          <th colspan="1"></th>
+                          <th colspan="3" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
                       <tr>
-                          <th>Product name</th>
-                          <th>Product details</th>
+                          <!-- <th>Product name</th>
+                          <th>Product details</th> -->
                           <th>Variant</th>
+                          <th></th>
                           <th>Part Number</th>
                           <th>Qty</th>
-                          <th>Price</th>
+                          <th>Net Price P/Unit</th>
                           <th>Discount</th>
                           <th>Total Price</th>
                           <th>Order Status</th>
-                          <th>Shipping</th>
+                          <th colspan="3">Shipping</th>
                       </tr>
                       <?php foreach ($orderData as $order) { 
+                        // echo '<pre>';print_r($order);echo '</pre>';
                         ?>
                           <tr>
-                              <td><?php echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?></td>
-                              <td><?php echo $order['product_description']; ?></td>
+                              <!-- <td><?php //echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?></td> -->
+                              <!-- <td><?php //echo $order['product_description']; ?></td> -->
                               <td><?php echo $order['variant_name']; ?></td>
+                              <td></td>
                               <td><?php echo $order['variant_sku']; ?></td>
                               <td><?php echo $order['product_quantity']; ?></td>
-                              <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
+                              <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');
                               $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
@@ -110,7 +113,7 @@
                               ?></td>
                               <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                               <td><?php echo $order['order_status']; ?></td>
-                              <td>
+                              <td colspan="3">
                                   <div><?php echo $order['shipping']; ?></div>
                               </td>
                           </tr>
@@ -174,7 +177,6 @@
                                       }
                                     }
                                   }
-
                                   echo number_format($discount, 2, '.', ',');
                               ?>
 
