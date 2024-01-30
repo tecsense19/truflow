@@ -93,6 +93,16 @@
                 </select>
             </div>
         </div> -->
+
+        <h4>Company Details</h4>
+        <hr>
+        <div class="form-group row">
+            <label class="col-md-3 control-label" for="last_name">Company name :</label>
+            <div class="col-md-9">
+                <input type="text" name="company_name" data-val="true" data-val-required="Company Name is required." class="form-control" id="company_name" value="" />
+            </div>
+        </div>
+
         <h4>Your Billing Address</h4>
         <hr>
         <div class="form-group row">
@@ -250,9 +260,9 @@ $(document).ready(function() {
             country: {
                 required: true
             },
-            // company_name: {
-            //     required: true
-            // }
+            company_name: {
+                required: true
+            }
         },
         messages: {
             first_name: {
@@ -296,9 +306,9 @@ $(document).ready(function() {
             country: {
                 required: 'Please select a country'
             },
-            // company_name: {
-            //     required: 'Please select a company'
-            // }
+            company_name: {
+                required: 'Company Name is required'
+            }
         },
         submitHandler: function(form) {
             form.submit();
