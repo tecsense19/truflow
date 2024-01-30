@@ -73,78 +73,160 @@ class UserController extends BaseController
         // Encrypt the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $userArr = [
-            'full_name' => $input['first_name'] . " " . $input['last_name'],
-            'email' => $input['email'],
-            'password' => $hashedPassword,  // Store the hashed password
-            'first_name' => $input['first_name'],
-            'last_name' => $input['last_name'],
-            // 'gender' => $input['gender'],
-            'date_of_birth' => $input['date_of_birth'],
-            'mobile' => $input['mobile'],
-            'user_role' => $input['user_role'],
-            // 'company_name' => $input['company_name'],
-            'address_1' => $input['address_1'],
-            'address_2' => $input['address_2'],
-            'city' => $input['city'],
-            'zipcode' => $input['zipcode'],
-            'country' => $input['country'],
-            'phone' => $input['phone'],
-            'fax' => $input['fax']
-
-        ];
-
-        if (isset($input['user_id']) && $input['user_id'] != '') {
-            $usermodel->update(['user_id' => $input['user_id']], $userArr);
-        } else {
-            $usermodel->insert($userArr);
-            $user_id_last = $usermodel->insertID();
-
-            // $token = bin2hex(random_bytes(32));
-            $token = base64_encode($user_id_last);
-
-            $UserEmail =  $userArr['email'];
-
-            $emailService = \Config\Services::email();
-
-            $fromEmail = FROM_EMAIL;
-            $fromName = 'Truflow Hydraulics';
-
-            $emailService->setFrom($fromEmail, $fromName);
-            $emailService->setTo($UserEmail);
-            $emailService->setSubject('Verification');
-            $emailService->setMessage('
-                <html>
-                    <body>
-                        <h1>Verify Your Account</h1>
-                        <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
-                            <tr>
-                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                                    <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
-                                    <h3>
-                                        Click the following link to Verify Your Account
-                                    </h3>
-                                    <a href="' . base_url('verification/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Verification Account</a>
-
-                                </td>
-                            </tr>
-                        </table>
-                    </body>
-                </html>
-            ');
-            $session->setFlashdata('success', 'Registration successful Verify Your Account');
-            // return redirect()->to('login');
-            if ($emailService->send()) {
-                return redirect()->to('login');
+        $companymodel = new CompanyModel();
+        $companyData = $companymodel->find();
+        $companyNamesarray = array_column($companyData, 'company_name');
+        $company_name = $input['company_name'];
+        
+        if(in_array($company_name, $companyNamesarray)){
+            $userArr = [
+                'full_name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => $input['email'],
+                'password' => $hashedPassword,  // Store the hashed password
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
+                // 'gender' => $input['gender'],
+                'date_of_birth' => $input['date_of_birth'],
+                'mobile' => $input['mobile'],
+                'user_role' => $input['user_role'],
+                'company_name' => $input['company_name'],
+                'address_1' => $input['address_1'],
+                'address_2' => $input['address_2'],
+                'city' => $input['city'],
+                'zipcode' => $input['zipcode'],
+                'country' => $input['country'],
+                'phone' => $input['phone'],
+                'fax' => $input['fax']
+    
+            ];
+    
+            if (isset($input['user_id']) && $input['user_id'] != '') {
+                $usermodel->update(['user_id' => $input['user_id']], $userArr);
             } else {
-                return redirect()->back()->with('error', 'Unable to send the Verification link. Please try again later.');
+                $usermodel->insert($userArr);
+                $user_id_last = $usermodel->insertID();
+    
+                // $token = bin2hex(random_bytes(32));
+                $token = base64_encode($user_id_last);
+    
+                $UserEmail =  $userArr['email'];
+    
+                $emailService = \Config\Services::email();
+    
+                $fromEmail = FROM_EMAIL;
+                $fromName = 'Truflow Hydraulics';
+    
+                $emailService->setFrom($fromEmail, $fromName);
+                $emailService->setTo($UserEmail);
+                $emailService->setSubject('Verification');
+                $emailService->setMessage('
+                    <html>
+                        <body>
+                            <h1>Verify Your Account</h1>
+                            <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                                <tr>
+                                    <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                                        <h3>
+                                            Click the following link to Verify Your Account
+                                        </h3>
+                                        <a href="' . base_url('verification/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Verification Account</a>
+    
+                                    </td>
+                                </tr>
+                            </table>
+                        </body>
+                    </html>
+                ');
+                $session->setFlashdata('success', 'Registration successful Verify Your Account');
+                // return redirect()->to('login');
+                if ($emailService->send()) {
+                    return redirect()->to('login');
+                } else {
+                    return redirect()->back()->with('error', 'Unable to send the Verification link. Please try again later.');
+                }
+    
+            }
+    
+            $session->setFlashdata('success', 'Registration successful.');
+             return redirect()->to('login');
+        }else{
+            $companyArr['company_name'] = isset($input['company_name']) ? $input['company_name'] : '';
+            $companymodel->insert($companyArr);
+
+            $userArr = [
+                'full_name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => $input['email'],
+                'password' => $hashedPassword,  // Store the hashed password
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
+                // 'gender' => $input['gender'],
+                'date_of_birth' => $input['date_of_birth'],
+                'mobile' => $input['mobile'],
+                'user_role' => $input['user_role'],
+                'company_name' => $input['company_name'],
+                'address_1' => $input['address_1'],
+                'address_2' => $input['address_2'],
+                'city' => $input['city'],
+                'zipcode' => $input['zipcode'],
+                'country' => $input['country'],
+                'phone' => $input['phone'],
+                'fax' => $input['fax']
+    
+            ];
+    
+            if (isset($input['user_id']) && $input['user_id'] != '') {
+                $usermodel->update(['user_id' => $input['user_id']], $userArr);
+            } else {
+                $usermodel->insert($userArr);
+                $user_id_last = $usermodel->insertID();
+    
+                // $token = bin2hex(random_bytes(32));
+                $token = base64_encode($user_id_last);
+    
+                $UserEmail =  $userArr['email'];
+    
+                $emailService = \Config\Services::email();
+    
+                $fromEmail = FROM_EMAIL;
+                $fromName = 'Truflow Hydraulics';
+    
+                $emailService->setFrom($fromEmail, $fromName);
+                $emailService->setTo($UserEmail);
+                $emailService->setSubject('Verification');
+                $emailService->setMessage('
+                    <html>
+                        <body>
+                            <h1>Verify Your Account</h1>
+                            <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                                <tr>
+                                    <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                                        <h3>
+                                            Click the following link to Verify Your Account
+                                        </h3>
+                                        <a href="' . base_url('verification/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Verification Account</a>
+    
+                                    </td>
+                                </tr>
+                            </table>
+                        </body>
+                    </html>
+                ');
+                $session->setFlashdata('success', 'Registration successful Verify Your Account');
+                // return redirect()->to('login');
+                if ($emailService->send()) {
+                    return redirect()->to('login');
+                } else {
+                    return redirect()->back()->with('error', 'Unable to send the Verification link. Please try again later.');
+                }
+    
             }
 
+            $session->setFlashdata('success', 'Registration successful.');
+            return redirect()->to('login');
         }
-
-        $session->setFlashdata('success', 'Registration successful.');
-
-         return redirect()->to('login');
+        
     }
     public function login()
     {
