@@ -267,7 +267,7 @@ if (isset($variantArr) && count($variantArr)>0) {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about_heading">
-                        <h2 class="breadcrumb-list" style="display: flex; justify-content: center; flex-wrap: wrap;">
+                        <h2 class="breadcrumb-list" style="display: flex;justify-content: center;flex-wrap: wrap;text-transform: capitalize;">
                             <!-- <div> <a href="<?php echo base_url() ?>shop">  </a> </div> -->
                             <div> <?= implode(' > ', $breadcrumb) ?> </div>
                         </h2>
