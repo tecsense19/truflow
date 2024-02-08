@@ -574,9 +574,14 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                         <td class="table-front"><h5><?php echo $variant['variant_sku']; ?></h5></td>
                                                         <td class="table-front"><h6 class="space"><?php echo $variant['product_short_description']; ?></h6></td>
                                                         <td class="table-front">
-                                                            <input class="minus" value="-" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <!-- <input class="minus" value="-" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                             <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
-                                                            <input class="plus" value="+" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <input class="plus" value="+" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>> -->
+
+                                                            <input class="minus" value="-" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
+                                                            <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] <= 0 || $final_price == 0){ echo 'disabled'; } ?>>
+                                                            <input class="plus" value="+" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
+
                                                         </td>
                                                         <td class="table-front">
                                                             <h4 style="display: contents;"><?php echo "$" . $final_price; ?></h4> <sub> Ex-Gst</sub>
