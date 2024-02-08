@@ -67,6 +67,7 @@ if($user_id)
                       $coupon_price_type = $cart['coupon_price_type'];
                       $cart_price = $cart['product_amount'];
                       $coupon_price = $cart['coupon_price'];
+                      $discount = '';
                       // echo '<pre> variant_price';print_r($cart_price);echo '</pre>';
                       // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
                       // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;

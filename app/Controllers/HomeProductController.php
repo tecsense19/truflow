@@ -153,6 +153,8 @@ class HomeProductController extends BaseController
                                         $minPrice = PHP_INT_MAX;
                                         $maxPrice = 0;
                                         $group_name = '';
+                                        $minGroupName = '';
+                                        $maxGroupName = '';
                                         foreach ($variantArr as $variant)    {
                                             // echo '<pre>';print_r($variant);echo '</pre>';
                                             $variantPrice = $variant['variant_price'];
