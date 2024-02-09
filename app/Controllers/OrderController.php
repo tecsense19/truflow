@@ -332,65 +332,67 @@ class OrderController extends BaseController
             $orderArr = [];
     
             foreach ($cartData as $row) {
-    
-                $orderArr['order_id'] = $order_id;
-                $orderArr['category_id'] = isset($row['category_id']) ? $row['category_id'] : '';
-                $orderArr['sub_category_id'] = isset($row['sub_category_id']) ? $row['sub_category_id'] : '';
-                $orderArr['product_id'] = isset($row['product_id']) ? $row['product_id'] : '';
-                $orderArr['variant_id'] = isset($row['variant_id']) ? $row['variant_id'] : '';
-                $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
-                $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
-                $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
-                // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
-    
-                $couponModel = new CouponModel;
-                /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
-                $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->first();
-                $discount = 0;
-                if(!empty($getCoupon))
-                {
-                    if ($getCoupon['coupon_price_type'] == 'Percentage')
-                    {
-                        $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
-                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                        // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
-                        $discount += $getCoupon['coupon_price'];
-                    }
-                }
-    
-                if(isset($discount) && !empty($discount)){
-                    $orderArr['total_amount'] = $row['total_amount'] - $discount;
-                }else{
-                    $orderArr['total_amount'] = $row['total_amount'];
-                }
-                $orderitemmodel->insert($orderArr);
-                
-                /*if(!$discount){
-                    $gstPercentage = 10;
-                    $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
-                    $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
-                    $orderitemmodel->insert($orderArr);
-                }else{
-                    $gstPercentage = 10;
-                    $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
-                    $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
-                    echo '<pre>';print_r($orderArr);echo '</pre>';die;
-                    $orderitemmodel->insert($orderArr);
-                }*/
-
-    
-                // $gstPercentage = 10;
-                // $gstAmount = ($discount * $gstPercentage) / 100;
-    
-                // $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
-                // $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
-    
-                // $orderitemmodel->insert($orderArr);
-    
-    
                 $Variants_stock = $VariantsModel->where('variant_id', $row['variant_id'])->findAll();
-                $orderArr['variant_stock'] = $Variants_stock[0]['variant_stock'] - $row['product_quantity'];
-                $VariantsModel->update(['variant_id', $row['variant_id']], $orderArr);
+                if($Variants_stock[0]['variant_stock'] != 'POA'){
+                    $orderArr['order_id'] = $order_id;
+                    $orderArr['category_id'] = isset($row['category_id']) ? $row['category_id'] : '';
+                    $orderArr['sub_category_id'] = isset($row['sub_category_id']) ? $row['sub_category_id'] : '';
+                    $orderArr['product_id'] = isset($row['product_id']) ? $row['product_id'] : '';
+                    $orderArr['variant_id'] = isset($row['variant_id']) ? $row['variant_id'] : '';
+                    $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
+                    $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
+                    $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
+                    // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
+        
+                    $couponModel = new CouponModel;
+                    /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
+                    $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->first();
+                    $discount = 0;
+                    if(!empty($getCoupon))
+                    {
+                        if ($getCoupon['coupon_price_type'] == 'Percentage')
+                        {
+                            $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
+                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                            // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                            $discount += $getCoupon['coupon_price'];
+                        }
+                    }
+        
+                    if(isset($discount) && !empty($discount)){
+                        $orderArr['total_amount'] = $row['total_amount'] - $discount;
+                    }else{
+                        $orderArr['total_amount'] = $row['total_amount'];
+                    }
+                    $orderitemmodel->insert($orderArr);
+                    
+                    /*if(!$discount){
+                        $gstPercentage = 10;
+                        $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
+                        $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                        $orderitemmodel->insert($orderArr);
+                    }else{
+                        $gstPercentage = 10;
+                        $gstAmount = ($row['total_amount'] * $gstPercentage) / 100;
+                        $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                        echo '<pre>';print_r($orderArr);echo '</pre>';die;
+                        $orderitemmodel->insert($orderArr);
+                    }*/
+    
+        
+                    // $gstPercentage = 10;
+                    // $gstAmount = ($discount * $gstPercentage) / 100;
+        
+                    // $orderArr['total_amount'] = $discount != 0 ? $discount + $gstAmount : $row['total_amount'] + $gstAmount;
+                    // $orderArr['total_amount'] = $discount != 0 ? $discount : $row['total_amount'];
+        
+                    // $orderitemmodel->insert($orderArr);
+        
+        
+                    $Variants_stock = $VariantsModel->where('variant_id', $row['variant_id'])->findAll();
+                    $orderArr['variant_stock'] = $Variants_stock[0]['variant_stock'] - $row['product_quantity'];
+                    $VariantsModel->update(['variant_id', $row['variant_id']], $orderArr);   
+                }
     
             }
     
