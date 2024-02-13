@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="about_heading">
-            <h2>My Order</h2>
+            <h2>My Orders</h2>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="form-group mt-5 mb-5">
-        <h4>My Order</h4>
+        <h4>My Orders</h4>
       </div>
     </div>
   </div>
