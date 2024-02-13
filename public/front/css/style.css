@@ -1042,7 +1042,7 @@ footer{
     font-size: 15px;
     font-family: var(--Montserrat);
     color: var(--gray);
-    padding: 50px 0 0 0;
+    padding: 20px 0 0 0;
     line-height: 28px;
 }
 .about_content.about_d p{
