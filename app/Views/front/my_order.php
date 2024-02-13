@@ -75,10 +75,10 @@
                       <tr>
                           <th>Part Number</th>
                           <th colspan="3">Description (Variant)</th>
-                          <th></th>
                           <th>List Price p/unit</th>
                           <th>Discount</th>
                           <th>Net Price P/Unit</th>
+                          <th>GST</th>
                           <th>Total</th>
                           <th colspan="3">Status</th>
                       </tr>
@@ -88,7 +88,6 @@
                           <tr>
                               <td><?php echo $order['variant_sku']; ?></td>
                               <td colspan="3"><?php echo $order['product_short_description']; ?></td>
-                              <td ></td>
                               <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');
@@ -135,25 +134,29 @@
                               }else{
                                 $unit_price = $order['product_amount'];
                               }
+                              $grandTotal = 0;
+                              $grandTotal += $order['total_amount'];
+                              $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2, '.', ','); 
                               ?>
                               <td colspan =""><?php echo number_format($unit_price, 2, '.', ','); ?></td>
-                              <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
+                              <td ><?php echo $formatted_gst_Amount; ?></td>
+                              <td><?php echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td>
                               <td ><?php echo $order['order_status']; ?></td>
                           </tr>
                       <?php } ?>
                       <!--  -->
-                      <tr>
+                      <!-- <tr>
                         <td colspan ="7" style="text-align: right;">GST</td>
                         <td colspan ="4">
-                        <?php 
+                        <?php /*
                               $grandTotal = 0;
                               foreach ($orderData as $order) {
                                   $grandTotal += $order['total_amount'];
                               }
                               echo number_format(($grandTotal*10/100), 2, '.', ',');
-                          ?>
+                          */?>
                         </td>
-                      </tr>
+                      </tr> -->
                       <!--  -->
                       <tr>
                         <td>
@@ -191,6 +194,7 @@
                                   echo number_format($discount, 2, '.', ',');
                               ?>
                         </td>
+                        <td></td>
                         <td colspan="2" style="text-align: right;">Grand Total</td>
                           <td>
                               <?php
@@ -202,7 +206,6 @@
 
                               ?>
                           </td>
-                          <td></td>
                           <td>
                             <form method="post" action="<?php echo site_url('my_order/pdf'); ?>">
                                 <input type="hidden" name="order_id" value="<?php echo $orderId; ?>">
