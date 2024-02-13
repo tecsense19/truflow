@@ -57,7 +57,7 @@
                       <tr class="mainsetcolor">
                           <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
                           <!-- <th colspan="1" style="white-space: nowrap;">Order By: <br><?php //echo $orderData[0]['full_name']; ?></th> -->
-                          <th colspan="2">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
+                          <th colspan="3">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
                           <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['payment_status']; ?></th>
                           <th colspan="1" style="white-space: nowrap;">
                             Payment Type: <br>
@@ -69,58 +69,82 @@
                               On a account
                             <?php } ?>
                           </th>
-                          <th colspan="1"></th>
+                          <!-- <th colspan="1"></th> -->
                           <th colspan="4" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
                       <tr>
-                          <!-- <th>Product name</th>
-                          <th>Product details</th> -->
-                          <th>Variant</th>
-                          
                           <th>Part Number</th>
-                          <th>Qty</th>
-                          <th>Net Price P/Unit</th>
+                          <th colspan="3">Description (Variant)</th>
+                          <th></th>
+                          <th>List Price p/unit</th>
                           <th>Discount</th>
-                          <th>Total Price</th>
-                          <th>Order Status</th>
-                          <th colspan="3">Shipping</th>
+                          <th>Net Price P/Unit</th>
+                          <th>Total</th>
+                          <th colspan="3">Status</th>
                       </tr>
                       <?php foreach ($orderData as $order) { 
                         // echo '<pre>';print_r($order);echo '</pre>';
                         ?>
                           <tr>
-                              <!-- <td><?php //echo $order['product_name']; ?>&nbsp;<?php // echo $order['parent']; ?></td> -->
-                              <!-- <td><?php //echo $order['product_description']; ?></td> -->
-                              <td><?php echo $order['variant_name']; ?></td>
                               <td><?php echo $order['variant_sku']; ?></td>
-                              <td><?php echo $order['product_quantity']; ?></td>
+                              <td colspan="3"><?php echo $order['product_short_description']; ?></td>
+                              <td ></td>
                               <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');
                               $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                              $order_created_at = $order['created_at'];
+                              $datetime = new DateTime($order_created_at);
+                              $order_date = $datetime->format('Y-m-d');
                               ?>
                               <td><?php 
                               if($getCoupon){
-                                if($getCoupon['coupon_price_type'] == 'Flat'){
-                                  echo $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ; 
-                                }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
-                                  echo $getCoupon['coupon_price'] .'%'; 
+                                if ($order_date >= $getCoupon['from_date'] && $order_date <= $getCoupon['to_date']) {
+                                  if($getCoupon['coupon_price_type'] == 'Flat'){
+                                    echo $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ; 
+                                  }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
+                                    echo $getCoupon['coupon_price'] .'%'; 
+                                  }else{
+                                    echo '-'; 
+                                  }
                                 }else{
                                   echo '-'; 
                                 }
                               }
                               ?></td>
-                              <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
-                              <td><?php echo $order['order_status']; ?></td>
-                              <td colspan="3">
-                                  <div><?php echo $order['shipping']; ?></div>
-                              </td>
+                              <?php 
+                                $discount = 0;
+                                $order_created_at = $order['created_at'];
+                                $datetime = new DateTime($order_created_at);
+                                $order_date = $datetime->format('Y-m-d');
+                                if($getCoupon){
+                                    if ($order_date >= $getCoupon['from_date'] && $order_date <= $getCoupon['to_date']) {
+                                      if($getCoupon['coupon_price_type'] == 'Flat'){
+                                        $discount = $getCoupon['coupon_price']; 
+                                      }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
+                                        $discount = $order['product_amount'] * $getCoupon['coupon_price'] / 100; 
+                                      }else{
+                                        $discount = 0;
+                                      }
+                                  }else{
+                                    $discount = 0;
+                                  }
+                                }
+                              if($discount){
+                                $unit_price = $order['product_amount'] - $discount;
+                              }else{
+                                $unit_price = $order['product_amount'];
+                              }
+                              ?>
+                              <td colspan =""><?php echo number_format($unit_price, 2, '.', ','); ?></td>
+                              <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
+                              <td ><?php echo $order['order_status']; ?></td>
                           </tr>
                       <?php } ?>
                       <!--  -->
                       <tr>
                         <td colspan ="7" style="text-align: right;">GST</td>
-                        <td colspan ="3">
+                        <td colspan ="4">
                         <?php 
                               $grandTotal = 0;
                               foreach ($orderData as $order) {
@@ -147,22 +171,10 @@
                           </div>
                         </td>
                         <td colspan="3" style="text-align: right;">Discount :
-                        <?php
-                                  // $discount = 0;
-                                  // foreach ($orderData as $dis) {
-                                  //     $discount = $dis['product_discount'];
-                                  // }
-
-                                  // if($dis['discount_type'] = 'Percentage' ){
-
-                                  //   echo $discount."%";
-                                  // }else{
-                                  //   echo $discount."Rs";
-                                  // }
+                              <?php
                                   $couponModel = model('App\Models\CouponModel');
                                   $discount = 000.00;
                                   foreach ($orderData as $dis) {
-                                    // echo '<pre>';print_r($dis);echo '</pre>';die;
                                     // $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
                                     $getCoupon = $couponModel->where('coupon_code', $dis['group_name'])->first();
                                     if(!empty($getCoupon))
@@ -178,8 +190,6 @@
                                   }
                                   echo number_format($discount, 2, '.', ',');
                               ?>
-
-
                         </td>
                         <td colspan="2" style="text-align: right;">Grand Total</td>
                           <td>
@@ -190,19 +200,14 @@
                                   }
                                   echo $grandTotal;
 
-                                  // $grandTotal = 0;
-                                  // foreach ($orderData as $order) {
-                                  //     $grandTotal += $order['total_amount'];
-                                  // }
-                                  // echo number_format($grandTotal, 2, '.', ',');
                               ?>
                           </td>
                           <td></td>
                           <td>
-                          <form method="post" action="<?php echo site_url('my_order/pdf'); ?>">
-      <input type="hidden" name="order_id" value="<?php echo $orderId; ?>">
-      <p><input type="submit" class="btn" value="Print"></p>
-  </form>
+                            <form method="post" action="<?php echo site_url('my_order/pdf'); ?>">
+                                <input type="hidden" name="order_id" value="<?php echo $orderId; ?>">
+                                <p><input type="submit" class="btn" value="Print"></p>
+                            </form>
                           </td>
                       </tr>
                   </table>
