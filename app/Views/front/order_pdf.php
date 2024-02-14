@@ -186,15 +186,18 @@
                             <td></td>
                             <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
                             <td></td>
+                            <?php
+                            $grandTotal = 0;
+                            $grandTotal += $order['total_amount'];
+                            $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2); 
+                            $final_total = $grandTotal + $formatted_gst_Amount;
+                            ?>
                             <td>
-                                <?php 
-                                $grandTotal = 0;
-                                $grandTotal += $order['total_amount'];
-                                $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2, '.', ','); 
-                                echo $formatted_gst_Amount; ?>
+                                <?php echo $formatted_gst_Amount; ?>
                             </td>
                             <td></td>
-                            <td><?php echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td>
+                            <!-- <td><?php //echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td> -->
+                            <td><?php echo number_format($final_total, 2); ?></td>
                         </tr>
                     <?php } ?>
 
