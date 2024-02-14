@@ -177,8 +177,9 @@
                           </div>
                         </td>
                         <td colspan="3" style="text-align: right;">
-                            Discount :
-                              <?php
+                            Discount:
+                        </td>
+                        <td><?php
                                   $couponModel = model('App\Models\CouponModel');
                                   $discount = 000.00;
                                   foreach ($orderData as $dis) {
@@ -197,8 +198,7 @@
                                   }
                                   echo number_format($discount, 2, '.', ',');
                               ?>
-                        </td>
-                        <td></td>
+                          </td>
                         <td colspan="4" style="text-align: right;">Grand Total</td>
                           <td>
                               <?php
