@@ -108,7 +108,14 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
                         <td align="left" bgcolor="#eeeeee">
-                            Payment Method:  <?php echo $orderData[0]['pay_method'] ? 'COD' : 'On a account' ; ?>
+                            Payment Method:
+                            <?php if($orderData[0]['pay_method'] == 'cash') { ?>
+                              COD
+                            <?php } elseif($orderData[0]['pay_method'] == 'online_payment'){ ?>
+                              Online Payment
+                            <?php } else { ?>
+                              On a account
+                            <?php } ?>
                         </td>
                     </tr>
                 </table>
