@@ -58,8 +58,8 @@
                           <th colspan="1" style="white-space: nowrap;">Order Id: <br>#<?php echo $orderId; ?></th>
                           <!-- <th colspan="1" style="white-space: nowrap;">Order By: <br><?php //echo $orderData[0]['full_name']; ?></th> -->
                           <th colspan="3">Order Date: <br><?php echo date('d-m-Y H:i:s', strtotime($orderData[0]['order_date'])); ?></th>
-                          <th colspan="1" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['payment_status']; ?></th>
-                          <th colspan="1" style="white-space: nowrap;">
+                          <th colspan="2" style="white-space: nowrap;">Payment Status: <br><?php echo $orderData[0]['payment_status']; ?></th>
+                          <th colspan="2" style="white-space: nowrap;">
                             Payment Type: <br>
                             <?php if($orderData[0]['pay_method'] == 'cash') { ?>
                               COD
@@ -74,7 +74,7 @@
                       </tr>
                       <tr>
                           <th>Part Number</th>
-                          <th colspan="3">Description (Variant)</th>
+                          <th colspan="5">Description (Variant)</th>
                           <th>List Price p/unit</th>
                           <th>Discount</th>
                           <th>Net Price P/Unit</th>
@@ -87,7 +87,7 @@
                         ?>
                           <tr>
                               <td><?php echo $order['variant_sku']; ?></td>
-                              <td colspan="3"><?php echo $order['product_short_description']; ?></td>
+                              <td colspan="5"><?php echo $order['product_short_description']; ?></td>
                               <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');
@@ -136,11 +136,14 @@
                               }
                               $grandTotal = 0;
                               $grandTotal += $order['total_amount'];
-                              $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2, '.', ','); 
+                              // $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2, '.', ','); 
+                              $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2);
+                              $final_total = $grandTotal + $formatted_gst_Amount;
                               ?>
-                              <td colspan =""><?php echo number_format($unit_price, 2, '.', ','); ?></td>
+                              <td colspan =""><?php echo number_format($unit_price, 2); ?></td>
                               <td ><?php echo $formatted_gst_Amount; ?></td>
-                              <td><?php echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td>
+                              <!-- <td><?php // echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td> -->
+                              <td><?php echo number_format($final_total, 2); ?></td>
                               <td ><?php echo $order['order_status']; ?></td>
                           </tr>
                       <?php } ?>
@@ -173,7 +176,8 @@
                               <?php } ?>
                           </div>
                         </td>
-                        <td colspan="3" style="text-align: right;">Discount :
+                        <td colspan="3" style="text-align: right;">
+                            Discount :
                               <?php
                                   $couponModel = model('App\Models\CouponModel');
                                   $discount = 000.00;
@@ -195,7 +199,7 @@
                               ?>
                         </td>
                         <td></td>
-                        <td colspan="2" style="text-align: right;">Grand Total</td>
+                        <td colspan="4" style="text-align: right;">Grand Total</td>
                           <td>
                               <?php
                                   $grandTotal = 0;
