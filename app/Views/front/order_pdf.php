@@ -51,7 +51,9 @@
                
                 <tr>
                     <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                        <!-- <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.png" width="125" height="120" style="display: block; border: 0px;" /> -->
+                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.webp" width="125" height="120" style="display: block; border: 0px;" />
+                        <br>
                         <h2>
                             Thank You For Your Order!
                         </h2>
@@ -139,15 +141,17 @@
                           <th align="left">Product</th>
                           <th>Qty</th>
                           <th></th>
+                          <th>list price</th>
+                          <th></th>
                           <th>Discount</th>
                           <th></th>
                           <th>Net Price Per Unit</th> 
                           <th></th>
-                          <th>Total</th>
+                          <!-- <th>Total</th>
                           <th></th>
                           <th>GST</th>
-                          <th></th>
-                          <th>Grand Total</th>
+                          <th></th> -->
+                          <th>Total ex GST</th>
                         </tr>
                     <?php foreach ($orderData as $order) { 
                         ?>
@@ -158,6 +162,9 @@
                             </td>
 
                             <td><?php echo $order['product_quantity']; ?></td>
+                            <td></td>
+                            <?php $undiscount = $order['product_amount']; ?>
+                            <td><?php echo $undiscount; ?></td>
                             <td></td>
                             <td>
                                 <?php
@@ -182,22 +189,45 @@
                                 ?>
                             </td>
                             <td></td>
-                            <td><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
-                            <td></td>
-                            <td><?php echo number_format($order['total_amount'], 2, '.', ','); ?></td>
-                            <td></td>
+                            <?php 
+                            $couponModel = model('App\Models\CouponModel');
+                            $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                                $discount = 0;
+                                $order_created_at = $order['created_at'];
+                                $datetime = new DateTime($order_created_at);
+                                $order_date = $datetime->format('Y-m-d');
+                                if($getCoupon){
+                                    if ($order_date >= $getCoupon['from_date'] && $order_date <= $getCoupon['to_date']) {
+                                      if($getCoupon['coupon_price_type'] == 'Flat'){
+                                        $discount = $getCoupon['coupon_price']; 
+                                      }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
+                                        $discount = $order['product_amount'] * $getCoupon['coupon_price'] / 100; 
+                                      }else{
+                                        $discount = 0;
+                                      }
+                                  }else{
+                                    $discount = 0;
+                                  }
+                                }
+                              if($discount){
+                                $unit_price = $order['product_amount'] - $discount;
+                              }else{
+                                $unit_price = $order['product_amount'];
+                              }
+                            ?>
+                            <td><?php echo number_format($unit_price, 2); ?></td>
+
                             <?php
                             $grandTotal = 0;
                             $grandTotal += $order['total_amount'];
                             $formatted_gst_Amount =  number_format(($grandTotal*10/100), 2); 
                             $final_total = $grandTotal + $formatted_gst_Amount;
                             ?>
-                            <td>
+                            <!-- <td>
                                 <?php echo $formatted_gst_Amount; ?>
-                            </td>
+                            </td> -->
                             <td></td>
-                            <!-- <td><?php //echo number_format($grandTotal, 2, '.', ',') + $formatted_gst_Amount; ?></td> -->
-                            <td><?php echo number_format($final_total, 2); ?></td>
+                            <td><?php echo number_format($grandTotal, 2); ?></td>
                         </tr>
                     <?php } ?>
 

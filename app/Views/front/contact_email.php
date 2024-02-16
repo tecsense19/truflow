@@ -47,7 +47,7 @@
     <table align="center" cellpadding="0" cellspacing="0" width="50%" class="main_table">               
         <tr>
             <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/TruflowLogoDark.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125" height="120" style="display: block; border: 0px;" /><br>
                 <h2>
                     Get in touch
                 </h2>
