@@ -574,13 +574,13 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                         <td class="table-front"><h5><?php echo $variant['variant_sku']; ?></h5></td>
                                                         <td class="table-front"><h6 class="space"><?php echo $variant['product_short_description']; ?></h6></td>
                                                         <td class="table-front">
-                                                            <!-- <input class="minus" value="-" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <input class="minus" value="-" type="button"  data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                             <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
-                                                            <input class="plus" value="+" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>> -->
+                                                            <input class="plus" value="+" type="button" data-amount="<?php echo $final_price; ?>" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
 
-                                                            <input class="minus" value="-" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
+                                                            <!-- <input class="minus" value="-" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
                                                             <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] <= 0 || $final_price == 0){ echo 'disabled'; } ?>>
-                                                            <input class="plus" value="+" type="button" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
+                                                            <input class="plus" value="+" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>> -->
 
                                                         </td>
                                                         <td class="table-front">
@@ -932,6 +932,23 @@ if (isset($variantArr) && count($variantArr)>0) {
 ?>
 <?= $this->include('front/layout/footer'); ?>
 <script>
+
+$(document).ready(function() {
+    $('.plus').click(function() {
+        var amount = $(this).data('amount');
+        if(amount == 0.00){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Validation Error',
+                text: 'Product price not define',
+            }).then(function() {
+                // location.reload();
+                $('.minus').click();
+            });
+        }
+    });
+});
+
 $(document).ready(function() {
     $("#accordian div").click(function() {
         var link = $(this);
@@ -976,6 +993,7 @@ jQuery(document).ready(function($){
 
 <script>
     var variantQtyInputs = document.querySelectorAll('.variant-qty');
+
 
     // Add event listeners to plus/minus buttons for each variant
     var minusButtons = document.querySelectorAll('.minus');
@@ -1039,12 +1057,12 @@ jQuery(document).ready(function($){
             var prices = <?php echo json_encode(array_column($variantArr, 'variant_price')); ?>;
             var segmentValue = document.getElementById('segment').value;
 
-
             var totalPrices = [];
             for (var i = 0; i < variantQtys.length; i++) {
                 var total = parseFloat(variantQtys[i]) * parseFloat(prices[i]);
                 totalPrices.push(total.toFixed(2));
             }
+
 
             $.ajax({
                 url: '<?php echo base_url(); ?>add_cart', // Replace with the server-side script URL
