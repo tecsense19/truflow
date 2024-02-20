@@ -479,7 +479,11 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 <h3><?php echo $variantArr[0]['parent'] ?></h3>
                                             </div>
                                         </div>
+                                        <p><b><?php echo $variantArr[0]['product_short_description']; ?></b></p>
+                                        <p><b><?php echo $variantArr[0]['product_description']; ?></b></p>
                                         <?php 
+                                        
+                                        /*
                                         $minprice = round($minMaxPrice->min_price,2);
                                         $maxprice = round($minMaxPrice->max_price,2);
                                         ?>
@@ -513,7 +517,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 <?Php } ?>
                                             </div>
                                             <h6 class="rating"><?php echo $rating; ?> : Review </h6>
-                                        </div>
+                                        </div> */?>
                                     </div>
                                 </div>
                             </div>
@@ -572,7 +576,8 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 ?>
                                                     <tr style=" box-shadow: 2px 2px 12px -2px rgb(50, 50, 50); border:5px solid white;">
                                                         <td class="table-front"><h5><?php echo $variant['variant_sku']; ?></h5></td>
-                                                        <td class="table-front"><h6 class="space"><?php echo $variant['product_short_description']; ?></h6></td>
+                                                        <!-- <td class="table-front"><h6 class="space"><?php //echo $variant['product_short_description']; ?></h6></td> -->
+                                                        <td class="table-front"><h6 class="space"><?php echo $variant['variant_name']; ?></h6></td>
                                                         <td class="table-front">
                                                             <input class="minus" value="-" type="button"  data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
                                                             <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>

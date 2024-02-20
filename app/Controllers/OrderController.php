@@ -457,7 +457,7 @@ class OrderController extends BaseController
                             <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
                                 <tr>
                                     <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125" height="120" style="display: block; border: 0px;" /><br>
+                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125"  style="display: block; border: 0px;" /><br>
                                         <h3>
                                             User Name: '. $UserEmail .'
                                         </h3>
