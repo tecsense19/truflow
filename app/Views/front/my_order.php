@@ -87,7 +87,8 @@
                         ?>
                           <tr>
                               <td><?php echo $order['variant_sku']; ?></td>
-                              <td colspan="5"><?php echo $order['product_short_description']; ?></td>
+                              <!-- <td colspan="5"><?php //echo $order['product_short_description']; ?></td> -->
+                              <td colspan="5"><?php echo $order['variant_name']; ?></td>
                               <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');

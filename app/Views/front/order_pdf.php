@@ -52,7 +52,7 @@
                 <tr>
                     <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
                         <!-- <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.png" width="125" height="120" style="display: block; border: 0px;" /> -->
-                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.webp" width="125" height="120" style="display: block; border: 0px;" />
+                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.webp" width="125" style="display: block; border: 0px;" />
                         <br>
                         <h2>
                             Thank You For Your Order!
