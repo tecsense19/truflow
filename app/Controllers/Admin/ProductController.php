@@ -454,7 +454,8 @@ class ProductController extends BaseController
         return $result;
     }
 
-    public function exportToCSV()
+    // xlsx export code
+    /*public function exportToCSV()
     {
         // Assuming you have a model named YourCategoryModel
         $categoryModel = new CategoryModel();
@@ -663,7 +664,265 @@ class ProductController extends BaseController
         // Save the Excel file to php://output
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
+    }*/
+
+    // csv export code
+    public function exportToCSV()
+    {
+        // Fetch data from the database
+        $allData = $this->processCategories();
+
+        // Set CSV file name
+        $filename = 'exported_data.csv';
+
+        // Open file handle for writing
+        $file = fopen('php://output', 'w');
+
+        // Write CSV headers
+        fputcsv($file, [
+            'product_name',
+            'variant_name',
+            'variant_price',
+            'variant_sku',
+            'variant_stock',
+            'parent',
+            'Favourite',
+            'Product Description',
+            'Short Description',
+            'Information',
+            'Variant Header 1',
+            'Variant Header 2',
+            'Variant Header 3',
+            'Variant Header 4',
+            'discount code',
+            'GroupName',
+            'Sort',
+            'Image',
+            'category_name',
+            'sub_category_name',
+            'child_level_1',
+            'child_level_2',
+            'child_level_3',
+            'child_level_4',
+            'child_level_5'
+        ]);
+
+        // Write data to CSV
+        foreach ($allData as $val) {
+            $categoryName = $val['category_name'];
+            foreach ($val['sub_category'] as $subCat) {
+                $subCategoryName = $subCat['sub_category_name'];
+                foreach ($subCat['child_arr'] as $child) {
+                    foreach ($child['child_arr'] as $value) {
+                        foreach ($value['child_arr'] as $values) {
+                            foreach ($values['product_arr'] as $product) {
+                                // echo '<pre>';print_r($product);echo '</pre>';
+                                fputcsv($file, [
+                                    $product['product_name'],
+                                    '', // variant_name
+                                    '', // variant_price
+                                    '', // variant_sku
+                                    '', // variant_stock
+                                    '', // parent
+                                    $product['product_favourite'],
+                                    $product['product_description'],
+                                    $product['product_short_description'],
+                                    $product['product_additional_info'],
+                                    $product['product_header1'],
+                                    $product['product_header2'],
+                                    $product['product_header3'],
+                                    $product['product_header4'],
+                                    '', // discount code
+                                    '', // groupname
+                                    $product['sort'],
+                                    base_url() . $product['product_img_csv'],
+                                    $categoryName,
+                                    $subCategoryName,
+                                    $child['child_sub_category_name'],
+                                    $value['child_sub_category_name'],
+                                    $values['child_sub_category_name'],
+                                    '', // child_level_4
+                                    '' // child_level_5
+                                ]);
+                                foreach ($product['variant_arr'] as $variant) {
+                                    fputcsv($file, [
+                                        '', // product_name
+                                        $variant['variant_name'],
+                                        $variant['variant_price'],
+                                        $variant['variant_sku'],
+                                        $variant['variant_stock'],
+                                        $variant['parent'],
+                                        '', // product_favourite
+                                        '', // product_description
+                                        '', // product_short_description
+                                        '', // product_additional_info
+                                        "'".$variant['variant_description'],
+                                        "'".$variant['variant_description_1'],
+                                        "'".$variant['variant_description_2'],
+                                        "'".$variant['variant_description_3'],
+                                        '', // product_header1
+                                        // '', // product_header2
+                                        // '', // product_header3
+                                        // '', // product_header4
+                                        // '', // discount code
+                                        $variant['group_name'],
+                                        "'".$variant['sort'],
+                                        '', // Image - Not included as it's already in the product row
+                                        '', // category_name - Not included as it's already in the product row
+                                        '', // sub_category_name - Not included as it's already in the product row
+                                        '', // child_level_1 - Not included as it's already in the product row
+                                        '', // child_level_2 - Not included as it's already in the product row
+                                        '', // child_level_3 - Not included as it's already in the product row
+                                        '', // child_level_4
+                                        '' // child_level_5
+                                    ]);
+                                }
+                            }
+                        }
+
+                        foreach ($value['product_arr'] as $product) {
+                            // echo '<pre>';print_r($product);echo '</pre>';
+                            fputcsv($file, [
+                                $product['product_name'],
+                                '', // variant_name
+                                '', // variant_price
+                                '', // variant_sku
+                                '', // variant_stock
+                                '', // parent
+                                $product['product_favourite'],
+                                $product['product_description'],
+                                $product['product_short_description'],
+                                $product['product_additional_info'],
+                                $product['product_header1'],
+                                $product['product_header2'],
+                                $product['product_header3'],
+                                $product['product_header4'],
+                                '', // discount code
+                                '', // group_name
+                                "'".$product['sort'],
+                                base_url() . $product['product_img_csv'],
+                                $categoryName,
+                                $subCategoryName,
+                                $child['child_sub_category_name'],
+                                $value['child_sub_category_name'],
+                                // $values['child_sub_category_name'],
+                                '', // child_level_4
+                                '' // child_level_5
+                            ]);
+                            foreach ($product['variant_arr'] as $variant) {
+                                fputcsv($file, [
+                                    '', // product_name
+                                    $variant['variant_name'],
+                                    $variant['variant_price'],
+                                    $variant['variant_sku'],
+                                    $variant['variant_stock'],
+                                    $variant['parent'],
+                                    '', // product_favourite
+                                    '', // product_description
+                                    '', // product_short_description
+                                    '', // product_additional_info
+                                    "'".$variant['variant_description'],
+                                    "'".$variant['variant_description_1'],
+                                    "'".$variant['variant_description_2'],
+                                    "'".$variant['variant_description_3'],
+                                    '', // product_header1
+                                    // '', // product_header2
+                                    // '', // product_header3
+                                    // '', // product_header4
+                                    // '', // discount code
+                                    $variant['group_name'],
+                                    "'".$variant['sort'],
+                                    '', // Image - Not included as it's already in the product row
+                                    '', // category_name - Not included as it's already in the product row
+                                    '', // sub_category_name - Not included as it's already in the product row
+                                    '', // child_level_1 - Not included as it's already in the product row
+                                    '', // child_level_2 - Not included as it's already in the product row
+                                    '', // child_level_3 - Not included as it's already in the product row
+                                    '', // child_level_4
+                                    '' // child_level_5
+                                ]);
+                            }
+                        }
+                    }
+                    foreach ($child['product_arr'] as $product) {
+                        // echo '<pre>';print_r($product);echo '</pre>';
+                        fputcsv($file, [
+                            $product['product_name'],
+                            '', // variant_name
+                            '', // variant_price
+                            '', // variant_sku
+                            '', // variant_stock
+                            '', // parent
+                            $product['product_favourite'],
+                            $product['product_description'],
+                            $product['product_short_description'],
+                            $product['product_additional_info'],
+                            $product['product_header1'],
+                            $product['product_header2'],
+                            $product['product_header3'],
+                            $product['product_header4'],
+                            '', // discount code
+                            '', // group_name
+                            "'".$product['sort'],
+                            base_url() . $product['product_img_csv'],
+                            $categoryName,
+                            $subCategoryName,
+                            $child['child_sub_category_name'],
+                            // $value['child_sub_category_name'],
+                            // $values['child_sub_category_name'],
+                            '', // child_level_4
+                            '' // child_level_5
+                        ]);
+                        foreach ($product['variant_arr'] as $variant) {
+                            fputcsv($file, [
+                                '', // product_name
+                                $variant['variant_name'],
+                                $variant['variant_price'],
+                                $variant['variant_sku'],
+                                $variant['variant_stock'],
+                                $variant['parent'],
+                                '', // product_favourite
+                                '', // product_description
+                                '', // product_short_description
+                                '', // product_additional_info
+                                "'".$variant['variant_description'],
+                                "'".$variant['variant_description_1'],
+                                "'".$variant['variant_description_2'],
+                                "'".$variant['variant_description_3'],
+                                '', // product_header1
+                                // '', // product_header2
+                                // '', // product_header3
+                                // '', // product_header4
+                                // '', // discount code
+                                $variant['group_name'],
+                                "'".$variant['sort'],
+                                '', // Image - Not included as it's already in the product row
+                                '', // category_name - Not included as it's already in the product row
+                                '', // sub_category_name - Not included as it's already in the product row
+                                '', // child_level_1 - Not included as it's already in the product row
+                                '', // child_level_2 - Not included as it's already in the product row
+                                '', // child_level_3 - Not included as it's already in the product row
+                                '', // child_level_4
+                                '' // child_level_5
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Close the file handle
+        fclose($file);
+
+        // Set headers for download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        // Exit script
+        exit;
     }
+
 
     function handleChildArrays($childArr, &$rows, $sheet) {
         foreach ($childArr as $child) {
