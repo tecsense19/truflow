@@ -1,0 +1,8 @@
+CRITICAL - 2024-02-27 09:36:09 --> Unable to save the image. Please make sure the image and file directory are writable.
+in SYSTEMPATH\Images\Handlers\GDHandler.php on line 251.
+ 1 SYSTEMPATH\Images\Handlers\GDHandler.php(251): CodeIgniter\Images\Exceptions\ImageException::forSaveFailed()
+ 2 APPPATH\Controllers\Admin\CsvController.php(112): CodeIgniter\Images\Handlers\GDHandler->save('public/admin/images/product/1709026565_GML1M.jpg', 80)
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\CsvController->processCSV()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\CsvController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
