@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Models\CategoryModel;
-use App\Models\SubcategoryModel;
+use App\Models\SubCategoryModel;
 use App\Models\ChildSubCategoryModel;
 use App\Models\ProductModel;
 use App\Models\VariantsModel;
@@ -15,7 +15,7 @@ class CsvController extends BaseController
     {
         $session = session();
         $categoryModel = new CategoryModel();
-        $subcategoryModel = new SubcategoryModel();
+        $subcategoryModel = new SubCategoryModel();
         $childsubcategorymodel = new ChildSubCategoryModel();
         $productModel = new ProductModel();
         $variantModel = new VariantsModel();
