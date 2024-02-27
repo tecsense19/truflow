@@ -182,7 +182,7 @@ class CsvController extends BaseController
                 $productName = utf8_encode($row[0]);
                 $Favourite   = utf8_encode($row[6]);
                 $ProductDescription = utf8_encode($row[7]);
-                $shortDescription = utf8_encode($row[8]);
+                $shortDescription = str_replace('Â°', '°', utf8_encode($row[8]));
                 $information = utf8_encode($row[9]);
                 $vheader1 = utf8_encode($row[10]);
                 $vheader2 = utf8_encode($row[11]);
@@ -249,7 +249,7 @@ class CsvController extends BaseController
                 }
           
                 // Variant details
-                $variantName = utf8_encode($row[1]);
+                $variantName = str_replace('Â°', '°', utf8_encode($row[1]));
                 $variantPrice = utf8_encode($row[2]);
                 $variantSku = utf8_encode($row[3]);
                 $stock = utf8_encode($row[4]);
