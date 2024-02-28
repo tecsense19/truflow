@@ -25,6 +25,7 @@ class OrderModel extends Model
         'shipping',
         'account_number',
         'courier',
+        'purchase_order_number',
         'notes',
         'ship_to_diff_address',
         'order_date'

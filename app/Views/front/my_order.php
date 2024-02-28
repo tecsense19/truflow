@@ -69,6 +69,15 @@
                               On a account
                             <?php } ?>
                           </th>
+                          <?php if($orderData[0]['pay_method'] == 'onaaccount') { ?>
+                          <th colspan="1" style="white-space: nowrap;">
+                            Purchase Order number: <br>
+                              <?php if(isset($orderData[0]['purchase_order_number'])) { 
+                               echo $orderData[0]['purchase_order_number'];
+                              ?>
+                            <?php }  ?>
+                          </th>
+                          <?php }  ?>
                           <!-- <th colspan="1"></th> -->
                           <th colspan="4" style="text-align: end;">Cancel Order: <a href="#" class="btn btn-sm btn-danger OrderStatus" data-id="<?php echo $orderId; ?>"><i class="fa fa-close" aria-hidden="true"></i></a></th>
                       </tr>
