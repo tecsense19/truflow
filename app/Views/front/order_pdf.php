@@ -119,6 +119,12 @@
                               On a account
                             <?php } ?>
                         </td>
+
+                        <?php if($orderData[0]['pay_method'] == 'onaaccount') { ?>
+                            <td align="right" bgcolor="#eeeeee">
+                                Purchase Order number: <?php echo $orderData[0]['purchase_order_number']; ?>
+                            </td>
+                        <?php } ?>
                     </tr>
                 </table>
                 <br>

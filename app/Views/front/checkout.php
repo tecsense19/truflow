@@ -364,6 +364,11 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         <div class="stripebutton" style="display:none;">
                         </div>
 
+                        <div class="purchase_order_number" style="display:none;">
+                            <div>
+                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order number" >
+                            </div>
+                        </div>
                         
                         <?php if(!$user_id){ ?>
                             <input id="guest_account_create" name="guest_account_create" value="guest_account_create" type="hidden" >
@@ -496,7 +501,8 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
             //     if(selectedShippingOption && $('#read_all').is(':checked')){
             if(selectedShippingOption == 'cash' || selectedShippingOption == 'onaaccount'){
                 var selectedShippingvalue = $('input[name="shipping_value"]:checked').val();
-                if(selectedShippingvalue && $('#read_all').is(':checked')){
+                var purchaseOrderNumber = $('#purchase_order_number').val().trim();
+                if(selectedShippingvalue && $('#read_all').is(':checked') && (selectedShippingOption != 'onaaccount' || purchaseOrderNumber)){
                     $('#product_form').submit();
                 }
             }
@@ -535,6 +541,33 @@ $(document).ready(function() {
             $('#accountNumber').attr('required', false);
             $('#courier').attr('required', false);
             $('#additionalFields').hide();
+        }
+    });
+
+    var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+
+    // Show or hide additional fields based on the selected shipping option
+    if (selectedShippingOption === 'onaaccount') {
+        $('.purchase_order_number').show();
+        $('#purchase_order_number').attr('required', true);
+    } else {
+        $('#purchase_order_number').val('');
+        $('#purchase_order_number').attr('required', false);
+        $('.purchase_order_number').hide();
+    }
+
+    $('input[name="pay_method"]').on('change', function() {
+        // Check the selected shipping option
+        var selectedShippingOption = $('input[name="pay_method"]:checked').val();
+
+        // Show or hide additional fields based on the selected shipping option
+        if (selectedShippingOption === 'onaaccount') {
+            $('.purchase_order_number').show();
+            $('#purchase_order_number').attr('required', true);
+        } else {
+            $('#purchase_order_number').val('');
+            $('#purchase_order_number').attr('required', false);
+            $('.purchase_order_number').hide();
         }
     });
 

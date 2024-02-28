@@ -56,7 +56,7 @@ class OrderController extends BaseController
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
             ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
             ->join('company', 'company.company_name = users.company_name', 'left')
-            ->where('add_to_cart.user_id', $userId)
+            ->where('add_to_cart.user_id', $userId)->groupBy('add_to_cart.cart_id')
             //->where('company.company_name', $componey_name)
             ->get();
         }else{
@@ -266,6 +266,7 @@ class OrderController extends BaseController
             $courier = $this->request->getVar('courier');
             $notes = $this->request->getVar('notes');
             $ship_to_diff_address = $this->request->getVar('ship_to_diff_address');
+            $purchase_order_number = $this->request->getVar('purchase_order_number');
     
             $data = array(
                 'user_id' => $user_id,
@@ -281,6 +282,7 @@ class OrderController extends BaseController
                 'courier' => $courier,
                 'notes' => $notes,
                 'ship_to_diff_address' => $ship_to_diff_address,
+                'purchase_order_number' => $purchase_order_number,
                 'order_date' => date('Y-m-d H:i:s')
             );
     
