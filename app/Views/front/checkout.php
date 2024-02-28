@@ -28,8 +28,15 @@ if (isset($_GET['free_shipping'])) {
 if (isset($_GET['error'])) {
   $_SESSION['error'] = $_GET['error'];
 }
+use App\Models\CompanyModel;
+$usermodel = new CompanyModel();
 if($user_id){
-    $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
+    $company_name = isset($cartData) ? $cartData[0]['company_name'] : '';
+    $getCompany = $usermodel->where('company_name',$company_name)->first();
+
+    $company_id = $getCompany ? $getCompany['company_id'] : '';
+    
+    // echo '<pre>';print_r($company_id);echo '</pre>';die;
 }else{
     $company_id = isset($cartData);
 }
