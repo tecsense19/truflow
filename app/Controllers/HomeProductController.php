@@ -111,7 +111,7 @@ class HomeProductController extends BaseController
                                     }
                                     else
                                     {
-                                        $productData = $productmodel->where('sub_category_id', $getSubCategoryData->sub_category_id)->where('child_id', $getChild->child_id)->findAll();
+                                        $productData = $productmodel->where('sub_category_id', $getSubCategoryData->sub_category_id)->where('child_id', $getChild->child_id)->where('deleted_at', 0)->findAll();
                                     }  
                                 }
     
@@ -333,7 +333,7 @@ class HomeProductController extends BaseController
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         foreach ($childArr as &$child) {
             // Fetch products for the current child subcategory
-            $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->findAll();
+            $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->where('deleted_at', 0)->findAll();
             $childProductArr = $this->fetchProductDetails($childSubCategoryProducts);
 
             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $child['child_id'])->findAll();
@@ -428,7 +428,7 @@ class HomeProductController extends BaseController
                 $subCategory = $this->processCategory($subCategory);
 
                 // Fetch products for the current subcategory
-                $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->findAll();
+                $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('deleted_at', 0)->where('child_id', -1)->findAll();
                 $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
 
                 $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];

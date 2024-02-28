@@ -21,7 +21,7 @@ class ProductController extends BaseController
         $productmodel = new ProductModel();
         $CouponModel = new CouponModel();
 
-        $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')
+        $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')->where('deleted_at', 0)
             ->join('category', 'category.category_id = product.category_id')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
             ->find();
@@ -351,7 +351,7 @@ class ProductController extends BaseController
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         foreach ($childArr as &$child) {
             // Fetch products for the current child subcategory
-            $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
+            $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->where('deleted_at', 0)->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
             $childProductArr = $this->fetchProductDetails($childSubCategoryProducts);
 
             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $child['child_id'])->findAll();
@@ -434,7 +434,7 @@ class ProductController extends BaseController
                 $subCategory = $this->processCategory($subCategory);
 
                 // Fetch products for the current subcategory
-                $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('child_id', -1)->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
+                $subCategoryProducts = $productmodel->where('sub_category_id', $subCategory['sub_category_id'])->where('deleted_at', 0)->where('child_id', -1)->orderBy("CAST(sort AS SIGNED)", 'asc')->findAll();
                 $subCategoryProductArr = $this->fetchProductDetails($subCategoryProducts);
 
                 $subCategory['child_arr'] = $subCategory['child_arr'] ?? [];
