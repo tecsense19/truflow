@@ -31,6 +31,7 @@ class ProductModel extends Model
         'product_header4',
         'product_favourite',
         'sort',
+        'deleted_at',
     ];
 
     // Dates

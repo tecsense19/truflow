@@ -26,6 +26,13 @@ class CsvController extends BaseController
         // Check if a file was uploaded
         if ($csvFile->isValid() && $csvFile->getExtension() === 'csv') {
             // Open the CSV file
+            // $productModel->set(['deleted_at' => '1'])->update();
+            $db = \Config\Database::connect();
+            $data = [
+                'deleted_at' => 1,
+                // Add more columns and values as needed
+            ];
+            $db->table('product')->update($data);
             $csvData = array_map('str_getcsv', file($csvFile->getTempName()));
 
             $categoryName = null;
@@ -221,6 +228,7 @@ class CsvController extends BaseController
                         'product_additional_info' => $information,
                         'product_favourite' => $Favourite,
                         'coupon_id' => $CouponId,
+                        'deleted_at' => 0,
                         'sort' => trim($sort, "'"),
                     ];
 
