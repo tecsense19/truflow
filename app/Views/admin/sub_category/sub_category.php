@@ -6,6 +6,7 @@ $sub_category_name = isset($subcategoryData) ? $subcategoryData['sub_category_na
 $sub_category_description = isset($subcategoryData) ? $subcategoryData['sub_category_description'] : '';
 $sub_category_img = isset($subcategoryData) ? $subcategoryData['sub_category_img'] : '';
 $sub_category_featured = isset($subcategoryData) ? $subcategoryData['sub_category_featured'] : '';
+$sub_category_sort = isset($subcategoryData) ? $subcategoryData['sub_category_sort'] : '';
 
 ?>
 
@@ -69,6 +70,10 @@ $sub_category_featured = isset($subcategoryData) ? $subcategoryData['sub_categor
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Sub Category Description</label>
                                 <textarea id="sub_category_description" name="sub_category_description" class="form-control" placeholder="sub category Description"><?php echo $sub_category_description; ?></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">Sub Category Name</label>
+                                <input type="number" value="<?php echo $sub_category_sort; ?>" class="form-control" id="sub_category_sort" name="sub_category_sort" placeholder="Sub Category Sort" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">sub_category Image</label>

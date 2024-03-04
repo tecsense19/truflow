@@ -353,7 +353,7 @@ class HomeProductController extends BaseController
     // Recursive function to process categories
     function processCategory($category) {
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->findAll();
+        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->orderBy('child_sub_cate_sort','ASC')->findAll();
 
         foreach ($childSubCategories as $childSubCategory) {
             $childSubCategory = $this->processChildCategory($childSubCategory);
@@ -414,7 +414,7 @@ class HomeProductController extends BaseController
         $subcategorymodel = new SubCategoryModel();
         $productmodel = new ProductModel();
 
-        $categoryData = $categorymodel->find();
+        $categoryData = $categorymodel->orderBy('category_sort', 'ASC')->find();
 
         $result = [];
 
@@ -422,7 +422,7 @@ class HomeProductController extends BaseController
             $subcategory_array = [];
 
             // Fetch subcategories for the current category
-            $subcategories = $subcategorymodel->where('category_id', $category['category_id'])->findAll();
+            $subcategories = $subcategorymodel->where('category_id', $category['category_id'])->orderBy('sub_category_sort','ASC')->findAll();
 
             foreach ($subcategories as $subCategory) {
                 $subCategory = $this->processCategory($subCategory);

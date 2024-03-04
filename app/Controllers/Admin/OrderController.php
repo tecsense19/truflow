@@ -27,8 +27,70 @@ class OrderController extends BaseController
         $ordermodel = new OrderModel();
         $orderitemmodel = new OrderItemModel();
         $cartData = $orderitemmodel->find();
+        
 
-        $query = $ordermodel->select('*')
+        
+        // Get the request object
+        $request = service('request');
+
+        // Fetch the 'status' query parameter from the URL
+        $status = $request->getGet('status');
+
+        if($status == "pending")
+        {
+            $query = $ordermodel->select('*')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')->where('tbl_order.order_status', 'Pending')
+            ->orderBy('tbl_order.order_id', 'desc')
+            ->get();    
+
+            $newCartData = [];
+            $cartData = $query->getResultArray();
+            foreach($cartData as $cart){
+                $cart['product_item'] = $orderitemmodel->select('*')
+                ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            ->join('product', 'product.product_id = order_items.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = order_items.sub_category_id', 'left')
+            ->join('category', 'category.category_id = order_items.category_id', 'left')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->join('shipping_address', 'users.user_id = tbl_order.user_id', 'left')
+            ->where('order_items.order_id', $cart['order_id'])
+                
+                ->findAll();
+
+             
+                $newCartData[] = $cart;
+            }
+            // $lastQuery = $orderitemmodel->getLastQuery();
+            // echo "Last Query: " . $lastQuery . "<br>";
+            // die;
+        }elseif ($status == "approved") {
+            $query = $ordermodel->select('*')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')->where('tbl_order.order_status', 'Approved')
+            ->orderBy('tbl_order.order_id', 'desc')
+            ->get();    
+
+            $newCartData = [];
+            $cartData = $query->getResultArray();
+            foreach($cartData as $cart){
+                $cart['product_item'] = $orderitemmodel->select('*')
+                ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+            ->join('product', 'product.product_id = order_items.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = order_items.sub_category_id', 'left')
+            ->join('category', 'category.category_id = order_items.category_id', 'left')
+            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+            ->join('shipping_address', 'users.user_id = tbl_order.user_id', 'left')
+            ->where('order_items.order_id', $cart['order_id'])
+                
+                ->findAll();
+
+             
+                $newCartData[] = $cart;
+            }
+        }
+        else{
+            $query = $ordermodel->select('*')
             ->join('users', 'users.user_id = tbl_order.user_id', 'left')
             ->orderBy('tbl_order.order_id', 'desc')
             ->get();    
@@ -49,6 +111,9 @@ class OrderController extends BaseController
                 ->findAll();
                 $newCartData[] = $cart;
             }
+        }
+
+        
 
             // echo "<pre>";
             // print_r($newCartData);

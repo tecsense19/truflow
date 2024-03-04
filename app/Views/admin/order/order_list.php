@@ -31,7 +31,7 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Email</th>
-
+                                            <th>Company Name</th>
                                             <th>Order Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -41,11 +41,13 @@
                                         $i = 1;
                                         if (isset($cartData)) { ?>
 
-                                            <?php foreach ($cartData as $cart) {  ?>
+                                            <?php foreach ($cartData as $cart) { 
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $cart['full_name']; ?></td>
                                                     <td><?php echo $cart['email']; ?></td>
+                                                    <td><?php echo $cart['company_name']; ?></td>
 
 
                                                     <td><?php echo $cart['order_status']; ?></td>
