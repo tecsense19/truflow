@@ -1,4 +1,29 @@
 <?= $this->include('admin/layout/front') ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
+<style>
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    display: block;
+    width: 100%;
+    padding: 0.4375rem 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.53;
+    color: #697a8d;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d9dee3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: unset !important;
+    border-radius: 4px;
+}
+</style>
 <?php
 // echo "<pre>";
 // print_r($userData);
@@ -92,7 +117,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label" for="last_name">Company name :</label>
                                     <select name="company_name" id="company_name" data-val="true"
-                                        data-val-required="Company name is required." class="form-control"
+                                        data-val-required="Company name is required." class="js-example-basic-single form-control"
                                         aria-label="Default select example">
                                         <option value="">Please select any company</option>
                                         <?php if(isset($companyData)){?>
@@ -231,6 +256,17 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
 <!-- Content wrapper -->
 <?= $this->include('admin/layout/footer') ?>
 <script src="<?php echo base_url(); ?>/public/admin/js/form_validation.js"></script>
+
+  <!-- Include jQuery (required for Select2) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include Select2 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
 
 <script>
 $(document).ready(function() {
