@@ -6,6 +6,7 @@ $category_id = isset($childData) ? $childData['category_id'] : '';
 $sub_category_id = isset($childData) ? $childData['sub_category_id'] : '';
 $sub_chid_id = isset($childData) ? $childData['sub_chid_id'] : '';
 $child_sub_category_featured = isset($childData) ? $childData['child_sub_category_featured'] : '';
+$child_sub_cate_sort = isset($childData) ? $childData['child_sub_cate_sort'] : '';
 
 
 
@@ -69,6 +70,10 @@ $child_sub_category_featured = isset($childData) ? $childData['child_sub_categor
                                 <?php
                                  }
                             } ?> 
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="child_sub_cate_sort">Child Sub Category Sort</label>
+                                <input type="number" value="<?php echo $child_sub_cate_sort; ?>" class="form-control" id="child_sub_cate_sort" name="child_sub_cate_sort" placeholder="Sort" />
                             </div>
                         </div>
                     </div>

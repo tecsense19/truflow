@@ -5,6 +5,7 @@ $category_name = isset($categoryData) ? $categoryData['category_name'] : '';
 $category_description = isset($categoryData) ? $categoryData['category_description'] : '';
 $category_img = isset($categoryData) ? $categoryData['category_img'] : '';
 $featured_category = isset($categoryData) ? $categoryData['category_featured'] : '';
+$category_sort = isset($categoryData) ? $categoryData['category_sort'] : '';
 ?>
 
 <!-- Content wrapper -->
@@ -52,6 +53,10 @@ $featured_category = isset($categoryData) ? $categoryData['category_featured'] :
             <div class="mb-3">
                 <label class="form-label" for="category_description">Category Description</label>
                 <textarea id="category_description" name="category_description" class="form-control" placeholder="Category Description"><?php echo $category_description;?></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="category_sort">Category Sort</label>
+                <input type="number" value="<?php echo $category_sort;?>" class="form-control" id="category_sort" name="category_sort" placeholder="Sort" />
             </div>
             <div class="mb-3">
                 <label class="form-label" for="category_img">Category Image</label>

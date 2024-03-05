@@ -9,7 +9,7 @@ class CategoryController extends BaseController
     public function index()
     {
         $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->find();
+        $categoryData = $categorymodel->orderBy('category_sort','ASC')->find();
         if (!$categoryData) {
             $categoryData = null;
         }
@@ -32,6 +32,7 @@ class CategoryController extends BaseController
 
         $categoryArr['category_name'] = isset($input['category_name']) ? $input['category_name'] : '';
         $categoryArr['category_description'] = isset($input['category_description']) ? $input['category_description'] : '';
+        $categoryArr['category_sort'] = isset($input['category_sort']) ? $input['category_sort'] : '';
         $categoryArr['category_featured'] = isset($input['featured_category']) ? $input['featured_category'] : '';
         
 

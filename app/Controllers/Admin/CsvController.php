@@ -57,7 +57,7 @@ class CsvController extends BaseController
                 if (isset($row[18]) && trim($row[18]) != '') 
                 {
                     // Category name
-                    $categoryName = utf8_encode(trim($row[18]));
+                    $categoryName = str_replace('Â°', '°', utf8_encode(trim($row[18])));
 
                     // Check if the category already exists
                     $category = $categoryModel->where('category_name', $categoryName)->first();
@@ -72,7 +72,7 @@ class CsvController extends BaseController
 
                 if (isset($row[19]) && trim($row[19]) != '') {
                     // Subcategory name
-                    $subcategoryName = utf8_encode(trim($row[19]));
+                    $subcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[19])));
 
                     // Check if the subcategory already exists
                     $subcategory = $subcategoryModel->where('sub_category_name', $subcategoryName)->where('category_id', $categoryId)->first();
@@ -130,7 +130,8 @@ class CsvController extends BaseController
                     for ($i=20; $i < count($row); $i++) {
                         if($i != 20)
                         {
-                            $childsubcategoryName = utf8_encode(trim($row[$i]));
+                            // $childsubcategoryName = utf8_encode(trim($row[$i]));
+                            $childsubcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[$i])));
                             $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)
                                                                                 ->where('sub_category_name',$row[$i - 1])
                                                                             ->where('category_id', $categoryId)->get()->getRow();
@@ -159,7 +160,7 @@ class CsvController extends BaseController
                         }
                         else
                         {
-                            $childsubcategoryName = utf8_encode(trim($row[$i]));
+                            $childsubcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[$i])));
                             $subcategory = $subcategoryModel->where('sub_category_name', $row[$i - 1])
                                                             ->where('category_id', $categoryId)->get()->getRow();
 
@@ -186,7 +187,7 @@ class CsvController extends BaseController
                 }              
 
                 // Product details
-                $productName = utf8_encode($row[0]);
+                $productName = str_replace('Â°', '°', utf8_encode($row[0]));
                 $Favourite   = utf8_encode($row[6]);
                 $ProductDescription = utf8_encode($row[7]);
                 $shortDescription = str_replace('Â°', '°', utf8_encode($row[8]));

@@ -19,6 +19,7 @@ class SubCategoryModel extends Model
         'sub_category_featured',
         'sub_category_img',
         'category_id',
+        'sub_category_sort',
     ];
 
     // Dates

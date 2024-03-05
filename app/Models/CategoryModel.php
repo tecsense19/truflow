@@ -18,6 +18,7 @@ class CategoryModel extends Model
         'category_description',
         'category_featured',
         'category_img',
+        'category_sort',
         
     ];
 

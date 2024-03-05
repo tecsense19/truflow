@@ -16,6 +16,7 @@ class CompanyModel extends Model
     protected $allowedFields    = [
         'company_name',
         'status',
+        'on_a_account',
         'isdeleted',
         
     ];

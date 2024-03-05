@@ -33,6 +33,7 @@ $usermodel = new CompanyModel();
 if($user_id){
     $company_name = isset($cartData) ? $cartData[0]['company_name'] : '';
     $getCompany = $usermodel->where('company_name',$company_name)->first();
+    // echo '<pre>';print_r($getCompany['on_a_account']);echo '</pre>';
 
     $company_id = $getCompany ? $getCompany['company_id'] : '';
     
@@ -336,7 +337,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                                 <input type="text" class="form-control" id="courier" name="courier" placeholder="Enter Courier" >
                             </div>
                         </div>
-                        <?php if(isset($userData) && $userData[0]['on_a_account']) { ?>
+                        <?php if(isset($getCompany) && $getCompany['on_a_account'] == 1) { ?>
                         <div class="order_list">
                             <span>
                                 <input type="radio" id="on_a_account" name="pay_method" value="onaaccount" required checked>
@@ -345,7 +346,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         </div>
                         <?php } ?>
 
-                        <?php if(isset($userData) && !$userData[0]['on_a_account']) { ?>
+                        <?php if(isset($getCompany) && $getCompany['on_a_account'] == 1) { ?>
                         <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="cash_ond_delivery" name="pay_method" value="cash" checked>
