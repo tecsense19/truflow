@@ -24,6 +24,7 @@ use App\Models\UserContactModel;
 use App\Models\SliderModel;
 use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
+use App\Models\UserLoginReportModel;
 
 
 
@@ -390,6 +391,7 @@ class UserController extends BaseController
     {
         $session = session();
         $model = new UserModel();
+        $UserLoginReportModel = new UserLoginReportModel();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
@@ -409,6 +411,17 @@ class UserController extends BaseController
                         'logged_in' => true,
                     ];
                     $session->set($ses_data);
+
+
+                    // $db = \Config\Database::connect();
+                    // $db->table('users')->where('user_id', $user_id)->insert($dataToUpdate);
+                    $user_id = $checkExists['user_id'];
+                    $dataToUpdate = [
+                        'user_id' => $user_id, 
+                        'last_login_time' => date('Y-m-d H:i:s')
+                    ];
+                    $UserLoginReportModel->insert($dataToUpdate);
+
 
                     $product_details = $session->get('product_details');
 
@@ -439,7 +452,15 @@ class UserController extends BaseController
 
     public function logout()
     {
+        $UserLoginReportModel = new UserLoginReportModel();
         $session = session();
+        $user_id = $session->get('user_id');
+        $checkExists = $UserLoginReportModel->where('user_id', $user_id)->orderBy('created_at', 'DESC')->first();
+        $dataToUpdate = [
+            'last_logout_time' => date('Y-m-d H:i:s')
+        ];
+        $db = \Config\Database::connect();
+        $db->table('user_login_detail_report')->where('id', $checkExists['id'])->update($dataToUpdate);
         $session->destroy();
         return redirect()->to('/');
     }
