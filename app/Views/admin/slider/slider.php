@@ -2,6 +2,7 @@
 <?php 
 $slider_id = isset($sliderData) ? $sliderData['slider_id'] : '';
 $slider_name = isset($sliderData) ? $sliderData['slider_path'] : '';
+$slider_link = isset($sliderData) ? $sliderData['slider_link'] : '';
 
 ?>
 
@@ -32,6 +33,10 @@ $slider_name = isset($sliderData) ? $sliderData['slider_path'] : '';
     <input type="file" class="form-control" id="slider_path" name="slider_path[]" placeholder="Upload Images" multiple required/>
     <input type="hidden" name="slider_id" value="<?php echo $slider_id;?>">
 </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Slider Name</label>
+                            <input type="text" class="form-control" id="slider_link" name="slider_link" value="<?php echo $slider_link;?>" placeholder="Slider link" multiple required/>
+                        </div>
 
                            
                         </div>

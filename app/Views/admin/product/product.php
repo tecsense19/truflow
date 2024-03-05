@@ -23,6 +23,10 @@
   width: 0;
 }
 
+.table > :not(:first-child) {
+    border-top: unset !important;
+}
+
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
@@ -260,12 +264,11 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                         <div class="card-body">
                             <button id="add-btn" class="btn btn-primary">Add Variant</button>
                             <div id="input-container">
-                                <table class="table">
+                                <!-- <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Variant Name</th>
                                             <th>Variant Price</th>
-                                            <!-- <th>Variant Header</th> -->
                                             <th>Variant Description</th>
                                             <th></th>
                                             <th>Part Number</th>
@@ -285,7 +288,6 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                                     <td><input type="text" name="variant_name[]" class="form-control" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" /></td>
                                                     <input type="hidden" name="variant_id[]" class="form-control" value="<?php echo $variant['variant_id']; ?>" />
                                                     <td><input type="text" name="variant_price[]" class="form-control" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" /></td>
-                                                    <!-- <td><input type="text" name="variant_header[]" class="form-control" value="<?php //echo $variant['variant_header']; ?>" placeholder="Variant Header" /></td> -->
                                                     <td><input type="text" name="variant_description[]" class="form-control" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" /></td>
                                                     <td><input type="text" name="variant_sku[]" class="form-control" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" /></td>
                                                     <td><input type="text" name="parent[]" class="form-control" value="<?php echo $variant['parent']; ?>" placeholder="parent" /></td>
@@ -297,19 +299,16 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <!-- <td><input type="text" name="variant_header1[]" class="form-control" value="<?php //echo $variant['variant_header_1']; ?>" placeholder="Variant Header 1" /></td> -->
                                                 <td><input type="text" name="variant_description1[]" class="form-control" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Variant Description 1" /></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <!-- <td><input type="text" name="variant_header2[]" class="form-control" value="<?php //echo $variant['variant_header_2']; ?>" placeholder="Variant Header 2" /></td> -->
                                                 <td><input type="text" name="variant_description2[]" class="form-control" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Variant Description 2" /></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <!-- <td><input type="text" name="variant_header3[]" class="form-control" value="<?php //echo $variant['variant_header_3']; ?>" placeholder="Variant Header 3" /></td> -->
                                                 <td><input type="text" name="variant_description3[]" class="form-control" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Variant Description 3" /></td>
                                             </tr>
                                         <?php
@@ -317,7 +316,31 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                         }
                                         ?>
                                     </tbody>
-                                </table>
+                                </table> -->
+                                <div class="table">
+                                    <?php
+                                        if (isset($variantData)) {
+                                            foreach ($variantData as $variant) {
+                                        ?>
+                                        <div class="varient-card"><hr>
+                                            <span>Variant Name</span><input type="text" name="variant_name[]" class="form-control mb-3" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" />
+                                            <input type="hidden" name="variant_id[]" class="form-control mb-3" value="<?php echo $variant['variant_id']; ?>" />
+                                            <span>Variant Price</span><input type="text" name="variant_price[]" class="form-control mb-3" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" />
+                                            <span>Variant Description</span><input type="text" name="variant_description[]" class="form-control mb-2" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" />
+                                            <input type="text" name="variant_description1[]" class="form-control mb-2" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Variant Description 1" />
+                                            <input type="text" name="variant_description2[]" class="form-control mb-2" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Variant Description 2" />
+                                            <input type="text" name="variant_description3[]" class="form-control mb-3" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Variant Description 3" />
+                                            <span>Variant SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" />
+                                            <span>Part Number</span><input type="text" name="parent[]" class="form-control mb-3" value="<?php echo $variant['parent']; ?>" placeholder="parent" />
+                                            <span>Variant Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" value="<?php echo $variant['variant_stock']; ?>" placeholder="Variant Stock" />
+                                            <span>Group Name</span><input type="text" name="group_name[]" class="form-control mb-3" value="<?php echo $variant['group_name']; ?>" placeholder="Group Name" />
+                                            <span>Sort</span><input type="text" name="sort[]" class="form-control mb-3" value="<?php echo $variant['sort']; ?>" placeholder="Sort" />
+                                            <a class="btn btn-danger" href="<?php echo base_url('') . "admin/variant/delete/" . $variant['variant_id'] ?>">Remove</a></td>
+                                        </div>
+                                        <?php
+                                            }
+                                        }?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -613,7 +636,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
 
     $('#add-btn').click(function(e) {
         event.preventDefault();
-        $('#input-container').show();
+        // $('#input-container').show();
 
         var variantSkuValues = []; // Array to store variant SKU values
 
@@ -623,32 +646,26 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
             variantSkuValues.push(skuValue);
         });
 
-        var inputRow = $('<tr class="input-row"></tr>');
-        var variant_name = $('<td><input type="text" name="variant_name[]" class="form-control" placeholder="Variant Name" /></td>');
-        var variant_price = $('<td><input type="text" name="variant_price[]" class="form-control" placeholder="Variant Price" /></td>');
-        var variant_sku = $('<td><input type="text" name="variant_sku[]" class="form-control" placeholder="Part Number" /></td>');
-        var parent = $('<td><input type="text" name="parent[]" class="form-control" placeholder="Part Number" /></td>');
-        var variant_stock = $('<td><input type="text" name="variant_stock[]" class="form-control" placeholder="Variant Stock" /></td>');
-        var group_name = $('<td><input type="text" name="group_name[]" class="form-control" placeholder="Variant Stock" /></td>');
-        var sort = $('<td><input type="text" name="sort[]" class="form-control" placeholder="Variant Stock" /></td>');
-        var variant_description = $('<td><input type="text" name="variant_description[]" class="form-control" placeholder="Variant Description" /></td>');
+        var inputRow = $('<div class="varient-card"><hr></div>');
+        var variant_name = $('<span>Variant Name</span><input type="text" name="variant_name[]" class="form-control mb-3" placeholder="Variant Name" />');
+        var variant_price = $('<span>Variant Price</span><input type="text" name="variant_price[]" class="form-control mb-3" placeholder="Variant Price" />');
+        var variant_sku = $('<span>Variant SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" placeholder="Variant Sku" />');
+        var parent = $('<span>Part Number</span><input type="text" name="parent[]" class="form-control mb-3" placeholder="Part Number" />');
+        var variant_stock = $('<span>Variant Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" placeholder="Variant Stock" />');
+        var group_name = $('<span>Group Name</span><input type="text" name="group_name[]" class="form-control mb-3" placeholder="Group Name" />');
+        var sort = $('<span>Sort</span><input type="text" name="sort[]" class="form-control mb-3" placeholder="Sort" />');
+        var variant_description = $('<span>Variant Description</span><input type="text" name="variant_description[]" class="form-control mb-2" placeholder="Variant Description" />');
         // var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
         var inputRow1 = $('<tr class="input-row_'+ (row_counter1 + 0) +'_'+row_counter+'" data-id="'+ (row_counter1 + 0) +'"></tr>');
         var inputRow2 = $('<tr class="input-row_'+ (row_counter1 + 1) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 1) +'"></tr>');
         var inputRow3= $('<tr class="input-row_'+ (row_counter1 + 2) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 2) +'"></tr>');
-        var blankh1 = $('<td></td>');
-        var blankd1 = $('<td></td>');
-        var blankh2 = $('<td></td>');
-        var blankd2 = $('<td></td>');
-        var blankh3 = $('<td></td>');
-        var blankd3 = $('<td></td>');
         // var variant_header_1 = $('<td><input type="text" name="variant_header1[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_1 = $('<td><input type="text" name="variant_description1[]" class="form-control" placeholder="Variant Description" /></td>');
+        var variant_description_1 = $('<input type="text" name="variant_description1[]" class="form-control mb-2" placeholder="Variant Description 1" />');
         // var variant_header_2 = $('<td><input type="text" name="variant_header2[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_2 = $('<td><input type="text" name="variant_description2[]" class="form-control" placeholder="Variant Description" /></td>');
+        var variant_description_2 = $('<input type="text" name="variant_description2[]" class="form-control mb-2" placeholder="Variant Description 2" />');
         // var variant_header_3 = $('<td><input type="text" name="variant_header3[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_3 = $('<td><input type="text" name="variant_description3[]" class="form-control" placeholder="Variant Description" /></td>');
-        var removeButton = $('<td><button class="btn btn-danger remove-btn" data-id="'+ (row_counter) +'">Remove</button></td>');
+        var variant_description_3 = $('<input type="text" name="variant_description3[]" class="form-control mb-3" placeholder="Variant Description 3" />');
+        var removeButton = $('<button type="button" class="btn btn-danger remove-btn" data-id="'+ (row_counter) +'">Remove</button>');
 
         // Validate variant SKU value
         variant_sku.find('input').blur(function() {
@@ -680,28 +697,17 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         inputRow.append(variant_price);
         // inputRow.append(variant_header);
         inputRow.append(variant_description);
+        inputRow.append(variant_description_1);
+        inputRow.append(variant_description_2);
+        inputRow.append(variant_description_3);
         inputRow.append(variant_sku);
         inputRow.append(parent);
         inputRow.append(variant_stock);
         inputRow.append(group_name);
         inputRow.append(sort);
         inputRow.append(removeButton);
-        inputRow1.append(blankh1);
-        inputRow1.append(blankd1);
-        // inputRow1.append(variant_header_1);
-        inputRow1.append(variant_description_1);
-        inputRow2.append(blankh2);
-        inputRow2.append(blankd2);
-        // inputRow2.append(variant_header_2);
-        inputRow2.append(variant_description_2);
-        inputRow3.append(blankh3);
-        inputRow3.append(blankd3);
-        // inputRow3.append(variant_header_3);
-        inputRow3.append(variant_description_3);
-        $('#input-container tbody').append(inputRow);
-        $('#input-container tbody').append(inputRow1);
-        $('#input-container tbody').append(inputRow2);
-        $('#input-container tbody').append(inputRow3);
+        
+        $('.table').prepend(inputRow);
 
         // Update variantSkuValues array with the new SKU value
         variantSkuValues.push('');
@@ -732,12 +738,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
 // });
         // Remove field
         $(document).on('click', '.remove-btn', function() {
-
-            var Id = $(this).data('id');
-            $('.input-row_0_'+ Id +'').remove();
-            $('.input-row_1_'+ Id +'').remove();
-            $('.input-row_2_'+ Id +'').remove();
-            $(this).closest('.input-row').remove();
+            $(this).closest('.varient-card').remove();
 
         });
 

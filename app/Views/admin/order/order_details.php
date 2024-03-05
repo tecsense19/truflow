@@ -108,23 +108,6 @@
                                                     </tr>
 
                                                 <?php } ?>
-                                                <!-- <tr>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                    <td>Total</td>
-                                                    <td>
-                                                        <?php/*
-                                                        $totalAmount = 0;
-                                                        foreach ($newCartData1 as $order_c) {
-
-                                                            $totalAmount += $order_c['total_amount'];
-                                                        }
-                                                        echo $totalAmount;*/
-                                                        ?>
-                                                    </td>
-                                                    <td></td>
-                                                </tr> -->
                                                 <tr>
                                                     <td></td>
                                                     <td></td>
