@@ -17,6 +17,7 @@ class SliderModel extends Model
         'slider_path',
         'status',
         'isdeleted',
+        'slider_link',
         
     ];
 

@@ -72,7 +72,7 @@ $sub_category_sort = isset($subcategoryData) ? $subcategoryData['sub_category_so
                                 <textarea id="sub_category_description" name="sub_category_description" class="form-control" placeholder="sub category Description"><?php echo $sub_category_description; ?></textarea>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-fullname">Sub Category Name</label>
+                                <label class="form-label" for="basic-default-fullname">Sub Category Sort</label>
                                 <input type="number" value="<?php echo $sub_category_sort; ?>" class="form-control" id="sub_category_sort" name="sub_category_sort" placeholder="Sub Category Sort" />
                             </div>
                             <div class="mb-3">

@@ -1,6 +1,8 @@
 <?= $this->include('front/layout/front'); ?>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~>> BANNER START <<~~~~~~~~~~~~~~~~~~~~~~~-->
 <?php
+
+// echo '<pre>';print_r($sliderData[0]['slider_path']);echo '</pre>';die;
 $session = session();
 $wishlistCount = session('wishlistCount');
 $cartCount = session('cartCount');
@@ -59,8 +61,8 @@ $loginId = $session->get('user_id');
 
         <div class="row no-md-gutters justify-content-center mt-md-0 mt-lg-2">
             <div class="<?php echo $loginId ? 'col-lg-12' : 'col-lg-9'; ?> col-md-12 pr-md-2 p-1 p-md-0">
-                <a href="<?php echo base_url('shop') ?>">
-                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/newlogin/1_MegaSys.svg" alt="">
+                <a href="<?php echo $sliderData[0]['slider_link'];?>">
+                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[0]['slider_path'];?>" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'flex'; ?>">
@@ -129,13 +131,13 @@ $loginId = $session->get('user_id');
 
         <div class="row mb-4">
             <div class="col-md-6 mt-2 pl-1 pr-1">
-                <a href="<?php echo base_url('shop') ?>"><img class="img-fluid"
-                        src="<?php echo base_url() ?>public/front/images/home/newlogin/2_Cejn_TLX.svg" alt=""></a>
+                <a href="<?php echo $sliderData[1]['slider_link'];?>"><img class="img-fluid"
+                        src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[1]['slider_path'];?>" alt=""></a>
             </div>
 
             <div class="col-md-6 mt-2 pr-1 pl-1">
-                <a href="<?php echo base_url('shop') ?>"><img class="img-fluid"
-                        src="<?php echo base_url() ?>public/front/images/home/newlogin/3_PBR.svg" alt=""></a>
+                <a href="<?php echo $sliderData[2]['slider_link'];?>"><img class="img-fluid"
+                        src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[2]['slider_path'];?>" alt=""></a>
             </div>
 
         </div>

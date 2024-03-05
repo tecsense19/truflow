@@ -22,13 +22,23 @@ class SliderController extends BaseController
     }
     public function sliderSave()
 {
+  
     $slidermodel = new SliderModel();
     $session = session();
     $input = $this->request->getVar();
     //$slider_id = $input['slider_id'];
 
     $sliderArr = [];
+    $sliderArr['slider_link'] = isset($input['slider_link']) ? $input['slider_link'] : '';
     $sliderArr['slider_path'] = [];
+
+    $newName = $this->request->getFiles()['slider_path'];
+    foreach ($newName as $uploadedFile) {
+        $oldFile = ROOTPATH . 'public/front/images/home/' . $uploadedFile->getName();
+        if (file_exists($oldFile)) {
+            unlink($oldFile);
+        }
+    }
 
     // Check if files were uploaded
     if ($this->request->getFiles()) {
@@ -37,7 +47,7 @@ class SliderController extends BaseController
         foreach ($uploadedFiles as $uploadedFile) {
             // Check if the uploaded file is valid
             if ($uploadedFile->isValid() && !$uploadedFile->hasMoved()) {
-                $newName = $uploadedFile->getRandomName();
+                $newName = $uploadedFile->getName();
 
                 // Move the uploaded file to the desired directory
                 $uploadedFile->move(ROOTPATH . 'public/front/images/home/', $newName);
