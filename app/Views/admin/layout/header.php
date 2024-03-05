@@ -168,6 +168,11 @@
                         <div data-i18n="Basic Inputs">Lost Cart Report</div>
                     </a>
                 </li> -->
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/user_statistics_report'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">User Statistics</div>
+                    </a>
+                </li>
 
 
 

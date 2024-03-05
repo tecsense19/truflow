@@ -16,6 +16,7 @@ use App\Models\OrderStatusModel;
 use App\Models\OrderItemModel;
 use App\Models\ShippingModel;
 use App\Models\UserModel;
+use App\Models\UserLoginReportModel;
 
 class ReportController extends BaseController
 {
@@ -352,6 +353,29 @@ class ReportController extends BaseController
             'admin/report/lost_cart_report',
             [
                 'cartData' => $cartData, 'userData' => $userData
+            ]
+        );
+    }
+
+    public function user_statistics_report(){
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_role', 'user')->find();
+        // echo '<pre>';print_r($userData);echo '</pre>';die;
+        return view(
+            'admin/report/user_statistics_report',
+            [
+                'userData' => $userData
+            ]
+        );
+    }
+    public function user_statistics_report_detail($id){
+        $UserLoginReportModel = new UserLoginReportModel();
+        $userData = $UserLoginReportModel->join('users', 'users.user_id = user_login_detail_report.user_id', 'left')->where('user_login_detail_report.user_id', $id)
+        ->orderBy('user_login_detail_report.last_login_time','DESC')->find();
+        return view(
+            'admin/report/user_statistics_report_detail',
+            [
+                'userData' => $userData
             ]
         );
     }
