@@ -46,7 +46,6 @@ $selectedDate1 = isset($selectedDate) ? $selectedDate : '';
                                                 // time calculation
                                                 $last_login_time = $userdat['last_login_time'];
                                                 $last_logout_time = $userdat['last_logout_time'];   
-                                                echo '<pre>';print_r($last_logout_time);echo '</pre>';
                                                 
                                                 $start_datetime = new DateTime($last_login_time);
                                                 $end_datetime = new DateTime($last_logout_time);
