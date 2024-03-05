@@ -2,6 +2,7 @@
 <?php 
 $company_id = isset($companyData) ? $companyData['company_id'] : '';
 $company_name = isset($companyData) ? $companyData['company_name'] : '';
+$on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
 
 ?>
 
@@ -32,7 +33,12 @@ $company_name = isset($companyData) ? $companyData['company_name'] : '';
                                 <input type="text" value="<?php echo $company_name;?>" class="form-control" id="company_name" name="company_name" placeholder="Company Name" required/>
                                 <input type="hidden" name="company_id" value="<?php echo $company_id;?>">
                             </div>
-                           
+                            <div class="mb-3 col-md-6">
+                                    <label class="form-label" for="on_a_account">On A Account :</label>
+                                    <input data-val="true" data-val-required="Fax is required." id="on_a_account"
+                                        name="on_a_account" type="checkbox" value="<?php echo $on_a_account; ?>"
+                                        <?php if($on_a_account) { echo 'checked'; } ?> onchange="checkStatus(this)"/>
+                            </div>
                         </div>
                     </div>
                     <input type="submit" class="btn btn-primary d-grid" value="Submit">
@@ -70,4 +76,12 @@ $company_name = isset($companyData) ? $companyData['company_name'] : '';
         });
 
     });
+
+    function checkStatus(checkbox) {
+    if (checkbox.checked) {
+        $('#on_a_account').val('1')
+    } else {
+        $('#on_a_account').val('0')
+    }
+}
 </script>

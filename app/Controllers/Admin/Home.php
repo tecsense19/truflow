@@ -196,7 +196,7 @@ class Home extends BaseController
             $countryData = null;
         }
         $companymodel = new CompanyModel();
-        $companyData = $companymodel->find();
+        $companyData = $companymodel->orderBy('company_name', 'ASC')->find();
         if (!$companyData) {
             $companyData = null;
         }

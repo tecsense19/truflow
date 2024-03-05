@@ -22,7 +22,8 @@ class ChildSubCategoryModel extends Model
         'sub_category_name',
         'child_sub_category_featured',
         'child_sub_category_img',
-        'child_sub_existing'
+        'child_sub_existing',
+        'child_sub_cate_sort',
         
     ];
 

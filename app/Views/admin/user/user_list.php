@@ -31,6 +31,7 @@
                                                     <th>#</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
+                                                    <th>Company Name</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -39,11 +40,13 @@
                                                 $i =1 ;
                                                 if(isset($userData)){ ?>
 
-                                                 <?php foreach($userData as $user){ ?>
+                                                 <?php foreach($userData as $user){ 
+                                                    ?>
                                                 <tr>
                                                     <td><?php echo $i;?></td>
                                                     <td><?php echo $user['full_name'];?></td>
                                                     <td><?php echo $user['email'];?></td>
+                                                    <td><?php echo $user['company_name'];?></td>
                                                     <td>
                                                  <a class="" href="<?php echo base_url('')."admin/user/edit/".$user['user_id']?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                 <a class="" href="<?php echo base_url('')."admin/user/delete/".$user['user_id']?>"><i class="bx bx-trash me-1"></i> Delete</a>

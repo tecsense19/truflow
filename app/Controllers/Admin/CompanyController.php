@@ -31,6 +31,7 @@ class CompanyController extends BaseController
         $companyArr = [];
 
         $companyArr['company_name'] = isset($input['company_name']) ? $input['company_name'] : '';
+        $companyArr['on_a_account'] = isset($input['on_a_account']) ? $input['on_a_account'] : '';
       
 
         if (isset($input['company_id']) && $input['company_id'] != '') {

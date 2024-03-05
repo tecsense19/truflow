@@ -50,7 +50,7 @@ class ChildSubCategoryController extends BaseController
             $subArr = [];
             foreach ($subcategories as $sKey => $sValue) 
             {
-                $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->findAll();
+                $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->orderBy('child_sub_cate_sort','ASC')->findAll();
                 $childArr = [];
                 foreach ($childsubcategories as $cKey => $cValue) 
                 {
@@ -178,6 +178,7 @@ class ChildSubCategoryController extends BaseController
             'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
             'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured'),
             'child_sub_category_img' => $productArr['child_product_img'],
+            'child_sub_cate_sort' => $productArr['child_sub_cate_sort'],
         ];
 
     //    print_r($childsubcategory);
@@ -226,7 +227,8 @@ class ChildSubCategoryController extends BaseController
     // Retrieve form input
     $childsubcategory = [
         'child_sub_category_name' => $this->request->getPost('child_sub_category_name'),
-        'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured')
+        'child_sub_category_featured' => $this->request->getPost('child_sub_category_featured'),
+        'child_sub_cate_sort' => $this->request->getPost('child_sub_cate_sort')
     ];
 
     if(isset($productArr['child_product_img']))

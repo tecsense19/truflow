@@ -62,25 +62,45 @@
                                             <thead>
 
 
-                                                <th>Product name</th>
-                                                <th>Product details</th>
-                                                <th>Variant</th>
+                                                <!-- <th>Product name</th>
+                                                <th>Product details</th> -->
                                                 <th>Part Number</th>
+                                                <th>Variant</th>
                                                 <th>Qty</th>
                                                 <th>Price</th>
+                                                <th>Discount</th>
                                                 <th>Order Status</th>
                                                 <th>Shipping</th>
 
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($newCartData1 as $order) { ?>
+                                                <?php foreach ($newCartData1 as $order) { 
+                                                    ?>
                                                     <tr>
-                                                        <td><?php echo $order['product_name']; ?></td>
-                                                        <td><?php echo $order['product_description']; ?></td>
-                                                        <td><?php echo $order['variant_name']; ?></td>
+                                                        <!-- <td><?php //echo $order['product_name']; ?></td>
+                                                        <td><?php //echo $order['product_description']; ?></td> -->
                                                         <td><?php echo $order['variant_sku']; ?></td>
+                                                        <td><?php echo $order['variant_name']; ?></td>
                                                         <td><?php echo $order['product_quantity']; ?></td>
                                                         <td><?php echo $order['product_amount']; ?></td>
+                                                        <td><?php
+                                                            $couponModel = model('App\Models\CouponModel');
+                                                            $discount = 000.00;
+                                                            
+                                                                // $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
+                                                                $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                                                                if(!empty($getCoupon))
+                                                                {
+                                                                if ($getCoupon['coupon_price_type'] == 'Percentage')
+                                                                {
+                                                                    $discount += ($order['product_amount'] * $order['product_quantity'] * $getCoupon['coupon_price']) / 100;
+                                                                } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                                                    // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                                                    $discount += $getCoupon['coupon_price'];
+                                                                }
+                                                                }
+                                                            echo number_format($discount, 2, '.', ',');
+                                                        ?></td>
                                                         <td><?php echo $order['order_status']; ?></td>
                                                         <td>
                                                             <div><?php echo $order['shipping']; ?></div>
@@ -89,65 +109,6 @@
 
                                                 <?php } ?>
                                                 <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                    <td>Total</td>
-                                                    <td>
-                                                        <?php
-                                                        $totalAmount = 0;
-                                                        foreach ($newCartData1 as $order_c) {
-
-                                                            $totalAmount += $order_c['total_amount'];
-                                                        }
-                                                        echo $totalAmount;
-                                                        ?>
-                                                    </td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>Discount</td>
-                                                    <td>
-                                                        <!-- <?php foreach ($newCartData1 as $order) {
-                                                            $discount = 0; ?>
-                                                            <?php if ($order['discount_type'] == "Flat") { ?>
-                                                                <?php $discount = $order['product_discount'] . " Rs"; ?>
-                                                            <?php } else { ?>
-                                                                <?php $discount = $order['product_discount'] . " %"; ?>
-                                                            <?php } ?>
-                                                        <?php } ?>
-                                                        <?php echo $discount; ?> -->
-                                                        <?php 
-                                                            $couponModel = model('App\Models\CouponModel');
-                                                            $discount = 0.00;
-                                                            foreach ($newCartData1 as $dis) {
-                                                              $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
-                                                              if(!empty($getCoupon))
-                                                              {
-                                                                if ($getCoupon['coupon_price_type'] == 'Percentage') 
-                                                                {
-                                                                    $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
-                                                                } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                                                                    $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
-                                                                }
-                                                              }
-                                                            }
-                          
-                                                            echo number_format($discount, 2, '.', ',');
-                                                        ?>
-                                                    </td>
-                                                    <td></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td>Grand Total</td>

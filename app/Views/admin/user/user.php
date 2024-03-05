@@ -186,12 +186,12 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
                                         id="fax" name="fax" type="text" value="<?php echo $fax; ?>" />
 
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <!-- <div class="mb-3 col-md-6">
                                     <label class="form-label" for="on_a_account">On A Account :</label>
                                     <input data-val="true" data-val-required="Fax is required." id="on_a_account"
-                                        name="on_a_account" type="checkbox" value="<?php echo $on_a_account; ?>"
-                                        <?php if($on_a_account) { echo 'checked'; } ?> onchange="checkStatus(this)"/>
-                                </div>
+                                        name="on_a_account" type="checkbox" value="<?php /*echo $on_a_account; */?>"
+                                        <?php /*if($on_a_account) { echo 'checked'; } */?> onchange="checkStatus(this)"/>
+                                </div> -->
                             </div>
                             <?php if(empty($password)){ ?>
                             <div class="row">
@@ -332,11 +332,11 @@ function isNumber(evt) {
     return true;
 }
 
-function checkStatus(checkbox) {
+/*function checkStatus(checkbox) {
     if (checkbox.checked) {
         $('#on_a_account').val('1')
     } else {
         $('#on_a_account').val('0')
     }
-}
+}*/
 </script>

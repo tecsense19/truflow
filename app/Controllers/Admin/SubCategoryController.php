@@ -17,7 +17,7 @@ class SubCategoryController extends BaseController
         // }
 
         $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
-        ->join('category', 'category.category_id = sub_category.category_id')
+        ->join('category', 'category.category_id = sub_category.category_id')->orderBy('sub_category_sort','ASC')
         ->find();
 
         if (!$subcategoryData) {
@@ -58,6 +58,7 @@ class SubCategoryController extends BaseController
         $subCatArr['sub_category_name'] = isset($input['sub_category_name']) ? $input['sub_category_name'] : '';
         $subCatArr['sub_category_description'] = isset($input['sub_category_description']) ? $input['sub_category_description'] : '';
         $subCatArr['sub_category_featured'] = isset($input['sub_category_featured']) ? $input['sub_category_featured'] : '';
+        $subCatArr['sub_category_sort'] = isset($input['sub_category_sort']) ? $input['sub_category_sort'] : '';
 
         if ($file = $this->request->getFile('sub_category_img')) {
             $path = 'public/admin/images/sub_category/';
