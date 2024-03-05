@@ -188,7 +188,6 @@ class ReportController extends BaseController
                 ->join('users', 'users.user_id = tbl_order.user_id', 'left')
                 ->join('shipping_address', 'users.user_id = tbl_order.user_id', 'left')
                 ->where('order_items.order_id', $cart['order_id'])
-
                 ->findAll();
             $newCartData[] = $cart;
         }
@@ -206,6 +205,51 @@ class ReportController extends BaseController
             'admin/report/user_report',
             [
                 'cartData' => $newCartData, 'userData' => $userData
+            ]
+        );
+    }
+
+
+    public function lost_cart_report()
+    {
+        $session = session();
+        $cartModel = new CartModel();
+        $cartData = $cartModel->find();
+
+        // $query = $cartModel->select('*')
+        //     ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+        //     ->get();
+
+        // $cartData = $query->getResultArray();
+    
+      
+                $query = $cartModel->select('*')
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+                // ->join('company', 'company.company_name = users.company_name', 'left')
+                // ->where('add_to_cart.user_id', $userId)
+                ->get();
+    
+            $cartData = $query->getResultArray();
+
+        
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_role', 'user')->find();
+        if (!$userData) {
+            $userData = null;
+        }
+
+        // echo '<pre>';print_r($cartData);echo '</pre>';
+        // die;
+      
+        return view(
+            'admin/report/lost_cart_report',
+            [
+                'cartData' => $cartData, 'userData' => $userData
             ]
         );
     }
