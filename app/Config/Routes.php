@@ -266,6 +266,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("lost_cart_report", "ReportController::lost_cart_report");
     $routes->get("user_statistics_report", "ReportController::user_statistics_report");
     $routes->get("user_statistics_report_detail/(:any)", "ReportController::user_statistics_report_detail/$1");
+    $routes->get("top_selling_product_view", "ReportController::top_selling_product_view");
+    $routes->get("top_selling_product", "ReportController::top_selling_product");
 
 
     //search order report
