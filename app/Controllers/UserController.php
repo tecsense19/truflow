@@ -459,8 +459,10 @@ class UserController extends BaseController
         $dataToUpdate = [
             'last_logout_time' => date('Y-m-d H:i:s')
         ];
-        $db = \Config\Database::connect();
-        $db->table('user_login_detail_report')->where('id', $checkExists['id'])->update($dataToUpdate);
+        if($checkExists){
+            $db = \Config\Database::connect();
+            $db->table('user_login_detail_report')->where('id', $checkExists['id'])->update($dataToUpdate);
+        }
         $session->destroy();
         return redirect()->to('/');
     }

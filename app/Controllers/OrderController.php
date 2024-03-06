@@ -431,6 +431,7 @@ class OrderController extends BaseController
             $session->remove('discount_d');
             $session->remove('shipping');
             $session->remove('cartCount');
+            $session->remove('guest_id');
     
             $this->remove_checkout($userId);
             $this->shipping_add($userId, $order_id);
