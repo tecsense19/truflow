@@ -163,19 +163,22 @@
                         <div data-i18n="Basic Inputs">User Report</div>
                     </a>
                 </li>
-                <!-- <li class="menu-item">
+                <li class="menu-item">
                     <a href="<?php echo base_url('admin/lost_cart_report'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Lost Cart Report</div>
                     </a>
-                </li> -->
+                </li>
+                </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/top_selling_product_view'); ?>" class="menu-link">
+                        <div data-i18n="Basic Inputs">Top Selling Product</div>
+                    </a>
+                </li>
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/user_statistics_report'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">User Statistics</div>
                     </a>
                 </li>
-
-
-
             </ul>
         </li>
         <li class="menu-item">

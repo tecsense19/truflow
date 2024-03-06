@@ -36,3 +36,5 @@
         ?>
     </tbody>
 </table>
+
+<?= $this->include('admin/layout/footer') ?>

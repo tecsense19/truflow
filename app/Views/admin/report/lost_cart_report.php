@@ -162,7 +162,7 @@ ul, #myUL {
                                                                         </li>
                                                                 </ul>
                                                             
-                                                            <?php $i++; ?>
+                                                            
                                                     </td>
                                                 </tr>
                                             <?php
@@ -217,8 +217,6 @@ ul, #myUL {
                                                                                 </ul>
                                                                         </li>
                                                                 </ul>
-                                                            
-                                                            <?php $i++; ?>
                                                     </td>
                                                 </tr>
                                             <?php
