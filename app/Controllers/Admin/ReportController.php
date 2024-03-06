@@ -17,6 +17,7 @@ use App\Models\OrderItemModel;
 use App\Models\ShippingModel;
 use App\Models\UserModel;
 use App\Models\UserLoginReportModel;
+use Config\Database;
 
 class ReportController extends BaseController
 {
@@ -313,32 +314,99 @@ class ReportController extends BaseController
         exit();
     }
 
+    // public function lost_cart_report()
+    // {
+    //     $session = session();
+    //     $cartModel = new CartModel();
+    //     $cartData = $cartModel->find();
+
+    //     $query = $cartModel->select('*')
+    //     ->join('users', 'users.user_id = add_to_cart.user_id')
+ 
+    //     ->groupBy('add_to_cart.user_id') // Group by user_id
+    //     ->get();
+    //     $cartData = $query->getResultArray();
+    
+    //     $result = array();
+    //     foreach ( $cartData as $key => $value) {
+    //         $value['cart_item'] = $cartModel
+    //         ->join('users', 'users.user_id = add_to_cart.user_id')
+    //         ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+    //         ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+    //         ->join('product', 'product.product_id = product_variants.product_id', 'left')
+    //         ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+    //         ->join('category', 'category.category_id = sub_category.category_id', 'left')
+    //         ->where('add_to_cart.user_id', $value['user_id'])->get()->getResultArray();
+           
+    //         $result[] = $value;
+    //     }
+    //     // echo '<pre>';print_r($result);echo '</pre>';die;
+    //     // $cartData = $query->getResultArray();
+        
+    //     $usermodel = new UserModel();
+    //     $userData = $usermodel->where('user_role', 'user')->find();
+    //     if (!$userData) {
+    //         $userData = null;
+    //     }
+
+    //     echo '<pre>';print_r($result);echo '</pre>';
+    //     die;
+      
+    //     return view(
+    //         'admin/report/lost_cart_report',
+    //         [
+    //             'cartData' => $result, 'userData' => $userData
+    //         ]
+    //     );
+    // }
+    
     public function lost_cart_report()
     {
         $session = session();
         $cartModel = new CartModel();
         $cartData = $cartModel->find();
 
-        // $query = $cartModel->select('*')
-        //     ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-        //     ->get();
+        $user_query = $cartModel->select('*')
+        ->join('users', 'users.user_id = add_to_cart.user_id')
+ 
+        ->groupBy('add_to_cart.user_id') // Group by user_id
+        ->get();
+        $usercartData = $user_query->getResultArray();
 
-        // $cartData = $query->getResultArray();
-    
-      
-                $query = $cartModel->select('*')
-                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-                ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
-                ->join('product', 'product.product_id = product_variants.product_id', 'left')
-                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-                ->join('category', 'category.category_id = sub_category.category_id', 'left')
-                ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-                // ->join('company', 'company.company_name = users.company_name', 'left')
-                // ->where('add_to_cart.user_id', $userId)
-                ->get();
-    
-            $cartData = $query->getResultArray();
+        $user_result = array();
+        foreach ( $usercartData as $key => $value) {
+            $value['cart_item'] = $cartModel
+            ->join('users', 'users.user_id = add_to_cart.user_id')
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->where('add_to_cart.user_id', $value['user_id'])->get()->getResultArray();
+           
+            $user_result[] = $value;
+        }
+        
 
+
+        $guestuser_query = $cartModel->select('*')
+        ->groupBy('add_to_cart.guest_id') // Group by guest_id
+        ->get();
+
+        $guestcartData = $guestuser_query->getResultArray();
+        
+        $guest_result = array();
+        foreach ( $guestcartData as $key => $value) {
+            $value['cart_item'] = $cartModel
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->where('add_to_cart.guest_id', $value['guest_id'])->get()->getResultArray();
+            
+            $guest_result[] = $value;
+        }
         
         $usermodel = new UserModel();
         $userData = $usermodel->where('user_role', 'user')->find();
@@ -346,16 +414,15 @@ class ReportController extends BaseController
             $userData = null;
         }
 
-        // echo '<pre>';print_r($cartData);echo '</pre>';
-        // die;
       
         return view(
             'admin/report/lost_cart_report',
             [
-                'cartData' => $cartData, 'userData' => $userData
+                'cartData' => $user_result,'guestcartData' => $guest_result, 'userData' => $userData
             ]
         );
     }
+
 
     public function user_statistics_report(){
         $usermodel = new UserModel();
@@ -376,6 +443,67 @@ class ReportController extends BaseController
             'admin/report/user_statistics_report_detail',
             [
                 'userData' => $userData
+            ]
+        );
+    }
+
+    public function top_selling_product_view(){
+        $usermodel = new UserModel();
+        $userData = $usermodel->where('user_role', 'user')->find();
+        return view('admin/report/top_selling_report',['userData' => $userData]);
+    }
+    public function top_selling_product(){
+        $ordermodel = new OrderModel();
+        $orderitemmodel = new OrderItemModel();
+
+        $input = $this->request->getVar();
+        $user_id = $input['search'];
+
+        $user_order = $ordermodel->where('user_id',$user_id)->findAll();
+        $order_ids = array_column($user_order, 'order_id');
+        // echo '<pre>';print_r($order_ids);echo '</pre>';die;
+        if(isset($user_id) && $user_id != ''){
+    
+            $db = Database::connect();
+            if (!empty($order_ids)) {
+                $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
+                    FROM order_items
+                    WHERE order_id IN (" . implode(',', $order_ids) . ") 
+                    GROUP BY product_id
+                    ORDER BY total_quantity DESC
+                    LIMIT 5) AS top_selling";
+        
+                $query = $db->table('product')
+                ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
+                ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
+                ->get();
+        
+                $result = $query->getResultArray();
+            }else{
+                $result = array();
+            }
+            // echo '<pre>';print_r($result);echo '</pre>';
+        }else{
+            $db = Database::connect();
+            $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
+                 FROM order_items
+                 GROUP BY product_id
+                 ORDER BY total_quantity DESC
+                 LIMIT 5) AS top_selling";
+    
+            $query = $db->table('product')
+            ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
+            ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
+            ->get();
+    
+            $result = $query->getResultArray();
+        }
+
+        //  echo '<pre>';print_r($result);echo '</pre>';
+        return view(
+            'admin/report/top_selling_report_table',
+            [
+                'topSellingData' => $result,
             ]
         );
     }

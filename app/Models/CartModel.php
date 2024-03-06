@@ -15,6 +15,7 @@ class CartModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'user_id',
+        'guest_id',
         'category_id',
         'sub_category_id',
         'product_id',
