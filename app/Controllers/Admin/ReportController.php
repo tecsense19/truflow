@@ -488,21 +488,17 @@ class ReportController extends BaseController
             $db = Database::connect();
             if (!empty($order_ids)) {
 
-                $subQuery = $db->table('order_items')
-                    ->select('product_id, SUM(product_quantity) as total_quantity, order_id')
-                    ->whereIn('order_id', $order_ids)
-                    ->groupBy('product_id')
-                    ->orderBy('total_quantity', 'DESC');
-
-                $subQueryString = '(' . $subQuery->getCompiledSelect() . ') AS top_selling';
-
+                $subQueryString = '(SELECT SUM(product_quantity) 
+                   FROM order_items 
+                   WHERE order_items.product_id = product.product_id 
+                   AND order_items.order_id IN (' . implode(',', $order_ids) . '))';
                 $query = $db->table('product')
-                    ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, top_selling.total_quantity, top_selling.order_id')
-                    ->join($subQueryString, 'product.product_id = top_selling.product_id')
-                    // ->where('top_selling.total_quantity IS NOT NULL')
-                    ->orderBy('top_selling.total_quantity', 'DESC')
+                    ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, (' . $subQueryString . ') as total_quantity')
+                    ->having('total_quantity IS NOT NULL')
+                    ->orderBy('total_quantity', 'DESC')
                     ->get()
                     ->getResult();
+
 
                 $result = $query;
             }else{
@@ -510,19 +506,13 @@ class ReportController extends BaseController
             }
         }else{
             $db = Database::connect();
-
-            $subQuery = $db->table('order_items')->distinct('product_id')
-                ->select('product_id, SUM(product_quantity) as total_quantity, order_id')
-                ->groupBy('product_id')
-                ->orderBy('total_quantity', 'DESC');
-
-            $subQueryString = '(' . $subQuery->getCompiledSelect() . ') AS top_selling';
+            
+            $subQueryString = '(SELECT SUM(product_quantity) FROM order_items WHERE order_items.product_id = product.product_id)';
 
             $query = $db->table('product')
-                ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, top_selling.total_quantity, top_selling.order_id')
-                ->join($subQueryString, 'product.product_id = top_selling.product_id')
-                // ->where('top_selling.total_quantity IS NOT NULL')
-                ->orderBy('top_selling.total_quantity', 'DESC')
+                ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, (' . $subQueryString . ') as total_quantity')
+                ->having('total_quantity IS NOT NULL')
+                ->orderBy('total_quantity', 'DESC')
                 ->get()
                 ->getResult();
 
