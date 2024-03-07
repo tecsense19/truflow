@@ -8,12 +8,18 @@ class ContactUsController extends BaseController
 {
     public function index()
     {
-        $contactusmodel = new UserContactModel();
-        $contactusData = $contactusmodel->find();
-        if (!$contactusData) {
-            $contactusData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $contactusmodel = new UserContactModel();
+            $contactusData = $contactusmodel->find();
+            if (!$contactusData) {
+                $contactusData = null;
+            }
+            return view('admin/contactus/contactus_list', ['contactusData' => $contactusData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/contactus/contactus_list', ['contactusData' => $contactusData]);
     }
 
 

@@ -8,12 +8,18 @@ class TestominalController extends BaseController
 {
     public function index()
     {
-        $testominalmodel = new TestominalModel();
-        $testimonalData = $testominalmodel->find();
-        if (!$testimonalData) {
-            $testimonalData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $testominalmodel = new TestominalModel();
+            $testimonalData = $testominalmodel->find();
+            if (!$testimonalData) {
+                $testimonalData = null;
+            }
+            return view('admin/testominal/testominal_list', ['testimonalData' => $testimonalData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/testominal/testominal_list', ['testimonalData' => $testimonalData]);
     }
     public function testominal()
     {

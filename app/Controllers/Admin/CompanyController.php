@@ -8,12 +8,18 @@ class CompanyController extends BaseController
 {
     public function index()
     {
-        $companymodel = new CompanyModel();
-        $companyData = $companymodel->find();
-        if (!$companyData) {
-            $companyData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $companymodel = new CompanyModel();
+            $companyData = $companymodel->find();
+            if (!$companyData) {
+                $companyData = null;
+            }
+            return view('admin/company/company_list', ['companyData' => $companyData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/company/company_list', ['companyData' => $companyData]);
     }
     public function company()
     {
@@ -46,14 +52,19 @@ class CompanyController extends BaseController
     }
     public function companyEdit($company_id)
     {
-
-        $companymodel = new CompanyModel();
-        $companyData = $companymodel->find($company_id);
-
-        if (!$companyData) {
-            $companyData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $companymodel = new CompanyModel();
+            $companyData = $companymodel->find($company_id);
+    
+            if (!$companyData) {
+                $companyData = null;
+            }
+            return view('admin/company/company', ['companyData' => $companyData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/company/company', ['companyData' => $companyData]);
     }
     public function companyDelete($company_id)
 {
