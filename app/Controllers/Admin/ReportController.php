@@ -422,10 +422,12 @@ class ReportController extends BaseController
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->where('add_to_cart.guest_id IS NOT NULL')
             ->where('add_to_cart.guest_id', $value['guest_id'])->get()->getResultArray();
-            
             $guest_result[] = $value;
         }
+
+        // echo '<pre>';print_r($guest_result);echo '</pre>';die;
         
         $usermodel = new UserModel();
         $userData = $usermodel->where('user_role', 'user')->find();
@@ -485,39 +487,34 @@ class ReportController extends BaseController
     
             $db = Database::connect();
             if (!empty($order_ids)) {
-                $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
-                    FROM order_items
-                    WHERE order_id IN (" . implode(',', $order_ids) . ") 
-                    GROUP BY product_id
-                    ORDER BY total_quantity DESC
-                    LIMIT 5) AS top_selling";
-        
+
+                $subQuery = $db->table('order_items')
+                    ->select('product_id, SUM(product_quantity) as total_quantity, order_id')
+                    ->whereIn('order_id', $order_ids)
+                    ->groupBy('product_id')
+                    ->orderBy('total_quantity', 'DESC')
+                    ->limit(5);
+
+                $subQueryString = '(' . $subQuery->getCompiledSelect() . ') AS top_selling';
+
                 $query = $db->table('product')
-                ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
-                ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
-                ->get();
-        
-                $result = $query->getResultArray();
+                    ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, top_selling.total_quantity, top_selling.order_id')
+                    ->join($subQueryString, 'product.product_id = top_selling.product_id', 'left')
+                    ->where('top_selling.total_quantity IS NOT NULL')
+                    ->orderBy('top_selling.total_quantity', 'DESC')
+                    ->get()
+                    ->getResult();
+
+                $result = $query;
             }else{
                 $result = array();
             }
         }else{
             $db = Database::connect();
-            // $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
-            //      FROM order_items
-            //      GROUP BY product_id
-            //      ORDER BY total_quantity DESC
-            //      LIMIT 5) AS top_selling";
-
-            //     $query = $db->table('product')
-            //     ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
-            //     ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
-            //     ->get();
-            //      $result = $query->getResultArray();
 
             $subQuery = $db->table('order_items')
                 ->select('product_id, SUM(product_quantity) as total_quantity, order_id')
-                ->groupBy('product_id, order_id')
+                ->groupBy('product_id')
                 ->orderBy('total_quantity', 'DESC')
                 ->limit(5);
 
@@ -526,6 +523,7 @@ class ReportController extends BaseController
             $query = $db->table('product')
                 ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, top_selling.total_quantity, top_selling.order_id')
                 ->join($subQueryString, 'product.product_id = top_selling.product_id', 'left')
+                ->where('top_selling.total_quantity IS NOT NULL')
                 ->orderBy('top_selling.total_quantity', 'DESC')
                 ->get()
                 ->getResult();
