@@ -17,11 +17,17 @@
             foreach ($topSellingData as $topSelling) {
         ?>
                 <tr>
+                    <!-- <td><?php //echo $i; ?></td>
+                    <td><?php //echo $topSelling['product_name'] ?></td>
+                    <td><?php //echo $topSelling['product_short_description']; ?></td>
+                    <td><img class="" style="width: 25%;" src="<?php //echo base_url() ?><?php //echo $topSelling['product_img'];?>" alt=""></td>
+                    <td><?php //echo $topSelling['total_quantity']; ?></td> -->
+                    
                     <td><?php echo $i; ?></td>
-                    <td><?php echo $topSelling['product_name'] ?></td>
-                    <td><?php echo $topSelling['product_short_description']; ?></td>
-                    <td><img class="" style="width: 25%;" src="<?php echo base_url() ?><?php echo $topSelling['product_img'];?>" alt=""></td>
-                    <td><?php echo $topSelling['total_quantity']; ?></td>
+                    <td><?php echo $topSelling->product_name; ?></td>
+                    <td><?php echo $topSelling->product_short_description; ?></td>
+                    <td><img class="" style="width: 25%;" src="<?php echo base_url() ?><?php echo $topSelling->product_img;?>" alt=""></td>
+                    <td><?php echo $topSelling->total_quantity; ?></td>
                 </tr>
             <?php
                 $i++;

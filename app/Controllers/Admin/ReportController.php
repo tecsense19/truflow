@@ -376,10 +376,14 @@ class ReportController extends BaseController
         $cartModel = new CartModel();
         $cartData = $cartModel->find();
 
-        $user_query = $cartModel->select('*')
+        // $user_query = $cartModel->select('*')
+        // ->join('users', 'users.user_id = add_to_cart.user_id')
+        // ->groupBy('add_to_cart.user_id') // Group by user_id
+        // ->get();
+        
+        $user_query = $cartModel->distinct()
+        ->select('users.user_id, users.*')
         ->join('users', 'users.user_id = add_to_cart.user_id')
- 
-        ->groupBy('add_to_cart.user_id') // Group by user_id
         ->get();
 
         $usercartData = $user_query->getResultArray();
@@ -400,8 +404,12 @@ class ReportController extends BaseController
         
 
 
-        $guestuser_query = $cartModel->select('*')
-        ->groupBy('add_to_cart.guest_id') // Group by guest_id
+        // $guestuser_query = $cartModel->select('*')
+        // ->groupBy('add_to_cart.guest_id') // Group by guest_id
+        // ->get();
+
+        $guestuser_query = $cartModel->distinct()
+        ->select('add_to_cart.guest_id')
         ->get();
 
         $guestcartData = $guestuser_query->getResultArray();
@@ -493,24 +501,38 @@ class ReportController extends BaseController
             }else{
                 $result = array();
             }
-            // echo '<pre>';print_r($result);echo '</pre>';
         }else{
             $db = Database::connect();
-            $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
-                 FROM order_items
-                 GROUP BY product_id
-                 ORDER BY total_quantity DESC
-                 LIMIT 5) AS top_selling";
-    
+            // $subQuery = "(SELECT product_id, SUM(product_quantity) as total_quantity, order_id
+            //      FROM order_items
+            //      GROUP BY product_id
+            //      ORDER BY total_quantity DESC
+            //      LIMIT 5) AS top_selling";
+
+            //     $query = $db->table('product')
+            //     ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
+            //     ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
+            //     ->get();
+            //      $result = $query->getResultArray();
+
+            $subQuery = $db->table('order_items')
+                ->select('product_id, SUM(product_quantity) as total_quantity, order_id')
+                ->groupBy('product_id, order_id')
+                ->orderBy('total_quantity', 'DESC')
+                ->limit(5);
+
+            $subQueryString = '(' . $subQuery->getCompiledSelect() . ') AS top_selling';
+
             $query = $db->table('product')
-            ->select('product.product_id, product.product_name,product.product_short_description,product.product_img, top_selling.total_quantity, top_selling.order_id')
-            ->join($subQuery, 'product.product_id = top_selling.product_id', 'left')->where('top_selling.total_quantity IS NOT NULL')->orderBy('top_selling.total_quantity', 'DESC')
-            ->get();
-    
-            $result = $query->getResultArray();
+                ->select('product.product_id, product.product_name, product.product_short_description, product.product_img, top_selling.total_quantity, top_selling.order_id')
+                ->join($subQueryString, 'product.product_id = top_selling.product_id', 'left')
+                ->orderBy('top_selling.total_quantity', 'DESC')
+                ->get()
+                ->getResult();
+
+             $result = $query;
         }
 
-        //  echo '<pre>';print_r($result);echo '</pre>';
         return view(
             'admin/report/top_selling_report_table',
             [
