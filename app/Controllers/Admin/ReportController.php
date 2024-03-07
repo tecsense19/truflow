@@ -323,138 +323,103 @@ class ReportController extends BaseController
         // Stop script execution after file download
         exit();
     }
-
-    // public function lost_cart_report()
-    // {
-    //     $session = session();
-    //     $cartModel = new CartModel();
-    //     $cartData = $cartModel->find();
-
-    //     $query = $cartModel->select('*')
-    //     ->join('users', 'users.user_id = add_to_cart.user_id')
- 
-    //     ->groupBy('add_to_cart.user_id') // Group by user_id
-    //     ->get();
-    //     $cartData = $query->getResultArray();
-    
-    //     $result = array();
-    //     foreach ( $cartData as $key => $value) {
-    //         $value['cart_item'] = $cartModel
-    //         ->join('users', 'users.user_id = add_to_cart.user_id')
-    //         ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-    //         ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
-    //         ->join('product', 'product.product_id = product_variants.product_id', 'left')
-    //         ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-    //         ->join('category', 'category.category_id = sub_category.category_id', 'left')
-    //         ->where('add_to_cart.user_id', $value['user_id'])->get()->getResultArray();
-           
-    //         $result[] = $value;
-    //     }
-    //     // echo '<pre>';print_r($result);echo '</pre>';die;
-    //     // $cartData = $query->getResultArray();
-        
-    //     $usermodel = new UserModel();
-    //     $userData = $usermodel->where('user_role', 'user')->find();
-    //     if (!$userData) {
-    //         $userData = null;
-    //     }
-
-    //     echo '<pre>';print_r($result);echo '</pre>';
-    //     die;
-      
-    //     return view(
-    //         'admin/report/lost_cart_report',
-    //         [
-    //             'cartData' => $result, 'userData' => $userData
-    //         ]
-    //     );
-    // }
     
     public function lost_cart_report()
     {
         $session = session();
-        $cartModel = new CartModel();
-        $cartData = $cartModel->find();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $cartModel = new CartModel();
+            $cartData = $cartModel->find();
 
-        // $user_query = $cartModel->select('*')
-        // ->join('users', 'users.user_id = add_to_cart.user_id')
-        // ->groupBy('add_to_cart.user_id') // Group by user_id
-        // ->get();
-        
-        $user_query = $cartModel->distinct()
-        ->select('users.user_id, users.*')
-        ->join('users', 'users.user_id = add_to_cart.user_id')
-        ->get();
-
-        $usercartData = $user_query->getResultArray();
-
-        $user_result = array();
-        foreach ( $usercartData as $key => $value) {
-            $value['cart_item'] = $cartModel
+            // $user_query = $cartModel->select('*')
+            // ->join('users', 'users.user_id = add_to_cart.user_id')
+            // ->groupBy('add_to_cart.user_id') // Group by user_id
+            // ->get();
+            
+            $user_query = $cartModel->distinct()
+            ->select('users.user_id, users.*')
             ->join('users', 'users.user_id = add_to_cart.user_id')
-            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-            ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->where('add_to_cart.user_id', $value['user_id'])->get()->getResultArray();
-           
-            $user_result[] = $value;
-        }
+            ->get();
+
+            $usercartData = $user_query->getResultArray();
+
+            $user_result = array();
+            foreach ( $usercartData as $key => $value) {
+                $value['cart_item'] = $cartModel
+                ->join('users', 'users.user_id = add_to_cart.user_id')
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->where('add_to_cart.user_id', $value['user_id'])->get()->getResultArray();
+            
+                $user_result[] = $value;
+            }
+            
+
+
+            // $guestuser_query = $cartModel->select('*')
+            // ->groupBy('add_to_cart.guest_id') // Group by guest_id
+            // ->get();
+
+            $guestuser_query = $cartModel->distinct()
+            ->select('add_to_cart.guest_id')
+            ->get();
+
+            $guestcartData = $guestuser_query->getResultArray();
+            
+            $guest_result = array();
+            foreach ( $guestcartData as $key => $value) {
+                $value['cart_item'] = $cartModel
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->where('add_to_cart.guest_id IS NOT NULL')
+                ->where('add_to_cart.guest_id', $value['guest_id'])->get()->getResultArray();
+                $guest_result[] = $value;
+            }
+
+            // echo '<pre>';print_r($guest_result);echo '</pre>';die;
+            
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_role', 'user')->find();
+            if (!$userData) {
+                $userData = null;
+            }
+
         
-
-
-        // $guestuser_query = $cartModel->select('*')
-        // ->groupBy('add_to_cart.guest_id') // Group by guest_id
-        // ->get();
-
-        $guestuser_query = $cartModel->distinct()
-        ->select('add_to_cart.guest_id')
-        ->get();
-
-        $guestcartData = $guestuser_query->getResultArray();
-        
-        $guest_result = array();
-        foreach ( $guestcartData as $key => $value) {
-            $value['cart_item'] = $cartModel
-            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-            ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->where('add_to_cart.guest_id IS NOT NULL')
-            ->where('add_to_cart.guest_id', $value['guest_id'])->get()->getResultArray();
-            $guest_result[] = $value;
+            return view(
+                'admin/report/lost_cart_report',
+                [
+                    'cartData' => $user_result,'guestcartData' => $guest_result, 'userData' => $userData
+                ]
+            );
+        }else{
+            return redirect()->to('/admin');
         }
-
-        // echo '<pre>';print_r($guest_result);echo '</pre>';die;
-        
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_role', 'user')->find();
-        if (!$userData) {
-            $userData = null;
-        }
-
-      
-        return view(
-            'admin/report/lost_cart_report',
-            [
-                'cartData' => $user_result,'guestcartData' => $guest_result, 'userData' => $userData
-            ]
-        );
     }
 
 
     public function user_statistics_report(){
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_role', 'user')->find();
-        // echo '<pre>';print_r($userData);echo '</pre>';die;
-        return view(
-            'admin/report/user_statistics_report',
-            [
-                'userData' => $userData
-            ]
-        );
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_role', 'user')->find();
+            // echo '<pre>';print_r($userData);echo '</pre>';die;
+            return view(
+                'admin/report/user_statistics_report',
+                [
+                    'userData' => $userData
+                ]
+            );
+        }else{
+            return redirect()->to('/admin');
+        }
     }
     public function user_statistics_report_detail($id){
         $UserLoginReportModel = new UserLoginReportModel();
@@ -469,11 +434,18 @@ class ReportController extends BaseController
     }
 
     public function top_selling_product_view(){
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_role', 'user')->find();
-        return view('admin/report/top_selling_report',['userData' => $userData]);
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_role', 'user')->find();
+            return view('admin/report/top_selling_report',['userData' => $userData]);
+        }else{
+            return redirect()->to('/admin');
+        }
     }
     public function top_selling_product(){
+
         $ordermodel = new OrderModel();
         $orderitemmodel = new OrderItemModel();
 
