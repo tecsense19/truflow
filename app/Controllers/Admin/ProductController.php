@@ -17,43 +17,49 @@ class ProductController extends BaseController
 {
     public function index()
     {
-        $variantsmodel = new VariantsModel();
-        $productmodel = new ProductModel();
-        $CouponModel = new CouponModel();
-
-        $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')->where('deleted_at', 0)
-            ->join('category', 'category.category_id = product.category_id')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
-            ->find();
-        $newData2 = [];
-        foreach ($productData as $pnewdata) {
-            $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
-            if ($variantData !== null) {
-                $count = count($variantData);
-                // Your code here using $count
-            } else {
-                $count = 0;
-            }
-            $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
-
-            $CouponData = $CouponModel->where('coupon_id', $pnewdata['coupon_id'])->findAll();
-            if(count($CouponData) > 0)
-            {
-                foreach ($CouponData as $couponcode) {
-                    if(isset($couponcode)){
-                        $pnewdata['coupon_code'] = $couponcode['coupon_code'];
-                    }
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $variantsmodel = new VariantsModel();
+            $productmodel = new ProductModel();
+            $CouponModel = new CouponModel();
+    
+            $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')->where('deleted_at', 0)
+                ->join('category', 'category.category_id = product.category_id')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
+                ->find();
+            $newData2 = [];
+            foreach ($productData as $pnewdata) {
+                $variantData = $variantsmodel->where('product_id', $pnewdata['product_id'])->first();
+                if ($variantData !== null) {
+                    $count = count($variantData);
+                    // Your code here using $count
+                } else {
+                    $count = 0;
                 }
-            }else{
-                $pnewdata['coupon_code'] = "-";
+                $pnewdata['parent'] = $count > 0 ? $variantData['parent'] : '';
+    
+                $CouponData = $CouponModel->where('coupon_id', $pnewdata['coupon_id'])->findAll();
+                if(count($CouponData) > 0)
+                {
+                    foreach ($CouponData as $couponcode) {
+                        if(isset($couponcode)){
+                            $pnewdata['coupon_code'] = $couponcode['coupon_code'];
+                        }
+                    }
+                }else{
+                    $pnewdata['coupon_code'] = "-";
+                }
+                $newData2[] = $pnewdata;
             }
-            $newData2[] = $pnewdata;
+            if (!$newData2) {
+                $newData2 = null;
+            }
+    
+            return view('admin/product/product_list', ['productData' => $newData2]);
+        }else{
+            return redirect()->to('/admin');
         }
-        if (!$newData2) {
-            $newData2 = null;
-        }
-
-        return view('admin/product/product_list', ['productData' => $newData2]);
     }
 
     public function product()
@@ -208,52 +214,58 @@ class ProductController extends BaseController
     }
     public function productEdit($product_id)
     {
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
 
-        $productmodel = new ProductModel();
-        $productData = $productmodel->find($product_id);
-        $CouponModel = new CouponModel();
-
-        $CouponData = $CouponModel->find();
-        if (!$CouponData) {
-            $CouponData = null;
+            $productmodel = new ProductModel();
+            $productData = $productmodel->find($product_id);
+            $CouponModel = new CouponModel();
+    
+            $CouponData = $CouponModel->find();
+            if (!$CouponData) {
+                $CouponData = null;
+            }
+    
+            if (!$productData) {
+                $productData = null;
+            }
+    
+            $categorymodel = new CategoryModel();
+            $categoryData = $categorymodel->find();
+            if (!$categoryData) {
+                $categoryData = null;
+            }
+    
+            $subcategorymodel = new SubCategoryModel();
+            $subcategoryData = $subcategorymodel->find();
+            if (!$subcategoryData) {
+                $subcategoryData = null;
+            }
+    
+            $variantsmodel = new VariantsModel();
+            $variantData = $variantsmodel->where('product_id', $product_id)->findAll();
+            if (!$variantData) {
+                $variantData = null;
+            }
+    
+            $childsubcategorymodel = new ChildSubCategoryModel();
+            $childsubcategoryData = $childsubcategorymodel->find();
+            if (!$childsubcategoryData) {
+                $childsubcategoryData = null;
+            }
+    
+            return view('admin/product/product', [
+                'productData' => $productData,
+                'categoryData' => $categoryData,
+                'subcategoryData' => $subcategoryData,
+                'childsubcategoryData' => $childsubcategoryData,
+                'variantData' => $variantData,
+                'CouponData' => $CouponData
+            ]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        if (!$productData) {
-            $productData = null;
-        }
-
-        $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->find();
-        if (!$categoryData) {
-            $categoryData = null;
-        }
-
-        $subcategorymodel = new SubCategoryModel();
-        $subcategoryData = $subcategorymodel->find();
-        if (!$subcategoryData) {
-            $subcategoryData = null;
-        }
-
-        $variantsmodel = new VariantsModel();
-        $variantData = $variantsmodel->where('product_id', $product_id)->findAll();
-        if (!$variantData) {
-            $variantData = null;
-        }
-
-        $childsubcategorymodel = new ChildSubCategoryModel();
-        $childsubcategoryData = $childsubcategorymodel->find();
-        if (!$childsubcategoryData) {
-            $childsubcategoryData = null;
-        }
-
-        return view('admin/product/product', [
-            'productData' => $productData,
-            'categoryData' => $categoryData,
-            'subcategoryData' => $subcategoryData,
-            'childsubcategoryData' => $childsubcategoryData,
-            'variantData' => $variantData,
-            'CouponData' => $CouponData
-        ]);
     }
     public function productDelete($product_id)
     {

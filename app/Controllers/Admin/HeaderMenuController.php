@@ -9,12 +9,18 @@ class HeaderMenuController extends BaseController
 {
     public function header_menu_list()
     {
-        $headermenumodel = new HeaderMenuModel();
-        $headerData = $headermenumodel->find();
-        if (!$headerData) {
-            $headerData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $headermenumodel = new HeaderMenuModel();
+            $headerData = $headermenumodel->find();
+            if (!$headerData) {
+                $headerData = null;
+            }
+            return view('admin/header_menu/header_menu_list', ['headerData' => $headerData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/header_menu/header_menu_list', ['headerData' => $headerData]);
     }
     public function header_menu()
     {
