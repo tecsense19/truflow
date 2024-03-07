@@ -168,12 +168,15 @@ ul, #myUL {
                                             <?php
                                                 $i++;
                                             }
+                                            
+                                            if(!empty($guestcartData)){
                                             foreach ($guestcartData as $guestcart) {
-                                                // echo '<pre>';print_r($order1['full_name']);echo '</pre>';
+                                                if(!empty($guestcart['guest_id']))
+                                                {
                                         ?>
                                                 <tr>
                                                     <td class="text-center"><?php echo $i; ?></td>
-                                                    <td class="text-center"><?php echo !empty($guestcart['full_name']) ? $guestcart['full_name'] : "guest"; ?></td>
+                                                    <td class="text-center"><?php echo  "guest"; ?></td>
                                                     <td>
                                                         <?php //echo $order1['full_name'];?>
                                                     
@@ -221,6 +224,8 @@ ul, #myUL {
                                                 </tr>
                                             <?php
                                                 $i++;
+                                            }
+                                            }
                                             }
                                         } else {
                                             ?>
