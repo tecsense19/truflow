@@ -768,17 +768,17 @@ class ProductController extends BaseController
                                         '', // product_description
                                         '', // product_short_description
                                         '', // product_additional_info
-                                        "'".$variant['variant_description'],
-                                        "'".$variant['variant_description_1'],
-                                        "'".$variant['variant_description_2'],
-                                        "'".$variant['variant_description_3'],
+                                        " ".$variant['variant_description'],
+                                        " ".$variant['variant_description_1'],
+                                        " ".$variant['variant_description_2'],
+                                        " ".$variant['variant_description_3'],
                                         '', // product_header1
                                         // '', // product_header2
                                         // '', // product_header3
                                         // '', // product_header4
                                         // '', // discount code
                                         $variant['group_name'],
-                                        "'".$variant['sort'],
+                                        " ".$variant['sort'],
                                         '', // Image - Not included as it's already in the product row
                                         '', // category_name - Not included as it's already in the product row
                                         '', // sub_category_name - Not included as it's already in the product row
@@ -811,7 +811,7 @@ class ProductController extends BaseController
                                 $product['product_header4'],
                                 '', // discount code
                                 '', // group_name
-                                "'".$product['sort'],
+                                " ".$product['sort'],
                                 base_url() . $product['product_img_csv'],
                                 $categoryName,
                                 $subCategoryName,
@@ -833,17 +833,17 @@ class ProductController extends BaseController
                                     '', // product_description
                                     '', // product_short_description
                                     '', // product_additional_info
-                                    "'".$variant['variant_description'],
-                                    "'".$variant['variant_description_1'],
-                                    "'".$variant['variant_description_2'],
-                                    "'".$variant['variant_description_3'],
+                                    " ".$variant['variant_description'],
+                                    " ".$variant['variant_description_1'],
+                                    " ".$variant['variant_description_2'],
+                                    " ".$variant['variant_description_3'],
                                     '', // product_header1
                                     // '', // product_header2
                                     // '', // product_header3
                                     // '', // product_header4
                                     // '', // discount code
                                     $variant['group_name'],
-                                    "'".$variant['sort'],
+                                    " ".$variant['sort'],
                                     '', // Image - Not included as it's already in the product row
                                     '', // category_name - Not included as it's already in the product row
                                     '', // sub_category_name - Not included as it's already in the product row
@@ -875,7 +875,7 @@ class ProductController extends BaseController
                             $product['product_header4'],
                             '', // discount code
                             '', // group_name
-                            "'".$product['sort'],
+                            " ".$product['sort'],
                             base_url() . $product['product_img_csv'],
                             $categoryName,
                             $subCategoryName,
@@ -897,17 +897,17 @@ class ProductController extends BaseController
                                 '', // product_description
                                 '', // product_short_description
                                 '', // product_additional_info
-                                "'".$variant['variant_description'],
-                                "'".$variant['variant_description_1'],
-                                "'".$variant['variant_description_2'],
-                                "'".$variant['variant_description_3'],
+                                " ".$variant['variant_description'],
+                                " ".$variant['variant_description_1'],
+                                " ".$variant['variant_description_2'],
+                                " ".$variant['variant_description_3'],
                                 '', // product_header1
                                 // '', // product_header2
                                 // '', // product_header3
                                 // '', // product_header4
                                 // '', // discount code
                                 $variant['group_name'],
-                                "'".$variant['sort'],
+                                " ".$variant['sort'],
                                 '', // Image - Not included as it's already in the product row
                                 '', // category_name - Not included as it's already in the product row
                                 '', // sub_category_name - Not included as it's already in the product row
