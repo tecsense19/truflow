@@ -87,6 +87,19 @@ class CompanyController extends BaseController
         return redirect()->to('admin/company_list');
     }
 
+    function random_password()
+    {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $password = array();
+        $alpha_length = strlen($alphabet) - 1;
+        for ($i = 0; $i < 8; $i++)
+        {
+            $n = rand(0, $alpha_length);
+            $password[] = $alphabet[$n];
+        }
+        return implode($password);
+    }
+
     // Company user add or edit
     public function company_user_add(){
 
@@ -127,20 +140,8 @@ class CompanyController extends BaseController
     
             $UserEmail = $input['email'];
     
-            function random_password()
-            {
-                $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-                $password = array();
-                $alpha_length = strlen($alphabet) - 1;
-                for ($i = 0; $i < 8; $i++)
-                {
-                    $n = rand(0, $alpha_length);
-                    $password[] = $alphabet[$n];
-                }
-                return implode($password);
-            }
     
-            $passwordnew = random_password();
+            $passwordnew = $this->random_password();
             
             $hashedPassword = password_hash($passwordnew, PASSWORD_DEFAULT);
             $datapasswordk = [
