@@ -87,10 +87,10 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                                     <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
                                                 </div>
                                                 <div class="form-group mb-2 col-md-6">
-                                                    <label for="email">Company name :</label>
+                                                    <label for="email">Country :</label>
                                                     <select name="country" id="country" data-val="true"
                                                         class="js-example-basic-single form-control" aria-label="Default select example">
-                                                        <option value="">Please select any company</option>
+                                                        <option value="">Please select any Country</option>
                                                         <?php if(isset($countryData)){ ?>
                                                         <?php foreach ($countryData as $country1) : ?>
                                                         <option value="<?php echo $country1['label'] ?>">
@@ -157,7 +157,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                         <h5 class="mb-0">Company Coupon</h5>
 
                         <button type="button" class="btn btn-primary d-grid float-end" data-toggle="modal" data-target="#companyCouponForm">
-                            Add Company Coupan
+                            Add Company Coupon
                         </button>
 
                         <div class="modal fade" id="companyCouponForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,84 +225,178 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
 
 
 <script>
-    $(document).ready(function(){
         // Compnay Coupan add
-        $('#company_coupan_add').submit(function(e){
-            e.preventDefault();
-            var formData = new FormData();
+        // $('#company_coupan_add').submit(function(e){
+        //     e.preventDefault();
+        //     var formData = new FormData();
             
-            $.ajax({
-                url: '<?php echo base_url('admin/company/coupan/save'); ?>', // Your controller method's URL
-                type: 'POST',
-                data: $(this).serialize(),
-                success: function(response){
-                    $('.modal').hide();
-                    // $('.modal').modal('hide');
-                    $('.modal-backdrop').hide();
-                    $('.modal').find('form')[0].reset();
-                    $('.modal').modal('hide');
-                    // Handle response
-                    if(response.status === 'success'){
-                        Swal.fire({
-                            title: 'Success',
-                            text: response.message,
-                            icon: 'success',
-                            onClose: function(){
-                                $('#popupModal').hide(); // Close the modal
-                            }
-                        });
-                        companycoupanList();
-                    } else {
-                        Swal.fire({
-                            title: 'Error',
-                            text: 'Error occurred while inserting data!',
-                            icon: 'error'
-                        });
+        //     $.ajax({
+        //         url: '<?php echo base_url('admin/company/coupan/save'); ?>', // Your controller method's URL
+        //         type: 'POST',
+        //         data: $(this).serialize(),
+        //         success: function(response){
+        //             $('.modal').hide();
+        //             // $('.modal').modal('hide');
+        //             $('.modal-backdrop').hide();
+        //             $('.modal').find('form')[0].reset();
+        //             $('.modal').modal('hide');
+        //             // Handle response
+        //             if(response.status === 'success'){
+        //                 Swal.fire({
+        //                     title: 'Success',
+        //                     text: response.message,
+        //                     icon: 'success',
+        //                     onClose: function(){
+        //                         $('#popupModal').hide(); // Close the modal
+        //                     }
+        //                 });
+        //                 companycoupanList();
+        //             } else {
+        //                 Swal.fire({
+        //                     title: 'Error',
+        //                     text: 'Error occurred while inserting data!',
+        //                     icon: 'error'
+        //                 });
+        //             }
+        //         }
+        //     });
+        // });
+
+        $(document).ready(function () {
+            $('#company_coupan_add').validate({
+                rules: {
+                    coupon_code: {
+                        required: true
+                    },
+                    coupon_price: {
+                        required: true
+                    },
+                    coupon_price_type: {
+                        required: true,
+                    },
+                    from_date: {
+                        required: true,
+                    },
+                    to_date: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    coupon_code: {
+                        required: "Coupon code is required!"
+                    },
+                    coupon_price: {
+                        required: "Coupon price is required!"
+                    },
+                    coupon_price_type: {
+                        required: "Coupon Price type is required!",
+                    },
+                    from_date: {
+                        required: "From Date is required!",
+                    },
+                    to_date: {
+                        required: "To Date is required!",
                     }
+                },
+                submitHandler: function (form) {
+                    alert('company_coupan_add');
+                    $.ajax({
+                        url: '<?php echo base_url('admin/company/coupan/save'); ?>', // Your controller method's URL
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        success: function(response){
+                            $('.modal').hide();
+                            // $('.modal').modal('hide');
+                            $('.modal-backdrop').hide();
+                            $('.modal').find('form')[0].reset();
+                            $('.modal').modal('hide');
+                            // Handle response
+                            if(response.status === 'success'){
+                                Swal.fire({
+                                    title: 'Success',
+                                    text: response.message,
+                                    icon: 'success',
+                                    onClose: function(){
+                                        $('#popupModal').hide(); // Close the modal
+                                    }
+                                });
+                                companycoupanList();
+                            } else {
+                                Swal.fire({
+                                    title: 'Error',
+                                    text: 'Error occurred while inserting data!',
+                                    icon: 'error'
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+            $('#company_user_add').validate({
+                rules: {
+                    first_name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    first_name: {
+                        required: "First Name is required!"
+                    },
+                    last_name: {
+                        required: "Last Name is required!"
+                    },
+                    email: {
+                        required: "Email is required!",
+                        email: "Please enter a valid email address."
+                    }
+                },
+                submitHandler: function (form) {
+                    $.ajax({
+                        url: '<?php echo base_url('admin/company/user/save'); ?>',
+                        type: 'POST',
+                        data: $(form).serialize(),
+                        success: function (response) {
+                            $('.modal').hide();
+                            $('.modal-backdrop').hide();
+                            $('.modal').find('form')[0].reset();
+                            $('.modal').modal('hide');
+                            if (response.status === 'success') {
+                                Swal.fire({
+                                    title: 'Success',
+                                    text: response.message,
+                                    icon: 'success',
+                                    onClose: function () {
+                                        $('#popupModal').hide();
+                                    }
+                                });
+                                companyuserList();
+                            } else {
+                                Swal.fire({
+                                    title: 'Error',
+                                    text: 'Error occurred while inserting data!',
+                                    icon: 'error'
+                                });
+                            }
+                        }
+                    });
                 }
             });
         });
 
-        // Compnay user add
-        $('#company_user_add').submit(function(e){
-            e.preventDefault();
-            var formData = new FormData();
+        
             
-            $.ajax({
-                url: '<?php echo base_url('admin/company/user/save'); ?>', // Your controller method's URL
-                type: 'POST',
-                data: $(this).serialize(),
-                success: function(response){
-                    $('.modal').hide();
-                    $('.modal-backdrop').hide();
-                    $('.modal').find('form')[0].reset();
-                    $('.modal').modal('hide');
-                    // Handle response
-                    if(response.status === 'success'){
-                        Swal.fire({
-                            title: 'Success',
-                            text: response.message,
-                            icon: 'success',
-                            onClose: function(){
-                                $('#popupModal').hide(); // Close the modal
-                            }
-                        });
-                        companyuserList();
-                    } else {
-                        Swal.fire({
-                            title: 'Error',
-                            text: 'Error occurred while inserting data!',
-                            icon: 'error'
-                        });
-                    }
-                }
-            });
-        });
-    });
 </script>
 
 <script>
@@ -383,7 +477,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
     {
         Swal.fire({
             title: 'Are you sure?',
-            text: "Delete this profile.",
+            text: "Delete this user.",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes',
@@ -425,7 +519,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
     {
         Swal.fire({
             title: 'Are you sure?',
-            text: "Delete this profile.",
+            text: "Delete this coupon.",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes',
