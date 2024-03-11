@@ -304,11 +304,10 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                     }
                 },
                 submitHandler: function (form) {
-                    alert('company_coupan_add');
                     $.ajax({
                         url: '<?php echo base_url('admin/company/coupan/save'); ?>', // Your controller method's URL
                         type: 'POST',
-                        data: $(this).serialize(),
+                        data: $(form).serialize(),
                         success: function(response){
                             $('.modal').hide();
                             // $('.modal').modal('hide');
@@ -337,6 +336,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                     });
                 }
             });
+
             $('#company_user_add').validate({
                 rules: {
                     first_name: {
