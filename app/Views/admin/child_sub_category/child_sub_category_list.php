@@ -107,7 +107,7 @@ ul, #myUL {
                     <h5 class="mb-0">Child Sub Category List</h5>
                 
 
-                    <a href="<?php echo base_url() . "admin/child_sub_category" ?>"><button class="btn btn-primary d-grid float-end">Add product</button></a>
+                    <a href="<?php echo base_url() . "admin/child_sub_category" ?>"><button class="btn btn-primary d-grid float-end">Add Child Category</button></a>
                 </div>
                 <div class="card mb-4">
                     <div class="card">

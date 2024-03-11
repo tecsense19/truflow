@@ -108,14 +108,14 @@ $sub_category_sort = isset($subcategoryData) ? $subcategoryData['sub_category_so
                 sub_category_name: {
                     required: true
                 },
-                sub_category_description: {
-                    required: true
-                },
-                sub_category_img: {
-                    required: function() {
-                        return !imageUploaded; // Validation required only if image has not been uploaded
-                    }
-                }
+                // sub_category_description: {
+                //     required: true
+                // },
+                // sub_category_img: {
+                //     required: function() {
+                //         return !imageUploaded; // Validation required only if image has not been uploaded
+                //     }
+                // }
             },
             messages: {
                 category_id: {
@@ -124,12 +124,12 @@ $sub_category_sort = isset($subcategoryData) ? $subcategoryData['sub_category_so
                 sub_category_name: {
                     required: "Sub Category Name is required!"
                 },
-                sub_category_description: {
-                    required: "Sub Category Description is required!"
-                },
-                sub_category_img: {
-                    required: "Sub Category Image is required!"
-                }
+                // sub_category_description: {
+                //     required: "Sub Category Description is required!"
+                // },
+                // sub_category_img: {
+                //     required: "Sub Category Image is required!"
+                // }
             },
             submitHandler: function(form) {
                 form.submit();

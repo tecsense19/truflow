@@ -241,7 +241,15 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
      $routes->post("company/save", "CompanyController::companySave");
      $routes->get("company/edit/(:num)", "CompanyController::companyEdit/$1");
      $routes->get("company/delete/(:num)", "CompanyController::companyDelete/$1");
-
+     $routes->post("company/user/save", "CompanyController::company_user_add");
+     $routes->get("company/user/edit/(:num)", "CompanyController::companyuserEdit/$1");
+     $routes->get("company_user_list", "CompanyController::company_user_list");
+     $routes->post("company_user_delete", "CompanyController::company_user_delete");
+     $routes->post("company/coupan/save", "CompanyController::company_coupan_add");
+     $routes->get("company_coupan_list", "CompanyController::company_coupan_list");
+     $routes->post("company_coupan_delete", "CompanyController::company_coupan_delete");
+     $routes->get("company/coupan/edit/(:num)", "CompanyController::companycoupanEdit/$1");
+     
      //Company Wise Coupon
 
      $routes->get("company_coupon_list", "CompanyCouponController::index");
@@ -249,6 +257,7 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
      $routes->post("company_coupon/save", "CompanyCouponController::couponSave");
      $routes->get("company_coupon/edit/(:num)", "CompanyCouponController::couponEdit/$1");
      $routes->get("company_coupon/delete/(:num)", "CompanyCouponController::couponDelete/$1");
+     
 
 
      //Slider
