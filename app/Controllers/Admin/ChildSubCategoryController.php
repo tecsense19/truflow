@@ -54,7 +54,9 @@ class ChildSubCategoryController extends BaseController
                 $subArr = [];
                 foreach ($subcategories as $sKey => $sValue) 
                 {
-                    $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->orderBy('child_sub_cate_sort','ASC')->findAll();
+                    $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])
+                    ->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
+
                     $childArr = [];
                     foreach ($childsubcategories as $cKey => $cValue) 
                     {
@@ -153,8 +155,14 @@ class ChildSubCategoryController extends BaseController
         $session = session();
         $childsubcategorymodel = new ChildSubCategoryModel();
         $input = $this->request->getVar();
-       
+        // echo '<pre>';print_r($input);echo '</pre>';die;
 
+        $child_sub_cate_sort = $childsubcategorymodel->where('child_sub_cate_sort', $input['child_sub_cate_sort'])->where('sub_category_id', $input['sub_category_id'])->first();
+
+        if(isset($child_sub_cate_sort) && $child_sub_cate_sort != '') {
+            $session->setFlashdata('error', 'Child subcategory sort already exit.');
+            return redirect()->back();
+        }
           // Check if new images are uploaded
           if ($files = $this->request->getFiles()) {
             $path = 'public/admin/images/product/';
@@ -210,6 +218,14 @@ class ChildSubCategoryController extends BaseController
     $session = session();
     $childsubcategorymodel = new ChildSubCategoryModel();
     $input = $this->request->getVar();
+
+    $child_sub_cate_sort = $childsubcategorymodel->where('child_id !=', $_POST['child_id'])->where('child_sub_cate_sort', $input['child_sub_cate_sort'])->where('sub_category_id', $input['sub_category_id'])->first();
+
+    if(isset($child_sub_cate_sort) && $child_sub_cate_sort != '') {
+        $session->setFlashdata('error', 'Child subcategory sort already exit.');
+        return redirect()->back();
+    }
+
     // Check if new images are uploaded
     if ($files = $this->request->getFiles()) {
       $path = 'public/admin/images/product/';

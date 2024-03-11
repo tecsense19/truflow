@@ -20,7 +20,8 @@ class SubCategoryController extends BaseController
             // }
     
             $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
-            ->join('category', 'category.category_id = sub_category.category_id')->orderBy('sub_category_sort','ASC')
+            ->join('category', 'category.category_id = sub_category.category_id')
+            ->orderBy("ISNULL(sub_category_sort), sub_category_sort ASC")
             ->find();
     
             if (!$subcategoryData) {
@@ -57,6 +58,7 @@ class SubCategoryController extends BaseController
         // print_r($input);
         // die();
 
+
         $subCatArr = [];
 
         $subCatArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
@@ -76,9 +78,24 @@ class SubCategoryController extends BaseController
         }
 
         if (isset($input['sub_category_id']) && $input['sub_category_id'] != '') {
+            $sub_category_sort = $subcategorymodel->where('sub_category_id !=' ,$input['sub_category_id'])->where('sub_category_sort', $input['sub_category_sort'])->first();
+
+            if(isset($sub_category_sort) && $sub_category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
+
             $subcategorymodel->update(['sub_category_id', $input['sub_category_id']], $subCatArr);
             $session->setFlashdata('success', 'sub category edit succesfully.');
         } else {
+
+            $sub_category_sort = $subcategorymodel->where('sub_category_sort', $input['sub_category_sort'])->first();
+
+            if(isset($sub_category_sort) && $sub_category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
+
             $subcategorymodel->insert($subCatArr);
             $session->setFlashdata('success', 'sub category add succesfully.');
         }
