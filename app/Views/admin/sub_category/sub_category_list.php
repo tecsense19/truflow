@@ -31,6 +31,7 @@
                                                     <th>Name</th>
                                                     <th>Category</th>
                                                     <th>Description</th> 
+                                                    <th>Sort</th> 
                                                     <th>Image</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -47,6 +48,7 @@
                                                     <td><?php echo $subcategory['sub_category_name'];?></td>
                                                     <td><?php echo $subcategory['category_name']?></td>
                                                     <td class="testo_descrip"><?php echo $subcategory['sub_category_description'];?></td>
+                                                    <td><?php echo $subcategory['sub_category_sort'];?></td>
                                                     <td>
                                                         <?php if(isset($subcategory['sub_category_img'])) {?>
                                                             <a data-fancybox="preview" href="<?php echo base_url('').$subcategory['sub_category_img']?>"><img src="<?php echo base_url('').$subcategory['sub_category_img']?>" alt="Image" class ="" width="100"></a>

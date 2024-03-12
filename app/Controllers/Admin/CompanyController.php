@@ -107,7 +107,7 @@ class CompanyController extends BaseController
         $session = session();
 
         $input = $this->request->getVar();
-        $userArr = [];
+
         $userArr = [
             'full_name' => $input['first_name'] . " " . $input['last_name'],
             'first_name' => $input['first_name'],
@@ -236,7 +236,7 @@ class CompanyController extends BaseController
     public function company_coupan_add(){
         $coupanmodel = new CouponModel();
         $input = $this->request->getVar();
-        $coupanArr = [];
+        
         $coupanArr = [
             'coupon_code' => $input['coupon_code'],
             'company_id' => $input['company_id'],
