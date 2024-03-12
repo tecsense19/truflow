@@ -189,8 +189,8 @@ class Home extends BaseController
     {
 
         $session = session();
-        $user_id = $session->get('user_id');
-        if($user_id){
+        $session_user_id = $session->get('user_id');
+        if($session_user_id){
             $usermodel = new UserModel();
             $userData = $usermodel->find($user_id);
     
