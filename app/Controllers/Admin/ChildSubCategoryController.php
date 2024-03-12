@@ -86,8 +86,8 @@ class ChildSubCategoryController extends BaseController
     {
         $categories = [];
 
-        $query = $model->select('child_id , sub_category_id, child_sub_category_name, child_sub_category_img')
-                       ->where('sub_chid_id', $parentCategoryId)
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name, child_sub_category_img, child_sub_cate_sort')
+                       ->where('sub_chid_id', $parentCategoryId)->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")
                        ->get();
 
         foreach ($query->getResult() as $row) {

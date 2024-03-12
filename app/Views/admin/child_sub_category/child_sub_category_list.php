@@ -20,9 +20,11 @@ function displayChildren($children)
     }
     echo '<ul class="nested">';
     foreach ($children as $child) {
+        // echo '<pre>';print_r($child);echo '</pre>';
         $url_edit = base_url('') . "admin/child_sub_category/name_edit/" . $child->child_id;
-      $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
-        echo '<li><span class="caret">' . $child->child_sub_category_name;
+        $url_delete = base_url('') . "admin/child_sub_category/delete/" . $child->child_id;
+        // echo '<li><span class="caret">' . $child->child_sub_category_name;
+        echo '<li><span class="caret">' . $child->child_sub_category_name . ' (Sort: ' . (isset($child->child_sub_cate_sort) ? $child->child_sub_cate_sort : '0') . ')';
         if ($child->child_sub_category_img) {
             $imagePaths = explode(',', $child->child_sub_category_img);
             foreach ($imagePaths as $imagePath) {
@@ -143,9 +145,10 @@ ul, #myUL {
                                                                             
                                                                             <?php if (!empty($subcategory['child_arr'])): ?>
                                                                                 <ul class="nested">
-                                                                                    <?php foreach ($subcategory['child_arr'] as $childsubcategory): ?>
+                                                                                    <?php foreach ($subcategory['child_arr'] as $childsubcategory): 
+                                                                                        ?>
                                                                                         <li><span class="caret">
-                                                                                            <?php echo $childsubcategory['child_sub_category_name']; ?>
+                                                                                            <?php echo $childsubcategory['child_sub_category_name']; ?> (Sort: <?php echo isset($childsubcategory['child_sub_cate_sort']) ? $childsubcategory['child_sub_cate_sort'] : '0'; ?>)
                                                                                             <?php if ($childsubcategory['child_sub_category_img']) {
                                                                                                 $imagePaths = explode(',', $childsubcategory['child_sub_category_img']);
                                                                                                 foreach ($imagePaths as $imagePath) {
