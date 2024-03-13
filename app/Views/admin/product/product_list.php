@@ -65,6 +65,7 @@
                                             <th>Category</th>
                                             <th>Sub Category</th>
                                             <th>Description</th>
+                                            <th>Sort</th>
                                             <th style="display:none;">Coupon code</th>
                                             <th>Image</th>
                                             <th>Actions</th>
@@ -83,6 +84,7 @@
                                                     <td><?php echo $product['category_name'] ?></td>
                                                     <td><?php echo $product['sub_category_name'] ?></td>
                                                     <td class="testo_descrip"><?php echo $product['product_description']; ?></td>
+                                                    <td><?php echo $product['sort'] ?></td>
                                                     <td style="display:none;"><?php echo $product['coupon_code']; ?></td>
                                                     <td>
                                                         <?php if (isset($product['product_img'])) {

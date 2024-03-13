@@ -24,9 +24,10 @@ class ProductController extends BaseController
             $productmodel = new ProductModel();
             $CouponModel = new CouponModel();
     
-            $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name')->where('deleted_at', 0)
+            $productData = $productmodel->select('product.*, category.category_name, sub_category.sub_category_name, CAST(sort AS FLOAT) AS sort')->where('deleted_at', 0)
                 ->join('category', 'category.category_id = product.category_id')
                 ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id')
+                ->orderBy('sort', 'asc')
                 ->find();
             $newData2 = [];
             foreach ($productData as $pnewdata) {
@@ -117,6 +118,7 @@ class ProductController extends BaseController
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_short_description'] = isset($input['product_short_description']) ? $input['product_short_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
+        $productArr['sort'] = isset($input['sort']) ? $input['sort'] : '';
 
         $productArr['product_header1'] = isset($input['product_header1']) ? $input['product_header1'] : '';
         $productArr['product_header2'] = isset($input['product_header2']) ? $input['product_header2'] : '';

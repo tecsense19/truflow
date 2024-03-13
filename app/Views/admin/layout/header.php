@@ -115,11 +115,11 @@
                         <div data-i18n="Basic Inputs">Contact Us Section</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                     <a href="<?php echo base_url('admin/product-page'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Product Section</div>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/testominal-page'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Testominal Section</div>

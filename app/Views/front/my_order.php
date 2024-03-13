@@ -66,7 +66,7 @@
                             <?php } elseif($orderData[0]['pay_method'] == 'online_payment'){ ?>
                               Online Payment
                             <?php } else { ?>
-                              On a account
+                              Account
                             <?php } ?>
                           </th>
                           <?php if($orderData[0]['pay_method'] == 'onaaccount') { ?>

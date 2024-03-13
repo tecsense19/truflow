@@ -40,7 +40,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                 <input type="hidden" name="company_id" value="<?php echo $company_id;?>">
                             </div>
                             <div class="mb-3 col-md-6">
-                                    <label class="form-label" for="on_a_account">On A Account :</label>
+                                    <label class="form-label" for="on_a_account">Account :</label>
                                     <input data-val="true" data-val-required="Fax is required." id="on_a_account"
                                         name="on_a_account" type="checkbox" value="<?php echo $on_a_account; ?>"
                                         <?php if($on_a_account) { echo 'checked'; } ?> onchange="checkStatus(this)"/>
@@ -154,17 +154,17 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
             <div class="col-xl">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Company Coupon</h5>
+                        <h5 class="mb-0">Group Discount</h5>
 
                         <button type="button" class="btn btn-primary d-grid float-end" data-toggle="modal" data-target="#companyCouponForm">
-                            Add Company Coupon
+                            Add Group Discount
                         </button>
 
                         <div class="modal fade" id="companyCouponForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <h5 class="modal-title" id="exampleModalLabel">Create Coupan</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Create Discount</h5>
                                         <a class="close" onclick="closeModal()" data-dismiss="modal" aria-label="Close" style="cursor: pointer;">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </a>
@@ -172,20 +172,20 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                     <form id="company_coupan_add">
                                         <div class="modal-body">
                                             <div class="form-group mb-2">
-                                                <label for="firstname">Coupon Code</label>
+                                                <label for="firstname">Discount Code</label>
                                                 <input type="hidden" class="form-control" name="coupon_id" id="coupon_id" value="">
-                                                <input type="text" class="form-control" name="coupon_code" id="coupon_code" value="" aria-describedby="emailHelp" placeholder="code">
+                                                <input type="text" class="form-control" name="coupon_code" id="coupon_code" value="" aria-describedby="emailHelp" placeholder="Discount Code">
                                                 <input type="hidden" name="company_id" value="<?php echo $company_name;?>">
                                             </div>
                                             <div class="form-group mb-2">
-                                                <label for="last_name">Coupon Amount</label>
-                                                <input type="text" class="form-control" name="coupon_price" id="coupon_price" value="" placeholder="price / percentage">
+                                                <label for="last_name">Percentage Off</label>
+                                                <input type="text" class="form-control" name="coupon_price" id="coupon_price" value="" placeholder="Percentage">
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="coupon_price_type">Discount Type</label>
                                                 <select id="coupon_price_type" name="coupon_price_type" class="form-select required">
                                                     <option value="">Default select</option>
-                                                    <option value="Flat">Flat</option>
+                                                    <!-- <option value="Flat">Flat</option> -->
                                                     <option value="Percentage">Percentage</option>
                                                 </select>
                                             </div>
@@ -288,13 +288,13 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                 },
                 messages: {
                     coupon_code: {
-                        required: "Coupon code is required!"
+                        required: "Discount code is required!"
                     },
                     coupon_price: {
-                        required: "Coupon price is required!"
+                        required: "Percentage off is required!"
                     },
                     coupon_price_type: {
-                        required: "Coupon Price type is required!",
+                        required: "Discount type is required!",
                     },
                     from_date: {
                         required: "From Date is required!",

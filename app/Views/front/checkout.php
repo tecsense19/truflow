@@ -341,7 +341,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         <div class="order_list">
                             <span>
                                 <input type="radio" id="on_a_account" name="pay_method" value="onaaccount" required checked>
-                                <label for="on_a_account">On A Account</label>
+                                <label for="on_a_account">Account</label>
                             </span>
                         </div>
                         <?php } ?>

@@ -1,0 +1,516 @@
+CRITICAL - 2024-03-13 09:39:51 --> Undefined array key "slider_link"
+in APPPATH\Views\front\index.php on line 64.
+ 1 APPPATH\Views\front\index.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "slider_link"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php', 64)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(202): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 09:39:51 --> Undefined array key "slider_link"
+in APPPATH\Views\front\index.php on line 64.
+ 1 APPPATH\Views\front\index.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "slider_link"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php', 64)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(202): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 09:39:56 --> Undefined array key "slider_link"
+in APPPATH\Views\front\index.php on line 64.
+ 1 APPPATH\Views\front\index.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "slider_link"', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php', 64)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\front\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('front/index', [], true)
+ 5 APPPATH\Controllers\Home.php(202): view('front/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 13:22:48 --> unlink(C:\xampp\htdocs\truflow-git\truflow\public/front/images/home/): Is a directory
+in APPPATH\Controllers\Admin\SliderController.php on line 45.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp\\htdocs\\truflow-git\\truflow\\public/front/images/home/): Is a directory', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\SliderController.php', 45)
+ 2 APPPATH\Controllers\Admin\SliderController.php(45): unlink('C:\\xampp\\htdocs\\truflow-git\\truflow\\public/front/images/home/')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:24:31 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:24:31'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:24:31 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:24:31'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:24:31\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:24:31\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:24:31\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:26:01 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:26:01'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:26:01 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:26:01'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:01\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:01\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:01\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:26:29 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:26:29'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:26:29 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:26:29'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:29\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:29\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:26:29\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 13:31:47 --> unlink(C:\xampp\htdocs\truflow-git\truflow\public/front/images/home/): Is a directory
+in APPPATH\Controllers\Admin\SliderController.php on line 45.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp\\htdocs\\truflow-git\\truflow\\public/front/images/home/): Is a directory', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Controllers\\Admin\\SliderController.php', 45)
+ 2 APPPATH\Controllers\Admin\SliderController.php(45): unlink('C:\\xampp\\htdocs\\truflow-git\\truflow\\public/front/images/home/')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:32:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:12'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:32:12 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:12'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:12\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:12\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:12\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:32:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:18'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:32:18 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:18'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:18\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:18\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:18\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:32:57 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:57'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:32:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:32:57'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:57\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:57\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:32:57\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:36:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:16'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update('4', Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:36:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:16'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:16\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:16\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:16\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update('4', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:36:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:20'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update('4', Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:36:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:20'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:20\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:20\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:20\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(75): CodeIgniter\Model->update('4', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:36:54 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:54'
+WHERE `slider`.`slider_id` IN ('4')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:36:54 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:36:54'
+WHERE `slider`.`slider_id` IN ('4')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:54\'
+WHERE `slider`.`slider_id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:54\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/test\', `slider_path` = (), `updated_at` = \'2024-03-13 13:36:54\'
+WHERE `slider`.`slider_id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 13:37:19 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:37:19'
+WHERE `slider`.`slider_id` IN ('6')' at line 1 in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider`...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider`...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider`...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider`...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update(Array, Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 13:37:19 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '), `updated_at` = '2024-03-13 13:37:19'
+WHERE `slider`.`slider_id` IN ('6')' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `slider` SET `slider_link` = \'http://google.com/\', `slider_path` = (), `updated_at` = \'2024-03-13 13:37:19\'
+WHERE `slider`.`slider_id` IN (\'6\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `slider` SET `slider_link` = \'http://google.com/\', `slider_path` = (), `updated_at` = \'2024-03-13 13:37:19\'
+WHERE `slider`.`slider_id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `slider` SET `slider_link` = \'http://google.com/\', `slider_path` = (), `updated_at` = \'2024-03-13 13:37:19\'
+WHERE `slider`.`slider_id` IN (\'6\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `slider` SET `slider_link` = :slider_link:, `slider_path` = :slider_path:, `updated_at` = :updated_at:
+WHERE `slider`.`slider_id` IN :slider.slider_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\SliderController.php(72): CodeIgniter\Model->update([...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 13:40:11 --> Undefined variable $slider_path
+in APPPATH\Views\admin\slider\slider.php on line 36.
+ 1 APPPATH\Views\admin\slider\slider.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $slider_path', 'C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\slider\\slider.php', 36)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\truflow-git\\truflow\\app\\Views\\admin\\slider\\slider.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin/slider/slider', [], true)
+ 5 APPPATH\Controllers\Admin\SliderController.php(89): view('admin/slider/slider', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\SliderController->sliderEdit('4')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SliderController))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-13 13:56:45 --> Call to undefined method App\Models\ProductModel::order_by
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Admin\ProductController.php(30): CodeIgniter\Model->__call('order_by', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 14:12:12 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('61', Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 14:12:12 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'BP1MFS-TP\', `product_description` = \'\', `product_short_description` = \'BSPP Male X BSPP Female Swivel X BSPP Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'12-12TP\'), `product_header1` = \'BSPP M\', `product_header2` = \'BSPP F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:12\'
+WHERE `product`.`product_id` IN (\'61\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'BP1MFS-TP\', `product_description` = \'\', `product_short_description` = \'BSPP Male X BSPP Female Swivel X BSPP Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'12-12TP\'), `product_header1` = \'BSPP M\', `product_header2` = \'BSPP F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:12\'
+WHERE `product`.`product_id` IN (\'61\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'BP1MFS-TP\', `product_description` = \'\', `product_short_description` = \'BSPP Male X BSPP Female Swivel X BSPP Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'12-12TP\'), `product_header1` = \'BSPP M\', `product_header2` = \'BSPP F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:12\'
+WHERE `product`.`product_id` IN (\'61\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product` SET `coupon_id` = :coupon_id:, `category_id` = :category_id:, `sub_category_id` = :sub_category_id:, `child_id` = :child_id:, `featured_category` = :featured_category:, `product_name` = :product_name:, `product_description` = :product_description:, `product_short_description` = :product_short_description:, `product_additional_info` = :product_additional_info:, `sort` = :sort:, `product_header1` = :product_header1:, `product_header2` = :product_header2:, `product_header3` = :product_header3:, `product_header4` = :product_header4:, `updated_at` = :updated_at:
+WHERE `product`.`product_id` IN :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('61', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 14:12:33 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('462', Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 14:12:33 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'J1MFS-TP\', `product_description` = \'\', `product_short_description` = \'JIC Male X JIC Female Swivel X BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\',\'20-20TP\'), `product_header1` = \'JIC F\', `product_header2` = \'JIC M\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:33\'
+WHERE `product`.`product_id` IN (\'462\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'J1MFS-TP\', `product_description` = \'\', `product_short_description` = \'JIC Male X JIC Female Swivel X BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\',\'20-20TP\'), `product_header1` = \'JIC F\', `product_header2` = \'JIC M\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:33\'
+WHERE `product`.`product_id` IN (\'462\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'J1MFS-TP\', `product_description` = \'\', `product_short_description` = \'JIC Male X JIC Female Swivel X BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\',\'20-20TP\'), `product_header1` = \'JIC F\', `product_header2` = \'JIC M\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:12:33\'
+WHERE `product`.`product_id` IN (\'462\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product` SET `coupon_id` = :coupon_id:, `category_id` = :category_id:, `sub_category_id` = :sub_category_id:, `child_id` = :child_id:, `featured_category` = :featured_category:, `product_name` = :product_name:, `product_description` = :product_description:, `product_short_description` = :product_short_description:, `product_additional_info` = :product_additional_info:, `sort` = :sort:, `product_header1` = :product_header1:, `product_header2` = :product_header2:, `product_header3` = :product_header3:, `product_header4` = :product_header4:, `updated_at` = :updated_at:
+WHERE `product`.`product_id` IN :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('462', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-13 14:14:11 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\truflow-git\truflow\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product...', 0)
+#1 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product...')
+#2 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product...')
+#3 C:\xampp\htdocs\truflow-git\truflow\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product...', Array, false)
+#4 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\truflow-git\truflow\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\truflow-git\truflow\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\truflow-git\truflow\app\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('591', Array)
+#8 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+#9 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+#10 C:\xampp\htdocs\truflow-git\truflow\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\truflow-git\truflow\index.php(68): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-13 14:14:11 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'ORS1MFS-TP\', `product_description` = \'\', `product_short_description` = \'ORFS Male X ORFS Felame Swivel x BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\'), `product_header1` = \'ORFS M\', `product_header2` = \'ORFS F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:14:11\'
+WHERE `product`.`product_id` IN (\'591\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'ORS1MFS-TP\', `product_description` = \'\', `product_short_description` = \'ORFS Male X ORFS Felame Swivel x BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\'), `product_header1` = \'ORFS M\', `product_header2` = \'ORFS F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:14:11\'
+WHERE `product`.`product_id` IN (\'591\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `product` SET `coupon_id` = \'\', `category_id` = \'1\', `sub_category_id` = \'3\', `child_id` = \'5\', `featured_category` = \'\', `product_name` = \'ORS1MFS-TP\', `product_description` = \'\', `product_short_description` = \'ORFS Male X ORFS Felame Swivel x BSPP Female Test Port\', `product_additional_info` = \'\', `sort` = (\'04-04TP\',\'06-06TP\',\'08-08TP\',\'10-10TP\',\'12-12TP\',\'16-16TP\'), `product_header1` = \'ORFS M\', `product_header2` = \'ORFS F\', `product_header3` = \'BSPP F\', `product_header4` = \'\', `updated_at` = \'2024-03-13 14:14:11\'
+WHERE `product`.`product_id` IN (\'591\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `product` SET `coupon_id` = :coupon_id:, `category_id` = :category_id:, `sub_category_id` = :sub_category_id:, `child_id` = :child_id:, `featured_category` = :featured_category:, `product_name` = :product_name:, `product_description` = :product_description:, `product_short_description` = :product_short_description:, `product_additional_info` = :product_additional_info:, `sort` = :sort:, `product_header1` = :product_header1:, `product_header2` = :product_header2:, `product_header3` = :product_header3:, `product_header4` = :product_header4:, `updated_at` = :updated_at:
+WHERE `product`.`product_id` IN :product.product_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\ProductController.php(205): CodeIgniter\Model->update('591', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin\ProductController->productSave()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\ProductController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(68): CodeIgniter\CodeIgniter->run()

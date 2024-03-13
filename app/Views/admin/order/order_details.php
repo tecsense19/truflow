@@ -43,7 +43,7 @@
                                         }elseif ($newCartData1[0]['pay_method'] == 'online_payment') {
                                             echo 'Online Payment';
                                         }else{
-                                            echo 'On a account';
+                                            echo 'Account';
                                         }
                                         ?><br>
                                     </div>
