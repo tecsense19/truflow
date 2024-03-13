@@ -222,15 +222,15 @@ class CsvController extends BaseController
                         'sub_category_id' => $subcategoryId,
                         'product_description' => $ProductDescription,
                         'product_short_description' => $shortDescription,
-                        'product_header1' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
-                        'product_header2' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
-                        'product_header3' => trim($vheader3, "'") ? trim($vheader3, "'") : '', 
-                        'product_header4' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
+                        'product_header1' => trim($vheader1, " ") ? trim($vheader1, " ") : '',
+                        'product_header2' => trim($vheader2, " ") ? trim($vheader2, " ") : '',
+                        'product_header3' => trim($vheader3, " ") ? trim($vheader3, " ") : '', 
+                        'product_header4' => trim($vheader4, " ") ? trim($vheader4, " ") : '',
                         'product_additional_info' => $information,
                         'product_favourite' => $Favourite,
                         'coupon_id' => $CouponId,
                         'deleted_at' => 0,
-                        'sort' => trim($sort, "'"),
+                        'sort' => trim($sort, " "),
                     ];
 
                     if($compressedPath)
@@ -275,11 +275,11 @@ class CsvController extends BaseController
                         'parent' => $parent,
                         'variant_stock' => $stock,
                         'group_name' => $group_name,
-                        'sort' => trim($sort, "'"),
-                        'variant_description' => trim($vheader1, "'") ? trim($vheader1, "'") : '',
-                        'variant_description_1' => trim($vheader2, "'") ? trim($vheader2, "'") : '',
-                        'variant_description_2' => trim($vheader3, "'") ? trim($vheader3, "'") : '',
-                        'variant_description_3' => trim($vheader4, "'") ? trim($vheader4, "'") : '',
+                        'sort' => trim($sort, " "),
+                        'variant_description' => trim($vheader1, " ") ? trim($vheader1, " ") : '',
+                        'variant_description_1' => trim($vheader2, " ") ? trim($vheader2, " ") : '',
+                        'variant_description_2' => trim($vheader3, " ") ? trim($vheader3, " ") : '',
+                        'variant_description_3' => trim($vheader4, " ") ? trim($vheader4, " ") : '',
                     ];
 
                     $checkVariant = $variantModel->where('variant_name', $variantName)->where('variant_sku', $variantSku)->where('product_id', $productId)->get()->getRow();

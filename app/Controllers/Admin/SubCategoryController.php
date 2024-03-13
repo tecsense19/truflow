@@ -9,22 +9,29 @@ class SubCategoryController extends BaseController
 {
     public function index()
     {
-        $subcategorymodel = new SubCategoryModel();
-       
-        // $subcategoryData = $subcategorymodel->find();
-        // if (!$subcategoryData) {
-        //     $subcategoryData = null;
-        // }
-
-        $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
-        ->join('category', 'category.category_id = sub_category.category_id')->orderBy('sub_category_sort','ASC')
-        ->find();
-
-        if (!$subcategoryData) {
-            $subcategoryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $subcategorymodel = new SubCategoryModel();
+           
+            // $subcategoryData = $subcategorymodel->find();
+            // if (!$subcategoryData) {
+            //     $subcategoryData = null;
+            // }
+    
+            $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
+            ->join('category', 'category.category_id = sub_category.category_id')
+            ->orderBy("ISNULL(sub_category_sort), sub_category_sort ASC")
+            ->find();
+    
+            if (!$subcategoryData) {
+                $subcategoryData = null;
+            }
+    
+            return view('admin/sub_category/sub_category_list', ['subcategoryData'=>$subcategoryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        return view('admin/sub_category/sub_category_list', ['subcategoryData'=>$subcategoryData]);
     }
     public function sub_category()
     {
@@ -51,6 +58,7 @@ class SubCategoryController extends BaseController
         // print_r($input);
         // die();
 
+
         $subCatArr = [];
 
         $subCatArr['sub_category_id'] = isset($input['sub_category_id']) ? $input['sub_category_id'] : '';
@@ -70,9 +78,24 @@ class SubCategoryController extends BaseController
         }
 
         if (isset($input['sub_category_id']) && $input['sub_category_id'] != '') {
+            $sub_category_sort = $subcategorymodel->where('sub_category_id !=' ,$input['sub_category_id'])->where('sub_category_sort', $input['sub_category_sort'])->first();
+
+            if(isset($sub_category_sort) && $sub_category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
+
             $subcategorymodel->update(['sub_category_id', $input['sub_category_id']], $subCatArr);
             $session->setFlashdata('success', 'sub category edit succesfully.');
         } else {
+
+            $sub_category_sort = $subcategorymodel->where('sub_category_sort', $input['sub_category_sort'])->first();
+
+            if(isset($sub_category_sort) && $sub_category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
+
             $subcategorymodel->insert($subCatArr);
             $session->setFlashdata('success', 'sub category add succesfully.');
         }
@@ -81,20 +104,25 @@ class SubCategoryController extends BaseController
     }
     public function sub_categoryEdit($sub_category_id)
     {
-
-        $subcategorymodel = new SubCategoryModel();
-        $subcategoryData = $subcategorymodel->find($sub_category_id);
-
-        if (!$subcategoryData) {
-            $subcategoryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $subcategorymodel = new SubCategoryModel();
+            $subcategoryData = $subcategorymodel->find($sub_category_id);
+    
+            if (!$subcategoryData) {
+                $subcategoryData = null;
+            }
+    
+            $categorymodel = new CategoryModel();
+            $categoryData = $categorymodel->find();
+            if (!$categoryData) {
+                $categoryData = null;
+            }
+            return view('admin/sub_category/sub_category', ['subcategoryData' => $subcategoryData,  'categoryData'=>$categoryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->find();
-        if (!$categoryData) {
-            $categoryData = null;
-        }
-        return view('admin/sub_category/sub_category', ['subcategoryData' => $subcategoryData,  'categoryData'=>$categoryData]);
     }
     public function sub_categoryDelete($sub_category_id)
 {

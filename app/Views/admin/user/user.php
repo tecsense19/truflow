@@ -87,7 +87,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
 
                                     <input class="form-control" data-val="true"
                                         data-val-required="Last name is required." id="last_name" name="last_name"
-                                        type="text" value="<?php echo $last_name; ?>" />
+                                        type="text" value="<?php echo $last_name; ?>"/>
 
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
                                     <label class="form-label">Date of birth :</label>
 
                                     <input class="form-control" data-val="true" data-val-required="" id="date_of_birth"
-                                        name="date_of_birth" type="date" value="<?php echo $date_of_birth; ?>" />
+                                        name="date_of_birth" type="date" value="<?php echo $date_of_birth; ?>"/>
 
                                 </div>
 
@@ -129,7 +129,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
                                         <?php endforeach; ?>
                                         <?php }?>
                                     </select>
-
+                                    <label id="company_name-error" class="error mt-3" for="company_name" style="display: none;"></label>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label" for="last_name">Country :</label>
@@ -225,7 +225,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
 
                                     <input class="form-control" data-val="true"
                                         data-val-required="password Number is required." id="password" name="password"
-                                        type="password" value="" />
+                                        type="password" value=""/>
 
 
                                 </div>
@@ -234,7 +234,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
 
                                     <input class="form-control" data-val="true"
                                         data-val-required="password Number is required." id="c_password"
-                                        name="c_password" type="password" value="" />
+                                        name="c_password" type="password" value=""/>
 
                                 </div>
                             </div>

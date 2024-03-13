@@ -4,6 +4,11 @@
 $selectedUser1 = isset($selectedUser) ? $selectedUser : '';
 $selectedDate1 = isset($selectedDate) ? $selectedDate : '';
 ?>
+<style>
+    .table-responsive{
+        overflow-x: hidden;
+    }
+</style>
 <!-- Content wrapper -->
 <div class="content-wrapper">
     <!-- Content -->

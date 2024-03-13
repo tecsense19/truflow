@@ -17,7 +17,7 @@
             <div class="col-xl">
                 
                 <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">company List</h5>
+                <h5 class="mb-0">Company List</h5>
                 <a href="<?php echo base_url()."admin/company"?>"><button class="btn btn-primary d-grid float-end">Add company</button></a>
                 </div>
                     <div class="card mb-4">

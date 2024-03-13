@@ -14,26 +14,31 @@ class CompanyCouponController extends BaseController
 {
     public function index()
     {
-       
-        $couponmodel = new CouponModel();
-      
-        $couponData = $couponmodel;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $couponmodel = new CouponModel();
         
+            $couponData = $couponmodel;
+            
 
-        $query = $couponmodel->select('*')
-            ->where('coupon.company_coupon', '1')
-            ->get();
+            $query = $couponmodel->select('*')
+                ->where('coupon.company_coupon', '1')
+                ->get();
 
-        $couponData = $query->getResultArray();
+            $couponData = $query->getResultArray();
 
-    //    echo "<pre>";
-    //     print_r($couponData);
-    //     die();
-        
-        if (!$couponData) {
-            $couponData = null;
+        //    echo "<pre>";
+        //     print_r($couponData);
+        //     die();
+            
+            if (!$couponData) {
+                $couponData = null;
+            }
+            return view('admin/company_coupon/company_coupon_list', ['couponData' => $couponData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/company_coupon/company_coupon_list', ['couponData' => $couponData]);
     }
     public function coupon()
     {
@@ -109,34 +114,40 @@ class CompanyCouponController extends BaseController
     }
     public function couponEdit($coupon_id)
 {
-    $couponmodel = new CouponModel();
-    $couponData = $couponmodel->find($coupon_id);
-
-
-    //$categorymodel = new CategoryModel();
-    $subcategorymodel = new SubCategoryModel();
-        
-    $subcategoryData = $subcategorymodel->find();
-       
-    $selectedUserIds = [];
-    $selectedsubCategoryIds = [];
-
-    if ($couponData) {
-        $selectedsubCategoryIds = explode(',', $couponData['sub_category_id']);
+    $session = session();
+    $user_id = $session->get('user_id');
+    if($user_id){
+        $couponmodel = new CouponModel();
+        $couponData = $couponmodel->find($coupon_id);
+    
+    
+        //$categorymodel = new CategoryModel();
+        $subcategorymodel = new SubCategoryModel();
+            
+        $subcategoryData = $subcategorymodel->find();
+           
+        $selectedUserIds = [];
+        $selectedsubCategoryIds = [];
+    
+        if ($couponData) {
+            $selectedsubCategoryIds = explode(',', $couponData['sub_category_id']);
+        }
+        $companymodel = new CompanyModel();
+        $companyData = $companymodel->find();
+    
+    
+        return view(
+            'admin/company_coupon/company_coupon',
+            [
+                'couponData' => $couponData,
+                'subcategoryData' => $subcategoryData,
+                'selectedsubCategoryIds' => $selectedsubCategoryIds,
+                'companyData' =>$companyData
+            ]
+        );
+    }else{
+        return redirect()->to('/admin');
     }
-    $companymodel = new CompanyModel();
-    $companyData = $companymodel->find();
-
-
-    return view(
-        'admin/company_coupon/company_coupon',
-        [
-            'couponData' => $couponData,
-            'subcategoryData' => $subcategoryData,
-            'selectedsubCategoryIds' => $selectedsubCategoryIds,
-            'companyData' =>$companyData
-        ]
-    );
 }
 
 

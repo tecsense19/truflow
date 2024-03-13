@@ -43,7 +43,7 @@ class HomeProductController extends BaseController
         if (!$headerData) {
             $headerData = null;
         }
-        $categoryData = $categorymodel->findAll();
+        $categoryData = $categorymodel->orderBy('category_sort', 'ASC')->findAll();
 
         if($cateId)
         {
@@ -51,7 +51,7 @@ class HomeProductController extends BaseController
             $subCatResult = [];
             if($getCategoryData)
             {
-                $subcategoryData = $subcategorymodel->where('category_id', $getCategoryData->category_id)->findAll();
+                $subcategoryData = $subcategorymodel->where('category_id', $getCategoryData->category_id)->orderBy("ISNULL(sub_category_sort), sub_category_sort ASC")->findAll();
                 foreach ($subcategoryData as $key => $value) {
                     $product = $productmodel->where('sub_category_id', $value['sub_category_id'])->where('child_id',-1)->findAll();
                     $value['isProduct'] = count($product) > 0 ? true : false;
@@ -77,7 +77,7 @@ class HomeProductController extends BaseController
                 $chilldCatResult = [];
 
                 if($getSubCategoryData){
-                    $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('category_id',$getCategoryData->category_id)->where('sub_category_id', $getSubCategoryData->sub_category_id)->findAll();
+                    $ChildSubCategorydata = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('category_id',$getCategoryData->category_id)->where('sub_category_id', $getSubCategoryData->sub_category_id)->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
 
                         $baseUrl = base_url();
                         $uri = $this->request->uri->getPath();
@@ -94,7 +94,7 @@ class HomeProductController extends BaseController
                                 $getChild = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('child_sub_category_name',str_replace('_', ' ', $output))->get()->getRow();
                                 if($getChild)
                                 {
-                                    $ChildSubCategorydata = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('sub_chid_id', $getChild->child_id)->findAll();
+                                    $ChildSubCategorydata = $ChildSubCategoryModel->where('category_id',$getCategoryData->category_id)->where('sub_chid_id', $getChild->child_id)->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
                                     
                                     if($ChildSubCategorydata)
                                     {
@@ -336,7 +336,7 @@ class HomeProductController extends BaseController
             $childSubCategoryProducts = $productmodel->where('child_id', $child['child_id'])->where('deleted_at', 0)->findAll();
             $childProductArr = $this->fetchProductDetails($childSubCategoryProducts);
 
-            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $child['child_id'])->findAll();
+            $subChild = $ChildSubCategoryModel->where('sub_chid_id', $child['child_id'])->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
             $product = $productmodel->where('child_id', $child['child_id'])->findAll();
             $child['isProduct'] = count($product) > 0 ? true : false;
 
@@ -353,7 +353,7 @@ class HomeProductController extends BaseController
     // Recursive function to process categories
     function processCategory($category) {
         $ChildSubCategoryModel = new ChildSubCategoryModel();
-        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->orderBy('child_sub_cate_sort','ASC')->findAll();
+        $childSubCategories = $ChildSubCategoryModel->where('sub_chid_id', '0')->where('sub_category_id', $category['sub_category_id'])->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
 
         foreach ($childSubCategories as $childSubCategory) {
             $childSubCategory = $this->processChildCategory($childSubCategory);
@@ -381,7 +381,7 @@ class HomeProductController extends BaseController
     function processChildCategory($childCategory) {
         $ChildSubCategoryModel = new ChildSubCategoryModel();
         $productmodel = new ProductModel();
-        $subChildCategories = $ChildSubCategoryModel->where('sub_chid_id', $childCategory['child_id'])->findAll();
+        $subChildCategories = $ChildSubCategoryModel->where('sub_chid_id', $childCategory['child_id'])->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
 
         foreach ($subChildCategories as $subChildCategory) {
             $subChild = $ChildSubCategoryModel->where('sub_chid_id', $childCategory['child_id'])->findAll();
@@ -422,7 +422,7 @@ class HomeProductController extends BaseController
             $subcategory_array = [];
 
             // Fetch subcategories for the current category
-            $subcategories = $subcategorymodel->where('category_id', $category['category_id'])->orderBy('sub_category_sort','ASC')->findAll();
+            $subcategories = $subcategorymodel->where('category_id', $category['category_id'])->orderBy("ISNULL(sub_category_sort), sub_category_sort ASC")->findAll();
 
             foreach ($subcategories as $subCategory) {
                 $subCategory = $this->processCategory($subCategory);

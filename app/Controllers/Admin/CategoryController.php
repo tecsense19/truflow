@@ -8,12 +8,18 @@ class CategoryController extends BaseController
 {
     public function index()
     {
-        $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->orderBy('category_sort','ASC')->find();
-        if (!$categoryData) {
-            $categoryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $categorymodel = new CategoryModel();
+            $categoryData = $categorymodel->orderBy('category_sort','ASC')->find();
+            if (!$categoryData) {
+                $categoryData = null;
+            }
+            return view('admin/category/category_list', ['categoryData' => $categoryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/category/category_list', ['categoryData' => $categoryData]);
     }
     public function category()
     {
@@ -28,6 +34,7 @@ class CategoryController extends BaseController
         $input = $this->request->getVar();
         $category_id = $input['category_id'];
 
+        
         $categoryArr = [];
 
         $categoryArr['category_name'] = isset($input['category_name']) ? $input['category_name'] : '';
@@ -46,27 +53,47 @@ class CategoryController extends BaseController
         }
 
         if (isset($input['category_id']) && $input['category_id'] != '') {
+            $category_sort = $categorymodel->where('category_id !=' ,$input['category_id'])->where('category_sort', $input['category_sort'])->first();
+            
+
+            if(isset($category_sort) && $category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
+
             $categorymodel->update(['category_id', $input['category_id']], $categoryArr);
             $session->setFlashdata('success', 'category edit succesfully.');
         } else {
+            $category_sort = $categorymodel->where('category_sort', $input['category_sort'])->first();
+
+            if(isset($category_sort) && $category_sort != '') {
+                $session->setFlashdata('error', 'Category sort already exit.');
+                return redirect()->back();
+            }
             $categorymodel->insert($categoryArr);
             $session->setFlashdata('success', 'category add succesfully.');
         }
 
-       
+        
         return redirect()->to('admin/category_list');
+
        
     }
     public function categoryEdit($category_id)
     {
-
-        $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->find($category_id);
-
-        if (!$categoryData) {
-            $categoryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $categorymodel = new CategoryModel();
+            $categoryData = $categorymodel->find($category_id);
+    
+            if (!$categoryData) {
+                $categoryData = null;
+            }
+            return view('admin/category/category', ['categoryData' => $categoryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/category/category', ['categoryData' => $categoryData]);
     }
     public function categoryDelete($category_id)
 {

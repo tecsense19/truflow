@@ -13,72 +13,81 @@ class ChildSubCategoryController extends BaseController
 {
     public function index()
     {
-        $childsubcategorymodel = new ChildSubCategoryModel();
-        $subcategorymodel = new SubCategoryModel();
-        $categorymodel = new CategoryModel();
+        $session = session();
+        $user_id = $session->get('user_id');
 
-
-
-        $childSubCategoryData = $childsubcategorymodel->select('child_sub_category.*, sub_category.sub_category_name, category.category_name')
-            ->join('sub_category', 'sub_category.sub_category_id = child_sub_category.sub_category_id')
-            ->join('category', 'category.category_id = sub_category.category_id')
-            ->findAll();
-
-        if (!$childSubCategoryData) {
-            $childSubCategoryData = null;
-        }
-        
-       
-        // $subcategoryData = $subcategorymodel->find();
-        // if (!$subcategoryData) {
-        //     $subcategoryData = null;
-        // }
-
-        $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
-        ->join('category', 'category.category_id = sub_category.category_id')
-        ->find();
-
-        if (!$subcategoryData) {
-            $subcategoryData = null;
-        }
-
-        $responseArr = [];
-        $categoryData = $categorymodel->findAll();
-        foreach ($categoryData as $key => $value) 
-        {
-            $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
-            $subArr = [];
-            foreach ($subcategories as $sKey => $sValue) 
-            {
-                $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])->orderBy('child_sub_cate_sort','ASC')->findAll();
-                $childArr = [];
-                foreach ($childsubcategories as $cKey => $cValue) 
-                {
-                    $allChild = $this->getCategoryTree($cValue['child_id'], $childsubcategorymodel);
-                    $cValue['all_childs'] = $allChild;
-                    $childArr[] = $cValue;
-                }
-                $sValue['child_arr'] = $childArr;
-                $subArr[] = $sValue;
+        if($user_id){
+            $childsubcategorymodel = new ChildSubCategoryModel();
+            $subcategorymodel = new SubCategoryModel();
+            $categorymodel = new CategoryModel();
+    
+    
+    
+            $childSubCategoryData = $childsubcategorymodel->select('child_sub_category.*, sub_category.sub_category_name, category.category_name')
+                ->join('sub_category', 'sub_category.sub_category_id = child_sub_category.sub_category_id')
+                ->join('category', 'category.category_id = sub_category.category_id')
+                ->findAll();
+    
+            if (!$childSubCategoryData) {
+                $childSubCategoryData = null;
             }
-            $value['sub_cat'] = $subArr;
-            $responseArr[] = $value;
+            
+           
+            // $subcategoryData = $subcategorymodel->find();
+            // if (!$subcategoryData) {
+            //     $subcategoryData = null;
+            // }
+    
+            $subcategoryData = $subcategorymodel->select('sub_category.*, category.category_name')
+            ->join('category', 'category.category_id = sub_category.category_id')
+            ->find();
+    
+            if (!$subcategoryData) {
+                $subcategoryData = null;
+            }
+    
+            $responseArr = [];
+            $categoryData = $categorymodel->findAll();
+            foreach ($categoryData as $key => $value) 
+            {
+                $subcategories = $subcategorymodel->where('category_id', $value['category_id'])->findAll();
+                $subArr = [];
+                foreach ($subcategories as $sKey => $sValue) 
+                {
+                    $childsubcategories = $childsubcategorymodel->where('sub_chid_id', '0')->where('sub_category_id', $sValue['sub_category_id'])
+                    ->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")->findAll();
+
+                    $childArr = [];
+                    foreach ($childsubcategories as $cKey => $cValue) 
+                    {
+                        $allChild = $this->getCategoryTree($cValue['child_id'], $childsubcategorymodel);
+                        $cValue['all_childs'] = $allChild;
+                        $childArr[] = $cValue;
+                    }
+                    $sValue['child_arr'] = $childArr;
+                    $subArr[] = $sValue;
+                }
+                $value['sub_cat'] = $subArr;
+                $responseArr[] = $value;
+            }
+            // $categories = $this->getCategoryTree(31, $childsubcategorymodel);
+            // echo "<pre>";
+            // print_r($responseArr);
+            // die;
+            
+       
+            return view('admin/child_sub_category/child_sub_category_list', ['childSubCategoryData' => $childSubCategoryData, 'subcategoryData'=>$subcategoryData, 'categories'=>$responseArr]);
+        }else{
+            return redirect()->to('/admin');
         }
-        // $categories = $this->getCategoryTree(31, $childsubcategorymodel);
-        // echo "<pre>";
-        // print_r($responseArr);
-        // die;
-        
-   
-        return view('admin/child_sub_category/child_sub_category_list', ['childSubCategoryData' => $childSubCategoryData, 'subcategoryData'=>$subcategoryData, 'categories'=>$responseArr]);
     }
 
     protected function getCategoryTree(int $parentCategoryId = null, ChildSubCategoryModel $model)
     {
         $categories = [];
 
-        $query = $model->select('child_id , sub_category_id, child_sub_category_name, child_sub_category_img')
-                       ->where('sub_chid_id', $parentCategoryId)
+        $query = $model->select('child_id , sub_category_id, child_sub_category_name, child_sub_category_img, child_sub_cate_sort')
+                       ->where('sub_chid_id', $parentCategoryId)->orderBy("ISNULL(child_sub_cate_sort), child_sub_cate_sort ASC")
                        ->get();
 
         foreach ($query->getResult() as $row) {
@@ -146,8 +155,14 @@ class ChildSubCategoryController extends BaseController
         $session = session();
         $childsubcategorymodel = new ChildSubCategoryModel();
         $input = $this->request->getVar();
-       
+        // echo '<pre>';print_r($input);echo '</pre>';die;
 
+        $child_sub_cate_sort = $childsubcategorymodel->where('child_sub_cate_sort', $input['child_sub_cate_sort'])->where('sub_category_id', $input['sub_category_id'])->first();
+
+        if(isset($child_sub_cate_sort) && $child_sub_cate_sort != '') {
+            $session->setFlashdata('error', 'Child subcategory sort already exit.');
+            return redirect()->back();
+        }
           // Check if new images are uploaded
           if ($files = $this->request->getFiles()) {
             $path = 'public/admin/images/product/';
@@ -203,6 +218,14 @@ class ChildSubCategoryController extends BaseController
     $session = session();
     $childsubcategorymodel = new ChildSubCategoryModel();
     $input = $this->request->getVar();
+
+    $child_sub_cate_sort = $childsubcategorymodel->where('child_id !=', $_POST['child_id'])->where('child_sub_cate_sort', $input['child_sub_cate_sort'])->where('sub_category_id', $input['sub_category_id'])->first();
+
+    if(isset($child_sub_cate_sort) && $child_sub_cate_sort != '') {
+        $session->setFlashdata('error', 'Child subcategory sort already exit.');
+        return redirect()->back();
+    }
+
     // Check if new images are uploaded
     if ($files = $this->request->getFiles()) {
       $path = 'public/admin/images/product/';
@@ -242,40 +265,46 @@ class ChildSubCategoryController extends BaseController
 }
     public function child_sub_category_name_edit($child_id)
     {
-        $childsubcategorymodel = new ChildSubCategoryModel();
-        $childData = $childsubcategorymodel->find($child_id);
-
-        if (!$childData) {
-            $childData = null;
-        }
-
-        $categorymodel = new CategoryModel();
-        $categoryData = $categorymodel->find();
-        if (!$categoryData) {
-            $categoryData = null;
-        }
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $childsubcategorymodel = new ChildSubCategoryModel();
+            $childData = $childsubcategorymodel->find($child_id);
+    
+            if (!$childData) {
+                $childData = null;
+            }
+    
+            $categorymodel = new CategoryModel();
+            $categoryData = $categorymodel->find();
+            if (!$categoryData) {
+                $categoryData = null;
+            }
+           
+            $subcategorymodel = new SubCategoryModel();
+            $subcategoryData = $subcategorymodel->find();
+            if (!$subcategoryData) {
+                $subcategoryData = null;
+            }
+           
+            $variantsmodel = new VariantsModel();
+            $variantData = $variantsmodel->where('product_id', $child_id)->findAll();
+            if (!$variantData) {
+                $variantData = null;
+            }
+    
+            // print_r($subcategoryData);
+            // die;
        
-        $subcategorymodel = new SubCategoryModel();
-        $subcategoryData = $subcategorymodel->find();
-        if (!$subcategoryData) {
-            $subcategoryData = null;
+            return view('admin/child_sub_category/child_sub_categoryedit', [
+                'childData' => $childData,
+                'categoryData' => $categoryData,
+                'subcategoryData' => $subcategoryData,
+    
+            ]);
+        }else{
+            return redirect()->to('/admin');
         }
-       
-        $variantsmodel = new VariantsModel();
-        $variantData = $variantsmodel->where('product_id', $child_id)->findAll();
-        if (!$variantData) {
-            $variantData = null;
-        }
-
-        // print_r($subcategoryData);
-        // die;
-   
-        return view('admin/child_sub_category/child_sub_categoryedit', [
-            'childData' => $childData,
-            'categoryData' => $categoryData,
-            'subcategoryData' => $subcategoryData,
-
-        ]);
     }
 
     public function child_sub_categoryEdit($child_id)

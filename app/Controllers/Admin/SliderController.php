@@ -8,12 +8,18 @@ class SliderController extends BaseController
 {
     public function index()
     {
-        $slidermodel = new SliderModel();
-        $sliderData = $slidermodel->find();
-        if (!$sliderData) {
-            $sliderData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $slidermodel = new SliderModel();
+            $sliderData = $slidermodel->find();
+            if (!$sliderData) {
+                $sliderData = null;
+            }
+            return view('admin/slider/slider_list', ['sliderData' => $sliderData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/slider/slider_list', ['sliderData' => $sliderData]);
     }
     public function slider()
     {

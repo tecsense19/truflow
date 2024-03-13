@@ -1048,6 +1048,13 @@ class Home extends BaseController
             $guestsession = array();
             $guestSessionData = $session->get('guestsessiondata');
             $guestsession = $guestSessionData; 
+            $guest_id = $session->get('guest_id');
+            if($guest_id){
+                $guest_id = $guest_id;
+            }else{
+                $guest_id = $this->generateRandomguestid(8);
+                $session->set('guest_id', $guest_id);
+            }
             for ($i = 0; $i < count($variantQtys); $i++) {
                 if ($variantQtys[$i] > 0) {
                     $data = array(
@@ -1057,7 +1064,8 @@ class Home extends BaseController
                         'category_id' => $categoryIds[$i],
                         'sub_category_id' => $subCategoryIds[$i],
                         'product_amount' => $prices[$i],
-                        'total_amount' => $totalPrices[$i]
+                        'total_amount' => $totalPrices[$i],
+                        'guest_id' => $guest_id,
                     );
 
                     $cartmodel->insert($data);
@@ -1065,6 +1073,7 @@ class Home extends BaseController
                 }
             }
             $session->set('guestsessiondata', $guestsession);
+            
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }
 
@@ -1072,6 +1081,17 @@ class Home extends BaseController
         return redirect()->back();
         // return true;
     }
+
+    function generateRandomguestid($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_';
+        $guestid = '';
+        $charactersLength = strlen($characters);
+        for ($i = 0; $i < $length; $i++) {
+            $guestid .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $guestid;
+    }
+
     public function cartDelete($cart_id)
     {
         $session = session();

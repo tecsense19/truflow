@@ -11,110 +11,145 @@ class SettingsController extends BaseController
 {
     public function settings()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-        $welcomeData = $settingsModel->where('type', 'welcome')->first();
-        $aboutData = $settingsModel->where('type', 'about')->first();
-        $contactData = $settingsModel->where('type', 'contact')->first();
-        $productData = $settingsModel->where('type', 'product')->first();
-        $testominalData = $settingsModel->where('type', 'testominal')->first();
-        $partnerData = $settingsModel->where('type', 'partner')->first();
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+            $welcomeData = $settingsModel->where('type', 'welcome')->first();
+            $aboutData = $settingsModel->where('type', 'about')->first();
+            $contactData = $settingsModel->where('type', 'contact')->first();
+            $productData = $settingsModel->where('type', 'product')->first();
+            $testominalData = $settingsModel->where('type', 'testominal')->first();
+            $partnerData = $settingsModel->where('type', 'partner')->first();
 
 
-        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
-        if (!$imageData) {
-            $imageData = null;
+            $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+            if (!$imageData) {
+                $imageData = null;
+            }
+
+            $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+            if (!$partnerImageData) {
+                $partnerImageData = null;
+            }
+
+
+            return view('admin/settings/settings', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData ]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
-        if (!$partnerImageData) {
-            $partnerImageData = null;
-        }
-
-
-        return view('admin/settings/settings', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
-    ]);
     }
     public function aboutus()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-        $welcomeData = $settingsModel->where('type', 'welcome')->first();
-        $aboutData = $settingsModel->where('type', 'about')->first();
-        $contactData = $settingsModel->where('type', 'contact')->first();
-        $productData = $settingsModel->where('type', 'product')->first();
-        $testominalData = $settingsModel->where('type', 'testominal')->first();
-        $partnerData = $settingsModel->where('type', 'partner')->first();
-
-
-        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
-        if (!$imageData) {
-            $imageData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+            $welcomeData = $settingsModel->where('type', 'welcome')->first();
+            $aboutData = $settingsModel->where('type', 'about')->first();
+            $contactData = $settingsModel->where('type', 'contact')->first();
+            $productData = $settingsModel->where('type', 'product')->first();
+            $testominalData = $settingsModel->where('type', 'testominal')->first();
+            $partnerData = $settingsModel->where('type', 'partner')->first();
+    
+    
+            $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+            if (!$imageData) {
+                $imageData = null;
+            }
+    
+            $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+            if (!$partnerImageData) {
+                $partnerImageData = null;
+            }
+    
+    
+                return view('admin/settings/aboutus', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
+            ]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
-        if (!$partnerImageData) {
-            $partnerImageData = null;
-        }
-
-
-            return view('admin/settings/aboutus', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
-        ]);
     }
     public function contactus()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-        $contactData = $settingsModel->where('type', 'contact')->first();
-
-      return view('admin/settings/contactus', ['contactData' => $contactData]);
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+            $contactData = $settingsModel->where('type', 'contact')->first();
+    
+          return view('admin/settings/contactus', ['contactData' => $contactData]);
+        }else{
+            return redirect()->to('/admin');
+        }
     }
 
     public function productpage()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-
-        $productData = $settingsModel->where('type', 'product')->first();
-
-      return view('admin/settings/productpage', ['productData' => $productData]);
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+    
+            $productData = $settingsModel->where('type', 'product')->first();
+    
+          return view('admin/settings/productpage', ['productData' => $productData]);
+        }else{
+            return redirect()->to('/admin');
+        }
     }
 
     public function testominal()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-
-        $testominalData = $settingsModel->where('type', 'testominal')->first();
-
-      return view('admin/settings/testominal', ['testominalData' => $testominalData]);
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+    
+            $testominalData = $settingsModel->where('type', 'testominal')->first();
+    
+          return view('admin/settings/testominal', ['testominalData' => $testominalData]);
+        }else{
+            return redirect()->to('/admin');
+        }
     }
 
     public function partner()
     {
-        $settingsModel = new SettingsModel();
-        $settingsImagesModel = new SettingsImagesModel();
-        $welcomeData = $settingsModel->where('type', 'welcome')->first();
-        $aboutData = $settingsModel->where('type', 'about')->first();
-        $contactData = $settingsModel->where('type', 'contact')->first();
-        $productData = $settingsModel->where('type', 'product')->first();
-        $testominalData = $settingsModel->where('type', 'testominal')->first();
-        $partnerData = $settingsModel->where('type', 'partner')->first();
-
-
-        $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
-        if (!$imageData) {
-            $imageData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $settingsModel = new SettingsModel();
+            $settingsImagesModel = new SettingsImagesModel();
+            $welcomeData = $settingsModel->where('type', 'welcome')->first();
+            $aboutData = $settingsModel->where('type', 'about')->first();
+            $contactData = $settingsModel->where('type', 'contact')->first();
+            $productData = $settingsModel->where('type', 'product')->first();
+            $testominalData = $settingsModel->where('type', 'testominal')->first();
+            $partnerData = $settingsModel->where('type', 'partner')->first();
+    
+    
+            $imageData = $settingsImagesModel->where('setting_id', $welcomeData['setting_id'])->first();
+            if (!$imageData) {
+                $imageData = null;
+            }
+    
+            $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
+            if (!$partnerImageData) {
+                $partnerImageData = null;
+            }
+    
+    
+                return view('admin/settings/partner', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
+            ]);
+        }else{
+            return redirect()->to('/admin');
         }
-
-        $partnerImageData = $settingsImagesModel->where('setting_id', $partnerData['setting_id'])->find();
-        if (!$partnerImageData) {
-            $partnerImageData = null;
-        }
-
-
-            return view('admin/settings/partner', ['welcomeData' => $welcomeData, 'aboutData' => $aboutData, 'contactData' => $contactData, 'productData' => $productData, 'testominalData' => $testominalData, 'partnerData' => $partnerData, 'productData' => $productData, 'imageData' => $imageData, 'partnerImageData' => $partnerImageData
-        ]);
     }
     public function settingsSave()
     {

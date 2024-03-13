@@ -8,12 +8,18 @@ class CountryController extends BaseController
 {
     public function index()
     {
-        $countrymodel = new CountryModel();
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $countrymodel = new CountryModel();
+            $countryData = $countrymodel->find();
+            if (!$countryData) {
+                $countryData = null;
+            }
+            return view('admin/country/country_list', ['countryData' => $countryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/country/country_list', ['countryData' => $countryData]);
     }
     public function country()
     {
@@ -45,14 +51,19 @@ class CountryController extends BaseController
     }
     public function countryEdit($country_id)
     {
-
-        $countrymodel = new CountryModel();
-        $countryData = $countrymodel->find($country_id);
-
-        if (!$countryData) {
-            $countryData = null;
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $countrymodel = new CountryModel();
+            $countryData = $countrymodel->find($country_id);
+    
+            if (!$countryData) {
+                $countryData = null;
+            }
+            return view('admin/country/country', ['countryData' => $countryData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        return view('admin/country/country', ['countryData' => $countryData]);
     }
     public function countryDelete($country_id)
 {

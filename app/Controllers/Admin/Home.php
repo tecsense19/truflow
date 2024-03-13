@@ -96,14 +96,19 @@ class Home extends BaseController
 
     public function user_list()
     {
-    
-        $usermodel = new UserModel();
-        // $userData = $usermodel->find();
-        $userData = $usermodel->where('user_role', 'user')->findAll();
-        if (!$userData) {
-            $userData = null;
-        }        
-        return view('admin/user/user_list',['userData'=> $userData]);
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $usermodel = new UserModel();
+            // $userData = $usermodel->find();
+            $userData = $usermodel->where('user_role', 'user')->findAll();
+            if (!$userData) {
+                $userData = null;
+            }        
+            return view('admin/user/user_list',['userData'=> $userData]);
+        }else{
+            return redirect()->to('/admin');
+        }
     }
 
     public function user()
@@ -183,24 +188,30 @@ class Home extends BaseController
     public function userEdit($user_id)
     {
 
-        $usermodel = new UserModel();
-        $userData = $usermodel->find($user_id);
-
-        if (!$userData) {
-            $userData = null;
+        $session = session();
+        $session_user_id = $session->get('user_id');
+        if($session_user_id){
+            $usermodel = new UserModel();
+            $userData = $usermodel->find($user_id);
+    
+            if (!$userData) {
+                $userData = null;
+            }
+            $countrymodel = new CountryModel();
+    
+            $countryData = $countrymodel->find();
+            if (!$countryData) {
+                $countryData = null;
+            }
+            $companymodel = new CompanyModel();
+            $companyData = $companymodel->orderBy('company_name', 'ASC')->find();
+            if (!$companyData) {
+                $companyData = null;
+            }
+            return view('admin/user/user', ['userData' => $userData,'countryData'=>$countryData,'companyData'=>$companyData]);
+        }else{
+            return redirect()->to('/admin');
         }
-        $countrymodel = new CountryModel();
-
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
-        }
-        $companymodel = new CompanyModel();
-        $companyData = $companymodel->orderBy('company_name', 'ASC')->find();
-        if (!$companyData) {
-            $companyData = null;
-        }
-        return view('admin/user/user', ['userData' => $userData,'countryData'=>$countryData,'companyData'=>$companyData]);
     }
 
     public function userDelete($user_id){
