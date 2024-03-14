@@ -88,7 +88,7 @@ $featured_product = isset($productData) ? $productData['featured_category'] : ''
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
 $product_child_id = isset($productData) ? $productData['child_id'] : '';
 $product_coupon_id = isset($productData) ? $productData['coupon_id'] : '';
-$sort = isset($productData) ? $productData['sort'] : '';
+$product_sort = isset($productData) ? $productData['sort'] : '';
 
 
 
@@ -213,7 +213,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-message">Sort</label>
-                                <input type="text" value="<?php echo $sort; ?>" class="form-control" id="sort" name="sort" placeholder="Sort" />
+                                <input type="text" value="<?php echo $product_sort; ?>" class="form-control" id="product_sort" name="product_sort" placeholder="Sort" />
                             </div>
                         </div>
                     </div>

@@ -48,6 +48,7 @@ class OrderController extends BaseController
         //     ->get();
 
         // $cartData = $query->getResultArray();
+        $cartData = [];
         if($userId){
             // $query = $cartmodel->select('*')
             // ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
@@ -82,23 +83,26 @@ class OrderController extends BaseController
             ->where('add_to_cart.user_id', $userId)
             ->get();
         
-
+            $cartData = $query->getResultArray();
 
         }else{
-            $query = $cartmodel->select('*')
-            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-            ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
-            // ->join('company', 'company.company_name = users.company_name', 'left')
-            // ->where('add_to_cart.user_id', $userId)
-            //->where('company.company_name', $componey_name)
-            ->get();
-        }
+            if($session->get('guestsessiondata'))
+            {
+                $query = $cartmodel->select('*')
+                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+                ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
+                // ->join('company', 'company.company_name = users.company_name', 'left')
+                // ->where('add_to_cart.user_id', $userId)
+                //->where('company.company_name', $componey_name)
+                ->get();
 
-        $cartData = $query->getResultArray();
+                $cartData = $query->getResultArray();
+            }
+        }
         // echo '<pre>';print_r($cartData);echo '</pre>';die;
 
         if (!$cartData) {
@@ -137,6 +141,12 @@ class OrderController extends BaseController
                 }
             }
         }
+
+        if(!$cartData)
+        {
+            return redirect()->to('/');
+        }
+
         if($userData){
             return view('front/checkout', [
                 'cartData' => $cartData,

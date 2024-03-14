@@ -118,7 +118,26 @@ class ProductController extends BaseController
         $productArr['product_description'] = isset($input['product_description']) ? $input['product_description'] : '';
         $productArr['product_short_description'] = isset($input['product_short_description']) ? $input['product_short_description'] : '';
         $productArr['product_additional_info'] = isset($input['product_additional_info']) ? $input['product_additional_info'] : '';
-        $productArr['sort'] = isset($input['sort']) ? $input['sort'] : '';
+        $productArr['sort'] = isset($input['product_sort']) ? $input['product_sort'] : '';
+
+        if(isset($input['product_id']) && $input['product_id'])
+        {
+            $checkSort = $productmodel->where('product_id !=' ,$input['product_id'])->where('sort', $input['product_sort'])->first();
+
+            if(isset($checkSort) && $checkSort != '') {
+                $session->setFlashdata('error', 'Product sort already exit.');
+                return redirect()->back();
+            }
+        }
+        else
+        {
+            $checkSort = $productmodel->where('product_sort', $input['product_sort'])->first();
+
+            if(isset($checkSort) && $checkSort != '') {
+                $session->setFlashdata('error', 'Product sort already exit.');
+                return redirect()->back();
+            }
+        }
 
         $productArr['product_header1'] = isset($input['product_header1']) ? $input['product_header1'] : '';
         $productArr['product_header2'] = isset($input['product_header2']) ? $input['product_header2'] : '';
@@ -169,38 +188,38 @@ class ProductController extends BaseController
         $productId = '';
 
         if (isset($input['product_id']) && $input['product_id'] != '') {
-           // Given input strings
-           $productData = $productmodel->find($input['product_id']);
+            // Given input strings
+            $productData = $productmodel->find($input['product_id']);
 
-           if(!empty($productData['product_img']) && !empty($productArr['product_img'])){
-            // Split the strings by commas (,) into arrays
-            $array1 = explode(',', $productData['product_img']);
-            $array2 = explode(',', $productArr['product_img']);
+            if(!empty($productData['product_img']) && !empty($productArr['product_img'])){
+                // Split the strings by commas (,) into arrays
+                $array1 = explode(',', $productData['product_img']);
+                $array2 = explode(',', $productArr['product_img']);
 
-            // Merge the arrays into a single array
-            $mergedArray = array_merge($array1, $array2);
+                // Merge the arrays into a single array
+                $mergedArray = array_merge($array1, $array2);
 
-            // Convert the merged array into a string separated by commas (,)
-            $mergedString = implode(',', $mergedArray);
+                // Convert the merged array into a string separated by commas (,)
+                $mergedString = implode(',', $mergedArray);
 
-            // Output the merged string
-            $productArr['product_img'] = $mergedString;
-           }
+                // Output the merged string
+                $productArr['product_img'] = $mergedString;
+            }
 
-           if(!empty($productData['product_img_csv']) && !empty($productArr['product_img_csv'])){
-            // Split the strings by commas (,) into arrays
-            $array3 = explode(',', $productData['product_img_csv']);
-            $array4 = explode(',', $productArr['product_img_csv']);
+            if(!empty($productData['product_img_csv']) && !empty($productArr['product_img_csv'])){
+                // Split the strings by commas (,) into arrays
+                $array3 = explode(',', $productData['product_img_csv']);
+                $array4 = explode(',', $productArr['product_img_csv']);
 
-            // Merge the arrays into a single array
-            $mergedArray1 = array_merge($array3, $array4);
+                // Merge the arrays into a single array
+                $mergedArray1 = array_merge($array3, $array4);
 
-            // Convert the merged array into a string separated by commas (,)
-            $mergedString1 = implode(',', $mergedArray1);
+                // Convert the merged array into a string separated by commas (,)
+                $mergedString1 = implode(',', $mergedArray1);
 
-            // Output the merged string
-            $productArr['product_img_csv'] = $mergedString1;
-           }
+                // Output the merged string
+                $productArr['product_img_csv'] = $mergedString1;
+            }
 
             $productmodel->update($input['product_id'], $productArr);
             $productId = $input['product_id'];

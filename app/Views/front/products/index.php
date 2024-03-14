@@ -22,7 +22,7 @@
         if($key >= 4)
         {
             $currentSegment .=  '/' . str_replace(' ', '_', $seg);
-            $breadcrumb[] = anchor(base_url($currentSegment), $seg);
+            $breadcrumb[] = anchor(base_url(str_replace('products', 'shop', $currentSegment)), str_replace('shop', 'products', $seg));
             $output = str_replace('%28', '(', $breadcrumb);
             $breadcrumb = str_replace('%29', ')', $output);
             // echo '<pre>';print_r($breadcrumb);echo '</pre>';
@@ -1036,6 +1036,7 @@ jQuery(document).ready(function($){
     }
 
     function add_cart() {
+            $('.add_cart').attr('disabled', 'true');
         
             var variantQtys = Array.from(variantQtyInputs).map(function(input) {
                 return input.value;
@@ -1051,6 +1052,8 @@ jQuery(document).ready(function($){
                     icon: 'warning',
                     title: 'Validation Error',
                     text: 'Please select a quantity greater than zero for at least one variant.',
+                }).then(function() {
+                    $('.add_cart').removeAttr('disabled');
                 });
                 return; // Exit the function to prevent the AJAX request
             }
@@ -1084,14 +1087,29 @@ jQuery(document).ready(function($){
                 },
                 success: function(response) {
                     // Handle the response
-                    console.log(response);
+                    // console.log(response);
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: 'Data added into cart successfully.',
-                    }).then(function() {
-                        // Reload the page after the user clicks "OK" on the SweetAlert dialog
-                        window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
+                        title: "Success!",
+                        text: "Data added into cart successfully.",
+                        icon: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonText: "Continue Shopping",
+                        cancelButtonColor: "#3085d6",
+                        confirmButtonText: "Go To Cart",
+                        allowOutsideClick: false, // Disable click events outside the dialog
+                        allowEscapeKey: false    // Disable keyboard events
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Reload the page after the user clicks "OK" on the SweetAlert dialog
+                            window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
+                            $('.add_cart').removeAttr('disabled');
+                        }
+                        else
+                        {
+                            window.location.reload();
+                            $('.add_cart').removeAttr('disabled');
+                        }
                     });
                 },
                 error: function(xhr, status, error) {

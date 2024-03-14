@@ -12,8 +12,11 @@
                             <a class="button1" href="#">
                                 <span><i class="fa-brands fa-facebook-f"></i></span>
                             </a>
-                            <a class="button1 button2" href="#">
+                            <a class="button1" href="#">
                                 <span><i class="fa-brands fa-instagram"></i></span>
+                            </a>
+                            <a class="button1 button2" href="#">
+                                <span><i class="fa-brands fa-linkedin"></i></span>
                             </a>
                         </div>
                     </div>
@@ -29,7 +32,7 @@
                                 <a href="<?php echo base_url('about'); ?>">About Us</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('shop'); ?>">Our Products</a>
+                                <a href="<?php echo base_url('shop'); ?>">Products</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
@@ -42,7 +45,7 @@
                         <h5>CONTACT US</h5>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-phone"></i>
-                            <span class="rr"><a href="tel:+61894512204">(+61) 08 9451 2204</a></span>
+                            <span class="rr"><a href="tel:+61894512204">08 9451 2204</a></span>
                         </div>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-envelope"></i>

@@ -366,7 +366,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="online_payment_delivery" class="" name="pay_method" value="online_payment">
-                                <label for="online_payment_delivery">Stripe Payment</label>
+                                <label for="online_payment_delivery">Credit Card Payment</label>
                             </span>
                         </div>
                         <div class="stripebutton" style="display:none;">

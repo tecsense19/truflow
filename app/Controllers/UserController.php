@@ -667,11 +667,19 @@ class UserController extends BaseController
         $emailService->setMessage('
             <html>
                 <body>
-                    <h1>Forgot Password</h1>
-                    <p>Click the following link to reset your password:</p>
-                    <p>
-                        <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
-                    </p>
+                    <h1>Your Login Password</h1>
+                    <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                        <tr>
+                            <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125"  style="display: block; border: 0px;" /><br>
+                                <h1>Forgot Password</h1>
+                                <p>Click the following link to reset your password:</p>
+                                <p>
+                                    <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
                 </body>
             </html>
         ');
