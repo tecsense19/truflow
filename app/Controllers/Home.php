@@ -1039,8 +1039,24 @@ class Home extends BaseController
                         'product_url' => $segment
                     );
 
+                    $checkItem = $cartmodel->where('user_id', $userId)->where('category_id', $categoryIds[$i])->where('sub_category_id', $subCategoryIds[$i])->where('product_id', $productIds[$i])->where('variant_id', $variantIds[$i])->first();
+                    if(!$checkItem)
+                    {
+                        $cartmodel->insert($data);
+                    }
+                    else
+                    {
+                        // Build the where clause
+                        $cartmodel->where('user_id', $userId)
+                        ->where('category_id', $categoryIds[$i])
+                        ->where('sub_category_id', $subCategoryIds[$i])
+                        ->where('product_id', $productIds[$i])
+                        ->where('variant_id', $variantIds[$i]);
 
-                    $cartmodel->insert($data);
+                        $cartmodel->set($data);
+                        // Update the record
+                        $cartmodel->update();
+                    }
                 }
             }
             $session->setFlashdata('success', 'Data add to cart successfully.');
@@ -1068,8 +1084,25 @@ class Home extends BaseController
                         'guest_id' => $guest_id,
                     );
 
-                    $cartmodel->insert($data);
-                    $guestsession[] = $cartmodel->insertID();
+                    $checkItem = $cartmodel->where('guest_id', $guest_id)->where('category_id', $categoryIds[$i])->where('sub_category_id', $subCategoryIds[$i])->where('product_id', $productIds[$i])->where('variant_id', $variantIds[$i])->first();
+                    if(!$checkItem)
+                    {
+                        $cartmodel->insert($data);
+                        $guestsession[] = $cartmodel->insertID();
+                    }
+                    else
+                    {
+                        // Build the where clause
+                        $cartmodel->where('guest_id', $guest_id)
+                        ->where('category_id', $categoryIds[$i])
+                        ->where('sub_category_id', $subCategoryIds[$i])
+                        ->where('product_id', $productIds[$i])
+                        ->where('variant_id', $variantIds[$i]);
+
+                        $cartmodel->set($data);
+                        // Update the record
+                        $cartmodel->update();
+                    }
                 }
             }
             $session->set('guestsessiondata', $guestsession);
