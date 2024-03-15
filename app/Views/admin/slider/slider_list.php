@@ -29,7 +29,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Link</th>
+                                            <!-- <th>Link</th> -->
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -49,7 +49,7 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td><?php echo $slider['slider_link']; ?></td>
+                                                    <!-- <td><?php echo $slider['slider_link']; ?></td> -->
                                                     <td>
                                                         <a class="" href="<?php echo base_url('') . "admin/slider/edit/" . $slider['slider_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                         <a class="" href="<?php echo base_url('') . "admin/slider/delete/" . $slider['slider_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>

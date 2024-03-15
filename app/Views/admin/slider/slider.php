@@ -36,7 +36,7 @@ $slider_link = isset($sliderData) ? $sliderData['slider_link'] : '';
                                 <img src="<?php echo $slider_path;?>" style="height: 100px; width: 100px;" />
                             <?php } ?>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display: none;">
                             <label class="form-label" for="basic-default-fullname">Slide URL</label>
                             <input type="text" class="form-control" id="slider_link" name="slider_link" value="<?php echo $slider_link;?>" placeholder="Slide URL" multiple/>
                         </div>
