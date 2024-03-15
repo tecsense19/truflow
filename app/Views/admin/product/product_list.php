@@ -23,11 +23,14 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                             Import/Export
                         </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#stockUpdateModal">
+                            Stock Update
+                        </button>
                         <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel1">Import/Export</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel1">Products Import/Export</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -40,6 +43,30 @@
                                         <div class="mt-3">
 
                                             <a href="<?php echo base_url('admin/export_csv'); ?>" class="btn btn-primary">Export CSV</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="stockUpdateModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel2">Stock Import/Export</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form method="post" enctype="multipart/form-data" action="<?php echo base_url('admin/stock/import/csv'); ?>">
+                                                <input type="file" name="stock_csv_file" required>
+                                                <button type="submit" class="btn btn-primary">Import CSV</button>
+                                            </form>
+                                        </div>
+                                        <div class="mt-3">
+
+                                            <a href="<?php echo base_url('admin/stock_export_csv'); ?>" class="btn btn-primary">Export CSV</a>
                                         </div>
 
                                     </div>

@@ -337,4 +337,99 @@ class CsvController extends BaseController
             return redirect()->to('admin/product_list');
         }
     }
+
+    public function stockExportToCSV()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        if($userId)
+        {
+            $variantModel = new VariantsModel();
+
+            $getAllStock = $variantModel->select('variant_id, variant_sku, variant_stock')->get()->getResultArray();
+           
+            // Set headers to force download
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="stock.csv"');
+
+            // Open PHP output stream for writing
+            $output = fopen('php://output', 'w');
+
+            // Write headers to CSV
+            $header = array('variant_id', 'variant_sku', 'variant_stock'); // Example headers
+            fputcsv($output, $header);
+
+            // Write data rows to CSV
+            foreach ($getAllStock as $row) {
+                // Assign values to variables
+                $variant_id = $row['variant_id'];
+                $variant_sku = $row['variant_sku'];
+                $variant_stock = $row['variant_stock'];
+                
+                // Write variables to CSV
+                fputcsv($output, array($variant_id, $variant_sku, $variant_stock));
+            }
+
+            // Close output stream
+            fclose($output);
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
+    
+    public function stockImportToCSV()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        if($userId)
+        {
+            $variantModel = new VariantsModel();
+
+            // Get the uploaded CSV file
+            $csvFile = $this->request->getFile('stock_csv_file');
+            // Check if a file was uploaded
+            if ($csvFile->isValid() && $csvFile->getExtension() === 'csv') {
+
+                $csvData = array_map('str_getcsv', file($csvFile->getTempName()));
+                $isFirstRow = true;
+                foreach ($csvData as $row) {
+                    if ($isFirstRow) {
+                        $isFirstRow = false;
+                        // Check Header
+                        if($row['0'] == 'variant_id' && $row['1'] == 'variant_sku' && $row['2'] == 'variant_stock')
+                        {
+                            continue; // Skip the first row
+                        }
+                        else
+                        {
+                            // Error message or redirect to an error page
+                            $session->setFlashdata('error', 'Invalid CSV file header.');
+                            return redirect()->to('admin/product_list');
+                        }
+                    }
+                    
+                    $checkStock = $variantModel->where('variant_id', $row['0'])->get()->getRow();
+
+                    if($checkStock)
+                    {
+                        $updateArr = [];
+                        // $updateArr['variant_sku'] = $row['1'];
+                        $updateArr['variant_stock'] = $row['2'];
+                        $variantModel->where('variant_id', $row['0'])->set($updateArr);
+                        $variantModel->update();
+                    }
+                }
+            }
+
+            // Error message or redirect to an error page
+            $session->setFlashdata('success', 'File uploaded successfully.');
+            return redirect()->to('admin/product_list');
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
 }
