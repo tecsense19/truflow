@@ -115,7 +115,7 @@ class UserController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = 'Truflow Hydraulics';
+                $fromName = FROM_EMAIL_NAME;
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -190,7 +190,7 @@ class UserController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = 'Truflow Hydraulics';
+                $fromName = FROM_EMAIL_NAME;
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -550,85 +550,93 @@ class UserController extends BaseController
     public function my_order($user_id)
     {
         $session = session();
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_id', $user_id)->first();
-        if (!$userData) {
-            $userData = null;
-        }
-
-        $countrymodel = new CountryModel();
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
-        }
-
-        $HeaderMenuModel = new HeaderMenuModel();
-        $headerData = $HeaderMenuModel->find();
-        if (!$headerData) {
-            $headerData = null;
-        }
-
-        $ordermodel = new OrderModel();
-        $orderitemmodel = new OrderItemModel();
-        $cartData = $orderitemmodel->find();
         $userId = $session->get('user_id');
-
-        $query1 = $orderitemmodel->select('*')
-            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
-            ->where('users.user_id', $userId)
-            ->orderBy('tbl_order.order_id', 'DESC')
-            ->get();
-
-            // $query1 = $orderitemmodel->select('*')
-            // ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-            // ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-            // ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            // ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            // ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            // ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
-            // ->where('users.user_id', $userId)
-            // ->orderBy('tbl_order.order_id', 'ASC')
-            // ->get();
-            
-        
-        // Execute the query
-        // Print the last query
-        // echo $orderitemmodel->getLastQuery(); die;
-        $orderData = $query1->getResultArray();
-        // echo '<pre>';print_r($orderData);echo '</pre>';die;
-        $ordersByOrderId = [];
-        foreach ($orderData as $order) {
-            $orderId = $order['order_id'];
-            if (!isset($ordersByOrderId[$orderId])) {
-                $ordersByOrderId[$orderId] = [];
+        if($userId == $user_id)
+        {
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_id', $user_id)->first();
+            if (!$userData) {
+                $userData = null;
             }
-            $ordersByOrderId[$orderId][] = $order;
-        }
-        $shippingmodel = new ShippingModel();
 
-        $shipping = null;
+            $countrymodel = new CountryModel();
+            $countryData = $countrymodel->find();
+            if (!$countryData) {
+                $countryData = null;
+            }
 
-        if (!empty($orderData) && isset($orderData[0]['order_id'])) {
-            $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
-        }
+            $HeaderMenuModel = new HeaderMenuModel();
+            $headerData = $HeaderMenuModel->find();
+            if (!$headerData) {
+                $headerData = null;
+            }
 
-        if (!$shipping) {
+            $ordermodel = new OrderModel();
+            $orderitemmodel = new OrderItemModel();
+            $cartData = $orderitemmodel->find();
+            $userId = $session->get('user_id');
+
+            $query1 = $orderitemmodel->select('*')
+                ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+                ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+                ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
+                ->where('users.user_id', $userId)
+                ->orderBy('tbl_order.order_id', 'DESC')
+                ->get();
+
+                // $query1 = $orderitemmodel->select('*')
+                // ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+                // ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+                // ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                // ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                // ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                // ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+                // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
+                // ->where('users.user_id', $userId)
+                // ->orderBy('tbl_order.order_id', 'ASC')
+                // ->get();
+                
+            
+            // Execute the query
+            // Print the last query
+            // echo $orderitemmodel->getLastQuery(); die;
+            $orderData = $query1->getResultArray();
+            // echo '<pre>';print_r($orderData);echo '</pre>';die;
+            $ordersByOrderId = [];
+            foreach ($orderData as $order) {
+                $orderId = $order['order_id'];
+                if (!isset($ordersByOrderId[$orderId])) {
+                    $ordersByOrderId[$orderId] = [];
+                }
+                $ordersByOrderId[$orderId][] = $order;
+            }
+            $shippingmodel = new ShippingModel();
+
             $shipping = null;
-        }
 
-        if (!$orderData) {
-            $orderData = null;
-        }
+            if (!empty($orderData) && isset($orderData[0]['order_id'])) {
+                $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
+            }
 
-        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId ,'headerData' => $headerData]);
-        return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
+            if (!$shipping) {
+                $shipping = null;
+            }
+
+            if (!$orderData) {
+                $orderData = null;
+            }
+
+            return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId ,'headerData' => $headerData]);
+            return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
     // -----------------------------------------------
     public function forgotPassword()
@@ -659,7 +667,7 @@ class UserController extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = 'Truflow Hydraulics';
+        $fromName = FROM_EMAIL_NAME;
 
         $emailService->setFrom($fromEmail, $fromName);
         $emailService->setTo($user['email']);

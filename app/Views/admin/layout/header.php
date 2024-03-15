@@ -1,14 +1,13 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-    <div class="app-brand demo">
+    <div class="app-brand demo justify-content-center">
         <a href="<?php echo base_url('admin'); ?>" class="app-brand-link">
-            <span class="app-brand-logo demo">
-
-
-                <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
-
-            </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Truflow Hydraulics</span>
+            <div class="d-flex align-items-center">
+                <span class="app-brand-logo demo">
+                    <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
+                </span>
+                <span class="app-brand-text demo menu-text fw-bolder ms-2 text-center">Truflow Hydraulic <br> Hose & Fittings</span>
+            </div>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>

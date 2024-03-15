@@ -483,7 +483,7 @@ class OrderController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = 'Truflow Hydraulics';
+                $fromName = FROM_EMAIL_NAME;
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -573,7 +573,7 @@ class OrderController extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = 'Truflow Hydraulics';
+        $fromName = FROM_EMAIL_NAME;
 
         $toEmail = isset($userData) ? $userData['email'] : '';
         if($toEmail)

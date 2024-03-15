@@ -1352,10 +1352,10 @@ class Home extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = 'Truflow Hydraulics';
+        $fromName = FROM_EMAIL_NAME;
         // sales@truflowhydraulic.com.au
         $emailService->setFrom($fromEmail, $fromName);
-        $emailService->setTo('sales@truflowhydraulic.com.au');
+        $emailService->setTo(TO_ADMIN_EMAIL);
         $emailService->setSubject('Get in touch');
         $emailService->setMessage('
                 <html>
@@ -1412,7 +1412,7 @@ class Home extends BaseController
 
         if($breadcrumbData)
         {
-            $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
+            $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."products'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
             session()->set('breadcrumb', $breadcrumb);
         }
 
@@ -1532,7 +1532,7 @@ class Home extends BaseController
         // $childCatLink = base_url('') . "childsub/category/" . $getSubCatName['sub_category_id'];
         $childCatLink = base_url('') . "childsub/category/" . str_replace(' ', '-', $getSubCatName['sub_category_name']);
 
-        $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a> </div> <div>&nbsp > &nbsp<a class='category_data' data-type='sub_cat' data-id='". $getSubCatName['sub_category_id'] ."' data-url='". $childCatLink ."' href='javascript:void(0)'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
+        $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."products'> ".strtoupper($catData['category_name'])." </a> </div> <div>&nbsp > &nbsp<a class='category_data' data-type='sub_cat' data-id='". $getSubCatName['sub_category_id'] ."' data-url='". $childCatLink ."' href='javascript:void(0)'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
 
         session()->set('breadcrumb', $breadcrumb);
 

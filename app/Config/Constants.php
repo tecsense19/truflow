@@ -94,3 +94,5 @@ define('EVENT_PRIORITY_NORMAL', 100);
 define('EVENT_PRIORITY_HIGH', 10);
 
 define('FROM_EMAIL', 'website@truflow.hostedwp.com.au');
+define('FROM_EMAIL_NAME', 'Truflow Hydraulic Hose & Fittings');
+define('TO_ADMIN_EMAIL', 'sales@truflowhydraulic.com.au');

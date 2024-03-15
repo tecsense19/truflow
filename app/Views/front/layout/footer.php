@@ -32,7 +32,7 @@
                                 <a href="<?php echo base_url('about'); ?>">About Us</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('shop'); ?>">Products</a>
+                                <a href="<?php echo base_url('products'); ?>">Products</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-location-dot" style="margin-left: 3px;"></i>
-                            <span style="text-align: left;">Truflow Hydraulics Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
+                            <span style="text-align: left;">Truflow Hydraulic Hose & Fittings Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
             <div class="row all_right">
                 <div class="col-lg-6">
                     <div class="all_rights">
-                        <p>© 2023 Truflow Hydraulics Inc. All rights reserved.</p>
+                        <p>© 2023 Truflow Hydraulic Hose & Fittings Inc. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -188,9 +188,9 @@
 
                             var variant_url;
                             if (sub_child_name !== '') {
-                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + sub_child_name + '/' + child_sub_category_name + '/' + product_name;
+                                variant_url = 'products/' + category_name + '/' + sub_category_name + '/' + sub_child_name + '/' + child_sub_category_name + '/' + product_name;
                             } else {
-                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + child_sub_category_name + '/' + product_name;
+                                variant_url = 'products/' + category_name + '/' + sub_category_name + '/' + child_sub_category_name + '/' + product_name;
                             }
                             console.log(variant_url);
 

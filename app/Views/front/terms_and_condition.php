@@ -24,10 +24,10 @@
                         <b>Last updated December 01, 2023</b>
                     </p>
                     <p><b>AGREEMENT TO OUR LEGAL TERMS</b></p>
-                    <p>We are Truflow Hydraulics ("Company," "we," "us," "our"), a company registered in Australia at 29 Dowd Street, Welshpool, Western Australia 6106.</p>
+                    <p>We are Truflow Hydraulic Hose & Fittings ("Company," "we," "us," "our"), a company registered in Australia at 29 Dowd Street, Welshpool, Western Australia 6106.</p>
                     <p>We operate the website https://truflowhydraulic.com.au (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").</p>
                     <p>You can contact us by phone at +61894512204, email at admin@truflowhydraulic.com.au, or by mail to 29 Dowd Street, Welshpool, Western Australia 6106, Australia.</p>
-                    <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Truflow Hydraulics, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
+                    <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Truflow Hydraulic Hose & Fittings, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
                     <p>Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms at any time and for any reason. We will alert you about any changes by updating the "Last updated" date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.</p>
                     <p>The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services.</p>
                     <p>We recommend that you print a copy of these Legal Terms for your records.</p><br>
@@ -202,7 +202,7 @@
 
                     <h4>23. CONTACT US</h4>
                     <p>In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p>
-                    <p><b>Truflow Hydraulics,</b></p>
+                    <p><b>Truflow Hydraulic Hose & Fittings,</b></p>
                     <p><b>29 Dowd Street,</b></p>
                     <p><b>Welshpool, Western Australia 6106,</b></p>
                     <p><b>Australia.</b></p>

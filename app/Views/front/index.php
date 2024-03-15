@@ -322,7 +322,7 @@ $loginId = $session->get('user_id');
                                 <div class="slider_text">
                                     <!-- <a href="<?php //echo base_url('') . "sub/category/" . $product['category_id'] ?>"> -->
                                     <?php
-                                    $url = base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']); 
+                                    $url = base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']); 
                                     ?>
                                     <a href="<?php echo $url; ?>">
                                         <h6><?php echo $product['category_name']; ?>&nbsp;&nbsp;</h6>
@@ -354,7 +354,7 @@ $loginId = $session->get('user_id');
                                     <?php
                                     $url = '';
                                     if(isset($product['category_name'])){
-                                        $url = base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']); 
+                                        $url = base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']); 
                                     }
                                     ?>
                                     <!-- <a href="<?php echo base_url('') . "childsub/category/" . $product['sub_category_id'] ?>"> -->
@@ -375,9 +375,9 @@ $loginId = $session->get('user_id');
                                 if(isset($product)){
                                     if(isset($product['category_name'])){
                                         if(isset($product['sub_child_name'])){
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']);
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']);
                                         }else{
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']);
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']);
                                         }
                                     }
                                 }
@@ -513,9 +513,9 @@ $loginId = $session->get('user_id');
                                         <div class="card-body" data-productdetailid="<?php echo $product['product_id'];?>">
                                         <?php
                                         if(isset($product['sub_child_name'])){
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
                                         }else{
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
                                         } 
                                         ?>
                                             <a href="<?php echo $url; ?>">

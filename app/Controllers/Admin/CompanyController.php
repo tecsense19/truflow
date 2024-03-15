@@ -155,7 +155,7 @@ class CompanyController extends BaseController
             $emailService = \Config\Services::email();
             
             $fromEmail = FROM_EMAIL;
-            $fromName = 'Truflow Hydraulics';
+            $fromName = FROM_EMAIL_NAME;
     
             $emailService->setFrom($fromEmail, $fromName);
             $emailService->setTo($UserEmail);
@@ -241,7 +241,7 @@ class CompanyController extends BaseController
             'coupon_code' => $input['coupon_code'],
             'company_id' => $input['company_id'],
             'coupon_price' => $input['coupon_price'],
-            'coupon_price_type' => $input['coupon_price_type'],
+            // 'coupon_price_type' => $input['coupon_price_type'],
             'from_date' => $input['from_date'],
             'to_date' => $input['to_date'],
 
