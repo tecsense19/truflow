@@ -134,6 +134,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post("check/login", "Home::checkLogin");
     $routes->get("dashboard", "Home::dashboard", ['filter' => 'auth']);
     $routes->get("logout", "Home::logout");
+    $routes->get("change/password", "Home::changePassword");
+    $routes->post("change/password/save", "Home::changePasswordSave");
 
     //user
     $routes->get("user_list", "Home::user_list");

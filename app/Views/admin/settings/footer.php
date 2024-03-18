@@ -33,16 +33,16 @@ $linkedin_url = isset($footerData) ? $footerData['linkedin_url'] : '';
                         <div class="card-body">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Facebook URL</label>
-                                <input type="text" class="form-control" value="<?php echo $facebook_url; ?>" id="facebook_url" name="facebook_url" placeholder="Sub Title" />
+                                <input type="text" class="form-control" value="<?php echo $facebook_url; ?>" id="facebook_url" name="facebook_url" placeholder="Facebook URL" />
                                 <input type="hidden" class="form-control" value="<?php echo $footer_setting_id; ?>" id="footer_setting_id" name="footer_setting_id" placeholder="Sub Title" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">Instagram URL</label>
-                                <input type="text" class="form-control" value="<?php echo $instagram_url; ?>" id="instagram_url" name="instagram_url" placeholder="Sub Title" />
+                                <input type="text" class="form-control" value="<?php echo $instagram_url; ?>" id="instagram_url" name="instagram_url" placeholder="Instagram URL" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-default-company">LinkedIn URL</label>
-                                <input type="text" class="form-control" value="<?php echo $linkedin_url; ?>" id="linkedin_url" name="linkedin_url" placeholder="Sub Title" />
+                                <input type="text" class="form-control" value="<?php echo $linkedin_url; ?>" id="linkedin_url" name="linkedin_url" placeholder="LinkedIn URL" />
                             </div>
                         </div>
                     </div>
