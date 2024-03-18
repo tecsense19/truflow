@@ -346,6 +346,12 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         </div>
                         <?php } ?>
 
+                        <div class="purchase_order_number" style="display:none;">
+                            <div>
+                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order number" >
+                            </div>
+                        </div>
+
                         <?php if(isset($getCompany) && $getCompany['on_a_account'] == 1) { ?>
                         <div class="payment_item order_list">
                             <span>
@@ -370,12 +376,6 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                             </span>
                         </div>
                         <div class="stripebutton" style="display:none;">
-                        </div>
-
-                        <div class="purchase_order_number" style="display:none;">
-                            <div>
-                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order number" >
-                            </div>
                         </div>
                         
                         <?php if(!$user_id){ ?>

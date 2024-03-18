@@ -161,6 +161,8 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("partner-section", "SettingsController::partner");
     $routes->post("settings/save", "SettingsController::settingsSave");
     $routes->post("delete_partner_img", "SettingsController::delete_partner_img");
+    $routes->get("footer-section", "SettingsController::footerSettings");
+    $routes->post("footer/settings/save", "SettingsController::footerSettingsSave");
 
     //Testominal
 

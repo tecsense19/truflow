@@ -20,6 +20,7 @@ use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
 use App\Models\CouponModel;
 use App\Models\MetaContentsModel;
+use App\Models\FooterSettings;
 
 $session = \Config\Services::session();
 
@@ -164,15 +165,44 @@ class Home extends BaseController
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
         $cartmodel = new CartModel();
-        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
-        $cartCount = count($cartData ?? []);
-        $session->set('cartCount', $cartCount);
+        // $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
+        // $cartCount = count($cartData ?? []);
+        // $session->set('cartCount', $cartCount);
+        $totalCartQtyCount = [];
+
+        if($userId)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+        }
+        $guest_id = $session->get('guest_id');
+        if($guest_id)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+        }
+
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
+
 
         $slidermodel = new SliderModel();
         $sliderData = $slidermodel->findAll();
         if (!$sliderData) {
             $sliderData = null;
         }
+
+        $footerModel = new FooterSettings();
+        $footerData = $footerModel->first();
+
+        $session->set('facebook_url', $footerData ? $footerData['facebook_url'] : '');
+        $session->set('instagram_url', $footerData ? $footerData['instagram_url'] : '');
+        $session->set('linkedin_url', $footerData ? $footerData['linkedin_url'] : '');
 
         return view(
             'front/index',
@@ -200,6 +230,7 @@ class Home extends BaseController
 
                 //
                 'sliderData' => $sliderData,
+                'footerData' => $footerData,
             ]
         );
     }
@@ -909,6 +940,7 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
         $componey_name = $session->get('company_name');
+        $totalCartQtyCount = [];
         if($userId){
             $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
@@ -920,6 +952,8 @@ class Home extends BaseController
             // ->join('company', 'company.company_name = users.company_name', 'left')
             ->where('add_to_cart.user_id', $userId)
             ->get();
+
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
         }else{
             $guestSessionData = $session->get('guestsessiondata');
             $query = $cartmodel->select('*')
@@ -932,6 +966,8 @@ class Home extends BaseController
             // ->where('add_to_cart.cart_id', isset($guestSessionData) ? $guestSessionData : [])
             if ($guestSessionData) {
                 $query->whereIn('add_to_cart.cart_id', $guestSessionData);
+
+                $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->whereIn('cart_id', $guestSessionData)->findAll();
             } else {
                 $query->where('add_to_cart.cart_id',''); // This will ensure an empty result set
             }
@@ -958,9 +994,15 @@ class Home extends BaseController
             $componeyData = $query2->getResultArray();
         }
 
-        $cartCount = count($cartData ?? []);
-
-        $session->set('cartCount', $cartCount);
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
 
         $couponModel = new CouponModel;
         $discount = 000.00;
@@ -1064,6 +1106,17 @@ class Home extends BaseController
                     }
                 }
             }
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+            $cartCount = count($totalCartQtyCount ?? []);
+            if($cartCount)
+            {
+                $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+            }
+            else
+            {
+                $session->set('cartCount', 0);
+            }
+
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }else{
             $guestsession = array();
@@ -1111,6 +1164,17 @@ class Home extends BaseController
                 }
             }
             $session->set('guestsessiondata', $guestsession);
+
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+            $cartCount = count($totalCartQtyCount ?? []);
+            if($cartCount)
+            {
+                $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+            }
+            else
+            {
+                $session->set('cartCount', 0);
+            }
             
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }

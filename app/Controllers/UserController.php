@@ -346,9 +346,31 @@ class UserController extends BaseController
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
         $cartmodel = new CartModel();
-        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
-        $cartCount = count($cartData ?? []);
-        $session->set('cartCount', $cartCount);
+        // $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
+        // $cartCount = count($cartData ?? []);
+        // $session->set('cartCount', $cartCount);
+
+        $totalCartQtyCount = [];
+
+        if($userId)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+        }
+        $guest_id = $session->get('guest_id');
+        if($guest_id)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+        }
+
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
 
         $slidermodel = new SliderModel();
         $sliderData = $slidermodel->findAll();
@@ -378,8 +400,6 @@ class UserController extends BaseController
                 'allcategoryData' => $allcategoryData,
                 //count
                 'wishlistCount' => $wishlistCount,
-                'cartCount' => $cartCount,
-
                 //
                 'sliderData' => $sliderData
             ]

@@ -144,6 +144,11 @@
                         <div data-i18n="Input groups">Banner Slider</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="<?php echo base_url('admin/footer-section'); ?>" class="menu-link">
+                        <div data-i18n="Input groups">Footer Section</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">

@@ -1,4 +1,7 @@
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
+<?php 
+$session = session();
+?>
 <footer>
     <div class="footer_sub">
         <div class="container">
@@ -9,13 +12,13 @@
                         <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>public/uploads/Truflow_Logo_Light.svg" alt="logo" class="img-fluid" style="width:125px"></a>
                         <p> </p>
                         <div class="footer_icon">
-                            <a class="button1" href="#">
+                            <a class="button1" href="<?php echo $session->get('facebook_url'); ?>">
                                 <span><i class="fa-brands fa-facebook-f"></i></span>
                             </a>
-                            <a class="button1" href="#">
+                            <a class="button1" href="<?php echo $session->get('instagram_url'); ?>">
                                 <span><i class="fa-brands fa-instagram"></i></span>
                             </a>
-                            <a class="button1 button2" href="#">
+                            <a class="button1 button2" href="<?php echo $session->get('linkedin_url'); ?>">
                                 <span><i class="fa-brands fa-linkedin"></i></span>
                             </a>
                         </div>
