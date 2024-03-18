@@ -561,28 +561,35 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 {
                                                     $getCoupon = $couponModel->where('coupon_code', $variant['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
 
-                                                    if(date('Y-m-d') <= $getCoupon['to_date'])
+                                                    if($getCoupon)
                                                     {
-                                                        $from_date = $getCoupon['from_date'];  //2024-01-01
-                                                        $to_date = $getCoupon['to_date'];  //2024-01-05
-                                                        $currentDate = date('Y-m-d');
-                                                        $coupon_price_type = $getCoupon['coupon_price_type'];
-                                                        $variant_price = $variant['variant_price'];
-                                                        $coupon_price = $getCoupon['coupon_price'];
-                                                        // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
-                                                        // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
-                                                        // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
-                                                        if ($currentDate >= $from_date && $currentDate <= $to_date) 
+                                                        if(date('Y-m-d') <= $getCoupon['to_date'])
                                                         {
-                                                            if ($coupon_price_type == 'Percentage')
+                                                            $from_date = $getCoupon['from_date'];  //2024-01-01
+                                                            $to_date = $getCoupon['to_date'];  //2024-01-05
+                                                            $currentDate = date('Y-m-d');
+                                                            $coupon_price_type = $getCoupon['coupon_price_type'];
+                                                            $variant_price = $variant['variant_price'];
+                                                            $coupon_price = $getCoupon['coupon_price'];
+                                                            // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
+                                                            // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
+                                                            // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                                                            if ($currentDate >= $from_date && $currentDate <= $to_date) 
                                                             {
-                                                                $discount = $variant_price * $coupon_price / 100;
-                                                            }else if ($coupon_price_type == 'Flat') {
-                                                                $discount = $coupon_price;
+                                                                if ($coupon_price_type == 'Percentage')
+                                                                {
+                                                                    $discount = $variant_price * $coupon_price / 100;
+                                                                }else if ($coupon_price_type == 'Flat') {
+                                                                    $discount = $coupon_price;
+                                                                }
                                                             }
+                                                            $price = $variant['variant_price'] - $discount;
+                                                            $final_price = round($price,2);
                                                         }
-                                                        $price = $variant['variant_price'] - $discount;
-                                                        $final_price = round($price,2);
+                                                        else
+                                                        {
+                                                            $final_price = $variant['variant_price'];
+                                                        }
                                                     }
                                                     else
                                                     {
