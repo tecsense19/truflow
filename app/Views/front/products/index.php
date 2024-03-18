@@ -561,14 +561,14 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                 {
                                                     $getCoupon = $couponModel->where('coupon_code', $variant['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
 
-                                                    if(date('Y-m-d') <= $variant['to_date'])
+                                                    if(date('Y-m-d') <= $getCoupon['to_date'])
                                                     {
-                                                        $from_date = $variant['from_date'];  //2024-01-01
-                                                        $to_date = $variant['to_date'];  //2024-01-05
+                                                        $from_date = $getCoupon['from_date'];  //2024-01-01
+                                                        $to_date = $getCoupon['to_date'];  //2024-01-05
                                                         $currentDate = date('Y-m-d');
-                                                        $coupon_price_type = $variant['coupon_price_type'];
+                                                        $coupon_price_type = $getCoupon['coupon_price_type'];
                                                         $variant_price = $variant['variant_price'];
-                                                        $coupon_price = $variant['coupon_price'];
+                                                        $coupon_price = $getCoupon['coupon_price'];
                                                         // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
                                                         // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
                                                         // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
