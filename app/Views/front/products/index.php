@@ -1,4 +1,5 @@
 <?php 
+    $session = session();
     $currentURL = current_url();
     $explodeUrl = explode('/', $currentURL);
     // echo "<pre>";
@@ -29,6 +30,11 @@
             // echo '<pre>';print_r($breadcrumb);echo '</pre>';
         }
     }
+
+    $userId = $session->get('user_id');
+    $couponModel = model('App\Models\CouponModel');
+    $usermodel = model('App\Models\UserModel');
+    $checkUserCompany = $usermodel->where('user_id', $userId)->first();
 ?>
 <?= $this->include('front/layout/front'); ?>
 <?php
@@ -551,27 +557,40 @@ if (isset($variantArr) && count($variantArr)>0) {
                                             <?php 
                                             $discount = 0;
                                             foreach ($variantArr as $variant) { 
-                                                if(isset($variant['to_date']) && date('Y-m-d')<=$variant['to_date']){
-                                                    $from_date = $variant['from_date'];  //2024-01-01
-                                                    $to_date = $variant['to_date'];  //2024-01-05
-                                                    $currentDate = date('Y-m-d');
-                                                    $coupon_price_type = $variant['coupon_price_type'];
-                                                    $variant_price = $variant['variant_price'];
-                                                    $coupon_price = $variant['coupon_price'];
-                                                    // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
-                                                    // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
-                                                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
-                                                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
-                                                        if ($coupon_price_type == 'Percentage')
+                                                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                                                {
+                                                    $getCoupon = $couponModel->where('coupon_code', $variant['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+
+                                                    if(date('Y-m-d') <= $variant['to_date'])
+                                                    {
+                                                        $from_date = $variant['from_date'];  //2024-01-01
+                                                        $to_date = $variant['to_date'];  //2024-01-05
+                                                        $currentDate = date('Y-m-d');
+                                                        $coupon_price_type = $variant['coupon_price_type'];
+                                                        $variant_price = $variant['variant_price'];
+                                                        $coupon_price = $variant['coupon_price'];
+                                                        // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
+                                                        // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
+                                                        // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                                                        if ($currentDate >= $from_date && $currentDate <= $to_date) 
                                                         {
-                                                            $discount = $variant_price * $coupon_price / 100;
-                                                        }else if ($coupon_price_type == 'Flat') {
-                                                            $discount = $coupon_price;
+                                                            if ($coupon_price_type == 'Percentage')
+                                                            {
+                                                                $discount = $variant_price * $coupon_price / 100;
+                                                            }else if ($coupon_price_type == 'Flat') {
+                                                                $discount = $coupon_price;
+                                                            }
                                                         }
+                                                        $price = $variant['variant_price'] - $discount;
+                                                        $final_price = round($price,2);
                                                     }
-                                                    $price = $variant['variant_price'] - $discount;
-                                                    $final_price = round($price,2);
-                                                }else{
+                                                    else
+                                                    {
+                                                        $final_price = $variant['variant_price'];
+                                                    }
+                                                }
+                                                else
+                                                {
                                                     $final_price = $variant['variant_price'];
                                                 }
                                                 ?>
