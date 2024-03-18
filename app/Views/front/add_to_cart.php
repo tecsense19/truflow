@@ -209,7 +209,7 @@ if($user_id)
                     </li> -->
                     <li class="d-flex justify-content-between sub">
                       <h5>Final Total</h5>
-                      <h5 id="totalAmount">
+                        <h5>
                         <span id="total">$000.00</span>
                       </h5>
                     </li>
@@ -302,7 +302,7 @@ if($user_id)
     $('#final_total_ammount').val(formatedAmmount);
     $('#total_gst').text(formattedSubtotalgst1);
 
-    $('#totalAmount').text(formattedSubtotal);
+    $('#totalAmount').text(formattedSubtotalgst);
     // $('#total').text(formattedSubtotal);
 
     function applyCoupon(response) {

@@ -125,18 +125,21 @@ class OrderController extends BaseController
         $discount = 000.00;
         if(isset($cartData) && !empty($cartData))
         {
-            
+            $checkUserCompany = $usermodel->where('user_id', $userId)->first();
             foreach($cartData as $cartD)
             {
-                // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
-                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
-                if(!empty($getCoupon))
+                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
                 {
-                    if ($getCoupon['coupon_price_type'] == 'Percentage')
+                    // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                    $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                    if(!empty($getCoupon))
                     {
-                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
-                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                        $discount += $getCoupon['coupon_price'];
+                        if ($getCoupon['coupon_price_type'] == 'Percentage')
+                        {
+                            $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                            $discount += $getCoupon['coupon_price'];
+                        }
                     }
                 }
             }
@@ -380,19 +383,24 @@ class OrderController extends BaseController
                     $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
                     $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
                     // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
-        
-                    $couponModel = new CouponModel;
-                    /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
-                    $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->first();
+                    
                     $discount = 0;
-                    if(!empty($getCoupon))
-                    {
-                        if ($getCoupon['coupon_price_type'] == 'Percentage')
+                    $usermodel = new UserModel;
+                    $checkUserCompany = $usermodel->where('user_id', $userId)->first();
+                    if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                    {                    
+                        $couponModel = new CouponModel;
+                        /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
+                        $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                        if(!empty($getCoupon))
                         {
-                            $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
-                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                            // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
-                            $discount += $getCoupon['coupon_price'];
+                            if ($getCoupon['coupon_price_type'] == 'Percentage')
+                            {
+                                $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
+                            } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                                $discount += $getCoupon['coupon_price'];
+                            }
                         }
                     }
         

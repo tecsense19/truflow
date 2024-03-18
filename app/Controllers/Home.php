@@ -966,6 +966,7 @@ class Home extends BaseController
         $discount = 000.00;
         if(isset($cartData) && !empty($cartData) && $userId)
         {
+            $checkUserCompany = $usermodel->where('user_id', $userId)->first();
             foreach($cartData as $cartD)
             {
                 /** Bhavin */
@@ -981,19 +982,23 @@ class Home extends BaseController
                 }*/
 
                 /** Yash */
-                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
-                if(!empty($getCoupon))
+                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
                 {
-                    $from_date = $getCoupon['from_date'];  //2024-01-01
-                    $to_date = $getCoupon['to_date'];  //2024-01-05
-                    $currentDate = date('Y-m-d');
-                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
-                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
-                        if ($getCoupon['coupon_price_type'] == 'Percentage')
-                        {
-                            $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
-                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                            $discount += $getCoupon['coupon_price'];
+                    // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                    $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                    if(!empty($getCoupon))
+                    {
+                        $from_date = $getCoupon['from_date'];  //2024-01-01
+                        $to_date = $getCoupon['to_date'];  //2024-01-05
+                        $currentDate = date('Y-m-d');
+                        // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                        if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                            if ($getCoupon['coupon_price_type'] == 'Percentage')
+                            {
+                                $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                            } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                $discount += $getCoupon['coupon_price'];
+                            }
                         }
                     }
                 }

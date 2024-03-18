@@ -402,7 +402,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                             } else {
                                 Swal.fire({
                                     title: 'Error',
-                                    text: 'Error occurred while inserting data!',
+                                    text: response.message,
                                     icon: 'error'
                                 });
                                 $('#company_user_add')[0].reset();
