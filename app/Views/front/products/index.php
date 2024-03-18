@@ -379,8 +379,8 @@ if (isset($variantArr) && count($variantArr)>0) {
                                     <a href="<?php echo base_url() . str_replace(' ', '_', implode("/",$resultArray)) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
-                                                <?php if (!empty($subCategory['sub_category_img'])) { ?>
-                                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $subCategory['sub_category_img'] ?>" alt="image">
+                                                <?php if (!empty($subCategory['child_sub_category_img'])) { ?>
+                                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $subCategory['child_sub_category_img'] ?>" alt="image">
                                                 <?php } else { ?>
                                                     <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                                 <?php } ?>
