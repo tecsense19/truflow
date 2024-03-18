@@ -348,7 +348,7 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
 
                         <div class="purchase_order_number" style="display:none;">
                             <div>
-                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order number" >
+                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order Number" >
                             </div>
                         </div>
 
