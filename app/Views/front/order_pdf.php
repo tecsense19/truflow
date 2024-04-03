@@ -116,7 +116,7 @@
                             <?php } elseif($orderData[0]['pay_method'] == 'online_payment'){ ?>
                               Online Payment
                             <?php } else { ?>
-                              On a account
+                                Account
                             <?php } ?>
                         </td>
 
@@ -175,9 +175,14 @@
                             <td>
                                 <?php
                                 $couponModel = model('App\Models\CouponModel');
+                                $usermodel = model('App\Models\UserModel');
+
+                                $checkUserCompany = $usermodel->where('user_id', $order['user_id'])->first();
                                 $discount = 000.00;
+                                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                                {
                                     // $getCoupon = $couponModel->where('coupon_id', $order['coupon_id'])->first();
-                                    $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                                    $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
                                     if(!empty($getCoupon))
                                     {
                                         if ($getCoupon['coupon_price_type'] == 'Percentage') 
@@ -189,7 +194,7 @@
                                             $discount = $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ;
                                         }
                                     }
-    
+                                }    
                                 // echo number_format($discount, 2, '.', ',');
                                 echo $discount;
                                 ?>
@@ -197,7 +202,12 @@
                             <td></td>
                             <?php 
                             $couponModel = model('App\Models\CouponModel');
-                            $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                            $usermodel = model('App\Models\UserModel');
+
+                            $checkUserCompany = $usermodel->where('user_id', $order['user_id'])->first();
+                            if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                            {
+                                $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
                                 $discount = 0;
                                 $order_created_at = $order['created_at'];
                                 $datetime = new DateTime($order_created_at);
@@ -215,11 +225,12 @@
                                     $discount = 0;
                                   }
                                 }
-                              if($discount){
+                            }
+                            if($discount){
                                 $unit_price = $order['product_amount'] - $discount;
-                              }else{
+                            }else{
                                 $unit_price = $order['product_amount'];
-                              }
+                            }
                             ?>
                             <td><?php echo number_format($unit_price, 2); ?></td>
 

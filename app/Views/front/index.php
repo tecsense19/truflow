@@ -50,6 +50,19 @@ $partner_title = isset($partnerData) ? $partnerData['title'] : '';
 $partner_description = isset($partnerData) ? $partnerData['description'] : '';
 
 $loginId = $session->get('user_id');
+
+$imagePath1 = !empty($sliderData[0]['slider_path']) ? file_get_contents(urldecode(base_url().'public/front/images/home/'.$sliderData[0]['slider_path'])) : "";
+$imagePath2 = !empty($sliderData[1]['slider_path']) ? file_get_contents(urldecode(base_url().'public/front/images/home/'.$sliderData[1]['slider_path'])) : "";
+$imagePath3 = !empty($sliderData[2]['slider_path']) ? file_get_contents(urldecode(base_url().'public/front/images/home/'.$sliderData[2]['slider_path'])) : "";
+
+$link1 = !empty($sliderData[0]['slider_link']) ? $sliderData[0]['slider_link'] : "javascript:void(0)";
+$link2 = !empty($sliderData[1]['slider_link']) ? $sliderData[1]['slider_link'] : "javascript:void(0)";
+$link3 = !empty($sliderData[2]['slider_link']) ? $sliderData[2]['slider_link'] : "javascript:void(0)";
+
+$style1 = !empty($sliderData[0]['slider_link']) ? 'pointer' : 'default';
+$style2 = !empty($sliderData[1]['slider_link']) ? 'pointer' : 'default';
+$style3 = !empty($sliderData[2]['slider_link']) ? 'pointer' : 'default';
+
 ?>
 <!-- new page login added -->
 
@@ -61,9 +74,8 @@ $loginId = $session->get('user_id');
 
         <div class="row no-md-gutters justify-content-center mt-md-0 mt-lg-2">
             <div class="<?php echo $loginId ? 'col-lg-12' : 'col-lg-9'; ?> col-md-12 pr-md-2 p-1 p-md-0">
-                <a href="<?php echo $sliderData[0]['slider_link'];?>">
-                    <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[0]['slider_path'];?>" alt="">
-                </a>
+                <?php echo $imagePath1; ?>
+                <!-- <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[0]['slider_path'];?>" alt=""> -->
             </div>
             <div class="col-lg-3 col-md-8 mt-2 mt-lg-0 form_outer" style="background-color: gainsboro; display: <?php echo $loginId ? 'none' : 'flex'; ?>">
 
@@ -131,13 +143,13 @@ $loginId = $session->get('user_id');
 
         <div class="row mb-4">
             <div class="col-md-6 mt-2 pl-1 pr-1">
-                <a href="<?php echo $sliderData[1]['slider_link'];?>"><img class="img-fluid"
-                        src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[1]['slider_path'];?>" alt=""></a>
+                <?php echo $imagePath2; ?>
+                <!-- <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[1]['slider_path'];?>" alt=""> -->
             </div>
 
             <div class="col-md-6 mt-2 pr-1 pl-1">
-                <a href="<?php echo $sliderData[2]['slider_link'];?>"><img class="img-fluid"
-                        src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[2]['slider_path'];?>" alt=""></a>
+                <?php echo $imagePath3; ?>
+                <!-- <img class="img-fluid" src="<?php echo base_url() ?>public/front/images/home/<?php echo $sliderData[2]['slider_path'];?>" alt=""> -->
             </div>
 
         </div>
@@ -322,7 +334,7 @@ $loginId = $session->get('user_id');
                                 <div class="slider_text">
                                     <!-- <a href="<?php //echo base_url('') . "sub/category/" . $product['category_id'] ?>"> -->
                                     <?php
-                                    $url = base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']); 
+                                    $url = base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']); 
                                     ?>
                                     <a href="<?php echo $url; ?>">
                                         <h6><?php echo $product['category_name']; ?>&nbsp;&nbsp;</h6>
@@ -354,7 +366,7 @@ $loginId = $session->get('user_id');
                                     <?php
                                     $url = '';
                                     if(isset($product['category_name'])){
-                                        $url = base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']); 
+                                        $url = base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']); 
                                     }
                                     ?>
                                     <!-- <a href="<?php echo base_url('') . "childsub/category/" . $product['sub_category_id'] ?>"> -->
@@ -375,9 +387,9 @@ $loginId = $session->get('user_id');
                                 if(isset($product)){
                                     if(isset($product['category_name'])){
                                         if(isset($product['sub_child_name'])){
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']);
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']);
                                         }else{
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']);
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']);
                                         }
                                     }
                                 }
@@ -513,9 +525,9 @@ $loginId = $session->get('user_id');
                                         <div class="card-body" data-productdetailid="<?php echo $product['product_id'];?>">
                                         <?php
                                         if(isset($product['sub_child_name'])){
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.$product['sub_child_name'].'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
                                         }else{
-                                            $url =  base_url('').'shop' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
+                                            $url =  base_url('').'products' .'/'.str_replace(' ', '_', $product['category_name']).'/'.str_replace(' ', '_', $product['sub_category_name']).'/'.str_replace(' ', '_', $product['child_sub_category_name']).'/'.$product['product_name'];
                                         } 
                                         ?>
                                             <a href="<?php echo $url; ?>">

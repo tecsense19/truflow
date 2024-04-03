@@ -16,7 +16,7 @@
             <div class="col-xl">
 
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0">slider List</h5>
+                    <h5 class="mb-0">Slider List</h5>
                     <a href="<?php echo base_url() . "admin/slider" ?>"><button class="btn btn-primary d-grid float-end">Add slider</button></a>
                 </div>
                 <div class="card mb-4">
@@ -29,7 +29,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Link</th>
+                                            <!-- <th>Link</th> -->
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -49,7 +49,7 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td><?php echo $slider['slider_link']; ?></td>
+                                                    <!-- <td><?php echo $slider['slider_link']; ?></td> -->
                                                     <td>
                                                         <a class="" href="<?php echo base_url('') . "admin/slider/edit/" . $slider['slider_id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                         <a class="" href="<?php echo base_url('') . "admin/slider/delete/" . $slider['slider_id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>

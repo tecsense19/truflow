@@ -17,7 +17,7 @@
             
   
         <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/uploads/Truflow-Favicon.png">
-        <title>Truflow Hydraulics</title>
+        <title>Truflow Hydraulic Hose & Fittings</title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/front/css/animate.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/front/css/owl.carousel.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/public/front/css/swiper-bundle.min.css">

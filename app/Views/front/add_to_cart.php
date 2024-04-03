@@ -6,10 +6,19 @@ $guestsessiondata = $session->get('guestsessiondata');
 $sub_category_id = '';
 $commonValues = '';
 $company_id = '';
-if($user_id)
+
+$usermodel = model('App\Models\UserModel');
+$companymodel = model('App\Models\CompanyModel');
+$checkUserCompany = $usermodel->where('user_id', $user_id)->first();
+if($checkUserCompany)
 {
-  $company_id = isset($cartData) ? $cartData[0]['company_id'] : '';
+  $getCompanyData = $companymodel->where('company_name', $checkUserCompany['company_name'])->first();
+  if($getCompanyData)
+  {
+    $company_id = $getCompanyData['company_id'];
+  }
 }
+
 ?>
 <style>
   sub {
@@ -209,7 +218,7 @@ if($user_id)
                     </li> -->
                     <li class="d-flex justify-content-between sub">
                       <h5>Final Total</h5>
-                      <h5 id="totalAmount">
+                        <h5>
                         <span id="total">$000.00</span>
                       </h5>
                     </li>
@@ -302,7 +311,7 @@ if($user_id)
     $('#final_total_ammount').val(formatedAmmount);
     $('#total_gst').text(formattedSubtotalgst1);
 
-    $('#totalAmount').text(formattedSubtotal);
+    $('#totalAmount').text(formattedSubtotalgst);
     // $('#total').text(formattedSubtotal);
 
     function applyCoupon(response) {

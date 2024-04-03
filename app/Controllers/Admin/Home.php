@@ -68,11 +68,12 @@ class Home extends BaseController
         $checkExists = $model->where('email', $email)->where('user_role', 'Admin')->first();
         if($checkExists){
             $pass = $checkExists['password'];
-            if($password == $pass){
+            if(password_verify($password, $pass)){
                 $ses_data = [
                     'user_id' => $checkExists['user_id'],
                     'full_name' => $checkExists['full_name'],
                     'email' => $checkExists['email'],
+                    'user_role' => $checkExists['user_role'],
                     'logged_in' => true,
                 ];
                 $session->set($ses_data);
@@ -129,60 +130,60 @@ class Home extends BaseController
     }
 
     public function userSave()
-{
-    $usermodel = new UserModel();
-    $session = session();
-    $input = $this->request->getVar();
+    {
+        $usermodel = new UserModel();
+        $session = session();
+        $input = $this->request->getVar();
 
-    $existingUser = $usermodel->where('email', $input['email'])->first();
-    if ($existingUser && $existingUser['user_id'] != $input['user_id']) {
-        $session->setFlashdata('error', 'Email already exists. Please use a different email.');
-        return redirect()->back();
-    }
-
-    $userArr = [
-        'full_name' => $input['first_name'] . " " . $input['last_name'],
-        'first_name' => $input['first_name'],
-        'last_name' => $input['last_name'],
-        'date_of_birth' => $input['date_of_birth'],
-        'mobile' => $input['mobile'],
-        'user_role' => $input['user_role'],
-        'company_name' => $input['company_name'],
-        'address_1' => $input['address_1'],
-        'address_2' => $input['address_2'],
-        'city' => $input['city'],
-        'zipcode' => $input['zipcode'],
-        'country' => $input['country'],
-        'phone' => $input['phone'],
-        'fax' => $input['fax'],
-        'on_a_account' => isset($input['on_a_account']) ? $input['on_a_account'] : 0
-    ];
-
-    if (isset($input['user_id']) && $input['user_id'] != '') {
-        $usermodel->update(['user_id' => $input['user_id']], $userArr);
-        $session->setFlashdata('success', 'User Data Update successfully.');
-    } else {
-        $password = $input['password'];
-        $confirmPassword = $input['c_password'];
-        
-        // Validate password and confirm password
-        if ($password !== $confirmPassword) {
-            $session->setFlashdata('error', 'Password and confirm password do not match.');
+        $existingUser = $usermodel->where('email', $input['email'])->first();
+        if ($existingUser && $existingUser['user_id'] != $input['user_id']) {
+            $session->setFlashdata('error', 'Email already exists. Please use a different email.');
             return redirect()->back();
         }
-        
-        // Encrypt the password
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $userArr['email'] = $input['email'];
-        $userArr['password'] = $hashedPassword;
-        
-        $usermodel->insert($userArr);
-        $session->setFlashdata('success', 'User Added successfully.');
-    }
 
-    
-    return redirect()->to('admin/user_list');
-}
+        $userArr = [
+            'full_name' => $input['first_name'] . " " . $input['last_name'],
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'date_of_birth' => $input['date_of_birth'],
+            'mobile' => $input['mobile'],
+            'user_role' => $input['user_role'],
+            'company_name' => $input['company_name'],
+            'address_1' => $input['address_1'],
+            'address_2' => $input['address_2'],
+            'city' => $input['city'],
+            'zipcode' => $input['zipcode'],
+            'country' => $input['country'],
+            'phone' => $input['phone'],
+            'fax' => $input['fax'],
+            'on_a_account' => isset($input['on_a_account']) ? $input['on_a_account'] : 0
+        ];
+
+        if (isset($input['user_id']) && $input['user_id'] != '') {
+            $usermodel->update(['user_id' => $input['user_id']], $userArr);
+            $session->setFlashdata('success', 'User Data Update successfully.');
+        } else {
+            $password = $input['password'];
+            $confirmPassword = $input['c_password'];
+            
+            // Validate password and confirm password
+            if ($password !== $confirmPassword) {
+                $session->setFlashdata('error', 'Password and confirm password do not match.');
+                return redirect()->back();
+            }
+            
+            // Encrypt the password
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $userArr['email'] = $input['email'];
+            $userArr['password'] = $hashedPassword;
+            
+            $usermodel->insert($userArr);
+            $session->setFlashdata('success', 'User Added successfully.');
+        }
+
+        
+        return redirect()->to('admin/user_list');
+    }
 
     
     public function userEdit($user_id)
@@ -222,5 +223,61 @@ class Home extends BaseController
         $usermodel->delete($user_id);
         $session->setFlashdata('success', 'User Delete succesfully.');
         return redirect()->back();
+    }
+    
+    public function changePassword()
+    {
+        $session = session();
+        if($session->get('user_role') == 'Admin') 
+        {
+            return view('admin/change_password');
+        }
+        else
+        {
+            return view('admin/login');
+        }
+    }
+    
+    public function changePasswordSave()
+    {
+        $session = session();
+        $input = $this->request->getVar();
+
+        $usermodel = new UserModel();
+        
+        if($session->get('user_role') == 'Admin') 
+        {
+            $userId = $session->get('user_id');
+
+            $checkExists = $usermodel->where('user_id', $userId)->where('user_role', 'Admin')->first();
+
+            if($checkExists)
+            {
+                $password = $input['old_password'];
+                if(password_verify($password, $checkExists['password']))
+                {
+                    $newPassword = [];
+                    $newPassword['password'] = password_hash($input['new_password'], PASSWORD_DEFAULT);
+
+                    $usermodel->update(['user_id' => $userId], $newPassword);
+
+                    $session->setFlashdata('success', 'Password change succesfully.');
+                    return redirect()->back();
+                }
+                else
+                {
+                    $session->setFlashdata('error', 'Old password invalid.');
+                    return redirect()->back();
+                }
+            }
+            else
+            {
+                return view('admin/login');    
+            }
+        }
+        else
+        {
+            return view('admin/login');
+        }
     }
 }

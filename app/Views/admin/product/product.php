@@ -88,6 +88,7 @@ $featured_product = isset($productData) ? $productData['featured_category'] : ''
 $product_additional_info = isset($productData) ? $productData['product_additional_info'] : '';
 $product_child_id = isset($productData) ? $productData['child_id'] : '';
 $product_coupon_id = isset($productData) ? $productData['coupon_id'] : '';
+$product_sort = isset($productData) ? $productData['sort'] : '';
 
 
 
@@ -210,6 +211,10 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                                 <label class="form-label" for="basic-default-message">Product Additional Information</label>
                                 <textarea id="editor8" name="product_additional_info"  placeholder="Product Additional Information"><?php echo $product_additional_info; ?></textarea>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-message">Sort</label>
+                                <input type="text" value="<?php echo $product_sort; ?>" class="form-control" id="product_sort" name="product_sort" placeholder="Sort" />
+                            </div>
                         </div>
                     </div>
 
@@ -236,24 +241,24 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                     <!-- add headers -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Add Product Header</h5>
+                            <h5 class="mb-0">Configuration Headings</h5>
                         </div>
                         <div class="row card-body">
                         <div class="col-md-3">
-                                <label for="product_header"></label>
-                                <input type="text" name="product_header1" class="form-control" value="<?php echo $product_header1; ?>" placeholder="Product Header 1" />
+                                <label for="product_header">Configuration Heading 1</label>
+                                <input type="text" name="product_header1" class="form-control" value="<?php echo $product_header1; ?>" placeholder="Configuration Heading 1" />
                             </div>
                             <div class="col-md-3">
-                                <label for="product_header"></label>
-                                <input type="text" name="product_header2" class="form-control" value="<?php echo $product_header2; ?>" placeholder="Product Header 2" />
+                                <label for="product_header">Configuration Heading 2</label>
+                                <input type="text" name="product_header2" class="form-control" value="<?php echo $product_header2; ?>" placeholder="Configuration Heading 2" />
                             </div>
                             <div class="col-md-3">
-                                <label for="product_header"></label>
-                                <input type="text" name="product_header3" class="form-control" value="<?php echo $product_header3; ?>" placeholder="Product Header 3" />
+                                <label for="product_header">Configuration Heading 3</label>
+                                <input type="text" name="product_header3" class="form-control" value="<?php echo $product_header3; ?>" placeholder="Configuration Heading 3" />
                             </div>
                             <div class="col-md-3">
-                                <label for="product_header"></label>
-                                <input type="text" name="product_header4" class="form-control" value="<?php echo $product_header4; ?>" placeholder="Product Header 4" />
+                                <label for="product_header">Configuration Heading 4</label>
+                                <input type="text" name="product_header4" class="form-control" value="<?php echo $product_header4; ?>" placeholder="Configuration Heading 4" />
                             </div>
                         </div>
                     </div>
@@ -261,11 +266,11 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                     <!-- add variant -->
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">Add Variant</h5>
+                            <h5 class="mb-0">Configurations</h5>
                         </div>
 
                         <div class="card-body">
-                            <button id="add-btn" class="btn btn-primary">Add Variant</button>
+                            <button id="add-btn" class="btn btn-primary">Add Configuration</button>
                             <div id="input-container">
                                 <!-- <table class="table">
                                     <thead>
@@ -328,39 +333,39 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
 
                                         <div class="varient-card"><hr>
                                         <div class="row">
+                                            <div class="col-sm-3">
+                                            <span>SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" value="<?php echo $variant['variant_sku']; ?>" placeholder="Sku" />
+                                            </div>
                                             <div class="col-sm-6">
-                                            <span>Variant Name</span><input type="text" name="variant_name[]" class="form-control mb-3" value="<?php echo $variant['variant_name']; ?>" placeholder="Variant Name" />
+                                            <span>Name</span><input type="text" name="variant_name[]" class="form-control mb-3" value="<?php echo $variant['variant_name']; ?>" placeholder="Name" />
                                             <input type="hidden" name="variant_id[]" class="form-control mb-3" value="<?php echo $variant['variant_id']; ?>" />
                                             </div>
                                             <div class="col-sm-3">
-                                            <span>Variant Price</span><input type="text" name="variant_price[]" class="form-control mb-3" value="<?php echo $variant['variant_price']; ?>" placeholder="Variant Price" />
+                                            <span>Price</span><input type="text" name="variant_price[]" class="form-control mb-3" value="<?php echo $variant['variant_price']; ?>" placeholder="Price" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Configuration 1</span><input type="text" name="variant_description[]" class="form-control mb-2" value="<?php echo $variant['variant_description']; ?>" placeholder="Configuration 1" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Configuration 2</span>
+                                            <input type="text" name="variant_description1[]" class="form-control mb-2" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Configuration 2" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Configuration 3</span>
+                                            <input type="text" name="variant_description2[]" class="form-control mb-2" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Configuration 3" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Configuration 4</span>
+                                            <input type="text" name="variant_description3[]" class="form-control mb-3" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Configuration 4" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Part Number</span><input type="text" name="parent[]" class="form-control mb-3" value="<?php echo $variant['parent']; ?>" placeholder="Part Number" />
+                                            </div>
+                                            <div class="col-sm-3">
+                                            <span>Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" value="<?php echo $variant['variant_stock']; ?>" placeholder="Stock" />
                                             </div>
                                             <div class="col-sm-3">
                                             <span>Sort</span><input type="text" name="sort[]" class="form-control mb-3" value="<?php echo $variant['sort']; ?>" placeholder="Sort" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant Description</span><input type="text" name="variant_description[]" class="form-control mb-2" value="<?php echo $variant['variant_description']; ?>" placeholder="Variant Description" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant Description 1</span>
-                                            <input type="text" name="variant_description1[]" class="form-control mb-2" value="<?php echo $variant['variant_description_1']; ?>" placeholder="Variant Description 1" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant Description 2</span>
-                                            <input type="text" name="variant_description2[]" class="form-control mb-2" value="<?php echo $variant['variant_description_2']; ?>" placeholder="Variant Description 2" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant Description 3</span>
-                                            <input type="text" name="variant_description3[]" class="form-control mb-3" value="<?php echo $variant['variant_description_3']; ?>" placeholder="Variant Description 3" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" value="<?php echo $variant['variant_sku']; ?>" placeholder="Part Number" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Part Number</span><input type="text" name="parent[]" class="form-control mb-3" value="<?php echo $variant['parent']; ?>" placeholder="parent" />
-                                            </div>
-                                            <div class="col-sm-3">
-                                            <span>Variant Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" value="<?php echo $variant['variant_stock']; ?>" placeholder="Variant Stock" />
                                             </div>
                                             <div class="col-sm-3">
                                             <span>Group Name</span><input type="text" name="group_name[]" class="form-control mb-3" value="<?php echo $variant['group_name']; ?>" placeholder="Group Name" />
@@ -466,22 +471,22 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                     required: "CSV Product Image is required!"
                 },
                 "variant_name[]": {
-                    required: "Variant Name is required!"
+                    required: "Name is required!"
                 },
                 "variant_price[]": {
-                    required: "Variant Price is required!"
+                    required: "Price is required!"
                 },
                 "variant_sku[]": {
-                    required: "Part Number is required!"
+                    required: "Sku is required!"
                 },
                 "parent[]": {
-                    required: "parent is required!"
+                    required: "Part Number is required!"
                 },
                 "variant_description[]": {
-                    required: "Variant Description is required!"
+                    required: "Configuration is required!"
                 },
                 "variant_header[]": {
-                    required: "Variant Description is required!"
+                    required: "Configuration Heading is required!"
                 }
 
             },
@@ -489,7 +494,7 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
                 if (addVariantClicked) {
                     form.submit();
                 } else {
-                    alert("Add Variant button is required!");
+                    alert("Add Configuration button is required!");
                 }
             }
         });
@@ -681,24 +686,24 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
 
         var inputRow = $('<div class="row"></div>');
         var inputRows = $('<div class="varient-card"><hr></div>');
-        var variant_name = $('<div class="col-sm-6"><span>Variant Name</span><input type="text" name="variant_name[]" class="form-control mb-3" placeholder="Variant Name" /></div>');
-        var variant_price = $('<div class="col-sm-3"><span>Variant Price</span><input type="text" name="variant_price[]" class="form-control mb-3" placeholder="Variant Price" /></div>');
-        var variant_sku = $('<div class="col-sm-3"><span>Variant SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" placeholder="Variant Sku" /></div>');
+        var variant_name = $('<div class="col-sm-6"><span>Name</span><input type="text" name="variant_name[]" class="form-control mb-3" placeholder="Name" /></div>');
+        var variant_price = $('<div class="col-sm-3"><span>Price</span><input type="text" name="variant_price[]" class="form-control mb-3" placeholder="Price" /></div>');
+        var variant_sku = $('<div class="col-sm-3"><span>SKU</span><input type="text" name="variant_sku[]" class="form-control mb-3" placeholder="Sku" /></div>');
         var parent = $('<div class="col-sm-3"><span>Part Number</span><input type="text" name="parent[]" class="form-control mb-3" placeholder="Part Number" /></div>');
-        var variant_stock = $('<div class="col-sm-3"><span>Variant Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" placeholder="Variant Stock" /></div>');
+        var variant_stock = $('<div class="col-sm-3"><span>Stock</span><input type="text" name="variant_stock[]" class="form-control mb-3" placeholder="Stock" /></div>');
         var group_name = $('<div class="col-sm-3"><span>Group Name</span><input type="text" name="group_name[]" class="form-control mb-3" placeholder="Group Name" /></div>');
         var sort = $('<div class="col-sm-3"><span>Sort</span><input type="text" name="sort[]" class="form-control mb-3" placeholder="Sort" /></div>');
-        var variant_description = $('<div class="col-sm-3"><span>Variant Description</span><input type="text" name="variant_description[]" class="form-control mb-2" placeholder="Variant Description" /></div>');
+        var variant_description = $('<div class="col-sm-3"><span>Configuration 1</span><input type="text" name="variant_description[]" class="form-control mb-2" placeholder="Configuration 1" /></div>');
         // var variant_header = $('<td><input type="text" name="variant_header[]" class="form-control" placeholder="Variant Header" /></td>');
         var inputRow1 = $('<tr class="input-row_'+ (row_counter1 + 0) +'_'+row_counter+'" data-id="'+ (row_counter1 + 0) +'"></tr>');
         var inputRow2 = $('<tr class="input-row_'+ (row_counter1 + 1) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 1) +'"></tr>');
         var inputRow3= $('<tr class="input-row_'+ (row_counter1 + 2) +'_'+ row_counter +'" data-id="'+ (row_counter1 + 2) +'"></tr>');
         // var variant_header_1 = $('<td><input type="text" name="variant_header1[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_1 = $('<div class="col-sm-3"><span>Variant Description 1</span><input type="text" name="variant_description1[]" class="form-control mb-2" placeholder="Variant Description 1" /></div>');
+        var variant_description_1 = $('<div class="col-sm-3"><span>Configuration 2</span><input type="text" name="variant_description1[]" class="form-control mb-2" placeholder="Configuration 2" /></div>');
         // var variant_header_2 = $('<td><input type="text" name="variant_header2[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_2 = $('<div class="col-sm-3"><span>Variant Description 2</span><input type="text" name="variant_description2[]" class="form-control mb-2" placeholder="Variant Description 2" /></div>');
+        var variant_description_2 = $('<div class="col-sm-3"><span>Configuration 3</span><input type="text" name="variant_description2[]" class="form-control mb-2" placeholder="Configuration 3" /></div>');
         // var variant_header_3 = $('<td><input type="text" name="variant_header3[]" class="form-control" placeholder="Variant Header" /></td>');
-        var variant_description_3 = $('<div class="col-sm-3"><span>Variant Description 3</span><input type="text" name="variant_description3[]" class="form-control mb-3" placeholder="Variant Description 3" /></div>');
+        var variant_description_3 = $('<div class="col-sm-3"><span>Configuration 4</span><input type="text" name="variant_description3[]" class="form-control mb-3" placeholder="Configuration 4" /></div>');
         var removeButton = $('<div class="col-sm-2"><button type="button" class="btn btn-danger remove-btn" data-id="'+ (row_counter) +'">Remove</button></div>');
         // Validate variant SKU value
         variant_sku.find('input').blur(function() {
@@ -719,13 +724,14 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
             if (!$.isNumeric(priceValue)) {
                 $(this).addClass('is-invalid');
                 $(this).siblings('.invalid-feedback').remove();
-                $(this).after('<div class="invalid-feedback">Variant Price must be a numeric value.</div>');
+                $(this).after('<div class="invalid-feedback">Price must be a numeric value.</div>');
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).siblings('.invalid-feedback').remove();
             }
         });
 
+        inputRow.append(variant_sku);
         inputRow.append(variant_name);
         inputRow.append(variant_price);
         // inputRow.append(variant_header);
@@ -733,11 +739,10 @@ $product_header4 = isset($productData) ? $productData['product_header4'] : '';
         inputRow.append(variant_description_1);
         inputRow.append(variant_description_2);
         inputRow.append(variant_description_3);
-        inputRow.append(variant_sku);
         inputRow.append(parent);
         inputRow.append(variant_stock);
-        inputRow.append(group_name);
         inputRow.append(sort);
+        inputRow.append(group_name);
         inputRow.append(removeButton);
         inputRows.append(inputRow);
         

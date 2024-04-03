@@ -1,7 +1,7 @@
 <?= $this->include('admin/layout/front') ?>
 <?php 
 $slider_id = isset($sliderData) ? $sliderData['slider_id'] : '';
-$slider_name = isset($sliderData) ? $sliderData['slider_path'] : '';
+$slider_path = isset($sliderData) ? $sliderData['slider_path'] ? base_url() . 'public/front/images/home/' .$sliderData['slider_path'] : '' : '';
 $slider_link = isset($sliderData) ? $sliderData['slider_link'] : '';
 
 ?>
@@ -25,17 +25,20 @@ $slider_link = isset($sliderData) ? $sliderData['slider_link'] : '';
                 <form method="post" id="slider_form" action="<?php echo base_url() ?>admin/slider/save" enctype='multipart/form-data'>
                     <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">slider</h5>
+                            <h5 class="mb-0">Slider</h5>
                         </div>
                         <div class="card-body">
                         <div class="mb-3">
-    <label class="form-label" for="basic-default-fullname">Slider Name</label>
-    <input type="file" class="form-control" id="slider_path" name="slider_path[]" placeholder="Upload Images" multiple required/>
-    <input type="hidden" name="slider_id" value="<?php echo $slider_id;?>">
-</div>
-                        <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">Slider Name</label>
-                            <input type="text" class="form-control" id="slider_link" name="slider_link" value="<?php echo $slider_link;?>" placeholder="Slider link" multiple required/>
+                            <input type="file" class="form-control" id="slider_path" name="slider_path[]" placeholder="Upload Images" multiple <?php if(!$slider_id) { ?> required <?php } ?> />
+                            <input type="hidden" name="slider_id" value="<?php echo $slider_id;?>">
+                            <?php if(isset($slider_id) && $slider_id) { ?>
+                                <img src="<?php echo $slider_path;?>" style="height: 100px; width: 100px;" />
+                            <?php } ?>
+                        </div>
+                        <div class="mb-3" style="display: none;">
+                            <label class="form-label" for="basic-default-fullname">Slide URL</label>
+                            <input type="text" class="form-control" id="slider_link" name="slider_link" value="<?php echo $slider_link;?>" placeholder="Slide URL" multiple/>
                         </div>
 
                            

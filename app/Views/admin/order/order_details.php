@@ -37,17 +37,17 @@
                                     <div class="mb-3 col-md-6">
                                         <h5>Payment method</h5>
                                         <!-- <?php //echo $newCartData1[0]['pay_method'] == 'cash' ? 'COD' : 'On a account'; ?><br> -->
-                                        <?php 
-                                        if($newCartData1[0]['pay_method'] == 'cash'){
+                                        <?php
+                                        if(isset($newCartData1[0]['pay_method']) && $newCartData1[0]['pay_method'] == 'cash'){
                                             echo 'COD';
-                                        }elseif ($newCartData1[0]['pay_method'] == 'online_payment') {
+                                        }elseif (isset($newCartData1[0]['pay_method']) && $newCartData1[0]['pay_method'] == 'online_payment') {
                                             echo 'Online Payment';
                                         }else{
-                                            echo 'On a account';
+                                            echo 'Account';
                                         }
                                         ?><br>
                                     </div>
-                                    <?php if($newCartData1[0]['shipping'] == 'Client Courier') { ?>
+                                    <?php if(isset($newCartData1[0]['shipping']) && $newCartData1[0]['shipping'] == 'Client Courier') { ?>
                                         <div class="mb-3 col-md-6">
                                             <div><?php echo $newCartData1[0]['shipping']; ?></div>
                                             <div><b>Account Number: </b><?php echo $newCartData1[0]['account_number']; ?></div>
@@ -85,20 +85,24 @@
                                                         <td><?php echo $order['product_amount']; ?></td>
                                                         <td><?php
                                                             $couponModel = model('App\Models\CouponModel');
+                                                            $usermodel = model('App\Models\UserModel');
                                                             $discount = 000.00;
-                                                            
+                                                            $checkUserCompany = $usermodel->where('user_id', $order['user_id'])->first();
+                                                            if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                                                            {
                                                                 // $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
-                                                                $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
+                                                                $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
                                                                 if(!empty($getCoupon))
                                                                 {
-                                                                if ($getCoupon['coupon_price_type'] == 'Percentage')
-                                                                {
-                                                                    $discount += ($order['product_amount'] * $order['product_quantity'] * $getCoupon['coupon_price']) / 100;
-                                                                } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                                                                    // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
-                                                                    $discount += $getCoupon['coupon_price'];
+                                                                    if ($getCoupon['coupon_price_type'] == 'Percentage')
+                                                                    {
+                                                                        $discount += ($order['product_amount'] * $order['product_quantity'] * $getCoupon['coupon_price']) / 100;
+                                                                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                                                        // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                                                        $discount += $getCoupon['coupon_price'];
+                                                                    }
                                                                 }
-                                                                }
+                                                            }
                                                             echo number_format($discount, 2, '.', ',');
                                                         ?></td>
                                                         <td><?php echo $order['order_status']; ?></td>
