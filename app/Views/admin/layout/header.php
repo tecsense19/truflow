@@ -1,13 +1,14 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-    <div class="app-brand demo justify-content-center">
+    <div class="app-brand demo">
         <a href="<?php echo base_url('admin'); ?>" class="app-brand-link">
-            <div class="d-flex align-items-center">
-                <span class="app-brand-logo demo">
-                    <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
-                </span>
-                <span class="app-brand-text demo menu-text fw-bolder ms-2 text-center">Truflow Hydraulic <br> Hose & Fittings</span>
-            </div>
+            <span class="app-brand-logo demo">
+
+
+                <img src="<?php echo base_url(); ?>/public/uploads/TruflowLogoDark.png" alt="logo" width="60px" class="img-fluid">
+
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">Truflow Hydraulics</span>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -86,12 +87,12 @@
                 <div data-i18n="Basic">Company</div>
             </a>
         </li>
-        <!-- <li class="menu-item">
+        <li class="menu-item">
             <a href="<?php echo base_url('admin/company_coupon_list'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-discount"></i>
                 <div data-i18n="Basic">Group Name</div>
             </a>
-        </li> -->
+        </li>
 
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -114,11 +115,11 @@
                         <div data-i18n="Basic Inputs">Contact Us Section</div>
                     </a>
                 </li>
-                <!-- <li class="menu-item">
+                <li class="menu-item">
                     <a href="<?php echo base_url('admin/product-page'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Product Section</div>
                     </a>
-                </li> -->
+                </li>
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/testominal-page'); ?>" class="menu-link">
                         <div data-i18n="Basic Inputs">Testominal Section</div>
@@ -142,11 +143,6 @@
                 <li class="menu-item">
                     <a href="<?php echo base_url('admin/slider_list'); ?>" class="menu-link">
                         <div data-i18n="Input groups">Banner Slider</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="<?php echo base_url('admin/footer-section'); ?>" class="menu-link">
-                        <div data-i18n="Input groups">Footer Section</div>
                     </a>
                 </li>
             </ul>

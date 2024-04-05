@@ -48,7 +48,6 @@ class OrderController extends BaseController
         //     ->get();
 
         // $cartData = $query->getResultArray();
-        $cartData = [];
         if($userId){
             // $query = $cartmodel->select('*')
             // ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
@@ -83,26 +82,23 @@ class OrderController extends BaseController
             ->where('add_to_cart.user_id', $userId)
             ->get();
         
-            $cartData = $query->getResultArray();
+
 
         }else{
-            if($session->get('guestsessiondata'))
-            {
-                $query = $cartmodel->select('*')
-                ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-                ->join('product', 'product.product_id = product_variants.product_id', 'left')
-                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-                ->join('category', 'category.category_id = sub_category.category_id', 'left')
-                ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
-                ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
-                // ->join('company', 'company.company_name = users.company_name', 'left')
-                // ->where('add_to_cart.user_id', $userId)
-                //->where('company.company_name', $componey_name)
-                ->get();
-
-                $cartData = $query->getResultArray();
-            }
+            $query = $cartmodel->select('*')
+            ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
+            ->join('product', 'product.product_id = product_variants.product_id', 'left')
+            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+            ->join('category', 'category.category_id = sub_category.category_id', 'left')
+            ->join('users', 'users.user_id = add_to_cart.user_id', 'left')
+            ->whereIn('add_to_cart.cart_id', $session->get('guestsessiondata'))
+            // ->join('company', 'company.company_name = users.company_name', 'left')
+            // ->where('add_to_cart.user_id', $userId)
+            //->where('company.company_name', $componey_name)
+            ->get();
         }
+
+        $cartData = $query->getResultArray();
         // echo '<pre>';print_r($cartData);echo '</pre>';die;
 
         if (!$cartData) {
@@ -125,31 +121,22 @@ class OrderController extends BaseController
         $discount = 000.00;
         if(isset($cartData) && !empty($cartData))
         {
-            $checkUserCompany = $usermodel->where('user_id', $userId)->first();
+            
             foreach($cartData as $cartD)
             {
-                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
+                if(!empty($getCoupon))
                 {
-                    // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
-                    $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
-                    if(!empty($getCoupon))
+                    if ($getCoupon['coupon_price_type'] == 'Percentage')
                     {
-                        if ($getCoupon['coupon_price_type'] == 'Percentage')
-                        {
-                            $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
-                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                            $discount += $getCoupon['coupon_price'];
-                        }
+                        $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                    } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                        $discount += $getCoupon['coupon_price'];
                     }
                 }
             }
         }
-
-        if(!$cartData)
-        {
-            return redirect()->to('/');
-        }
-
         if($userData){
             return view('front/checkout', [
                 'cartData' => $cartData,
@@ -383,24 +370,19 @@ class OrderController extends BaseController
                     $orderArr['product_amount'] = isset($row['product_amount']) ? $row['product_amount'] : '';
                     $orderArr['product_quantity'] = isset($row['product_quantity']) ? $row['product_quantity'] : '';
                     // $orderArr['total_amount'] = isset($row['total_amount']) ? $row['total_amount'] : '';
-                    
+        
+                    $couponModel = new CouponModel;
+                    /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
+                    $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->first();
                     $discount = 0;
-                    $usermodel = new UserModel;
-                    $checkUserCompany = $usermodel->where('user_id', $userId)->first();
-                    if(isset($checkUserCompany) && $checkUserCompany['company_name'])
-                    {                    
-                        $couponModel = new CouponModel;
-                        /* $getCoupon = $couponModel->where('coupon_id', $row['coupon_id'])->first();*/
-                        $getCoupon = $couponModel->where('coupon_code', $row['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
-                        if(!empty($getCoupon))
+                    if(!empty($getCoupon))
+                    {
+                        if ($getCoupon['coupon_price_type'] == 'Percentage')
                         {
-                            if ($getCoupon['coupon_price_type'] == 'Percentage')
-                            {
-                                $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
-                            } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                                // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
-                                $discount += $getCoupon['coupon_price'];
-                            }
+                            $discount += ($row['total_amount'] * $getCoupon['coupon_price']) / 100;
+                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                            // $discount += $row['total_amount'] - $getCoupon['coupon_price'];
+                            $discount += $getCoupon['coupon_price'];
                         }
                     }
         
@@ -491,7 +473,7 @@ class OrderController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = FROM_EMAIL_NAME;
+                $fromName = 'Truflow Hydraulics';
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -581,7 +563,7 @@ class OrderController extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = FROM_EMAIL_NAME;
+        $fromName = 'Truflow Hydraulics';
 
         $toEmail = isset($userData) ? $userData['email'] : '';
         if($toEmail)

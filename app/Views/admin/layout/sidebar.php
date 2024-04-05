@@ -67,15 +67,9 @@
                         <div class="dropdown-divider"></div>
                     </li> -->
                     <li>
-                        <a class="dropdown-item" href="<?php echo base_url(); ?>admin/change/password">
-                        <i class="bx bx-cog me-2"></i>
-                            <span class="align-middle">Change Password</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" href="<?php echo base_url(); ?>admin/logout">
                         <i class="bx bx-power-off me-2"></i>
-                            <span class="align-middle">Log Out</span>
+                        <span class="align-middle">Log Out</span>
                         </a>
                     </li>
                 </ul>

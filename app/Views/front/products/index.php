@@ -1,5 +1,4 @@
 <?php 
-    $session = session();
     $currentURL = current_url();
     $explodeUrl = explode('/', $currentURL);
     // echo "<pre>";
@@ -23,18 +22,12 @@
         if($key >= 4)
         {
             $currentSegment .=  '/' . str_replace(' ', '_', $seg);
-            // $breadcrumb[] = anchor(base_url(str_replace('products', 'shop', $currentSegment)), str_replace('shop', 'products', $seg));
             $breadcrumb[] = anchor(base_url($currentSegment), $seg);
             $output = str_replace('%28', '(', $breadcrumb);
             $breadcrumb = str_replace('%29', ')', $output);
             // echo '<pre>';print_r($breadcrumb);echo '</pre>';
         }
     }
-
-    $userId = $session->get('user_id');
-    $couponModel = model('App\Models\CouponModel');
-    $usermodel = model('App\Models\UserModel');
-    $checkUserCompany = $usermodel->where('user_id', $userId)->first();
 ?>
 <?= $this->include('front/layout/front'); ?>
 <?php
@@ -297,7 +290,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                         <div id="accordian">
                             <ul class="show-dropdown">
                                 <?php if (isset($sidebarData)) { foreach ($sidebarData as $key => $category) { 
-                                        $catUrl = base_url() .'products/' . str_replace(' ', '_', $category['category_name']);
+                                        $catUrl = base_url() .'shop/' . str_replace(' ', '_', $category['category_name']);
                                     ?>
                                     <li class="<?php if(in_array($category['category_name'], $segment)) { echo 'active'; } ?>">
                                         <div class="main-name-with-arrow">
@@ -379,8 +372,8 @@ if (isset($variantArr) && count($variantArr)>0) {
                                     <a href="<?php echo base_url() . str_replace(' ', '_', implode("/",$resultArray)) . '/' . str_replace(' ', '_', $subCategory['child_sub_category_name']) ?>">
                                         <div class="product_box">
                                             <div class="product_img">
-                                                <?php if (!empty($subCategory['child_sub_category_img'])) { ?>
-                                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $subCategory['child_sub_category_img'] ?>" alt="image">
+                                                <?php if (!empty($subCategory['sub_category_img'])) { ?>
+                                                    <img class="img-fluid card-img-top" src="<?php echo base_url() . $subCategory['sub_category_img'] ?>" alt="image">
                                                 <?php } else { ?>
                                                     <img class="img-fluid card-img-top" src="<?php echo base_url(); ?>/public/uploads/no_img.png" alt="image">
                                                 <?php } ?>
@@ -557,47 +550,27 @@ if (isset($variantArr) && count($variantArr)>0) {
                                             <?php 
                                             $discount = 0;
                                             foreach ($variantArr as $variant) { 
-                                                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
-                                                {
-                                                    $getCoupon = $couponModel->where('coupon_code', $variant['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
-
-                                                    if($getCoupon)
-                                                    {
-                                                        if(date('Y-m-d') <= $getCoupon['to_date'])
+                                                if(isset($variant['to_date']) && date('Y-m-d')<=$variant['to_date']){
+                                                    $from_date = $variant['from_date'];  //2024-01-01
+                                                    $to_date = $variant['to_date'];  //2024-01-05
+                                                    $currentDate = date('Y-m-d');
+                                                    $coupon_price_type = $variant['coupon_price_type'];
+                                                    $variant_price = $variant['variant_price'];
+                                                    $coupon_price = $variant['coupon_price'];
+                                                    // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
+                                                    // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
+                                                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                                                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                                                        if ($coupon_price_type == 'Percentage')
                                                         {
-                                                            $from_date = $getCoupon['from_date'];  //2024-01-01
-                                                            $to_date = $getCoupon['to_date'];  //2024-01-05
-                                                            $currentDate = date('Y-m-d');
-                                                            $coupon_price_type = $getCoupon['coupon_price_type'];
-                                                            $variant_price = $variant['variant_price'];
-                                                            $coupon_price = $getCoupon['coupon_price'];
-                                                            // echo '<pre> variant_price';print_r($variant_price);echo '</pre>';
-                                                            // echo '<pre> coupon_price';print_r($coupon_price);echo '</pre>';
-                                                            // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
-                                                            if ($currentDate >= $from_date && $currentDate <= $to_date) 
-                                                            {
-                                                                if ($coupon_price_type == 'Percentage')
-                                                                {
-                                                                    $discount = $variant_price * $coupon_price / 100;
-                                                                }else if ($coupon_price_type == 'Flat') {
-                                                                    $discount = $coupon_price;
-                                                                }
-                                                            }
-                                                            $price = $variant['variant_price'] - $discount;
-                                                            $final_price = round($price,2);
-                                                        }
-                                                        else
-                                                        {
-                                                            $final_price = $variant['variant_price'];
+                                                            $discount = $variant_price * $coupon_price / 100;
+                                                        }else if ($coupon_price_type == 'Flat') {
+                                                            $discount = $coupon_price;
                                                         }
                                                     }
-                                                    else
-                                                    {
-                                                        $final_price = $variant['variant_price'];
-                                                    }
-                                                }
-                                                else
-                                                {
+                                                    $price = $variant['variant_price'] - $discount;
+                                                    $final_price = round($price,2);
+                                                }else{
                                                     $final_price = $variant['variant_price'];
                                                 }
                                                 ?>
@@ -606,15 +579,14 @@ if (isset($variantArr) && count($variantArr)>0) {
                                                         <!-- <td class="table-front"><h6 class="space"><?php //echo $variant['product_short_description']; ?></h6></td> -->
                                                         <td class="table-front"><h6 class="space"><?php echo $variant['variant_name']; ?></h6></td>
                                                         <td class="table-front">
-                                                            <div style="width: 150px;">
-                                                                <input class="minus" value="-" type="button"  data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
-                                                                <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
-                                                                <input class="plus" value="+" type="button" data-amount="<?php echo $final_price; ?>" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <input class="minus" value="-" type="button"  data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
+                                                            <input class="plus" value="+" type="button" data-amount="<?php echo $final_price; ?>" data-id="<?php echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] > 0){ ?> <?php }else{?> disabled <?php } ?>>
 
-                                                                <!-- <input class="minus" value="-" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
-                                                                <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] <= 0 || $final_price == 0){ echo 'disabled'; } ?>>
-                                                                <input class="plus" value="+" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>> -->
-                                                            </div>
+                                                            <!-- <input class="minus" value="-" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>>
+                                                            <input type="number" class="input-text qty text variant-qty" step="1" min="0" max="" onkeyup="default_value(event, '<?php echo $variant['variant_stock']; ?>')" name="variant_qty[]" value="0" title="Qty" size="4" placeholder="0" inputmode="numeric" autocomplete="off" <?php if($variant['variant_stock'] <= 0 || $final_price == 0){ echo 'disabled'; } ?>>
+                                                            <input class="plus" value="+" type="button" data-id="<?php //echo $variant['variant_stock']; ?>" <?php if($variant['variant_stock'] <= 0 || $final_price == '0'){ echo 'disabled'; } ?>> -->
+
                                                         </td>
                                                         <td class="table-front">
                                                             <h4 style="display: contents;"><?php echo "$" . $final_price; ?></h4> <sub> Ex-Gst</sub>
@@ -864,7 +836,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                 {                                        
                     // echo '<pre>';print_r($subCategory['sub_category_name']);echo '</pre>';
                     $currentBreadcrumb = $breadcrumb;
-                    $currentBreadcrumb[] = base_url('') .'products/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ','_', $subCategory['sub_category_name']);
+                    $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ','_', $subCategory['sub_category_name']);
 
                     /*$active = "";
                     if(strpos(implode('/', $segment), 'Hydraulic/Adaptors') !== false)
@@ -879,7 +851,7 @@ if (isset($variantArr) && count($variantArr)>0) {
                     $active = strpos(implode('/', $segment), $catName.'/'.$subCategory['sub_category_name']) ? 'active' : '';
                     /*$active = in_array($subCategory['sub_category_name'], $segment) ? 'active' : '';*/
                     
-                    $catUrl = base_url() . 'products/' . implode("/",array_map('basename', $currentBreadcrumb));
+                    $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                     echo '<li class="'.$active.'">';
                     echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
@@ -903,9 +875,9 @@ if (isset($variantArr) && count($variantArr)>0) {
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
 
                 $currentBreadcrumb = $breadcrumb;
-                $currentBreadcrumb[] = base_url('') .'products/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
 
-                $catUrl = base_url() . 'products/' . implode("/",array_map('basename', $currentBreadcrumb));
+                $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                 echo '<li class="'.$active.'">';
                 echo '<div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
@@ -929,9 +901,9 @@ if (isset($variantArr) && count($variantArr)>0) {
             foreach ($subcategories as $subCategory) {
                 $active = in_array($subCategory['child_sub_category_name'], $segment) ? 'active' : '';
                 $currentBreadcrumb = $breadcrumb;
-                $currentBreadcrumb[] = base_url('') .'products/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
+                $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $subCategory['child_sub_category_name']);
                 
-                $catUrl = base_url() . 'products/' . implode("/",array_map('basename', $currentBreadcrumb));
+                $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
                 echo '<li class="'.$active.'"><div class="main-name-with-arrow"><a href="'. $catUrl .'"><i class="far fa-clone mr-2"></i>'. strtoupper($subCategory['child_sub_category_name']) .'</a><i class="fas fa-angle-down dropdown-i mr-2"></i></div>';
                 if (count($subCategory['product_arr']) > 0) {
@@ -954,10 +926,10 @@ if (isset($variantArr) && count($variantArr)>0) {
     {
         foreach ($products as $product) {
             $currentBreadcrumb = $breadcrumb;
-            $currentBreadcrumb[] = base_url('') .'products/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $childsubcate) . '/' .str_replace(' ', '_', $product['product_name']);
+            $currentBreadcrumb[] = base_url('') .'shop/'. str_replace(' ', '_', $catName) .'/'. str_replace(' ', '_', $subcatName) . '/'. str_replace(' ', '_', $childsubcate) . '/' .str_replace(' ', '_', $product['product_name']);
 
             $active = in_array($product['product_name'], $segment) ? 'active' : '';
-            $catUrl = base_url() . 'products/' . implode("/",array_map('basename', $currentBreadcrumb));
+            $catUrl = base_url() . 'shop/' . implode("/",array_map('basename', $currentBreadcrumb));
 
             echo '<li class="'.$active.'"><a href="'. $catUrl .'"><i class="far fa-dot-circle mr-2"></i>'. $product['product_name'] .'</a>';
         }
@@ -1064,7 +1036,6 @@ jQuery(document).ready(function($){
     }
 
     function add_cart() {
-            $('.add_cart').attr('disabled', 'true');
         
             var variantQtys = Array.from(variantQtyInputs).map(function(input) {
                 return input.value;
@@ -1080,8 +1051,6 @@ jQuery(document).ready(function($){
                     icon: 'warning',
                     title: 'Validation Error',
                     text: 'Please select a quantity greater than zero for at least one variant.',
-                }).then(function() {
-                    $('.add_cart').removeAttr('disabled');
                 });
                 return; // Exit the function to prevent the AJAX request
             }
@@ -1115,29 +1084,14 @@ jQuery(document).ready(function($){
                 },
                 success: function(response) {
                     // Handle the response
-                    // console.log(response);
+                    console.log(response);
                     Swal.fire({
-                        title: "Success!",
-                        text: "Data added into cart successfully.",
-                        icon: "success",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonText: "Continue Shopping",
-                        cancelButtonColor: "#3085d6",
-                        confirmButtonText: "Go To Cart",
-                        allowOutsideClick: false, // Disable click events outside the dialog
-                        allowEscapeKey: false    // Disable keyboard events
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            // Reload the page after the user clicks "OK" on the SweetAlert dialog
-                            window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
-                            $('.add_cart').removeAttr('disabled');
-                        }
-                        else
-                        {
-                            window.location.reload();
-                            $('.add_cart').removeAttr('disabled');
-                        }
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Data added into cart successfully.',
+                    }).then(function() {
+                        // Reload the page after the user clicks "OK" on the SweetAlert dialog
+                        window.location.href = '<?= base_url("add/cart") ?>'; // Replace with the shopping cart page URL
                     });
                 },
                 error: function(xhr, status, error) {

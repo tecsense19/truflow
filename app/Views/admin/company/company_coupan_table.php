@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th class="text-center">Discount Code</th>
-            <th class="text-center">Percent Off</th>
-            <!-- <th class="text-center">Coupon Price Type</th> -->
+            <th class="text-center">Coupon code</th>
+            <th class="text-center">Coupon Price</th>
+            <th class="text-center">Coupon Price Type</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
@@ -18,7 +18,7 @@
                     <td class="text-center"><?php echo $i; ?></td>
                     <td class="text-center"><?php echo $coupandata['coupon_code']; ?></td>
                     <td class="text-center"><?php echo $coupandata['coupon_price']; ?></td>
-                    <!-- <td class="text-center"><?php echo $coupandata['coupon_price_type']; ?></td> -->
+                    <td class="text-center"><?php echo $coupandata['coupon_price_type']; ?></td>
                     <td class="text-center"><a href="javascript:void(0);" class="editcoupan" data-couponid="<?php echo $coupandata['coupon_id']; ?>"><i class="bx bx-edit-alt me-1"></i>Edit</a>
                     <a href="javascript:void(0);" class="deleteuser" onclick="deletecoupan('<?php echo $coupandata['coupon_id']; ?>')" data-couponid="<?php echo $coupandata['coupon_id']; ?>"><i class="bx bx-trash me-1"></i>Delete</a></td>
                 </tr>
