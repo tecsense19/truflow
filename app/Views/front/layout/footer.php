@@ -1,7 +1,4 @@
 <!--~~~~~~~~~~~~~~~~~>> FOOTER START <<~~~~~~~~~~~~~~~~~~-->
-<?php 
-$session = session();
-?>
 <footer>
     <div class="footer_sub">
         <div class="container">
@@ -12,14 +9,11 @@ $session = session();
                         <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>public/uploads/Truflow_Logo_Light.svg" alt="logo" class="img-fluid" style="width:125px"></a>
                         <p> </p>
                         <div class="footer_icon">
-                            <a class="button1" href="<?php echo $session->get('facebook_url'); ?>">
+                            <a class="button1" href="#">
                                 <span><i class="fa-brands fa-facebook-f"></i></span>
                             </a>
-                            <a class="button1" href="<?php echo $session->get('instagram_url'); ?>">
+                            <a class="button1 button2" href="#">
                                 <span><i class="fa-brands fa-instagram"></i></span>
-                            </a>
-                            <a class="button1 button2" href="<?php echo $session->get('linkedin_url'); ?>">
-                                <span><i class="fa-brands fa-linkedin"></i></span>
                             </a>
                         </div>
                     </div>
@@ -35,7 +29,7 @@ $session = session();
                                 <a href="<?php echo base_url('about'); ?>">About Us</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('products'); ?>">Products</a>
+                                <a href="<?php echo base_url('shop'); ?>">Our Products</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
@@ -48,7 +42,7 @@ $session = session();
                         <h5>CONTACT US</h5>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-phone"></i>
-                            <span class="rr"><a href="tel:+61894512204">08 9451 2204</a></span>
+                            <span class="rr"><a href="tel:+61894512204">(+61) 08 9451 2204</a></span>
                         </div>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-envelope"></i>
@@ -56,7 +50,7 @@ $session = session();
                         </div>
                         <div class="number" style="display: flex;">
                             <i class="fa-solid fa-location-dot" style="margin-left: 3px;"></i>
-                            <span style="text-align: left;">Truflow Hydraulic Hose & Fittings Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
+                            <span style="text-align: left;">Truflow Hydraulics Components Pty Ltd 29 Dowd Street,Perth, Australia 6106.</span>
                         </div>
                     </div>
                 </div>
@@ -69,7 +63,7 @@ $session = session();
             <div class="row all_right">
                 <div class="col-lg-6">
                     <div class="all_rights">
-                        <p>© 2023 Truflow Hydraulic Hose & Fittings Inc. All rights reserved.</p>
+                        <p>© 2023 Truflow Hydraulics Inc. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -191,9 +185,9 @@ $session = session();
 
                             var variant_url;
                             if (sub_child_name !== '') {
-                                variant_url = 'products/' + category_name + '/' + sub_category_name + '/' + sub_child_name + '/' + child_sub_category_name + '/' + product_name;
+                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + sub_child_name + '/' + child_sub_category_name + '/' + product_name;
                             } else {
-                                variant_url = 'products/' + category_name + '/' + sub_category_name + '/' + child_sub_category_name + '/' + product_name;
+                                variant_url = 'shop/' + category_name + '/' + sub_category_name + '/' + child_sub_category_name + '/' + product_name;
                             }
                             console.log(variant_url);
 

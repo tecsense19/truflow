@@ -36,10 +36,11 @@ class SliderController extends BaseController
 
     $sliderArr = [];
     $sliderArr['slider_link'] = isset($input['slider_link']) ? $input['slider_link'] : '';
+    $sliderArr['slider_path'] = [];
 
     $newName = $this->request->getFiles()['slider_path'];
     foreach ($newName as $uploadedFile) {
-        $oldFile = base_url() . 'public/front/images/home/' . $uploadedFile->getName();
+        $oldFile = ROOTPATH . 'public/front/images/home/' . $uploadedFile->getName();
         if (file_exists($oldFile)) {
             unlink($oldFile);
         }
@@ -65,6 +66,8 @@ class SliderController extends BaseController
 
     if (!empty($sliderArr['slider_path'])) {
         $sliderArr['slider_path'] = implode(',', $sliderArr['slider_path']);
+    } else {
+        $sliderArr['slider_path'] = '';
     }
 
     if (isset($input['slider_id']) && $input['slider_id'] != '') {

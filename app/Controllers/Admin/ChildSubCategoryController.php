@@ -353,7 +353,7 @@ class ChildSubCategoryController extends BaseController
         $session = session();
         $childsubcategorymodel = new ChildSubCategoryModel();
         $childsubcategorymodel->delete($child_id);
-        $session->setFlashdata('success', 'Category deleted succesfully.');
+        $session->setFlashdata('success', 'product Delete succesfully.');
         return redirect()->to('admin/child_sub_category_list');
     }
 }

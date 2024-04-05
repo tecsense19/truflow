@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
             />
-        <title>Truflow Hydraulic Hose & Fittings</title>
+        <title>Truflow Hydraulics</title>
         <meta name="description" content="" />
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/uploads/Truflow-Favicon.png">
@@ -52,7 +52,7 @@
                             <?php if(session()->getFlashdata('error')):?>
                                 <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
                             <?php endif;?>
-                            <h4 class="mb-2 text-center">Welcome to Truflow Hydraulic Hose & Fittings</h4>
+                            <h4 class="mb-2">Welcome to Truflow Hydraulics</h4>
                             <p class="mb-4">Please sign-in to your account</p>
                             <form id="loginForm" class="mb-3" action="<?php echo base_url() ?>admin/check/login" method="POST">
                                 <div class="mb-3">

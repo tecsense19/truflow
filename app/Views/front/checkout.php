@@ -341,16 +341,10 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         <div class="order_list">
                             <span>
                                 <input type="radio" id="on_a_account" name="pay_method" value="onaaccount" required checked>
-                                <label for="on_a_account">Account</label>
+                                <label for="on_a_account">On A Account</label>
                             </span>
                         </div>
                         <?php } ?>
-
-                        <div class="purchase_order_number" style="display:none;">
-                            <div>
-                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order Number" >
-                            </div>
-                        </div>
 
                         <?php if(isset($getCompany) && $getCompany['on_a_account'] == 1) { ?>
                         <div class="payment_item order_list">
@@ -372,10 +366,16 @@ $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
                         <div class="payment_item order_list">
                             <span>
                                 <input type="radio" id="online_payment_delivery" class="" name="pay_method" value="online_payment">
-                                <label for="online_payment_delivery">Credit Card Payment</label>
+                                <label for="online_payment_delivery">Stripe Payment</label>
                             </span>
                         </div>
                         <div class="stripebutton" style="display:none;">
+                        </div>
+
+                        <div class="purchase_order_number" style="display:none;">
+                            <div>
+                                <input type="text" class="form-control" id="purchase_order_number" name="purchase_order_number" placeholder="Purchase Order number" >
+                            </div>
                         </div>
                         
                         <?php if(!$user_id){ ?>

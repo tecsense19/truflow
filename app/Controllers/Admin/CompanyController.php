@@ -136,65 +136,57 @@ class CompanyController extends BaseController
                 $response = ['status' => 'error'];
             }
         }else{
-            $checkUser = $usermodel->where('email', $input['email'])->find();
-            if(!$checkUser)
-            {
-                $user_id = $usermodel->insert($userArr);    
-        
-                $UserEmail = $input['email'];
-        
-        
-                $passwordnew = $this->random_password();
-                
-                $hashedPassword = password_hash($passwordnew, PASSWORD_DEFAULT);
-                $datapasswordk = [
-                    'password' => $hashedPassword,
-                    'user_verify' => '1',
-                ];
-                // echo '<pre>';print_r($datapasswordk);echo '</pre>';
-                
-                $usermodel->set($datapasswordk)->where('user_id', $user_id)->update();
-                
-                $emailService = \Config\Services::email();
-                
-                $fromEmail = FROM_EMAIL;
-                $fromName = FROM_EMAIL_NAME;
-        
-                $emailService->setFrom($fromEmail, $fromName);
-                $emailService->setTo($UserEmail);
-                $emailService->setSubject('Your Login Password');
-                $emailService->setMessage('
-                    <html>
-                        <body>
-                            <h1>Your Login Password</h1>
-                            <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
-                                <tr>
-                                    <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125"  style="display: block; border: 0px;" /><br>
-                                        <h3>
-                                            User Name: '. $UserEmail .'
-                                        </h3>
-                                        <h3>
-                                            Password: '. $passwordnew .'
-                                        </h3>
-                                    </td>
-                                </tr>
-                            </table>
-                        </body>
-                    </html>
-                ');
-        
-                
-                $emailService->send();
-                if ($user_id) {
-                    $response = ['status' => 'success', 'message' => 'User Detail inserted successfully!'];
-                } else {
-                    $response = ['status' => 'error'];
-                }
-            }
-            else
-            {
-                $response = ['error' => 'success', 'message' => 'User already exists another company.'];
+            $user_id = $usermodel->insert($userArr);    
+    
+            $UserEmail = $input['email'];
+    
+    
+            $passwordnew = $this->random_password();
+            
+            $hashedPassword = password_hash($passwordnew, PASSWORD_DEFAULT);
+            $datapasswordk = [
+                'password' => $hashedPassword,
+                'user_verify' => '1',
+            ];
+            // echo '<pre>';print_r($datapasswordk);echo '</pre>';
+            
+            $usermodel->set($datapasswordk)->where('user_id', $user_id)->update();
+            
+            $emailService = \Config\Services::email();
+            
+            $fromEmail = FROM_EMAIL;
+            $fromName = 'Truflow Hydraulics';
+    
+            $emailService->setFrom($fromEmail, $fromName);
+            $emailService->setTo($UserEmail);
+            $emailService->setSubject('Your Login Password');
+            $emailService->setMessage('
+                <html>
+                    <body>
+                        <h1>Your Login Password</h1>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                            <tr>
+                                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                    <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125"  style="display: block; border: 0px;" /><br>
+                                    <h3>
+                                        User Name: '. $UserEmail .'
+                                    </h3>
+                                    <h3>
+                                        Password: '. $passwordnew .'
+                                    </h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </body>
+                </html>
+            ');
+    
+            
+            $emailService->send();
+            if ($user_id) {
+                $response = ['status' => 'success', 'message' => 'User Detail inserted successfully!'];
+            } else {
+                $response = ['status' => 'error'];
             }
         }
             
@@ -249,7 +241,7 @@ class CompanyController extends BaseController
             'coupon_code' => $input['coupon_code'],
             'company_id' => $input['company_id'],
             'coupon_price' => $input['coupon_price'],
-            // 'coupon_price_type' => $input['coupon_price_type'],
+            'coupon_price_type' => $input['coupon_price_type'],
             'from_date' => $input['from_date'],
             'to_date' => $input['to_date'],
 

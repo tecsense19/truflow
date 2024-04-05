@@ -189,7 +189,7 @@ public function order_details($order_id){
             $ordermodel = new OrderModel();
             $orderitemmodel = new OrderItemModel();
             $cartData = $orderitemmodel->find();
-
+    
             $newCartData1 = $orderitemmodel->select('*')
                     ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
                 ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
@@ -212,9 +212,13 @@ public function order_details($order_id){
     
             $shippingmodel = new ShippingModel();
     
-            $shippingData = $shippingmodel->where('order_id', $order_id)->first();
+            $shippingData = $shippingmodel
             //->join('users', 'users.user_id = shipping_address.user_id', 'left')
+            ->where('order_id', $order_id)->first();
     
+            // echo "<pre>";
+            //     print_r($shippingData);
+            //     die();
             return view('admin/order/order_details', [
                 'newCartData1' => $newCartData1 ,
                 'shippingData' => $shippingData
