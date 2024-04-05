@@ -70,11 +70,11 @@ $routes->post('/feedback', 'Home::addfeedback');
 // Bhavin Word
 
 // $routes->get('/shop', 'Home::shop');
-$routes->get('/products', 'HomeProductController::index');
-$routes->get('/products/(:any)', 'HomeProductController::index/$1');
-$routes->get('/products/(:any)/(:any)', 'HomeProductController::index/$1/$1');
-$routes->get('/products/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1');
-$routes->get('/products/(:any)/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1/$1');
+$routes->get('/shop', 'HomeProductController::index');
+$routes->get('/shop/(:any)', 'HomeProductController::index/$1');
+$routes->get('/shop/(:any)/(:any)', 'HomeProductController::index/$1/$1');
+$routes->get('/shop/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1');
+$routes->get('/shop/(:any)/(:any)/(:any)/(:any)', 'HomeProductController::index/$1/$1/$1/$1');
 
 // Bhavin Word
 
@@ -134,8 +134,6 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post("check/login", "Home::checkLogin");
     $routes->get("dashboard", "Home::dashboard", ['filter' => 'auth']);
     $routes->get("logout", "Home::logout");
-    $routes->get("change/password", "Home::changePassword");
-    $routes->post("change/password/save", "Home::changePasswordSave");
 
     //user
     $routes->get("user_list", "Home::user_list");
@@ -163,8 +161,6 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->get("partner-section", "SettingsController::partner");
     $routes->post("settings/save", "SettingsController::settingsSave");
     $routes->post("delete_partner_img", "SettingsController::delete_partner_img");
-    $routes->get("footer-section", "SettingsController::footerSettings");
-    $routes->post("footer/settings/save", "SettingsController::footerSettingsSave");
 
     //Testominal
 
@@ -203,8 +199,6 @@ $routes->group("admin", ["namespace" => "App\Controllers\Admin"], function ($rou
     $routes->post('get_subcategories/(:num)', 'ProductController::getSubcategories/$1');
     $routes->get("variant/delete/(:num)", "ProductController::variantDelete/$1");
     $routes->get('export_csv', 'ProductController::exportToCSV');
-    $routes->get('stock_export_csv', 'CsvController::stockExportToCSV');
-    $routes->post('stock/import/csv', 'CsvController::stockImportToCSV');
     // $routes->post('import_csv', 'ProductController::processCSV');
     $routes->post('import_csv', 'CsvController::processCSV');
 

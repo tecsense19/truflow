@@ -22,7 +22,7 @@
                 <div class="about_content">
                     <p style="padding:50px 0 0 0;"><b>Last updated December 01, 2023</b></p>
                     <p>
-                        This privacy notice for Truflow Hydraulic Hose & Fittings ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
+                        This privacy notice for Truflow Hydraulic Hose and Fittings ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
                     </p>
                     <p>
                         Visit our website at https://truflowhydraulic.com.au, or any website of ours that links to this privacy notice
@@ -175,7 +175,7 @@
 
                     <h3>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h3>
                     <p>If you have questions or comments about this notice, you may email us at admin@truflowhydraulic.com.au or contact us by post at:</p>
-                    <p><b>Truflow Hydraulic Hose & Fittings</b></p>
+                    <p><b>Truflow Hydraulic Hose and Fittings</b></p>
                     <p><b>29 Dowd Street</b></p>
                     <p><b>Welshpool 6106</b></p>
                     <p><b>Australia</b></p>

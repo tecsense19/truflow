@@ -127,19 +127,19 @@ class HomeProductController extends BaseController
                                 
                                 if($checkProduct)
                                 {
-                                    // if($userId){
-                                    //     $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
-                                    //                                 ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
-                                    //                                 ->where('product.product_id', $checkProduct->product_id)
-                                    //                                 ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
-                                    //                                 ->findAll();
+                                    if($userId){
+                                        $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
+                                                                    ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+                                                                    ->where('product.product_id', $checkProduct->product_id)
+                                                                    ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
+                                                                    ->findAll();
                                         // echo '<pre>';print_r($variantArr);echo '</pre>';
-                                    // }else{
+                                    }else{
                                         $variantArr = $productmodel->join('product_variants', 'product_variants.product_id = product.product_id')
                                                                     ->where('product.product_id', $checkProduct->product_id)
                                                                     ->orderBy("CAST(product.sort AS SIGNED)", 'asc')
                                                                     ->findAll();
-                                    // }
+                                    }
 
                                     $minMaxPrice = $variantsmodel->table('product_variants')
                                     ->select('MIN(variant_price) AS min_price, MAX(variant_price) AS max_price')
@@ -149,66 +149,66 @@ class HomeProductController extends BaseController
                                     ->get()->getRow();
 
                                     /** yash */
-                                    // if($userId){
-                                    //     $minPrice = PHP_INT_MAX;
-                                    //     $maxPrice = 0;
-                                    //     $group_name = '';
-                                    //     $minGroupName = '';
-                                    //     $maxGroupName = '';
-                                    //     foreach ($variantArr as $variant)    {
-                                    //         // echo '<pre>';print_r($variant);echo '</pre>';
-                                    //         $variantPrice = $variant['variant_price'];
+                                    if($userId){
+                                        $minPrice = PHP_INT_MAX;
+                                        $maxPrice = 0;
+                                        $group_name = '';
+                                        $minGroupName = '';
+                                        $maxGroupName = '';
+                                        foreach ($variantArr as $variant)    {
+                                            // echo '<pre>';print_r($variant);echo '</pre>';
+                                            $variantPrice = $variant['variant_price'];
                                             
                                         
-                                    //         // Check for minimum price
-                                    //         if ($variantPrice < $minPrice) {
-                                    //             $minPrice = $variantPrice;
-                                    //             $minGroupName  = $variant['group_name'];
-                                    //         }
+                                            // Check for minimum price
+                                            if ($variantPrice < $minPrice) {
+                                                $minPrice = $variantPrice;
+                                                $minGroupName  = $variant['group_name'];
+                                            }
                                         
-                                    //         // Check for maximum price
-                                    //         if ($variantPrice > $maxPrice) {
-                                    //             $maxPrice = $variantPrice;
-                                    //             $maxGroupName  = $variant['group_name'];
-                                    //         }
-                                    //     }
+                                            // Check for maximum price
+                                            if ($variantPrice > $maxPrice) {
+                                                $maxPrice = $variantPrice;
+                                                $maxGroupName  = $variant['group_name'];
+                                            }
+                                        }
                                     
                                     
-                                    //     if(isset($minGroupName) || isset($maxGroupName)){
-                                    //         $min_price_discount = 0;
-                                    //         $max_price_discount = 0;
-                                    //         $currentDate = date('Y-m-d');
-                                    //         $getCouponMin = $couponModel->where('coupon_code', $minGroupName)->first();
-                                    //         $getCouponMax = $couponModel->where('coupon_code', $maxGroupName)->first();
+                                        if(isset($minGroupName) || isset($maxGroupName)){
+                                            $min_price_discount = 0;
+                                            $max_price_discount = 0;
+                                            $currentDate = date('Y-m-d');
+                                            $getCouponMin = $couponModel->where('coupon_code', $minGroupName)->first();
+                                            $getCouponMax = $couponModel->where('coupon_code', $maxGroupName)->first();
                                             
-                                    //         if (!empty($getCouponMin)) {
-                                    //             if ($currentDate >= $getCouponMin['from_date'] && $currentDate <= $getCouponMin['to_date']) {
-                                    //                 if ($getCouponMin['coupon_price_type'] == 'Percentage') {
-                                    //                     $min_price_discount = ($minPrice * $getCouponMin['coupon_price']) / 100;
-                                    //                 } else if ($getCouponMin['coupon_price_type'] == 'Flat') {
-                                    //                     $min_price_discount = $getCouponMin['coupon_price'];
-                                    //                 }
-                                    //             }
-                                    //         }
-                                    //         if (!empty($getCouponMax)) {
-                                    //             if ($currentDate >= $getCouponMax['from_date'] && $currentDate <= $getCouponMax['to_date']) {
-                                    //                 if ($getCouponMax['coupon_price_type'] == 'Percentage') {
-                                    //                     $max_price_discount = ($maxPrice * $getCouponMax['coupon_price']) / 100;
-                                    //                 } else if ($getCouponMax['coupon_price_type'] == 'Flat') {
-                                    //                     $max_price_discount = $getCouponMax['coupon_price'];
-                                    //                 }
-                                    //             }
-                                    //         }
-                                    //     }
+                                            if (!empty($getCouponMin)) {
+                                                if ($currentDate >= $getCouponMin['from_date'] && $currentDate <= $getCouponMin['to_date']) {
+                                                    if ($getCouponMin['coupon_price_type'] == 'Percentage') {
+                                                        $min_price_discount = ($minPrice * $getCouponMin['coupon_price']) / 100;
+                                                    } else if ($getCouponMin['coupon_price_type'] == 'Flat') {
+                                                        $min_price_discount = $getCouponMin['coupon_price'];
+                                                    }
+                                                }
+                                            }
+                                            if (!empty($getCouponMax)) {
+                                                if ($currentDate >= $getCouponMax['from_date'] && $currentDate <= $getCouponMax['to_date']) {
+                                                    if ($getCouponMax['coupon_price_type'] == 'Percentage') {
+                                                        $max_price_discount = ($maxPrice * $getCouponMax['coupon_price']) / 100;
+                                                    } else if ($getCouponMax['coupon_price_type'] == 'Flat') {
+                                                        $max_price_discount = $getCouponMax['coupon_price'];
+                                                    }
+                                                }
+                                            }
+                                        }
     
-                                    //     if(isset($min_price_discount) && isset($max_price_discount)){
-                                    //         $discountedMinPrice = $minPrice - $min_price_discount;
-                                    //         $discountedMaxPrice = $maxPrice - $max_price_discount;
-                                    //         $minMaxPrice = new \stdClass();
-                                    //         $minMaxPrice->min_price = $discountedMinPrice;
-                                    //         $minMaxPrice->max_price = $discountedMaxPrice;
-                                    //     }
-                                    // }
+                                        if(isset($min_price_discount) && isset($max_price_discount)){
+                                            $discountedMinPrice = $minPrice - $min_price_discount;
+                                            $discountedMaxPrice = $maxPrice - $max_price_discount;
+                                            $minMaxPrice = new \stdClass();
+                                            $minMaxPrice->min_price = $discountedMinPrice;
+                                            $minMaxPrice->max_price = $discountedMaxPrice;
+                                        }
+                                    }
                                     
                                     $ratingData = $productratingmodel->select('AVG(rat_number) as average_rating')->where('product_id', $checkProduct->product_id)->first();
                                     $averageRating = $ratingData['average_rating'];

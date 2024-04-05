@@ -40,7 +40,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                 <input type="hidden" name="company_id" value="<?php echo $company_id;?>">
                             </div>
                             <div class="mb-3 col-md-6">
-                                    <label class="form-label" for="on_a_account">Account :</label>
+                                    <label class="form-label" for="on_a_account">On A Account :</label>
                                     <input data-val="true" data-val-required="Fax is required." id="on_a_account"
                                         name="on_a_account" type="checkbox" value="<?php echo $on_a_account; ?>"
                                         <?php if($on_a_account) { echo 'checked'; } ?> onchange="checkStatus(this)"/>
@@ -56,7 +56,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Company User</h5>
 
-                        <button type="button" class="btn btn-primary d-grid float-end userForm" data-toggle="modal" data-target="#form">
+                        <button type="button" class="btn btn-primary d-grid float-end" data-toggle="modal" data-target="#form">
                             Add Company User
                         </button>
 
@@ -64,7 +64,7 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <h5 class="modal-title userFormTitle" id="exampleModalLabel">Create User</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
                                         <a  class="close" onclick="closeUserModal()" data-dismiss="modal" aria-label="Close" style="cursor: pointer;">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </a>
@@ -154,17 +154,17 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
             <div class="col-xl">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Group Discount</h5>
+                        <h5 class="mb-0">Company Coupon</h5>
 
-                        <button type="button" class="btn btn-primary d-grid float-end couponForm" data-toggle="modal" data-target="#companyCouponForm">
-                            Add Group Discount
+                        <button type="button" class="btn btn-primary d-grid float-end" data-toggle="modal" data-target="#companyCouponForm">
+                            Add Company Coupon
                         </button>
 
                         <div class="modal fade" id="companyCouponForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <h5 class="modal-title couponFormTitle" id="exampleModalLabel">Create Discount</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Create Coupan</h5>
                                         <a class="close" onclick="closeModal()" data-dismiss="modal" aria-label="Close" style="cursor: pointer;">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </a>
@@ -172,23 +172,23 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                     <form id="company_coupan_add">
                                         <div class="modal-body">
                                             <div class="form-group mb-2">
-                                                <label for="firstname">Discount Code</label>
+                                                <label for="firstname">Coupon Code</label>
                                                 <input type="hidden" class="form-control" name="coupon_id" id="coupon_id" value="">
-                                                <input type="text" class="form-control" name="coupon_code" id="coupon_code" value="" aria-describedby="emailHelp" placeholder="Discount Code">
+                                                <input type="text" class="form-control" name="coupon_code" id="coupon_code" value="" aria-describedby="emailHelp" placeholder="code">
                                                 <input type="hidden" name="company_id" value="<?php echo $company_name;?>">
                                             </div>
                                             <div class="form-group mb-2">
-                                                <label for="last_name">Percentage Off</label>
-                                                <input type="text" class="form-control" name="coupon_price" id="coupon_price" value="" placeholder="Percentage">
+                                                <label for="last_name">Coupon Amount</label>
+                                                <input type="text" class="form-control" name="coupon_price" id="coupon_price" value="" placeholder="price / percentage">
                                             </div>
-                                            <!-- <div class="form-group mb-2">
+                                            <div class="form-group mb-2">
                                                 <label for="coupon_price_type">Discount Type</label>
                                                 <select id="coupon_price_type" name="coupon_price_type" class="form-select required">
                                                     <option value="">Default select</option>
                                                     <option value="Flat">Flat</option>
                                                     <option value="Percentage">Percentage</option>
                                                 </select>
-                                            </div> -->
+                                            </div>
                                             <div class="form-group mb-2">
                                                 <label for="from_date">From Date</label>
                                                 <input type="date" class="form-control" name="from_date" id="from_date" value="">
@@ -268,20 +268,6 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
         // });
 
         $(document).ready(function () {
-
-            $('#form').on('show.bs.modal', function (e) {
-                $('#company_user_add')[0].reset(); // Reset the form
-            });
-            $('#companyCouponForm').on('show.bs.modal', function (e) {
-                $('#company_coupan_add')[0].reset(); // Reset the form
-            });
-            $('.couponForm').on('click', function (e) {
-                $('.couponFormTitle').text('Create Discount'); // Reset the form
-            });
-            $('.userForm').on('click', function (e) {
-                $('.userFormTitle').text('Create User'); // Reset the form
-            });
-
             $('#company_coupan_add').validate({
                 rules: {
                     coupon_code: {
@@ -302,13 +288,13 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                 },
                 messages: {
                     coupon_code: {
-                        required: "Discount code is required!"
+                        required: "Coupon code is required!"
                     },
                     coupon_price: {
-                        required: "Percentage off is required!"
+                        required: "Coupon price is required!"
                     },
                     coupon_price_type: {
-                        required: "Discount type is required!",
+                        required: "Coupon Price type is required!",
                     },
                     from_date: {
                         required: "From Date is required!",
@@ -338,7 +324,6 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                         $('#popupModal').hide(); // Close the modal
                                     }
                                 });
-                                $('#company_coupan_add')[0].reset();
                                 companycoupanList();
                             } else {
                                 Swal.fire({
@@ -346,7 +331,6 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                     text: 'Error occurred while inserting data!',
                                     icon: 'error'
                                 });
-                                $('#company_coupan_add')[0].reset();
                             }
                         }
                     });
@@ -397,15 +381,13 @@ $on_a_account = isset($companyData) ? $companyData['on_a_account'] : '';
                                         $('#popupModal').hide();
                                     }
                                 });
-                                $('#company_user_add')[0].reset();
                                 companyuserList();
                             } else {
                                 Swal.fire({
                                     title: 'Error',
-                                    text: response.message,
+                                    text: 'Error occurred while inserting data!',
                                     icon: 'error'
                                 });
-                                $('#company_user_add')[0].reset();
                             }
                         }
                     });

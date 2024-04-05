@@ -38,11 +38,11 @@
                 <div style="padding: 5px 15px;">
                     <div class="panel-title" style="display: flex;">
                         <div><i class="fa fa-caret-right"></i></div>
-                        <div style="padding-left: 10px;"><a href="<?php echo base_url() . 'products'; ?>" style="color: #000000"><?php echo strtoupper($category['category_name']); ?></a></div>
+                        <div style="padding-left: 10px;"><a href="<?php echo base_url() . 'shop'; ?>" style="color: #000000"><?php echo strtoupper($category['category_name']); ?></a></div>
                     </div>
                 </div>
                 <?php
-                    $passLink = "<div>&nbsp; > &nbsp;<a href='". base_url() ."products'>".strtoupper($category['category_name'])."</a></div>";
+                    $passLink = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'>".strtoupper($category['category_name'])."</a></div>";
                     if(isset($category['sub_category']) && count($category['sub_category']) > 0) {
                         renderCategory($category['sub_category'], 30, [$passLink]);
                     }
