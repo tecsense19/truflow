@@ -192,14 +192,14 @@ class CsvController extends BaseController
                 $ProductDescription = utf8_encode($row[7]);
                 $shortDescription = str_replace('Â°', '°', utf8_encode($row[8]));
                 $information = utf8_encode($row[9]);
-                $vheader1 = str_replace("'", "", utf8_encode($row[10]));
-                $vheader2 = str_replace("'", "", utf8_encode($row[11]));
-                $vheader3 = str_replace("'", "", utf8_encode($row[12]));
-                $vheader4 = str_replace("'", "", utf8_encode($row[13]));
+                $vheader1 = utf8_encode($row[10]);
+                $vheader2 = utf8_encode($row[11]);
+                $vheader3 = utf8_encode($row[12]);
+                $vheader4 = utf8_encode($row[13]);
 
                 $discount_code = utf8_encode($row[14]);
                 $group_name = utf8_encode($row[15]);
-                $sort = str_replace("'", "", utf8_encode($row[16]));
+                $sort = utf8_encode($row[16]);
 
                 $db = \Config\Database::connect();
                 $query_test = $db->table('coupon')->select('coupon_id')->where('coupon_code', $discount_code)->get();
