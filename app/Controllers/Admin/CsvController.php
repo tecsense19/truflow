@@ -57,7 +57,7 @@ class CsvController extends BaseController
                 if (isset($row[18]) && trim($row[18]) != '') 
                 {
                     // Category name
-                    $categoryName = trim(str_replace('Â°', '°', utf8_encode(trim($row[18]))));
+                    $categoryName = str_replace('Â°', '°', utf8_encode(trim($row[18])));
 
                     // Check if the category already exists
                     $category = $categoryModel->where('category_name', $categoryName)->first();
@@ -72,7 +72,7 @@ class CsvController extends BaseController
 
                 if (isset($row[19]) && trim($row[19]) != '') {
                     // Subcategory name
-                    $subcategoryName = trim(str_replace('Â°', '°', utf8_encode(trim($row[19]))));
+                    $subcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[19])));
 
                     // Check if the subcategory already exists
                     $subcategory = $subcategoryModel->where('sub_category_name', $subcategoryName)->where('category_id', $categoryId)->first();
@@ -131,13 +131,13 @@ class CsvController extends BaseController
                         if($i != 20)
                         {
                             // $childsubcategoryName = utf8_encode(trim($row[$i]));
-                            $childsubcategoryName = trim(str_replace('Â°', '°', utf8_encode(trim($row[$i]))));
+                            $childsubcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[$i])));
                             $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)
-                                                                                ->where('sub_category_name',trim($row[$i - 1]))
+                                                                                ->where('sub_category_name',$row[$i - 1])
                                                                             ->where('category_id', $categoryId)->get()->getRow();
 
                             if (isset($row[$i]) && $row[$i] != '' && !$existingChildSubCategory) {
-                                $childsubcategory = $childsubcategorymodel->where('child_sub_category_name', trim($row[$i - 1]))
+                                $childsubcategory = $childsubcategorymodel->where('child_sub_category_name', $row[$i - 1])
                                                                             ->where('category_id', $categoryId)->orderBy('child_id', 'desc')->get()->getRow();
 
                                 /*$childsubcategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategory->child_sub_category_name)
@@ -160,17 +160,17 @@ class CsvController extends BaseController
                         }
                         else
                         {
-                            $childsubcategoryName = trim(str_replace('Â°', '°', utf8_encode(trim($row[$i]))));
-                            $subcategory = $subcategoryModel->where('sub_category_name', trim($row[$i - 1]))
+                            $childsubcategoryName = str_replace('Â°', '°', utf8_encode(trim($row[$i])));
+                            $subcategory = $subcategoryModel->where('sub_category_name', $row[$i - 1])
                                                             ->where('category_id', $categoryId)->get()->getRow();
 
                             if (isset($row[$i]) && $row[$i] != '') {
-                                $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)->where('sub_category_name',trim($row[$i - 1]))->where('category_id', $categoryId)->get()->getRow();
+                                $existingChildSubCategory = $childsubcategorymodel->where('child_sub_category_name', $childsubcategoryName)->where('sub_category_name',$row[$i - 1])->where('category_id', $categoryId)->get()->getRow();
 
                                 if (!$existingChildSubCategory) {
                                     $childsubcategory_1 = [
                                         'child_sub_category_name' => $childsubcategoryName,
-                                        'sub_category_name' => trim($row[$i - 1]),
+                                        'sub_category_name' => $row[$i - 1],
                                         'sub_chid_id' => 0,
                                         'sub_category_id' => isset($subcategory) ? $subcategory->sub_category_id : '0',
                                         'category_id' => $categoryId
@@ -187,19 +187,19 @@ class CsvController extends BaseController
                 }              
 
                 // Product details
-                $productName = trim(str_replace('Â°', '°', utf8_encode($row[0])));
+                $productName = str_replace('Â°', '°', utf8_encode($row[0]));
                 $Favourite   = utf8_encode($row[6]);
                 $ProductDescription = utf8_encode($row[7]);
                 $shortDescription = str_replace('Â°', '°', utf8_encode($row[8]));
                 $information = utf8_encode($row[9]);
-                $vheader1 = str_replace("'", "", utf8_encode($row[10]));
-                $vheader2 = str_replace("'", "", utf8_encode($row[11]));
-                $vheader3 = str_replace("'", "", utf8_encode($row[12]));
-                $vheader4 = str_replace("'", "", utf8_encode($row[13]));
+                $vheader1 = utf8_encode($row[10]);
+                $vheader2 = utf8_encode($row[11]);
+                $vheader3 = utf8_encode($row[12]);
+                $vheader4 = utf8_encode($row[13]);
 
                 $discount_code = utf8_encode($row[14]);
                 $group_name = utf8_encode($row[15]);
-                $sort = str_replace("'", "", utf8_encode($row[16]));
+                $sort = utf8_encode($row[16]);
 
                 $db = \Config\Database::connect();
                 $query_test = $db->table('coupon')->select('coupon_id')->where('coupon_code', $discount_code)->get();
@@ -335,6 +335,101 @@ class CsvController extends BaseController
             // Error message or redirect to an error page
             $session->setFlashdata('error', 'Failed to upload the CSV file.');
             return redirect()->to('admin/product_list');
+        }
+    }
+
+    public function stockExportToCSV()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        if($userId)
+        {
+            $variantModel = new VariantsModel();
+
+            $getAllStock = $variantModel->select('variant_id, variant_sku, variant_stock')->get()->getResultArray();
+           
+            // Set headers to force download
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="stock.csv"');
+
+            // Open PHP output stream for writing
+            $output = fopen('php://output', 'w');
+
+            // Write headers to CSV
+            $header = array('variant_id', 'variant_sku', 'variant_stock'); // Example headers
+            fputcsv($output, $header);
+
+            // Write data rows to CSV
+            foreach ($getAllStock as $row) {
+                // Assign values to variables
+                $variant_id = $row['variant_id'];
+                $variant_sku = $row['variant_sku'];
+                $variant_stock = $row['variant_stock'];
+                
+                // Write variables to CSV
+                fputcsv($output, array($variant_id, $variant_sku, $variant_stock));
+            }
+
+            // Close output stream
+            fclose($output);
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
+    
+    public function stockImportToCSV()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        if($userId)
+        {
+            $variantModel = new VariantsModel();
+
+            // Get the uploaded CSV file
+            $csvFile = $this->request->getFile('stock_csv_file');
+            // Check if a file was uploaded
+            if ($csvFile->isValid() && $csvFile->getExtension() === 'csv') {
+
+                $csvData = array_map('str_getcsv', file($csvFile->getTempName()));
+                $isFirstRow = true;
+                foreach ($csvData as $row) {
+                    if ($isFirstRow) {
+                        $isFirstRow = false;
+                        // Check Header
+                        if($row['0'] == 'variant_id' && $row['1'] == 'variant_sku' && $row['2'] == 'variant_stock')
+                        {
+                            continue; // Skip the first row
+                        }
+                        else
+                        {
+                            // Error message or redirect to an error page
+                            $session->setFlashdata('error', 'Invalid CSV file header.');
+                            return redirect()->to('admin/product_list');
+                        }
+                    }
+                    
+                    $checkStock = $variantModel->where('variant_id', $row['0'])->get()->getRow();
+
+                    if($checkStock)
+                    {
+                        $updateArr = [];
+                        // $updateArr['variant_sku'] = $row['1'];
+                        $updateArr['variant_stock'] = $row['2'];
+                        $variantModel->where('variant_id', $row['0'])->set($updateArr);
+                        $variantModel->update();
+                    }
+                }
+            }
+
+            // Error message or redirect to an error page
+            $session->setFlashdata('success', 'File uploaded successfully.');
+            return redirect()->to('admin/product_list');
+        }
+        else
+        {
+            return redirect()->back();
         }
     }
 }

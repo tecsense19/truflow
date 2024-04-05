@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Models\SettingsModel;
 use App\Models\SettingsImagesModel;
+use App\Models\FooterSettings;
 use CodeIgniter\Images\Image;
 
 
@@ -336,23 +337,66 @@ class SettingsController extends BaseController
 
     // }
     public function delete_partner_img()
-{
-    $session = session();
-    $input = $this->request->getVar();
+    {
+        $session = session();
+        $input = $this->request->getVar();
 
-    $settingsImagesModel = new SettingsImagesModel();
-    $image = $settingsImagesModel->find($input['image_id']);
-    $imagePath = $image['image_path'];
-    // Delete the image file from the folder
-    if (file_exists($imagePath)) {
-        unlink($imagePath);
+        $settingsImagesModel = new SettingsImagesModel();
+        $image = $settingsImagesModel->find($input['image_id']);
+        $imagePath = $image['image_path'];
+        // Delete the image file from the folder
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        $settingsImagesModel->delete($input['image_id']);
+
+        $session->setFlashdata('success', 'Image deleted successfully.');
+        return redirect()->back();
     }
 
-    $settingsImagesModel->delete($input['image_id']);
+    public function footerSettings()
+    {
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $footerModel = new FooterSettings();
+            $footerData = $footerModel->first();          
 
-    $session->setFlashdata('success', 'Image deleted successfully.');
-    return redirect()->back();
-}
+            return view('admin/settings/footer', ['footerData' => $footerData]);
+        }else{
+            return redirect()->to('/admin');
+        }
+    }
 
+    public function footerSettingsSave()
+    {
+        $session = session();
+        $user_id = $session->get('user_id');
+        if($user_id){
+            $input = $this->request->getVar();
 
+            $footerModel = new FooterSettings();
+
+            $settingsArr = [];
+            $settingsArr['setting_idfooter_setting_id'] = $input['footer_setting_id'];
+            $settingsArr['facebook_url'] = $input['facebook_url'];
+            $settingsArr['instagram_url'] = $input['instagram_url'];
+            $settingsArr['linkedin_url'] = $input['linkedin_url'];
+
+            if($input['footer_setting_id'])
+            {
+                $footerModel->update(['id', $input['footer_setting_id']], $settingsArr);
+            }
+            else
+            {
+                $footerModel->insert($settingsArr);
+            }
+
+            $session->setFlashdata('success', 'Settings updated succesfully.');
+            return redirect()->to('/admin/footer-section');
+        }else{
+            return redirect()->to('/admin');
+        }
+    }
 }

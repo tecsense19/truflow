@@ -20,6 +20,7 @@ use App\Models\ChildSubCategoryModel;
 use App\Models\ProductRatingModel;
 use App\Models\CouponModel;
 use App\Models\MetaContentsModel;
+use App\Models\FooterSettings;
 
 $session = \Config\Services::session();
 
@@ -164,15 +165,44 @@ class Home extends BaseController
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
         $cartmodel = new CartModel();
-        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
-        $cartCount = count($cartData ?? []);
-        $session->set('cartCount', $cartCount);
+        // $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
+        // $cartCount = count($cartData ?? []);
+        // $session->set('cartCount', $cartCount);
+        $totalCartQtyCount = [];
+
+        if($userId)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+        }
+        $guest_id = $session->get('guest_id');
+        if($guest_id)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+        }
+
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
+
 
         $slidermodel = new SliderModel();
         $sliderData = $slidermodel->findAll();
         if (!$sliderData) {
             $sliderData = null;
         }
+
+        $footerModel = new FooterSettings();
+        $footerData = $footerModel->first();
+
+        $session->set('facebook_url', $footerData ? $footerData['facebook_url'] : '');
+        $session->set('instagram_url', $footerData ? $footerData['instagram_url'] : '');
+        $session->set('linkedin_url', $footerData ? $footerData['linkedin_url'] : '');
 
         return view(
             'front/index',
@@ -200,6 +230,7 @@ class Home extends BaseController
 
                 //
                 'sliderData' => $sliderData,
+                'footerData' => $footerData,
             ]
         );
     }
@@ -909,10 +940,11 @@ class Home extends BaseController
         $session = session();
         $userId = $session->get('user_id');
         $componey_name = $session->get('company_name');
+        $totalCartQtyCount = [];
         if($userId){
             $query = $cartmodel->select('*')
             ->join('product_variants', 'product_variants.variant_id = add_to_cart.variant_id', 'left')
-            ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
+            // ->join('coupon', 'coupon.coupon_code = product_variants.group_name','left')
             ->join('product', 'product.product_id = product_variants.product_id', 'left')
             ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
             ->join('category', 'category.category_id = sub_category.category_id', 'left')
@@ -920,6 +952,8 @@ class Home extends BaseController
             // ->join('company', 'company.company_name = users.company_name', 'left')
             ->where('add_to_cart.user_id', $userId)
             ->get();
+
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
         }else{
             $guestSessionData = $session->get('guestsessiondata');
             $query = $cartmodel->select('*')
@@ -932,6 +966,8 @@ class Home extends BaseController
             // ->where('add_to_cart.cart_id', isset($guestSessionData) ? $guestSessionData : [])
             if ($guestSessionData) {
                 $query->whereIn('add_to_cart.cart_id', $guestSessionData);
+
+                $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->whereIn('cart_id', $guestSessionData)->findAll();
             } else {
                 $query->where('add_to_cart.cart_id',''); // This will ensure an empty result set
             }
@@ -958,14 +994,21 @@ class Home extends BaseController
             $componeyData = $query2->getResultArray();
         }
 
-        $cartCount = count($cartData ?? []);
-
-        $session->set('cartCount', $cartCount);
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
 
         $couponModel = new CouponModel;
         $discount = 000.00;
         if(isset($cartData) && !empty($cartData) && $userId)
         {
+            $checkUserCompany = $usermodel->where('user_id', $userId)->first();
             foreach($cartData as $cartD)
             {
                 /** Bhavin */
@@ -981,19 +1024,23 @@ class Home extends BaseController
                 }*/
 
                 /** Yash */
-                $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->first();
-                if(!empty($getCoupon))
+                if(isset($checkUserCompany) && $checkUserCompany['company_name'])
                 {
-                    $from_date = $getCoupon['from_date'];  //2024-01-01
-                    $to_date = $getCoupon['to_date'];  //2024-01-05
-                    $currentDate = date('Y-m-d');
-                    // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
-                    if ($currentDate >= $from_date && $currentDate <= $to_date) {
-                        if ($getCoupon['coupon_price_type'] == 'Percentage')
-                        {
-                            $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
-                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                            $discount += $getCoupon['coupon_price'];
+                    // $getCoupon = $couponModel->where('coupon_id', $cartD['coupon_id'])->first();
+                    $getCoupon = $couponModel->where('coupon_code', $cartD['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                    if(!empty($getCoupon))
+                    {
+                        $from_date = $getCoupon['from_date'];  //2024-01-01
+                        $to_date = $getCoupon['to_date'];  //2024-01-05
+                        $currentDate = date('Y-m-d');
+                        // echo '<pre>';print_r($currentDate > $from_date);echo '</pre>';die;
+                        if ($currentDate >= $from_date && $currentDate <= $to_date) {
+                            if ($getCoupon['coupon_price_type'] == 'Percentage')
+                            {
+                                $discount += ($cartD['total_amount'] * $getCoupon['coupon_price']) / 100;
+                            } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                $discount += $getCoupon['coupon_price'];
+                            }
                         }
                     }
                 }
@@ -1039,10 +1086,37 @@ class Home extends BaseController
                         'product_url' => $segment
                     );
 
+                    $checkItem = $cartmodel->where('user_id', $userId)->where('category_id', $categoryIds[$i])->where('sub_category_id', $subCategoryIds[$i])->where('product_id', $productIds[$i])->where('variant_id', $variantIds[$i])->first();
+                    if(!$checkItem)
+                    {
+                        $cartmodel->insert($data);
+                    }
+                    else
+                    {
+                        // Build the where clause
+                        $cartmodel->where('user_id', $userId)
+                        ->where('category_id', $categoryIds[$i])
+                        ->where('sub_category_id', $subCategoryIds[$i])
+                        ->where('product_id', $productIds[$i])
+                        ->where('variant_id', $variantIds[$i]);
 
-                    $cartmodel->insert($data);
+                        $cartmodel->set($data);
+                        // Update the record
+                        $cartmodel->update();
+                    }
                 }
             }
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+            $cartCount = count($totalCartQtyCount ?? []);
+            if($cartCount)
+            {
+                $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+            }
+            else
+            {
+                $session->set('cartCount', 0);
+            }
+
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }else{
             $guestsession = array();
@@ -1068,11 +1142,39 @@ class Home extends BaseController
                         'guest_id' => $guest_id,
                     );
 
-                    $cartmodel->insert($data);
-                    $guestsession[] = $cartmodel->insertID();
+                    $checkItem = $cartmodel->where('guest_id', $guest_id)->where('category_id', $categoryIds[$i])->where('sub_category_id', $subCategoryIds[$i])->where('product_id', $productIds[$i])->where('variant_id', $variantIds[$i])->first();
+                    if(!$checkItem)
+                    {
+                        $cartmodel->insert($data);
+                        $guestsession[] = $cartmodel->insertID();
+                    }
+                    else
+                    {
+                        // Build the where clause
+                        $cartmodel->where('guest_id', $guest_id)
+                        ->where('category_id', $categoryIds[$i])
+                        ->where('sub_category_id', $subCategoryIds[$i])
+                        ->where('product_id', $productIds[$i])
+                        ->where('variant_id', $variantIds[$i]);
+
+                        $cartmodel->set($data);
+                        // Update the record
+                        $cartmodel->update();
+                    }
                 }
             }
             $session->set('guestsessiondata', $guestsession);
+
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+            $cartCount = count($totalCartQtyCount ?? []);
+            if($cartCount)
+            {
+                $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+            }
+            else
+            {
+                $session->set('cartCount', 0);
+            }
             
             $session->setFlashdata('success', 'Data add to cart successfully.');
         }
@@ -1319,10 +1421,10 @@ class Home extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = 'Truflow Hydraulics';
+        $fromName = FROM_EMAIL_NAME;
         // sales@truflowhydraulic.com.au
         $emailService->setFrom($fromEmail, $fromName);
-        $emailService->setTo('sales@truflowhydraulic.com.au');
+        $emailService->setTo(TO_ADMIN_EMAIL);
         $emailService->setSubject('Get in touch');
         $emailService->setMessage('
                 <html>
@@ -1379,7 +1481,7 @@ class Home extends BaseController
 
         if($breadcrumbData)
         {
-            $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
+            $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."products'> ".strtoupper($breadcrumbData['category_name'])." </a> </div>";
             session()->set('breadcrumb', $breadcrumb);
         }
 
@@ -1499,7 +1601,7 @@ class Home extends BaseController
         // $childCatLink = base_url('') . "childsub/category/" . $getSubCatName['sub_category_id'];
         $childCatLink = base_url('') . "childsub/category/" . str_replace(' ', '-', $getSubCatName['sub_category_name']);
 
-        $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."shop'> ".strtoupper($catData['category_name'])." </a> </div> <div>&nbsp > &nbsp<a class='category_data' data-type='sub_cat' data-id='". $getSubCatName['sub_category_id'] ."' data-url='". $childCatLink ."' href='javascript:void(0)'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
+        $breadcrumb = "<div>&nbsp; > &nbsp;<a href='". base_url() ."products'> ".strtoupper($catData['category_name'])." </a> </div> <div>&nbsp > &nbsp<a class='category_data' data-type='sub_cat' data-id='". $getSubCatName['sub_category_id'] ."' data-url='". $childCatLink ."' href='javascript:void(0)'> ".strtoupper($getSubCatName['sub_category_name'])." </a> </div>";
 
         session()->set('breadcrumb', $breadcrumb);
 

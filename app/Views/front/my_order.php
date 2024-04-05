@@ -66,7 +66,7 @@
                             <?php } elseif($orderData[0]['pay_method'] == 'online_payment'){ ?>
                               Online Payment
                             <?php } else { ?>
-                              On a account
+                              Account
                             <?php } ?>
                           </th>
                           <?php if($orderData[0]['pay_method'] == 'onaaccount') { ?>
@@ -101,22 +101,31 @@
                               <td colspan =""><?php echo number_format($order['product_amount'], 2, '.', ','); ?></td>
                               <?php
                               $couponModel = model('App\Models\CouponModel');
-                              $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->first();
-                              $order_created_at = $order['created_at'];
-                              $datetime = new DateTime($order_created_at);
-                              $order_date = $datetime->format('Y-m-d');
-                              ?>
-                              <td><?php 
-                              if($getCoupon){
-                                if ($order_date >= $getCoupon['from_date'] && $order_date <= $getCoupon['to_date']) {
-                                  if($getCoupon['coupon_price_type'] == 'Flat'){
-                                    echo $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ; 
-                                  }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
-                                    echo $getCoupon['coupon_price'] .'%'; 
+                              $usermodel = model('App\Models\UserModel');
+                              $checkUserCompany = $usermodel->where('user_id', $order['user_id'])->first();
+                              if(isset($checkUserCompany) && $checkUserCompany['company_name'])
+                              {
+                                $getCoupon = $couponModel->where('coupon_code', $order['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                                $order_created_at = $order['created_at'];
+                                $datetime = new DateTime($order_created_at);
+                                $order_date = $datetime->format('Y-m-d');
+                                ?>
+                                <td><?php 
+                                if($getCoupon){
+                                  if ($order_date >= $getCoupon['from_date'] && $order_date <= $getCoupon['to_date']) {
+                                    if($getCoupon['coupon_price_type'] == 'Flat'){
+                                      echo $getCoupon['coupon_price_type'] .'-'. $getCoupon['coupon_price'] ; 
+                                    }elseif($getCoupon['coupon_price_type'] == 'Percentage'){
+                                      echo $getCoupon['coupon_price'] .'%'; 
+                                    }else{
+                                      echo '-'; 
+                                    }
                                   }else{
                                     echo '-'; 
                                   }
-                                }else{
+                                }
+                                else
+                                {
                                   echo '-'; 
                                 }
                               }
@@ -191,18 +200,23 @@
                         </td>
                         <td><?php
                                   $couponModel = model('App\Models\CouponModel');
+                                  $usermodel = model('App\Models\UserModel');
                                   $discount = 000.00;
                                   foreach ($orderData as $dis) {
+                                    $checkUserCompany = $usermodel->where('user_id', $dis['user_id'])->first();
                                     // $getCoupon = $couponModel->where('coupon_id', $dis['coupon_id'])->first();
-                                    $getCoupon = $couponModel->where('coupon_code', $dis['group_name'])->first();
-                                    if(!empty($getCoupon))
+                                    if(isset($checkUserCompany) && $checkUserCompany['company_name'])
                                     {
-                                      if ($getCoupon['coupon_price_type'] == 'Percentage')
+                                      $getCoupon = $couponModel->where('coupon_code', $dis['group_name'])->where('company_id', $checkUserCompany['company_name'])->first();
+                                      if(!empty($getCoupon))
                                       {
-                                          $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
-                                      } else if ($getCoupon['coupon_price_type'] == 'Flat') {
-                                          // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
-                                          $discount += $getCoupon['coupon_price'];
+                                        if ($getCoupon['coupon_price_type'] == 'Percentage')
+                                        {
+                                            $discount += ($dis['product_amount'] * $dis['product_quantity'] * $getCoupon['coupon_price']) / 100;
+                                        } else if ($getCoupon['coupon_price_type'] == 'Flat') {
+                                            // $discount += $dis['product_amount'] * $dis['product_quantity'] - $getCoupon['coupon_price'];
+                                            $discount += $getCoupon['coupon_price'];
+                                        }
                                       }
                                     }
                                   }

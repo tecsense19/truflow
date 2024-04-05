@@ -117,7 +117,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label" for="last_name">Company name :</label>
                                     <select name="company_name" id="company_name" data-val="true"
-                                        data-val-required="Company name is required." class="js-example-basic-single form-control"
+                                         class="js-example-basic-single form-control"
                                         aria-label="Default select example">
                                         <option value="">Please select any company</option>
                                         <?php if(isset($companyData)){?>
@@ -261,6 +261,7 @@ $on_a_account = isset($userData) ? $userData['on_a_account'] : '';
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Include Select2 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
     <script>
         $(document).ready(function() {

@@ -33,12 +33,18 @@ function displayChildren($children)
                 style="width: 60px;border: 1px solid #696cff;padding: 4px;border-radius: 3px;"class="img-fluid site_setting_img_product"> ';
             }
         } 
+
+        // Edit link or button
+        echo '<a href="'.$url_edit .'"><i class="bx bx-edit-alt me-1"></i></a>';
+
+        // Delete link or button
+        echo '<a href="'. $url_delete . '" class="delete-link"><i class="bx bx-trash me-1"></i></a>';
         if (empty($child->children)) {
             // Edit link or button
-            echo '<a href="'.$url_edit .'"><i class="bx bx-edit-alt me-1"></i></a>';
+            // echo '<a href="'.$url_edit .'"><i class="bx bx-edit-alt me-1"></i></a>';
 
             // Delete link or button
-            echo '<a href="'. $url_delete . '"><i class="bx bx-trash me-1"></i></a>';
+            // echo '<a href="'. $url_delete . '"><i class="bx bx-trash me-1"></i></a>';
         } else {
             // Recursively display the children for the current child
             displayChildren($child->children);
@@ -158,11 +164,11 @@ ul, #myUL {
                                                                                                 <?php
                                                                                                 }
                                                                                             } ?>
-                                                                                            <?php if (empty($childsubcategory['all_childs'])): ?>
+                                                                                            <?php // if (empty($childsubcategory['all_childs'])): ?>
                                                                                                
                                                                                                 &nbsp;&nbsp;&nbsp;<a class="" href="<?php echo base_url('') . "admin/child_sub_category/name_edit/" . $childsubcategory['child_id'] ?>"><i class="bx bx-edit-alt me-1"></i></a>
-                                                                                            <a class="" href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childsubcategory['child_id'] ?>"><i class="bx bx-trash me-1"></i></a>
-                                                                                            <?php endif; ?>
+                                                                                            <a href="<?php echo base_url('') . "admin/child_sub_category/delete/" . $childsubcategory['child_id'] ?>" class="delete-link"><i class="bx bx-trash me-1"></i></a>
+                                                                                            <?php // else; ?>
                                                                                         </span>
                                                                                             <?php if (!empty($childsubcategory['all_childs'])): ?>
                                                                                                 <?php displayChildren($childsubcategory['all_childs']); ?>
@@ -217,4 +223,12 @@ for (i = 0; i < toggler.length; i++) {
     this.classList.toggle("caret-down");
   });
 }
+
+$('.delete-link').on('click', function(event) {
+    event.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    if (confirm('Are you sure you want to delete this item? Because related all child category also removed.')) {
+        window.location.href = deleteUrl;
+    }
+});
 </script>

@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
             />
-        <title>Truflow Hydraulics</title>
+        <title>Truflow Hydraulic Hose & Fittings</title>
         <meta name="description" content="" />
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>/public/uploads/Truflow-Favicon.png" />
@@ -27,7 +27,7 @@
         <!-- other css -->
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
-
+        
         <!-- Page CSS -->
         <!-- Helpers -->
         <script src="<?php echo base_url(); ?>/public/admin/assets/vendor/js/helpers.js"></script>

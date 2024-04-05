@@ -115,7 +115,7 @@ class UserController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = 'Truflow Hydraulics';
+                $fromName = FROM_EMAIL_NAME;
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -127,7 +127,7 @@ class UserController extends BaseController
                             <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
                                 <tr>
                                     <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
-                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.svg" width="125" style="display: block; border: 0px;" /><br>
+                                        <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.webp" width="125" style="display: block; border: 0px;" /><br>
                                         <h3>
                                             Click the following link to Verify Your Account
                                         </h3>
@@ -190,7 +190,7 @@ class UserController extends BaseController
                 $emailService = \Config\Services::email();
     
                 $fromEmail = FROM_EMAIL;
-                $fromName = 'Truflow Hydraulics';
+                $fromName = FROM_EMAIL_NAME;
     
                 $emailService->setFrom($fromEmail, $fromName);
                 $emailService->setTo($UserEmail);
@@ -346,9 +346,31 @@ class UserController extends BaseController
         $wishlistCount = count($wishlistData ?? []);
         $session->set('wishlistCount', $wishlistCount);
         $cartmodel = new CartModel();
-        $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
-        $cartCount = count($cartData ?? []);
-        $session->set('cartCount', $cartCount);
+        // $cartData = $cartmodel->select('*')->where('user_id', $userId)->findAll();
+        // $cartCount = count($cartData ?? []);
+        // $session->set('cartCount', $cartCount);
+
+        $totalCartQtyCount = [];
+
+        if($userId)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('user_id', $userId)->findAll();
+        }
+        $guest_id = $session->get('guest_id');
+        if($guest_id)
+        {
+            $totalCartQtyCount = $cartmodel->selectSum('product_quantity')->where('guest_id', $guest_id)->findAll();
+        }
+
+        $cartCount = count($totalCartQtyCount ?? []);
+        if($cartCount)
+        {
+            $session->set('cartCount', $totalCartQtyCount[0]['product_quantity']);
+        }
+        else
+        {
+            $session->set('cartCount', 0);
+        }
 
         $slidermodel = new SliderModel();
         $sliderData = $slidermodel->findAll();
@@ -378,8 +400,6 @@ class UserController extends BaseController
                 'allcategoryData' => $allcategoryData,
                 //count
                 'wishlistCount' => $wishlistCount,
-                'cartCount' => $cartCount,
-
                 //
                 'sliderData' => $sliderData
             ]
@@ -550,85 +570,93 @@ class UserController extends BaseController
     public function my_order($user_id)
     {
         $session = session();
-        $usermodel = new UserModel();
-        $userData = $usermodel->where('user_id', $user_id)->first();
-        if (!$userData) {
-            $userData = null;
-        }
-
-        $countrymodel = new CountryModel();
-        $countryData = $countrymodel->find();
-        if (!$countryData) {
-            $countryData = null;
-        }
-
-        $HeaderMenuModel = new HeaderMenuModel();
-        $headerData = $HeaderMenuModel->find();
-        if (!$headerData) {
-            $headerData = null;
-        }
-
-        $ordermodel = new OrderModel();
-        $orderitemmodel = new OrderItemModel();
-        $cartData = $orderitemmodel->find();
         $userId = $session->get('user_id');
-
-        $query1 = $orderitemmodel->select('*')
-            ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-            ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-            ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
-            ->where('users.user_id', $userId)
-            ->orderBy('tbl_order.order_id', 'DESC')
-            ->get();
-
-            // $query1 = $orderitemmodel->select('*')
-            // ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
-            // ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
-            // ->join('product', 'product.product_id = product_variants.product_id', 'left')
-            // ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
-            // ->join('category', 'category.category_id = sub_category.category_id', 'left')
-            // ->join('users', 'users.user_id = tbl_order.user_id', 'left')
-            // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
-            // ->where('users.user_id', $userId)
-            // ->orderBy('tbl_order.order_id', 'ASC')
-            // ->get();
-            
-        
-        // Execute the query
-        // Print the last query
-        // echo $orderitemmodel->getLastQuery(); die;
-        $orderData = $query1->getResultArray();
-        // echo '<pre>';print_r($orderData);echo '</pre>';die;
-        $ordersByOrderId = [];
-        foreach ($orderData as $order) {
-            $orderId = $order['order_id'];
-            if (!isset($ordersByOrderId[$orderId])) {
-                $ordersByOrderId[$orderId] = [];
+        if($userId == $user_id)
+        {
+            $usermodel = new UserModel();
+            $userData = $usermodel->where('user_id', $user_id)->first();
+            if (!$userData) {
+                $userData = null;
             }
-            $ordersByOrderId[$orderId][] = $order;
-        }
-        $shippingmodel = new ShippingModel();
 
-        $shipping = null;
+            $countrymodel = new CountryModel();
+            $countryData = $countrymodel->find();
+            if (!$countryData) {
+                $countryData = null;
+            }
 
-        if (!empty($orderData) && isset($orderData[0]['order_id'])) {
-            $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
-        }
+            $HeaderMenuModel = new HeaderMenuModel();
+            $headerData = $HeaderMenuModel->find();
+            if (!$headerData) {
+                $headerData = null;
+            }
 
-        if (!$shipping) {
+            $ordermodel = new OrderModel();
+            $orderitemmodel = new OrderItemModel();
+            $cartData = $orderitemmodel->find();
+            $userId = $session->get('user_id');
+
+            $query1 = $orderitemmodel->select('*')
+                ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+                ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+                ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+                ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
+                ->where('users.user_id', $userId)
+                ->orderBy('tbl_order.order_id', 'DESC')
+                ->get();
+
+                // $query1 = $orderitemmodel->select('*')
+                // ->join('tbl_order', 'tbl_order.order_id = order_items.order_id', 'left')
+                // ->join('product_variants', 'product_variants.variant_id = order_items.variant_id', 'left')
+                // ->join('product', 'product.product_id = product_variants.product_id', 'left')
+                // ->join('sub_category', 'sub_category.sub_category_id = product.sub_category_id', 'left')
+                // ->join('category', 'category.category_id = sub_category.category_id', 'left')
+                // ->join('users', 'users.user_id = tbl_order.user_id', 'left')
+                // ->join('shipping_address', 'shipping_address.order_id = tbl_order.order_id','left')
+                // ->where('users.user_id', $userId)
+                // ->orderBy('tbl_order.order_id', 'ASC')
+                // ->get();
+                
+            
+            // Execute the query
+            // Print the last query
+            // echo $orderitemmodel->getLastQuery(); die;
+            $orderData = $query1->getResultArray();
+            // echo '<pre>';print_r($orderData);echo '</pre>';die;
+            $ordersByOrderId = [];
+            foreach ($orderData as $order) {
+                $orderId = $order['order_id'];
+                if (!isset($ordersByOrderId[$orderId])) {
+                    $ordersByOrderId[$orderId] = [];
+                }
+                $ordersByOrderId[$orderId][] = $order;
+            }
+            $shippingmodel = new ShippingModel();
+
             $shipping = null;
-        }
 
-        if (!$orderData) {
-            $orderData = null;
-        }
+            if (!empty($orderData) && isset($orderData[0]['order_id'])) {
+                $shipping = $shippingmodel->where('order_id', $orderData[0]['order_id'])->first();
+            }
 
-        return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId ,'headerData' => $headerData]);
-        return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
+            if (!$shipping) {
+                $shipping = null;
+            }
+
+            if (!$orderData) {
+                $orderData = null;
+            }
+
+            return view('front/my_order', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId ,'headerData' => $headerData]);
+            return view('front/order_pdf', ['userData' => $userData, 'countryData' => $countryData, 'orderData' => $orderData, 'ordersByOrderId' => $ordersByOrderId, 'shipping' => $shipping]);
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
     // -----------------------------------------------
     public function forgotPassword()
@@ -659,7 +687,7 @@ class UserController extends BaseController
         $emailService = \Config\Services::email();
 
         $fromEmail = FROM_EMAIL;
-        $fromName = 'Truflow Hydraulics';
+        $fromName = FROM_EMAIL_NAME;
 
         $emailService->setFrom($fromEmail, $fromName);
         $emailService->setTo($user['email']);
@@ -667,11 +695,19 @@ class UserController extends BaseController
         $emailService->setMessage('
             <html>
                 <body>
-                    <h1>Forgot Password</h1>
-                    <p>Click the following link to reset your password:</p>
-                    <p>
-                        <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
-                    </p>
+                    <h1>Your Login Password</h1>
+                    <table cellpadding="0" cellspacing="0" width="100%" class="main_table" style="padding: 5px 5px; border: 3px solid #eeeeee;">
+                        <tr>
+                            <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 0px;">
+                                <img src="https://truflow.hostedwp.com.au/truflow//public/uploads/Truflow_Logo_Dark.webp" width="125"  style="display: block; border: 0px;" /><br>
+                                <h1>Forgot Password</h1>
+                                <p>Click the following link to reset your password:</p>
+                                <p>
+                                    <a href="' . base_url('reset-password/' . $token) . '" style="display:inline-block;background-color:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">Reset Password</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
                 </body>
             </html>
         ');
